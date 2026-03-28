@@ -227,17 +227,17 @@ import { TickerMarquee, MARQUEE_ITEMS } from "@/components/Ticker";
 
 /* ── Images (local gallery — SEO-named) ── */
 const IMGS = {
-  wheat1:   "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.jpg",
-  wheat2:   "/gallery/fashionpass-wheat-paste-street-art-wall-la.jpg",
-  stencil:  "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.jpg",
-  full1:    "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.jpg",
-  full2:    "/gallery/fifa-world-cup-poster-wall-gallery-wide.jpg",
-  gallery1: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.jpg",
-  gallery2: "/gallery/fifa-world-cup-wheat-pasting-crew-action-shot.jpg",
-  gallery3: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.jpg",
-  gallery4: "/gallery/fashionpass-wheat-paste-street-art-wall-la.jpg",
-  gallery5: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.jpg",
-  gallery6: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.jpg",
+  wheat1:   "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
+  wheat2:   "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+  stencil:  "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",
+  full1:    "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
+  full2:    "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
+  gallery1: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+  gallery2: "/gallery/fifa-world-cup-atlanta-wall-installation.webp",
+  gallery3: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
+  gallery4: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",
+  gallery5: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",
+  gallery6: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",
 };
 
 
@@ -464,7 +464,7 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <SnapPage>
+    <SnapPage {...(index === 0 ? { id: "services" } : {})}>
       <div ref={ref} className="w-full h-full flex flex-col justify-center md:justify-start md:flex-row items-center md:items-stretch">
 
 
@@ -676,22 +676,19 @@ function WhySection() {
    5. GALLERY
 ═══════════════════════════════════════════════════════════════ */
 const GALLERY_IMGS = [
-  { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.jpg", label: "FashionPass — LA Wild Posting Wall" },
-  { src: "/gallery/fifa-world-cup-wheat-pasting-crew-action-shot.jpg",     label: "FIFA World Cup — Crew in Action" },
-  { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.jpg",        label: "FashionPass — Wide Format Paste" },
-  { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.jpg",        label: "FIFA Posters — Close Up" },
-  { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.jpg",  label: "Calvin Priice — Chalk Stencil" },
-  { src: "/gallery/fifa-world-cup-poster-installation-closeup.jpg",        label: "FIFA World Cup — Installation" },
-  { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.jpg",           label: "FIFA World Cup — Gallery Wall" },
-  { src: "/gallery/fifa-world-cup-atlanta-wall-installation.jpg",          label: "FIFA Atlanta — Wall Installation" },
-  { src: "/gallery/fifa-world-cup-poster-wall-angle-view.jpg",             label: "FIFA Posters — Angle View" },
-  { src: "/gallery/fifa-world-cup-poster-wall-street-perspective.jpg",     label: "FIFA Posters — Street Perspective" },
-  { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.jpg", label: "Incrediwear — Night Pole Wrap" },
-  { src: "/gallery/incrediwear-street-poster-palm-trees-night.jpg",        label: "Incrediwear — Palm Trees Night" },
-  { src: "/gallery/street-pole-sticker-campaign-urban-advertising.jpg",    label: "Calvin Priice — Sticker Campaign" },
-  { src: "/gallery/guerrilla-sticker-advertising-urban-streetscape.jpg",   label: "Guerrilla Sticker — Melrose Ave" },
-  { src: "/gallery/sticker-campaign-street-intersection-urban.jpg",        label: "Sticker Campaign — Intersection" },
-  { src: "/gallery/custom-stencil-template-cut-out-design.jpg",            label: "Custom Stencil Template" },
+  { src: "/gallery/fifa-world-cup-poster-wall-angle-view.webp",             label: "FIFA Posters — Angle View" },
+  { src: "/gallery/fifa-world-cup-poster-wall-street-perspective.webp",     label: "FIFA Posters — Street Perspective" },
+  { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp",          label: "FIFA Atlanta — Wall Installation" },
+  { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",        label: "FashionPass — Wide Format Paste" },
+  { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",        label: "FIFA Posters — Close Up" },
+  { src: "/gallery/fifa-world-cup-poster-installation-closeup.webp",        label: "FIFA World Cup — Installation" },
+  { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",           label: "FIFA World Cup — Gallery Wall" },
+  { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", label: "Incrediwear — Night Pole Wrap" },
+  { src: "/gallery/street-pole-sticker-campaign-urban-advertising.webp",    label: "Calvin Priice — Sticker Campaign" },
+  { src: "/gallery/sticker-campaign-street-intersection-urban.webp",        label: "Sticker Campaign — Intersection" },
+  { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", label: "FashionPass — LA Wild Posting Wall" },
+  { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",  label: "Calvin Priice — Chalk Stencil" },
+  { src: "/gallery/custom-stencil-template-cut-out-design.webp",            label: "Custom Stencil Template" },
 ] as const;
 
 function GallerySection() {
@@ -720,7 +717,7 @@ function GallerySection() {
 
   return (
     <SnapPage>
-      <div ref={ref} className="w-full h-full flex flex-col">
+      <div id="work" ref={ref} className="w-full h-full flex flex-col">
 
 
         <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
@@ -761,15 +758,15 @@ function GallerySection() {
             <div className="shrink-0 w-4 md:w-8" aria-hidden />
 
             {sets.map((set, si) => (
-              <div key={si} className="gallery-set shrink-0 grid gap-2"
+              <div key={si} className={`shrink-0 grid gap-2 ${si === 0 ? "gallery-set-dual" : "gallery-set"}`}
                 style={{
                   scrollSnapAlign: "start",
                   width: "max(88vw, min(1100px, 96vw))",
                   height: "100%",
                 }}>
                 {set.map((item, i) => {
-                  const isHero = i === 0;
-                  const isWide = i === 4;
+                  const isHero = si === 0 ? (i === 0 || i === 1) : i === 0;
+                  const isWide = si === 0 ? false : i === 4;
                   return (
                     <button key={i} onClick={() => setLightbox(item)}
                       className={`gallery-item relative overflow-hidden rounded-xl group cursor-zoom-in${isHero ? " gallery-hero" : ""}${isWide ? " gallery-wide" : ""}`}
@@ -847,6 +844,7 @@ function ContactSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [selectedSvcs, setSelectedSvcs] = useState<Set<string>>(new Set());
   const [mobileFormOpen, setMobileFormOpen] = useState(false);
 
@@ -858,13 +856,31 @@ function ContactSection() {
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.append("access_key", "d830efb8-46f4-4275-9086-2319a36134d0");
+    data.append("subject", "New Phantom Pasting Quote Request");
+    data.append("from_name", "Phantom Pasting Website");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      if (res.ok) setSubmitted(true);
+    } catch { /* network error — fail silently */ }
+    setSubmitting(false);
+  };
+
   return (
     <SnapPage id="contact" style={mobileFormOpen ? { height: "auto", minHeight: "100vh" } : undefined}>
       <div ref={ref} className="w-full py-10 px-5 sm:px-8 md:px-12 lg:px-16">
 
 
         <div className="absolute inset-0 pointer-events-none" aria-hidden
-          style={{ backgroundImage: "url(/gallery/bedstuy-stencil.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.08, filter: "grayscale(1)" }} />
+          style={{ backgroundImage: "url(/gallery/bedstuy-stencil.webp)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.08, filter: "grayscale(1)" }} />
 
         <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
           className="max-w-[1400px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
@@ -947,7 +963,7 @@ function ContactSection() {
                   </Glass>
                 </motion.div>
               ) : (
-                <motion.form key="form" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+                <motion.form key="form" onSubmit={handleSubmit}
                   className="flex flex-col rounded-2xl overflow-hidden"
                   style={{
                     gap: "1px",
@@ -1077,8 +1093,8 @@ function ContactSection() {
                       className="w-full bg-transparent outline-none resize-none pt-8 pb-3 px-5 font-light"
                       style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
                   </div>
-                  <motion.button type="submit"
-                    className="relative flex items-center justify-between font-black text-[16px] tracking-[0.06em] uppercase px-8 py-4 border-0 cursor-pointer overflow-hidden"
+                  <motion.button type="submit" disabled={submitting}
+                    className="relative flex items-center justify-between font-black text-[16px] tracking-[0.06em] uppercase px-8 py-4 border-0 cursor-pointer overflow-hidden disabled:opacity-70"
                     style={{
                       background: "linear-gradient(135deg, #B8960F 0%, #D4A810 50%, #B8960F 100%)",
                       color: "#FFF", fontFamily: "inherit",
@@ -1089,8 +1105,8 @@ function ContactSection() {
                     transition={SNAP_HARD}>
                     <span className="absolute inset-0 pointer-events-none"
                       style={{ background: "linear-gradient(105deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0) 65%)" }} />
-                    Launch My Campaign
-                    <span className="submit-arrow">→</span>
+                    {submitting ? "Sending…" : "Launch My Campaign"}
+                    {!submitting && <span className="submit-arrow">→</span>}
                   </motion.button>
                   <p className="text-center font-mono text-[9px] tracking-[0.12em] mt-2 mb-1"
                     style={{ color: "rgba(0,0,0,0.25)" }}>

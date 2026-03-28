@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import Background3D from "@/components/Background3D";
-import CustomCursor from "@/components/CustomCursor";
 
 /* Framer Motion + scroll sections load after hero is interactive */
 const ScrollSections = dynamic(
@@ -13,7 +12,6 @@ const ScrollSections = dynamic(
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   return (
     <main style={{ background: "#F2F0EC", position: "relative", color: "#1A1A1A" }}>
-      <CustomCursor />
       <Background3D />
       <div
         data-scroll-container
