@@ -45,26 +45,7 @@ const IconCamera = ({ color }: { color: string }) => (
     <circle cx="12" cy="13" r="4"/>
   </svg>
 );
-const IconLayers = ({ color }: { color: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-    <polyline points="2 17 12 22 22 17"/>
-    <polyline points="2 12 12 17 22 12"/>
-  </svg>
-);
-const IconSpray = ({ color }: { color: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <circle cx="12" cy="12" r="3"/>
-    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-  </svg>
-);
-const IconTarget = ({ color }: { color: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <circle cx="12" cy="12" r="10"/>
-    <circle cx="12" cy="12" r="6"/>
-    <circle cx="12" cy="12" r="2"/>
-  </svg>
-);
+
 const IconPin = ({ color }: { color: string }) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -223,7 +204,6 @@ function Glass({
   );
 }
 
-import { TickerMarquee, MARQUEE_ITEMS } from "@/components/Ticker";
 
 /* ── Images (local gallery — SEO-named) ── */
 const IMGS = {

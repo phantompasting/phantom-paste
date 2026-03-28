@@ -15,6 +15,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
       <Background3D />
       <div
         data-scroll-container
+        className="scroll-container"
         style={{
           position: "relative",
           zIndex: 1,
@@ -22,7 +23,6 @@ export default function ClientShell({ children }: { children: React.ReactNode })
           overflowY: "scroll",
           scrollSnapType: "y mandatory",
           overscrollBehavior: "none",
-          willChange: "scroll-position",
         }}
       >
         {children}

@@ -43,6 +43,12 @@ body {
 input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; }
 ::selection { background: rgba(184,150,15,0.15); color: var(--text); }
 
+/* ── Scroll container — GPU hint desktop only ────────────────── */
+.scroll-container { will-change: auto; }
+@media (min-width: 768px) {
+  .scroll-container { will-change: scroll-position; }
+}
+
 /* ── Utility ─────────────────────────────────────────────────── */
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -80,6 +86,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 }
 .ticker-track {
   animation: ticker var(--ticker-speed, 28s) linear infinite;
+}
+@media (max-width: 767px) {
+  .ticker-track { animation: none; }
 }
 
 /* ── CTA arrow bounce (pure CSS) ─────────────────────────────── */
@@ -253,6 +262,19 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
   backface-visibility: hidden;
   transform: translateZ(0);
   contain: layout style paint;
+}
+@media (max-width: 767px) {
+  .orb-1, .orb-2, .orb-3 {
+    filter: none;
+    animation: none !important;
+    opacity: 0.45 !important;
+  }
+  .orb-2, .orb-3 { display: none; }
+  .noise-grain { display: none; }
+  .cta-arrow, .submit-arrow { animation: none; }
+  .gallery-item img { opacity: 1; transition: none; }
+  .why-card { transition: none; }
+  .scroll-pulse { animation: none; }
 }
 .orb-1 {
   border-radius: 40% 60% 55% 45% / 55% 40% 60% 45%;

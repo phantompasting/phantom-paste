@@ -26,9 +26,9 @@ export default function HeroSection() {
       <div
         className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pb-0 md:pb-0 md:px-6"
       >
-        <div className="flex flex-col items-center -mt-6 md:mt-0">
+        <div className="flex flex-col items-center -mt-44 md:mt-0">
           {/* Eyebrow pill */}
-          <div className="mb-4 md:mb-8" style={{ animation: `heroUp 0.55s 0.04s ${EXPO} both` }}>
+          <div className="mb-24 md:mb-8" style={{ animation: `heroUp 0.55s 0.04s ${EXPO} both` }}>
             <span
               className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.32em] uppercase px-5 py-2.5 rounded-full"
               style={{
@@ -154,7 +154,7 @@ function NavBar() {
           <li key={item}>
             <a
               href={`#${item.toLowerCase()}`}
-              className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline"
+              className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1"
             >
               {item}
             </a>
@@ -168,7 +168,7 @@ function NavBar() {
           href="#contact"
           className="hero-cta-nav relative inline-flex items-center gap-2 font-bold text-[10px] tracking-[0.2em] uppercase no-underline px-5 py-2.5 rounded-full overflow-hidden"
           style={{
-            background: ACCENT,
+            background: "#8B7209",
             color: "#FFF",
             boxShadow: `0 2px 12px ${ACCENT}50, 0 1px 0 rgba(255,255,255,0.2) inset`,
             transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
