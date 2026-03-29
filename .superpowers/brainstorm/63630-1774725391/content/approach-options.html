@@ -1,0 +1,124 @@
+<style>
+  .section { margin-bottom: 2.5rem; }
+  .tag { display: inline-block; font-size: 10px; font-family: monospace; letter-spacing: 0.15em; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; margin-left: 8px; vertical-align: middle; }
+  .tag-safe { background: #1a3a1a; color: #6dbb6d; }
+  .tag-perf { background: #3a2a0a; color: #d4a810; }
+  .tag-js { background: #1a1a3a; color: #7b8ee8; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+  .pill { padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); font-size: 13px; cursor: pointer; transition: all 0.2s; }
+  .pill:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08); }
+  .pill.selected { border-color: #d4a810; background: rgba(212,168,16,0.15); color: #d4a810; }
+  .label-small { font-size: 11px; font-family: monospace; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.45; margin-bottom: 8px; }
+</style>
+
+<h2>For each area — pick the specific approach</h2>
+<p class="subtitle">Green = pure CSS, no perf cost · Gold = small JS, mobile-disabled · Blue = heavier, desktop-only</p>
+
+<div class="section">
+  <h3>A · Background <span class="tag tag-safe">CSS</span></h3>
+  <div class="label-small">Choose one</div>
+  <div class="options">
+    <div class="option" data-choice="bg-aurora" onclick="toggleSelect(this)">
+      <div class="letter">1</div>
+      <div class="content"><h3>Aurora mesh gradient</h3><p>Slow-moving radial mesh that shifts through amber/gold/black — replaces current orbs. Pure CSS, zero JS. Most premium, zero perf cost.</p></div>
+    </div>
+    <div class="option" data-choice="bg-particles" onclick="toggleSelect(this)">
+      <div class="letter">2</div>
+      <div class="content"><h3>Particle grid (ReactBits)</h3><p>Subtle dot grid that distorts on mouse move. Small JS (~3KB), desktop-only. Feels techy and high-end.</p></div>
+    </div>
+    <div class="option" data-choice="bg-keep" onclick="toggleSelect(this)">
+      <div class="letter">3</div>
+      <div class="content"><h3>Keep orbs, refine them</h3><p>More stops, richer gradients, slower morph. No risk, no new code.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>B · Text Effects <span class="tag tag-safe">CSS</span></h3>
+  <div class="options">
+    <div class="option" data-choice="text-blur" onclick="toggleSelect(this)">
+      <div class="letter">1</div>
+      <div class="content"><h3>Blur-in reveals on section headings</h3><p>Each h2 blurs from 8px → 0 as it enters viewport. Already have useInView — pure CSS keyframe addition. Zero JS cost.</p></div>
+    </div>
+    <div class="option" data-choice="text-gradient" onclick="toggleSelect(this)">
+      <div class="letter">2</div>
+      <div class="content"><h3>Animated gradient on "THE STREETS"</h3><p>Gold → white → gold shimmer sweep on the accent headline. CSS background-clip animation. Ultra premium look.</p></div>
+    </div>
+    <div class="option" data-choice="text-both" onclick="toggleSelect(this)">
+      <div class="letter">3</div>
+      <div class="content"><h3>Both — blur-in + gradient shimmer</h3><p>Blur for section headings throughout, shimmer on THE STREETS hero headline only.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>C · Gallery <span class="tag tag-perf">SMALL JS</span></h3>
+  <div class="options">
+    <div class="option" data-choice="gallery-drag" onclick="toggleSelect(this)">
+      <div class="letter">1</div>
+      <div class="content"><h3>Drag-to-scroll with inertia</h3><p>Click-drag to scroll the gallery horizontally. Feels native on desktop. ~50 lines of pointer event code, no library needed.</p></div>
+    </div>
+    <div class="option" data-choice="gallery-stagger" onclick="toggleSelect(this)">
+      <div class="letter">2</div>
+      <div class="content"><h3>Staggered image reveal on enter</h3><p>Images fade+scale in one by one as gallery section enters viewport. Uses existing Framer Motion — just add variants.</p></div>
+    </div>
+    <div class="option" data-choice="gallery-both" onclick="toggleSelect(this)">
+      <div class="letter">3</div>
+      <div class="content"><h3>Both — drag + stagger reveal</h3><p>Most premium feel. Drag-to-scroll replaces arrow buttons on desktop, stagger reveal on enter.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>D · Cards <span class="tag tag-js">DESKTOP ONLY</span></h3>
+  <div class="options">
+    <div class="option" data-choice="cards-tilt" onclick="toggleSelect(this)">
+      <div class="letter">1</div>
+      <div class="content"><h3>3D tilt on Why Guerrilla cards</h3><p>Cards rotate slightly toward cursor on hover — like a physical card. Pure CSS perspective + JS mouse tracking. Disabled on mobile/touch.</p></div>
+    </div>
+    <div class="option" data-choice="cards-spotlight" onclick="toggleSelect(this)">
+      <div class="letter">2</div>
+      <div class="content"><h3>Spotlight / torch effect</h3><p>A radial light follows cursor across each card revealing a subtle brighter area. CSS radial-gradient updated via JS. Already have the shine layer in .why-card-shine.</p></div>
+    </div>
+    <div class="option" data-choice="cards-both" onclick="toggleSelect(this)">
+      <div class="letter">3</div>
+      <div class="content"><h3>Both — tilt + spotlight</h3><p>The full ReactBits "spotlight card" pattern. Very premium, desktop-only, ~80 lines total.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>E · Scroll Micro-animations <span class="tag tag-safe">CSS + EXISTING FM</span></h3>
+  <div class="options">
+    <div class="option" data-choice="scroll-counter" onclick="toggleSelect(this)">
+      <div class="letter">1</div>
+      <div class="content"><h3>Counter tick-up on stats (already exists — enhance it)</h3><p>Already built. Add a brief color flash from gold → black as numbers finish counting. 3 lines of CSS.</p></div>
+    </div>
+    <div class="option" data-choice="scroll-progress" onclick="toggleSelect(this)">
+      <div class="letter">2</div>
+      <div class="content"><h3>Snap page progress dots</h3><p>Fixed vertical dots on the right edge showing which snap page you're on. Dot lights up gold as you scroll to each section. ~40 lines JS.</p></div>
+    </div>
+    <div class="option" data-choice="scroll-both" onclick="toggleSelect(this)">
+      <div class="letter">3</div>
+      <div class="content"><h3>Both</h3><p>Counter flash enhancement + progress dot indicator on the side.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>F · Cursor <span class="tag tag-js">DESKTOP ONLY</span></h3>
+  <div class="options">
+    <div class="option" data-choice="cursor-magnetic" onclick="toggleSelect(this)">
+      <div class="letter">1</div>
+      <div class="content"><h3>Magnetic CTAs only</h3><p>Primary "Book a Campaign" and "Get a Quote" buttons gently pull toward cursor when nearby. ~30 lines, no custom cursor, no perf cost on mobile.</p></div>
+    </div>
+    <div class="option" data-choice="cursor-orbs" onclick="toggleSelect(this)">
+      <div class="letter">2</div>
+      <div class="content"><h3>Orbs follow mouse (subtle)</h3><p>The background blobs drift very slowly toward cursor position. CSS transition on transform, ~20 lines. Subtle, atmospheric.</p></div>
+    </div>
+    <div class="option" data-choice="cursor-both" onclick="toggleSelect(this)">
+      <div class="letter">3</div>
+      <div class="content"><h3>Both — magnetic CTAs + orb drift</h3><p>Feels alive without a custom cursor (which you removed for good reason). Desktop only, mobile untouched.</p></div>
+    </div>
+  </div>
+</div>

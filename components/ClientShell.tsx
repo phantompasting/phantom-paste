@@ -1,18 +1,21 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import Background3D from "@/components/Background3D";
-
-/* Framer Motion + scroll sections load after hero is interactive */
-const ScrollSections = dynamic(
-  () => import("@/components/sections/ScrollSections"),
-  { ssr: false, loading: () => null }
-);
+import { useState, useEffect } from "react";
+import SnapProgress from "@/components/SnapProgress";
+import GrainientBackground from "@/components/GrainientBackground";
+import ScrollSections from "@/components/sections/ScrollSections";
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <main style={{ background: "#F2F0EC", position: "relative", color: "#1A1A1A" }}>
-      <Background3D />
+    <main style={{ background: "#FFFEF8", position: "relative", color: "#1A1A1A" }}>
+      <GrainientBackground />
+      <SnapProgress />
       <div
         data-scroll-container
         className="scroll-container"
@@ -26,7 +29,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
         }}
       >
         {children}
-        <ScrollSections />
+        {mounted && <ScrollSections />}
       </div>
     </main>
   );

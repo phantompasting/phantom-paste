@@ -15,6 +15,10 @@ import {
   AnimatePresence,
   type Variants,
 } from "framer-motion";
+import ShinyGoldText from "@/components/ShinyGoldText";
+
+import GlassSurface from "@/components/GlassSurface";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const SNAP      = { type: "spring", stiffness: 140, damping: 22 } as const;
 const SNAP_HARD = { type: "spring", stiffness: 180, damping: 26 } as const;
@@ -102,7 +106,7 @@ const IconClose = () => (
   </svg>
 );
 const IconSuccessRing = () => (
-  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#B8960F" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#D4A010" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <circle cx="36" cy="36" r="30"/>
     <polyline points="22,36 32,48 52,24"/>
   </svg>
@@ -205,6 +209,44 @@ function Glass({
 }
 
 
+/* ── TiltCard — 3D tilt + spotlight (desktop only) ───────────── */
+function TiltCard({ children, className, style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const spotRef = useRef<HTMLDivElement>(null);
+
+  const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(hover: none)").matches) return;
+    const { left, top, width, height } = el.getBoundingClientRect();
+    const x = (e.clientX - left) / width;
+    const y = (e.clientY - top) / height;
+    const rotX = (y - 0.5) * -10;
+    const rotY = (x - 0.5) * 12;
+    el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02,1.02,1.02)`;
+    if (spotRef.current) {
+      spotRef.current.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255,255,255,0.22) 0%, transparent 65%)`;
+      spotRef.current.style.opacity = "1";
+    }
+  }, []);
+
+  const onLeave = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    if (spotRef.current) spotRef.current.style.opacity = "0";
+  }, []);
+
+  return (
+    <div ref={ref} className={className} style={{ ...style, transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1)", willChange: "transform" }}
+      onMouseMove={onMove} onMouseLeave={onLeave}>
+      {/* Spotlight layer */}
+      <div ref={spotRef} className="absolute inset-0 pointer-events-none rounded-2xl md:rounded-3xl"
+        style={{ opacity: 0, transition: "opacity 0.3s ease", zIndex: 2 }} />
+      {children}
+    </div>
+  );
+}
+
 /* ── Images (local gallery — SEO-named) ── */
 const IMGS = {
   wheat1:   "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
@@ -257,7 +299,7 @@ function StatsSection() {
           <motion.div variants={fadeUpBig} className="text-center mb-5">
             <h2 className="font-black uppercase m-0 leading-[0.88]"
               style={{ fontSize: "clamp(64px, 9vw, 110px)", letterSpacing: "-0.04em" }}>
-              <span style={{ color: "#B8960F" }}>REAL NUMBERS.</span><br />
+              <ShinyGoldText>REAL NUMBERS.</ShinyGoldText><br />
               <span style={{ color: "#1A1A1A" }}>REAL STREETS.</span>
             </h2>
           </motion.div>
@@ -278,28 +320,22 @@ function StatsSection() {
             {STATS.map((s, i) => {
               const isAccent = i === 2 || i === 4;
               return (
-                <motion.div key={s.label} variants={scaleIn}
-                  className="relative overflow-hidden rounded-2xl flex flex-col items-center justify-center py-5 px-3"
-                  style={{
-                    background: isAccent ? "rgba(245,240,220,0.92)" : "rgba(242,240,236,0.88)",
-                    border: isAccent ? "1px solid rgba(184,150,15,0.28)" : "1px solid rgba(255,255,255,0.68)",
-                    boxShadow: isAccent
-                      ? "0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.5), 0 0 24px rgba(184,150,15,0.08)"
-                      : "0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.75)",
-                  }}>
-                  <div className="absolute inset-x-0 top-0 h-px pointer-events-none"
-                    style={{ background: isAccent
-                      ? "linear-gradient(90deg, transparent 10%, rgba(184,150,15,0.5) 50%, transparent 90%)"
-                      : "linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.9) 50%, transparent 90%)"
-                    }} />
-                  <div className="font-black leading-none tabular-nums"
-                    style={{ fontSize: "clamp(28px, 4.5vw, 56px)", color: "#1A1A1A", letterSpacing: "-0.04em" }}>
-                    <StatNum raw={s.num} inView={inView} />
-                  </div>
-                  <div className="font-mono text-[8px] tracking-[0.28em] uppercase mt-2 text-center"
-                    style={{ color: "rgba(0,0,0,0.42)" }}>
-                    {s.label}
-                  </div>
+                <motion.div key={s.label} variants={scaleIn}>
+                  <GlassSurface
+                    borderRadius={16}
+                    style={isAccent ? { border: "1px solid rgba(184,150,15,0.35)" } : undefined}
+                  >
+                    <div className="flex flex-col items-center py-5 px-3">
+                      <div className="font-black leading-none tabular-nums"
+                        style={{ fontSize: "clamp(28px, 4.5vw, 56px)", color: "#1A1A1A", letterSpacing: "-0.04em" }}>
+                        <StatNum raw={s.num} inView={inView} />
+                      </div>
+                      <div className="font-mono text-[8px] tracking-[0.28em] uppercase mt-2 text-center"
+                        style={{ color: "rgba(0,0,0,0.42)" }}>
+                        {s.label}
+                      </div>
+                    </div>
+                  </GlassSurface>
                 </motion.div>
               );
             })}
@@ -328,7 +364,7 @@ const STEPS = [
   { num: "02", icon: "map",    title: "We Plan",   color: "#1A1A1A",
     desc: "You bring the artwork — we handle everything else. We review your existing designs, print all posters or cut your stencils, source materials, and map out strategic high-traffic placement zones in your city.",
     sub: "Your artwork → print & materials → placement map" },
-  { num: "03", icon: "bolt",   title: "We Deploy", color: "#B8960F",
+  { num: "03", icon: "bolt",   title: "We Deploy", color: "#D4A010",
     desc: "Our crew hits the streets. Walls pasted, sidewalks stenciled. 25–200+ precision placements per campaign run, executed at the exact locations agreed in your strategy brief.",
     sub: "Crew deployment → precision execution → city-wide coverage" },
   { num: "04", icon: "camera", title: "You See It", color: "#1A1A1A",
@@ -390,7 +426,7 @@ function ProcessStepPage({ step, index }: { step: typeof STEPS[number]; index: n
               {step.desc}
             </p>
             <span className="font-mono text-[11px] tracking-[0.25em] uppercase"
-              style={{ color: `${step.color}90` }}>
+              style={{ color: step.color === "#D4A010" ? "rgba(0,0,0,0.38)" : `${step.color}90` }}>
               {step.sub}
             </span>
           </motion.div>
@@ -422,7 +458,7 @@ const SERVICES_DATA = [
     badge: "Most Booked",
   },
   {
-    num: "02", icon: "⬡", name: "Chalk Spray Stencils", sub: "Ground Level Impact", accent: "#B8960F",
+    num: "02", icon: "⬡", name: "Chalk Spray Stencils", sub: "Ground Level Impact", accent: "#D4A010",
     img: IMGS.stencil,
     tagline: "Beneath every footstep. Before every door.",
     desc: "Eco-friendly, temporary paint stencils on sidewalks, plazas, subway exits. 25–200+ placements per campaign. We create a breadcrumb trail leading foot traffic directly to your event or store.",
@@ -470,7 +506,7 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
           <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3">
             <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: svc.accent }}>{svc.sub}</span>
             <span className="px-2 py-0.5 rounded-full font-mono text-[8px] tracking-[0.15em] uppercase"
-              style={{ background: svc.accent === "#B8960F" ? "rgba(184,150,15,0.1)" : "rgba(0,0,0,0.05)", color: svc.accent, border: `1px solid ${svc.accent}20` }}>
+              style={{ background: svc.accent === "#D4A010" ? "rgba(184,150,15,0.1)" : "rgba(0,0,0,0.05)", color: svc.accent, border: `1px solid ${svc.accent}20` }}>
               {svc.badge}
             </span>
           </motion.div>
@@ -495,13 +531,11 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
             ))}
           </motion.ul>
           <motion.a variants={fadeUp} href="#contact"
-            className="self-start relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-7 py-3.5 rounded-full overflow-hidden"
+            className="service-cta self-start relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-7 py-3.5 rounded-full overflow-hidden"
             style={{
-              background: svc.accent === "#B8960F" ? "linear-gradient(135deg, #B8960F 0%, #D4A810 100%)" : "#1A1A1A",
+              background: "#1A1A1A",
               color: "#FFF",
-              boxShadow: svc.accent === "#B8960F"
-                ? "0 4px 18px rgba(184,150,15,0.5), inset 0 1px 0 rgba(255,255,255,0.2)"
-                : "0 4px 18px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)",
+              boxShadow: "0 4px 18px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.08)",
             }}>
             <span className="absolute inset-0 pointer-events-none rounded-full"
               style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 55%)" }} />
@@ -514,9 +548,9 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
           initial={{ x: 120, opacity: 0 }} animate={inView ? { x: 0, opacity: 1 } : {}}
           transition={{ ...SNAP, delay: 0.1 }}>
           <Image src={svc.img} alt={svc.name} loading="lazy"
-            fill sizes="50vw" className="object-cover" />
+            fill sizes="50vw" className="object-cover brightness-75" />
           <div className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(242,240,236,0.7) 0%, transparent 40%)" }} />
+            style={{ background: "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 60%, transparent 100%)" }} />
           <div className="absolute bottom-8 right-8 font-black leading-none"
             style={{ fontSize: "clamp(80px, 10vw, 140px)", color: "rgba(0,0,0,0.06)", letterSpacing: "-0.04em" }}>
             {svc.num}
@@ -551,9 +585,9 @@ const WHY_ICONS: Record<string, React.ReactNode> = {
 
 const WHY_ITEMS = [
   { icon: "eye",       title: "Impossible to Ignore",     desc: "Traditional ads are scrolled past, muted, or blocked. Our campaigns live at street level — where people walk, gather, and exist. You can't close a popup on a brick wall.", accent: "#1A1A1A" },
-  { icon: "broadcast", title: "Earned Media Machine",     desc: "Every wheat paste and stencil becomes a photo opp. People stop, post, tag. Your campaign generates organic social content for free — and the buzz outlasts the poster.", accent: "#B8960F" },
+  { icon: "broadcast", title: "Earned Media Machine",     desc: "Every wheat paste and stencil becomes a photo opp. People stop, post, tag. Your campaign generates organic social content for free — and the buzz outlasts the poster.", accent: "#D4A010" },
   { icon: "users",     title: "Raw Cultural Credibility", desc: "Street-level presence signals authenticity. The brands people talk about are the ones they see in real life — woven into the urban experience.", accent: "#1A1A1A" },
-  { icon: "pin",       title: "Hyper-Local Targeting",    desc: "Every placement is mapped to your audience's exact neighborhoods — their commutes, lunch spots, music venues, and midnight routes home.", accent: "#B8960F" },
+  { icon: "pin",       title: "Hyper-Local Targeting",    desc: "Every placement is mapped to your audience's exact neighborhoods — their commutes, lunch spots, music venues, and midnight routes home.", accent: "#D4A010" },
 ];
 
 function WhySection() {
@@ -568,7 +602,7 @@ function WhySection() {
         <motion.div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 0.25 } : {}} transition={{ duration: 0.6 }} aria-hidden>
           <span className="font-black uppercase whitespace-nowrap"
-            style={{ fontSize: "clamp(120px, 18vw, 300px)", letterSpacing: "-0.05em", color: "#B8960F" }}>
+            style={{ fontSize: "clamp(120px, 18vw, 300px)", letterSpacing: "-0.05em", color: "#D4A010" }}>
             WHY US
           </span>
         </motion.div>
@@ -583,7 +617,7 @@ function WhySection() {
           <motion.h2 variants={fadeUpBig} className="font-black uppercase m-0 leading-[0.9]"
             style={{ fontSize: "clamp(28px, 5vw, 72px)", letterSpacing: "-0.03em" }}>
             DIGITAL ADS FADE.<span className="hidden md:inline">&nbsp;</span><br className="md:hidden" />
-            <span style={{ color: "#B8960F" }}>STREETS DON&apos;T.</span>
+            <ShinyGoldText>STREETS DON&apos;T.</ShinyGoldText>
           </motion.h2>
         </motion.div>
 
@@ -592,29 +626,21 @@ function WhySection() {
           className="relative md:absolute md:inset-0 z-10 flex-1 flex items-center justify-center px-0 md:px-10 py-4 md:py-0 pointer-events-none min-h-0">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-8 w-full max-w-[1100px] pointer-events-auto h-full md:h-auto" style={{ gridAutoRows: "1fr" }}>
             {WHY_ITEMS.map((item, i) => (
-              <motion.div key={item.title} variants={scaleIn}
-                className="why-card relative flex items-center md:flex-col md:items-start gap-4 md:gap-0 px-5 md:px-10 py-5 md:py-10 rounded-2xl md:rounded-3xl overflow-hidden cursor-default"
+              <motion.div key={item.title} variants={scaleIn} className="h-full">
+              <SpotlightCard className="h-full rounded-2xl md:rounded-3xl overflow-hidden">
+              <div
+                className="why-card relative flex items-center md:flex-col md:items-start gap-4 md:gap-0 px-5 md:px-10 py-5 md:py-10 rounded-2xl md:rounded-3xl overflow-hidden cursor-default h-full"
                 style={{
-                  background: "linear-gradient(135deg, rgba(242,240,236,0.85) 0%, rgba(242,240,236,0.78) 50%, rgba(242,240,236,0.83) 100%)",
-                  border: "1px solid rgba(255,255,255,0.5)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(255,255,255,0.15)",
-                }}>
+                  background: "rgba(242,240,236,0.78)",
+                  backdropFilter: "blur(18px) saturate(1.5)",
+                  WebkitBackdropFilter: "blur(18px) saturate(1.5)",
+                  border: "1px solid rgba(255,255,255,0.62)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.85)",
+                }}
+              >
                 {/* Top edge highlight */}
-                <div className="absolute inset-x-0 top-0 h-[1.5px] pointer-events-none"
+                <div className="absolute inset-x-0 top-0 h-px pointer-events-none"
                   style={{ background: "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.95) 30%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.95) 70%, transparent 95%)" }} />
-                {/* Left edge highlight */}
-                <div className="absolute inset-y-0 left-0 w-[1px] pointer-events-none hidden md:block"
-                  style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.8) 10%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.5) 90%)" }} />
-                {/* Bottom edge */}
-                <div className="absolute inset-x-0 bottom-0 h-[1px] pointer-events-none hidden md:block"
-                  style={{ background: "linear-gradient(90deg, transparent 5%, rgba(0,0,0,0.05) 50%, transparent 95%)" }} />
-                {/* Hover shine sweep */}
-                <div className="why-card-shine absolute inset-0 pointer-events-none rounded-2xl md:rounded-3xl"
-                  style={{
-                    background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.15) 55%, transparent 70%)",
-                    opacity: 0,
-                    transition: "opacity 0.5s ease",
-                  }} />
 
                 {/* Icon + number */}
                 <div className="flex flex-col items-center gap-1.5 shrink-0 md:flex-row md:items-center md:gap-3 md:mb-6">
@@ -642,6 +668,8 @@ function WhySection() {
                     {item.desc}
                   </p>
                 </div>
+              </div>
+              </SpotlightCard>
               </motion.div>
             ))}
           </div>
@@ -675,7 +703,15 @@ function GallerySection() {
   const ref = useRef(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
-  const [lightbox, setLightbox] = useState<{ src: string; label: string } | null>(null);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const lightbox = lightboxIdx !== null ? GALLERY_IMGS[lightboxIdx] : null;
+
+  const openLightbox = useCallback((item: typeof GALLERY_IMGS[number]) => {
+    setLightboxIdx(GALLERY_IMGS.indexOf(item));
+  }, []);
+  const closeLightbox = useCallback(() => setLightboxIdx(null), []);
+  const prevImage = useCallback(() => setLightboxIdx(i => i !== null ? (i - 1 + GALLERY_IMGS.length) % GALLERY_IMGS.length : null), []);
+  const nextImage = useCallback(() => setLightboxIdx(i => i !== null ? (i + 1) % GALLERY_IMGS.length : null), []);
 
   const scroll = useCallback((dir: -1 | 1) => {
     const el = scrollRef.current;
@@ -683,10 +719,39 @@ function GallerySection() {
     el.scrollBy({ left: dir * el.clientWidth * 0.75, behavior: "smooth" });
   }, []);
 
-  // Close lightbox on Escape
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    if (e.key === "Escape") setLightbox(null);
+  // Drag-to-scroll (desktop only)
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || window.matchMedia("(hover: none)").matches) return;
+    let startX = 0, startScroll = 0, dragging = false;
+    const onDown = (e: PointerEvent) => {
+      dragging = true; startX = e.clientX; startScroll = el.scrollLeft;
+      el.style.cursor = "grabbing"; el.setPointerCapture(e.pointerId);
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!dragging) return;
+      el.scrollLeft = startScroll - (e.clientX - startX);
+    };
+    const onUp = () => { dragging = false; el.style.cursor = "grab"; };
+    el.style.cursor = "grab";
+    el.addEventListener("pointerdown", onDown, { passive: true });
+    el.addEventListener("pointermove", onMove, { passive: true });
+    el.addEventListener("pointerup", onUp, { passive: true });
+    el.addEventListener("pointercancel", onUp, { passive: true });
+    return () => {
+      el.removeEventListener("pointerdown", onDown);
+      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerup", onUp);
+      el.removeEventListener("pointercancel", onUp);
+    };
   }, []);
+
+  // Keyboard nav: Escape close, arrows prev/next
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") prevImage();
+    else if (e.key === "ArrowRight") nextImage();
+  }, [closeLightbox, prevImage, nextImage]);
 
   /* Group images into sets of 6 for the 2-row bento layout.
      Each set renders as: top row [wide, med, med], bottom row [med, wide, med] */
@@ -709,7 +774,7 @@ function GallerySection() {
               <Label>Campaign Gallery</Label>
               <h2 className="font-black uppercase m-0 mt-3 leading-[0.88]"
                 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
-                OUR WORK<span style={{ color: "#B8960F" }}>.</span>
+                OUR WORK<span style={{ color: "#D4A010" }}>.</span>
               </h2>
             </div>
             <div className="flex items-center gap-2">
@@ -738,7 +803,10 @@ function GallerySection() {
             <div className="shrink-0 w-4 md:w-8" aria-hidden />
 
             {sets.map((set, si) => (
-              <div key={si} className={`shrink-0 grid gap-2 ${si === 0 ? "gallery-set-dual" : "gallery-set"}`}
+              <motion.div key={si}
+                variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
+                initial="hidden" animate={inView ? "show" : "hidden"}
+                className={`shrink-0 grid gap-2 ${si === 0 ? "gallery-set-dual" : "gallery-set"}`}
                 style={{
                   scrollSnapAlign: "start",
                   width: "max(88vw, min(1100px, 96vw))",
@@ -748,7 +816,9 @@ function GallerySection() {
                   const isHero = si === 0 ? (i === 0 || i === 1) : i === 0;
                   const isWide = si === 0 ? false : i === 4;
                   return (
-                    <button key={i} onClick={() => setLightbox(item)}
+                    <motion.button key={i}
+                      variants={{ hidden: { opacity: 0, scale: 0.96 }, show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }}
+                      onClick={() => openLightbox(item)}
                       className={`gallery-item relative overflow-hidden rounded-xl group cursor-zoom-in${isHero ? " gallery-hero" : ""}${isWide ? " gallery-wide" : ""}`}
                       style={{ display: "block", padding: 0, border: "none", background: "none" }}>
                       <Image src={item.src} alt={item.label} loading="lazy"
@@ -757,15 +827,15 @@ function GallerySection() {
                         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 65%)" }}>
                         <div>
                           <span className="font-black uppercase tracking-tight text-white text-xs block">{item.label}</span>
-                          <span className="font-mono text-[8px] tracking-[0.3em] uppercase mt-0.5 block" style={{ color: "#B8960F" }}>
+                          <span className="font-mono text-[8px] tracking-[0.3em] uppercase mt-0.5 block" style={{ color: "#D4A010" }}>
                             Phantom Pasting
                           </span>
                         </div>
                       </div>
-                    </button>
+                    </motion.button>
                   );
                 })}
-              </div>
+              </motion.div>
             ))}
 
             {/* Right spacer for page margin */}
@@ -776,16 +846,18 @@ function GallerySection() {
 
       {/* Lightbox */}
       <AnimatePresence>
-        {lightbox && (
+        {lightbox && lightboxIdx !== null && (
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center"
             style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(12px)" }}
-            onClick={() => setLightbox(null)}
+            onClick={closeLightbox}
             onKeyDown={handleKeyDown}
-            tabIndex={-1}>
+            tabIndex={-1}
+            ref={(el) => el?.focus()}>
             <motion.div
+              key={lightboxIdx}
               initial={{ scale: 0.92, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
               transition={{ type: "spring", stiffness: 320, damping: 28 }}
               className="relative w-full h-full flex items-center justify-center p-4 md:p-10"
@@ -795,16 +867,29 @@ function GallerySection() {
                 <Image src={lightbox.src} alt={lightbox.label} fill
                   sizes="100vw" className="object-contain" priority />
               </div>
-              {/* Label */}
+              {/* Label + counter */}
               <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">
                 <span className="font-black uppercase tracking-tight text-white text-sm md:text-base block">{lightbox.label}</span>
-                <span className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1 block" style={{ color: "#B8960F" }}>Phantom Pasting</span>
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1 block" style={{ color: "#D4A010" }}>
+                  {lightboxIdx + 1} / {GALLERY_IMGS.length} &nbsp;·&nbsp; Phantom Pasting
+                </span>
               </div>
             </motion.div>
+            {/* Prev / Next arrows */}
+            <button onClick={(e) => { e.stopPropagation(); prevImage(); }} aria-label="Previous image"
+              className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
+              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
+              <IconChevronLeft color="#fff" />
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); nextImage(); }} aria-label="Next image"
+              className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
+              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
+              <IconChevronRight color="#fff" />
+            </button>
             {/* Close button */}
-            <button onClick={() => setLightbox(null)} aria-label="Close"
-              className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-full text-white cursor-pointer"
-              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}>
+            <button onClick={closeLightbox} aria-label="Close"
+              className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
+              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
               <IconClose />
             </button>
           </motion.div>
@@ -870,7 +955,7 @@ function ContactSection() {
             <div className="mb-4"><Label>Get a Quote</Label></div>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(42px, 6vw, 80px)", letterSpacing: "-0.03em" }}>
-              LET&apos;S HIT<br /><span className="text-[#B8960F]">THE STREETS.</span>
+              LET&apos;S HIT<br /><ShinyGoldText>THE STREETS.</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed max-w-sm mb-8"
               style={{ color: "rgba(0,0,0,0.55)", fontSize: "14px" }}>
@@ -898,7 +983,7 @@ function ContactSection() {
             </div>
 
             <div className="p-3 rounded-xl" style={{ background: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.06)" }}>
-              <p className="font-mono text-[9px] tracking-[0.28em] uppercase text-[#B8960F] mb-1">◎ Nationwide Coverage</p>
+              <p className="font-mono text-[9px] tracking-[0.28em] uppercase text-[#D4A010] mb-1">◎ Nationwide Coverage</p>
               <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.45)", fontSize: "11px" }}>{CITIES}</p>
             </div>
 
@@ -907,7 +992,7 @@ function ContactSection() {
               <button onClick={() => setMobileFormOpen(true)}
                 className="lg:hidden mt-8 relative w-full inline-flex items-center justify-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase px-8 py-4 rounded-full overflow-hidden cursor-pointer"
                 style={{
-                  background: "linear-gradient(135deg, #B8960F 0%, #D4A810 100%)",
+                  background: "linear-gradient(135deg, #D4A010 0%, #F5CA20 100%)",
                   color: "#FFF",
                   border: "none",
                   fontFamily: "inherit",
@@ -937,7 +1022,7 @@ function ContactSection() {
                       style={{ fontSize: "clamp(36px, 4vw, 56px)", color: "#1A1A1A" }}>You&apos;re In.</h3>
                     <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
                       We&apos;ll hit your inbox within 24 hours. Follow{" "}
-                      <a href="#" className="no-underline" style={{ color: "#B8960F" }}>@phantompasting</a>{" "}
+                      <a href="#" className="no-underline" style={{ color: "#D4A010" }}>@phantompasting</a>{" "}
                       to see campaigns live in the wild.
                     </p>
                   </Glass>
@@ -947,9 +1032,9 @@ function ContactSection() {
                   className="flex flex-col rounded-2xl overflow-hidden"
                   style={{
                     gap: "1px",
-                    background: "rgba(242,240,236,0.94)",
-                    border: "1px solid rgba(255,255,255,0.72)",
-                    boxShadow: "0 24px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.04)",
+                    background: "rgba(248,247,244,0.97)",
+                    border: "none",
+                    boxShadow: "0 24px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.05)",
                   }}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
                     <FormField label="First Name *" name="firstName" placeholder="Alex" required />
@@ -1076,7 +1161,7 @@ function ContactSection() {
                   <motion.button type="submit" disabled={submitting}
                     className="relative flex items-center justify-between font-black text-[16px] tracking-[0.06em] uppercase px-8 py-4 border-0 cursor-pointer overflow-hidden disabled:opacity-70"
                     style={{
-                      background: "linear-gradient(135deg, #B8960F 0%, #D4A810 50%, #B8960F 100%)",
+                      background: "linear-gradient(135deg, #D4A010 0%, #F5CA20 50%, #D4A010 100%)",
                       color: "#FFF", fontFamily: "inherit",
                       boxShadow: "0 4px 24px rgba(184,150,15,0.5), inset 0 1px 0 rgba(255,255,255,0.25)",
                     }}
@@ -1176,7 +1261,7 @@ function FAQSection() {
             <div className="mb-3 md:mb-4"><Label>FAQ</Label></div>
             <h2 className="font-black uppercase m-0 leading-[0.9]"
               style={{ fontSize: "clamp(36px, 5vw, 72px)", letterSpacing: "-0.03em" }}>
-              COMMON<br /><span className="text-[#B8960F]">QUESTIONS</span>
+              COMMON<br /><ShinyGoldText>QUESTIONS</ShinyGoldText>
             </h2>
           </motion.div>
 
@@ -1194,8 +1279,8 @@ function FAQSection() {
                     </span>
                     <motion.div className="w-8 h-8 shrink-0 flex items-center justify-center rounded-xl"
                       style={{
-                        background: open === i ? "#B8960F" : "rgba(242,240,236,0.85)",
-                        border: open === i ? "1px solid #B8960F" : "1px solid rgba(0,0,0,0.08)",
+                        background: open === i ? "#D4A010" : "rgba(242,240,236,0.85)",
+                        border: open === i ? "1px solid #D4A010" : "1px solid rgba(0,0,0,0.08)",
                         color: open === i ? "#FFF" : "#1A1A1A",
                         fontSize: "18px",
                         boxShadow: open === i ? "0 2px 12px rgba(184,150,15,0.35)" : "0 1px 4px rgba(0,0,0,0.06)",
@@ -1267,7 +1352,7 @@ function Footer() {
             <h2 className="font-black uppercase m-0 leading-[0.85]"
               style={{ fontSize: "clamp(48px, 8vw, 120px)", letterSpacing: "-0.04em" }}>
               <span style={{ color: "#1A1A1A" }}>PHANTOM</span>
-              <span style={{ color: "#B8960F" }}>PASTING</span>
+              <ShinyGoldText>PASTING</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed mt-4 max-w-md"
               style={{ color: "rgba(0,0,0,0.45)", fontSize: "14px" }}>
@@ -1279,11 +1364,11 @@ function Footer() {
             style={{ borderColor: "rgba(0,0,0,0.06)" }}>
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#B8960F" }} />
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#D4A010" }} />
                 <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: "rgba(0,0,0,0.3)" }}>Contact</span>
               </div>
               <div className="flex flex-col gap-3">
-                <a href="mailto:info@phantompasting.co" className="font-mono text-[11px] tracking-[0.1em] no-underline text-[#B8960F]">
+                <a href="mailto:info@phantompasting.co" className="font-mono text-[11px] tracking-[0.1em] no-underline text-[#D4A010]">
                   info@phantompasting.co
                 </a>
                 <a href="#" className="font-mono text-[11px] tracking-[0.1em] no-underline footer-link">

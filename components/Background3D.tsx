@@ -17,7 +17,7 @@ export default function Background3D() {
       style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
       {BLOBS.map((b, i) => (
         <div key={i} style={{ position: "absolute", left: b.left, top: b.top }}>
-          <div className={b.orb} style={{
+          <div className={`${b.orb} orb-drift`} style={{
             width: b.w, height: b.h,
             background: blobGradient(i),
             opacity: b.opacity,

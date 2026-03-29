@@ -6,8 +6,8 @@
 :root {
   --font-barlow: "Barlow Condensed", system-ui, sans-serif;
   --font-mono: "DM Mono", "Fira Mono", monospace;
-  --accent: #B8960F;
-  --bg: #F2F0EC;
+  --accent: #D4A010;
+  --bg: #FFFEF8;
   --text: #1A1A1A;
 }
 
@@ -72,12 +72,72 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 }
 
 /* Hero CTA hover */
-.hero-cta-primary:hover  { transform: scale(1.05); box-shadow: 0 8px 32px #B8960F70; }
+/* Primary CTA — shimmer sweep on hover */
+.hero-cta-primary::before,
+.service-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.38) 50%, transparent 75%);
+  transform: translateX(-110%);
+  transition: transform 0s;
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-cta-primary:hover::before,
+.service-cta:hover::before {
+  transform: translateX(110%);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-cta-primary:hover  { transform: scale(1.05); box-shadow: 0 8px 36px rgba(0,0,0,0.5), 0 0 0 1px rgba(196,162,18,0.35), 0 1px 0 rgba(255,255,255,0.1) inset; }
 .hero-cta-primary:active { transform: scale(0.97); }
-.hero-cta-secondary:hover  { transform: scale(1.03); color: rgba(0,0,0,0.85) !important; background: rgba(255,255,255,0.62) !important; }
+/* Secondary CTA */
+.hero-cta-secondary:hover  {
+  transform: scale(1.03);
+  color: rgba(0,0,0,0.9) !important;
+  background: #FFF !important;
+  border-color: rgba(0,0,0,0.22) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,1) !important;
+}
 .hero-cta-secondary:active { transform: scale(0.97); }
-.hero-cta-nav:hover  { transform: scale(1.06); }
+.hero-cta-nav:hover  { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.1) inset; }
 .hero-cta-nav:active { transform: scale(0.96); }
+
+/* ── Star-border orbit on nav CTA (ReactBits / CSS-only) ─────── */
+@keyframes star-sweep-bottom {
+  0%   { transform: translate(0%, 0%); opacity: 0.85; }
+  100% { transform: translate(-100%, 0%); opacity: 0; }
+}
+@keyframes star-sweep-top {
+  0%   { transform: translate(0%, 0%); opacity: 0.85; }
+  100% { transform: translate(100%, 0%); opacity: 0; }
+}
+.nav-cta-star::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  bottom: -10px;
+  right: -250%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #D4A010, transparent 10%);
+  animation: star-sweep-bottom 4.5s linear infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+.nav-cta-star::after {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  top: -10px;
+  left: -250%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #D4A010, transparent 10%);
+  animation: star-sweep-top 4.5s linear infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
 
 /* ── Ticker marquee (pure CSS) ───────────────────────────────── */
 @keyframes ticker {
@@ -90,6 +150,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 @media (max-width: 767px) {
   .ticker-track { animation: none; }
 }
+
 
 /* ── CTA arrow bounce (pure CSS) ─────────────────────────────── */
 @keyframes arrowBounce {
@@ -147,13 +208,56 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
   .gallery-wide { grid-column: span 2; }
 }
 
-/* ── Nav links ───────────────────────────────────────────────── */
+/* ── Nav links — sliding gold underline ──────────────────────── */
 .nav-link {
   color: rgba(0,0,0,0.38);
-  transition: color 0.15s ease;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #D4A010;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .nav-link:hover {
   color: rgba(0,0,0,0.85);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* ── SpotlightCard — cursor radial glow (ReactBits) ────────────── */
+.spotlight-card {
+  position: relative;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+.spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 260px at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-color, rgba(184,150,15,0.18)),
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: multiply;
+}
+@media (hover: hover) {
+  .spotlight-card:hover::after { opacity: 1; }
 }
 
 /* ── Footer links (CSS hover, no JS) ─────────────────────────── */
@@ -263,6 +367,10 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
   transform: translateZ(0);
   contain: layout style paint;
 }
+/* Orb mouse drift — JS sets transform directly via RAF, no CSS transition needed */
+.orb-drift {
+  will-change: transform;
+}
 @media (max-width: 767px) {
   .orb-1, .orb-2, .orb-3 {
     filter: none;
@@ -299,6 +407,153 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .scroll-pulse {
   animation: scrollPulse 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
+
+/* ── GlassSurface ───────────────────────────────────────────── */
+.glass-surface {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.26s ease-out;
+}
+.glass-surface__filter {
+  width: 100%; height: 100%;
+  pointer-events: none;
+  position: absolute; inset: 0;
+  opacity: 0; z-index: -1;
+}
+.glass-surface__content {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+  border-radius: inherit;
+  position: relative; z-index: 1;
+}
+.glass-surface--svg {
+  background: hsl(0 0% 100% / var(--glass-frost, 0));
+  backdrop-filter: var(--filter-id, none) saturate(var(--glass-saturation, 1));
+  box-shadow:
+    0 0 2px 1px rgba(0,0,0,0.06) inset,
+    0 0 10px 4px rgba(0,0,0,0.04) inset,
+    0px 4px 16px rgba(17,17,26,0.05),
+    0px 8px 24px rgba(17,17,26,0.05);
+}
+.glass-surface--fallback {
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(14px) saturate(1.6) brightness(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6) brightness(1.05);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -1px 0 rgba(255,255,255,0.2);
+}
+
+/* ── BorderGlow ─────────────────────────────────────────────── */
+.border-glow-card {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --edge-sensitivity: 30;
+  --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+  --border-radius: 24px;
+  --glow-padding: 40px;
+  --cone-spread: 25;
+  position: relative;
+  border-radius: var(--border-radius);
+  isolation: isolate;
+  transform: translate3d(0,0,0.01px);
+  display: grid;
+  border: 1px solid rgba(255,255,255,0.5);
+  overflow: visible;
+}
+.border-glow-card::before,
+.border-glow-card::after,
+.border-glow-card > .edge-light {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  transition: opacity 0.25s ease-out;
+  z-index: -1;
+}
+.border-glow-card:not(:hover):not(.sweep-active)::before,
+.border-glow-card:not(:hover):not(.sweep-active)::after,
+.border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+.border-glow-card::before {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--card-bg, rgba(242,240,236,0.9)) 0 100%) padding-box,
+    linear-gradient(rgb(255 255 255 / 0%) 0 100%) border-box,
+    var(--gradient-one) border-box,
+    var(--gradient-two) border-box,
+    var(--gradient-three) border-box,
+    var(--gradient-four) border-box,
+    var(--gradient-five) border-box,
+    var(--gradient-six) border-box,
+    var(--gradient-seven) border-box,
+    var(--gradient-base) border-box;
+  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+  mask-image: conic-gradient(from var(--cursor-angle) at center, black calc(var(--cone-spread)*1%), transparent calc((var(--cone-spread)+15)*1%), transparent calc((100 - var(--cone-spread) - 15)*1%), black calc((100 - var(--cone-spread))*1%));
+}
+.border-glow-card::after {
+  border: 1px solid transparent;
+  background:
+    var(--gradient-one) padding-box,
+    var(--gradient-two) padding-box,
+    var(--gradient-three) padding-box,
+    var(--gradient-four) padding-box,
+    var(--gradient-five) padding-box,
+    var(--gradient-six) padding-box,
+    var(--gradient-seven) padding-box,
+    var(--gradient-base) padding-box;
+  mask-image:
+    linear-gradient(to bottom, black, black),
+    radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
+    radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
+    conic-gradient(from var(--cursor-angle) at center, transparent 5%, black 15%, black 85%, transparent 95%);
+  mask-composite: subtract, add, add, add, add, add;
+  opacity: calc(var(--fill-opacity,0.5) * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+  mix-blend-mode: soft-light;
+}
+.border-glow-card > .edge-light {
+  inset: calc(var(--glow-padding) * -1);
+  pointer-events: none; z-index: 1;
+  mask-image: conic-gradient(from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
+  opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+  mix-blend-mode: plus-lighter;
+}
+.border-glow-card > .edge-light::before {
+  content: "";
+  position: absolute;
+  inset: var(--glow-padding);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--glow-color, hsl(47deg 87% 38% / 100%)),
+    inset 0 0 1px 0  var(--glow-color-60, hsl(47deg 87% 38% / 60%)),
+    inset 0 0 3px 0  var(--glow-color-50, hsl(47deg 87% 38% / 50%)),
+    inset 0 0 6px 0  var(--glow-color-40, hsl(47deg 87% 38% / 40%)),
+    inset 0 0 15px 0 var(--glow-color-30, hsl(47deg 87% 38% / 30%)),
+    inset 0 0 25px 2px var(--glow-color-20, hsl(47deg 87% 38% / 20%)),
+    inset 0 0 50px 2px var(--glow-color-10, hsl(47deg 87% 38% / 10%)),
+    0 0 1px 0  var(--glow-color-60),
+    0 0 3px 0  var(--glow-color-50),
+    0 0 6px 0  var(--glow-color-40),
+    0 0 15px 0 var(--glow-color-30),
+    0 0 25px 2px var(--glow-color-20),
+    0 0 50px 2px var(--glow-color-10);
+}
+.border-glow-inner {
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden; z-index: 1;
+  height: 100%;
+}
+
 
 /* ── Reduce motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
