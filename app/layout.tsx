@@ -21,26 +21,38 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Phantom Pasting — Wheat Pasting & Stencil Activations Nationwide",
+  title: "Wheat Pasting & Wild Posting Company | Phantom Pasting",
   description:
-    "The #1 guerrilla marketing agency for wheat pasting and chalk spray stencil campaigns across every US city. Bold. Street-level. Unforgettable.",
+    "The #1 guerrilla marketing agency for wheat pasting and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% photo-documented. Get a quote.",
   keywords: [
-    "wheat pasting",
-    "wild posting",
-    "guerrilla marketing",
-    "chalk spray stencils",
-    "street advertising",
+    "wheat pasting company",
+    "wild posting company",
+    "wheat paste advertising",
+    "guerrilla marketing agency",
+    "wild posting advertising",
+    "chalk spray stencil marketing",
     "street level marketing",
-    "poster campaign",
-    "nationwide guerrilla marketing",
+    "wheat pasting service",
   ],
   metadataBase: new URL("https://phantompasting.com"),
+  alternates: {
+    canonical: "https://phantompasting.com",
+  },
   openGraph: {
-    title: "Phantom Pasting — Own the Streets",
+    title: "Wheat Pasting & Wild Posting Company | Phantom Pasting",
     description:
-      "Wheat pasting & chalk spray stencil campaigns across every US city. 500+ campaigns. 50+ markets. 100% documented.",
+      "Street-level wheat paste and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% documented. Clients include FashionPass, FIFA World Cup, Incrediwear.",
     type: "website",
-    images: [{ url: "/phantom-pasting-logo.png", width: 400, height: 400, alt: "Phantom Pasting Logo" }],
+    url: "https://phantompasting.com",
+    siteName: "Phantom Pasting",
+    images: [{ url: "/phantom-pasting-logo.png", width: 1200, height: 630, alt: "Phantom Pasting — Wheat Pasting & Wild Posting Company" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wheat Pasting & Wild Posting Company | Phantom Pasting",
+    description:
+      "Street-level wheat paste and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% documented.",
+    images: ["/phantom-pasting-logo.png"],
   },
   icons: {
     icon: "/favicon-32.png",
@@ -61,6 +73,16 @@ export default function RootLayout({
       lang="en"
       className={`${barlowCondensed.variable} ${dmMono.variable}`}
     >
+      {/* Inline critical animation keyframes — eliminates render-blocking CSS for hero paint */}
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes heroUp{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+          @keyframes heroUpVisible{from{transform:translateY(24px)}to{transform:translateY(0)}}
+          @keyframes heroDown{from{transform:translateY(-20px);opacity:0}to{transform:translateY(0);opacity:1}}
+          @keyframes goldShine{0%{background-position:150% center}100%{background-position:-50% center}}
+          .shiny-gold-text{background-image:linear-gradient(120deg,#D4A010 0%,#D4A010 35%,#FDF0A0 50%,#D4A010 65%,#D4A010 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;display:inline-block;padding-right:0.06em;animation:goldShine 4s ease-in-out infinite alternate}
+        ` }} />
+      </head>
       <body>{children}</body>
     </html>
   );

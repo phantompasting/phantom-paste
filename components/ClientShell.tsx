@@ -1,15 +1,26 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import SnapProgress from "@/components/SnapProgress";
 import GrainientBackground from "@/components/GrainientBackground";
-import ScrollSections from "@/components/sections/ScrollSections";
+
+const ScrollSections = dynamic(() => import("@/components/sections/ScrollSections"), { ssr: false });
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Defer below-fold sections until browser is idle so LCP is captured first
+    if ("requestIdleCallback" in window) {
+      const id = (window as Window & typeof globalThis).requestIdleCallback(
+        () => setMounted(true),
+        { timeout: 2000 }
+      );
+      return () => (window as Window & typeof globalThis).cancelIdleCallback(id);
+    }
+    const t = setTimeout(() => setMounted(true), 500);
+    return () => clearTimeout(t);
   }, []);
 
   return (

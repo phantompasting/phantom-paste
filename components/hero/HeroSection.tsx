@@ -10,7 +10,12 @@ import { MagneticPrimaryCTA, MagneticSecondaryCTA } from "@/components/hero/Magn
 import ShinyGoldText from "@/components/ShinyGoldText";
 
 const ACCENT = "#D4A010";
-const NAV_LINKS = ["Services", "Work", "Cities", "Blog"] as const;
+const NAV_LINKS = [
+  { label: "Services", href: "/services/wheat-pasting" },
+  { label: "Work",     href: "/#work" },
+  { label: "Cities",   href: "/#cities" },
+  { label: "About",    href: "/about" },
+] as const;
 /* expo-out: fast start, long glide — mimics a spring without JS */
 const EXPO = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -25,87 +30,72 @@ export default function HeroSection() {
         <TickerMarquee items={MARQUEE_ITEMS} />
       </div>
 
-      {/* Mobile: justify-between spreads 4 blocks across full height.
-          Desktop: justify-center stacks them tightly with explicit margins. */}
-      <div className="relative z-10 flex-1 flex flex-col items-center text-center px-5 md:px-6 justify-between md:justify-center py-5 md:py-0">
+      {/* Hero body */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 md:px-8 md:gap-10">
 
-        {/* 1 — Eyebrow pill (top on mobile) */}
-        <div style={{ animation: `heroUp 0.55s 0.04s ${EXPO} both` }}>
+        {/* Pill — sits flush under the ticker on mobile (absolute),
+            flows above the headline in the centered column on desktop (static) */}
+        <div
+          className="absolute top-9 inset-x-0 flex justify-center md:static md:inset-auto"
+          style={{ animation: `heroUp 0.55s 0.04s ${EXPO} both` }}
+        >
           <span
-            className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.32em] uppercase px-5 py-2.5 rounded-full"
+            className="inline-flex items-center gap-2.5 font-mono text-[9px] md:text-[10px] tracking-[0.30em] uppercase px-4 md:px-5 py-2 md:py-2.5 rounded-full"
             style={{
-              color: "rgba(0,0,0,0.55)",
-              background: "rgba(242,240,236,0.55)",
+              color: "rgba(0,0,0,0.52)",
+              background: "rgba(242,240,236,0.6)",
               backdropFilter: "blur(14px) saturate(1.5)",
               WebkitBackdropFilter: "blur(14px) saturate(1.5)",
-              border: "1px solid rgba(255,255,255,0.72)",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.85)",
+              border: "1px solid rgba(255,255,255,0.75)",
+              boxShadow: "0 2px 14px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)",
             }}
           >
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
             Wheat Pasting &amp; Stencil Activations
-            <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT, opacity: 0.4 }} />
+            <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT, opacity: 0.35 }} />
           </span>
         </div>
 
-        {/* 2 — Headline + divider */}
-        {/* calc(100% + padding*2) expands to full real content width — handles scrollbar correctly */}
-        <div className="flex flex-col items-center md:mt-8 w-[calc(100%+40px)] md:w-[calc(100%+48px)]">
-          <h1
-            className="font-black uppercase m-0 leading-[0.88] text-center w-full"
-            style={{ fontSize: "clamp(38px, 11.8vw, 168px)", letterSpacing: "-0.04em" }}
-          >
-            <span className="block">
-              <SplitReveal text="WE OWN" color="#1A1A1A" baseDelay={0.08} />
-            </span>
-            <span className="block" style={{ animation: `heroUp 0.65s 0.2s ${EXPO} both` }}>
-              <ShinyGoldText>THE STREETS</ShinyGoldText>
-            </span>
-          </h1>
-          <div className="mt-3 md:mt-7 mb-0 flex items-center gap-4" style={{ animation: `heroUp 0.55s 0.34s ${EXPO} both` }}>
-            <span className="block w-10 h-px" style={{ background: `${ACCENT}40` }} />
-            <span className="font-black text-[12px] tracking-[0.28em] uppercase" style={{ color: "rgba(0,0,0,0.35)" }}>
-              Phantom<span style={{ color: ACCENT }}>Pasting</span>
-            </span>
-            <span className="block w-10 h-px" style={{ background: `${ACCENT}40` }} />
-          </div>
-        </div>
+        {/* Centered content group — headline · tagline · CTAs */}
+        <div className="flex flex-col items-center gap-8 md:gap-10 w-full">
 
-        {/* 3 — Tagline + CTAs */}
-        <div className="flex flex-col items-center gap-5 md:gap-0 md:mt-4">
+          {/* Headline — full viewport width */}
+          <div className="w-screen -mx-6 md:-mx-8 px-0">
+            <h1
+              className="font-black uppercase m-0 leading-[0.85] text-center w-full"
+              style={{ fontSize: "clamp(96px, 16vw, 187px)", letterSpacing: "-0.045em", willChange: "transform" }}
+            >
+              <span className="block">
+                <SplitReveal text="WE OWN" color="#1A1A1A" baseDelay={0.08} />
+              </span>
+              <span className="block" style={{ animation: `heroUpVisible 0.65s 0.22s ${EXPO} both` }}>
+                <ShinyGoldText>THE STREETS</ShinyGoldText>
+              </span>
+            </h1>
+          </div>
+
+          {/* Tagline */}
           <p
-            className="font-light leading-relaxed max-w-lg m-0"
+            className="font-light leading-[1.7] max-w-[320px] md:max-w-[520px] m-0"
             style={{
-              fontSize: "clamp(13px, 1.5vw, 17px)",
-              color: "rgba(0,0,0,0.42)",
-              animation: `heroUp 0.55s 0.4s ${EXPO} both`,
+              fontSize: "clamp(14px, 1.6vw, 18px)",
+              color: "rgba(0,0,0,0.40)",
+              animation: `heroUp 0.55s 0.34s ${EXPO} both`,
             }}
           >
-            Guerrilla marketing for brands that refuse to blend in.
+            Guerrilla marketing for brands that refuse to blend in.{" "}
             Large-format wheat paste. Precision chalk spray stencils. Every major US city.
           </p>
+
+          {/* CTAs */}
           <div
-            className="flex items-center gap-4 md:gap-5 flex-wrap justify-center md:mt-10"
-            style={{ animation: `heroUp 0.55s 0.46s ${EXPO} both` }}
+            className="flex items-center gap-3 md:gap-5 flex-wrap justify-center"
+            style={{ animation: `heroUp 0.55s 0.42s ${EXPO} both` }}
           >
             <MagneticPrimaryCTA />
             <MagneticSecondaryCTA />
           </div>
-        </div>
 
-        {/* 4 — Stats (bottom on mobile) */}
-        <div
-          className="w-full flex items-center justify-center gap-3 md:gap-6 flex-wrap md:mt-12"
-          style={{ animation: `heroUp 0.55s 0.52s ${EXPO} both` }}
-        >
-          {[["500+", "Campaigns"], ["50+", "US Cities"], ["100%", "Documented"]].map(([num, label]) => (
-            <div key={label} className="flex items-center gap-1.5 md:gap-2.5">
-              <span className="font-black text-[18px] md:text-[22px] leading-none" style={{ color: "#1A1A1A", letterSpacing: "-0.03em" }}>{num}</span>
-              <span className="font-mono text-[8px] md:text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(0,0,0,0.38)" }}>{label}</span>
-              <span className="w-px h-3 ml-1 md:ml-2" style={{ background: "rgba(0,0,0,0.12)" }} />
-            </div>
-          ))}
-          <span className="font-mono text-[8px] md:text-[9px] tracking-[0.28em] uppercase ml-0" style={{ color: "rgba(0,0,0,0.38)" }}>10yr Street Cred</span>
         </div>
       </div>
 
@@ -154,13 +144,13 @@ function NavBar() {
 
       {/* Center — Links */}
       <ul className="relative z-10 hidden md:flex items-center gap-10 lg:gap-14 list-none m-0 p-0">
-        {NAV_LINKS.map((item) => (
-          <li key={item}>
+        {NAV_LINKS.map(({ label, href }) => (
+          <li key={label}>
             <a
-              href={`#${item.toLowerCase()}`}
+              href={href}
               className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1"
             >
-              {item}
+              {label}
             </a>
           </li>
         ))}
@@ -169,7 +159,7 @@ function NavBar() {
       {/* Right — CTA */}
       <div className="relative z-10 px-4 sm:px-8 md:px-12 lg:px-16 py-3 md:py-5">
         <a
-          href="#contact"
+          href="/contact"
           className="hero-cta-nav nav-cta-star relative inline-flex items-center gap-2 font-bold text-[10px] tracking-[0.2em] uppercase no-underline px-5 py-2.5 rounded-full overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)",

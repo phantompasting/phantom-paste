@@ -1241,6 +1241,16 @@ const FAQS = [
     a: "Global names to indie streetwear labels, tech startups, event promoters, bars, restaurants, artists, nonprofits. Any scale, any budget." },
 ] as const;
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
 function FAQSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
@@ -1248,6 +1258,7 @@ function FAQSection() {
 
   return (
     <SnapPage id="faq">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div ref={ref} className="w-full h-full flex flex-col pt-10 pb-4 px-5 sm:px-8 md:px-12 lg:px-16 overflow-hidden">
 
         <div className="absolute inset-0 pointer-events-none"

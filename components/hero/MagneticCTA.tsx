@@ -33,7 +33,7 @@ export function MagneticPrimaryCTA() {
     <ClickSpark sparkColor="#D4A010" sparkRadius={28} sparkCount={10}>
       <a
         ref={ref}
-        href="#contact"
+        href="/contact"
         className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)",

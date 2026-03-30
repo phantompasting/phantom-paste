@@ -62,6 +62,27 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
   from { transform: translateY(24px); opacity: 0; }
   to   { transform: translateY(0);    opacity: 1; }
 }
+/* LCP-safe variant — no opacity so the element is painted immediately */
+@keyframes heroUpVisible {
+  from { transform: translateY(24px); }
+  to   { transform: translateY(0); }
+}
+/* ShinyGoldText — pure CSS shimmer, no JS dependency */
+@keyframes goldShine {
+  0%   { background-position: 150% center; }
+  100% { background-position: -50% center; }
+}
+.shiny-gold-text {
+  background-image: linear-gradient(120deg, #D4A010 0%, #D4A010 35%, #FDF0A0 50%, #D4A010 65%, #D4A010 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  padding-right: 0.06em;
+  animation: goldShine 4s ease-in-out infinite alternate;
+}
 @keyframes heroWord {
   from { transform: translateY(108%); opacity: 0; }
   to   { transform: translateY(0%);   opacity: 1; }
@@ -146,9 +167,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 }
 .ticker-track {
   animation: ticker var(--ticker-speed, 28s) linear infinite;
-}
-@media (max-width: 767px) {
-  .ticker-track { animation: none; }
 }
 
 

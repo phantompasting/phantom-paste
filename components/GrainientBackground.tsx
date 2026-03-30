@@ -107,16 +107,18 @@ export default function GrainientBackground() {
     // Skip WebGL on mobile — CSS gradient fallback handles it
     if (window.matchMedia("(max-width: 767px)").matches) return;
 
-    // Dynamic import so ogl never touches SSR/Node.js
+    // Dynamic import so ogl never touches SSR/Node.js.
+    // 300ms delay lets the browser capture LCP (text) before the canvas paints.
     let raf = 0;
+    let timer: ReturnType<typeof setTimeout>;
     let cleanup: (() => void) | undefined;
 
-    import("ogl").then(({ Renderer, Program, Mesh, Triangle }) => {
+    const initWebGL = () => import("ogl").then(({ Renderer, Program, Mesh, Triangle }) => {
       if (!containerRef.current) return;
 
-      const color1 = "#F8F2D8"; // warm parchment
-      const color2 = "#E8C840"; // light gold
-      const color3 = "#A07C08"; // medium-dark gold
+      const color1 = "#FFFFFF"; // white anchor +5%
+      const color2 = "#F5C820"; // canary yellow — logo body tone
+      const color3 = "#CC8E1C"; // amber +5% lighter
 
       let renderer;
       try {
@@ -145,7 +147,7 @@ export default function GrainientBackground() {
           iTime: { value: 0 },
           iResolution: { value: new Float32Array([1, 1]) },
           uTimeSpeed: { value: 0.25 },
-          uColorBalance: { value: 0.0 },
+          uColorBalance: { value: 0.25 },
           uWarpStrength: { value: 1.0 },
           uWarpFrequency: { value: 5.0 },
           uWarpSpeed: { value: 2.0 },
@@ -157,9 +159,9 @@ export default function GrainientBackground() {
           uGrainAmount: { value: 0.1 },
           uGrainScale: { value: 2.0 },
           uGrainAnimated: { value: 0.0 },
-          uContrast: { value: 1.25 },
+          uContrast: { value: 1.1 },
           uGamma: { value: 1.0 },
-          uSaturation: { value: 0.9 },
+          uSaturation: { value: 0.82 },
           uCenterOffset: { value: new Float32Array([0, 0]) },
           uZoom: { value: 0.9 },
           uColor1: { value: new Float32Array(hexToRgb(color1)) },
@@ -199,7 +201,10 @@ export default function GrainientBackground() {
       };
     });
 
+    timer = setTimeout(initWebGL, 300);
+
     return () => {
+      clearTimeout(timer);
       cancelAnimationFrame(raf);
       cleanup?.();
     };
@@ -218,7 +223,7 @@ export default function GrainientBackground() {
         height: "100%",
         overflow: "hidden",
         /* CSS gradient fallback — visible on mobile where WebGL is skipped */
-        background: "linear-gradient(145deg, #F8F2D8 0%, #E8C840 45%, #C49A0E 100%)",
+        background: "linear-gradient(145deg, #FFFFFF 0%, #F5C820 60%, #CC8E1C 100%)",
       }}
     />
   );
