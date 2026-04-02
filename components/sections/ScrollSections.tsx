@@ -964,7 +964,7 @@ function ContactSection() {
 
             <div className="flex flex-col gap-3 mb-6">
               {[
-                { icon: <IconMail color="#1A1A1A" />,      label: "Email",     value: "info@phantompasting.co", href: "mailto:info@phantompasting.co" },
+                { icon: <IconMail color="#1A1A1A" />,      label: "Email",     value: "info@phantompasting.com", href: "mailto:info@phantompasting.com" },
                 { icon: <IconInstagram color="#1A1A1A" />, label: "Instagram", value: "@phantompasting",        href: "#" },
                 { icon: <IconClock color="#1A1A1A" />,     label: "Response",  value: "Within 24 hours",       href: null },
               ].map(({ icon, label, value, href }) => (
@@ -1379,8 +1379,8 @@ function Footer() {
                 <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: "rgba(0,0,0,0.3)" }}>Contact</span>
               </div>
               <div className="flex flex-col gap-3">
-                <a href="mailto:info@phantompasting.co" className="font-mono text-[11px] tracking-[0.1em] no-underline text-[#D4A010]">
-                  info@phantompasting.co
+                <a href="mailto:info@phantompasting.com" className="font-mono text-[11px] tracking-[0.1em] no-underline text-[#D4A010]">
+                  info@phantompasting.com
                 </a>
                 <a href="#" className="font-mono text-[11px] tracking-[0.1em] no-underline footer-link">
                   @phantompasting

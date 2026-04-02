@@ -31,7 +31,7 @@ const contactPageSchema = {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "info@phantompasting.co",
+      email: "info@phantompasting.com",
       areaServed: "US",
       availableLanguage: "English",
     },
@@ -85,8 +85,8 @@ export default function ContactPage() {
                 {[
                   {
                     label: "Email",
-                    value: "info@phantompasting.co",
-                    href: "mailto:info@phantompasting.co",
+                    value: "info@phantompasting.com",
+                    href: "mailto:info@phantompasting.com",
                   },
                   {
                     label: "Instagram",
