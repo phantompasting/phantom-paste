@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, DM_Mono } from "next/font/google";
+import GrainientBackground from "@/components/GrainientBackground";
 import "./globals.css";
 
 /**
@@ -53,6 +54,8 @@ export const metadata: Metadata = {
     description:
       "Street-level wheat paste and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% documented.",
     images: ["/phantom-pasting-logo.png"],
+    site: "@phantompasting",
+    creator: "@phantompasting",
   },
   icons: {
     icon: "/favicon-32.png",
@@ -60,6 +63,8 @@ export const metadata: Metadata = {
   },
   other: {
     "theme-color": "#F2F0EC",
+    "og:locale": "en_US",
+    "og:locale:alternate": "en_US",
   },
 };
 
@@ -83,7 +88,10 @@ export default function RootLayout({
           .shiny-gold-text{background-image:linear-gradient(120deg,#D4A010 0%,#D4A010 35%,#FDF0A0 50%,#D4A010 65%,#D4A010 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;display:inline-block;padding-right:0.06em;animation:goldShine 4s ease-in-out infinite alternate}
         ` }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <GrainientBackground />
+        {children}
+      </body>
     </html>
   );
 }

@@ -5,12 +5,20 @@ import ShinyGoldText from "@/components/ShinyGoldText";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Get a Quote | Phantom Pasting",
+  title: "Hire a Wheat Pasting Company | Get a Quote | Phantom Pasting",
   description:
     "Ready to launch a wheat pasting or guerrilla marketing campaign? Contact Phantom Pasting and get a custom quote within 24 hours. Available in 50+ US cities.",
+  keywords: [
+    "hire wheat pasting company",
+    "guerrilla marketing quote",
+    "wheat paste advertising quote",
+    "wild posting campaign quote",
+    "street marketing contact",
+    "get a quote guerrilla marketing",
+  ],
   alternates: { canonical: "https://phantompasting.com/contact" },
   openGraph: {
-    title: "Get a Quote | Phantom Pasting",
+    title: "Hire a Wheat Pasting Company | Get a Quote | Phantom Pasting",
     description:
       "Launch a wheat pasting or guerrilla marketing campaign. Custom quote within 24 hours. 50+ US cities.",
     url: "https://phantompasting.com/contact",
@@ -49,7 +57,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
 
-      <div style={{ background: "#FFFEF8", minHeight: "100vh", color: "#1A1A1A" }}>
+      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
 
         {/* ── Page Hero ─────────────────────────────────────────── */}
@@ -177,8 +185,8 @@ export default function ContactPage() {
 
         {/* ── Footer ────────────────────────────────────────────── */}
         <footer
-          className="px-5 sm:px-8 md:px-12 lg:px-16 py-12 border-t"
-          style={{ background: "rgba(242,240,236,0.7)", borderColor: "rgba(0,0,0,0.06)" }}
+          className="px-5 sm:px-8 md:px-12 lg:px-16 py-10 border-t"
+          style={{ borderColor: "rgba(0,0,0,0.08)" }}
         >
           <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>

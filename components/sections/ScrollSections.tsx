@@ -8,6 +8,7 @@
  */
 
 import { useRef, useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import {
   motion,
@@ -761,6 +762,7 @@ function GallerySection() {
   }
 
   return (
+    <>
     <SnapPage>
       <div id="work" ref={ref} className="w-full h-full flex flex-col">
 
@@ -844,7 +846,10 @@ function GallerySection() {
         </motion.div>
       </div>
 
-      {/* Lightbox */}
+    </SnapPage>
+
+    {/* Lightbox — rendered via portal to escape SnapPage's CSS containment + transform */}
+    {createPortal(
       <AnimatePresence>
         {lightbox && lightboxIdx !== null && (
           <motion.div
@@ -894,8 +899,10 @@ function GallerySection() {
             </button>
           </motion.div>
         )}
-      </AnimatePresence>
-    </SnapPage>
+      </AnimatePresence>,
+      document.body
+    )}
+    </>
   );
 }
 
@@ -1329,9 +1336,22 @@ function FAQSection() {
    8. FOOTER
 ═══════════════════════════════════════════════════════════════ */
 const FOOTER_LINKS = {
-  Services: ["Wheat Pasting","Chalk Spray Stencils","Full Impact","Custom Activations"],
-  Markets:  ["New York City","Los Angeles","Miami","Chicago","All US Cities →"],
-  Company:  ["Gallery","Blog","Contact","Privacy Policy"],
+  Services: [
+    { label: "Wheat Pasting", href: "/services/wheat-pasting" },
+    { label: "Chalk Spray Stencils", href: "/services/chalk-spray-stencils" },
+    { label: "Full Impact", href: "/services/full-impact-campaigns" },
+  ],
+  Markets: [
+    { label: "New York City", href: "/locations/new-york" },
+    { label: "Los Angeles", href: "/locations/los-angeles" },
+    { label: "Miami", href: "/locations/miami" },
+    { label: "Chicago", href: "/locations/chicago" },
+    { label: "Atlanta", href: "/locations/atlanta" },
+  ],
+  Company: [
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ],
 } as const;
 
 function Footer() {
@@ -1382,7 +1402,7 @@ function Footer() {
                 <a href="mailto:info@phantompasting.com" className="font-mono text-[11px] tracking-[0.1em] no-underline text-[#D4A010]">
                   info@phantompasting.com
                 </a>
-                <a href="#" className="font-mono text-[11px] tracking-[0.1em] no-underline footer-link">
+                <a href="https://www.instagram.com/phantompasting" className="font-mono text-[11px] tracking-[0.1em] no-underline footer-link">
                   @phantompasting
                 </a>
               </div>
@@ -1393,10 +1413,10 @@ function Footer() {
                   style={{ color: "rgba(0,0,0,0.3)" }}>{col}</h3>
                 <ul className="list-none m-0 p-0 flex flex-col gap-2.5">
                   {links.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="footer-link font-light no-underline"
+                    <li key={link.label}>
+                      <a href={link.href} className="footer-link font-light no-underline"
                         style={{ fontSize: "13px" }}>
-                        {link}
+                        {link.label}
                       </a>
                     </li>
                   ))}

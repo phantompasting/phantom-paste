@@ -4,18 +4,12 @@
  * Server-compatible: loads instantly, paints before any JS.
  */
 
-import Image from "next/image";
 import { TickerMarquee, MARQUEE_ITEMS } from "@/components/Ticker";
 import { MagneticPrimaryCTA, MagneticSecondaryCTA } from "@/components/hero/MagneticCTA";
 import ShinyGoldText from "@/components/ShinyGoldText";
+import HeroNavBar from "@/components/hero/HeroNavBar";
 
 const ACCENT = "#D4A010";
-const NAV_LINKS = [
-  { label: "Services", href: "/services/wheat-pasting" },
-  { label: "Work",     href: "/#work" },
-  { label: "Cities",   href: "/#cities" },
-  { label: "About",    href: "/about" },
-] as const;
 /* expo-out: fast start, long glide — mimics a spring without JS */
 const EXPO = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -25,7 +19,7 @@ export default function HeroSection() {
       className="relative h-[100dvh] flex flex-col"
       style={{ background: "transparent", scrollSnapAlign: "start", scrollSnapStop: "always", overflowY: "clip" }}
     >
-      <NavBar />
+      <HeroNavBar />
       <div className="pt-[46px] md:pt-[58px]">
         <TickerMarquee items={MARQUEE_ITEMS} />
       </div>
@@ -99,7 +93,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator — bottom-right, desktop only (inspired by igloo.inc + mont-fort) */}
+      {/* Scroll indicator — bottom-right, desktop only */}
       <div
         className="hidden md:flex absolute bottom-7 right-10 flex-col items-center gap-2 pointer-events-none z-10"
         style={{ animation: `heroUp 0.65s 0.8s ${EXPO} both` }}
@@ -115,106 +109,6 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function NavBar() {
-  return (
-    <nav
-      className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between"
-      style={{ animation: `heroDown 0.6s 0.02s ${EXPO} both` }}
-    >
-      {/* Left — Logo */}
-      <div className="relative z-10 px-4 sm:px-8 md:px-12 lg:px-16 py-3 md:py-5">
-        <a href="/" className="flex items-center gap-2 no-underline">
-          <Image
-            src="/phantom-pasting-logo.webp"
-            alt="Phantom Pasting Logo"
-            width={32}
-            height={32}
-            className="rounded-lg"
-            style={{ objectFit: "cover" }}
-            priority
-          />
-          <span className="font-black text-[13px] tracking-[0.08em] uppercase" style={{ color: "#1A1A1A" }}>
-            Phantom<span style={{ color: ACCENT }}>Pasting</span>
-          </span>
-        </a>
-      </div>
-
-      {/* Center — Links */}
-      <ul className="relative z-10 hidden md:flex items-center gap-10 lg:gap-14 list-none m-0 p-0">
-        {NAV_LINKS.map(({ label, href }) => (
-          <li key={label}>
-            <a
-              href={href}
-              className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1"
-            >
-              {label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      {/* Right — CTA */}
-      <div className="relative z-10 px-4 sm:px-8 md:px-12 lg:px-16 py-3 md:py-5">
-        <a
-          href="/contact"
-          className="hero-cta-nav nav-cta-star relative inline-flex items-center gap-2 font-bold text-[10px] tracking-[0.2em] uppercase no-underline px-5 py-2.5 rounded-full overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)",
-            color: "#FFF",
-            boxShadow: "0 2px 16px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.08) inset",
-            transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-          }}
-        >
-          <span className="absolute inset-0 pointer-events-none" style={{
-            background: "linear-gradient(180deg, rgba(196,162,18,0.22) 0%, transparent 48%)",
-          }} />
-          Get a Quote
-        </a>
-      </div>
-    </nav>
-  );
-}
-
-function PrimaryCTA() {
-  return (
-    <a
-      href="#contact"
-      className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
-      style={{
-        background: `linear-gradient(135deg, ${ACCENT} 0%, #D4A810 100%)`,
-        color: "#FFF",
-        boxShadow: `0 4px 24px ${ACCENT}55, 0 1px 0 rgba(255,255,255,0.25) inset, 0 -1px 0 rgba(0,0,0,0.15) inset`,
-        transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-      }}
-    >
-      <span className="absolute inset-0 pointer-events-none rounded-full" style={{
-        background: "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 55%)",
-      }} />
-      Launch Campaign
-      <span className="cta-arrow">→</span>
-    </a>
-  );
-}
-
-function SecondaryCTA() {
-  return (
-    <a
-      href="#work"
-      className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
-      style={{
-        color: "rgba(0,0,0,0.55)",
-        background: "rgba(242,240,236,0.82)",
-        border: "1px solid rgba(255,255,255,0.6)",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.75)",
-        transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease",
-      }}
-    >
-      View Work
-      <span className="cta-arrow">→</span>
-    </a>
   );
 }
 

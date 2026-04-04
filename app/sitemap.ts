@@ -2,14 +2,18 @@ import type { MetadataRoute } from "next";
 
 const BASE = "https://phantompasting.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+// Static dates — update when page content changes. Using new Date() causes
+// Googlebot to re-crawl the entire site on every request (crawl budget waste).
+const SITE_LAUNCH  = new Date("2025-10-01");
+const SERVICES_REV = new Date("2026-01-15");
+const CITY_REV     = new Date("2026-02-01");
 
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // ── Homepage ────────────────────────────────────────────────
     {
       url: BASE,
-      lastModified: now,
+      lastModified: SITE_LAUNCH,
       changeFrequency: "weekly",
       priority: 1.0,
     },
@@ -17,19 +21,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Services ────────────────────────────────────────────────
     {
       url: `${BASE}/services/wheat-pasting`,
-      lastModified: now,
+      lastModified: SERVICES_REV,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE}/services/chalk-spray-stencils`,
-      lastModified: now,
+      lastModified: SERVICES_REV,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE}/services/full-impact-campaigns`,
-      lastModified: now,
+      lastModified: SERVICES_REV,
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -37,79 +41,67 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Core pages ──────────────────────────────────────────────
     {
       url: `${BASE}/about`,
-      lastModified: now,
+      lastModified: SITE_LAUNCH,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE}/contact`,
-      lastModified: now,
+      lastModified: SITE_LAUNCH,
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${BASE}/faq`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${BASE}/gallery`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
 
-    // ── Work / Case Studies (coming soon) ──────────────────────
+    // ── Work / Case Studies ──────────────────────────────────────
     {
       url: `${BASE}/work/fashionpass-los-angeles`,
-      lastModified: now,
+      lastModified: new Date("2025-11-10"),
       changeFrequency: "never",
       priority: 0.8,
     },
     {
       url: `${BASE}/work/fifa-world-cup-atlanta`,
-      lastModified: now,
+      lastModified: new Date("2026-01-20"),
       changeFrequency: "never",
       priority: 0.8,
     },
     {
       url: `${BASE}/work/incrediwear-street-campaign`,
-      lastModified: now,
+      lastModified: new Date("2025-12-05"),
       changeFrequency: "never",
       priority: 0.8,
     },
 
-    // ── Tier 1 City Pages (coming soon) ────────────────────────
+    // ── Tier 1 City Pages ───────────────────────────────────────
     {
       url: `${BASE}/locations/los-angeles`,
-      lastModified: now,
+      lastModified: CITY_REV,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${BASE}/locations/new-york`,
-      lastModified: now,
+      lastModified: CITY_REV,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${BASE}/locations/chicago`,
-      lastModified: now,
+      lastModified: CITY_REV,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${BASE}/locations/miami`,
-      lastModified: now,
+      lastModified: CITY_REV,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${BASE}/locations/atlanta`,
-      lastModified: now,
+      lastModified: CITY_REV,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
   ];
 }
