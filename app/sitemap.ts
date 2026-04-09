@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://phantompasting.com";
+const BASE = "https://www.phantompasting.com";
 
 // Static dates — update when page content changes. Using new Date() causes
 // Googlebot to re-crawl the entire site on every request (crawl budget waste).
-const SITE_LAUNCH  = new Date("2025-10-01");
-const SERVICES_REV = new Date("2026-01-15");
-const CITY_REV     = new Date("2026-02-01");
+const SITE_LAUNCH  = new Date("2026-03-20");
+const SERVICES_REV = new Date("2026-04-01");
+const CITY_REV     = new Date("2026-04-01");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

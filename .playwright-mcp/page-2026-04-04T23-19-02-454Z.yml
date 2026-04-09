@@ -1,0 +1,5 @@
+- generic [ref=e2]:
+  - img [ref=e3]
+  - generic [ref=e4]:
+    - generic [ref=e5]: PHANTOM
+    - generic [ref=e6]: PASTING
