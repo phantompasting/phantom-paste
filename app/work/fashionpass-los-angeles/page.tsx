@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     "fashion brand street marketing",
     "Los Angeles guerrilla marketing",
   ],
-  alternates: { canonical: "https://phantompasting.com/work/fashionpass-los-angeles" },
+  alternates: { canonical: "https://www.phantompasting.com/work/fashionpass-los-angeles" },
   openGraph: {
     title: "FashionPass Wild Posting Campaign LA | Phantom Pasting",
     description: "Large-format wheat paste campaign for FashionPass across Los Angeles. Melrose, Silver Lake, DTLA.",
-    url: "https://phantompasting.com/work/fashionpass-los-angeles",
+    url: "https://www.phantompasting.com/work/fashionpass-los-angeles",
     type: "article",
-    images: [{ url: "https://phantompasting.com/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", width: 1200, height: 630, alt: "FashionPass wild posting campaign wall in Los Angeles" }],
+    images: [{ url: "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", width: 1200, height: 630, alt: "FashionPass wild posting campaign wall in Los Angeles" }],
   },
 };
 
@@ -29,9 +29,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phantompasting.com" },
-    { "@type": "ListItem", position: 2, name: "Work", item: "https://phantompasting.com/work/fashionpass-los-angeles" },
-    { "@type": "ListItem", position: 3, name: "FashionPass Los Angeles", item: "https://phantompasting.com/work/fashionpass-los-angeles" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+    { "@type": "ListItem", position: 2, name: "Work", item: "https://www.phantompasting.com/work/fashionpass-los-angeles" },
+    { "@type": "ListItem", position: 3, name: "FashionPass Los Angeles", item: "https://www.phantompasting.com/work/fashionpass-los-angeles" },
   ],
 };
 
@@ -40,18 +40,18 @@ const caseStudySchema = {
   "@type": "Article",
   headline: "FashionPass Wild Posting Campaign — Los Angeles",
   description: "Large-format wheat paste campaign for FashionPass across prime walls in Los Angeles.",
-  url: "https://phantompasting.com/work/fashionpass-los-angeles",
+  url: "https://www.phantompasting.com/work/fashionpass-los-angeles",
   datePublished: "2025-11-10",
   dateModified: "2025-11-10",
-  author: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
-  publisher: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com",
-    logo: { "@type": "ImageObject", url: "https://phantompasting.com/phantom-pasting-logo.png" } },
+  author: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
+  publisher: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com",
+    logo: { "@type": "ImageObject", url: "https://www.phantompasting.com/phantom-pasting-logo.png" } },
   image: [
-    "https://phantompasting.com/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
-    "https://phantompasting.com/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",
-    "https://phantompasting.com/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
+    "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+    "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",
+    "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
   ],
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://phantompasting.com/work/fashionpass-los-angeles" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.phantompasting.com/work/fashionpass-los-angeles" },
 };
 
 const ACCENT = "#D4A010";
@@ -230,7 +230,9 @@ export default function FashionPassCaseStudy() {
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-2">
               {[{ label: "Wheat Pasting", href: "/services/wheat-pasting" }, { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
-                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
+                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Gallery", href: "/gallery" },
+                { label: "Los Angeles", href: "/locations/los-angeles" },
+                { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
               ].map(({ label, href }) => (
                 <Link key={label} href={href} className="footer-link font-light no-underline" style={{ fontSize: "13px" }}>{label}</Link>
               ))}

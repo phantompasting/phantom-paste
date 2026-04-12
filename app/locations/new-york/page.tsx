@@ -6,11 +6,19 @@ export const metadata: Metadata = {
   description:
     "Wheat pasting and wild posting in New York City. Large-format street posters across the Lower East Side, Brooklyn, SoHo, and Williamsburg. Get a quote.",
   keywords: ["wheat pasting NYC", "wild posting New York", "NYC guerrilla marketing", "street advertising New York", "wheat paste posters Brooklyn"],
-  alternates: { canonical: "https://phantompasting.com/locations/new-york" },
+  alternates: { canonical: "https://www.phantompasting.com/locations/new-york" },
   openGraph: {
     title: "Wheat Pasting New York City | Wild Posting NYC",
     description: "Large-format wheat paste and wild posting campaigns across NYC. LES, Brooklyn, SoHo, Williamsburg.",
-    url: "https://phantompasting.com/locations/new-york",
+    url: "https://www.phantompasting.com/locations/new-york",
+    images: [
+      {
+        url: "https://www.phantompasting.com/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp",
+        width: 1200,
+        height: 630,
+        alt: "Guerrilla marketing campaign in New York City — urban street advertising",
+      },
+    ],
   },
 };
 
@@ -35,9 +43,9 @@ const data: CityPageData = {
     "@type": "LocalBusiness",
     name: "Phantom Pasting — New York City",
     description: "Wheat pasting and wild posting services in New York City. Street poster campaigns across LES, Brooklyn, SoHo, and Williamsburg.",
-    url: "https://phantompasting.com/locations/new-york",
+    url: "https://www.phantompasting.com/locations/new-york",
     areaServed: { "@type": "City", name: "New York", addressRegion: "NY" },
-    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   },
 };
 

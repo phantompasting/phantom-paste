@@ -15,13 +15,21 @@ export const metadata: Metadata = {
     "large format street advertising",
     "guerrilla marketing posters",
   ],
-  alternates: { canonical: "https://phantompasting.com/services/wheat-pasting" },
+  alternates: { canonical: "https://www.phantompasting.com/services/wheat-pasting" },
   openGraph: {
     title: "Wheat Pasting Services | Large Format Street Posters | Phantom Pasting",
     description:
       "Large-format wheat paste poster advertising on prime urban walls across 50+ US cities. Print, install, document.",
-    url: "https://phantompasting.com/services/wheat-pasting",
+    url: "https://www.phantompasting.com/services/wheat-pasting",
     type: "website",
+    images: [
+      {
+        url: "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
+        width: 1200,
+        height: 630,
+        alt: "Wheat paste poster wall campaign by Phantom Pasting",
+      },
+    ],
   },
 };
 
@@ -29,9 +37,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phantompasting.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://phantompasting.com/services/wheat-pasting" },
-    { "@type": "ListItem", position: 3, name: "Wheat Pasting", item: "https://phantompasting.com/services/wheat-pasting" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.phantompasting.com/services/wheat-pasting" },
+    { "@type": "ListItem", position: 3, name: "Wheat Pasting", item: "https://www.phantompasting.com/services/wheat-pasting" },
   ],
 };
 
@@ -42,13 +50,13 @@ const serviceSchema = {
   alternateName: "Wild Posting",
   description:
     "Large-format wheat paste poster advertising installed on prime urban walls across 50+ US cities. Includes print, installation, and photo documentation.",
-  url: "https://phantompasting.com/services/wheat-pasting",
-  provider: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+  url: "https://www.phantompasting.com/services/wheat-pasting",
+  provider: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   areaServed: "United States",
   offers: {
     "@type": "Offer",
     description: "Custom wheat pasting campaigns — print, install, and photo documentation included.",
-    url: "https://phantompasting.com/contact",
+    url: "https://www.phantompasting.com/contact",
   },
 };
 
@@ -79,6 +87,53 @@ const USE_CASES = [
   { label: "Restaurants & Bars", desc: "Grand openings, neighborhood awareness" },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is wheat pasting?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Wheat pasting is a guerrilla marketing technique where large-format paper posters are applied to urban walls, fences, and surfaces using a wheat paste adhesive. Also called wild posting, it creates high-visibility street-level advertising in areas with heavy foot traffic.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does wheat pasting cost?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Wheat pasting costs vary based on city, quantity of posters, and poster size. Campaigns are priced per location and typically include print, installation, and full photo documentation. Contact us for a custom quote.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long do wheat paste posters last?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Wheat paste posters typically last 2–4 weeks depending on weather, location, and surface conditions. High-traffic areas may have faster wear; protected wall locations can last significantly longer.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide photo documentation of every installation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — every wheat paste installation is photographed, timestamped, and delivered in a campaign report. You receive geo-tagged images for every hit, ready to use as social content.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What poster sizes do you offer for wheat pasting?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We offer wheat paste posters from 24\"×36\" up to 48\"×72\" jumbo wall takeovers, printed on 28# bond or 80# coated stock. Custom sizes are available for specific wall dimensions.",
+      },
+    },
+  ],
+};
+
 const ACCENT = "#D4A010";
 
 export default function WheatPastingPage() {
@@ -86,6 +141,7 @@ export default function WheatPastingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
@@ -294,6 +350,36 @@ export default function WheatPastingPage() {
           </div>
         </section>
 
+        {/* ── Markets We Serve ──────────────────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20">
+          <div className="max-w-[1200px] mx-auto">
+            <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.35)" }}>
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Markets We Serve
+            </span>
+            <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
+              style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}>
+              WHEAT PASTING IN EVERY MAJOR US CITY<span style={{ color: ACCENT }}>.</span>
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Los Angeles", href: "/locations/los-angeles" },
+                { label: "New York", href: "/locations/new-york" },
+                { label: "Chicago", href: "/locations/chicago" },
+                { label: "Atlanta", href: "/locations/atlanta" },
+                { label: "Miami", href: "/locations/miami" },
+              ].map(({ label, href }) => (
+                <Link key={href} href={href}
+                  className="font-mono text-[11px] tracking-[0.1em] px-4 py-2 rounded-lg no-underline"
+                  style={{ background: "rgba(255,255,255,0.45)", border: "1px solid rgba(0,0,0,0.08)", color: "rgba(0,0,0,0.65)" }}>
+                  {label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA ───────────────────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32 text-center">
           <div className="max-w-[700px] mx-auto">
@@ -331,6 +417,7 @@ export default function WheatPastingPage() {
                 { label: "Wheat Pasting", href: "/services/wheat-pasting" },
                 { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
                 { label: "Full Impact", href: "/services/full-impact-campaigns" },
+                { label: "Gallery", href: "/gallery" },
                 { label: "Contact", href: "/contact" },
                 { label: "About", href: "/about" },
               ].map(({ label, href }) => (

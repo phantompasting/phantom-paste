@@ -8,22 +8,28 @@ import { motion, AnimatePresence } from "framer-motion";
 const ACCENT = "#D4A010";
 
 const GALLERY_IMGS = [
-  { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",      label: "FashionPass — Campaign Wall",          tag: "Wheat Paste" },
-  { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",           label: "FIFA World Cup — Gallery Wall",         tag: "Wild Posting" },
-  { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", label: "FashionPass — LA Wild Posting",    tag: "Wild Posting" },
-  { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp",          label: "FIFA Atlanta — Wall Installation",      tag: "Wheat Paste" },
-  { src: "/gallery/fifa-world-cup-poster-wall-angle-view.webp",             label: "FIFA Posters — Angle View",            tag: "Wild Posting" },
-  { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",        label: "FashionPass — Wide Format Paste",       tag: "Wheat Paste" },
-  { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",        label: "FIFA Posters — Close Up",              tag: "Wild Posting" },
-  { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", label: "Incrediwear — Night Pole Wrap",         tag: "Wild Posting" },
-  { src: "/gallery/fifa-world-cup-poster-wall-street-perspective.webp",     label: "FIFA Posters — Street Perspective",    tag: "Wild Posting" },
-  { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",  label: "Calvin Priice — Chalk Stencil",         tag: "Stencil" },
-  { src: "/gallery/fifa-world-cup-poster-installation-closeup.webp",        label: "FIFA World Cup — Installation",         tag: "Wild Posting" },
-  { src: "/gallery/street-pole-sticker-campaign-urban-advertising.webp",    label: "Calvin Priice — Sticker Campaign",      tag: "Wild Posting" },
-  { src: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",  label: "FIFA — Street Gallery View",            tag: "Wild Posting" },
-  { src: "/gallery/sticker-campaign-street-intersection-urban.webp",        label: "Sticker Campaign — Intersection",       tag: "Wild Posting" },
-  { src: "/gallery/custom-stencil-template-cut-out-design.webp",            label: "Custom Stencil Template",               tag: "Stencil" },
-  { src: "/gallery/bedstuy-stencil.webp",                                   label: "Bed-Stuy — Chalk Stencil",              tag: "Stencil" },
+  { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",      label: "FashionPass — Campaign Wall",          alt: "FashionPass wheat paste campaign poster wall guerrilla marketing Los Angeles",                          tag: "Wheat Paste" },
+  { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",           label: "FIFA World Cup — Gallery Wall",        alt: "FIFA World Cup wheat paste poster wall gallery wide view Atlanta street advertising",                   tag: "Wild Posting" },
+  { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", label: "FashionPass — LA Wild Posting",    alt: "FashionPass wild posting wall Los Angeles wheat paste street marketing campaign",                       tag: "Wild Posting" },
+  { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp",          label: "FIFA Atlanta — Wall Installation",     alt: "FIFA World Cup Atlanta wall installation wheat paste posters guerrilla advertising",                    tag: "Wheat Paste" },
+  { src: "/gallery/dont-fall-off-wheat-paste-wall-closeup.webp",            label: "Don't Fall Off — Wall Close-Up",       alt: "Don't Fall Off music wheat paste poster wall close-up guerrilla advertising campaign",                  tag: "Wheat Paste" },
+  { src: "/gallery/fifa-world-cup-poster-wall-angle-view.webp",             label: "FIFA Posters — Angle View",            alt: "FIFA World Cup poster wall angle view wild posting street advertising campaign",                        tag: "Wild Posting" },
+  { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",        label: "FashionPass — Wide Format Paste",      alt: "FashionPass wide format wheat paste street art wall Los Angeles wild posting",                          tag: "Wheat Paste" },
+  { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp",          label: "Don't Fall Off — Street View LA",      alt: "Don't Fall Off wheat paste wild posting wall installation street view Los Angeles",                     tag: "Wheat Paste" },
+  { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",        label: "FIFA Posters — Close Up",              alt: "FIFA World Cup wheat paste posters close-up wild posting street campaign",                              tag: "Wild Posting" },
+  { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", label: "Incrediwear — Night Pole Wrap",        alt: "Incrediwear pole wrap guerrilla advertising at night urban street marketing",                           tag: "Wild Posting" },
+  { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",  label: "Calvin Priice — Chalk Stencil",        alt: "Calvin Priice chalk spray stencil sidewalk guerrilla marketing campaign",                              tag: "Stencil" },
+  { src: "/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp",       label: "Black Pearl LA — Chalk Stencil",       alt: "Black Pearl Los Angeles chalk spray stencil marketing on sidewalk with custom stencil template",        tag: "Stencil" },
+  { src: "/gallery/fifa-world-cup-poster-wall-street-perspective.webp",     label: "FIFA Posters — Street Perspective",    alt: "FIFA World Cup poster wall street perspective wild posting advertising campaign",                       tag: "Wild Posting" },
+  { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp",         label: "Don't Fall Off — Urban Wall",          alt: "Don't Fall Off wheat paste posters on urban wall with pink accent guerrilla marketing",                 tag: "Wheat Paste" },
+  { src: "/gallery/fifa-world-cup-poster-installation-closeup.webp",        label: "FIFA World Cup — Installation",        alt: "FIFA World Cup poster installation close-up wheat paste wild posting",                                  tag: "Wild Posting" },
+  { src: "/gallery/street-pole-sticker-campaign-urban-advertising.webp",    label: "Calvin Priice — Sticker Campaign",     alt: "Calvin Priice street pole sticker campaign urban advertising guerrilla marketing",                      tag: "Wild Posting" },
+  { src: "/gallery/black-pearl-la-stencil-template-grass.webp",             label: "Black Pearl LA — Stencil Template",    alt: "Custom chalk spray stencil template for Black Pearl Los Angeles guerrilla marketing campaign",          tag: "Stencil" },
+  { src: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",  label: "FIFA — Street Gallery View",           alt: "FIFA World Cup street gallery pedestrian viewing wheat paste wild posting",                             tag: "Wild Posting" },
+  { src: "/gallery/dont-fall-off-wheat-paste-pedestrian-street-art.webp",   label: "Don't Fall Off — Pedestrian View",     alt: "Pedestrian walking past Don't Fall Off wheat paste poster wall street art installation",                tag: "Wheat Paste" },
+  { src: "/gallery/sticker-campaign-street-intersection-urban.webp",        label: "Sticker Campaign — Intersection",      alt: "Sticker campaign street intersection urban advertising guerrilla marketing",                            tag: "Wild Posting" },
+  { src: "/gallery/custom-stencil-template-cut-out-design.webp",            label: "Custom Stencil Template",              alt: "Custom stencil template cut-out design for chalk spray guerrilla marketing campaigns",                  tag: "Stencil" },
+  { src: "/gallery/dont-fall-off-wheat-paste-building-bike-rack.webp",      label: "Don't Fall Off — Building Perspective", alt: "Don't Fall Off wheat paste campaign building wall installation street perspective with bike rack",       tag: "Wheat Paste" },
 ] as const;
 
 /* ── SVG Icons ── */
@@ -125,7 +131,7 @@ export default function GalleryPageClient() {
                   style={{ aspectRatio: i % 5 === 0 ? "3/4" : i % 3 === 0 ? "1/1" : "4/3" }}>
                   <Image
                     src={img.src}
-                    alt={img.label}
+                    alt={img.alt}
                     fill
                     loading={i < 6 ? "eager" : "lazy"}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -197,7 +203,7 @@ export default function GalleryPageClient() {
               >
                 <div className="relative w-full h-full max-w-5xl max-h-[85vh] rounded-2xl overflow-hidden"
                   style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}>
-                  <Image src={lightbox.src} alt={lightbox.label} fill sizes="100vw" className="object-contain" priority />
+                  <Image src={lightbox.src} alt={lightbox.alt} fill sizes="100vw" className="object-contain" priority />
                 </div>
                 {/* Label */}
                 <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">

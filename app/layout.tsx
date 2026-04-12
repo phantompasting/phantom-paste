@@ -35,16 +35,16 @@ export const metadata: Metadata = {
     "street level marketing",
     "wheat pasting service",
   ],
-  metadataBase: new URL("https://phantompasting.com"),
+  metadataBase: new URL("https://www.phantompasting.com"),
   alternates: {
-    canonical: "https://phantompasting.com",
+    canonical: "https://www.phantompasting.com",
   },
   openGraph: {
     title: "Wheat Pasting & Wild Posting Company | Phantom Pasting",
     description:
       "Street-level wheat paste and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% documented. Clients include FashionPass, FIFA World Cup, Incrediwear.",
     type: "website",
-    url: "https://phantompasting.com",
+    url: "https://www.phantompasting.com",
     siteName: "Phantom Pasting",
     images: [{ url: "/phantom-pasting-logo.png", width: 1200, height: 630, alt: "Phantom Pasting — Wheat Pasting & Wild Posting Company" }],
   },

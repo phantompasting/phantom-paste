@@ -6,11 +6,19 @@ export const metadata: Metadata = {
   description:
     "Wheat pasting and wild posting in Miami. Large-format street posters across Wynwood, South Beach, Brickell, and the Design District. Get a quote.",
   keywords: ["wheat pasting Miami", "wild posting Miami", "Miami guerrilla marketing", "street advertising Miami", "Wynwood wild posting"],
-  alternates: { canonical: "https://phantompasting.com/locations/miami" },
+  alternates: { canonical: "https://www.phantompasting.com/locations/miami" },
   openGraph: {
     title: "Wheat Pasting Miami | Wild Posting FL",
     description: "Large-format wheat paste and wild posting campaigns across Miami. Wynwood, South Beach, Brickell, Design District.",
-    url: "https://phantompasting.com/locations/miami",
+    url: "https://www.phantompasting.com/locations/miami",
+    images: [
+      {
+        url: "https://www.phantompasting.com/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp",
+        width: 1200,
+        height: 630,
+        alt: "Wheat paste poster wall campaign — Phantom Pasting street advertising",
+      },
+    ],
   },
 };
 
@@ -35,9 +43,9 @@ const data: CityPageData = {
     "@type": "LocalBusiness",
     name: "Phantom Pasting — Miami",
     description: "Wheat pasting and wild posting services in Miami, FL. Street poster campaigns across Wynwood, South Beach, Brickell, and the Design District.",
-    url: "https://phantompasting.com/locations/miami",
+    url: "https://www.phantompasting.com/locations/miami",
     areaServed: { "@type": "City", name: "Miami", addressRegion: "FL" },
-    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   },
 };
 

@@ -6,11 +6,19 @@ export const metadata: Metadata = {
   description:
     "Wheat pasting and wild posting in Atlanta. Large-format street posters across Midtown, Little Five Points, Buckhead, and East Atlanta. Get a quote.",
   keywords: ["wheat pasting Atlanta", "wild posting Atlanta", "Atlanta guerrilla marketing", "street advertising Atlanta", "wheat paste posters GA"],
-  alternates: { canonical: "https://phantompasting.com/locations/atlanta" },
+  alternates: { canonical: "https://www.phantompasting.com/locations/atlanta" },
   openGraph: {
     title: "Wheat Pasting Atlanta | Wild Posting GA",
     description: "Large-format wheat paste and wild posting campaigns across Atlanta. Midtown, Little Five Points, Buckhead.",
-    url: "https://phantompasting.com/locations/atlanta",
+    url: "https://www.phantompasting.com/locations/atlanta",
+    images: [
+      {
+        url: "https://www.phantompasting.com/gallery/fifa-world-cup-atlanta-wall-installation.webp",
+        width: 1200,
+        height: 630,
+        alt: "Wheat paste wall installation in Atlanta — FIFA World Cup campaign",
+      },
+    ],
   },
 };
 
@@ -35,9 +43,9 @@ const data: CityPageData = {
     "@type": "LocalBusiness",
     name: "Phantom Pasting — Atlanta",
     description: "Wheat pasting and wild posting services in Atlanta, GA. Street poster campaigns across Midtown, Little Five Points, Buckhead, and East Atlanta.",
-    url: "https://phantompasting.com/locations/atlanta",
+    url: "https://www.phantompasting.com/locations/atlanta",
     areaServed: { "@type": "City", name: "Atlanta", addressRegion: "GA" },
-    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   },
 };
 

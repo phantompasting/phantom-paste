@@ -17,20 +17,29 @@ export const metadata: Metadata = {
     "founded 2014",
     "US street advertising agency",
   ],
-  alternates: { canonical: "https://phantompasting.com/about" },
+  alternates: { canonical: "https://www.phantompasting.com/about" },
   openGraph: {
     title: "About Phantom Pasting | 10+ Years Street Marketing",
     description: "Founded in 2014. 500+ campaigns. 50+ US cities. The street marketing agency that builds culture at the ground level.",
-    url: "https://phantompasting.com/about",
+    url: "https://www.phantompasting.com/about",
     type: "website",
   },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://www.phantompasting.com/about" },
+  ],
 };
 
 const aboutSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "ProfessionalService"],
   name: "Phantom Pasting",
-  url: "https://phantompasting.com",
+  url: "https://www.phantompasting.com",
   description: "Guerrilla marketing agency specializing in wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities. Founded 2014.",
   foundingDate: "2014",
   areaServed: "United States",
@@ -49,6 +58,7 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>

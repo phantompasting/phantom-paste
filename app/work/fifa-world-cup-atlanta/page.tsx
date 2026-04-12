@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     "sports event guerrilla marketing",
     "Atlanta street advertising",
   ],
-  alternates: { canonical: "https://phantompasting.com/work/fifa-world-cup-atlanta" },
+  alternates: { canonical: "https://www.phantompasting.com/work/fifa-world-cup-atlanta" },
   openGraph: {
     title: "FIFA World Cup Street Campaign Atlanta | Phantom Pasting",
     description: "Large-format wheat paste campaign for FIFA World Cup across Atlanta. Midtown, Little Five Points, Buckhead.",
-    url: "https://phantompasting.com/work/fifa-world-cup-atlanta",
+    url: "https://www.phantompasting.com/work/fifa-world-cup-atlanta",
     type: "article",
-    images: [{ url: "https://phantompasting.com/gallery/fifa-world-cup-atlanta-wall-installation.webp", width: 1200, height: 630, alt: "FIFA World Cup poster wall installation in Atlanta" }],
+    images: [{ url: "https://www.phantompasting.com/gallery/fifa-world-cup-atlanta-wall-installation.webp", width: 1200, height: 630, alt: "FIFA World Cup poster wall installation in Atlanta" }],
   },
 };
 
@@ -29,9 +29,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phantompasting.com" },
-    { "@type": "ListItem", position: 2, name: "Work", item: "https://phantompasting.com/work/fifa-world-cup-atlanta" },
-    { "@type": "ListItem", position: 3, name: "FIFA World Cup Atlanta", item: "https://phantompasting.com/work/fifa-world-cup-atlanta" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+    { "@type": "ListItem", position: 2, name: "Work", item: "https://www.phantompasting.com/work/fifa-world-cup-atlanta" },
+    { "@type": "ListItem", position: 3, name: "FIFA World Cup Atlanta", item: "https://www.phantompasting.com/work/fifa-world-cup-atlanta" },
   ],
 };
 
@@ -40,24 +40,24 @@ const caseStudySchema = {
   "@type": "Article",
   headline: "FIFA World Cup Street Campaign — Atlanta",
   description: "Large-format wheat paste and wild posting campaign for FIFA World Cup across prime walls in Atlanta.",
-  url: "https://phantompasting.com/work/fifa-world-cup-atlanta",
+  url: "https://www.phantompasting.com/work/fifa-world-cup-atlanta",
   datePublished: "2026-01-20",
   dateModified: "2026-01-20",
-  author: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+  author: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   publisher: {
     "@type": "Organization",
     name: "Phantom Pasting",
-    url: "https://phantompasting.com",
-    logo: { "@type": "ImageObject", url: "https://phantompasting.com/phantom-pasting-logo.png" },
+    url: "https://www.phantompasting.com",
+    logo: { "@type": "ImageObject", url: "https://www.phantompasting.com/phantom-pasting-logo.png" },
   },
   image: [
-    "https://phantompasting.com/gallery/fifa-world-cup-atlanta-wall-installation.webp",
-    "https://phantompasting.com/gallery/fifa-world-cup-poster-wall-angle-view.webp",
-    "https://phantompasting.com/gallery/fifa-world-cup-poster-wall-street-perspective.webp",
-    "https://phantompasting.com/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",
-    "https://phantompasting.com/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
+    "https://www.phantompasting.com/gallery/fifa-world-cup-atlanta-wall-installation.webp",
+    "https://www.phantompasting.com/gallery/fifa-world-cup-poster-wall-angle-view.webp",
+    "https://www.phantompasting.com/gallery/fifa-world-cup-poster-wall-street-perspective.webp",
+    "https://www.phantompasting.com/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",
+    "https://www.phantompasting.com/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
   ],
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://phantompasting.com/work/fifa-world-cup-atlanta" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.phantompasting.com/work/fifa-world-cup-atlanta" },
 };
 
 const ACCENT = "#D4A010";
@@ -240,7 +240,9 @@ export default function FIFACaseStudy() {
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-2">
               {[{ label: "Wheat Pasting", href: "/services/wheat-pasting" }, { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
-                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
+                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Gallery", href: "/gallery" },
+                { label: "Atlanta", href: "/locations/atlanta" },
+                { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
               ].map(({ label, href }) => (
                 <Link key={label} href={href} className="footer-link font-light no-underline" style={{ fontSize: "13px" }}>{label}</Link>
               ))}

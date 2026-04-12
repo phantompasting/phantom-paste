@@ -15,13 +15,21 @@ export const metadata: Metadata = {
     "street advertising campaign",
     "multi-format street campaign",
   ],
-  alternates: { canonical: "https://phantompasting.com/services/full-impact-campaigns" },
+  alternates: { canonical: "https://www.phantompasting.com/services/full-impact-campaigns" },
   openGraph: {
     title: "Full Guerrilla Marketing Campaigns | Phantom Pasting",
     description:
       "End-to-end guerrilla marketing combining wheat pasting, wild posting, and chalk stencils. Total street domination.",
-    url: "https://phantompasting.com/services/full-impact-campaigns",
+    url: "https://www.phantompasting.com/services/full-impact-campaigns",
     type: "website",
+    images: [
+      {
+        url: "https://www.phantompasting.com/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
+        width: 1200,
+        height: 630,
+        alt: "Full impact guerrilla marketing campaign — FIFA World Cup wall installation",
+      },
+    ],
   },
 };
 
@@ -29,9 +37,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phantompasting.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://phantompasting.com/services/full-impact-campaigns" },
-    { "@type": "ListItem", position: 3, name: "Full Impact Campaigns", item: "https://phantompasting.com/services/full-impact-campaigns" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.phantompasting.com/services/full-impact-campaigns" },
+    { "@type": "ListItem", position: 3, name: "Full Impact Campaigns", item: "https://www.phantompasting.com/services/full-impact-campaigns" },
   ],
 };
 
@@ -41,13 +49,13 @@ const serviceSchema = {
   name: "Full Impact Street Campaigns",
   description:
     "End-to-end guerrilla marketing campaigns combining wheat pasting, wild posting, and chalk spray stencil activations across 50+ US cities.",
-  url: "https://phantompasting.com/services/full-impact-campaigns",
-  provider: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+  url: "https://www.phantompasting.com/services/full-impact-campaigns",
+  provider: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   areaServed: "United States",
   offers: {
     "@type": "Offer",
     description: "Custom full-impact street campaigns — strategy, print, install, and documentation.",
-    url: "https://phantompasting.com/contact",
+    url: "https://www.phantompasting.com/contact",
   },
 };
 
@@ -83,6 +91,53 @@ const INCLUDED = [
   "Campaign report + social-ready assets",
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is included in a full impact guerrilla marketing campaign?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A full impact campaign combines wheat paste posters (24\"×36\" to 48\"×72\"), chalk spray stencil sidewalk activations, neighborhood and wall scouting, multi-city simultaneous deployment, timestamped photo documentation, and a complete campaign report with social-ready assets.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can you run guerrilla marketing campaigns in multiple cities at the same time?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — Phantom Pasting has local crews in 50+ US cities and can deploy simultaneous multi-city campaigns. We coordinate all crews centrally so every market activates on the same day.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between wheat pasting and wild posting?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Wheat pasting uses a water-based paste adhesive to affix paper posters to walls. Wild posting is a broader term that can include both paste-applied and adhesive-backed posters on legal posting surfaces. Phantom Pasting uses both techniques depending on the location and surface.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How far in advance do I need to book a campaign?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Single-city campaigns typically need 1–2 weeks lead time from artwork approval to installation. Multi-city or large-scale campaigns require 2–4 weeks. Rush campaigns may be possible depending on availability — contact us to discuss your timeline.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I get a quote for a guerrilla marketing campaign?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Use the quote form on our contact page. Tell us your target city or cities, campaign budget, preferred format (wheat pasting, chalk stencils, or both), and your timeline. We respond within 24 hours.",
+      },
+    },
+  ],
+};
+
 const ACCENT = "#D4A010";
 
 export default function FullImpactCampaignsPage() {
@@ -90,6 +145,7 @@ export default function FullImpactCampaignsPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
@@ -262,6 +318,36 @@ export default function FullImpactCampaignsPage() {
           </div>
         </section>
 
+        {/* ── Markets We Serve ──────────────────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20">
+          <div className="max-w-[1200px] mx-auto">
+            <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.35)" }}>
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Markets We Serve
+            </span>
+            <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
+              style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}>
+              FULL IMPACT CAMPAIGNS ACROSS THE US<span style={{ color: ACCENT }}>.</span>
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Los Angeles", href: "/locations/los-angeles" },
+                { label: "New York", href: "/locations/new-york" },
+                { label: "Chicago", href: "/locations/chicago" },
+                { label: "Atlanta", href: "/locations/atlanta" },
+                { label: "Miami", href: "/locations/miami" },
+              ].map(({ label, href }) => (
+                <Link key={href} href={href}
+                  className="font-mono text-[11px] tracking-[0.1em] px-4 py-2 rounded-lg no-underline"
+                  style={{ background: "rgba(255,255,255,0.45)", border: "1px solid rgba(0,0,0,0.08)", color: "rgba(0,0,0,0.65)" }}>
+                  {label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA ───────────────────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32 text-center">
           <div className="max-w-[700px] mx-auto">
@@ -299,6 +385,7 @@ export default function FullImpactCampaignsPage() {
                 { label: "Wheat Pasting", href: "/services/wheat-pasting" },
                 { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
                 { label: "Full Impact", href: "/services/full-impact-campaigns" },
+                { label: "Gallery", href: "/gallery" },
                 { label: "Contact", href: "/contact" },
                 { label: "About", href: "/about" },
               ].map(({ label, href }) => (

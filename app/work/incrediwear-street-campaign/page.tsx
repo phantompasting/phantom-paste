@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     "street advertising night",
     "guerrilla marketing campaign",
   ],
-  alternates: { canonical: "https://phantompasting.com/work/incrediwear-street-campaign" },
+  alternates: { canonical: "https://www.phantompasting.com/work/incrediwear-street-campaign" },
   openGraph: {
     title: "Incrediwear Guerrilla Marketing | Phantom Pasting",
     description: "Incrediwear street campaign — pole wraps, stickers, and nighttime urban advertising.",
-    url: "https://phantompasting.com/work/incrediwear-street-campaign",
+    url: "https://www.phantompasting.com/work/incrediwear-street-campaign",
     type: "article",
-    images: [{ url: "https://phantompasting.com/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", width: 1200, height: 630, alt: "Incrediwear pole wrap guerrilla advertising at night" }],
+    images: [{ url: "https://www.phantompasting.com/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", width: 1200, height: 630, alt: "Incrediwear pole wrap guerrilla advertising at night" }],
   },
 };
 
@@ -29,9 +29,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phantompasting.com" },
-    { "@type": "ListItem", position: 2, name: "Work", item: "https://phantompasting.com/work/incrediwear-street-campaign" },
-    { "@type": "ListItem", position: 3, name: "Incrediwear Street Campaign", item: "https://phantompasting.com/work/incrediwear-street-campaign" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+    { "@type": "ListItem", position: 2, name: "Work", item: "https://www.phantompasting.com/work/incrediwear-street-campaign" },
+    { "@type": "ListItem", position: 3, name: "Incrediwear Street Campaign", item: "https://www.phantompasting.com/work/incrediwear-street-campaign" },
   ],
 };
 
@@ -40,22 +40,22 @@ const caseStudySchema = {
   "@type": "Article",
   headline: "Incrediwear Guerrilla Marketing Street Campaign",
   description: "Multi-format guerrilla marketing campaign for Incrediwear featuring pole wraps and urban sticker campaigns.",
-  url: "https://phantompasting.com/work/incrediwear-street-campaign",
+  url: "https://www.phantompasting.com/work/incrediwear-street-campaign",
   datePublished: "2025-12-05",
   dateModified: "2025-12-05",
-  author: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+  author: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   publisher: {
     "@type": "Organization",
     name: "Phantom Pasting",
-    url: "https://phantompasting.com",
-    logo: { "@type": "ImageObject", url: "https://phantompasting.com/phantom-pasting-logo.png" },
+    url: "https://www.phantompasting.com",
+    logo: { "@type": "ImageObject", url: "https://www.phantompasting.com/phantom-pasting-logo.png" },
   },
   image: [
-    "https://phantompasting.com/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp",
-    "https://phantompasting.com/gallery/street-pole-sticker-campaign-urban-advertising.webp",
-    "https://phantompasting.com/gallery/sticker-campaign-street-intersection-urban.webp",
+    "https://www.phantompasting.com/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp",
+    "https://www.phantompasting.com/gallery/street-pole-sticker-campaign-urban-advertising.webp",
+    "https://www.phantompasting.com/gallery/sticker-campaign-street-intersection-urban.webp",
   ],
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://phantompasting.com/work/incrediwear-street-campaign" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.phantompasting.com/work/incrediwear-street-campaign" },
 };
 
 const ACCENT = "#D4A010";
@@ -234,7 +234,9 @@ export default function IncrediwearCaseStudy() {
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-2">
               {[{ label: "Wheat Pasting", href: "/services/wheat-pasting" }, { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
-                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
+                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Gallery", href: "/gallery" },
+                { label: "New York", href: "/locations/new-york" }, { label: "Los Angeles", href: "/locations/los-angeles" },
+                { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
               ].map(({ label, href }) => (
                 <Link key={label} href={href} className="footer-link font-light no-underline" style={{ fontSize: "13px" }}>{label}</Link>
               ))}

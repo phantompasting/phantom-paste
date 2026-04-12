@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     "street marketing contact",
     "get a quote guerrilla marketing",
   ],
-  alternates: { canonical: "https://phantompasting.com/contact" },
+  alternates: { canonical: "https://www.phantompasting.com/contact" },
   openGraph: {
     title: "Hire a Wheat Pasting Company | Get a Quote | Phantom Pasting",
     description:
       "Launch a wheat pasting or guerrilla marketing campaign. Custom quote within 24 hours. 50+ US cities.",
-    url: "https://phantompasting.com/contact",
+    url: "https://www.phantompasting.com/contact",
     type: "website",
   },
 };
@@ -30,12 +30,12 @@ const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact Phantom Pasting",
-  url: "https://phantompasting.com/contact",
+  url: "https://www.phantompasting.com/contact",
   description: "Get a custom quote for wheat pasting, chalk spray stencils, or full guerrilla marketing campaigns.",
   mainEntity: {
     "@type": "Organization",
     name: "Phantom Pasting",
-    url: "https://phantompasting.com",
+    url: "https://www.phantompasting.com",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",

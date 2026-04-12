@@ -52,6 +52,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
+    // ── Gallery ─────────────────────────────────────────────────
+    {
+      url: `${BASE}/gallery`,
+      lastModified: new Date("2026-04-11"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+
     // ── Work / Case Studies ──────────────────────────────────────
     {
       url: `${BASE}/work/fashionpass-los-angeles`,

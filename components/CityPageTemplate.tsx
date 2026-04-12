@@ -25,9 +25,9 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://phantompasting.com" },
-      { "@type": "ListItem", position: 2, name: "Locations", item: "https://phantompasting.com/locations/" + data.slug },
-      { "@type": "ListItem", position: 3, name: data.city, item: "https://phantompasting.com/locations/" + data.slug },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.phantompasting.com/locations/" + data.slug },
+      { "@type": "ListItem", position: 3, name: data.city, item: "https://www.phantompasting.com/locations/" + data.slug },
     ],
   };
 
@@ -49,10 +49,58 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Do you do wheat pasting in ${data.city}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes — Phantom Pasting has local crews in ${data.city} and can deploy wheat paste poster campaigns across the city's highest-traffic neighborhoods. We handle print, installation, and full photo documentation.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `How much does wheat pasting in ${data.city} cost?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Wheat pasting costs in ${data.city} vary based on the number of posters, poster size, and target neighborhoods. Contact us for a custom quote — we respond within 24 hours.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `How quickly can you launch a wheat pasting campaign in ${data.city}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Most campaigns in ${data.city} can be installed within 1–2 weeks of artwork approval. Rush timelines may be available — reach out to discuss your schedule.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Do you photograph every wheat paste installation in ${data.city}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes — every hit in ${data.city} is photographed, timestamped, and delivered in a campaign report. You receive geo-tagged images for every location, ready to use as social content.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `What neighborhoods do you cover for wheat pasting in ${data.city}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `In ${data.city}, we target the highest foot-traffic neighborhoods including ${data.neighborhoods.slice(0, 3).map((n) => n.name).join(", ")}, and more. Our local crews know the best walls and intersections in each area.`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
@@ -92,7 +140,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                 Get a {data.city} Quote
                 <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
               </Link>
-              <Link href="/"
+              <Link href="/gallery"
                 className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
                 style={{ color: "rgba(0,0,0,0.72)", background: "rgba(255,255,255,0.9)",
                   border: "1px solid rgba(0,0,0,0.14)", boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
@@ -260,7 +308,8 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-2">
               {[{ label: "Wheat Pasting", href: "/services/wheat-pasting" }, { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
-                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
+                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Gallery", href: "/gallery" },
+                { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
               ].map(({ label, href }) => (
                 <Link key={label} href={href} className="footer-link font-light no-underline" style={{ fontSize: "13px" }}>{label}</Link>
               ))}

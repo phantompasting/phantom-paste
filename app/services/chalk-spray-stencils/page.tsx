@@ -15,13 +15,21 @@ export const metadata: Metadata = {
     "street level marketing",
     "chalk spray marketing",
   ],
-  alternates: { canonical: "https://phantompasting.com/services/chalk-spray-stencils" },
+  alternates: { canonical: "https://www.phantompasting.com/services/chalk-spray-stencils" },
   openGraph: {
     title: "Chalk Spray Stencil Advertising | Phantom Pasting",
     description:
       "Precision chalk spray stencil activations at street level. Temporary, bold, 100% documented.",
-    url: "https://phantompasting.com/services/chalk-spray-stencils",
+    url: "https://www.phantompasting.com/services/chalk-spray-stencils",
     type: "website",
+    images: [
+      {
+        url: "https://www.phantompasting.com/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp",
+        width: 1200,
+        height: 630,
+        alt: "Chalk spray stencil sidewalk advertising by Phantom Pasting",
+      },
+    ],
   },
 };
 
@@ -29,9 +37,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phantompasting.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://phantompasting.com/services/chalk-spray-stencils" },
-    { "@type": "ListItem", position: 3, name: "Chalk Spray Stencils", item: "https://phantompasting.com/services/chalk-spray-stencils" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.phantompasting.com/services/chalk-spray-stencils" },
+    { "@type": "ListItem", position: 3, name: "Chalk Spray Stencils", item: "https://www.phantompasting.com/services/chalk-spray-stencils" },
   ],
 };
 
@@ -42,13 +50,13 @@ const serviceSchema = {
   alternateName: "Chalk Stencil Advertising",
   description:
     "Precision chalk spray stencil activations at sidewalk level. Water-based, temporary, and 100% photo documented. Available in 50+ US cities.",
-  url: "https://phantompasting.com/services/chalk-spray-stencils",
-  provider: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+  url: "https://www.phantompasting.com/services/chalk-spray-stencils",
+  provider: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   areaServed: "United States",
   offers: {
     "@type": "Offer",
     description: "Custom chalk spray stencil campaigns — design, install, and documentation included.",
-    url: "https://phantompasting.com/contact",
+    url: "https://www.phantompasting.com/contact",
   },
 };
 
@@ -70,6 +78,53 @@ const STEPS = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is chalk spray stencil advertising?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Chalk spray stencil advertising is a temporary street-level marketing technique where water-based chalk spray paint is applied through custom-cut stencils onto sidewalks, plazas, and paved surfaces. It creates bold, high-visibility impressions that naturally fade within days.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is chalk spray stencil advertising legal?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Chalk spray stencils use water-based, non-permanent chalk that washes away naturally with rain and foot traffic. Unlike paint, chalk stencils are temporary and do not damage surfaces, making them a widely accepted form of street-level marketing in most US cities.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does chalk stencil advertising last?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Chalk spray stencil installations typically last 3–10 days depending on weather, surface type, and foot traffic. Rain and heavy pedestrian activity will accelerate fading. Indoor venues and covered areas can last significantly longer.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What sizes are available for chalk stencil campaigns?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We offer chalk stencil installations from compact 6\"×12\" logos up to large 48\"×48\" floor activations. Custom stencil templates are precision-cut from your artwork and can be reused across multiple locations.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you handle the stencil design and cutting?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — we precision-cut custom stencil templates from your provided artwork or can work with our team to develop a design. Templates are reusable across all installation locations in your campaign.",
+      },
+    },
+  ],
+};
+
 const ACCENT = "#D4A010";
 
 export default function ChalkSprayStencilsPage() {
@@ -77,6 +132,7 @@ export default function ChalkSprayStencilsPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
@@ -258,6 +314,36 @@ export default function ChalkSprayStencilsPage() {
           </div>
         </section>
 
+        {/* ── Markets We Serve ──────────────────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20">
+          <div className="max-w-[1200px] mx-auto">
+            <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.35)" }}>
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Markets We Serve
+            </span>
+            <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
+              style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}>
+              CHALK STENCILS IN EVERY MAJOR US CITY<span style={{ color: ACCENT }}>.</span>
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Los Angeles", href: "/locations/los-angeles" },
+                { label: "New York", href: "/locations/new-york" },
+                { label: "Chicago", href: "/locations/chicago" },
+                { label: "Atlanta", href: "/locations/atlanta" },
+                { label: "Miami", href: "/locations/miami" },
+              ].map(({ label, href }) => (
+                <Link key={href} href={href}
+                  className="font-mono text-[11px] tracking-[0.1em] px-4 py-2 rounded-lg no-underline"
+                  style={{ background: "rgba(255,255,255,0.45)", border: "1px solid rgba(0,0,0,0.08)", color: "rgba(0,0,0,0.65)" }}>
+                  {label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA ───────────────────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32 text-center">
           <div className="max-w-[700px] mx-auto">
@@ -295,6 +381,7 @@ export default function ChalkSprayStencilsPage() {
                 { label: "Wheat Pasting", href: "/services/wheat-pasting" },
                 { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
                 { label: "Full Impact", href: "/services/full-impact-campaigns" },
+                { label: "Gallery", href: "/gallery" },
                 { label: "Contact", href: "/contact" },
                 { label: "About", href: "/about" },
               ].map(({ label, href }) => (

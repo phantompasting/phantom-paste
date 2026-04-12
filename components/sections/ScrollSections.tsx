@@ -549,9 +549,9 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
           initial={{ x: 120, opacity: 0 }} animate={inView ? { x: 0, opacity: 1 } : {}}
           transition={{ ...SNAP, delay: 0.1 }}>
           <Image src={svc.img} alt={svc.name} loading="lazy"
-            fill sizes="50vw" className="object-cover brightness-75" />
+            fill sizes="50vw" className="object-cover brightness-90" />
           <div className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 60%, transparent 100%)" }} />
+            style={{ background: "linear-gradient(to right, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.06) 55%, transparent 100%)" }} />
           <div className="absolute bottom-8 right-8 font-black leading-none"
             style={{ fontSize: "clamp(80px, 10vw, 140px)", color: "rgba(0,0,0,0.06)", letterSpacing: "-0.04em" }}>
             {svc.num}
@@ -1350,6 +1350,7 @@ const FOOTER_LINKS = {
   ],
   Company: [
     { label: "About", href: "/about" },
+    { label: "Gallery", href: "/gallery" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

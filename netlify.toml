@@ -1,0 +1,7 @@
+# Phantom Pasting — Netlify configuration
+# Non-www → www permanent redirect (enforces canonical domain)
+[[redirects]]
+  from = "https://phantompasting.com/*"
+  to   = "https://www.phantompasting.com/:splat"
+  status = 301
+  force  = true

@@ -6,11 +6,19 @@ export const metadata: Metadata = {
   description:
     "Wheat pasting and wild posting in Chicago. Large-format street posters across Wicker Park, Wrigleyville, Logan Square, and the Loop. Get a quote.",
   keywords: ["wheat pasting Chicago", "wild posting Chicago", "Chicago guerrilla marketing", "street advertising Chicago", "wheat paste posters IL"],
-  alternates: { canonical: "https://phantompasting.com/locations/chicago" },
+  alternates: { canonical: "https://www.phantompasting.com/locations/chicago" },
   openGraph: {
     title: "Wheat Pasting Chicago | Wild Posting IL",
     description: "Large-format wheat paste and wild posting campaigns across Chicago. Wicker Park, Logan Square, Wrigleyville.",
-    url: "https://phantompasting.com/locations/chicago",
+    url: "https://www.phantompasting.com/locations/chicago",
+    images: [
+      {
+        url: "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
+        width: 1200,
+        height: 630,
+        alt: "Wheat paste poster wall campaign — Phantom Pasting street advertising",
+      },
+    ],
   },
 };
 
@@ -35,9 +43,9 @@ const data: CityPageData = {
     "@type": "LocalBusiness",
     name: "Phantom Pasting — Chicago",
     description: "Wheat pasting and wild posting services in Chicago, IL. Street poster campaigns across Wicker Park, Logan Square, Wrigleyville, and the Loop.",
-    url: "https://phantompasting.com/locations/chicago",
+    url: "https://www.phantompasting.com/locations/chicago",
     areaServed: { "@type": "City", name: "Chicago", addressRegion: "IL" },
-    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://phantompasting.com" },
+    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   },
 };
 
