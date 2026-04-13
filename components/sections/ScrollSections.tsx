@@ -17,9 +17,9 @@ import {
   type Variants,
 } from "framer-motion";
 import ShinyGoldText from "@/components/ShinyGoldText";
-
 import GlassSurface from "@/components/GlassSurface";
 import SpotlightCard from "@/components/SpotlightCard";
+import { GALLERY_IMGS } from "@/lib/gallery-data";
 
 const SNAP      = { type: "spring", stiffness: 140, damping: 22 } as const;
 const SNAP_HARD = { type: "spring", stiffness: 180, damping: 26 } as const;
@@ -684,21 +684,6 @@ function WhySection() {
 /* ═══════════════════════════════════════════════════════════════
    5. GALLERY
 ═══════════════════════════════════════════════════════════════ */
-const GALLERY_IMGS = [
-  { src: "/gallery/fifa-world-cup-poster-wall-angle-view.webp",             label: "FIFA Posters — Angle View" },
-  { src: "/gallery/fifa-world-cup-poster-wall-street-perspective.webp",     label: "FIFA Posters — Street Perspective" },
-  { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp",          label: "FIFA Atlanta — Wall Installation" },
-  { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",        label: "FashionPass — Wide Format Paste" },
-  { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",        label: "FIFA Posters — Close Up" },
-  { src: "/gallery/fifa-world-cup-poster-installation-closeup.webp",        label: "FIFA World Cup — Installation" },
-  { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",           label: "FIFA World Cup — Gallery Wall" },
-  { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", label: "Incrediwear — Night Pole Wrap" },
-  { src: "/gallery/street-pole-sticker-campaign-urban-advertising.webp",    label: "Calvin Priice — Sticker Campaign" },
-  { src: "/gallery/sticker-campaign-street-intersection-urban.webp",        label: "Sticker Campaign — Intersection" },
-  { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", label: "FashionPass — LA Wild Posting Wall" },
-  { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",  label: "Calvin Priice — Chalk Stencil" },
-  { src: "/gallery/custom-stencil-template-cut-out-design.webp",            label: "Custom Stencil Template" },
-] as const;
 
 function GallerySection() {
   const ref = useRef(null);
