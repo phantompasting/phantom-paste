@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import ShinyGoldText from "@/components/ShinyGoldText";
@@ -150,67 +151,127 @@ export default function FullImpactCampaignsPage() {
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
 
-        {/* ── Hero ──────────────────────────────────────────────── */}
-        <section className="relative px-5 sm:px-8 md:px-12 lg:px-16 pt-16 pb-16 md:pt-24 md:pb-20 overflow-hidden">
-          <span aria-hidden className="absolute inset-x-0 top-4 text-center font-black uppercase pointer-events-none select-none"
-            style={{ fontSize: "clamp(70px, 14vw, 220px)", letterSpacing: "-0.05em", color: "rgba(212,160,16,0.05)", lineHeight: 1 }}>
-            FULL IMPACT
-          </span>
-          <div className="relative z-10 max-w-[900px]">
-            <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
-              style={{ color: "rgba(0,0,0,0.4)" }}>
-              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-              Full Impact Campaigns
-            </span>
-            <h1 className="font-black uppercase m-0 leading-[0.88]"
-              style={{ fontSize: "clamp(48px, 8vw, 110px)", letterSpacing: "-0.04em" }}>
-              TOTAL<br /><ShinyGoldText>STREET OWNERSHIP.</ShinyGoldText>
-            </h1>
-            <p className="font-light leading-relaxed mt-8 mb-10 max-w-[560px]"
-              style={{ fontSize: "clamp(15px, 1.6vw, 18px)", color: "rgba(0,0,0,0.5)" }}>
-              When you need to own a city, Full Impact combines wheat pasting, chalk stencils,
-              and strategic multi-format deployment for total street presence. One team. One plan.
-              Every corner.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact"
-                className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)", color: "#FFF",
-                  boxShadow: "0 4px 28px rgba(0,0,0,0.42), 0 1px 0 rgba(255,255,255,0.08) inset" }}>
-                <span className="absolute inset-0 pointer-events-none rounded-full"
-                  style={{ background: "linear-gradient(180deg, rgba(196,162,18,0.28) 0%, transparent 48%)" }} />
-                Plan My Campaign <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
-              </Link>
-              <Link href="/"
-                className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
-                style={{ color: "rgba(0,0,0,0.72)", background: "rgba(255,255,255,0.9)",
-                  border: "1px solid rgba(0,0,0,0.14)", boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
-                See Our Work <span className="cta-arrow">→</span>
-              </Link>
+        {/* ── Hero (split-screen) ───────────────────────────────── */}
+        <section className="relative overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] lg:min-h-[660px] items-center">
+
+              {/* LEFT — text + stats */}
+              <div className="relative z-10 flex flex-col justify-center py-16 md:py-20 lg:py-24 lg:pr-16">
+                <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
+                  style={{ color: "rgba(0,0,0,0.4)" }}>
+                  <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                  Full Impact Campaigns
+                </span>
+                <h1 className="font-black uppercase m-0 leading-[0.88]"
+                  style={{ fontSize: "clamp(48px, 7vw, 100px)", letterSpacing: "-0.04em" }}>
+                  TOTAL<br /><ShinyGoldText>STREET OWNERSHIP.</ShinyGoldText>
+                </h1>
+                <p className="font-light leading-relaxed mt-8 mb-10"
+                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "500px" }}>
+                  When you need to own a city, Full Impact combines wheat pasting, chalk stencils,
+                  and strategic multi-format deployment for total street presence. One team. One plan.
+                  Every corner.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/contact"
+                    className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
+                    style={{ background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)", color: "#FFF",
+                      boxShadow: "0 4px 28px rgba(0,0,0,0.42), 0 1px 0 rgba(255,255,255,0.08) inset" }}>
+                    <span className="absolute inset-0 pointer-events-none rounded-full"
+                      style={{ background: "linear-gradient(180deg, rgba(196,162,18,0.28) 0%, transparent 48%)" }} />
+                    Plan My Campaign <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
+                  </Link>
+                  <Link href="/gallery"
+                    className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
+                    style={{ color: "rgba(0,0,0,0.72)", background: "rgba(255,255,255,0.9)",
+                      border: "1px solid rgba(0,0,0,0.14)", boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+                    See Our Work <span className="cta-arrow">→</span>
+                  </Link>
+                </div>
+
+                {/* Stats row */}
+                <div className="flex flex-wrap gap-10 md:gap-16 mt-12 pt-10"
+                  style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+                  {[
+                    { stat: "500+", label: "Campaigns" },
+                    { stat: "50+",  label: "US Cities" },
+                    { stat: "10+",  label: "Years Experience" },
+                  ].map(({ stat, label }) => (
+                    <div key={label}>
+                      <div className="font-black uppercase leading-none"
+                        style={{ fontSize: "clamp(28px, 3.5vw, 48px)", letterSpacing: "-0.04em", color: ACCENT }}>
+                        {stat}
+                      </div>
+                      <div className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1.5" style={{ color: "rgba(0,0,0,0.4)" }}>
+                        {label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT — image composition (desktop only) */}
+              <div className="relative hidden lg:block h-[660px] overflow-hidden">
+                {/* Ghost background label */}
+                <span aria-hidden className="absolute right-0 top-1/2 font-black uppercase pointer-events-none select-none"
+                  style={{ fontSize: "clamp(80px, 12vw, 180px)", letterSpacing: "-0.06em",
+                    color: "rgba(212,160,16,0.05)", lineHeight: 1,
+                    writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}>
+                  IMPACT
+                </span>
+
+                {/* Primary image */}
+                <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
+                  style={{ width: "82%", height: "62%",
+                    transform: "rotate(1.2deg)",
+                    boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
+                  <Image
+                    src="/gallery/sticker-campaign-street-intersection-urban.webp"
+                    alt="Full impact multi-format street campaign"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="40vw"
+                    priority
+                  />
+                </div>
+
+                {/* Secondary image */}
+                <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
+                  style={{ width: "50%", height: "44%",
+                    transform: "rotate(-2.2deg)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                  <Image
+                    src="/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp"
+                    alt="Guerrilla advertising pole wrap at night"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="25vw"
+                  />
+                </div>
+
+                {/* Gold accent line */}
+                <div aria-hidden className="absolute pointer-events-none"
+                  style={{ top: "30%", left: "32%", width: "1px", height: "28%",
+                    background: "linear-gradient(to bottom, transparent, rgba(212,160,16,0.5), transparent)",
+                    transform: "rotate(18deg)" }} />
+
+                {/* Floating badge */}
+                <div className="absolute top-6 left-4 rounded-xl px-4 py-3"
+                  style={{ background: "rgba(255,254,248,0.92)", backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
+                    border: "1px solid rgba(255,255,255,0.75)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.09)" }}>
+                  <div className="font-black uppercase leading-none"
+                    style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}>3-Format</div>
+                  <div className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1"
+                    style={{ color: "rgba(0,0,0,0.4)" }}>Street Blitz</div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
-
-        {/* ── Stats inline ──────────────────────────────────────── */}
-        <div className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20 md:pb-28">
-          <div className="max-w-[1200px] mx-auto flex flex-wrap gap-12 md:gap-20">
-            {[
-              { stat: "500+", label: "Campaigns" },
-              { stat: "50+", label: "US Cities" },
-              { stat: "10+", label: "Years Experience" },
-            ].map(({ stat, label }) => (
-              <div key={label}>
-                <div className="font-black uppercase leading-none"
-                  style={{ fontSize: "clamp(36px, 5vw, 64px)", letterSpacing: "-0.04em", color: ACCENT }}>
-                  {stat}
-                </div>
-                <div className="font-mono text-[9px] tracking-[0.3em] uppercase mt-2" style={{ color: "rgba(0,0,0,0.4)" }}>
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* ── What's Included ───────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">

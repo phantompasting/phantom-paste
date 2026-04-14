@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 
 const MobileNav = dynamic(() => import("@/components/MobileNav"), { ssr: false });
 const NavCitiesMenu = dynamic(() => import("@/components/NavCitiesMenu"), { ssr: false });
+const NavServicesMenu = dynamic(() => import("@/components/NavServicesMenu"), { ssr: false });
 
 const ACCENT = "#D4A010";
 const LINK_CLS = "nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1";
@@ -37,12 +38,12 @@ export default function SiteNav() {
         </span>
       </Link>
 
-      {/* Center links (desktop) — Services · Work · Cities ▾ · About */}
+      {/* Center links (desktop) — Services ▾ · Gallery · Cities ▾ · About */}
       <ul className="hidden md:flex items-center gap-10 lg:gap-14 list-none m-0 p-0">
-        <li><Link href="/services/wheat-pasting" className={LINK_CLS}>Services</Link></li>
-        <li><Link href="/gallery"                className={LINK_CLS}>Gallery</Link></li>
-        <li><NavCitiesMenu /></li>
-        <li><Link href="/about"                  className={LINK_CLS}>About</Link></li>
+        <li className="flex items-center"><NavServicesMenu /></li>
+        <li className="flex items-center"><Link href="/gallery" className={LINK_CLS}>Gallery</Link></li>
+        <li className="flex items-center"><NavCitiesMenu /></li>
+        <li className="flex items-center"><Link href="/about"   className={LINK_CLS}>About</Link></li>
       </ul>
 
       {/* Right — CTA (desktop) / Hamburger (mobile) */}

@@ -5,9 +5,14 @@ import { useState, useEffect, useRef } from "react";
 const ACCENT = "#D4A010";
 
 const TOP_LINKS = [
-  { label: "Services", href: "/services/wheat-pasting" },
-  { label: "Gallery",  href: "/gallery" },
-  { label: "About",    href: "/about" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "About",   href: "/about" },
+] as const;
+
+const SERVICES = [
+  { label: "Wheat Pasting",         href: "/services/wheat-pasting" },
+  { label: "Chalk Spray Stencils",  href: "/services/chalk-spray-stencils" },
+  { label: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
 ] as const;
 
 const CITIES = [
@@ -20,6 +25,7 @@ const CITIES = [
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [citiesOpen, setCitiesOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -28,6 +34,7 @@ export default function MobileNav() {
     const handler = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
+        setServicesOpen(false);
         setCitiesOpen(false);
       }
     };
@@ -37,6 +44,7 @@ export default function MobileNav() {
 
   function close() {
     setOpen(false);
+    setServicesOpen(false);
     setCitiesOpen(false);
   }
 
@@ -44,7 +52,7 @@ export default function MobileNav() {
     <div ref={ref} className="md:hidden relative">
       {/* Hamburger / X */}
       <button
-        onClick={() => { setOpen(o => !o); setCitiesOpen(false); }}
+        onClick={() => { setOpen(o => !o); setServicesOpen(false); setCitiesOpen(false); }}
         aria-label={open ? "Close menu" : "Open menu"}
         className="flex flex-col items-center justify-center w-10 h-10 gap-[5px] cursor-pointer"
         style={{ background: "none", border: "none", padding: 0 }}
@@ -70,6 +78,42 @@ export default function MobileNav() {
           }}
         >
           <ul className="list-none m-0 p-0 flex flex-col">
+            {/* Services accordion */}
+            <li>
+              <button
+                onClick={() => setServicesOpen(o => !o)}
+                className="w-full flex items-center justify-between font-mono text-[11px] tracking-[0.22em] uppercase py-2.5 px-4 rounded-xl cursor-pointer"
+                style={{ background: "none", border: "none", fontFamily: "inherit", color: "rgba(0,0,0,0.65)" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              >
+                <span>Services</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden
+                  style={{ transition: "transform 0.2s", transform: servicesOpen ? "rotate(180deg)" : "none", opacity: 0.45 }}>
+                  <path d="M2.5 4.5L6 7.5L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              {servicesOpen && (
+                <ul className="list-none m-0 pl-4 pr-2 pb-1 flex flex-col gap-0.5">
+                  {SERVICES.map(({ label, href }) => (
+                    <li key={href}>
+                      <a
+                        href={href}
+                        onClick={close}
+                        className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase no-underline py-2 px-3 rounded-lg"
+                        style={{ color: "rgba(0,0,0,0.55)" }}
+                        onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
+                        onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                      >
+                        <span className="block w-1 h-1 rounded-full shrink-0" style={{ background: ACCENT }} />
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
             {/* Regular links */}
             {TOP_LINKS.map(({ label, href }) => (
               <li key={label}>

@@ -140,10 +140,10 @@ export default function ContactPage() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                <p className="font-mono text-[9px] tracking-[0.28em] uppercase mb-2" style={{ color: ACCENT }}>
+                <p className="font-mono text-[11px] font-bold tracking-[0.28em] uppercase mb-2 text-[#1A1A1A]">
                   ◎ Nationwide Coverage
                 </p>
-                <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.45)", fontSize: "11px" }}>
+                <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "13px" }}>
                   {CITIES}
                 </p>
               </div>
