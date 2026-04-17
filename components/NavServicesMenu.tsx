@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SERVICES = [
+  { label: "All Services",          href: "/services" },
   { label: "Wheat Pasting",         href: "/services/wheat-pasting" },
   { label: "Chalk Spray Stencils",  href: "/services/chalk-spray-stencils" },
   { label: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
@@ -10,20 +11,41 @@ const SERVICES = [
 
 const ACCENT = "#D4A010";
 
-/** Desktop-only Services nav item with hover dropdown */
+/** Services nav item — click to toggle, hover to preview on desktop. */
 export default function NavServicesMenu() {
   const [open, setOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
     <div
+      ref={wrapperRef}
       className="relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <span
-        className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1 inline-flex items-center gap-1.5 cursor-default select-none"
+      <button
+        type="button"
+        onClick={() => setOpen(v => !v)}
+        className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1 inline-flex items-center gap-1.5 select-none bg-transparent border-0 cursor-pointer"
         aria-expanded={open}
         aria-haspopup="true"
+        style={{ color: "inherit" }}
       >
         Services
         <svg
@@ -32,7 +54,7 @@ export default function NavServicesMenu() {
         >
           <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-      </span>
+      </button>
 
       {/* Dropdown */}
       {open && (
@@ -51,8 +73,8 @@ export default function NavServicesMenu() {
             style={{
               minWidth: "220px",
               background: "rgba(255,254,248,0.97)",
-              backdropFilter: "blur(20px) saturate(1.6)",
-              WebkitBackdropFilter: "blur(20px) saturate(1.6)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
               border: "1px solid rgba(255,255,255,0.7)",
               boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)",
             }}

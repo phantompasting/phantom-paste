@@ -5,10 +5,15 @@ import dynamic from "next/dynamic";
 
 const MobileNav = dynamic(() => import("@/components/MobileNav"), { ssr: false });
 const NavCitiesMenu = dynamic(() => import("@/components/NavCitiesMenu"), { ssr: false });
+const NavServicesMenu = dynamic(() => import("@/components/NavServicesMenu"), { ssr: false });
 
 const ACCENT = "#D4A010";
 const EXPO = "cubic-bezier(0.16, 1, 0.3, 1)";
-const LINK_CLS = "nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1";
+// inline-flex items-center on plain links too, so they share the same box
+// model as the dropdown triggers (which are inline-flex containers with a
+// chevron SVG). Without this, the flex-baseline vs. inline-text-baseline
+// difference pushes the dropdowns ~1–2px higher than the plain links.
+const LINK_CLS = "nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1 inline-flex items-center";
 
 export default function HeroNavBar() {
   return (
@@ -34,12 +39,16 @@ export default function HeroNavBar() {
         </a>
       </div>
 
-      {/* Center — Links (desktop only) — Services · Work · Cities ▾ · About */}
+      {/* Center — Links (desktop only) — Services ▾ · Gallery · Cities ▾ · About.
+          Every <li> uses flex items-center so the dropdown triggers (which are
+          inline-flex containers holding text + chevron SVG) align to the same
+          vertical center as the plain anchors. Without this, the dropdowns'
+          flex baseline sits ~1px higher than the plain links' text baseline. */}
       <ul className="relative z-10 hidden md:flex items-center gap-10 lg:gap-14 list-none m-0 p-0">
-        <li><a href="/services/wheat-pasting" className={LINK_CLS}>Services</a></li>
-        <li><a href="/gallery"                className={LINK_CLS}>Gallery</a></li>
-        <li><NavCitiesMenu /></li>
-        <li><a href="/about"                  className={LINK_CLS}>About</a></li>
+        <li className="flex items-center"><NavServicesMenu /></li>
+        <li className="flex items-center"><a href="/gallery" className={LINK_CLS}>Gallery</a></li>
+        <li className="flex items-center"><NavCitiesMenu /></li>
+        <li className="flex items-center"><a href="/about"   className={LINK_CLS}>About</a></li>
       </ul>
 
       {/* Right — CTA (desktop) / Hamburger (mobile) */}

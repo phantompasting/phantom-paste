@@ -3,11 +3,20 @@ import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import ShinyGoldText from "@/components/ShinyGoldText";
 import ContactForm from "@/components/ContactForm";
+import Breadcrumb from "@/components/Breadcrumb";
+import SiteFooter from "@/components/SiteFooter";
+import TrustBar from "@/components/TrustBar";
+import { BUSINESS } from "@/lib/business";
+import { localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+
+const PAGE_URL = `${BUSINESS.url}/contact`;
+const PAGE_TITLE = "Hire a Wheat Pasting Company | Get a Quote";
+const PAGE_DESC =
+  "Ready to launch a wheat pasting or guerrilla marketing campaign? Contact Phantom Pasting and get a custom quote within 24 hours. Available in 50+ US cities.";
 
 export const metadata: Metadata = {
-  title: "Hire a Wheat Pasting Company | Get a Quote | Phantom Pasting",
-  description:
-    "Ready to launch a wheat pasting or guerrilla marketing campaign? Contact Phantom Pasting and get a custom quote within 24 hours. Available in 50+ US cities.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   keywords: [
     "hire wheat pasting company",
     "guerrilla marketing quote",
@@ -16,13 +25,21 @@ export const metadata: Metadata = {
     "street marketing contact",
     "get a quote guerrilla marketing",
   ],
-  alternates: { canonical: "https://www.phantompasting.com/contact" },
+  alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Hire a Wheat Pasting Company | Get a Quote | Phantom Pasting",
+    title: PAGE_TITLE,
     description:
       "Launch a wheat pasting or guerrilla marketing campaign. Custom quote within 24 hours. 50+ US cities.",
-    url: "https://www.phantompasting.com/contact",
+    url: PAGE_URL,
     type: "website",
+    images: [
+      {
+        url: `${BUSINESS.url}/gallery/fifa-world-cup-poster-wall-gallery-wide.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Phantom Pasting — wheat pasting and guerrilla marketing campaigns",
+      },
+    ],
   },
 };
 
@@ -30,16 +47,17 @@ const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact Phantom Pasting",
-  url: "https://www.phantompasting.com/contact",
+  url: PAGE_URL,
   description: "Get a custom quote for wheat pasting, chalk spray stencils, or full guerrilla marketing campaigns.",
   mainEntity: {
     "@type": "Organization",
-    name: "Phantom Pasting",
-    url: "https://www.phantompasting.com",
+    name: BUSINESS.name,
+    url: BUSINESS.url,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "info@phantompasting.com",
+      telephone: BUSINESS.telephone,
+      email: BUSINESS.email,
       areaServed: "US",
       availableLanguage: "English",
     },
@@ -56,14 +74,36 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            breadcrumbSchema([
+              { name: "Home", href: "/" },
+              { name: "Contact", href: "/contact" },
+            ])
+          ),
+        }}
+      />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
+        <Breadcrumb
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Contact" },
+          ]}
+        />
+        <TrustBar />
 
         {/* ── Page Hero ─────────────────────────────────────────── */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-16">
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-10 pb-12 md:pt-16 md:pb-16">
           <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
-            style={{ color: "rgba(0,0,0,0.4)" }}>
+            style={{ color: "rgba(0,0,0,0.55)" }}>
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
             Get a Quote
           </span>
@@ -71,8 +111,8 @@ export default function ContactPage() {
             className="font-black uppercase m-0 leading-[0.88]"
             style={{ fontSize: "clamp(48px, 8vw, 110px)", letterSpacing: "-0.04em" }}
           >
-            LET&apos;S HIT<br />
-            <ShinyGoldText>THE STREETS.</ShinyGoldText>
+            GET A WHEAT<br />
+            <ShinyGoldText>PASTING QUOTE.</ShinyGoldText>
           </h1>
           <p
             className="font-light leading-relaxed mt-6 max-w-[500px]"
@@ -92,14 +132,19 @@ export default function ContactPage() {
               <div className="flex flex-col gap-4 mb-8">
                 {[
                   {
+                    label: "Phone",
+                    value: BUSINESS.telephoneDisplay,
+                    href: BUSINESS.telHref,
+                  },
+                  {
                     label: "Email",
-                    value: "info@phantompasting.com",
-                    href: "mailto:info@phantompasting.com",
+                    value: BUSINESS.email,
+                    href: BUSINESS.mailtoHref,
                   },
                   {
                     label: "Instagram",
-                    value: "@phantompasting",
-                    href: "https://www.instagram.com/phantompasting",
+                    value: BUSINESS.instagramHandle,
+                    href: BUSINESS.instagramUrl,
                   },
                   {
                     label: "Response Time",
@@ -112,13 +157,13 @@ export default function ContactPage() {
                       className="w-9 h-9 flex items-center justify-center shrink-0 rounded-xl"
                       style={{ background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.08)" }}
                     >
-                      <span style={{ fontSize: "13px" }}>
-                        {label === "Email" ? "✉" : label === "Instagram" ? "◎" : "⏱"}
+                      <span aria-hidden="true" style={{ fontSize: "13px" }}>
+                        {label === "Phone" ? "☎" : label === "Email" ? "✉" : label === "Instagram" ? "◎" : "⏱"}
                       </span>
                     </div>
                     <div>
                       <div className="font-mono text-[9px] tracking-[0.25em] uppercase mb-0.5"
-                        style={{ color: "rgba(0,0,0,0.35)" }}>
+                        style={{ color: "rgba(0,0,0,0.55)" }}>
                         {label}
                       </div>
                       {href ? (
@@ -151,7 +196,7 @@ export default function ContactPage() {
               {/* Services quick links */}
               <div className="mt-10">
                 <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4"
-                  style={{ color: "rgba(0,0,0,0.35)" }}>
+                  style={{ color: "rgba(0,0,0,0.55)" }}>
                   Our Services
                 </p>
                 <div className="flex flex-col gap-2">
@@ -183,36 +228,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ── Footer ────────────────────────────────────────────── */}
-        <footer
-          className="px-5 sm:px-8 md:px-12 lg:px-16 py-10 border-t"
-          style={{ borderColor: "rgba(0,0,0,0.08)" }}
-        >
-          <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <div className="font-black uppercase text-[14px] tracking-[0.05em] mb-1" style={{ color: "#1A1A1A" }}>
-                Phantom<span style={{ color: ACCENT }}>Pasting</span>
-              </div>
-              <p className="font-mono text-[9px] tracking-[0.22em] uppercase m-0"
-                style={{ color: "rgba(0,0,0,0.3)" }}>
-                © 2026 — All Rights Reserved
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-x-8 gap-y-2">
-              {[
-                { label: "Wheat Pasting", href: "/services/wheat-pasting" },
-                { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
-                { label: "Full Impact", href: "/services/full-impact-campaigns" },
-                { label: "About", href: "/about" },
-              ].map(({ label, href }) => (
-                <Link key={label} href={href} className="footer-link font-light no-underline"
-                  style={{ fontSize: "13px" }}>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );

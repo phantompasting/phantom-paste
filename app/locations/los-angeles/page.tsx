@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Los Angeles | Wild Posting LA | Phantom Pasting",
+  title: "Wheat Pasting Los Angeles | Wild Posting",
   description:
     "Wheat pasting and wild posting in Los Angeles. Large-format street posters across Melrose, Silver Lake, Fairfax, and DTLA. 100% documented. Get a quote.",
   keywords: ["wheat pasting Los Angeles", "wild posting LA", "Los Angeles guerrilla marketing", "street advertising LA", "wheat paste posters LA"],
@@ -38,6 +38,8 @@ const data: CityPageData = {
     { name: "Venice / Abbot Kinney", desc: "Beach-adjacent foot traffic. Tourists and locals mix along one of LA's most walkable strips." },
     { name: "Echo Park", desc: "Indie music and art scene. Tight community, high engagement, and walls that get noticed." },
   ],
+  heroImage1: { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", alt: "FashionPass wild posting wall in Los Angeles" },
+  heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp", alt: "Wheat paste street view in Los Angeles" },
   localBusiness: {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",

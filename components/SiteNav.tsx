@@ -9,17 +9,24 @@ const NavCitiesMenu = dynamic(() => import("@/components/NavCitiesMenu"), { ssr:
 const NavServicesMenu = dynamic(() => import("@/components/NavServicesMenu"), { ssr: false });
 
 const ACCENT = "#D4A010";
-const LINK_CLS = "nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1";
+const EXPO = "cubic-bezier(0.16, 1, 0.3, 1)";
+// inline-flex items-center on plain links so they share the same box model
+// as the dropdown triggers (inline-flex containers with a chevron SVG).
+// Without this, the flex-baseline vs. inline-text-baseline difference pushes
+// the dropdowns ~1–2px higher than the plain links.
+const LINK_CLS = "nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1 inline-flex items-center";
 
 export default function SiteNav() {
   return (
     <nav
+      // Match the homepage HeroNavBar: fully transparent, no border, same
+      // heroDown entrance animation. The animated GrainientBackground canvas
+      // sits behind every page (rendered in app/layout.tsx), so a transparent
+      // nav reads identically across the site.
       className="sticky top-0 z-50 w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 py-4 md:py-5"
       style={{
-        background: "rgba(255,254,248,0.55)",
-        backdropFilter: "blur(20px) saturate(1.6)",
-        WebkitBackdropFilter: "blur(20px) saturate(1.6)",
-        borderBottom: "1px solid rgba(255,255,255,0.4)",
+        background: "transparent",
+        animation: `heroDown 0.6s 0.02s ${EXPO} both`,
       }}
     >
       {/* Logo */}

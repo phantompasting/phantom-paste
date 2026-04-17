@@ -1,230 +1,313 @@
 "use client";
-
 import { useEffect, useRef } from "react";
+import { createNoise3D } from "simplex-noise";
 
-const hexToRgb = (hex: string): [number, number, number] => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  if (!result) return [1, 1, 1];
-  return [
-    parseInt(result[1], 16) / 255,
-    parseInt(result[2], 16) / 255,
-    parseInt(result[3], 16) / 255,
-  ];
-};
-
-const vertex = `#version 300 es
-in vec2 position;
-void main() {
-  gl_Position = vec4(position, 0.0, 1.0);
-}
-`;
-
-const fragment = `#version 300 es
-precision highp float;
-uniform vec2 iResolution;
-uniform float iTime;
-uniform float uTimeSpeed;
-uniform float uColorBalance;
-uniform float uWarpStrength;
-uniform float uWarpFrequency;
-uniform float uWarpSpeed;
-uniform float uWarpAmplitude;
-uniform float uBlendAngle;
-uniform float uBlendSoftness;
-uniform float uRotationAmount;
-uniform float uNoiseScale;
-uniform float uGrainAmount;
-uniform float uGrainScale;
-uniform float uGrainAnimated;
-uniform float uContrast;
-uniform float uGamma;
-uniform float uSaturation;
-uniform vec2 uCenterOffset;
-uniform float uZoom;
-uniform vec3 uColor1;
-uniform vec3 uColor2;
-uniform vec3 uColor3;
-out vec4 fragColor;
-#define S(a,b,t) smoothstep(a,b,t)
-mat2 Rot(float a){float s=sin(a),c=cos(a);return mat2(c,-s,s,c);}
-vec2 hash(vec2 p){p=vec2(dot(p,vec2(2127.1,81.17)),dot(p,vec2(1269.5,283.37)));return fract(sin(p)*43758.5453);}
-float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.0-2.0*f);float n=mix(mix(dot(-1.0+2.0*hash(i+vec2(0.0,0.0)),f-vec2(0.0,0.0)),dot(-1.0+2.0*hash(i+vec2(1.0,0.0)),f-vec2(1.0,0.0)),u.x),mix(dot(-1.0+2.0*hash(i+vec2(0.0,1.0)),f-vec2(0.0,1.0)),dot(-1.0+2.0*hash(i+vec2(1.0,1.0)),f-vec2(1.0,1.0)),u.x),u.y);return 0.5+0.5*n;}
-void mainImage(out vec4 o, vec2 C){
-  float t=iTime*uTimeSpeed;
-  vec2 uv=C/iResolution.xy;
-  float ratio=iResolution.x/iResolution.y;
-  vec2 tuv=uv-0.5+uCenterOffset;
-  tuv/=max(uZoom,0.001);
-  float degree=noise(vec2(t*0.1,tuv.x*tuv.y)*uNoiseScale);
-  tuv.y*=1.0/ratio;
-  tuv*=Rot(radians((degree-0.5)*uRotationAmount+180.0));
-  tuv.y*=ratio;
-  float frequency=uWarpFrequency;
-  float ws=max(uWarpStrength,0.001);
-  float amplitude=uWarpAmplitude/ws;
-  float warpTime=t*uWarpSpeed;
-  tuv.x+=sin(tuv.y*frequency+warpTime)/amplitude;
-  tuv.y+=sin(tuv.x*(frequency*1.5)+warpTime)/(amplitude*0.5);
-  vec3 colLav=uColor1;
-  vec3 colOrg=uColor2;
-  vec3 colDark=uColor3;
-  float b=uColorBalance;
-  float s=max(uBlendSoftness,0.0);
-  mat2 blendRot=Rot(radians(uBlendAngle));
-  float blendX=(tuv*blendRot).x;
-  float edge0=-0.3-b-s;
-  float edge1=0.2-b+s;
-  float v0=0.5-b+s;
-  float v1=-0.3-b-s;
-  vec3 layer1=mix(colDark,colOrg,S(edge0,edge1,blendX));
-  vec3 layer2=mix(colOrg,colLav,S(edge0,edge1,blendX));
-  vec3 col=mix(layer1,layer2,S(v0,v1,tuv.y));
-  vec2 grainUv=uv*max(uGrainScale,0.001);
-  if(uGrainAnimated>0.5){grainUv+=vec2(iTime*0.05);}
-  float grain=fract(sin(dot(grainUv,vec2(12.9898,78.233)))*43758.5453);
-  col+=(grain-0.5)*uGrainAmount;
-  col=(col-0.5)*uContrast+0.5;
-  float luma=dot(col,vec3(0.2126,0.7152,0.0722));
-  col=mix(vec3(luma),col,uSaturation);
-  col=pow(max(col,0.0),vec3(1.0/max(uGamma,0.001)));
-  col=clamp(col,0.0,1.0);
-  o=vec4(col,1.0);
-}
-void main(){
-  vec4 o=vec4(0.0);
-  mainImage(o,gl_FragCoord.xy);
-  fragColor=o;
-}
-`;
-
+/**
+ * "Shift" ambient canvas background.
+ *
+ * Faithful port of the shift technique from crnacura/AmbientCanvasBackgrounds
+ * (https://github.com/crnacura/AmbientCanvasBackgrounds, MIT).
+ *
+ * Rendering pipeline — two canvases, A and B:
+ *   1. Canvas A: hard-edged filled circles, colored via
+ *      hsla(baseHue + simplexNoise*rangeHue, s, l, fadeInOut-alpha).
+ *   2. Canvas B: filled with the solid backgroundColor each frame, then
+ *      draws canvas A into itself with ctx.filter = 'blur(50px)'. The blur
+ *      is what turns the discrete circles into a continuous shifting field.
+ *   3. Only canvas B is in the DOM.
+ *
+ * `baseHue` increments every frame, so the whole field slowly drifts through
+ * the warm brand spectrum. simplex-noise gives each circle its own hue
+ * offset, so you see swatches of variation rather than a monotone wash.
+ *
+ * Brand tuning (the only values that deviate from the reference):
+ *   - baseHue starts at 38 (gold) instead of 220 (blue)
+ *   - rangeHue 80 so it sweeps through amber → tangerine → peach
+ *   - backgroundColor is warm ivory rather than near-black
+ *   - saturation/lightness tuned for light-background legibility
+ *
+ * Performance safeguards layered on top of the reference:
+ *   - DPR clamped to 1.5× (blur is fillrate-bound)
+ *   - Animation loop paused on visibilitychange and during scroll
+ *   - First animation frame deferred via requestIdleCallback so LCP and
+ *     hydration run uncontested
+ */
 export default function GrainientBackground() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const visible = canvasRef.current;
+    if (!visible) return;
+    const ctxB = visible.getContext("2d");
+    if (!ctxB) return;
 
-    // Skip WebGL on mobile — CSS gradient fallback handles it
-    if (window.matchMedia("(max-width: 767px)").matches) return;
+    // Off-screen canvas A — never attached to the DOM.
+    const offscreen = document.createElement("canvas");
+    const ctxA = offscreen.getContext("2d");
+    if (!ctxA) return;
 
-    // Dynamic import so ogl never touches SSR/Node.js.
-    // 300ms delay lets the browser capture LCP (text) before the canvas paints.
+    // Reference values from the shift demo, restored so the look matches
+    // the repo's output. Prior rev downscaled the offscreen buffer and
+    // dropped circle count — that broke the "shift" continuous-tone look.
+    const circleCount = 150;
+    const circlePropCount = 8;
+    const circlePropsLength = circleCount * circlePropCount;
+    // 2× the 15%-bumped value because the paint cap dropped from 120fps to
+    // 60fps (see FRAME_BUDGET_MS below) and circle movement is per-paint,
+    // not per-second. Doubling the constants restores the ProMotion-era
+    // visual speed at the new cap, and gives 60Hz displays the same speed
+    // ProMotion used to show — nets out as a uniform, fluid drift on every
+    // refresh rate rather than "twice as fast on Macs as on everything else."
+    const baseSpeed = 0.23;
+    const rangeSpeed = 2.3;
+    const baseTTL = 150;
+    const rangeTTL = 200;
+    const baseRadius = 100;
+    const rangeRadius = 200;
+    // Tight hue cluster around the brand gold — intentionally small so every
+    // circle reads as "that gold" with micro-variation, not as "some yellow."
+    const rangeHue = 8;
+    const xOff = 0.0015;
+    const yOff = 0.0015;
+    const zOff = 0.0015;
+    // Warm ivory backdrop — a hair of yellow in it so the field doesn't look
+    // like it's floating on stark white. Matches the cream highlights.
+    const backgroundColor = "#FFFBED";
+
+    const TAU = Math.PI * 2;
+    const rand = (n: number) => n * Math.random();
+    const fadeInOut = (t: number, m: number) => {
+      const hm = 0.5 * m;
+      return Math.abs(((t + hm) % m) - hm) / hm;
+    };
+
+    const noise3D = createNoise3D();
+    // Centered exactly on brand gold (#D4A010 ≈ hsl(45, 86%, 45%)). Every
+    // circle's hue is sampled from simplex noise around this anchor, bounded
+    // by rangeHue — so the field is a tight cluster of brand-accurate golds.
+    const BASE_HUE = 45;
+
+    const circleProps = new Float32Array(circlePropsLength);
+    // Parallel arrays for per-circle hue + saturation, computed once at
+    // init and reused every frame. Previously these were recomputed per
+    // frame inside drawCircle — that meant 150 × simplex-noise3D + 150 ×
+    // branching saturation lookups every single paint, just to produce
+    // values that never changed during a circle's lifetime. Cache-then-read
+    // eliminates ~4500 ops per frame at zero visual cost.
+    const circleHue = new Float32Array(circleCount);
+    const circleSat = new Float32Array(circleCount);
+
+    const initCircle = (i: number) => {
+      const x = rand(offscreen.width);
+      const y = rand(offscreen.height);
+      const t = rand(TAU);
+      const speed = baseSpeed + rand(rangeSpeed);
+      const vx = speed * Math.cos(t);
+      const vy = speed * Math.sin(t);
+      const life = 0;
+      const ttl = baseTTL + rand(rangeTTL);
+      const radius = baseRadius + rand(rangeRadius);
+      // Five-stop lightness ladder, all within the gold family. The top stop
+      // renders as yellowish cream (not white) thanks to the saturation curve
+      // below. The bottom stop sits on brand gold's actual lightness (#D4A010
+      // is ~45% L) for genuine brand anchoring.
+      //   ~18% → 91% (cream highlight)
+      //   ~28% → 82% (light butter)
+      //   ~27% → 70% (bright brand gold)
+      //   ~20% → 58% (mid brand gold)
+      //   ~ 7% → 48% (deep brand — true #D4A010 tone)
+      const r = Math.random();
+      const lightness =
+        r < 0.18 ? 91 :
+        r < 0.46 ? 82 :
+        r < 0.73 ? 70 :
+        r < 0.93 ? 58 :
+        48;
+      circleProps.set([x, y, vx, vy, life, ttl, radius, lightness], i);
+
+      // Hue: one simplex sample at init, anchored to this circle's spawn
+      // position. Stays constant for the circle's lifetime, so the field
+      // still reads as "a cluster of distinct gold swatches."
+      const idx = i / circlePropCount;
+      const n = noise3D(x * xOff, y * yOff, idx * zOff);
+      circleHue[idx] = BASE_HUE + n * rangeHue;
+      // Saturation curve — tuned so each lightness stop reads correctly:
+      //   ≥ 88 → 48%  cream highlight (keeps a yellow cast, not white)
+      //   ≥ 75 → 72%  light butter (soft but warm)
+      //   ≥ 62 → 85%  brand-accurate saturated gold
+      //   < 62 → 88%  deep brand tone (matches #D4A010's 86%)
+      circleSat[idx] =
+        lightness >= 88 ? 48 :
+        lightness >= 75 ? 72 :
+        lightness >= 62 ? 85 :
+        88;
+    };
+
+    const dpr = () => Math.min(window.devicePixelRatio || 1, 1.5);
+
+    const resize = () => {
+      const { innerWidth, innerHeight } = window;
+      const d = dpr();
+      // Offscreen canvas matches viewport pixel size so the 50px blur has
+      // the same visual footprint as the reference demo. Visible canvas
+      // takes DPR scaling for sharpness; offscreen doesn't need it because
+      // it's being blurred anyway.
+      offscreen.width = innerWidth;
+      offscreen.height = innerHeight;
+      visible.width = innerWidth * d;
+      visible.height = innerHeight * d;
+      visible.style.width = innerWidth + "px";
+      visible.style.height = innerHeight + "px";
+      ctxB.setTransform(d, 0, 0, d, 0, 0);
+    };
+
+    resize();
+    for (let i = 0; i < circlePropsLength; i += circlePropCount) initCircle(i);
+
+    const checkBounds = (x: number, y: number, radius: number) =>
+      x < -radius ||
+      x > offscreen.width + radius ||
+      y < -radius ||
+      y > offscreen.height + radius;
+
+    // Solid filled circle on canvas A. Hue + saturation come from the
+    // per-circle parallel arrays (computed once at init), so this is pure
+    // string-format + arc+fill — no noise call, no branching.
+    const drawCircle = (
+      x: number,
+      y: number,
+      life: number,
+      ttl: number,
+      radius: number,
+      lightness: number,
+      hue: number,
+      sat: number
+    ) => {
+      ctxA.fillStyle = `hsla(${hue},${sat}%,${lightness}%,${fadeInOut(life, ttl)})`;
+      ctxA.beginPath();
+      ctxA.arc(x, y, radius, 0, TAU);
+      ctxA.fill();
+    };
+
+    const updateCircle = (i: number) => {
+      const idx = i / circlePropCount;
+      const x = circleProps[i] as number;
+      const y = circleProps[i + 1] as number;
+      const vx = circleProps[i + 2] as number;
+      const vy = circleProps[i + 3] as number;
+      let life = circleProps[i + 4] as number;
+      const ttl = circleProps[i + 5] as number;
+      const radius = circleProps[i + 6] as number;
+      const lightness = circleProps[i + 7] as number;
+      const hue = circleHue[idx] as number;
+      const sat = circleSat[idx] as number;
+      drawCircle(x, y, life, ttl, radius, lightness, hue, sat);
+      life++;
+      circleProps[i] = x + vx;
+      circleProps[i + 1] = y + vy;
+      circleProps[i + 4] = life;
+      if (checkBounds(x, y, radius) || life > ttl) initCircle(i);
+    };
+
+    const updateCircles = () => {
+      for (let i = 0; i < circlePropsLength; i += circlePropCount) updateCircle(i);
+    };
+
+    // Composite step: blur canvas A onto canvas B at full reference radius.
+    // This IS the shift effect — without the 50px blur the circles read as
+    // circles instead of a continuous shifting field.
+    const render = () => {
+      ctxB.save();
+      ctxB.filter = "blur(50px)";
+      ctxB.drawImage(offscreen, 0, 0, offscreen.width, offscreen.height);
+      ctxB.restore();
+    };
+
     let raf = 0;
-    let timer: ReturnType<typeof setTimeout>;
-    let cleanup: (() => void) | undefined;
+    let paused = document.hidden;
+    let scrolling = false;
+    let scrollEndTimer = 0;
+    let lastFrame = 0;
 
-    const initWebGL = () => import("ogl").then(({ Renderer, Program, Mesh, Triangle }) => {
-      if (!containerRef.current) return;
+    // 60fps ceiling. Previously 120fps on ProMotion displays — but the
+    // blur(50px) pipeline is the most expensive main-thread work on the
+    // page, and doubling its paint rate was occasionally stealing budget
+    // from the marquee ticker's compositor coordination, showing up as
+    // stutter there. The shift field's per-circle velocity is slow enough
+    // that 60fps is visually indistinguishable from 120fps — the frames
+    // you'd skip by halving the cap are ones where circles moved <1px.
+    const FRAME_BUDGET_MS = 1000 / 60;
 
-      const color1 = "#FFFFFF"; // white anchor +5%
-      const color2 = "#F5C820"; // canary yellow — logo body tone
-      const color3 = "#CC8E1C"; // amber +5% lighter
+    const paintFrame = () => {
+      ctxA.clearRect(0, 0, offscreen.width, offscreen.height);
+      ctxB.fillStyle = backgroundColor;
+      ctxB.fillRect(0, 0, offscreen.width, offscreen.height);
+      updateCircles();
+      render();
+    };
 
-      let renderer;
-      try {
-        renderer = new Renderer({
-          webgl: 2,
-          alpha: true,
-          antialias: false,
-          dpr: Math.min(window.devicePixelRatio || 1, 1.5),
-        });
-      } catch {
-        return;
-      }
+    const draw = (ts: number) => {
+      raf = window.requestAnimationFrame(draw);
+      if (paused || scrolling) return;
+      // Skip this vsync if we've drawn within the last 60fps budget. The
+      // -1ms fuzz guards against the browser firing rAF a hair early and
+      // us skipping a frame we should have painted.
+      if (ts - lastFrame < FRAME_BUDGET_MS - 1) return;
+      lastFrame = ts;
+      paintFrame();
+    };
 
-      const gl = renderer.gl;
-      const canvas = gl.canvas as HTMLCanvasElement;
-      canvas.style.width = "100%";
-      canvas.style.height = "100%";
-      canvas.style.display = "block";
-      container.appendChild(canvas);
+    const onVisibility = () => { paused = document.hidden; };
+    const onScroll = () => {
+      scrolling = true;
+      if (scrollEndTimer) window.clearTimeout(scrollEndTimer);
+      scrollEndTimer = window.setTimeout(() => { scrolling = false; }, 140);
+    };
 
-      const geometry = new Triangle(gl);
-      const program = new Program(gl, {
-        vertex,
-        fragment,
-        uniforms: {
-          iTime: { value: 0 },
-          iResolution: { value: new Float32Array([1, 1]) },
-          uTimeSpeed: { value: 0.25 },
-          uColorBalance: { value: 0.25 },
-          uWarpStrength: { value: 1.0 },
-          uWarpFrequency: { value: 5.0 },
-          uWarpSpeed: { value: 2.0 },
-          uWarpAmplitude: { value: 50.0 },
-          uBlendAngle: { value: 0.0 },
-          uBlendSoftness: { value: 0.05 },
-          uRotationAmount: { value: 500.0 },
-          uNoiseScale: { value: 2.0 },
-          uGrainAmount: { value: 0.1 },
-          uGrainScale: { value: 2.0 },
-          uGrainAnimated: { value: 0.0 },
-          uContrast: { value: 1.1 },
-          uGamma: { value: 1.0 },
-          uSaturation: { value: 0.82 },
-          uCenterOffset: { value: new Float32Array([0, 0]) },
-          uZoom: { value: 0.9 },
-          uColor1: { value: new Float32Array(hexToRgb(color1)) },
-          uColor2: { value: new Float32Array(hexToRgb(color2)) },
-          uColor3: { value: new Float32Array(hexToRgb(color3)) },
-        },
-      });
+    window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("scroll", onScroll, { passive: true, capture: true });
 
-      const mesh = new Mesh(gl, { geometry, program });
-
-      const setSize = () => {
-        const rect = container.getBoundingClientRect();
-        const width = Math.max(1, Math.floor(rect.width));
-        const height = Math.max(1, Math.floor(rect.height));
-        renderer.setSize(width, height);
-        const res = program.uniforms.iResolution.value as Float32Array;
-        res[0] = gl.drawingBufferWidth;
-        res[1] = gl.drawingBufferHeight;
-      };
-
-      const ro = new ResizeObserver(setSize);
-      ro.observe(container);
-      setSize();
-
-      const t0 = performance.now();
-      const loop = (t: number) => {
-        program.uniforms.iTime.value = (t - t0) * 0.001;
-        renderer.render({ scene: mesh });
-        raf = requestAnimationFrame(loop);
-      };
-      raf = requestAnimationFrame(loop);
-
-      cleanup = () => {
-        cancelAnimationFrame(raf);
-        ro.disconnect();
-        try { container.removeChild(canvas); } catch { /* already removed */ }
-      };
-    });
-
-    timer = setTimeout(initWebGL, 300);
+    // Paint one static frame so the cream backdrop is up immediately, then
+    // defer the animation loop so it doesn't compete with LCP.
+    paintFrame();
+    let idleHandle = 0;
+    let startTimer = 0;
+    const start = () => { lastFrame = 0; raf = window.requestAnimationFrame(draw); };
+    const w = window as Window & typeof globalThis;
+    if (typeof w.requestIdleCallback === "function") {
+      idleHandle = w.requestIdleCallback(start, { timeout: 1500 });
+    } else {
+      startTimer = w.setTimeout(start, 400);
+    }
 
     return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(raf);
-      cleanup?.();
+      window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("scroll", onScroll, { capture: true });
+      if (scrollEndTimer) window.clearTimeout(scrollEndTimer);
+      if (idleHandle && typeof w.cancelIdleCallback === "function") {
+        w.cancelIdleCallback(idleHandle);
+      }
+      if (startTimer) window.clearTimeout(startTimer);
+      window.cancelAnimationFrame(raf);
     };
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      aria-hidden
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: "none",
-        width: "100%",
-        height: "100%",
-        overflow: "hidden",
-        /* CSS gradient fallback — visible on mobile where WebGL is skipped */
-        background: "linear-gradient(145deg, #FFFFFF 0%, #F5C820 60%, #CC8E1C 100%)",
-      }}
-    />
+    <div className="content--canvas" aria-hidden>
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+    </div>
   );
 }

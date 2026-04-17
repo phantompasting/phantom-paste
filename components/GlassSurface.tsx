@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState, useRef, useId } from "react";
+import { memo, useEffect, useState, useRef, useId } from "react";
 
-export default function GlassSurface({
+function GlassSurfaceImpl({
   children,
   borderRadius = 16,
   borderWidth = 0.07,
@@ -79,6 +79,10 @@ export default function GlassSurface({
     feImageRef.current?.setAttribute("href", generateDisplacementMap());
   };
 
+  // Missing dep array previously caused this to run on EVERY parent render.
+  // The displacement map generation calls `getBoundingClientRect()` (forces
+  // layout) and writes to a data-URI `href` — cheap-ish but redundant. Now it
+  // only re-runs when the actual filter params change.
   useEffect(() => {
     updateDisplacementMap();
     [
@@ -93,16 +97,25 @@ export default function GlassSurface({
       }
     });
     gaussianBlurRef.current?.setAttribute("stdDeviation", "0.7");
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [redOffset, greenOffset, blueOffset, distortionScale, xChannel, yChannel, brightness, opacity, blur, borderRadius, borderWidth, mixBlendMode]);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const ro = new ResizeObserver(() => setTimeout(updateDisplacementMap, 0));
     ro.observe(containerRef.current);
     return () => ro.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    // Force the cheap fallback (one backdrop-filter blur instead of a 10-op
+    // SVG filter chain) on small screens and when the user prefers reduced
+    // motion. On phones the SVG filter chain is the single most expensive
+    // paint in any section containing multiple GlassSurface instances.
+    const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (isSmallScreen || prefersReduced) return; // leave svgSupported=false
     const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
     const isFirefox = /Firefox/.test(navigator.userAgent);
     if (!isWebkit && !isFirefox) {
@@ -110,7 +123,7 @@ export default function GlassSurface({
       div.style.backdropFilter = `url(#${filterId})`;
       setSvgSupported(div.style.backdropFilter !== "");
     }
-  }, []);
+  }, [filterId]);
 
   return (
     <div
@@ -144,3 +157,10 @@ export default function GlassSurface({
     </div>
   );
 }
+
+// Memoize — GlassSurface props are nearly always static literals from the
+// parent (e.g. borderRadius=16, style={...}). Without memo, any parent
+// re-render (e.g. snap-scroll state change, reveal tween flip) walks every
+// GlassSurface child. With 6 instances on the stats grid that's meaningful.
+const GlassSurface = memo(GlassSurfaceImpl);
+export default GlassSurface;

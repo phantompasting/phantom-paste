@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting New York City | Wild Posting NYC | Phantom Pasting",
+  title: "Wheat Pasting NYC | Wild Posting New York",
   description:
     "Wheat pasting and wild posting in New York City. Large-format street posters across the Lower East Side, Brooklyn, SoHo, and Williamsburg. Get a quote.",
   keywords: ["wheat pasting NYC", "wild posting New York", "NYC guerrilla marketing", "street advertising New York", "wheat paste posters Brooklyn"],
@@ -27,7 +27,7 @@ const data: CityPageData = {
   state: "NY",
   slug: "new-york",
   heroWord: "NEW YORK",
-  intro: "New York City is the birthplace of wheat pasting culture. More foot traffic per block than anywhere in the country. We hit the Lower East Side, Brooklyn, SoHo, Williamsburg, and every high-density neighborhood in between.",
+  intro: "New York City is the birthplace of wheat pasting culture. More foot traffic per block than anywhere in the country. We hit the Lower East Side, Brooklyn, SoHo, Williamsburg, and every high-density neighborhood in between. Phantom Pasting has executed wheat paste and guerrilla campaigns for national brands across New York's streets.",
   whyTitle: "NYC IS WHERE\nIT STARTED.",
   whyText: "New York has the highest pedestrian density in the US — millions of daily commuters, tourists, and residents who experience the city on foot. A wheat paste poster in Williamsburg or SoHo isn't just advertising — it's part of the visual fabric of the street. NYC campaigns generate organic social shares at a rate no other city can match.",
   neighborhoods: [
@@ -38,6 +38,8 @@ const data: CityPageData = {
     { name: "East Village", desc: "Music, food, and counterculture. Dense walkability and a legacy of street-level advertising." },
     { name: "Chelsea / Meatpacking", desc: "Gallery district meets nightlife. High foot traffic from the High Line and Hudson Yards." },
   ],
+  heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Guerrilla advertising pole wrap campaign at night in New York" },
+  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at NYC street intersection" },
   localBusiness: {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",

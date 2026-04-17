@@ -9,3 +9,14 @@ out/
 next-env.d.ts
 .DS_Store
 .superpowers/
+
+# Playwright/MCP test artifacts — ephemeral capture logs
+.playwright-mcp/
+
+# Image re-encoding backup (keeps pre-compression originals locally, not in repo)
+public/gallery/_originals_backup/
+
+# Loose design reference screenshots — don't commit
+reveals-final.jpeg
+*.vim
+*.swp

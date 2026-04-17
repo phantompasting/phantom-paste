@@ -40,14 +40,21 @@ body {
 
 /* ── Focus + Selection ───────────────────────────────────────── */
 :focus-visible:not(input):not(select):not(textarea) { outline: 2px solid var(--accent); outline-offset: 3px; }
-input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; }
+/* Form fields get a visible 2px accent outline on keyboard focus — the
+   parent .form-field border change alone is ~3:1 which fails WCAG 2.4.7.
+   outline-offset -2 pulls it inside the field's own border so it doesn't
+   fight the wrapper border styling. */
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
 ::selection { background: rgba(184,150,15,0.15); color: var(--text); }
 
-/* ── Scroll container — GPU hint desktop only ────────────────── */
+/* ── Scroll container ────────────────────────────────────────── */
+/* `will-change: scroll-position` was permanently promoting the container
+   to a compositor layer — memory + commit overhead without measurable
+   benefit. The browser already optimizes scroll without the hint. */
 .scroll-container { will-change: auto; }
-@media (min-width: 768px) {
-  .scroll-container { will-change: scroll-position; }
-}
 
 /* ── Utility ─────────────────────────────────────────────────── */
 .no-scrollbar { scrollbar-width: none; }
@@ -161,12 +168,37 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 }
 
 /* ── Ticker marquee (pure CSS) ───────────────────────────────── */
+/* translate3d (not translateX) on both keyframes forces the browser onto the
+   GPU compositor path — the Z component is what triggers layer promotion.
+   Without it, long slow marquees frequently fall back to CPU rasterization
+   on each frame, which reads as "glitchy / low fps" even at 60Hz. */
 @keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 .ticker-track {
   animation: ticker var(--ticker-speed, 28s) linear infinite;
+  /* Tell the compositor "this element's transform will change, give it its
+     own layer upfront" — avoids a layer-creation hiccup on first paint. */
+  will-change: transform;
+  /* Both of these are belt-and-suspenders GPU promotion hints that have
+     survived across browser rendering rewrites. Harmless when redundant. */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  /* Keep text antialiased during the slow transform — stops the subpixel
+     glyph edges from "stepping" between frames when the per-frame delta
+     is ~1px. Noticeable fix for slow marquees specifically. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+/* Pause the marquee entirely for users who asked for reduced motion.
+   Also removes one more concurrent animation from the compositor, which
+   helps users who don't have the setting but share the compositor path. */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
 }
 
 
@@ -190,9 +222,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 }
 .why-card:hover {
   transform: translateY(-2px);
-}
-.why-card:hover .why-card-shine {
-  opacity: 1 !important;
 }
 
 /* ── Gallery image hover (CSS, no JS) ────────────────────────── */
@@ -228,7 +257,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 
 /* ── Nav links — sliding gold underline ──────────────────────── */
 .nav-link {
-  color: rgba(0,0,0,0.38);
+  /* Matches Services button (inherits brand dark) — all nav links read the same. */
+  color: #1A1A1A;
   position: relative;
   transition: color 0.2s ease;
 }
@@ -245,7 +275,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .nav-link:hover {
-  color: rgba(0,0,0,0.85);
+  color: #D4A010;
 }
 .nav-link:hover::after {
   transform: scaleX(1);
@@ -326,13 +356,6 @@ form textarea::placeholder {
   pointer-events: none;
 }
 
-/* ── Checkbox toggle (contact form) ─────────────────────────── */
-.peer:checked ~ span {
-  background: rgba(184, 150, 15, 0.12);
-  color: #8B7209;
-  border-color: rgba(184, 150, 15, 0.4);
-}
-
 /* ══════════════════════════════════════════════════════════════
    AMBIENT LAVA BLOBS — float + morph + hue on separate timings.
 ══════════════════════════════════════════════════════════════ */
@@ -386,9 +409,10 @@ form textarea::placeholder {
   65%       { border-radius: 36% 64% 56% 44% / 60% 36% 64% 40%; }
 }
 
-/* ── Orb classes — GPU layer, float + morph animations ── */
+/* ── Orb classes — GPU layer, float + morph animations
+   (filter: blur removed — forces per-frame composite on 3 animated elements.
+    Softness now comes from the gradient itself.) ── */
 .orb-1, .orb-2, .orb-3 {
-  filter: blur(6px);
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -477,110 +501,23 @@ form textarea::placeholder {
     inset 0 -1px 0 rgba(255,255,255,0.2);
 }
 
-/* ── BorderGlow ─────────────────────────────────────────────── */
-.border-glow-card {
-  --edge-proximity: 0;
-  --cursor-angle: 45deg;
-  --edge-sensitivity: 30;
-  --color-sensitivity: calc(var(--edge-sensitivity) + 20);
-  --border-radius: 24px;
-  --glow-padding: 40px;
-  --cone-spread: 25;
-  position: relative;
-  border-radius: var(--border-radius);
-  isolation: isolate;
-  transform: translate3d(0,0,0.01px);
-  display: grid;
-  border: 1px solid rgba(255,255,255,0.5);
-  overflow: visible;
+/* ── Submit button hover/active (replaces whileHover/whileTap) ──────
+   `will-change: transform` was permanent — that reserves a GPU layer
+   for the button at all times. Scoped to :hover so the layer is only
+   promoted during the brief moment we're actually animating.
+*/
+.submit-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.border-glow-card::before,
-.border-glow-card::after,
-.border-glow-card > .edge-light {
-  content: "";
-  position: absolute; inset: 0;
-  border-radius: inherit;
-  transition: opacity 0.25s ease-out;
-  z-index: -1;
+.submit-btn:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(184,150,15,0.65);
+  will-change: transform;
 }
-.border-glow-card:not(:hover):not(.sweep-active)::before,
-.border-glow-card:not(:hover):not(.sweep-active)::after,
-.border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
-  opacity: 0;
-  transition: opacity 0.75s ease-in-out;
+.submit-btn:active:not(:disabled) {
+  transform: scale(0.97);
 }
-.border-glow-card::before {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--card-bg, rgba(242,240,236,0.9)) 0 100%) padding-box,
-    linear-gradient(rgb(255 255 255 / 0%) 0 100%) border-box,
-    var(--gradient-one) border-box,
-    var(--gradient-two) border-box,
-    var(--gradient-three) border-box,
-    var(--gradient-four) border-box,
-    var(--gradient-five) border-box,
-    var(--gradient-six) border-box,
-    var(--gradient-seven) border-box,
-    var(--gradient-base) border-box;
-  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
-  mask-image: conic-gradient(from var(--cursor-angle) at center, black calc(var(--cone-spread)*1%), transparent calc((var(--cone-spread)+15)*1%), transparent calc((100 - var(--cone-spread) - 15)*1%), black calc((100 - var(--cone-spread))*1%));
-}
-.border-glow-card::after {
-  border: 1px solid transparent;
-  background:
-    var(--gradient-one) padding-box,
-    var(--gradient-two) padding-box,
-    var(--gradient-three) padding-box,
-    var(--gradient-four) padding-box,
-    var(--gradient-five) padding-box,
-    var(--gradient-six) padding-box,
-    var(--gradient-seven) padding-box,
-    var(--gradient-base) padding-box;
-  mask-image:
-    linear-gradient(to bottom, black, black),
-    radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
-    radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
-    radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
-    radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
-    radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
-    conic-gradient(from var(--cursor-angle) at center, transparent 5%, black 15%, black 85%, transparent 95%);
-  mask-composite: subtract, add, add, add, add, add;
-  opacity: calc(var(--fill-opacity,0.5) * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
-  mix-blend-mode: soft-light;
-}
-.border-glow-card > .edge-light {
-  inset: calc(var(--glow-padding) * -1);
-  pointer-events: none; z-index: 1;
-  mask-image: conic-gradient(from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
-  opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
-  mix-blend-mode: plus-lighter;
-}
-.border-glow-card > .edge-light::before {
-  content: "";
-  position: absolute;
-  inset: var(--glow-padding);
-  border-radius: inherit;
-  box-shadow:
-    inset 0 0 0 1px var(--glow-color, hsl(47deg 87% 38% / 100%)),
-    inset 0 0 1px 0  var(--glow-color-60, hsl(47deg 87% 38% / 60%)),
-    inset 0 0 3px 0  var(--glow-color-50, hsl(47deg 87% 38% / 50%)),
-    inset 0 0 6px 0  var(--glow-color-40, hsl(47deg 87% 38% / 40%)),
-    inset 0 0 15px 0 var(--glow-color-30, hsl(47deg 87% 38% / 30%)),
-    inset 0 0 25px 2px var(--glow-color-20, hsl(47deg 87% 38% / 20%)),
-    inset 0 0 50px 2px var(--glow-color-10, hsl(47deg 87% 38% / 10%)),
-    0 0 1px 0  var(--glow-color-60),
-    0 0 3px 0  var(--glow-color-50),
-    0 0 6px 0  var(--glow-color-40),
-    0 0 15px 0 var(--glow-color-30),
-    0 0 25px 2px var(--glow-color-20),
-    0 0 50px 2px var(--glow-color-10);
-}
-.border-glow-inner {
-  display: flex; flex-direction: column;
-  position: relative; overflow: hidden; z-index: 1;
-  height: 100%;
-}
-
 
 /* ── Reduce motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

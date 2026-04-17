@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Atlanta | Wild Posting GA | Phantom Pasting",
+  title: "Wheat Pasting Atlanta | Wild Posting GA",
   description:
     "Wheat pasting and wild posting in Atlanta. Large-format street posters across Midtown, Little Five Points, Buckhead, and East Atlanta. Get a quote.",
   keywords: ["wheat pasting Atlanta", "wild posting Atlanta", "Atlanta guerrilla marketing", "street advertising Atlanta", "wheat paste posters GA"],
@@ -38,6 +38,8 @@ const data: CityPageData = {
     { name: "Old Fourth Ward", desc: "BeltLine adjacent. One of the most walkable corridors in the city with year-round foot traffic." },
     { name: "Decatur", desc: "Walkable downtown square. Festivals, restaurants, and a community that supports local and independent brands." },
   ],
+  heroImage1: { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp", alt: "FIFA World Cup wall installation in Atlanta" },
+  heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall gallery in Atlanta" },
   localBusiness: {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",

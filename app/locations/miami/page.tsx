@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Miami | Wild Posting FL | Phantom Pasting",
+  title: "Wheat Pasting Miami | Wild Posting FL",
   description:
     "Wheat pasting and wild posting in Miami. Large-format street posters across Wynwood, South Beach, Brickell, and the Design District. Get a quote.",
   keywords: ["wheat pasting Miami", "wild posting Miami", "Miami guerrilla marketing", "street advertising Miami", "Wynwood wild posting"],
@@ -27,7 +27,7 @@ const data: CityPageData = {
   state: "FL",
   slug: "miami",
   heroWord: "MIAMI",
-  intro: "Miami's outdoor culture, year-round foot traffic, and world-famous art scene make it one of the best cities in the US for street marketing. We deploy across Wynwood, South Beach, Brickell, and the Design District.",
+  intro: "Miami's outdoor culture, year-round foot traffic, and world-famous art scene make it one of the best cities in the US for street marketing. We deploy across Wynwood, South Beach, Brickell, and the Design District. Phantom Pasting has run wheat paste and wild posting campaigns for brands and artists across Miami's most visible neighborhoods.",
   whyTitle: "MIAMI IS\nALWAYS ON.",
   whyText: "Miami has no off-season. Year-round warm weather means year-round foot traffic. Wynwood is already the street art capital of the US — your wheat paste campaign fits right into the visual culture. South Beach draws tourists from around the world. Brickell's professionals walk to lunch. Every surface is an opportunity.",
   neighborhoods: [
@@ -38,6 +38,8 @@ const data: CityPageData = {
     { name: "Little Havana", desc: "Cultural corridor along Calle Ocho. Authentic foot traffic and community engagement." },
     { name: "Coconut Grove", desc: "Walkable village vibe. Young families, students, and weekend crowds." },
   ],
+  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster on pink urban wall in Miami" },
+  heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil sidewalk activation in Miami" },
   localBusiness: {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",

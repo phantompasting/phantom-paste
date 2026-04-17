@@ -38,8 +38,8 @@ export default function HeroSection() {
             style={{
               color: "rgba(0,0,0,0.52)",
               background: "rgba(242,240,236,0.6)",
-              backdropFilter: "blur(14px) saturate(1.5)",
-              WebkitBackdropFilter: "blur(14px) saturate(1.5)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
               border: "1px solid rgba(255,255,255,0.75)",
               boxShadow: "0 2px 14px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)",
             }}
@@ -57,7 +57,7 @@ export default function HeroSection() {
           <div className="w-screen -mx-6 md:-mx-8 px-0">
             <h1
               className="font-black uppercase m-0 leading-[0.85] text-center w-full"
-              style={{ fontSize: "clamp(96px, 16vw, 187px)", letterSpacing: "-0.045em", willChange: "transform" }}
+              style={{ fontSize: "clamp(96px, 16vw, 187px)", letterSpacing: "-0.045em" }}
             >
               <span className="block">
                 <SplitReveal text="WE OWN" color="#1A1A1A" baseDelay={0.08} />
@@ -73,7 +73,7 @@ export default function HeroSection() {
             className="font-light leading-[1.7] max-w-[320px] md:max-w-[520px] m-0"
             style={{
               fontSize: "clamp(14px, 1.6vw, 18px)",
-              color: "rgba(0,0,0,0.40)",
+              color: "rgba(0,0,0,0.55)",
               animation: `heroUp 0.55s 0.34s ${EXPO} both`,
             }}
           >
@@ -100,7 +100,7 @@ export default function HeroSection() {
       >
         <span
           className="font-mono text-[8px] tracking-[0.35em] uppercase"
-          style={{ color: "rgba(0,0,0,0.25)", writingMode: "horizontal-tb" }}
+          style={{ color: "rgba(0,0,0,0.52)", writingMode: "horizontal-tb" }}
         >
           Scroll
         </span>
@@ -113,8 +113,13 @@ export default function HeroSection() {
 }
 
 /**
- * Per-character fade-up — each letter fades in from translateY(24px).
+ * Per-character translate-up — each letter rises from translateY(24px).
  * Stagger: baseDelay + (charIndex * 0.028s).
+ *
+ * Uses the LCP-safe `heroUpVisible` keyframe (translate-only, no opacity
+ * fade) so Chrome sees the headline at full opacity on the very first paint.
+ * The LCP element on the homepage is this h1 — any opacity-0 start state
+ * here was pushing LCP out by the full stagger + animation duration.
  */
 function SplitReveal({ text, color, baseDelay }: { text: string; color: string; baseDelay: number }) {
   return (
@@ -125,7 +130,7 @@ function SplitReveal({ text, color, baseDelay }: { text: string; color: string; 
           style={{
             display: "inline-block",
             color,
-            animation: `heroUp 0.65s ${(baseDelay + i * 0.028).toFixed(3)}s cubic-bezier(0.16, 1, 0.3, 1) both`,
+            animation: `heroUpVisible 0.65s ${(baseDelay + i * 0.028).toFixed(3)}s cubic-bezier(0.16, 1, 0.3, 1) both`,
           }}
         >
           {char === " " ? "\u00A0" : char}

@@ -4,26 +4,23 @@
  * PHANTOM PASTING — Scroll Sections (Full-Page Snap)
  * ─────────────────────────────────────────────────────
  * Every section = exactly 100vh. CSS scroll-snap-type: y mandatory.
- * Animations via useInView. Zero dead space between sections.
+ * GSAP ScrollTrigger entrances via useSectionReveal. Framer Motion
+ * retained only for lightbox + form success AnimatePresence swaps.
  */
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import {
-  motion,
-  useInView,
-  AnimatePresence,
-  type Variants,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ShinyGoldText from "@/components/ShinyGoldText";
 import GlassSurface from "@/components/GlassSurface";
 import SpotlightCard from "@/components/SpotlightCard";
 import { GALLERY_IMGS } from "@/lib/gallery-data";
+import { BUSINESS } from "@/lib/business";
+import { useSectionReveal, useInViewOnce } from "./reveal";
 
 const SNAP      = { type: "spring", stiffness: 140, damping: 22 } as const;
 const SNAP_HARD = { type: "spring", stiffness: 180, damping: 26 } as const;
-const SNAP_SLOW = { type: "spring", stiffness: 100, damping: 20 } as const;
 
 /* ── SVG Icons — inline, no emoji, no icon library dependency ── */
 const IconMail = ({ color }: { color: string }) => (
@@ -90,6 +87,11 @@ const IconClock = ({ color }: { color: string }) => (
     <polyline points="12 6 12 12 16 14"/>
   </svg>
 );
+const IconPhone = ({ color }: { color: string }) => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+  </svg>
+);
 const IconChevronLeft = ({ color }: { color: string }) => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <polyline points="15 18 9 12 15 6"/>
@@ -118,57 +120,60 @@ const IconCheck = ({ color }: { color: string }) => (
   </svg>
 );
 
-/* ── Count-up hook — ease-out cubic, respects prefers-reduced-motion ── */
-function useCountUp(target: number, inView: boolean, duration = 1200): number {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) { setValue(target); return; }
-    const start = Date.now();
-    const tick = () => {
-      const elapsed = Date.now() - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.round(eased * target));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }, [inView, target, duration]);
-  return value;
-}
+/* ── Shared count-up ticker ─────────────────────────────────────
+   One rAF loop for ALL stat counters on the page. Each registered
+   counter writes its value directly into its own <span> via ref,
+   so React never re-renders during the animation. Avoids N parallel
+   setState-per-frame loops when the stats grid scrolls into view.
+   ─────────────────────────────────────────────────────────────── */
+type CountTask = {
+  el: HTMLSpanElement;
+  target: number;
+  suffix: string;
+  duration: number;
+  start: number;
+};
+const countTasks = new Set<CountTask>();
+let countRaf = 0;
+const tickCounters = () => {
+  const now = performance.now();
+  for (const t of countTasks) {
+    const progress = Math.min((now - t.start) / t.duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    t.el.textContent = `${Math.round(eased * t.target)}${t.suffix}`;
+    if (progress >= 1) countTasks.delete(t);
+  }
+  if (countTasks.size > 0) {
+    countRaf = requestAnimationFrame(tickCounters);
+  } else {
+    countRaf = 0;
+  }
+};
 
 /* Parses "500+" → counts 0→500, appends "+". Works for "10yr", "100%", "24hr" too. */
 function StatNum({ raw, inView }: { raw: string; inView: boolean }) {
+  const ref = useRef<HTMLSpanElement>(null);
   const match = raw.match(/^(\d+)(.*)$/);
-  const target = match ? parseInt(match[1], 10) : 0;
-  const suffix = match ? match[2] : raw;
-  const count = useCountUp(target, inView, Math.max(600, target * 2));
-  if (!match) return <>{raw}</>;
-  return <>{count}{suffix}</>;
-}
+  // With `noUncheckedIndexedAccess`, capture groups are `string | undefined` even
+  // when the parent `match` succeeded — TypeScript can't prove regex capture semantics.
+  const target = match?.[1] ? parseInt(match[1], 10) : 0;
+  const suffix = match?.[2] ?? raw;
 
-/* ── Animation variants ── */
-const stagger: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.04, delayChildren: 0.08 } },
-};
-const fadeUp: Variants = {
-  hidden: { y: 28, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: SNAP },
-};
-const fadeUpBig: Variants = {
-  hidden: { y: 44, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: SNAP_SLOW },
-};
-const slideLeft: Variants = {
-  hidden: { x: -44, opacity: 0 },
-  show: { x: 0, opacity: 1, transition: SNAP },
-};
-const scaleIn: Variants = {
-  hidden: { scale: 0.94, opacity: 0 },
-  show: { scale: 1, opacity: 1, transition: SNAP },
-};
+  useEffect(() => {
+    if (!inView || !match || !ref.current) return;
+    const el = ref.current;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) { el.textContent = `${target}${suffix}`; return; }
+    const duration = Math.max(600, target * 2);
+    const task: CountTask = { el, target, suffix, duration, start: performance.now() };
+    countTasks.add(task);
+    if (countRaf === 0) countRaf = requestAnimationFrame(tickCounters);
+    return () => { countTasks.delete(task); };
+  }, [inView, match, target, suffix]);
+
+  if (!match) return <>{raw}</>;
+  return <span ref={ref}>0{suffix}</span>;
+}
 
 /* ── Shared Components ── */
 function SnapPage({ children, className = "", id, style }: {
@@ -176,7 +181,14 @@ function SnapPage({ children, className = "", id, style }: {
 }) {
   return (
     <div id={id} className={`h-[100dvh] overflow-hidden relative flex items-center ${className}`}
-      style={{ scrollSnapAlign: "start", scrollSnapStop: "always", contain: "layout style paint", transform: "translateZ(0)", ...style }}>
+      // NB: dropped the `transform: translateZ(0)` GPU-promotion hint. With 13
+      // SnapPage sections on the home page, translateZ was forcing the
+      // compositor to allocate 13 viewport-sized GPU layers — on mid-range
+      // mobile that's hundreds of MB of texture memory and causes layer
+      // thrash during snap-scroll. `contain: layout style paint` gives us
+      // the painting/layout isolation we need without promoting to a GPU
+      // layer. Only elements that actually move/animate should be promoted.
+      style={{ scrollSnapAlign: "start", scrollSnapStop: "always", contain: "layout style paint", ...style }}>
       {children}
     </div>
   );
@@ -210,39 +222,77 @@ function Glass({
 }
 
 
-/* ── TiltCard — 3D tilt + spotlight (desktop only) ───────────── */
+/* ── TiltCard — 3D tilt + spotlight (desktop only) ─────────────
+   Mouse-move handling is rAF-batched: we cache the latest pointer
+   coords on each event and only write styles once per frame. Previously
+   every mousemove rewrote the inline `transform` string AND re-parsed a
+   full `radial-gradient(...)` expression on the spotlight layer, which
+   triggered style recomputation at pointer-sample rate. Now all writes
+   happen in one rAF callback per frame.
+   Also: the radial gradient is now driven by CSS custom properties on
+   the spotlight element (--sx / --sy), avoiding re-parse of the whole
+   gradient string per frame — the browser just recomputes the gradient
+   positions. */
 function TiltCard({ children, className, style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null);
   const spotRef = useRef<HTMLDivElement>(null);
+  const rafPending = useRef(false);
+  const latest = useRef({ x: 0.5, y: 0.5 });
+
+  const flush = useCallback(() => {
+    rafPending.current = false;
+    const el = ref.current;
+    if (!el) return;
+    const { x, y } = latest.current;
+    const rotX = (y - 0.5) * -10;
+    const rotY = (x - 0.5) * 12;
+    el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02,1.02,1.02)`;
+    if (spotRef.current) {
+      spotRef.current.style.setProperty("--sx", `${x * 100}%`);
+      spotRef.current.style.setProperty("--sy", `${y * 100}%`);
+      spotRef.current.style.opacity = "1";
+    }
+  }, []);
+
+  // willChange is toggled only during active hover — permanent `will-change`
+  // on every TiltCard keeps compositor layers alive even when idle, which
+  // costs memory and wakes the compositor on any repaint near them.
+  const onEnter = useCallback(() => {
+    const el = ref.current;
+    if (el) el.style.willChange = "transform";
+  }, []);
 
   const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el || window.matchMedia("(hover: none)").matches) return;
     const { left, top, width, height } = el.getBoundingClientRect();
-    const x = (e.clientX - left) / width;
-    const y = (e.clientY - top) / height;
-    const rotX = (y - 0.5) * -10;
-    const rotY = (x - 0.5) * 12;
-    el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02,1.02,1.02)`;
-    if (spotRef.current) {
-      spotRef.current.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255,255,255,0.22) 0%, transparent 65%)`;
-      spotRef.current.style.opacity = "1";
+    latest.current.x = (e.clientX - left) / width;
+    latest.current.y = (e.clientY - top) / height;
+    if (!rafPending.current) {
+      rafPending.current = true;
+      requestAnimationFrame(flush);
     }
-  }, []);
+  }, [flush]);
 
   const onLeave = useCallback(() => {
     const el = ref.current;
     if (!el) return;
     el.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    el.style.willChange = "auto";
     if (spotRef.current) spotRef.current.style.opacity = "0";
   }, []);
 
   return (
-    <div ref={ref} className={className} style={{ ...style, transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1)", willChange: "transform" }}
-      onMouseMove={onMove} onMouseLeave={onLeave}>
-      {/* Spotlight layer */}
+    <div ref={ref} className={className} style={{ ...style, transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1)" }}
+      onMouseEnter={onEnter} onMouseMove={onMove} onMouseLeave={onLeave}>
+      {/* Spotlight layer — gradient positions driven by --sx / --sy */}
       <div ref={spotRef} className="absolute inset-0 pointer-events-none rounded-2xl md:rounded-3xl"
-        style={{ opacity: 0, transition: "opacity 0.3s ease", zIndex: 2 }} />
+        style={{
+          opacity: 0,
+          transition: "opacity 0.3s ease",
+          zIndex: 2,
+          background: "radial-gradient(circle at var(--sx, 50%) var(--sy, 50%), rgba(255,255,255,0.22) 0%, transparent 65%)",
+        }} />
       {children}
     </div>
   );
@@ -278,41 +328,40 @@ const STATS = [
 ];
 
 function StatsSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const scope = useSectionReveal<HTMLDivElement>();
+  const inView = useInViewOnce(scope, 0.3);
   return (
     <SnapPage>
-      <div ref={ref} className="w-full flex flex-col items-center justify-center px-8">
+      <div ref={scope} className="w-full flex flex-col items-center justify-center px-8">
 
 
-        <motion.div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 0.06 } : {}} transition={{ duration: 0.8 }} aria-hidden>
+        <div data-watermark="0.06" className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          style={{ opacity: 0 }} aria-hidden>
           <span className="font-black uppercase whitespace-nowrap"
             style={{ fontSize: "clamp(120px, 18vw, 280px)", letterSpacing: "-0.05em", color: "#1A1A1A" }}>
             PHANTOM PASTING
           </span>
-        </motion.div>
+        </div>
 
-        <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
-          className="flex flex-col items-center relative z-10">
-          <motion.div variants={fadeUp} className="mb-6"><Label>Street Impact</Label></motion.div>
+        <div className="flex flex-col items-center relative z-10">
+          <div data-reveal="fade-up" className="mb-6"><Label>Street Impact</Label></div>
 
-          <motion.div variants={fadeUpBig} className="text-center mb-5">
+          <div data-reveal="fade-up-big" className="text-center mb-5">
             <h2 className="font-black uppercase m-0 leading-[0.88]"
               style={{ fontSize: "clamp(64px, 9vw, 110px)", letterSpacing: "-0.04em" }}>
               <ShinyGoldText>REAL NUMBERS.</ShinyGoldText><br />
               <span style={{ color: "#1A1A1A" }}>REAL STREETS.</span>
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.p variants={fadeUp}
+          <p data-reveal="fade-up"
             className="text-center max-w-lg mb-10 font-light leading-relaxed"
             style={{ color: "rgba(0,0,0,0.55)", fontSize: "clamp(14px, 1.2vw, 17px)" }}>
             A decade of guerrilla campaigns across every major US market.
             Every placement photographed, every campaign documented.
-          </motion.p>
+          </p>
 
-          <motion.div variants={fadeUp}
+          <div data-reveal="fade-up"
             className="w-full max-w-3xl h-px mb-12 mx-auto"
             style={{ background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent)" }}
           />
@@ -321,7 +370,7 @@ function StatsSection() {
             {STATS.map((s, i) => {
               const isAccent = i === 2 || i === 4;
               return (
-                <motion.div key={s.label} variants={scaleIn}>
+                <div key={s.label} data-reveal="scale">
                   <GlassSurface
                     borderRadius={16}
                     style={isAccent ? { border: "1px solid rgba(184,150,15,0.35)" } : undefined}
@@ -332,16 +381,16 @@ function StatsSection() {
                         <StatNum raw={s.num} inView={inView} />
                       </div>
                       <div className="font-mono text-[8px] tracking-[0.28em] uppercase mt-2 text-center"
-                        style={{ color: "rgba(0,0,0,0.42)" }}>
+                        style={{ color: "rgba(0,0,0,0.55)" }}>
                         {s.label}
                       </div>
                     </div>
                   </GlassSurface>
-                </motion.div>
+                </div>
               );
             })}
           </div>
-        </motion.div>
+        </div>
       </div>
     </SnapPage>
   );
@@ -374,12 +423,11 @@ const STEPS = [
 ];
 
 function ProcessStepPage({ step, index }: { step: typeof STEPS[number]; index: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const scope = useSectionReveal<HTMLDivElement>();
 
   return (
     <SnapPage>
-      <div ref={ref} className="w-full h-full flex items-center">
+      <div ref={scope} className="w-full h-full flex items-center">
 
 
         {/* Side accent lines */}
@@ -389,24 +437,22 @@ function ProcessStepPage({ step, index }: { step: typeof STEPS[number]; index: n
           style={{ background: "linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.04) 50%, transparent 80%)" }} />
 
         {/* Background step number */}
-        <motion.div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.6 }} aria-hidden>
+        <div data-watermark="1" className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          style={{ opacity: 0 }} aria-hidden>
           <span className="font-black" style={{ fontSize: "clamp(200px, 30vw, 380px)", letterSpacing: "-0.06em", color: "rgba(0,0,0,0.04)" }}>
             {step.num}
           </span>
-        </motion.div>
+        </div>
 
         {index === 0 && (
-          <motion.div className="absolute top-8 left-8 md:left-16 z-20"
-            initial={{ y: 16, opacity: 0 }} animate={inView ? { y: 0, opacity: 1 } : {}} transition={SNAP}>
+          <div data-reveal="fade-up" className="absolute top-8 left-8 md:left-16 z-20">
             <Label>How It Works</Label>
-          </motion.div>
+          </div>
         )}
 
         {/* Side-by-side: icon + title left, description right */}
         <div className="relative z-10 flex flex-col md:flex-row items-center w-full px-8 md:px-16 lg:px-24">
-          <motion.div className="flex-shrink-0 md:mr-16 lg:mr-20"
-            variants={slideLeft} initial="hidden" animate={inView ? "show" : "hidden"}>
+          <div data-reveal="slide-left" className="flex-shrink-0 md:mr-16 lg:mr-20">
             <div className="flex flex-col items-start">
               <div className="w-16 h-16 flex items-center justify-center rounded-xl mb-6"
                 style={{ background: `${step.color}10`, border: `2px solid ${step.color}28` }}>
@@ -417,11 +463,9 @@ function ProcessStepPage({ step, index }: { step: typeof STEPS[number]; index: n
                 {step.title}
               </span>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div className="flex-1 max-w-xl mt-8 md:mt-0"
-            initial={{ y: 20, opacity: 0 }} animate={inView ? { y: 0, opacity: 1 } : {}}
-            transition={{ ...SNAP, delay: 0.06 }}>
+          <div data-reveal="fade-up" className="flex-1 max-w-xl mt-8 md:mt-0">
             <p className="font-light leading-[1.7] mb-6"
               style={{ color: "rgba(0,0,0,0.6)", fontSize: "clamp(17px, 2vw, 22px)" }}>
               {step.desc}
@@ -430,7 +474,7 @@ function ProcessStepPage({ step, index }: { step: typeof STEPS[number]; index: n
               style={{ color: step.color === "#D4A010" ? "rgba(0,0,0,0.38)" : `${step.color}90` }}>
               {step.sub}
             </span>
-          </motion.div>
+          </div>
         </div>
 
         {/* Step indicators */}
@@ -477,61 +521,58 @@ const SERVICES_DATA = [
 ] as const;
 
 function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const scope = useSectionReveal<HTMLDivElement>();
 
   return (
     <SnapPage {...(index === 0 ? { id: "services" } : {})}>
-      <div ref={ref} className="w-full h-full flex flex-col justify-center md:justify-start md:flex-row items-center md:items-stretch">
+      <div ref={scope} className="w-full h-full flex flex-col justify-center md:justify-start md:flex-row items-center md:items-stretch">
 
 
         {/* Watermark */}
-        <motion.div className="absolute top-0 right-4 md:right-8 h-full flex items-center pointer-events-none select-none z-0"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 0.035 } : {}} transition={{ duration: 0.6 }} aria-hidden>
+        <div data-watermark="0.035" className="absolute top-0 right-4 md:right-8 h-full flex items-center pointer-events-none select-none z-0"
+          style={{ opacity: 0 }} aria-hidden>
           <span className="font-black uppercase"
             style={{ writingMode: "vertical-rl", fontSize: "clamp(60px, 8vw, 120px)", letterSpacing: "0.1em", color: "#1A1A1A" }}>
             PHANTOMPASTING
           </span>
-        </motion.div>
+        </div>
 
         {index === 0 && (
-          <motion.div className="absolute top-8 left-6 md:left-20 lg:left-28 z-20"
-            initial={{ y: 16, opacity: 0 }} animate={inView ? { y: 0, opacity: 1 } : {}} transition={SNAP}>
+          <div data-reveal="fade-up" className="absolute top-8 left-6 md:left-20 lg:left-28 z-20">
             <Label>What We Do</Label>
-          </motion.div>
+          </div>
         )}
 
         {/* Text side */}
-        <motion.div className="relative z-10 flex flex-col justify-center px-6 md:px-20 lg:px-28 py-12 md:py-20 w-full md:w-1/2"
-          variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}>
-          <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3">
+        <div className="relative z-10 flex flex-col justify-center px-6 md:px-20 lg:px-28 py-12 md:py-20 w-full md:w-1/2">
+          <div data-reveal="fade-up" className="mb-4 flex items-center gap-3">
             <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: svc.accent }}>{svc.sub}</span>
             <span className="px-2 py-0.5 rounded-full font-mono text-[8px] tracking-[0.15em] uppercase"
               style={{ background: svc.accent === "#D4A010" ? "rgba(184,150,15,0.1)" : "rgba(0,0,0,0.05)", color: svc.accent, border: `1px solid ${svc.accent}20` }}>
               {svc.badge}
             </span>
-          </motion.div>
-          <motion.h2 variants={fadeUpBig} className="font-black uppercase m-0 mb-4 leading-[0.88]"
+          </div>
+          <h2 data-reveal="fade-up-big" className="font-black uppercase m-0 mb-4 leading-[0.88]"
             style={{ fontSize: "clamp(52px, 7vw, 96px)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
             {svc.name}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="font-black uppercase m-0 mb-6"
+          </h2>
+          <p data-reveal="fade-up" className="font-black uppercase m-0 mb-6"
             style={{ fontSize: "clamp(14px, 1.6vw, 20px)", color: svc.accent, letterSpacing: "-0.01em" }}>
             {svc.tagline}
-          </motion.p>
-          <motion.p variants={fadeUp} className="font-light leading-relaxed mb-8 max-w-sm"
+          </p>
+          <p data-reveal="fade-up" className="font-light leading-relaxed mb-8 max-w-sm"
             style={{ color: "rgba(0,0,0,0.55)", fontSize: "17.5px" }}>
             {svc.desc}
-          </motion.p>
-          <motion.ul variants={fadeUp} className="flex flex-col gap-2.5 mb-10 list-none m-0 p-0">
+          </p>
+          <ul data-reveal="fade-up" className="flex flex-col gap-2.5 mb-10 list-none m-0 p-0">
             {svc.features.map((f) => (
               <li key={f} className="flex items-center gap-3 font-mono text-[11px] tracking-[0.1em]"
                 style={{ color: "rgba(0,0,0,0.5)" }}>
                 <IconCheck color={svc.accent} /> {f}
               </li>
             ))}
-          </motion.ul>
-          <motion.a variants={fadeUp} href="#contact"
+          </ul>
+          <a data-reveal="fade-up" href="#contact"
             className="service-cta self-start relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-7 py-3.5 rounded-full overflow-hidden"
             style={{
               background: "#1A1A1A",
@@ -541,13 +582,11 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
             <span className="absolute inset-0 pointer-events-none rounded-full"
               style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 55%)" }} />
             Book This →
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
 
         {/* Image side */}
-        <motion.div className="hidden md:block relative w-1/2 overflow-hidden"
-          initial={{ x: 120, opacity: 0 }} animate={inView ? { x: 0, opacity: 1 } : {}}
-          transition={{ ...SNAP, delay: 0.1 }}>
+        <div data-reveal="slide-right" className="hidden md:block relative w-1/2 overflow-hidden">
           <Image src={svc.img} alt={svc.name} loading="lazy"
             fill sizes="50vw" className="object-cover brightness-90" />
           <div className="absolute inset-0"
@@ -556,7 +595,7 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
             style={{ fontSize: "clamp(80px, 10vw, 140px)", color: "rgba(0,0,0,0.06)", letterSpacing: "-0.04em" }}>
             {svc.num}
           </div>
-        </motion.div>
+        </div>
 
         {/* Service indicators */}
         <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-6 z-20">
@@ -592,89 +631,185 @@ const WHY_ITEMS = [
 ];
 
 function WhySection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.15 });
+  const scope = useSectionReveal<HTMLDivElement>();
 
   return (
     <SnapPage>
-      <div ref={ref} className="w-full h-full relative flex flex-col md:block px-4 md:px-10 py-6 md:py-0 overflow-hidden">
+      <div ref={scope} className="w-full h-full relative flex flex-col md:block px-4 md:px-10 py-6 md:py-0 overflow-hidden">
 
-        {/* "WHY US" background text — centered in page */}
-        <motion.div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 0.25 } : {}} transition={{ duration: 0.6 }} aria-hidden>
+        {/* "WHY US" background text */}
+        <div data-watermark="0.22" className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          style={{ opacity: 0 }} aria-hidden>
           <span className="font-black uppercase whitespace-nowrap"
             style={{ fontSize: "clamp(120px, 18vw, 300px)", letterSpacing: "-0.05em", color: "#D4A010" }}>
             WHY US
           </span>
-        </motion.div>
+        </div>
 
+        {/* Subtle warm overlay */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(180deg, transparent 0%, rgba(184,150,15,0.03) 40%, rgba(184,150,15,0.03) 60%, transparent 100%)" }} />
+          style={{ background: "linear-gradient(180deg, transparent 0%, rgba(184,150,15,0.025) 40%, rgba(184,150,15,0.025) 60%, transparent 100%)" }} />
 
-        {/* Title — top-left, always in flow */}
-        <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
-          className="relative z-10 shrink-0 pt-8 md:pt-12 md:pl-6">
-          <motion.div variants={fadeUp} className="mb-2 md:mb-3"><Label>Why Guerrilla</Label></motion.div>
-          <motion.h2 variants={fadeUpBig} className="font-black uppercase m-0 leading-[0.9]"
+        {/* Title block — left-anchored, tight */}
+        <div className="relative z-10 shrink-0 pt-8 md:pt-10 md:pl-6">
+          <div data-reveal="fade-up" className="mb-2 md:mb-3"><Label>Why Guerrilla</Label></div>
+          <h2 data-reveal="fade-up-big" className="font-black uppercase m-0 leading-[0.9]"
             style={{ fontSize: "clamp(28px, 5vw, 72px)", letterSpacing: "-0.03em" }}>
             DIGITAL ADS FADE.<span className="hidden md:inline">&nbsp;</span><br className="md:hidden" />
             <ShinyGoldText>STREETS DON&apos;T.</ShinyGoldText>
-          </motion.h2>
-        </motion.div>
+          </h2>
 
-        {/* Cards — flex-1 on mobile (fill remaining), absolute centered on desktop */}
-        <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
-          className="relative md:absolute md:inset-0 z-10 flex-1 flex items-center justify-center px-0 md:px-10 py-4 md:py-0 pointer-events-none min-h-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-8 w-full max-w-[1100px] pointer-events-auto h-full md:h-auto" style={{ gridAutoRows: "1fr" }}>
+          {/* Definition — display weight, condensed italic, on-brand */}
+          <p data-reveal="fade-up"
+            className="font-black uppercase italic m-0 mt-4 leading-[0.95] hidden md:block"
+            style={{ fontSize: "clamp(13px, 1.4vw, 18px)", letterSpacing: "-0.01em", color: "rgba(0,0,0,0.50)" }}>
+            Street-level. Unskippable. Documented.
+          </p>
+        </div>
+
+        {/* Cards — absolute centered on desktop, fill remaining on mobile */}
+        <div className="relative md:absolute md:inset-0 z-10 flex-1 flex items-center justify-center px-0 md:px-10 py-4 md:py-0 pointer-events-none min-h-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 w-full max-w-[1100px] pointer-events-auto h-full md:h-auto" style={{ gridAutoRows: "1fr" }}>
             {WHY_ITEMS.map((item, i) => (
-              <motion.div key={item.title} variants={scaleIn} className="h-full">
+              <div key={item.title} data-reveal="scale" className="h-full">
               <SpotlightCard className="h-full rounded-2xl md:rounded-3xl overflow-hidden">
               <div
-                className="why-card relative flex items-center md:flex-col md:items-start gap-4 md:gap-0 px-5 md:px-10 py-5 md:py-10 rounded-2xl md:rounded-3xl overflow-hidden cursor-default h-full"
+                className="why-card relative flex items-center md:flex-col md:items-start gap-4 md:gap-0 px-5 md:px-8 py-5 md:py-8 rounded-2xl md:rounded-3xl overflow-hidden cursor-default h-full"
                 style={{
-                  background: "rgba(242,240,236,0.78)",
-                  backdropFilter: "blur(18px) saturate(1.5)",
-                  WebkitBackdropFilter: "blur(18px) saturate(1.5)",
-                  border: "1px solid rgba(255,255,255,0.62)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.85)",
+                  background: "rgba(242,240,236,0.82)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255,255,255,0.68)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.04)",
                 }}
               >
-                {/* Top edge highlight */}
+                {/* Gold top-edge accent on odd cards */}
                 <div className="absolute inset-x-0 top-0 h-px pointer-events-none"
-                  style={{ background: "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.95) 30%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.95) 70%, transparent 95%)" }} />
+                  style={{
+                    background: i % 2 === 1
+                      ? "linear-gradient(90deg, transparent 10%, rgba(212,160,16,0.5) 40%, rgba(212,160,16,0.3) 60%, transparent 90%)"
+                      : "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.95) 30%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.95) 70%, transparent 95%)"
+                  }} />
 
-                {/* Icon + number */}
-                <div className="flex flex-col items-center gap-1.5 shrink-0 md:flex-row md:items-center md:gap-3 md:mb-6">
-                  <span className="w-11 h-11 md:w-12 md:h-12 flex items-center justify-center rounded-xl"
+                {/* Icon + index */}
+                <div className="flex flex-col items-center gap-1.5 shrink-0 md:flex-row md:items-center md:gap-3 md:mb-5">
+                  <span className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-xl"
                     style={{
-                      background: "rgba(0,0,0,0.04)",
-                      border: "2px solid rgba(0,0,0,0.07)",
+                      background: i % 2 === 1 ? "rgba(212,160,16,0.08)" : "rgba(0,0,0,0.04)",
+                      border: `1.5px solid ${i % 2 === 1 ? "rgba(212,160,16,0.2)" : "rgba(0,0,0,0.07)"}`,
                     }}>
                     {WHY_ICONS[item.icon]}
                   </span>
                   <span className="font-mono text-[8px] tracking-[0.3em] uppercase"
-                    style={{ color: "rgba(0,0,0,0.2)" }}>
+                    style={{ color: "rgba(0,0,0,0.18)" }}>
                     0{i + 1}
                   </span>
                 </div>
 
                 {/* Text */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-black uppercase leading-[0.88] m-0 mb-1 md:mb-4"
-                    style={{ fontSize: "clamp(18px, 2.8vw, 36px)", letterSpacing: "-0.025em", color: "#1A1A1A" }}>
+                  <h3 className="font-black uppercase leading-[0.88] m-0 mb-1 md:mb-3"
+                    style={{ fontSize: "clamp(18px, 2.6vw, 33px)", letterSpacing: "-0.025em", color: "#1A1A1A" }}>
                     {item.title}<span style={{ color: item.accent }}>.</span>
                   </h3>
                   <p className="font-light leading-snug md:leading-relaxed m-0"
-                    style={{ color: "rgba(0,0,0,0.50)", fontSize: "clamp(13.5px, 1.2vw, 16px)", maxWidth: "400px" }}>
+                    style={{ color: "rgba(0,0,0,0.60)", fontSize: "clamp(13px, 1.1vw, 15px)", maxWidth: "380px" }}>
                     {item.desc}
                   </p>
                 </div>
               </div>
               </SpotlightCard>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
+      </div>
+    </SnapPage>
+  );
+}
+
+
+/* DefinitionSection removed — content absorbed into WhySection + subpages */
+
+
+/* ═══════════════════════════════════════════════════════════════
+   4C. TL;DR — Key Takeaways
+═══════════════════════════════════════════════════════════════ */
+const TLDR_CARDS = [
+  {
+    bold: "Street ads can't be muted.",
+    body: "Wheat paste and chalk stencils live in the real world. No algorithm decides who sees them — if you walk past, you see it.",
+  },
+  {
+    bold: "Every campaign is proven.",
+    body: "100% photo documentation at every install — timestamped, geo-tagged, report-ready. No impression estimates, just proof.",
+  },
+  {
+    bold: "50+ cities, any scale.",
+    body: "Single-market drops or simultaneous national saturation. Local crews in every city. Rush timelines from 5 business days.",
+  },
+];
+
+function TLDRSection() {
+  const scope = useSectionReveal<HTMLDivElement>();
+
+  return (
+    <SnapPage style={{ background: "transparent" }}>
+      <div ref={scope} className="w-full h-full flex items-center justify-center px-5 sm:px-8 md:px-12 lg:px-16 overflow-hidden" style={{ background: "transparent" }}>
+
+        {/* Ghost bg text */}
+        <div data-watermark="0.04" className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          style={{ opacity: 0 }} aria-hidden>
+          <span className="font-black uppercase whitespace-nowrap"
+            style={{ fontSize: "clamp(120px, 18vw, 300px)", letterSpacing: "-0.05em", color: "#1A1A1A" }}>
+            TL;DR
+          </span>
+        </div>
+
+        <div className="relative z-10 max-w-[1100px] w-full mx-auto text-center">
+
+          <div data-reveal="fade-up" className="mb-3">
+            <Label>Key Takeaways</Label>
+          </div>
+
+          <h2 data-reveal="fade-up-big" className="font-black uppercase m-0 mb-10 leading-[0.9]"
+            style={{ fontSize: "clamp(32px, 5vw, 64px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}>
+            WHY GUERRILLA MARKETING<br />
+            <ShinyGoldText>WORKS.</ShinyGoldText>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {TLDR_CARDS.map((card, i) => (
+              <div key={card.bold} data-reveal="scale">
+                <SpotlightCard className="rounded-2xl overflow-hidden">
+                <div
+                  className="relative rounded-2xl p-6 md:p-8 text-left overflow-hidden"
+                  style={{
+                    background: "rgba(242,240,236,0.82)",
+                    border: "1px solid rgba(255,255,255,0.68)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    boxShadow: "0 4px 24px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9)",
+                  }}>
+                  {/* Gold top stripe */}
+                  <div className="absolute inset-x-0 top-0 h-px pointer-events-none"
+                    style={{ background: "linear-gradient(90deg, transparent 10%, rgba(212,160,16,0.5) 40%, rgba(212,160,16,0.3) 60%, transparent 90%)" }} />
+                  <div className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4"
+                    style={{ color: "rgba(212,160,16,0.7)" }}>0{i + 1}</div>
+                  <h3 className="font-black uppercase m-0 mb-3 leading-[0.88]"
+                    style={{ fontSize: "clamp(15px, 1.6vw, 20px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
+                    {card.bold}
+                  </h3>
+                  <p className="font-light leading-relaxed m-0"
+                    style={{ color: "rgba(0,0,0,0.60)", fontSize: "13px" }}>
+                    {card.body}
+                  </p>
+                </div>
+                </SpotlightCard>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </SnapPage>
   );
@@ -686,15 +821,15 @@ function WhySection() {
 ═══════════════════════════════════════════════════════════════ */
 
 function GallerySection() {
-  const ref = useRef(null);
+  const scope = useSectionReveal<HTMLDivElement>();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const lightbox = lightboxIdx !== null ? GALLERY_IMGS[lightboxIdx] : null;
 
-  const openLightbox = useCallback((item: typeof GALLERY_IMGS[number]) => {
-    setLightboxIdx(GALLERY_IMGS.indexOf(item));
-  }, []);
+  // Lightbox open trigger was removed along with the zoom cursor on gallery
+  // tiles — homepage images intentionally don't expand now. The close/nav
+  // handlers + portal below stay wired so the lightbox can be reinstated
+  // without reshaping state, but nothing currently calls setLightboxIdx(n).
   const closeLightbox = useCallback(() => setLightboxIdx(null), []);
   const prevImage = useCallback(() => setLightboxIdx(i => i !== null ? (i - 1 + GALLERY_IMGS.length) % GALLERY_IMGS.length : null), []);
   const nextImage = useCallback(() => setLightboxIdx(i => i !== null ? (i + 1) % GALLERY_IMGS.length : null), []);
@@ -705,18 +840,31 @@ function GallerySection() {
     el.scrollBy({ left: dir * el.clientWidth * 0.75, behavior: "smooth" });
   }, []);
 
-  // Drag-to-scroll (desktop only)
+  // Drag-to-scroll (desktop only). pointermove fires at pointer-sample rate
+  // (often >60/sec). Previously we wrote `el.scrollLeft` synchronously inside
+  // every event — that forces a layout read-write on each move, which
+  // competes with scroll compositor work. Now we cache the latest pointer X
+  // and apply the scroll write inside a single rAF per frame.
   useEffect(() => {
     const el = scrollRef.current;
     if (!el || window.matchMedia("(hover: none)").matches) return;
-    let startX = 0, startScroll = 0, dragging = false;
+    let startX = 0, startScroll = 0, latestX = 0, dragging = false, rafPending = false;
+    const flush = () => {
+      rafPending = false;
+      if (!dragging) return;
+      el.scrollLeft = startScroll - (latestX - startX);
+    };
     const onDown = (e: PointerEvent) => {
-      dragging = true; startX = e.clientX; startScroll = el.scrollLeft;
+      dragging = true; startX = e.clientX; startScroll = el.scrollLeft; latestX = e.clientX;
       el.style.cursor = "grabbing"; el.setPointerCapture(e.pointerId);
     };
     const onMove = (e: PointerEvent) => {
       if (!dragging) return;
-      el.scrollLeft = startScroll - (e.clientX - startX);
+      latestX = e.clientX;
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(flush);
+      }
     };
     const onUp = () => { dragging = false; el.style.cursor = "grab"; };
     el.style.cursor = "grab";
@@ -749,14 +897,13 @@ function GallerySection() {
   return (
     <>
     <SnapPage>
-      <div id="work" ref={ref} className="w-full h-full flex flex-col">
+      <div id="work" ref={scope} className="w-full h-full flex flex-col">
 
 
-        <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
-          className="flex flex-col h-full">
+        <div className="flex flex-col h-full">
 
           {/* Header */}
-          <motion.div variants={fadeUp} className="px-6 md:px-10 pt-8 pb-4 flex items-end justify-between shrink-0">
+          <div data-reveal="fade-up" className="px-6 md:px-10 pt-8 pb-4 flex items-end justify-between shrink-0">
             <div>
               <Label>Campaign Gallery</Label>
               <h2 className="font-black uppercase m-0 mt-3 leading-[0.88]"
@@ -766,7 +913,7 @@ function GallerySection() {
             </div>
             <div className="flex items-center gap-2">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase mr-3"
-                style={{ color: "rgba(0,0,0,0.35)" }}>{GALLERY_IMGS.length} Photos</span>
+                style={{ color: "rgba(0,0,0,0.55)" }}>{GALLERY_IMGS.length} Photos</span>
               <button onClick={() => scroll(-1)} aria-label="Scroll gallery left"
                 className="w-9 h-9 flex items-center justify-center rounded-full cursor-pointer"
                 style={{ background: "rgba(0,0,0,0.05)", border: "1px solid rgba(0,0,0,0.1)", color: "rgba(0,0,0,0.5)", fontFamily: "inherit" }}>
@@ -778,10 +925,10 @@ function GallerySection() {
                 <IconChevronRight color="rgba(0,0,0,0.5)" />
               </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* Bento grid — horizontal scroll */}
-          <motion.div variants={fadeUp}
+          <div data-reveal="fade-up"
             ref={scrollRef}
             className="flex-1 flex gap-2.5 overflow-x-auto no-scrollbar pb-6"
             style={{ scrollSnapType: "x mandatory", overscrollBehaviorX: "contain", minHeight: 0, scrollPadding: "0 24px" }}>
@@ -790,9 +937,7 @@ function GallerySection() {
             <div className="shrink-0 w-4 md:w-8" aria-hidden />
 
             {sets.map((set, si) => (
-              <motion.div key={si}
-                variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
-                initial="hidden" animate={inView ? "show" : "hidden"}
+              <div key={si}
                 className={`shrink-0 grid gap-2 ${si === 0 ? "gallery-set-dual" : "gallery-set"}`}
                 style={{
                   scrollSnapAlign: "start",
@@ -803,11 +948,8 @@ function GallerySection() {
                   const isHero = si === 0 ? (i === 0 || i === 1) : i === 0;
                   const isWide = si === 0 ? false : i === 4;
                   return (
-                    <motion.button key={i}
-                      variants={{ hidden: { opacity: 0, scale: 0.96 }, show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }}
-                      onClick={() => openLightbox(item)}
-                      className={`gallery-item relative overflow-hidden rounded-xl group cursor-zoom-in${isHero ? " gallery-hero" : ""}${isWide ? " gallery-wide" : ""}`}
-                      style={{ display: "block", padding: 0, border: "none", background: "none" }}>
+                    <div key={i} data-reveal="scale"
+                      className={`gallery-item relative overflow-hidden rounded-xl group${isHero ? " gallery-hero" : ""}${isWide ? " gallery-wide" : ""}`}>
                       <Image src={item.src} alt={item.label} loading="lazy"
                         fill sizes="(max-width: 768px) 80vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4"
@@ -819,16 +961,16 @@ function GallerySection() {
                           </span>
                         </div>
                       </div>
-                    </motion.button>
+                    </div>
                   );
                 })}
-              </motion.div>
+              </div>
             ))}
 
             {/* Right spacer for page margin */}
             <div className="shrink-0 w-4 md:w-8" aria-hidden />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
     </SnapPage>
@@ -841,7 +983,11 @@ function GallerySection() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center"
-            style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(12px)" }}
+            // No `backdrop-filter: blur()` — full-viewport backdrop blur on an
+            // animated Framer Motion element forces per-frame re-composite of
+            // everything behind it. A slightly more opaque black achieves the
+            // same "focus the image" read without the compositor cost.
+            style={{ background: "rgba(0,0,0,0.96)" }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
             tabIndex={-1}
@@ -849,13 +995,16 @@ function GallerySection() {
             <motion.div
               key={lightboxIdx}
               initial={{ scale: 0.92, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 320, damping: 28 }}
+              // Tween over high-stiffness spring — springs emit many subframe
+              // state updates (style recalcs) that compound with any remaining
+              // composited work. A 260ms tween reads identical to the eye.
+              transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full flex items-center justify-center p-4 md:p-10"
               onClick={e => e.stopPropagation()}>
               <div className="relative w-full h-full max-w-5xl max-h-[85vh] rounded-2xl overflow-hidden"
                 style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}>
                 <Image src={lightbox.src} alt={lightbox.label} fill
-                  sizes="100vw" className="object-contain" priority />
+                  sizes="(min-width: 768px) 80vw, 100vw" className="object-contain" />
               </div>
               {/* Label + counter */}
               <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">
@@ -898,8 +1047,7 @@ function GallerySection() {
 const CITIES = "NYC · LA · Chicago · Miami · SF · Atlanta · Houston · Philly · Seattle · Austin · Boston · DC · Portland · Denver · Vegas · Nashville + Every US City";
 
 function ContactSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const scope = useSectionReveal<HTMLDivElement>();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [selectedSvcs, setSelectedSvcs] = useState<Set<string>>(new Set());
@@ -933,17 +1081,16 @@ function ContactSection() {
 
   return (
     <SnapPage id="contact" style={mobileFormOpen ? { height: "auto", minHeight: "100vh" } : undefined}>
-      <div ref={ref} className="w-full py-10 px-5 sm:px-8 md:px-12 lg:px-16">
+      <div ref={scope} className="w-full py-10 px-5 sm:px-8 md:px-12 lg:px-16">
 
 
         <div className="absolute inset-0 pointer-events-none" aria-hidden
           style={{ backgroundImage: "url(/gallery/bedstuy-stencil.webp)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.08, filter: "grayscale(1)" }} />
 
-        <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
-          className="max-w-[1400px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div className="max-w-[1400px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left — Heading */}
-          <motion.div variants={fadeUp}>
+          <div data-reveal="fade-up">
             <div className="mb-4"><Label>Get a Quote</Label></div>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(42px, 6vw, 80px)", letterSpacing: "-0.03em" }}>
@@ -956,8 +1103,9 @@ function ContactSection() {
 
             <div className="flex flex-col gap-3 mb-6">
               {[
-                { icon: <IconMail color="#1A1A1A" />,      label: "Email",     value: "info@phantompasting.com", href: "mailto:info@phantompasting.com" },
-                { icon: <IconInstagram color="#1A1A1A" />, label: "Instagram", value: "@phantompasting",        href: "#" },
+                { icon: <IconPhone color="#1A1A1A" />,     label: "Phone",     value: BUSINESS.telephoneDisplay, href: BUSINESS.telHref },
+                { icon: <IconMail color="#1A1A1A" />,      label: "Email",     value: BUSINESS.email,           href: `mailto:${BUSINESS.email}` },
+                { icon: <IconInstagram color="#1A1A1A" />, label: "Instagram", value: BUSINESS.instagramHandle, href: BUSINESS.instagramUrl },
                 { icon: <IconClock color="#1A1A1A" />,     label: "Response",  value: "Within 24 hours",       href: null },
               ].map(({ icon, label, value, href }) => (
                 <div key={label} className="flex items-center gap-3">
@@ -976,7 +1124,7 @@ function ContactSection() {
 
             <div className="p-3 rounded-xl" style={{ background: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.06)" }}>
               <p className="font-mono text-[9px] tracking-[0.28em] uppercase text-[#D4A010] mb-1">◎ Nationwide Coverage</p>
-              <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.45)", fontSize: "11px" }}>{CITIES}</p>
+              <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.58)", fontSize: "11px" }}>{CITIES}</p>
             </div>
 
             {/* Mobile CTA — reveals form */}
@@ -996,10 +1144,10 @@ function ContactSection() {
                 <span className="cta-arrow">→</span>
               </button>
             )}
-          </motion.div>
+          </div>
 
           {/* Right — Form */}
-          <motion.div variants={fadeUp} className={mobileFormOpen ? "" : "hidden lg:block"}>
+          <div data-reveal="fade-up" className={mobileFormOpen ? "" : "hidden lg:block"}>
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div key="ok" initial={{ scale: 0.88, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={SNAP}>
@@ -1014,7 +1162,7 @@ function ContactSection() {
                       style={{ fontSize: "clamp(36px, 4vw, 56px)", color: "#1A1A1A" }}>You&apos;re In.</h3>
                     <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
                       We&apos;ll hit your inbox within 24 hours. Follow{" "}
-                      <a href="#" className="no-underline" style={{ color: "#D4A010" }}>@phantompasting</a>{" "}
+                      <a href={BUSINESS.instagramUrl} target="_blank" rel="noopener noreferrer" className="no-underline" style={{ color: "#D4A010" }}>@phantompasting</a>{" "}
                       to see campaigns live in the wild.
                     </p>
                   </Glass>
@@ -1043,7 +1191,7 @@ function ContactSection() {
 
                   {/* Service toggles */}
                   <div className="p-4 border" style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
-                    <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: "rgba(0,0,0,0.4)" }}>Service Needed</p>
+                    <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: "rgba(0,0,0,0.55)" }}>Service Needed</p>
                     <div className="flex flex-wrap gap-2">
                       {["Wheat Pasting","Chalk Spray Stencils","Full Impact","Custom"].map((svc) => {
                         const active = selectedSvcs.has(svc);
@@ -1113,15 +1261,15 @@ function ContactSection() {
                           style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
                           <div className="relative">
                             <label className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-                              style={{ color: "rgba(0,0,0,0.4)" }}>W (in)</label>
+                              style={{ color: "rgba(0,0,0,0.55)" }}>W (in)</label>
                             <input name="st_width" type="number" min="6" max="48" placeholder="24"
                               className="w-full bg-transparent outline-none pt-8 pb-3 px-5 font-light"
                               style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
                           </div>
-                          <span className="pb-3 font-mono text-[11px]" style={{ color: "rgba(0,0,0,0.25)" }}>×</span>
+                          <span className="pb-3 font-mono text-[11px]" style={{ color: "rgba(0,0,0,0.52)" }}>×</span>
                           <div className="relative">
                             <label className="absolute top-3 left-3 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-                              style={{ color: "rgba(0,0,0,0.4)" }}>H (in)</label>
+                              style={{ color: "rgba(0,0,0,0.55)" }}>H (in)</label>
                             <input name="st_height" type="number" min="6" max="240" placeholder="36"
                               className="w-full bg-transparent outline-none pt-8 pb-3 px-3 font-light"
                               style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
@@ -1144,36 +1292,33 @@ function ContactSection() {
                   </div>
                   <div className="relative border" style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
                     <label className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-                      style={{ color: "rgba(0,0,0,0.4)" }}>Campaign Details</label>
+                      style={{ color: "rgba(0,0,0,0.55)" }}>Campaign Details</label>
                     <textarea name="message" rows={3}
                       placeholder="Campaign goals, target audience, specific neighborhoods…"
                       className="w-full bg-transparent outline-none resize-none pt-8 pb-3 px-5 font-light"
                       style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
                   </div>
-                  <motion.button type="submit" disabled={submitting}
-                    className="relative flex items-center justify-between font-black text-[16px] tracking-[0.06em] uppercase px-8 py-4 border-0 cursor-pointer overflow-hidden disabled:opacity-70"
+                  <button type="submit" disabled={submitting}
+                    className="submit-btn relative flex items-center justify-between font-black text-[16px] tracking-[0.06em] uppercase px-8 py-4 border-0 cursor-pointer overflow-hidden disabled:opacity-70"
                     style={{
                       background: "linear-gradient(135deg, #D4A010 0%, #F5CA20 50%, #D4A010 100%)",
                       color: "#FFF", fontFamily: "inherit",
                       boxShadow: "0 4px 24px rgba(184,150,15,0.5), inset 0 1px 0 rgba(255,255,255,0.25)",
-                    }}
-                    whileHover={{ scale: 1.02, boxShadow: "0 8px 32px rgba(184,150,15,0.65)" }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={SNAP_HARD}>
+                    }}>
                     <span className="absolute inset-0 pointer-events-none"
                       style={{ background: "linear-gradient(105deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0) 65%)" }} />
                     {submitting ? "Sending…" : "Launch My Campaign"}
                     {!submitting && <span className="submit-arrow">→</span>}
-                  </motion.button>
+                  </button>
                   <p className="text-center font-mono text-[9px] tracking-[0.12em] mt-2 mb-1"
-                    style={{ color: "rgba(0,0,0,0.25)" }}>
+                    style={{ color: "rgba(0,0,0,0.52)" }}>
                     ✦ No spam. Your info is used only to build your campaign.
                   </p>
                 </motion.form>
               )}
             </AnimatePresence>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </SnapPage>
   );
@@ -1186,7 +1331,7 @@ function FormField({ label, name, placeholder, type = "text", required = false }
     <div className="form-field relative border"
       style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
       <label htmlFor={name} className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-        style={{ color: "rgba(0,0,0,0.4)" }}>{label}</label>
+        style={{ color: "rgba(0,0,0,0.55)" }}>{label}</label>
       <input id={name} name={name} type={type} placeholder={placeholder} required={required}
         className="w-full bg-transparent outline-none pt-8 pb-3 px-5 font-light"
         style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
@@ -1201,7 +1346,7 @@ function FormSelect({ label, name, options }: {
     <div className="form-field relative border"
       style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
       <label htmlFor={name} className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none z-10"
-        style={{ color: "rgba(0,0,0,0.4)" }}>{label}</label>
+        style={{ color: "rgba(0,0,0,0.55)" }}>{label}</label>
       <select id={name} name={name} defaultValue=""
         className="w-full bg-transparent outline-none pt-8 pb-3 px-5 appearance-none font-light"
         style={{ color: "rgba(0,0,0,0.6)", fontSize: "14px", fontFamily: "inherit" }}>
@@ -1233,45 +1378,32 @@ const FAQS = [
     a: "Global names to indie streetwear labels, tech startups, event promoters, bars, restaurants, artists, nonprofits. Any scale, any budget." },
 ] as const;
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
-};
-
 function FAQSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const scope = useSectionReveal<HTMLDivElement>();
   const [open, setOpen] = useState<number | null>(null);
 
   return (
     <SnapPage id="faq">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <div ref={ref} className="w-full h-full flex flex-col pt-10 pb-4 px-5 sm:px-8 md:px-12 lg:px-16 overflow-hidden">
+      <div ref={scope} className="w-full h-full flex flex-col pt-10 pb-4 px-5 sm:px-8 md:px-12 lg:px-16 overflow-hidden">
 
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.01) 30%, rgba(0,0,0,0.01) 70%, transparent 100%)" }} />
 
-        <motion.div variants={stagger} initial="hidden" animate={inView ? "show" : "hidden"}
-          className="max-w-[900px] w-full mx-auto relative z-10 flex flex-col flex-1 min-h-0">
+        <div className="max-w-[900px] w-full mx-auto relative z-10 flex flex-col flex-1 min-h-0">
 
           {/* Header — fixed, doesn't scroll */}
-          <motion.div variants={fadeUp} className="mb-6 md:mb-10 shrink-0">
+          <div data-reveal="fade-up" className="mb-6 md:mb-10 shrink-0">
             <div className="mb-3 md:mb-4"><Label>FAQ</Label></div>
             <h2 className="font-black uppercase m-0 leading-[0.9]"
               style={{ fontSize: "clamp(36px, 5vw, 72px)", letterSpacing: "-0.03em" }}>
               COMMON<br /><ShinyGoldText>QUESTIONS</ShinyGoldText>
             </h2>
-          </motion.div>
+          </div>
 
           {/* Questions list — scrollable on mobile if needed */}
           <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col gap-px">
             {FAQS.map((faq, i) => (
-              <motion.div key={i} variants={fadeUp}>
+              <div key={i} data-reveal="fade-up">
                 <div className="border-b" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
                   <button onClick={() => setOpen(open === i ? null : i)}
                     className="w-full flex items-center justify-between gap-5 py-4 md:py-5 text-left bg-transparent border-0 cursor-pointer"
@@ -1280,17 +1412,16 @@ function FAQSection() {
                       style={{ fontSize: "clamp(13px, 1.4vw, 19px)", letterSpacing: "-0.01em", color: "#1A1A1A" }}>
                       {faq.q}
                     </span>
-                    <motion.div className="w-8 h-8 shrink-0 flex items-center justify-center rounded-xl"
+                    <div className="w-8 h-8 shrink-0 flex items-center justify-center rounded-xl transition-transform duration-300 ease-out"
                       style={{
                         background: open === i ? "#D4A010" : "rgba(242,240,236,0.85)",
                         border: open === i ? "1px solid #D4A010" : "1px solid rgba(0,0,0,0.08)",
                         color: open === i ? "#FFF" : "#1A1A1A",
                         fontSize: "18px",
                         boxShadow: open === i ? "0 2px 12px rgba(184,150,15,0.35)" : "0 1px 4px rgba(0,0,0,0.06)",
-                      }}
-                      animate={{ rotate: open === i ? 45 : 0 }}
-                      transition={SNAP}>+
-                    </motion.div>
+                        transform: open === i ? "rotate(45deg)" : "rotate(0deg)",
+                      }}>+
+                    </div>
                   </button>
                   <div className="grid transition-[grid-template-rows,opacity] duration-300 ease-out"
                     style={{
@@ -1307,10 +1438,10 @@ function FAQSection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </SnapPage>
   );
@@ -1341,8 +1472,7 @@ const FOOTER_LINKS = {
 } as const;
 
 function Footer() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const scope = useSectionReveal<HTMLDivElement>();
 
   return (
     <footer className="relative flex items-center px-5 sm:px-8 md:px-12 lg:px-16 border-t py-16"
@@ -1352,13 +1482,12 @@ function Footer() {
         background: "rgba(242,240,236,0.75)",
         borderColor: "rgba(255,255,255,0.55)",
       }}>
-      <motion.div ref={ref} className="w-full"
-        initial={{ y: 24, opacity: 0 }} animate={inView ? { y: 0, opacity: 1 } : {}} transition={SNAP}>
+      <div ref={scope} data-reveal="fade-up" className="w-full">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-16 text-center md:text-left">
             <div className="flex items-center gap-4 justify-center md:justify-start mb-3">
               <Image
-                src="/phantom-pasting-logo.png"
+                src="/phantom-pasting-logo.webp"
                 alt="Phantom Pasting Logo"
                 width={48}
                 height={48}
@@ -1372,7 +1501,7 @@ function Footer() {
               <ShinyGoldText>PASTING</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed mt-4 max-w-md"
-              style={{ color: "rgba(0,0,0,0.45)", fontSize: "14px" }}>
+              style={{ color: "rgba(0,0,0,0.58)", fontSize: "14px" }}>
               The premier guerrilla marketing agency. Wheat pasting and stencil activations across every US city.
             </p>
           </div>
@@ -1412,7 +1541,7 @@ function Footer() {
           </div>
           <div className="flex items-center justify-between pt-8 flex-wrap gap-4">
             <p className="font-mono text-[9px] tracking-[0.22em] uppercase"
-              style={{ color: "rgba(0,0,0,0.25)" }}>
+              style={{ color: "rgba(0,0,0,0.52)" }}>
               © 2026 Phantom Pasting — All Rights Reserved
             </p>
             <div className="flex gap-2.5">
@@ -1425,7 +1554,7 @@ function Footer() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </footer>
   );
 }
@@ -1445,6 +1574,7 @@ export default function ScrollSections() {
         <ServicePage key={svc.num} svc={svc} index={i} />
       ))}
       <WhySection />
+      <TLDRSection />
       <GallerySection />
       <ContactSection />
       <FAQSection />

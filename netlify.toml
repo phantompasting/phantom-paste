@@ -1,7 +1,34 @@
 # Phantom Pasting — Netlify configuration
+
+# Build — Next.js 15 App Router (SSR/ISR, NOT a static export).
+# The plugin wires up Next's runtime (on-demand pages, Route Handlers,
+# `next/image` optimization, ISR). Without it, Netlify would try to serve
+# `.next/` as static files and most routes would 404.
+[build]
+  command = "next build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 # Non-www → www permanent redirect (enforces canonical domain)
+[[redirects]]
+  from = "http://phantompasting.com/*"
+  to   = "https://www.phantompasting.com/:splat"
+  status = 301
+  force  = true
+
 [[redirects]]
   from = "https://phantompasting.com/*"
   to   = "https://www.phantompasting.com/:splat"
   status = 301
   force  = true
+
+# Default crawler directives — mirrors <meta name="robots"> for non-HTML
+# assets (PDFs, images, JSON) and silences "missing X-Robots-Tag" flags
+# from auditors like Screaming Frog and Sitebulb. Override per-path below
+# if specific sections should be noindexed.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"

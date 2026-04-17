@@ -59,7 +59,7 @@ export default function GalleryPageClient() {
         >
           {/* Label */}
           <span className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.35em] uppercase mb-4"
-            style={{ color: "rgba(0,0,0,0.38)" }}>
+            style={{ color: "rgba(0,0,0,0.55)" }}>
             <span className="block w-6 h-px" style={{ background: ACCENT }} />
             Campaign Gallery
           </span>
@@ -72,7 +72,7 @@ export default function GalleryPageClient() {
               OUR WORK<span style={{ color: ACCENT }}>.</span>
             </h1>
             <p className="font-mono text-[10px] tracking-[0.2em] uppercase m-0"
-              style={{ color: "rgba(0,0,0,0.35)" }}>
+              style={{ color: "rgba(0,0,0,0.55)" }}>
               {GALLERY_IMGS.length} Photos · Documented Campaigns
             </p>
           </div>
@@ -109,7 +109,8 @@ export default function GalleryPageClient() {
                     src={img.src}
                     alt={img.alt}
                     fill
-                    loading={i < 6 ? "eager" : "lazy"}
+                    loading={i < 3 ? "eager" : "lazy"}
+                    fetchPriority={i < 3 ? "high" : "low"}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -140,7 +141,7 @@ export default function GalleryPageClient() {
           className="mt-16 text-center"
         >
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6"
-            style={{ color: "rgba(0,0,0,0.35)" }}>
+            style={{ color: "rgba(0,0,0,0.55)" }}>
             Ready to own your streets?
           </p>
           <a
@@ -164,8 +165,11 @@ export default function GalleryPageClient() {
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
+              role="dialog"
+              aria-modal="true"
+              aria-label={lightbox ? `${lightbox.label} — enlarged view` : "Image viewer"}
               className="fixed inset-0 z-[9999] flex items-center justify-center"
-              style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(12px)" }}
+              style={{ background: "rgba(0,0,0,0.96)" }}
               onClick={closeLightbox}
               tabIndex={-1}
               ref={(el) => el?.focus()}
@@ -173,13 +177,13 @@ export default function GalleryPageClient() {
               <motion.div
                 key={lightboxIdx}
                 initial={{ scale: 0.92, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 320, damping: 28 }}
+                transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
                 className="relative w-full h-full flex items-center justify-center p-4 md:p-10"
                 onClick={e => e.stopPropagation()}
               >
                 <div className="relative w-full h-full max-w-5xl max-h-[85vh] rounded-2xl overflow-hidden"
                   style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}>
-                  <Image src={lightbox.src} alt={lightbox.alt} fill sizes="100vw" className="object-contain" priority />
+                  <Image src={lightbox.src} alt={lightbox.alt} fill sizes="(min-width: 768px) 80vw, 100vw" className="object-contain" />
                 </div>
                 {/* Label */}
                 <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">

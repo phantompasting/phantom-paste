@@ -3,8 +3,13 @@
  * Server component — no "use client" needed.
  */
 import Link from "next/link";
+import Image from "next/image";
 import SiteNav from "@/components/SiteNav";
 import ShinyGoldText from "@/components/ShinyGoldText";
+import Breadcrumb from "@/components/Breadcrumb";
+import SiteFooter from "@/components/SiteFooter";
+import TrustBar from "@/components/TrustBar";
+import { BUSINESS } from "@/lib/business";
 
 const ACCENT = "#D4A010";
 
@@ -18,6 +23,8 @@ export interface CityPageData {
   whyText: string;
   neighborhoods: { name: string; desc: string }[];
   localBusiness: Record<string, unknown>;
+  heroImage1?: { src: string; alt: string };
+  heroImage2?: { src: string; alt: string };
 }
 
 export default function CityPageTemplate({ data }: { data: CityPageData }) {
@@ -26,8 +33,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
-      { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.phantompasting.com/locations/" + data.slug },
-      { "@type": "ListItem", position: 3, name: data.city, item: "https://www.phantompasting.com/locations/" + data.slug },
+      { "@type": "ListItem", position: 2, name: data.city, item: "https://www.phantompasting.com/locations/" + data.slug },
     ],
   };
 
@@ -36,6 +42,8 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
     ...data.localBusiness,
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    email: BUSINESS.email,
+    telephone: BUSINESS.telephone,
     address: {
       "@type": "PostalAddress",
       addressLocality: data.city,
@@ -49,134 +57,141 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
     },
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `Do you do wheat pasting in ${data.city}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes — Phantom Pasting has local crews in ${data.city} and can deploy wheat paste poster campaigns across the city's highest-traffic neighborhoods. We handle print, installation, and full photo documentation.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `How much does wheat pasting in ${data.city} cost?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Wheat pasting costs in ${data.city} vary based on the number of posters, poster size, and target neighborhoods. Contact us for a custom quote — we respond within 24 hours.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `How quickly can you launch a wheat pasting campaign in ${data.city}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Most campaigns in ${data.city} can be installed within 1–2 weeks of artwork approval. Rush timelines may be available — reach out to discuss your schedule.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `Do you photograph every wheat paste installation in ${data.city}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes — every hit in ${data.city} is photographed, timestamped, and delivered in a campaign report. You receive geo-tagged images for every location, ready to use as social content.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `What neighborhoods do you cover for wheat pasting in ${data.city}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `In ${data.city}, we target the highest foot-traffic neighborhoods including ${data.neighborhoods.slice(0, 3).map((n) => n.name).join(", ")}, and more. Our local crews know the best walls and intersections in each area.`,
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
+        <Breadcrumb
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Locations", href: "/locations" },
+            { name: data.city },
+          ]}
+        />
+        <TrustBar />
 
-        {/* ── Hero ──────────────────────────────────────────────── */}
-        <section className="relative px-5 sm:px-8 md:px-12 lg:px-16 pt-16 pb-16 md:pt-24 md:pb-20 overflow-hidden">
-          <span aria-hidden className="absolute inset-x-0 top-4 text-center font-black uppercase pointer-events-none select-none"
-            style={{ fontSize: "clamp(60px, 14vw, 220px)", letterSpacing: "-0.05em", color: "rgba(212,160,16,0.05)", lineHeight: 1 }}>
-            {data.heroWord}
-          </span>
+        {/* ── Hero (split-screen) ───────────────────────────────── */}
+        <section className="relative overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] lg:min-h-[660px] items-center">
 
-          <div className="relative z-10 max-w-[900px]">
-            <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
-              style={{ color: "rgba(0,0,0,0.4)" }}>
-              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-              {data.city}, {data.state}
-            </span>
+              {/* LEFT — text + stats */}
+              <div className="relative z-10 flex flex-col justify-center py-16 md:py-20 lg:py-24 lg:pr-16">
+                <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
+                  style={{ color: "rgba(0,0,0,0.55)" }}>
+                  <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                  {data.city}, {data.state}
+                </span>
 
-            <h1 className="font-black uppercase m-0 leading-[0.88]"
-              style={{ fontSize: "clamp(42px, 7vw, 100px)", letterSpacing: "-0.04em" }}>
-              WHEAT PASTING &amp;<br />WILD POSTING IN<br />
-              <ShinyGoldText>{data.city.toUpperCase()}.</ShinyGoldText>
-            </h1>
+                <h1 className="font-black uppercase m-0 leading-[0.88]"
+                  style={{ fontSize: "clamp(42px, 6.5vw, 88px)", letterSpacing: "-0.04em" }}>
+                  WHEAT PASTING &amp;<br />WILD POSTING IN<br />
+                  <ShinyGoldText>{data.city.toUpperCase()}.</ShinyGoldText>
+                </h1>
 
-            <p className="font-light leading-relaxed mt-8 mb-10 max-w-[540px]"
-              style={{ fontSize: "clamp(15px, 1.6vw, 18px)", color: "rgba(0,0,0,0.5)" }}>
-              {data.intro}
-            </p>
+                <p className="font-light leading-relaxed mt-8 mb-10"
+                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                  {data.intro}
+                </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact"
-                className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)", color: "#FFF",
-                  boxShadow: "0 4px 28px rgba(0,0,0,0.42), 0 1px 0 rgba(255,255,255,0.08) inset" }}>
-                <span className="absolute inset-0 pointer-events-none rounded-full"
-                  style={{ background: "linear-gradient(180deg, rgba(196,162,18,0.28) 0%, transparent 48%)" }} />
-                Get a {data.city} Quote
-                <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
-              </Link>
-              <Link href="/gallery"
-                className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
-                style={{ color: "rgba(0,0,0,0.72)", background: "rgba(255,255,255,0.9)",
-                  border: "1px solid rgba(0,0,0,0.14)", boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
-                See Our Work <span className="cta-arrow">→</span>
-              </Link>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/contact"
+                    className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
+                    style={{ background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)", color: "#FFF",
+                      boxShadow: "0 4px 28px rgba(0,0,0,0.42), 0 1px 0 rgba(255,255,255,0.08) inset" }}>
+                    <span className="absolute inset-0 pointer-events-none rounded-full"
+                      style={{ background: "linear-gradient(180deg, rgba(196,162,18,0.28) 0%, transparent 48%)" }} />
+                    Get a {data.city} Quote
+                    <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
+                  </Link>
+                  <Link href="/gallery"
+                    className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
+                    style={{ color: "rgba(0,0,0,0.72)", background: "rgba(255,255,255,0.9)",
+                      border: "1px solid rgba(0,0,0,0.14)", boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+                    See Our Work <span className="cta-arrow">→</span>
+                  </Link>
+                </div>
+
+                {/* Stats row */}
+                <div className="flex flex-wrap gap-10 md:gap-16 mt-12 pt-10"
+                  style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+                  {[
+                    { stat: "Wheat Paste", label: "Large Posters" },
+                    { stat: "Chalk", label: "Stencils" },
+                    { stat: "100%", label: "Documented" },
+                  ].map(({ stat, label }) => (
+                    <div key={label}>
+                      <div className="font-black uppercase leading-none"
+                        style={{ fontSize: "clamp(22px, 2.8vw, 36px)", letterSpacing: "-0.03em", color: ACCENT }}>
+                        {stat}
+                      </div>
+                      <div className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1.5" style={{ color: "rgba(0,0,0,0.55)" }}>
+                        {label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT — image composition */}
+              <div className="relative hidden lg:block h-[660px] overflow-hidden">
+                <span aria-hidden className="absolute right-0 top-1/2 font-black uppercase pointer-events-none select-none"
+                  style={{ fontSize: "clamp(80px, 12vw, 180px)", letterSpacing: "-0.06em",
+                    color: "rgba(212,160,16,0.05)", lineHeight: 1,
+                    writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}>
+                  {data.heroWord}
+                </span>
+
+                {data.heroImage1 && (
+                  <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
+                    style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
+                      boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
+                    <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
+                      fill style={{ objectFit: "cover" }} sizes="40vw" priority />
+                  </div>
+                )}
+
+                {data.heroImage2 && (
+                  <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
+                    style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
+                      boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                    <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
+                      fill style={{ objectFit: "cover" }} sizes="25vw" />
+                  </div>
+                )}
+
+                <div aria-hidden className="absolute pointer-events-none"
+                  style={{ top: "30%", left: "32%", width: "1px", height: "28%",
+                    background: "linear-gradient(to bottom, transparent, rgba(212,160,16,0.5), transparent)",
+                    transform: "rotate(18deg)" }} />
+
+                <div className="absolute top-6 left-4 rounded-xl px-4 py-3"
+                  style={{ background: "rgba(255,254,248,0.92)", backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.75)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.09)" }}>
+                  <div className="font-black uppercase leading-none"
+                    style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}>
+                    {data.state}
+                  </div>
+                  <div className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1"
+                    style={{ color: "rgba(0,0,0,0.55)" }}>
+                    {data.city}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-
-        {/* ── Stats inline ──────────────────────────────────────── */}
-        <div className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20 md:pb-28">
-          <div className="max-w-[1200px] mx-auto flex flex-wrap gap-12 md:gap-20">
-            {[
-              { stat: "Wheat Pasting", label: "Large Format Posters" },
-              { stat: "Chalk Stencils", label: "Sidewalk Level" },
-              { stat: "100%", label: "Documented" },
-            ].map(({ stat, label }) => (
-              <div key={label}>
-                <div className="font-black uppercase leading-none"
-                  style={{ fontSize: "clamp(20px, 2.5vw, 36px)", letterSpacing: "-0.03em", color: ACCENT }}>
-                  {stat}
-                </div>
-                <div className="font-mono text-[9px] tracking-[0.3em] uppercase mt-2" style={{ color: "rgba(0,0,0,0.4)" }}>
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* ── Why this city ─────────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
             <div>
               <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
-                style={{ color: "rgba(0,0,0,0.35)" }}>
+                style={{ color: "rgba(0,0,0,0.55)" }}>
                 <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
                 Why {data.city}
               </span>
@@ -201,13 +216,13 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
               ].map((svc) => (
                 <Link key={svc.title} href={svc.href}
                   className="no-underline rounded-2xl p-6 flex items-center justify-between"
-                  style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(16px)",
-                    WebkitBackdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.6)" }}>
+                  style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.6)" }}>
                   <div>
                     <div className="font-black uppercase text-[14px] tracking-[-0.01em] mb-1" style={{ color: "#1A1A1A" }}>
                       {svc.title}
                     </div>
-                    <p className="font-light m-0" style={{ color: "rgba(0,0,0,0.45)", fontSize: "12px" }}>{svc.desc}</p>
+                    <p className="font-light m-0" style={{ color: "rgba(0,0,0,0.58)", fontSize: "12px" }}>{svc.desc}</p>
                   </div>
                   <span style={{ color: ACCENT, fontSize: "20px" }}>→</span>
                 </Link>
@@ -220,7 +235,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto">
             <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
-              style={{ color: "rgba(0,0,0,0.35)" }}>
+              style={{ color: "rgba(0,0,0,0.55)" }}>
               <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
               Campaign Areas
             </span>
@@ -232,7 +247,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
               style={{ background: "rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.06)", borderRadius: "20px", overflow: "hidden" }}>
               {data.neighborhoods.map((n) => (
                 <div key={n.name} className="p-7"
-                  style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}>
+                  style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
                   <div className="font-black uppercase leading-tight mb-2"
                     style={{ fontSize: "clamp(16px, 1.5vw, 20px)", letterSpacing: "-0.02em" }}>
                     {n.name}
@@ -259,7 +274,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                 { num: "03", title: "FULL DOCUMENTATION", desc: "Every hit photographed, timestamped, and geo-tagged. Campaign report delivered with social-ready assets." },
               ].map((step) => (
                 <div key={step.num} className="p-8 md:p-10"
-                  style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}>
+                  style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
                   <div className="font-mono text-[10px] tracking-[0.35em] uppercase mb-5" style={{ color: ACCENT }}>{step.num}</div>
                   <h3 className="font-black uppercase m-0 mb-3 leading-[0.88]"
                     style={{ fontSize: "clamp(18px, 1.8vw, 24px)", letterSpacing: "-0.02em" }}>
@@ -297,25 +312,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
           </div>
         </section>
 
-        {/* ── Footer ────────────────────────────────────────────── */}
-        <footer className="px-5 sm:px-8 md:px-12 lg:px-16 py-10 border-t" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
-          <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <div className="font-black uppercase text-[14px] tracking-[0.05em] mb-1" style={{ color: "#1A1A1A" }}>
-                Phantom<span style={{ color: ACCENT }}>Pasting</span>
-              </div>
-              <p className="font-mono text-[9px] tracking-[0.22em] uppercase m-0" style={{ color: "rgba(0,0,0,0.3)" }}>© 2026 — All Rights Reserved</p>
-            </div>
-            <div className="flex flex-wrap gap-x-8 gap-y-2">
-              {[{ label: "Wheat Pasting", href: "/services/wheat-pasting" }, { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
-                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Gallery", href: "/gallery" },
-                { label: "Contact", href: "/contact" }, { label: "About", href: "/about" }
-              ].map(({ label, href }) => (
-                <Link key={label} href={href} className="footer-link font-light no-underline" style={{ fontSize: "13px" }}>{label}</Link>
-              ))}
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );

@@ -71,8 +71,8 @@ export default function MobileNav() {
           className="absolute top-full right-0 mt-2 py-3 px-2 rounded-2xl min-w-[200px]"
           style={{
             background: "rgba(255,254,248,0.97)",
-            backdropFilter: "blur(20px) saturate(1.6)",
-            WebkitBackdropFilter: "blur(20px) saturate(1.6)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
             border: "1px solid rgba(255,255,255,0.7)",
             boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)",
           }}

@@ -17,7 +17,7 @@ function FormField({
       <label
         htmlFor={name}
         className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-        style={{ color: "rgba(0,0,0,0.4)" }}
+        style={{ color: "rgba(0,0,0,0.55)" }}
       >
         {label}
       </label>
@@ -39,7 +39,7 @@ function FormSelect({ label, name, options }: { label: string; name: string; opt
       <label
         htmlFor={name}
         className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none z-10"
-        style={{ color: "rgba(0,0,0,0.4)" }}
+        style={{ color: "rgba(0,0,0,0.55)" }}
       >
         {label}
       </label>
@@ -75,6 +75,11 @@ export default function ContactForm() {
     setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
+    // Web3Forms access key — INTENTIONALLY public. These keys are designed for
+    // client-side use; abuse is rate-limited server-side by Web3Forms and bound
+    // to the email address configured in the dashboard. Do NOT refactor this to
+    // an env var or server route — that adds infra with zero security benefit.
+    // See: https://docs.web3forms.com/getting-started/security
     data.append("access_key", "d830efb8-46f4-4275-9086-2319a36134d0");
     data.append("subject", "New Phantom Pasting Quote Request");
     data.append("from_name", "Phantom Pasting Website");
@@ -147,7 +152,7 @@ export default function ContactForm() {
         className="p-4 border"
         style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}
       >
-        <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: "rgba(0,0,0,0.4)" }}>
+        <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: "rgba(0,0,0,0.55)" }}>
           Service Needed
         </p>
         <div className="flex flex-wrap gap-2">
@@ -156,6 +161,7 @@ export default function ContactForm() {
             return (
               <button
                 key={svc} type="button" onClick={() => toggleSvc(svc)}
+                aria-pressed={active}
                 className="font-mono text-[10px] tracking-[0.1em] px-3 py-2 rounded-lg border cursor-pointer select-none"
                 style={{
                   background: active ? "rgba(184,150,15,0.15)" : "rgba(242,240,236,0.7)",
@@ -233,12 +239,14 @@ export default function ContactForm() {
         style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}
       >
         <label
+          htmlFor="message"
           className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-          style={{ color: "rgba(0,0,0,0.4)" }}
+          style={{ color: "rgba(0,0,0,0.55)" }}
         >
           Campaign Details
         </label>
         <textarea
+          id="message"
           name="message" rows={3}
           placeholder="Campaign goals, target audience, specific neighborhoods…"
           className="w-full bg-transparent outline-none resize-none pt-8 pb-3 px-5 font-light"
@@ -269,7 +277,7 @@ export default function ContactForm() {
 
       <p
         className="text-center font-mono text-[9px] tracking-[0.12em] py-3"
-        style={{ color: "rgba(0,0,0,0.25)", background: "rgba(0,0,0,0.02)" }}
+        style={{ color: "rgba(0,0,0,0.52)", background: "rgba(0,0,0,0.02)" }}
       >
         ✦ No spam. Your info is used only to build your campaign.
       </p>

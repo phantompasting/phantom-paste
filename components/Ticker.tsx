@@ -7,7 +7,13 @@ export function TickerMarquee({ items, speed = 28 }: { items: string[]; speed?: 
   const doubled = [...items, ...items];
   return (
     <div className="relative overflow-hidden py-2"
-      style={{ borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+      style={{
+        borderBottom: "1px solid rgba(0,0,0,0.06)",
+        // Isolates the marquee track's paints from the rest of the page —
+        // the ambient canvas + scroll-reveal transforms elsewhere won't
+        // invalidate this layer and force the ticker to re-rasterize.
+        contain: "paint",
+      }}>
       <div className="ticker-track flex whitespace-nowrap"
         style={{ animationDuration: `${speed}s` }}>
         {doubled.map((item, i) => (

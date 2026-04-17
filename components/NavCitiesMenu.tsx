@@ -23,6 +23,11 @@ export default function NavCitiesMenu() {
       onMouseLeave={() => setOpen(false)}
     >
       <span
+        // `<span>` has no implicit role, so aria-expanded/aria-haspopup
+        // are invalid on it (Lighthouse AA failure). role="button" gives
+        // it the button role that allows those aria attributes.
+        role="button"
+        tabIndex={0}
         className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1 inline-flex items-center gap-1.5 cursor-default select-none"
         aria-expanded={open}
         aria-haspopup="true"
@@ -49,14 +54,24 @@ export default function NavCitiesMenu() {
           <div
             className="py-2 rounded-xl overflow-hidden"
             style={{
-              minWidth: "170px",
+              minWidth: "180px",
               background: "rgba(255,254,248,0.97)",
-              backdropFilter: "blur(20px) saturate(1.6)",
-              WebkitBackdropFilter: "blur(20px) saturate(1.6)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
               border: "1px solid rgba(255,255,255,0.7)",
               boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)",
             }}
           >
+            {/* Hub link */}
+            <a
+              href="/locations"
+              className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] uppercase no-underline px-4 py-2.5 border-b"
+              style={{ color: ACCENT, borderColor: "rgba(0,0,0,0.06)", transition: "background 0.15s" }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(0,0,0,0.04)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+            >
+              All Locations
+            </a>
             {CITIES.map(({ label, href }) => (
               <a
                 key={href}

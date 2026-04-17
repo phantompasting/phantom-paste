@@ -3,11 +3,20 @@ import Link from "next/link";
 import Image from "next/image";
 import SiteNav from "@/components/SiteNav";
 import ShinyGoldText from "@/components/ShinyGoldText";
+import Breadcrumb from "@/components/Breadcrumb";
+import SiteFooter from "@/components/SiteFooter";
+import TrustBar from "@/components/TrustBar";
+import { BUSINESS } from "@/lib/business";
+import { webPageSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+
+const PAGE_URL = `${BUSINESS.url}/about`;
+const PAGE_TITLE = "About — Guerrilla Marketing Since 2014";
+const PAGE_DESC =
+  "Guerrilla marketing agency founded in 2014. 500+ campaigns across 50+ US cities. Wheat pasting, wild posting, and chalk stencil activations nationwide.";
 
 export const metadata: Metadata = {
-  title: "About Phantom Pasting | 10+ Years Street Marketing",
-  description:
-    "Phantom Pasting is a guerrilla marketing agency founded in 2014. 500+ campaigns, 50+ US cities, 10+ years of wheat pasting, wild posting, and chalk stencil activations.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   keywords: [
     "about phantom pasting",
     "guerrilla marketing agency",
@@ -17,33 +26,21 @@ export const metadata: Metadata = {
     "founded 2014",
     "US street advertising agency",
   ],
-  alternates: { canonical: "https://www.phantompasting.com/about" },
+  alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "About Phantom Pasting | 10+ Years Street Marketing",
-    description: "Founded in 2014. 500+ campaigns. 50+ US cities. The street marketing agency that builds culture at the ground level.",
-    url: "https://www.phantompasting.com/about",
+    title: PAGE_TITLE,
+    description: "Founded in 2014. 500+ campaigns. 50+ US cities. The guerrilla marketing agency that builds culture at the ground level.",
+    url: PAGE_URL,
     type: "website",
+    images: [
+      {
+        url: `${BUSINESS.url}${BUSINESS.ogImageDefault}`,
+        width: BUSINESS.ogImageWidth,
+        height: BUSINESS.ogImageHeight,
+        alt: "Phantom Pasting — guerrilla marketing agency, wheat pasting campaign",
+      },
+    ],
   },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
-    { "@type": "ListItem", position: 2, name: "About", item: "https://www.phantompasting.com/about" },
-  ],
-};
-
-const aboutSchema = {
-  "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService"],
-  name: "Phantom Pasting",
-  url: "https://www.phantompasting.com",
-  description: "Guerrilla marketing agency specializing in wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities. Founded 2014.",
-  foundingDate: "2014",
-  areaServed: "United States",
-  sameAs: ["https://www.instagram.com/phantompasting"],
 };
 
 const ACCENT = "#D4A010";
@@ -58,64 +55,184 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            webPageSchema({
+              name: PAGE_TITLE,
+              description: PAGE_DESC,
+              url: PAGE_URL,
+            })
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            breadcrumbSchema([
+              { name: "Home", href: "/" },
+              { name: "About", href: "/about" },
+            ])
+          ),
+        }}
+      />
 
       <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
+        <Breadcrumb
+          items={[
+            { name: "Home", href: "/" },
+            { name: "About" },
+          ]}
+        />
+        <TrustBar />
 
-        {/* ── Hero ─────────────────────────────────────────────────── */}
-        <section className="relative px-5 sm:px-8 md:px-12 lg:px-16 pt-16 pb-16 md:pt-24 md:pb-20 overflow-hidden">
-          <span aria-hidden className="absolute inset-x-0 top-2 text-center font-black uppercase pointer-events-none select-none"
-            style={{ fontSize: "clamp(80px, 18vw, 280px)", letterSpacing: "-0.05em", color: "rgba(212,160,16,0.05)", lineHeight: 1 }}>
-            ABOUT
-          </span>
-          <div className="relative z-10 max-w-[900px]">
-            <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
-              style={{ color: "rgba(0,0,0,0.4)" }}>
-              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-              Est. 2014
-            </span>
-            <h1 className="font-black uppercase m-0 leading-[0.88]"
-              style={{ fontSize: "clamp(52px, 9vw, 120px)", letterSpacing: "-0.045em" }}>
-              WHO<br /><ShinyGoldText>WE ARE.</ShinyGoldText>
-            </h1>
-            <p className="font-light leading-relaxed mt-8 max-w-[520px]"
-              style={{ fontSize: "clamp(15px, 1.6vw, 18px)", color: "rgba(0,0,0,0.5)" }}>
-              Phantom Pasting is a guerrilla marketing agency founded in 2014. Wheat pasting,
-              wild posting, and chalk spray stencils across every major US city. Ten-plus years on the streets.
-            </p>
+        {/* ── Hero (split-screen) ─────────────────────────────────── */}
+        <section className="relative overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] lg:min-h-[660px] items-center">
+
+              {/* LEFT — text + stats */}
+              <div className="relative z-10 flex flex-col justify-center py-16 md:py-20 lg:py-24 lg:pr-16">
+                <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
+                  style={{ color: "rgba(0,0,0,0.55)" }}>
+                  <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                  Est. 2014
+                </span>
+                <h1 className="font-black uppercase m-0 leading-[0.88]"
+                  style={{ fontSize: "clamp(48px, 7vw, 100px)", letterSpacing: "-0.04em" }}>
+                  GUERRILLA<br />MARKETING<br /><ShinyGoldText>AGENCY.</ShinyGoldText>
+                </h1>
+                <p className="font-light leading-relaxed mt-8 mb-10"
+                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                  Phantom Pasting is a guerrilla marketing agency founded in 2014. Wheat pasting,
+                  wild posting, and chalk spray stencils across every major US city. Ten-plus years on the streets.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/contact"
+                    className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
+                    style={{ background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)", color: "#FFF",
+                      boxShadow: "0 4px 28px rgba(0,0,0,0.42), 0 1px 0 rgba(255,255,255,0.08) inset" }}>
+                    <span className="absolute inset-0 pointer-events-none rounded-full"
+                      style={{ background: "linear-gradient(180deg, rgba(196,162,18,0.28) 0%, transparent 48%)" }} />
+                    Get a Quote <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
+                  </Link>
+                  <a href={BUSINESS.telHref}
+                    className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
+                    style={{ color: "rgba(0,0,0,0.82)", background: "rgba(255,255,255,0.9)",
+                      border: "1px solid rgba(0,0,0,0.14)",
+                      boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+                    Call {BUSINESS.telephoneDisplay}
+                  </a>
+                </div>
+
+                {/* Stats row */}
+                <div className="flex flex-wrap gap-10 md:gap-16 mt-12 pt-10"
+                  style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+                  {[
+                    { stat: "2014", label: "Founded" },
+                    { stat: "500+", label: "Campaigns" },
+                    { stat: "50+", label: "US Cities" },
+                    { stat: "10+", label: "Years" },
+                  ].map(({ stat, label }) => (
+                    <div key={label}>
+                      <div className="font-black uppercase leading-none"
+                        style={{ fontSize: "clamp(28px, 3.5vw, 48px)", letterSpacing: "-0.04em", color: ACCENT }}>
+                        {stat}
+                      </div>
+                      <div className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1.5" style={{ color: "rgba(0,0,0,0.55)" }}>
+                        {label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT — image composition */}
+              <div className="relative hidden lg:block h-[660px] overflow-hidden">
+                <span aria-hidden className="absolute right-0 top-1/2 font-black uppercase pointer-events-none select-none"
+                  style={{ fontSize: "clamp(80px, 12vw, 180px)", letterSpacing: "-0.06em",
+                    color: "rgba(212,160,16,0.05)", lineHeight: 1,
+                    writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}>
+                  ABOUT
+                </span>
+
+                <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
+                  style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
+                    boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
+                  <Image
+                    src="/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp"
+                    alt="Phantom Pasting wheat paste campaign wall"
+                    fill style={{ objectFit: "cover" }} sizes="40vw" priority
+                  />
+                </div>
+
+                <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
+                  style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                  {/* Second hero image is above-the-fold on desktop (split hero
+                      grid). Without `priority` it loaded late and could become
+                      the LCP element on wide viewports. */}
+                  <Image
+                    src="/gallery/fifa-world-cup-atlanta-wall-installation.webp"
+                    alt="FIFA World Cup street campaign in Atlanta"
+                    fill style={{ objectFit: "cover" }} sizes="25vw" priority
+                  />
+                </div>
+
+                <div aria-hidden className="absolute pointer-events-none"
+                  style={{ top: "30%", left: "32%", width: "1px", height: "28%",
+                    background: "linear-gradient(to bottom, transparent, rgba(212,160,16,0.5), transparent)",
+                    transform: "rotate(18deg)" }} />
+
+                <div className="absolute top-6 left-4 rounded-xl px-4 py-3"
+                  style={{ background: "rgba(255,254,248,0.92)", backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.75)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.09)" }}>
+                  <div className="font-black uppercase leading-none"
+                    style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}>
+                    2014
+                  </div>
+                  <div className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1"
+                    style={{ color: "rgba(0,0,0,0.55)" }}>
+                    Founded
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ── Stats — inline, no box ────────────────────────────────── */}
-        <div className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20 md:pb-28">
-          <div className="max-w-[1200px] mx-auto flex flex-wrap gap-12 md:gap-20">
-            {[
-              { stat: "2014", label: "Founded" },
-              { stat: "500+", label: "Campaigns" },
-              { stat: "50+", label: "US Cities" },
-              { stat: "10+", label: "Years" },
-            ].map(({ stat, label }) => (
-              <div key={label}>
-                <div className="font-black uppercase leading-none"
-                  style={{ fontSize: "clamp(36px, 5vw, 64px)", letterSpacing: "-0.04em", color: ACCENT }}>
-                  {stat}
-                </div>
-                <div className="font-mono text-[9px] tracking-[0.3em] uppercase mt-2" style={{ color: "rgba(0,0,0,0.4)" }}>
-                  {label}
-                </div>
-              </div>
-            ))}
+        {/* ── Definition ────────────────────────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[1200px] mx-auto">
+            <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.55)" }}>
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Definition
+            </span>
+            <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
+              style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
+              WHAT IS GUERRILLA<span style={{ color: ACCENT }}>MARKETING?</span>
+            </h2>
+            <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "680px" }}>
+              Guerrilla marketing is unconventional, street-level advertising that uses physical media to create brand presence in the real world. Unlike digital ads that are skipped, blocked, or scrolled past, guerrilla campaigns — wheat pasting, chalk stencils, wild posting — exist in the physical environment where they demand attention through sheer visibility.
+            </p>
           </div>
-        </div>
+        </section>
 
         {/* ── Story ────────────────────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
             <div>
               <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
-                style={{ color: "rgba(0,0,0,0.35)" }}>
+                style={{ color: "rgba(0,0,0,0.55)" }}>
                 <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
                 Our Story
               </span>
@@ -147,8 +264,8 @@ export default function AboutPage() {
                 className="rounded-3xl flex items-center justify-center py-16"
                 style={{
                   background: "rgba(255,255,255,0.35)",
-                  backdropFilter: "blur(16px)",
-                  WebkitBackdropFilter: "blur(16px)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
                   border: "1px solid rgba(255,255,255,0.6)",
                 }}
               >
@@ -159,7 +276,7 @@ export default function AboutPage() {
                     style={{ fontSize: "clamp(22px, 2.5vw, 30px)", letterSpacing: "-0.03em" }}>
                     Phantom<span style={{ color: ACCENT }}>Pasting</span>
                   </div>
-                  <div className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: "rgba(0,0,0,0.4)" }}>
+                  <div className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: "rgba(0,0,0,0.55)" }}>
                     Est. 2014 · Nationwide
                   </div>
                 </div>
@@ -167,7 +284,7 @@ export default function AboutPage() {
 
               {/* Clients */}
               <div>
-                <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(0,0,0,0.35)" }}>
+                <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(0,0,0,0.55)" }}>
                   Trusted By
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -188,7 +305,7 @@ export default function AboutPage() {
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto">
             <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
-              style={{ color: "rgba(0,0,0,0.35)" }}>
+              style={{ color: "rgba(0,0,0,0.55)" }}>
               <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
               How We Work
             </span>
@@ -204,8 +321,8 @@ export default function AboutPage() {
                   className="p-8 md:p-10"
                   style={{
                     background: "rgba(255,255,255,0.35)",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
                   }}>
                   <div className="font-mono text-[10px] tracking-[0.35em] uppercase mb-5" style={{ color: ACCENT }}>{v.num}</div>
                   <h3 className="font-black uppercase m-0 mb-3 leading-[0.88]"
@@ -215,6 +332,59 @@ export default function AboutPage() {
                   <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "14px" }}>{v.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Comparison Table ──────────────────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[1200px] mx-auto">
+            <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.55)" }}>
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Compare
+            </span>
+            <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
+              style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
+              PHANTOM PASTING VS TRADITIONAL<span style={{ color: ACCENT }}>AGENCIES.</span>
+            </h2>
+            <div className="overflow-x-auto rounded-2xl" style={{ border: "1px solid rgba(0,0,0,0.06)" }}>
+              <table className="w-full" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
+                <thead>
+                  <tr style={{ background: "rgba(0,0,0,0.03)" }}>
+                    <th className="text-left font-mono text-[9px] tracking-[0.25em] uppercase p-4" style={{ color: "rgba(0,0,0,0.55)" }}>Feature</th>
+                    <th className="text-left font-mono text-[9px] tracking-[0.25em] uppercase p-4" style={{ color: ACCENT }}>Phantom Pasting</th>
+                    <th className="text-left font-mono text-[9px] tracking-[0.25em] uppercase p-4" style={{ color: "rgba(0,0,0,0.55)" }}>Traditional Agency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+                    <td className="font-mono text-[10px] tracking-[0.15em] uppercase p-4" style={{ color: "rgba(0,0,0,0.5)" }}>Documentation</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.7)" }}>100% photo proof every hit</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}>Campaign summaries</td>
+                  </tr>
+                  <tr style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+                    <td className="font-mono text-[10px] tracking-[0.15em] uppercase p-4" style={{ color: "rgba(0,0,0,0.5)" }}>Crews</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.7)" }}>Local crews in 50+ cities</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}>Outsourced vendors</td>
+                  </tr>
+                  <tr style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+                    <td className="font-mono text-[10px] tracking-[0.15em] uppercase p-4" style={{ color: "rgba(0,0,0,0.5)" }}>Lead Time</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.7)" }}>1–3 weeks</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}>4–8 weeks</td>
+                  </tr>
+                  <tr style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+                    <td className="font-mono text-[10px] tracking-[0.15em] uppercase p-4" style={{ color: "rgba(0,0,0,0.5)" }}>Formats</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.7)" }}>Wheat paste + chalk stencils</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}>Billboard + transit</td>
+                  </tr>
+                  <tr style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+                    <td className="font-mono text-[10px] tracking-[0.15em] uppercase p-4" style={{ color: "rgba(0,0,0,0.5)" }}>Proof of Placement</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.7)" }}>Geo-tagged, timestamped</td>
+                    <td className="font-light p-4" style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}>Impression estimates</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -241,24 +411,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Footer ──────────────────────────────────────────────── */}
-        <footer className="px-5 sm:px-8 md:px-12 lg:px-16 py-10 border-t" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
-          <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <div className="font-black uppercase text-[14px] tracking-[0.05em] mb-1" style={{ color: "#1A1A1A" }}>
-                Phantom<span style={{ color: ACCENT }}>Pasting</span>
-              </div>
-              <p className="font-mono text-[9px] tracking-[0.22em] uppercase m-0" style={{ color: "rgba(0,0,0,0.3)" }}>© 2026 — All Rights Reserved</p>
-            </div>
-            <div className="flex flex-wrap gap-x-8 gap-y-2">
-              {[{ label: "Wheat Pasting", href: "/services/wheat-pasting" }, { label: "Chalk Stencils", href: "/services/chalk-spray-stencils" },
-                { label: "Full Impact", href: "/services/full-impact-campaigns" }, { label: "Contact", href: "/contact" }
-              ].map(({ label, href }) => (
-                <Link key={label} href={href} className="footer-link font-light no-underline" style={{ fontSize: "13px" }}>{label}</Link>
-              ))}
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );
