@@ -83,8 +83,13 @@ function GlassSurfaceImpl({
   // The displacement map generation calls `getBoundingClientRect()` (forces
   // layout) and writes to a data-URI `href` — cheap-ish but redundant. Now it
   // only re-runs when the actual filter params change.
+  // RAF defer: reading getBoundingClientRect() synchronously in a useEffect
+  // forces a layout flush during React's commit phase, which shows up as a
+  // forced-reflow long-task in Lighthouse. Deferring to the next rAF gives
+  // the browser a chance to paint first, then measure — no forced reflow.
   useEffect(() => {
-    updateDisplacementMap();
+    const raf = requestAnimationFrame(() => updateDisplacementMap());
+    return () => cancelAnimationFrame(raf);
     [
       { ref: redChannelRef, offset: redOffset },
       { ref: greenChannelRef, offset: greenOffset },

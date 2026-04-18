@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     // Enables barrel-file tree-shaking for these deps — without this, an
     // `import { motion } from "framer-motion"` pulls the whole lib; with it,
     // Next emits only what's used. gsap+lucide-react are in the same boat.
-    optimizePackageImports: ["framer-motion", "gsap", "lucide-react"],
+    optimizePackageImports: ["framer-motion", "lucide-react"],
   },
   async headers() {
     // In dev, Turbopack reuses stable chunk URLs — immutable long-cache breaks HMR

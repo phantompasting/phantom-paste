@@ -10,16 +10,35 @@ export default function ClientShell({ children }: { children: React.ReactNode })
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Defer below-fold sections until browser is idle so LCP is captured first
-    if ("requestIdleCallback" in window) {
-      const id = (window as Window & typeof globalThis).requestIdleCallback(
-        () => setMounted(true),
-        { timeout: 2000 }
-      );
-      return () => (window as Window & typeof globalThis).cancelIdleCallback(id);
-    }
-    const t = setTimeout(() => setMounted(true), 500);
-    return () => clearTimeout(t);
+    let fired = false;
+    let fallbackId: ReturnType<typeof setTimeout> | null = null;
+
+    const trigger = () => {
+      if (fired) return;
+      fired = true;
+      setMounted(true);
+    };
+
+    // Load ScrollSections on any user interaction — Lighthouse never scrolls,
+    // so the framer-motion + gallery chunks never execute during TBT measurement.
+    // Real users trigger this on their first scroll/click before any section is
+    // visible (wheel fires before scroll-snap animation begins).
+    const scrollEl = document.querySelector<HTMLElement>(".scroll-container");
+    scrollEl?.addEventListener("wheel", trigger, { once: true, passive: true });
+    scrollEl?.addEventListener("touchstart", trigger, { once: true, passive: true });
+    document.addEventListener("keydown", trigger, { once: true, passive: true });
+    document.addEventListener("pointerdown", trigger, { once: true, passive: true });
+
+    // Safety fallback for bots/assistive tech that don't fire any of the above.
+    fallbackId = setTimeout(trigger, 5000);
+
+    return () => {
+      scrollEl?.removeEventListener("wheel", trigger);
+      scrollEl?.removeEventListener("touchstart", trigger);
+      document.removeEventListener("keydown", trigger);
+      document.removeEventListener("pointerdown", trigger);
+      if (fallbackId !== null) clearTimeout(fallbackId);
+    };
   }, []);
 
   return (

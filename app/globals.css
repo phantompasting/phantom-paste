@@ -523,6 +523,18 @@ form textarea::placeholder {
   transform: scale(0.97);
 }
 
+/* ── Scroll-reveal: pre-hidden state (applied by JS, never SSR'd) ── */
+/* Elements are hidden via this class until GSAP loads and animates them.
+   GSAP removes the class before animating, so no CSS reset is needed. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal].gsap-will-reveal                       { opacity: 0; }
+  [data-reveal="fade-up"].gsap-will-reveal             { transform: translateY(28px); }
+  [data-reveal="fade-up-big"].gsap-will-reveal         { transform: translateY(44px); }
+  [data-reveal="scale"].gsap-will-reveal               { transform: scale(0.94); }
+  [data-reveal="slide-left"].gsap-will-reveal          { transform: translateX(-44px); }
+  [data-reveal="slide-right"].gsap-will-reveal         { transform: translateX(120px); }
+}
+
 /* ── Reduce motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
