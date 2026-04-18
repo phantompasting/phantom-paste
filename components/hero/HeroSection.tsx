@@ -34,6 +34,8 @@ export default function HeroSection() {
           style={{ animation: `heroUp 0.55s 0.04s ${EXPO} both` }}
         >
           <span
+            role="heading"
+            aria-level={2}
             className="inline-flex items-center gap-2.5 font-mono text-[9px] md:text-[10px] tracking-[0.30em] uppercase px-4 md:px-5 py-2 md:py-2.5 rounded-full"
             style={{
               color: "rgba(0,0,0,0.52)",
@@ -52,7 +54,7 @@ export default function HeroSection() {
             }}
           >
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-            Wheat Pasting &amp; Stencil Activations
+            Wheat Pasting, Wild Posting &amp; Stencil Activations
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT, opacity: 0.35 }} />
           </span>
         </div>
@@ -68,7 +70,7 @@ export default function HeroSection() {
             >
               <span className="block">
                 <SplitReveal text="WE OWN" color="#1A1A1A" baseDelay={0.08} />
-              </span>
+              </span>{" "}
               <span className="block" style={{ animation: `heroUpVisible 0.65s 0.22s ${EXPO} both` }}>
                 <ShinyGoldText>THE STREETS</ShinyGoldText>
               </span>

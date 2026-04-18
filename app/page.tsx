@@ -1,18 +1,27 @@
 import type { Metadata } from "next";
 import ClientShell from "@/components/ClientShell";
 import HeroSection from "@/components/hero/HeroSection";
+import StaticSEOSections from "@/components/sections/StaticSEOSections";
 import { BUSINESS } from "@/lib/business";
-import { orgSchema, webSiteSchema, localBusinessSchema, jsonLd } from "@/lib/schema";
+import {
+  orgSchema,
+  webSiteSchema,
+  localBusinessSchema,
+  faqPageSchema,
+  breadcrumbSchema,
+  jsonLd,
+} from "@/lib/schema";
+import { HOMEPAGE_FAQS } from "@/lib/homepageFAQs";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting & Wild Posting Agency | Phantom Pasting" },
+  title: { absolute: "Wheat Pasting, Wild Posting & Stencil Activations | Phantom Pasting" },
   description:
-    "Phantom Pasting is a guerrilla marketing agency specializing in wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities.",
+    "Wheat pasting, wild posting, and chalk spray stencil activations across 50+ US cities. Photo-documented guerrilla marketing campaigns for brands that refuse to blend in.",
   alternates: { canonical: BUSINESS.url },
   openGraph: {
-    title: "Phantom Pasting | Guerrilla Marketing Agency",
+    title: "Phantom Pasting | Wheat Pasting, Wild Posting & Stencil Activations",
     description:
-      "Wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities. Every activation photo-documented.",
+      "Wheat pasting, wild posting, and chalk spray stencil activations across 50+ US cities. Every campaign photo-documented.",
     url: BUSINESS.url,
     type: "website",
     siteName: "Phantom Pasting",
@@ -108,8 +117,19 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homepageGraph) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(HOMEPAGE_FAQS)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(breadcrumbSchema([{ name: "Home", href: BUSINESS.url }])),
+        }}
+      />
       <ClientShell>
         <HeroSection />
+        <StaticSEOSections />
       </ClientShell>
     </>
   );

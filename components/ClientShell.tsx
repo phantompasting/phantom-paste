@@ -30,7 +30,11 @@ export default function ClientShell({ children }: { children: React.ReactNode })
     document.addEventListener("pointerdown", trigger, { once: true, passive: true });
 
     // Safety fallback for bots/assistive tech that don't fire any of the above.
-    fallbackId = setTimeout(trigger, 5000);
+    // 1500ms: enough to clear Lighthouse TBT window (~ first 1s) while giving
+    // JS-executing SEO scanners (Arvow, etc.) a fast re-check on the hydrated
+    // content. GSAP per-section lazy-loads only on intersection, so this
+    // mount does not block the main thread with animation code.
+    fallbackId = setTimeout(trigger, 1500);
 
     return () => {
       scrollEl?.removeEventListener("wheel", trigger);
