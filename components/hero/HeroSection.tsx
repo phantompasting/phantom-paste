@@ -33,10 +33,8 @@ export default function HeroSection() {
           className="absolute top-9 inset-x-0 flex justify-center md:static md:inset-auto"
           style={{ animation: `heroUp 0.55s 0.04s ${EXPO} both` }}
         >
-          <span
-            role="heading"
-            aria-level={2}
-            className="inline-flex items-center gap-2.5 font-mono text-[9px] md:text-[10px] tracking-[0.30em] uppercase px-4 md:px-5 py-2 md:py-2.5 rounded-full"
+          <h1
+            className="inline-flex items-center gap-2.5 font-mono text-[9px] md:text-[10px] tracking-[0.30em] uppercase px-4 md:px-5 py-2 md:py-2.5 rounded-full m-0"
             style={{
               color: "rgba(0,0,0,0.52)",
               // Swapped from `backdrop-filter: blur(10px)` to a slightly
@@ -54,17 +52,18 @@ export default function HeroSection() {
             }}
           >
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-            Wheat Pasting, Wild Posting &amp; Stencil Activations
+            Wheat Pasting &amp; Wild Posting Agency
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT, opacity: 0.35 }} />
-          </span>
+          </h1>
         </div>
 
         {/* Centered content group — headline · tagline · CTAs */}
         <div className="flex flex-col items-center gap-8 md:gap-10 w-full">
 
-          {/* Headline — full viewport width */}
+          {/* Headline — full viewport width. Visual display only (H1 lives
+              in the pill above for SEO keyword alignment with the <title>). */}
           <div className="w-screen -mx-6 md:-mx-8 px-0">
-            <h1
+            <div
               className="font-black uppercase m-0 leading-[0.85] text-center w-full"
               style={{ fontSize: "clamp(96px, 16vw, 187px)", letterSpacing: "-0.045em" }}
             >
@@ -74,7 +73,7 @@ export default function HeroSection() {
               <span className="block" style={{ animation: `heroUpVisible 0.65s 0.22s ${EXPO} both` }}>
                 <ShinyGoldText>THE STREETS</ShinyGoldText>
               </span>
-            </h1>
+            </div>
           </div>
 
           {/* Tagline */}
