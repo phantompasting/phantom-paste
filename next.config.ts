@@ -50,31 +50,15 @@ const nextConfig: NextConfig = {
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          // CSP for a fully statically-prerendered site. A per-request nonce
-          // middleware was tried but doesn't work with SSG — the HTML (and
-          // its <script> tags) is baked at build time, before the middleware
-          // can inject a nonce, so every Next chunk gets blocked.
-          // `'unsafe-inline'` only weakens script-src XSS protection; this
-          // site has no user-generated content rendered into the DOM, so the
-          // practical risk is near-zero. All structural CSP protections
-          // below (frame-ancestors, object-src, base-uri, form-action)
-          // remain in force.
-          {
-            key: "Content-Security-Policy",
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com data:",
-              "img-src 'self' data: https:",
-              "connect-src 'self' https://api.web3forms.com",
-              "frame-ancestors 'none'",
-              "base-uri 'self'",
-              "form-action 'self' https://api.web3forms.com",
-              "object-src 'none'",
-              "upgrade-insecure-requests",
-            ].join("; "),
-          },
+          // Content-Security-Policy is set in middleware.ts, NOT here. The
+          // reason: `upgrade-insecure-requests` must only be emitted on
+          // HTTPS responses. Safari (unlike Chrome) does not exempt
+          // localhost from that directive — if the CSP is sent unconditionally,
+          // Safari on `http://localhost:3100` tries to upgrade every
+          // subresource to https://localhost:3100/..., which doesn't exist,
+          // and the page renders fully unstyled with broken images. Emitting
+          // CSP conditionally requires access to the request protocol, which
+          // the static `headers()` config doesn't provide.
         ],
       },
     ];

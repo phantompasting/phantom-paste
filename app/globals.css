@@ -7,7 +7,7 @@
   --font-barlow: "Barlow Condensed", system-ui, sans-serif;
   --font-mono: "DM Mono", "Fira Mono", monospace;
   --accent: #D4A010;
-  --bg: #FFFEF8;
+  --bg: #FFFBED;
   --text: #1A1A1A;
 }
 
@@ -21,6 +21,10 @@
 /* ── Document ────────────────────────────────────────────────── */
 html {
   color-scheme: light;
+  /* Belt-and-suspenders: if the canvas ever under-fills (e.g. during
+     resize, orientation change, or scrollbar gutter appearance), the
+     html backdrop shows through in the exact brand ivory, not white. */
+  background: #FFFBED;
 }
 
 body {
