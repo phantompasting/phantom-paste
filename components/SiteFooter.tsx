@@ -77,14 +77,15 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
           {/* Brand block */}
           <div className="mb-14 text-center md:text-left">
             <div className="flex items-center gap-4 justify-center md:justify-start mb-3">
-              <Image
-                src="/phantom-pasting-logo.webp"
-                alt="Phantom Pasting Logo"
-                width={512}
-                height={460}
-                className="rounded-xl"
-                style={{ width: 48, height: 48, objectFit: "cover" }}
-              />
+              <div className="rounded-xl" style={{ position: "relative", width: 48, height: 48, flexShrink: 0, overflow: "hidden" }}>
+                <Image
+                  src="/phantom-pasting-logo.webp"
+                  alt="Phantom Pasting Logo"
+                  fill
+                  sizes="48px"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </div>
             <h2
               className="font-black uppercase m-0 leading-[0.85]"

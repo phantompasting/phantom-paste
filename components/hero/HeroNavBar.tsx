@@ -24,15 +24,16 @@ export default function HeroNavBar() {
       {/* Left — Logo */}
       <div className="relative z-10 px-4 sm:px-8 md:px-12 lg:px-16 py-3 md:py-5">
         <a href="/" className="flex items-center gap-2 no-underline">
-          <Image
-            src="/phantom-pasting-logo.webp"
-            alt="Phantom Pasting Logo"
-            width={512}
-            height={460}
-            className="rounded-lg"
-            style={{ width: 32, height: 32, objectFit: "cover" }}
-            priority
-          />
+          <div className="rounded-lg" style={{ position: "relative", width: 32, height: 32, flexShrink: 0, overflow: "hidden" }}>
+            <Image
+              src="/phantom-pasting-logo.webp"
+              alt="Phantom Pasting Logo"
+              fill
+              sizes="32px"
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
           <span className="font-black text-[13px] tracking-[0.08em] uppercase" style={{ color: "#1A1A1A" }}>
             Phantom<span style={{ color: ACCENT }}>Pasting</span>
           </span>
