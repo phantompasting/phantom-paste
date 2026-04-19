@@ -80,10 +80,10 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
               <Image
                 src="/phantom-pasting-logo.webp"
                 alt="Phantom Pasting Logo"
-                width={48}
-                height={48}
+                width={512}
+                height={460}
                 className="rounded-xl"
-                style={{ objectFit: "cover" }}
+                style={{ width: 48, height: 48, objectFit: "cover" }}
               />
             </div>
             <h2

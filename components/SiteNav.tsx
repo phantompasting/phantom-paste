@@ -34,10 +34,10 @@ export default function SiteNav() {
         <Image
           src="/phantom-pasting-logo.webp"
           alt="Phantom Pasting Logo"
-          width={32}
-          height={32}
+          width={512}
+          height={460}
           className="rounded-lg"
-          style={{ objectFit: "cover" }}
+          style={{ width: 32, height: 32, objectFit: "cover" }}
           priority
         />
         <span className="font-black text-[13px] tracking-[0.08em] uppercase" style={{ color: "#1A1A1A" }}>

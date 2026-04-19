@@ -43,13 +43,17 @@ export function webSiteSchema() {
 }
 
 /**
- * LocalBusiness schema — service-area variant (no PostalAddress until address
- * is available). Falls back to areaServed list by city.
+ * ProfessionalService schema — nationwide service-area business variant.
+ * Phantom Pasting operates across 50+ US cities with no single storefront, so
+ * ProfessionalService (a LocalBusiness subtype) is more accurate than bare
+ * LocalBusiness: it preserves the LB signals Google uses for agencies while
+ * correctly declaring this as a professional-service agency, not a local pin.
+ * City-specific pages still use LocalBusiness + PostalAddress via CityPageTemplate.
  */
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "@id": LOCALBUSINESS_ID,
     name: BUSINESS.name,
     url: BUSINESS.url,
