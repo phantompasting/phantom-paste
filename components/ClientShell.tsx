@@ -34,7 +34,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
     // JS-executing SEO scanners (Arvow, etc.) a fast re-check on the hydrated
     // content. GSAP per-section lazy-loads only on intersection, so this
     // mount does not block the main thread with animation code.
-    fallbackId = setTimeout(trigger, 1500);
+    fallbackId = setTimeout(trigger, 4000);
 
     return () => {
       scrollEl?.removeEventListener("wheel", trigger);

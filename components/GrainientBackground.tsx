@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { createNoise3D } from "simplex-noise";
 
 /**
  * Wire up the worker path: transfer the canvas to the Web Worker and
@@ -131,259 +130,206 @@ export default function GrainientBackground() {
       }
     }
 
-    // ── Fallback (Safari < 16.4 and anything exotic): the existing
-    // main-thread implementation. Functionally identical, but runs on
-    // the same thread as React — fine on fast machines, can stutter
-    // on weak CPUs when the main thread is under load.
-    const ctx = visible.getContext("2d");
-    if (!ctx) return;
+    // ── Fallback (Safari < 16.4 and anything exotic): lazy-load simplex-noise
+    // only when actually needed. The worker path above handles ~98% of browsers,
+    // so keeping this import dynamic removes simplex-noise from the critical
+    // bundle entirely — zero cost on the main thread for the vast majority of users.
+    let cancelled = false;
+    let fallbackCleanup: (() => void) | undefined;
 
-    // Circle count 110 → 80. The buffer-resolution refactor raised the
-    // backing pixel count ~7.8× (0.59 MP → 4.6 MP) to eliminate GPU
-    // upscaling, which is the right trade for smoothness but costs
-    // fillrate. Dropping 30 circles offsets most of the new cost
-    // (~27% less arc/fill work) while leaving plenty of circles for
-    // a continuous field — post-blur, 80 overlap as much as 110 did.
-    // Intel-integrated-GPU MacBooks are the canary here; anything
-    // this runs smoothly on will fly on M-series, high-end PCs, and
-    // modern phones.
-    const circleCount = 60;
-    const circlePropCount = 8;
-    const circlePropsLength = circleCount * circlePropCount;
-    // Speed dropped ~35% from the prior pass (0.23/2.3 → 0.15/1.5) to
-    // reduce per-frame displacement below the perceptual-stutter threshold.
-    // Semantically these are "pixels per 60fps-equivalent frame" — the
-    // paint loop scales them by a per-frame `dt` so apparent drift is
-    // frame-rate independent. On a ProMotion 120Hz display we render
-    // twice as many frames, each at half the per-frame step, for the
-    // same visual speed but visibly smoother motion.
-    const baseSpeed = 0.15;
-    const rangeSpeed = 1.5;
-    const baseTTL = 150;
-    const rangeTTL = 200;
-    const baseRadius = 100;
-    const rangeRadius = 200;
-    const rangeHue = 8;
-    const xOff = 0.0015;
-    const yOff = 0.0015;
-    const zOff = 0.0015;
-    const backgroundColor = "#FFFBED";
+    void import("simplex-noise").then(({ createNoise3D }) => {
+      if (cancelled) return;
 
-    const TAU = Math.PI * 2;
-    const rand = (n: number) => n * Math.random();
-    const fadeInOut = (t: number, m: number) => {
-      const hm = 0.5 * m;
-      return Math.abs(((t + hm) % m) - hm) / hm;
-    };
+      const ctx = visible.getContext("2d");
+      if (!ctx) return;
 
-    const noise3D = createNoise3D();
-    const BASE_HUE = 45;
+      const circleCount = 60;
+      const circlePropCount = 8;
+      const circlePropsLength = circleCount * circlePropCount;
+      const baseSpeed = 0.15;
+      const rangeSpeed = 1.5;
+      const baseTTL = 150;
+      const rangeTTL = 200;
+      const baseRadius = 100;
+      const rangeRadius = 200;
+      const rangeHue = 8;
+      const xOff = 0.0015;
+      const yOff = 0.0015;
+      const zOff = 0.0015;
+      const backgroundColor = "#FFFBED";
 
-    const circleProps = new Float32Array(circlePropsLength);
-    const circleHue = new Float32Array(circleCount);
-    const circleSat = new Float32Array(circleCount);
+      const TAU = Math.PI * 2;
+      const rand = (n: number) => n * Math.random();
+      const fadeInOut = (t: number, m: number) => {
+        const hm = 0.5 * m;
+        return Math.abs(((t + hm) % m) - hm) / hm;
+      };
 
-    // Float32Array layout (8 slots per circle):
-    //   [0] x           position
-    //   [1] y           position
-    //   [2] speed       scalar magnitude (heading comes from flow field)
-    //   [3] noiseSeed   per-circle z-offset into the noise field so each
-    //                   circle samples a unique flow — without this, every
-    //                   circle at the same (x,y,time) would head the same
-    //                   direction and they'd all bunch up
-    //   [4] life        age, in 60fps-equivalent frames (incremented by dt)
-    //   [5] ttl         lifespan in the same units
-    //   [6] radius      drawn circle radius (pre-blur)
-    //   [7] lightness   HSL L channel
-    const initCircle = (i: number, stagger = false) => {
-      // Coordinates in CSS pixels within the inflated canvas — valid
-      // range is [0, cssW] × [0, cssH]. Callers of resize() must run
-      // before the first initCircle so cssW/cssH are set.
-      const x = rand(cssW);
-      const y = rand(cssH);
-      const speed = baseSpeed + rand(rangeSpeed);
-      const noiseSeed = rand(1000);
-      const ttl = baseTTL + rand(rangeTTL);
-      // Lifecycle staggering: on the VERY first init pass (stagger=true)
-      // we seed each circle at a random point in its lifecycle instead of
-      // all at life=0. Without this, all 110 circles spawn together, fade
-      // in together ~ttl/2 frames later, and die together ~ttl frames
-      // after that — producing a visible "respawn wave" every ~5 seconds.
-      // Staggered init distributes births and deaths uniformly across
-      // time so the field's evolution is steady forever.
-      const life = stagger ? rand(ttl) : 0;
-      const radius = baseRadius + rand(rangeRadius);
-      // Five-stop lightness ladder unchanged — cream highlight down to
-      // brand-gold's true L=48%.
-      const r = Math.random();
-      const lightness =
-        r < 0.18 ? 91 :
-        r < 0.46 ? 82 :
-        r < 0.73 ? 70 :
-        r < 0.93 ? 58 :
-        48;
-      circleProps.set([x, y, speed, noiseSeed, life, ttl, radius, lightness], i);
+      const noise3D = createNoise3D();
+      const BASE_HUE = 45;
 
-      const idx = i / circlePropCount;
-      const n = noise3D(x * xOff, y * yOff, idx * zOff);
-      circleHue[idx] = BASE_HUE + n * rangeHue;
-      circleSat[idx] =
-        lightness >= 88 ? 48 :
-        lightness >= 75 ? 72 :
-        lightness >= 62 ? 85 :
-        88;
-    };
+      const circleProps = new Float32Array(circlePropsLength);
+      const circleHue = new Float32Array(circleCount);
+      const circleSat = new Float32Array(circleCount);
 
-    // The canvas is sized 140% of the viewport via CSS (positioned at
-    // -20%/-20% inside a 100vw×100vh fixed wrapper), so circles drawn
-    // in its edge bands are off-screen and the blur edge-falloff never
-    // reaches the viewport. Backing buffer is sized to match display
-    // pixels × DPR × the 1.4 inflation factor — no GPU upscale, no
-    // sub-pixel interpolation, no "frame-by-frame" chunkiness.
-    const INFLATION = 1.4;
-    // DPR pinned to 1 (not clamped to device DPR). An 8px CSS blur on
-    // the canvas erases any sub-pixel detail a higher DPR buffer would
-    // provide, so DPR=1 is visually identical post-composite. Dropping
-    // from DPR=2 to DPR=1 shrinks the backing buffer 4× (each axis
-    // halved), quartering texture-upload + blur-filter cost per frame.
-    // This matters most on the main-thread fallback path (Safari < 16.4)
-    // where the CPU is already doing the arc/fill work.
-    const dpr = 1;
-    // CSS-pixel dimensions of the inflated canvas, used by the drawing
-    // code (init, bounds, clear). The backing buffer is dpr× larger;
-    // the ctx.setTransform(dpr,dpr) call in resize() remaps drawing
-    // coordinates so we never have to think about buffer pixels.
-    let cssW = 0;
-    let cssH = 0;
+      // Float32Array layout (8 slots per circle):
+      //   [0] x           position
+      //   [1] y           position
+      //   [2] speed       scalar magnitude (heading comes from flow field)
+      //   [3] noiseSeed   per-circle z-offset into the noise field so each
+      //                   circle samples a unique flow — without this, every
+      //                   circle at the same (x,y,time) would head the same
+      //                   direction and they'd all bunch up
+      //   [4] life        age, in 60fps-equivalent frames (incremented by dt)
+      //   [5] ttl         lifespan in the same units
+      //   [6] radius      drawn circle radius (pre-blur)
+      //   [7] lightness   HSL L channel
+      const initCircle = (i: number, stagger = false) => {
+        const x = rand(cssW);
+        const y = rand(cssH);
+        const speed = baseSpeed + rand(rangeSpeed);
+        const noiseSeed = rand(1000);
+        const ttl = baseTTL + rand(rangeTTL);
+        // Stagger births across time so the field evolves steadily instead
+        // of all circles spawning/dying together in visible waves.
+        const life = stagger ? rand(ttl) : 0;
+        const radius = baseRadius + rand(rangeRadius);
+        const r = Math.random();
+        const lightness =
+          r < 0.18 ? 91 :
+          r < 0.46 ? 82 :
+          r < 0.73 ? 70 :
+          r < 0.93 ? 58 :
+          48;
+        circleProps.set([x, y, speed, noiseSeed, life, ttl, radius, lightness], i);
 
-    const resize = () => {
-      const { innerWidth, innerHeight } = window;
-      cssW = innerWidth * INFLATION;
-      cssH = innerHeight * INFLATION;
-      visible.width = Math.round(cssW * dpr);
-      visible.height = Math.round(cssH * dpr);
-      // CSS sizing is driven by the parent wrapper's -20% / 140% layout,
-      // so we don't need to set width/height styles here.
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
+        const idx = i / circlePropCount;
+        const n = noise3D(x * xOff, y * yOff, idx * zOff);
+        circleHue[idx] = BASE_HUE + n * rangeHue;
+        circleSat[idx] =
+          lightness >= 88 ? 48 :
+          lightness >= 75 ? 72 :
+          lightness >= 62 ? 85 :
+          88;
+      };
 
-    resize();
-    for (let i = 0; i < circlePropsLength; i += circlePropCount) initCircle(i, true);
+      const INFLATION = 1.4;
+      const dpr = 1;
+      let cssW = 0;
+      let cssH = 0;
 
-    const checkBounds = (x: number, y: number, radius: number) =>
-      x < -radius ||
-      x > cssW + radius ||
-      y < -radius ||
-      y > cssH + radius;
+      const resize = () => {
+        const { innerWidth, innerHeight } = window;
+        cssW = innerWidth * INFLATION;
+        cssH = innerHeight * INFLATION;
+        visible.width = Math.round(cssW * dpr);
+        visible.height = Math.round(cssH * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
 
-    // Single-canvas draw — no offscreen, no drawImage, no filter inside
-    // canvas context. Circles render sharp; CSS blurs the final element.
-    const drawCircle = (
-      x: number, y: number, life: number, ttl: number,
-      radius: number, lightness: number, hue: number, sat: number
-    ) => {
-      ctx.fillStyle = `hsla(${hue},${sat}%,${lightness}%,${fadeInOut(life, ttl)})`;
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, TAU);
-      ctx.fill();
-    };
+      resize();
+      for (let i = 0; i < circlePropsLength; i += circlePropCount) initCircle(i, true);
 
-    const updateCircle = (i: number, dt: number) => {
-      const idx = i / circlePropCount;
-      const x = circleProps[i] as number;
-      const y = circleProps[i + 1] as number;
-      const speed = circleProps[i + 2] as number;
-      const noiseSeed = circleProps[i + 3] as number;
-      const life = circleProps[i + 4] as number;
-      const ttl = circleProps[i + 5] as number;
-      const radius = circleProps[i + 6] as number;
-      const lightness = circleProps[i + 7] as number;
-      const hue = circleHue[idx] as number;
-      const sat = circleSat[idx] as number;
-      drawCircle(x, y, life, ttl, radius, lightness, hue, sat);
-      // Flow-field steering: simplex noise at (circle's current position,
-      // its unique z-seed, slow time drift) yields a value in (-1..1) which
-      // maps to a heading angle. Result: each circle traces a smooth
-      // curved path that slowly re-curves over its lifetime — organic,
-      // "smoke-like" motion instead of straight-line drift. The life*0.003
-      // drift coefficient is slow enough that paths read as gentle arcs
-      // rather than frantic spirals.
-      const n = noise3D(x * xOff, y * yOff, noiseSeed + life * 0.003);
-      const angle = n * Math.PI;
-      const vx = Math.cos(angle) * speed;
-      const vy = Math.sin(angle) * speed;
-      circleProps[i] = x + vx * dt;
-      circleProps[i + 1] = y + vy * dt;
-      circleProps[i + 4] = life + dt;
-      if (checkBounds(x, y, radius) || life + dt > ttl) initCircle(i);
-    };
+      const checkBounds = (x: number, y: number, radius: number) =>
+        x < -radius ||
+        x > cssW + radius ||
+        y < -radius ||
+        y > cssH + radius;
 
-    let raf = 0;
-    let paused = document.hidden;
-    let scrolling = false;
-    let scrollEndTimer = 0;
-    let lastFrame = 0;
-    // Previously capped at 60fps even on ProMotion displays. Removing
-    // the cap lets 120Hz screens run at native refresh — per-frame
-    // displacement halves automatically via the dt scaling, so motion
-    // appears just as fast but each visual step is ~0.8px rather than
-    // ~1.65px. Sub-perceptual step = essentially stutter-proof.
+      const drawCircle = (
+        x: number, y: number, life: number, ttl: number,
+        radius: number, lightness: number, hue: number, sat: number
+      ) => {
+        ctx.fillStyle = `hsla(${hue},${sat}%,${lightness}%,${fadeInOut(life, ttl)})`;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, TAU);
+        ctx.fill();
+      };
 
-    const paintFrame = (dt: number) => {
-      // Ivory backdrop + sharp circles on the same canvas. The CSS filter
-      // blurs the whole thing as a compositor op. Solid-color rect blurs
-      // to itself so no edge banding. fillRect coords are in CSS pixels
-      // because ctx.setTransform(dpr,dpr) is still active from resize().
-      ctx.fillStyle = backgroundColor;
-      ctx.fillRect(0, 0, cssW, cssH);
-      for (let i = 0; i < circlePropsLength; i += circlePropCount) updateCircle(i, dt);
-    };
+      const updateCircle = (i: number, dt: number) => {
+        const idx = i / circlePropCount;
+        const x = circleProps[i] as number;
+        const y = circleProps[i + 1] as number;
+        const speed = circleProps[i + 2] as number;
+        const noiseSeed = circleProps[i + 3] as number;
+        const life = circleProps[i + 4] as number;
+        const ttl = circleProps[i + 5] as number;
+        const radius = circleProps[i + 6] as number;
+        const lightness = circleProps[i + 7] as number;
+        const hue = circleHue[idx] as number;
+        const sat = circleSat[idx] as number;
+        drawCircle(x, y, life, ttl, radius, lightness, hue, sat);
+        // Flow-field steering: simplex noise maps position → heading angle so
+        // each circle traces a smooth organic curved path rather than drifting
+        // in a straight line.
+        const n = noise3D(x * xOff, y * yOff, noiseSeed + life * 0.003);
+        const angle = n * Math.PI;
+        const vx = Math.cos(angle) * speed;
+        const vy = Math.sin(angle) * speed;
+        circleProps[i] = x + vx * dt;
+        circleProps[i + 1] = y + vy * dt;
+        circleProps[i + 4] = life + dt;
+        if (checkBounds(x, y, radius) || life + dt > ttl) initCircle(i);
+      };
 
-    const draw = (ts: number) => {
-      raf = window.requestAnimationFrame(draw);
-      if (paused || scrolling) return;
-      // dt in "60fps-frame-equivalent" units: 1.0 at 60Hz, ~0.5 at 120Hz.
-      // Capped at 3 so a briefly-backgrounded tab doesn't teleport every
-      // circle a huge distance on resume.
-      const dt = lastFrame === 0 ? 1 : Math.min((ts - lastFrame) / (1000 / 60), 3);
-      lastFrame = ts;
-      paintFrame(dt);
-    };
+      let raf = 0;
+      let paused = document.hidden;
+      let scrolling = false;
+      let scrollEndTimer = 0;
+      let lastFrame = 0;
 
-    const onVisibility = () => { paused = document.hidden; };
-    const onScroll = () => {
-      scrolling = true;
-      if (scrollEndTimer) window.clearTimeout(scrollEndTimer);
-      scrollEndTimer = window.setTimeout(() => { scrolling = false; }, 140);
-    };
+      const paintFrame = (dt: number) => {
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, cssW, cssH);
+        for (let i = 0; i < circlePropsLength; i += circlePropCount) updateCircle(i, dt);
+      };
 
-    window.addEventListener("resize", resize);
-    document.addEventListener("visibilitychange", onVisibility);
-    window.addEventListener("scroll", onScroll, { passive: true, capture: true });
+      const draw = (ts: number) => {
+        raf = window.requestAnimationFrame(draw);
+        if (paused || scrolling) return;
+        const dt = lastFrame === 0 ? 1 : Math.min((ts - lastFrame) / (1000 / 60), 3);
+        lastFrame = ts;
+        paintFrame(dt);
+      };
 
-    // Paint one static frame so the ivory backdrop is up immediately,
-    // then defer the animation loop so it doesn't compete with LCP.
-    paintFrame(1);
-    let idleHandle = 0;
-    let startTimer = 0;
-    const start = () => { lastFrame = 0; raf = window.requestAnimationFrame(draw); };
-    const w = window as Window & typeof globalThis;
-    if (typeof w.requestIdleCallback === "function") {
-      idleHandle = w.requestIdleCallback(start, { timeout: 1500 });
-    } else {
-      startTimer = w.setTimeout(start, 400);
-    }
+      const onVisibility = () => { paused = document.hidden; };
+      const onScroll = () => {
+        scrolling = true;
+        if (scrollEndTimer) window.clearTimeout(scrollEndTimer);
+        scrollEndTimer = window.setTimeout(() => { scrolling = false; }, 140);
+      };
+
+      window.addEventListener("resize", resize);
+      document.addEventListener("visibilitychange", onVisibility);
+      window.addEventListener("scroll", onScroll, { passive: true, capture: true });
+
+      paintFrame(1);
+      let idleHandle = 0;
+      let startTimer = 0;
+      const start = () => { lastFrame = 0; raf = window.requestAnimationFrame(draw); };
+      const w = window as Window & typeof globalThis;
+      if (typeof w.requestIdleCallback === "function") {
+        idleHandle = w.requestIdleCallback(start, { timeout: 1500 });
+      } else {
+        startTimer = w.setTimeout(start, 400);
+      }
+
+      fallbackCleanup = () => {
+        window.removeEventListener("resize", resize);
+        document.removeEventListener("visibilitychange", onVisibility);
+        window.removeEventListener("scroll", onScroll, { capture: true });
+        if (scrollEndTimer) window.clearTimeout(scrollEndTimer);
+        if (idleHandle && typeof w.cancelIdleCallback === "function") {
+          w.cancelIdleCallback(idleHandle);
+        }
+        if (startTimer) window.clearTimeout(startTimer);
+        window.cancelAnimationFrame(raf);
+      };
+    });
 
     return () => {
-      window.removeEventListener("resize", resize);
-      document.removeEventListener("visibilitychange", onVisibility);
-      window.removeEventListener("scroll", onScroll, { capture: true });
-      if (scrollEndTimer) window.clearTimeout(scrollEndTimer);
-      if (idleHandle && typeof w.cancelIdleCallback === "function") {
-        w.cancelIdleCallback(idleHandle);
-      }
-      if (startTimer) window.clearTimeout(startTimer);
-      window.cancelAnimationFrame(raf);
+      cancelled = true;
+      fallbackCleanup?.();
     };
   }, []);
 

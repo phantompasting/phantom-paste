@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, DM_Mono } from "next/font/google";
-import GrainientBackground from "@/components/GrainientBackground";
+import GrainientBackgroundLazy from "@/components/GrainientBackgroundLazy";
 import { BUSINESS } from "@/lib/business";
 import { orgSchema, webSiteSchema, localBusinessSchema, jsonLd } from "@/lib/schema";
 import "./globals.css";
@@ -158,7 +158,7 @@ export default function RootLayout({
           DarkReader, etc.) inject attributes onto <body> before React hydrates, which
           otherwise triggers a hydration mismatch warning. */}
       <body suppressHydrationWarning>
-        <GrainientBackground />
+        <GrainientBackgroundLazy />
         <div style={{ position: "relative", zIndex: 2 }}>
           {children}
         </div>

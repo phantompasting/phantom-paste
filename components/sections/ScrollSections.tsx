@@ -4,14 +4,12 @@
  * PHANTOM PASTING — Scroll Sections (Full-Page Snap)
  * ─────────────────────────────────────────────────────
  * Every section = exactly 100vh. CSS scroll-snap-type: y mandatory.
- * GSAP ScrollTrigger entrances via useSectionReveal. Framer Motion
- * retained only for lightbox + form success AnimatePresence swaps.
+ * GSAP ScrollTrigger entrances via useSectionReveal. No framer-motion
+ * dependency — form success and lightbox use CSS transitions only.
  */
 
 import { useRef, useState, useCallback, useEffect } from "react";
-import { createPortal } from "react-dom";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import ShinyGoldText from "@/components/ShinyGoldText";
 import GlassSurface from "@/components/GlassSurface";
 import SpotlightCard from "@/components/SpotlightCard";
@@ -19,9 +17,6 @@ import { GALLERY_IMGS } from "@/lib/gallery-data";
 import { BUSINESS } from "@/lib/business";
 import { HOMEPAGE_FAQS } from "@/lib/homepageFAQs";
 import { useSectionReveal, useInViewOnce } from "./reveal";
-
-const SNAP      = { type: "spring", stiffness: 140, damping: 22 } as const;
-const SNAP_HARD = { type: "spring", stiffness: 180, damping: 26 } as const;
 
 /* ── SVG Icons — inline, no emoji, no icon library dependency ── */
 const IconMail = ({ color }: { color: string }) => (
@@ -824,16 +819,6 @@ function TLDRSection() {
 function GallerySection() {
   const scope = useSectionReveal<HTMLDivElement>();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
-  const lightbox = lightboxIdx !== null ? GALLERY_IMGS[lightboxIdx] : null;
-
-  // Lightbox open trigger was removed along with the zoom cursor on gallery
-  // tiles — homepage images intentionally don't expand now. The close/nav
-  // handlers + portal below stay wired so the lightbox can be reinstated
-  // without reshaping state, but nothing currently calls setLightboxIdx(n).
-  const closeLightbox = useCallback(() => setLightboxIdx(null), []);
-  const prevImage = useCallback(() => setLightboxIdx(i => i !== null ? (i - 1 + GALLERY_IMGS.length) % GALLERY_IMGS.length : null), []);
-  const nextImage = useCallback(() => setLightboxIdx(i => i !== null ? (i + 1) % GALLERY_IMGS.length : null), []);
 
   const scroll = useCallback((dir: -1 | 1) => {
     const el = scrollRef.current;
@@ -882,11 +867,6 @@ function GallerySection() {
   }, []);
 
   // Keyboard nav: Escape close, arrows prev/next
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    if (e.key === "Escape") closeLightbox();
-    else if (e.key === "ArrowLeft") prevImage();
-    else if (e.key === "ArrowRight") nextImage();
-  }, [closeLightbox, prevImage, nextImage]);
 
   /* Group images into sets of 6 for the 2-row bento layout.
      Each set renders as: top row [wide, med, med], bottom row [med, wide, med] */
@@ -976,67 +956,6 @@ function GallerySection() {
 
     </SnapPage>
 
-    {/* Lightbox — rendered via portal to escape SnapPage's CSS containment + transform */}
-    {createPortal(
-      <AnimatePresence>
-        {lightbox && lightboxIdx !== null && (
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center"
-            // No `backdrop-filter: blur()` — full-viewport backdrop blur on an
-            // animated Framer Motion element forces per-frame re-composite of
-            // everything behind it. A slightly more opaque black achieves the
-            // same "focus the image" read without the compositor cost.
-            style={{ background: "rgba(0,0,0,0.96)" }}
-            onClick={closeLightbox}
-            onKeyDown={handleKeyDown}
-            tabIndex={-1}
-            ref={(el) => el?.focus()}>
-            <motion.div
-              key={lightboxIdx}
-              initial={{ scale: 0.92, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
-              // Tween over high-stiffness spring — springs emit many subframe
-              // state updates (style recalcs) that compound with any remaining
-              // composited work. A 260ms tween reads identical to the eye.
-              transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full h-full flex items-center justify-center p-4 md:p-10"
-              onClick={e => e.stopPropagation()}>
-              <div className="relative w-full h-full max-w-5xl max-h-[85vh] rounded-2xl overflow-hidden"
-                style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}>
-                <Image src={lightbox.src} alt={lightbox.label} fill
-                  sizes="(min-width: 768px) 80vw, 100vw" className="object-contain" />
-              </div>
-              {/* Label + counter */}
-              <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">
-                <span className="font-black uppercase tracking-tight text-white text-sm md:text-base block">{lightbox.label}</span>
-                <span className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1 block" style={{ color: "#D4A010" }}>
-                  {lightboxIdx + 1} / {GALLERY_IMGS.length} &nbsp;·&nbsp; Phantom Pasting
-                </span>
-              </div>
-            </motion.div>
-            {/* Prev / Next arrows */}
-            <button onClick={(e) => { e.stopPropagation(); prevImage(); }} aria-label="Previous image"
-              className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
-              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
-              <IconChevronLeft color="#fff" />
-            </button>
-            <button onClick={(e) => { e.stopPropagation(); nextImage(); }} aria-label="Next image"
-              className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
-              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
-              <IconChevronRight color="#fff" />
-            </button>
-            {/* Close button */}
-            <button onClick={closeLightbox} aria-label="Close"
-              className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
-              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
-              <IconClose />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>,
-      document.body
-    )}
     </>
   );
 }
@@ -1050,6 +969,7 @@ const CITIES = "NYC · LA · Chicago · Miami · SF · Atlanta · Houston · Phi
 function ContactSection() {
   const scope = useSectionReveal<HTMLDivElement>();
   const [submitted, setSubmitted] = useState(false);
+  const [successVisible, setSuccessVisible] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [selectedSvcs, setSelectedSvcs] = useState<Set<string>>(new Set());
   const [mobileFormOpen, setMobileFormOpen] = useState(false);
@@ -1061,6 +981,12 @@ function ContactSection() {
       return next;
     });
   };
+
+  useEffect(() => {
+    if (!submitted) return;
+    const id = requestAnimationFrame(() => setSuccessVisible(true));
+    return () => cancelAnimationFrame(id);
+  }, [submitted]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -1149,27 +1075,32 @@ function ContactSection() {
 
           {/* Right — Form */}
           <div data-reveal="fade-up" className={mobileFormOpen ? "" : "hidden lg:block"}>
-            <AnimatePresence mode="wait">
-              {submitted ? (
-                <motion.div key="ok" initial={{ scale: 0.88, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={SNAP}>
-                  <Glass className="p-10 text-center" accentColor="rgba(0,0,0,0.08)">
-                    <div className="absolute inset-x-0 top-0 h-px"
-                      style={{ background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent)" }} />
-                    <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ ...SNAP_HARD, delay: 0.1 }}
-                      className="mb-6 flex items-center justify-center">
-                      <IconSuccessRing />
-                    </motion.div>
-                    <h3 className="font-black uppercase tracking-tight m-0 mb-3"
-                      style={{ fontSize: "clamp(36px, 4vw, 56px)", color: "#1A1A1A" }}>You&apos;re In.</h3>
-                    <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
-                      We&apos;ll hit your inbox within 24 hours. Follow{" "}
-                      <a href={BUSINESS.instagramUrl} target="_blank" rel="noopener noreferrer" className="no-underline" style={{ color: "#D4A010" }}>@phantompasting</a>{" "}
-                      to see campaigns live in the wild.
-                    </p>
-                  </Glass>
-                </motion.div>
-              ) : (
-                <motion.form key="form" onSubmit={handleSubmit}
+            {submitted ? (
+              <div style={{
+                transform: successVisible ? "scale(1)" : "scale(0.88)",
+                opacity: successVisible ? 1 : 0,
+                transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease",
+              }}>
+                <Glass className="p-10 text-center" accentColor="rgba(0,0,0,0.08)">
+                  <div className="absolute inset-x-0 top-0 h-px"
+                    style={{ background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent)" }} />
+                  <div className="mb-6 flex items-center justify-center" style={{
+                    transform: successVisible ? "scale(1)" : "scale(0)",
+                    transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1) 0.1s",
+                  }}>
+                    <IconSuccessRing />
+                  </div>
+                  <h3 className="font-black uppercase tracking-tight m-0 mb-3"
+                    style={{ fontSize: "clamp(36px, 4vw, 56px)", color: "#1A1A1A" }}>You&apos;re In.</h3>
+                  <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
+                    We&apos;ll hit your inbox within 24 hours. Follow{" "}
+                    <a href={BUSINESS.instagramUrl} target="_blank" rel="noopener noreferrer" className="no-underline" style={{ color: "#D4A010" }}>@phantompasting</a>{" "}
+                    to see campaigns live in the wild.
+                  </p>
+                </Glass>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}
                   className="flex flex-col rounded-2xl overflow-hidden"
                   style={{
                     gap: "1px",
@@ -1315,9 +1246,8 @@ function ContactSection() {
                     style={{ color: "rgba(0,0,0,0.52)" }}>
                     ✦ No spam. Your info is used only to build your campaign.
                   </p>
-                </motion.form>
-              )}
-            </AnimatePresence>
+              </form>
+            )}
           </div>
         </div>
       </div>
