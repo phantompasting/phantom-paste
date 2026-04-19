@@ -1109,16 +1109,16 @@ function ContactSection() {
                     boxShadow: "0 24px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.05)",
                   }}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
-                    <FormField label="First Name *" name="firstName" placeholder="Alex" required />
-                    <FormField label="Last Name *" name="lastName" placeholder="Rivera" required />
+                    <FormField label="First Name *" name="firstName" placeholder="Alex" required autoComplete="given-name" />
+                    <FormField label="Last Name *" name="lastName" placeholder="Rivera" required autoComplete="family-name" />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
-                    <FormField label="Email *" name="email" type="email" placeholder="alex@brand.com" required />
-                    <FormField label="Phone" name="phone" placeholder="+1 (212) 000-0000" />
+                    <FormField label="Email *" name="email" type="email" placeholder="alex@brand.com" required autoComplete="email" />
+                    <FormField label="Phone" name="phone" placeholder="+1 (212) 000-0000" autoComplete="tel" />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
-                    <FormField label="Brand / Company *" name="brand" placeholder="Your Brand" required />
-                    <FormField label="Target City *" name="city" placeholder="New York City, NY" required />
+                    <FormField label="Brand / Company *" name="brand" placeholder="Your Brand" required autoComplete="organization" />
+                    <FormField label="Target City *" name="city" placeholder="New York City, NY" required autoComplete="off" />
                   </div>
 
                   {/* Service toggles */}
@@ -1192,17 +1192,17 @@ function ContactSection() {
                         <div className="form-field relative border grid grid-cols-[1fr_auto_1fr] items-end gap-0"
                           style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
                           <div className="relative">
-                            <label className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
+                            <label htmlFor="st_width" className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
                               style={{ color: "rgba(0,0,0,0.55)" }}>W (in)</label>
-                            <input name="st_width" type="number" min="6" max="48" placeholder="24"
+                            <input id="st_width" name="st_width" type="number" min="6" max="48" placeholder="24" autoComplete="off"
                               className="w-full bg-transparent outline-none pt-8 pb-3 px-5 font-light"
                               style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
                           </div>
                           <span className="pb-3 font-mono text-[11px]" style={{ color: "rgba(0,0,0,0.52)" }}>×</span>
                           <div className="relative">
-                            <label className="absolute top-3 left-3 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
+                            <label htmlFor="st_height" className="absolute top-3 left-3 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
                               style={{ color: "rgba(0,0,0,0.55)" }}>H (in)</label>
-                            <input name="st_height" type="number" min="6" max="240" placeholder="36"
+                            <input id="st_height" name="st_height" type="number" min="6" max="240" placeholder="36" autoComplete="off"
                               className="w-full bg-transparent outline-none pt-8 pb-3 px-3 font-light"
                               style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
                           </div>
@@ -1223,9 +1223,9 @@ function ContactSection() {
                       options={["ASAP (within 2 weeks)","1 month","2–3 months","Planning ahead (3+ months)"]} />
                   </div>
                   <div className="relative border" style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
-                    <label className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
+                    <label htmlFor="message" className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
                       style={{ color: "rgba(0,0,0,0.55)" }}>Campaign Details</label>
-                    <textarea name="message" rows={3}
+                    <textarea id="message" name="message" rows={3}
                       placeholder="Campaign goals, target audience, specific neighborhoods…"
                       className="w-full bg-transparent outline-none resize-none pt-8 pb-3 px-5 font-light"
                       style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
@@ -1255,15 +1255,15 @@ function ContactSection() {
   );
 }
 
-function FormField({ label, name, placeholder, type = "text", required = false }: {
-  label: string; name: string; placeholder: string; type?: string; required?: boolean;
+function FormField({ label, name, placeholder, type = "text", required = false, autoComplete = "off" }: {
+  label: string; name: string; placeholder: string; type?: string; required?: boolean; autoComplete?: string;
 }) {
   return (
     <div className="form-field relative border"
       style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}>
       <label htmlFor={name} className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
         style={{ color: "rgba(0,0,0,0.55)" }}>{label}</label>
-      <input id={name} name={name} type={type} placeholder={placeholder} required={required}
+      <input id={name} name={name} type={type} placeholder={placeholder} required={required} autoComplete={autoComplete}
         className="w-full bg-transparent outline-none pt-8 pb-3 px-5 font-light"
         style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }} />
     </div>
