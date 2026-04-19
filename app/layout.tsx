@@ -13,7 +13,7 @@ const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["300", "400", "700", "900"],
   variable: "--font-barlow",
-  display: "swap",
+  display: "optional",
 });
 
 const dmMono = DM_Mono({
