@@ -24,11 +24,58 @@
   status = 301
   force  = true
 
-# Default crawler directives — mirrors <meta name="robots"> for non-HTML
-# assets (PDFs, images, JSON) and silences "missing X-Robots-Tag" flags
-# from auditors like Screaming Frog and Sitebulb. Override per-path below
-# if specific sections should be noindexed.
+# ── Cache-Control headers ──────────────────────────────────────────────────────
+#
+# Strategy (ported from 3floorguys.com — same pattern, adapted for Next.js):
+#
+#   /* (HTML pages)      — max-age=0 (no browser cache, always fresh for users)
+#                          s-maxage=300 (CDN edge cache 5 min, auto-purged on deploy)
+#                          stale-while-revalidate=3600 (serve stale while revalidating)
+#
+#   /_next/static/*      — max-age=31536000, immutable (content-hashed filenames,
+#                          never change between deploys — Googlebot re-downloaded
+#                          every JS chunk on every visit with no-cache: fixed here)
+#
+#   /gallery/*           — max-age=86400 (24h), SWR 7d (campaign photos don't change)
+#   /fonts/*             — max-age=31536000, immutable
+#   *.webp / *.png       — max-age=31536000 (favicon, logo, OG images)
+#
+# NOTE (3FG lesson 2026-04-20): `for` matches request path, not filesystem.
+# Use `for = "/*"` (not "/*.html") — extensionless HTML URLs never match /*.html.
+# More-specific rules below override Cache-Control via Netlify's longest-match.
+
+# HTML pages — CDN edge cache, always fresh for users
 [[headers]]
   for = "/*"
   [headers.values]
+    Cache-Control = "public, max-age=0, s-maxage=300, stale-while-revalidate=3600"
     X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+# Next.js content-hashed static bundles — immutable for 1 year
+# This was missing before; Googlebot was getting private,no-cache on every JS
+# chunk and re-downloading the full bundle on every crawl (GSC: 36.78% JS share,
+# 304 rate 1.51%). After this fix, 304 rate should climb to 15-25%+.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Campaign gallery images — 24h cache, SWR 7 days
+[[headers]]
+  for = "/gallery/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+# Static root assets: logo, favicons, OG images, llms.txt, IndexNow key
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
