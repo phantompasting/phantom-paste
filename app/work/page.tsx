@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { webPageSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { collectionPageSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work`;
 const PAGE_TITLE = "Guerrilla Marketing Case Studies";
@@ -90,14 +90,17 @@ const PROCESS_STEPS = [
 const FORMATS = [
   {
     name: "Wheat Pasting",
+    href: "/services/wheat-pasting",
     body: "Large-format paper posters adhered to walls with wheat paste adhesive. Sizes from 24\"×36\" to 48\"×72\". High-impact wall takeovers that stop foot traffic cold.",
   },
   {
     name: "Chalk Spray Stencils",
+    href: "/services/chalk-spray-stencils",
     body: "Water-based chalk spray applied through precision-cut stencil templates onto sidewalks and plazas. Temporary and eco-friendly — maximum impression, zero permanence.",
   },
   {
     name: "Multi-Format",
+    href: "/services/full-impact-campaigns",
     body: "Combined wheat pasting and chalk stencil activations for total street saturation. Every angle covered, every surface activated.",
   },
 ];
@@ -123,7 +126,17 @@ export default function WorkPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: jsonLd(webPageSchema({ name: PAGE_TITLE, description: PAGE_DESC, url: PAGE_URL })),
+          __html: jsonLd(
+            collectionPageSchema({
+              name: PAGE_TITLE,
+              description: PAGE_DESC,
+              url: PAGE_URL,
+              items: CASE_STUDIES.map(({ client, href }) => ({
+                name: `${client} — Guerrilla Marketing Case Study`,
+                url: `${BUSINESS.url}${href}`,
+              })),
+            })
+          ),
         }}
       />
       <script
@@ -142,7 +155,7 @@ export default function WorkPage() {
         }}
       />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -167,7 +180,7 @@ export default function WorkPage() {
                   REAL CAMPAIGNS,<br /><ShinyGoldText>REAL STREETS.</ShinyGoldText>
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                  style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
                   Every campaign documented from install to delivery. Here&apos;s what guerrilla
                   marketing looks like when it actually hits the streets.
                 </p>
@@ -348,8 +361,9 @@ export default function WorkPage() {
             FORMATS WE<span style={{ color: ACCENT }}> DEPLOY.</span>
           </h2>
           <div className="max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-5">
-            {FORMATS.map(({ name, body }) => (
-              <div key={name} className="rounded-2xl p-7" style={{ ...GLASS }}>
+            {FORMATS.map(({ name, href, body }) => (
+              <Link key={name} href={href} className="no-underline group rounded-2xl p-7 block"
+                style={{ ...GLASS, color: "inherit" }}>
                 <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-3"
                   style={{ color: "rgba(0,0,0,0.55)" }}>
                   Format
@@ -358,11 +372,15 @@ export default function WorkPage() {
                   style={{ fontSize: "16px", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
                   {name}<span style={{ color: ACCENT }}>.</span>
                 </div>
-                <p className="font-light leading-relaxed m-0"
+                <p className="font-light leading-relaxed m-0 mb-4"
                   style={{ fontSize: "14px", color: "rgba(0,0,0,0.55)" }}>
                   {body}
                 </p>
-              </div>
+                <span className="inline-block font-bold text-[11px] tracking-[0.2em] uppercase"
+                  style={{ color: ACCENT }}>
+                  Learn More →
+                </span>
+              </Link>
             ))}
           </div>
         </section>
@@ -386,19 +404,30 @@ export default function WorkPage() {
             </p>
             <ul className="m-0 p-0 list-none flex flex-col gap-4">
               {[
-                "Street campaigns generate organic social shares — people photograph and tag your brand",
-                "Physical presence builds cultural credibility that display ads never will",
-                "Hyper-local targeting by neighborhood, not by algorithm",
-                "100% photo documentation proves every single placement",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
+                { key: "social", node: "Street campaigns generate organic social shares — people photograph and tag your brand" },
+                { key: "cultural", node: "Physical presence builds cultural credibility that display ads never will" },
+                {
+                  key: "local",
+                  node: (
+                    <>
+                      Hyper-local targeting by{" "}
+                      <Link href="/locations" style={{ color: ACCENT, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                        neighborhood
+                      </Link>
+                      , not by algorithm
+                    </>
+                  ),
+                },
+                { key: "proof", node: "100% photo documentation proves every single placement" },
+              ].map(({ key, node }) => (
+                <li key={key} className="flex items-start gap-3">
                   <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center font-black text-[10px]"
                     style={{ background: `rgba(212,160,16,0.12)`, color: ACCENT }}>
                     ✓
                   </span>
                   <span className="font-light leading-relaxed"
                     style={{ fontSize: "15px", color: "rgba(0,0,0,0.55)" }}>
-                    {item}
+                    {node}
                   </span>
                 </li>
               ))}
@@ -417,9 +446,12 @@ export default function WorkPage() {
             <p className="font-light leading-relaxed m-0"
               style={{ fontSize: "15px", color: "rgba(0,0,0,0.7)" }}>
               Real campaigns. Real streets. Every placement photographed and documented.{" "}
-              <span className="font-bold" style={{ color: "#1A1A1A" }}>FashionPass</span>,{" "}
-              <span className="font-bold" style={{ color: "#1A1A1A" }}>FIFA World Cup</span>, and{" "}
-              <span className="font-bold" style={{ color: "#1A1A1A" }}>Incrediwear</span>{" "}
+              <Link href="/work/fashionpass-los-angeles" className="font-bold no-underline"
+                style={{ color: "#1A1A1A", borderBottom: `1.5px solid ${ACCENT}` }}>FashionPass</Link>,{" "}
+              <Link href="/work/fifa-world-cup-atlanta" className="font-bold no-underline"
+                style={{ color: "#1A1A1A", borderBottom: `1.5px solid ${ACCENT}` }}>FIFA World Cup</Link>, and{" "}
+              <Link href="/work/incrediwear-street-campaign" className="font-bold no-underline"
+                style={{ color: "#1A1A1A", borderBottom: `1.5px solid ${ACCENT}` }}>Incrediwear</Link>{" "}
               trusted Phantom Pasting to bring their brands to the street.
             </p>
           </div>

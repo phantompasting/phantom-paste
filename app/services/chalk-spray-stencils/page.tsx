@@ -176,7 +176,7 @@ export default function ChalkSprayStencilsPage() {
         }}
       />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -199,7 +199,7 @@ export default function ChalkSprayStencilsPage() {
                 <h1 className="font-black uppercase m-0 leading-[0.88]" style={{ fontSize: "clamp(48px, 7vw, 100px)", letterSpacing: "-0.04em" }}>
                   CHALK STENCILS<br /><ShinyGoldText>AT STREET LEVEL.</ShinyGoldText>
                 </h1>
-                <p className="font-light leading-relaxed mt-8 mb-10" style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                <p className="font-light leading-relaxed mt-8 mb-10" style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
                   Precision chalk spray stencil activations at the sidewalk level. Temporary. Legal. Impossible to miss. Perfect for brand moments that need to stop people mid-step.
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -267,7 +267,7 @@ export default function ChalkSprayStencilsPage() {
               Definition
             </span>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]" style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              WHAT IS CHALK SPRAY STENCIL<br /><span style={{ color: ACCENT }}>ADVERTISING?</span>
+              WHAT IS CHALK SPRAY STENCIL<br /><ShinyGoldText>ADVERTISING?</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed m-0 mb-4" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "760px" }}>
               Chalk spray stencil advertising is a temporary, street-level marketing technique where water-based chalk spray paint is applied through precision-cut stencil templates onto sidewalks, plazas, and paved surfaces. It creates high-visibility brand impressions at foot level — exactly where people walk, queue, and gather.
@@ -312,7 +312,7 @@ export default function ChalkSprayStencilsPage() {
               The Process
             </span>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]" style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              HOW CHALK STENCIL CAMPAIGNS<span style={{ color: ACCENT }}> WORK.</span>
+              HOW CHALK STENCIL CAMPAIGNS <ShinyGoldText>WORK.</ShinyGoldText>
             </h2>
             <p className="font-light mb-10 m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "640px" }}>
               Four steps, from custom cut to photo-documented install. Most chalk campaigns run 3–10 business days end-to-end.
@@ -348,7 +348,7 @@ export default function ChalkSprayStencilsPage() {
                 Compliance
               </span>
               <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]" style={{ fontSize: "clamp(28px, 3.8vw, 48px)", letterSpacing: "-0.035em" }}>
-                LEGAL &amp;<br /><span style={{ color: ACCENT }}>BIODEGRADABLE.</span>
+                LEGAL &amp;<br /><ShinyGoldText>BIODEGRADABLE.</ShinyGoldText>
               </h2>
               <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "14px" }}>
                 Chalk stencils occupy a unique position in street marketing: the material itself is non-damaging and temporary, which dramatically lowers permit friction compared to paste or paint.
@@ -413,7 +413,7 @@ export default function ChalkSprayStencilsPage() {
               Common Questions
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]" style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              CHALK STENCIL<span style={{ color: ACCENT }}> FAQ.</span>
+              CHALK STENCIL <ShinyGoldText>FAQ.</ShinyGoldText>
             </h2>
             <div className="flex flex-col">
               {FAQS.map(({ q, a }) => (

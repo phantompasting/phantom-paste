@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, DM_Mono } from "next/font/google";
 import GrainientBackgroundLazy from "@/components/GrainientBackgroundLazy";
+import ShinyGoldObserver from "@/components/ShinyGoldObserver";
 import { BUSINESS } from "@/lib/business";
 import { orgSchema, webSiteSchema, localBusinessSchema, jsonLd } from "@/lib/schema";
 import "./globals.css";
@@ -150,8 +151,24 @@ export default function RootLayout({
           @keyframes heroUp{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
           @keyframes heroUpVisible{from{transform:translateY(24px)}to{transform:translateY(0)}}
           @keyframes heroDown{from{transform:translateY(-20px);opacity:0}to{transform:translateY(0);opacity:1}}
-          @keyframes goldShine{0%{background-position:150% center}100%{background-position:-50% center}}
-.shiny-gold-text{background-image:linear-gradient(120deg,#D4A010 0%,#D4A010 35%,#FDF0A0 50%,#D4A010 65%,#D4A010 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;display:inline-block;padding-right:0.06em;animation:goldShine 4s ease-in-out infinite alternate;filter:drop-shadow(0px 1px 0.5px rgba(26,20,6,0.22))}
+          /* goldShine — asymmetric, non-alternating sweep with explicit
+             pauses baked into a single 20s keyframe.
+               0-30%  (6s)  sweep forward  : 150%  → -50%
+               30-55% (5s)  pause at end   : hold at -50%
+               55-85% (6s)  sweep backward : -50%  → 150%
+               85-100% (3s) pause at start : hold at 150%
+             Animation-direction is default (normal), not alternate — the
+             round-trip is encoded inside the keyframe itself, which lets
+             the forward / backward sweeps have different rest times. */
+          @keyframes goldShine{0%{background-position:150% center}30%{background-position:-50% center}55%{background-position:-50% center}85%{background-position:150% center}100%{background-position:150% center}}
+/* Static rest state — NO filter:drop-shadow on the base rule.
+   drop-shadow promotes the element to its own compositor layer, so
+   applying it to all ~54 gold-text instances pinned 54 layers in GPU
+   memory even when none were animating. Moved into .sgt-play below so
+   only the 1-3 instances currently animating (in-viewport + tab-visible)
+   allocate a layer. Measurable win on Intel iGPUs / mobile Safari. */
+.shiny-gold-text{background-image:linear-gradient(120deg,#D4A010 0%,#D4A010 35%,#FDF0A0 50%,#D4A010 65%,#D4A010 100%);background-size:200% auto;background-position:150% center;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;display:inline-block;padding-right:0.06em}
+.shiny-gold-text.sgt-play{animation:goldShine 20s ease-in-out infinite;filter:drop-shadow(0px 1px 0.5px rgba(26,20,6,0.22))}
         ` }} />
       </head>
       {/* suppressHydrationWarning on <body> — browser extensions (Grammarly, ColorZilla,
@@ -159,6 +176,7 @@ export default function RootLayout({
           otherwise triggers a hydration mismatch warning. */}
       <body suppressHydrationWarning>
         <GrainientBackgroundLazy />
+        <ShinyGoldObserver />
         <div style={{ position: "relative", zIndex: 2 }}>
           {children}
         </div>

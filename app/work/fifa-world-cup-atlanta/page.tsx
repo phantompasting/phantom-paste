@@ -81,7 +81,7 @@ export default function FIFACaseStudy() {
         }}
       />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -110,7 +110,7 @@ export default function FIFACaseStudy() {
               FIFA WORLD CUP <ShinyGoldText>ATLANTA.</ShinyGoldText>
             </h1>
             <p className="font-light leading-relaxed mt-8 mb-10 mx-auto"
-              style={{ fontSize: "clamp(15px, 1.3vw, 18px)", color: "rgba(0,0,0,0.55)", maxWidth: "680px" }}>
+              style={{ fontSize: "clamp(17px, 1.5vw, 20px)", color: "rgba(0,0,0,0.55)", maxWidth: "680px" }}>
               Massive wheat paste and wild posting campaign across Atlanta for the
               FIFA World Cup. Multi-wall installations in high-traffic zones —
               creating an inescapable street presence for the world&apos;s biggest
@@ -125,6 +125,17 @@ export default function FIFACaseStudy() {
                   style={{ background: "linear-gradient(180deg, rgba(196,162,18,0.28) 0%, transparent 48%)" }} />
                 Get a Quote <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
               </Link>
+              <a href={BUSINESS.telHref}
+                aria-label={`Call Phantom Pasting at ${BUSINESS.telephoneDisplay}`}
+                className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
+                style={{ color: "rgba(0,0,0,0.82)", background: "rgba(255,255,255,0.9)",
+                  border: "1px solid rgba(0,0,0,0.14)",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden style={{ color: ACCENT }}>
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                Call Now
+              </a>
               <Link href="/services/wheat-pasting"
                 className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
                 style={{ color: "rgba(0,0,0,0.82)", background: "rgba(255,255,255,0.9)",
@@ -186,7 +197,7 @@ export default function FIFACaseStudy() {
               </span>
               <h2 className="font-black uppercase m-0 mb-5 leading-[0.9]"
                 style={{ fontSize: "clamp(24px, 3vw, 38px)", letterSpacing: "-0.03em" }}>
-                WORLD CUP<br /><span style={{ color: ACCENT }}>ON THE STREETS.</span>
+                WORLD CUP<br /><ShinyGoldText>ON THE STREETS.</ShinyGoldText>
               </h2>
               <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
                 The FIFA World Cup needed street-level buzz in Atlanta — one of the
@@ -400,7 +411,7 @@ export default function FIFACaseStudy() {
                   </div>
                   <div>
                     <h3 className="font-black uppercase m-0 mb-2 leading-tight"
-                      style={{ fontSize: "clamp(15px, 1.4vw, 18px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
+                      style={{ fontSize: "clamp(17px, 1.6vw, 20px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
                       {h}
                     </h3>
                     <p className="font-light m-0 leading-relaxed"
@@ -448,7 +459,7 @@ export default function FIFACaseStudy() {
                   style={{ background: "rgba(255,255,255,0.5)", backdropFilter: "blur(10px)",
                     WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.7)" }}>
                   <h3 className="font-black uppercase m-0 mb-2 leading-tight"
-                    style={{ fontSize: "clamp(15px, 1.4vw, 18px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
+                    style={{ fontSize: "clamp(17px, 1.6vw, 20px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
                     {h}
                   </h3>
                   <p className="font-light m-0 leading-relaxed"
@@ -471,7 +482,7 @@ export default function FIFACaseStudy() {
               </span>
               <h2 className="font-black uppercase m-0 mt-3 leading-[0.9]"
                 style={{ fontSize: "clamp(28px, 4vw, 52px)", letterSpacing: "-0.035em" }}>
-                COMMON <span style={{ color: ACCENT }}>QUESTIONS.</span>
+                COMMON <ShinyGoldText>QUESTIONS.</ShinyGoldText>
               </h2>
             </div>
             <div className="flex flex-col gap-3">
@@ -486,7 +497,7 @@ export default function FIFACaseStudy() {
                   style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(10px)",
                     WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.7)" }}>
                   <summary className="font-black uppercase cursor-pointer list-none flex items-center justify-between gap-5"
-                    style={{ fontSize: "clamp(14px, 1.3vw, 16px)", letterSpacing: "-0.015em", color: "#1A1A1A" }}>
+                    style={{ fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "-0.015em", color: "#1A1A1A" }}>
                     <span dangerouslySetInnerHTML={{ __html: q }} />
                     <span className="shrink-0" style={{ color: ACCENT, fontSize: "22px", lineHeight: 1 }}>+</span>
                   </summary>

@@ -28,9 +28,13 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        // Block pagination/filter params + Next.js image optimization endpoint
-        // (saves crawl budget on non-canonical query-string variants)
-        disallow: ["/_next/image?url=", "/api/"],
+        // Only block API routes. /_next/image was disallowed previously for crawl
+        // budget, but Googlebot needs to render optimized images to evaluate LCP
+        // and layout — blocking it triggered 79 "Blocked Internal Resource"
+        // warnings in Semrush audit and degraded render-path signals. Image
+        // indexing is driven separately via /sitemap-images.xml which points at
+        // direct /gallery/*.webp URLs, so there's no crawl-budget downside.
+        disallow: ["/api/"],
       },
 
       // ── AI search retrieval bots (ALLOW — these cite and drive traffic) ───

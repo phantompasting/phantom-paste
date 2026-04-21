@@ -71,7 +71,7 @@ export default function GalleryPage() {
           ),
         }}
       />
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[

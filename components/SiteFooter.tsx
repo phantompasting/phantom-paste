@@ -64,7 +64,7 @@ function PhoneIcon() {
 export default function SiteFooter({ snap = false }: { snap?: boolean }) {
   return (
     <footer
-      className="relative flex items-center px-5 sm:px-8 md:px-12 lg:px-16 border-t py-16"
+      className="relative flex items-center px-5 sm:px-8 md:px-12 lg:px-16 border-t py-16 cv-auto contain-paint"
       style={{
         scrollSnapAlign: snap ? "start" : undefined,
         scrollSnapStop: snap ? "always" : undefined,

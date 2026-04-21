@@ -83,7 +83,7 @@ export default function AboutPage() {
         }}
       />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -110,9 +110,14 @@ export default function AboutPage() {
                   GUERRILLA<br />MARKETING<br /><ShinyGoldText>AGENCY.</ShinyGoldText>
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
-                  Phantom Pasting is a guerrilla marketing agency founded in 2014. Wheat pasting,
-                  wild posting, and chalk spray stencils across every major US city. Ten-plus years on the streets.
+                  style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                  Phantom Pasting is a guerrilla marketing agency founded in 2014.{" "}
+                  <Link href="/services/wheat-pasting" style={{ color: "rgba(0,0,0,0.72)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>Wheat pasting</Link>,
+                  wild posting, and{" "}
+                  <Link href="/services/chalk-spray-stencils" style={{ color: "rgba(0,0,0,0.72)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>chalk spray stencils</Link>{" "}
+                  across{" "}
+                  <Link href="/locations" style={{ color: "rgba(0,0,0,0.72)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>every major US city</Link>.
+                  Ten-plus years on the streets.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/contact"
@@ -219,7 +224,7 @@ export default function AboutPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              WHAT IS GUERRILLA<span style={{ color: ACCENT }}>MARKETING?</span>
+              WHAT IS GUERRILLA <ShinyGoldText>MARKETING?</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "680px" }}>
               Guerrilla marketing is unconventional, street-level advertising that uses physical media to create brand presence in the real world. Unlike digital ads that are skipped, blocked, or scrolled past, guerrilla campaigns — wheat pasting, chalk stencils, wild posting — exist in the physical environment where they demand attention through sheer visibility.
@@ -238,7 +243,7 @@ export default function AboutPage() {
               </span>
               <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
                 style={{ fontSize: "clamp(34px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-                BUILT ON<br /><span style={{ color: ACCENT }}>THE STREETS.</span>
+                BUILT ON<br /><ShinyGoldText>THE STREETS.</ShinyGoldText>
               </h2>
               <div className="flex flex-col gap-5">
                 <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "480px" }}>
@@ -246,9 +251,11 @@ export default function AboutPage() {
                   that can&apos;t be skipped, muted, or blocked. The streets can&apos;t be ad-blocked.
                 </p>
                 <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "480px" }}>
-                  What started as a small wheat-pasting operation in one city grew into a nationwide
-                  network of crews, walls, and documented campaigns across 50+ markets. Every campaign
-                  we run today is still built on that same foundation — get it on the streets, photograph
+                  What started as a small{" "}
+                  <Link href="/services/wheat-pasting" style={{ color: "rgba(0,0,0,0.75)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>wheat-pasting</Link>{" "}
+                  operation in one city grew into a nationwide network of crews, walls, and documented campaigns across{" "}
+                  <Link href="/locations" style={{ color: "rgba(0,0,0,0.75)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>50+ markets</Link>.
+                  Every campaign we run today is still built on that same foundation — get it on the streets, photograph
                   every hit, and let the work speak.
                 </p>
                 <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "480px" }}>
@@ -288,13 +295,24 @@ export default function AboutPage() {
                   Trusted By
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["FashionPass", "FIFA World Cup", "Incrediwear", "Calvin Priice"].map((client) => (
-                    <span key={client}
-                      className="font-black uppercase text-[12px] tracking-[0.04em] px-4 py-2 rounded-full"
-                      style={{ background: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.6)", color: "rgba(0,0,0,0.65)" }}>
-                      {client}
-                    </span>
-                  ))}
+                  {[
+                    { label: "FashionPass", href: "/work/fashionpass-los-angeles" },
+                    { label: "FIFA World Cup", href: "/work/fifa-world-cup-atlanta" },
+                    { label: "Incrediwear", href: "/work/incrediwear-street-campaign" },
+                    { label: "Calvin Priice", href: null },
+                  ].map(({ label, href }) => {
+                    const chipClass = "font-black uppercase text-[12px] tracking-[0.04em] px-4 py-2 rounded-full no-underline";
+                    const chipStyle = { background: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.6)", color: "rgba(0,0,0,0.65)" };
+                    return href ? (
+                      <Link key={label} href={href} className={chipClass} style={chipStyle}>
+                        {label}
+                      </Link>
+                    ) : (
+                      <span key={label} className={chipClass} style={chipStyle}>
+                        {label}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -311,7 +329,7 @@ export default function AboutPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-14 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              WHAT SETS US<br /><span style={{ color: ACCENT }}>APART.</span>
+              WHAT SETS US<br /><ShinyGoldText>APART.</ShinyGoldText>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-px"

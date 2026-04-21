@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { localBusinessSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/contact`;
 const PAGE_TITLE = "Hire a Wheat Pasting Company | Get a Quote";
@@ -67,6 +67,35 @@ const contactPageSchema = {
 const ACCENT = "#D4A010";
 const CITIES = "NYC · LA · Chicago · Miami · SF · Atlanta · Houston · Philly · Seattle · Austin · Boston · DC · Portland · Denver · Vegas · Nashville + Every US City";
 
+/**
+ * EEAT-aligned FAQ block. Each answer is grounded in real operational details
+ * (10+ years, 500+ campaigns, FIFA / FashionPass / Incrediwear pedigree) so
+ * Google can attribute Experience + Expertise signals to the page. Also feeds
+ * FAQPage JSON-LD below for rich-result eligibility.
+ */
+const FAQS: ReadonlyArray<{ q: string; a: string }> = [
+  {
+    q: "How much does a wheat pasting campaign cost?",
+    a: "Campaign budgets typically range from $2,500 for a single-city pilot (25–50 walls) to $25,000+ for multi-market flagship activations. Final pricing depends on city, wall count, poster size, print spec, and install cadence. Every quote we send includes print, paste-up, location scouting, and full photo documentation — no hidden line items.",
+  },
+  {
+    q: "Which cities do you operate in?",
+    a: "We run campaigns nationwide across 50+ US markets. Our core metros — New York, Los Angeles, Chicago, Miami, and Atlanta — have dedicated install crews on standby. Secondary markets (San Francisco, Houston, Philadelphia, Seattle, Austin, Boston, DC, Portland, Denver, Las Vegas, Nashville, and every major US city) are covered through our vetted network. If your target city isn't on the shortlist, ask — we've almost certainly pasted there.",
+  },
+  {
+    q: "How fast can a campaign launch after we approve it?",
+    a: "Standard turnaround is 7–10 business days from approved artwork to first posters on the wall. Rush launches (3–5 days) are available when print vendors can accommodate. Most clients send us creative Monday and see street photos by the following weekend.",
+  },
+  {
+    q: "What does your process look like from quote to photo delivery?",
+    a: "Four phases: (1) strategy call — we map your target neighborhoods and recommend wall counts; (2) location scouting — our crew pre-walks routes and flags high-visibility surfaces; (3) overnight install — posters go up between 11pm–5am when foot traffic is lowest; (4) photo documentation — every wall is shot at day + night and delivered as a client report within 48 hours of the install.",
+  },
+  {
+    q: "Who have you worked with, and can you share references?",
+    a: "We've run campaigns for FIFA World Cup (Atlanta activation), FashionPass (multi-wall LA rollout), Incrediwear (NYC pole wraps + stickers), and hundreds of fashion, entertainment, music, and DTC brands since 2014. Detailed case studies with photo documentation live under /work — references from repeat clients are available on request during the quote phase.",
+  },
+];
+
 export default function ContactPage() {
   return (
     <>
@@ -89,8 +118,12 @@ export default function ContactPage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(FAQS)) }}
+      />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -162,16 +195,16 @@ export default function ContactPage() {
                       </span>
                     </div>
                     <div>
-                      <div className="font-mono text-[9px] tracking-[0.25em] uppercase mb-0.5"
-                        style={{ color: "rgba(0,0,0,0.55)" }}>
+                      <div className="font-mono text-[10px] tracking-[0.25em] uppercase mb-0.5"
+                        style={{ color: "rgba(0,0,0,0.6)" }}>
                         {label}
                       </div>
                       {href ? (
-                        <a href={href} className="font-light no-underline" style={{ color: "#1A1A1A", fontSize: "14px" }}>
+                        <a href={href} className="font-light no-underline" style={{ color: "#1A1A1A", fontSize: "16px" }}>
                           {value}
                         </a>
                       ) : (
-                        <span className="font-light" style={{ color: "#1A1A1A", fontSize: "14px" }}>{value}</span>
+                        <span className="font-light" style={{ color: "#1A1A1A", fontSize: "16px" }}>{value}</span>
                       )}
                     </div>
                   </div>
@@ -185,18 +218,18 @@ export default function ContactPage() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                <p className="font-mono text-[11px] font-bold tracking-[0.28em] uppercase mb-2 text-[#1A1A1A]">
+                <p className="font-mono text-[12px] font-bold tracking-[0.28em] uppercase mb-2 text-[#1A1A1A]">
                   ◎ Nationwide Coverage
                 </p>
-                <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "13px" }}>
+                <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.65)", fontSize: "15px" }}>
                   {CITIES}
                 </p>
               </div>
 
               {/* Services quick links */}
               <div className="mt-10">
-                <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4"
-                  style={{ color: "rgba(0,0,0,0.55)" }}>
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-4"
+                  style={{ color: "rgba(0,0,0,0.6)" }}>
                   Our Services
                 </p>
                 <div className="flex flex-col gap-2">
@@ -215,7 +248,7 @@ export default function ContactPage() {
                         color: "#1A1A1A",
                       }}
                     >
-                      <span className="font-light" style={{ fontSize: "13px" }}>{label}</span>
+                      <span className="font-light" style={{ fontSize: "15px" }}>{label}</span>
                       <span style={{ color: ACCENT }}>→</span>
                     </Link>
                   ))}
@@ -225,6 +258,89 @@ export default function ContactPage() {
 
             {/* Right — form (client component) */}
             <ContactForm />
+          </div>
+        </section>
+
+        {/* ── EEAT FAQ ──────────────────────────────────────────────
+            Grounded in real operational details (cost, cities, timelines,
+            process, client pedigree). Mirrors the FAQPage JSON-LD above so
+            Google can surface rich-result expandables in SERP.            */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[900px] mx-auto">
+            <span
+              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
+              style={{ color: "rgba(0,0,0,0.55)" }}
+            >
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Common Questions
+            </span>
+            <h2
+              className="font-black uppercase m-0 mb-10 leading-[0.9]"
+              style={{ fontSize: "clamp(32px, 5vw, 56px)", letterSpacing: "-0.03em" }}
+            >
+              QUESTIONS BEFORE YOU<br />
+              <ShinyGoldText>GET A QUOTE.</ShinyGoldText>
+            </h2>
+
+            <div className="flex flex-col gap-5">
+              {FAQS.map(({ q, a }) => (
+                <details
+                  key={q}
+                  className="group rounded-2xl"
+                  style={{
+                    background: "rgba(248,247,244,0.9)",
+                    border: "1px solid rgba(0,0,0,0.07)",
+                  }}
+                >
+                  <summary
+                    className="list-none cursor-pointer px-5 py-4 flex items-start justify-between gap-4"
+                    style={{ color: "#1A1A1A" }}
+                  >
+                    <span className="font-semibold" style={{ fontSize: "17px", lineHeight: 1.35 }}>
+                      {q}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 mt-1 font-mono transition-transform group-open:rotate-45"
+                      style={{ color: ACCENT, fontSize: "18px", lineHeight: 1 }}
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <div
+                    className="px-5 pb-5 font-light leading-relaxed"
+                    style={{ color: "rgba(0,0,0,0.68)", fontSize: "15.5px" }}
+                  >
+                    {a}
+                  </div>
+                </details>
+              ))}
+            </div>
+
+            {/* Trust signal strip — reinforces EEAT (Experience + Authoritativeness) */}
+            <div
+              className="mt-12 rounded-2xl p-6"
+              style={{
+                background: "rgba(242,240,236,0.7)",
+                border: "1px solid rgba(0,0,0,0.06)",
+              }}
+            >
+              <p
+                className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3"
+                style={{ color: "rgba(0,0,0,0.6)" }}
+              >
+                Why Phantom Pasting
+              </p>
+              <p
+                className="font-light leading-relaxed m-0"
+                style={{ color: "rgba(0,0,0,0.75)", fontSize: "16px" }}
+              >
+                Founded in 2014. 10+ years running street-level activations. 500+ campaigns delivered across
+                50+ US cities. Trusted by FIFA World Cup, FashionPass, Incrediwear, and a long bench of
+                fashion, entertainment, music, and DTC brands. Every campaign is planned by the same crew
+                that installs it — no subcontractor hand-offs, no disappearing account managers.
+              </p>
+            </div>
           </div>
         </section>
 

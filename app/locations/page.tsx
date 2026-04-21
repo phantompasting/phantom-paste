@@ -144,7 +144,7 @@ export default function LocationsHubPage() {
         }}
       />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -169,7 +169,7 @@ export default function LocationsHubPage() {
                   WE HIT EVERY<br /><ShinyGoldText>MAJOR MARKET.</ShinyGoldText>
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                  style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
                   Phantom Pasting runs wheat pasting and wild posting campaigns across 50+ US cities.
                   Five flagship markets, unlimited reach. Name your city — we can hit it.
                 </p>
@@ -327,7 +327,7 @@ export default function LocationsHubPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(30px, 4vw, 56px)", letterSpacing: "-0.04em" }}>
-              HOW WE CHOOSE THE <span style={{ color: ACCENT }}>RIGHT SPOTS.</span>
+              HOW WE CHOOSE THE <ShinyGoldText>RIGHT SPOTS.</ShinyGoldText>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
               {[
@@ -384,7 +384,7 @@ export default function LocationsHubPage() {
                 <div key={q} className="p-6 md:p-8"
                   style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
                   <h3 className="font-black uppercase m-0 mb-3 leading-tight"
-                    style={{ fontSize: "clamp(13px, 1.4vw, 16px)", letterSpacing: "-0.01em", color: "#1A1A1A" }}>
+                    style={{ fontSize: "clamp(15px, 1.6vw, 18px)", letterSpacing: "-0.01em", color: "#1A1A1A" }}>
                     {q}
                   </h3>
                   <p className="font-light leading-relaxed m-0"

@@ -207,7 +207,7 @@ export default function WheatPastingPage() {
       <div
         style={{
           background: "transparent",
-          minHeight: "100vh",
+          minHeight: "100dvh",
           color: "#1A1A1A",
           position: "relative",
           zIndex: 1,
@@ -249,7 +249,7 @@ export default function WheatPastingPage() {
                 <p
                   className="font-light leading-relaxed mt-8 mb-10"
                   style={{
-                    fontSize: "clamp(15px, 1.4vw, 17px)",
+                    fontSize: "clamp(17px, 1.6vw, 19px)",
                     color: "rgba(0,0,0,0.5)",
                     maxWidth: "480px",
                   }}
@@ -455,7 +455,7 @@ export default function WheatPastingPage() {
                 className="font-black uppercase m-0 mb-6 leading-[0.9]"
                 style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
               >
-                WHAT IS<br /><span style={{ color: ACCENT }}>WHEAT PASTING?</span>
+                WHAT IS<br /><ShinyGoldText>WHEAT PASTING?</ShinyGoldText>
               </h2>
               <p
                 className="font-light leading-relaxed m-0 mb-4"
@@ -571,7 +571,7 @@ export default function WheatPastingPage() {
               className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
             >
-              HOW DOES WHEAT<br />PASTING<span style={{ color: ACCENT }}> WORK?</span>
+              HOW DOES WHEAT<br />PASTING <ShinyGoldText>WORK?</ShinyGoldText>
             </h2>
             <p
               className="font-light mb-10 m-0"
@@ -655,7 +655,7 @@ export default function WheatPastingPage() {
                 className="font-black uppercase m-0 mb-6 leading-[0.9]"
                 style={{ fontSize: "clamp(28px, 3.8vw, 48px)", letterSpacing: "-0.035em" }}
               >
-                LEGAL<br /><span style={{ color: ACCENT }}>CONSIDERATIONS.</span>
+                LEGAL<br /><ShinyGoldText>CONSIDERATIONS.</ShinyGoldText>
               </h2>
               <p
                 className="font-light leading-relaxed m-0"
@@ -720,7 +720,7 @@ export default function WheatPastingPage() {
               className="font-black uppercase m-0 mb-4 leading-[0.9]"
               style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}
             >
-              WHAT OTHER GUERRILLA FORMATS<span style={{ color: ACCENT }}> DO YOU OFFER?</span>
+              WHAT OTHER GUERRILLA FORMATS <ShinyGoldText>DO YOU OFFER?</ShinyGoldText>
             </h2>
             <p
               className="font-light mb-8 m-0"
@@ -855,7 +855,7 @@ export default function WheatPastingPage() {
               className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
             >
-              WHEAT PASTING<span style={{ color: ACCENT }}> FAQ.</span>
+              WHEAT PASTING <ShinyGoldText>FAQ.</ShinyGoldText>
             </h2>
             <div className="flex flex-col">
               {FAQS.map(({ q, a }) => (

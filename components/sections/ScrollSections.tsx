@@ -45,25 +45,25 @@ const IconCamera = ({ color }: { color: string }) => (
 );
 
 const IconPin = ({ color }: { color: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
     <circle cx="12" cy="10" r="3"/>
   </svg>
 );
 const IconEye = ({ color }: { color: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
     <circle cx="12" cy="12" r="3"/>
   </svg>
 );
 const IconBroadcast = ({ color }: { color: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <circle cx="12" cy="12" r="2"/>
     <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/>
   </svg>
 );
 const IconUsers = ({ color }: { color: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
     <circle cx="9" cy="7" r="4"/>
     <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -351,8 +351,8 @@ function StatsSection() {
           </div>
 
           <p data-reveal="fade-up"
-            className="text-center max-w-lg mb-10 font-light leading-relaxed"
-            style={{ color: "rgba(0,0,0,0.55)", fontSize: "clamp(14px, 1.2vw, 17px)" }}>
+            className="text-center max-w-xl mb-10 font-light leading-relaxed"
+            style={{ color: "rgba(0,0,0,0.58)", fontSize: "clamp(18px, 1.7vw, 22px)" }}>
             A decade of guerrilla campaigns across every major US market.
             Every placement photographed, every campaign documented.
           </p>
@@ -499,7 +499,7 @@ const SERVICES_DATA = [
     badge: "Most Booked",
   },
   {
-    num: "02", icon: "⬡", name: "Chalk Spray Stencils", sub: "Ground Level Impact", accent: "#D4A010",
+    num: "02", icon: "⬡", name: "Chalk Spray Stencils", sub: "Ground Level Impact", accent: "#D4A010", textAccent: "#1A1A1A",
     img: IMGS.stencil,
     tagline: "Beneath every footstep. Before every door.",
     desc: "Eco-friendly, temporary paint stencils on sidewalks, plazas, subway exits. 25–200+ placements per campaign. We create a breadcrumb trail leading foot traffic directly to your event or store.",
@@ -518,6 +518,10 @@ const SERVICES_DATA = [
 
 function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index: number }) {
   const scope = useSectionReveal<HTMLDivElement>();
+  // textAccent overrides accent for pure-text elements (sub label, tagline,
+  // badge text) when a service needs darker text for legibility while keeping
+  // its brand accent for icons/chips. Falls back to accent when not provided.
+  const textColor = ("textAccent" in svc && svc.textAccent) ? svc.textAccent : svc.accent;
 
   return (
     <SnapPage {...(index === 0 ? { id: "services" } : {})}>
@@ -542,9 +546,9 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
         {/* Text side */}
         <div className="relative z-10 flex flex-col justify-center px-6 md:px-20 lg:px-28 py-12 md:py-20 w-full md:w-1/2">
           <div data-reveal="fade-up" className="mb-4 flex items-center gap-3">
-            <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: svc.accent }}>{svc.sub}</span>
+            <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: textColor }}>{svc.sub}</span>
             <span className="px-2 py-0.5 rounded-full font-mono text-[8px] tracking-[0.15em] uppercase"
-              style={{ background: svc.accent === "#D4A010" ? "rgba(184,150,15,0.1)" : "rgba(0,0,0,0.05)", color: svc.accent, border: `1px solid ${svc.accent}20` }}>
+              style={{ background: svc.accent === "#D4A010" ? "rgba(184,150,15,0.1)" : "rgba(0,0,0,0.05)", color: textColor, border: `1px solid ${svc.accent}20` }}>
               {svc.badge}
             </span>
           </div>
@@ -553,7 +557,7 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
             {svc.name}
           </h2>
           <p data-reveal="fade-up" className="font-black uppercase m-0 mb-6"
-            style={{ fontSize: "clamp(14px, 1.6vw, 20px)", color: svc.accent, letterSpacing: "-0.01em" }}>
+            style={{ fontSize: "clamp(14px, 1.6vw, 20px)", color: textColor, letterSpacing: "-0.01em" }}>
             {svc.tagline}
           </p>
           <p data-reveal="fade-up" className="font-light leading-relaxed mb-8 max-w-sm"
@@ -612,19 +616,19 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
 /* ═══════════════════════════════════════════════════════════════
    4. WHY GUERRILLA
 ═══════════════════════════════════════════════════════════════ */
+const WHY_ITEMS = [
+  { icon: "eye",       title: "Impossible to Ignore",     desc: "Traditional ads are scrolled past, muted, or blocked. Our campaigns live at street level — where people walk, gather, and exist. You can't close a popup on a brick wall." },
+  { icon: "broadcast", title: "Earned Media Machine",     desc: "Every wheat paste and stencil becomes a photo opp. People stop, post, tag. Your campaign generates organic social content for free — and the buzz outlasts the poster." },
+  { icon: "users",     title: "Raw Cultural Credibility", desc: "Street-level presence signals authenticity. The brands people talk about are the ones they see in real life — woven into the urban experience." },
+  { icon: "pin",       title: "Hyper-Local Targeting",    desc: "Every placement is mapped to your audience's exact neighborhoods — their commutes, lunch spots, music venues, and midnight routes home." },
+];
+
 const WHY_ICONS: Record<string, React.ReactNode> = {
   eye:       <IconEye color="#1A1A1A" />,
   broadcast: <IconBroadcast color="#1A1A1A" />,
   users:     <IconUsers color="#1A1A1A" />,
   pin:       <IconPin color="#1A1A1A" />,
 };
-
-const WHY_ITEMS = [
-  { icon: "eye",       title: "Impossible to Ignore",     desc: "Traditional ads are scrolled past, muted, or blocked. Our campaigns live at street level — where people walk, gather, and exist. You can't close a popup on a brick wall.", accent: "#1A1A1A" },
-  { icon: "broadcast", title: "Earned Media Machine",     desc: "Every wheat paste and stencil becomes a photo opp. People stop, post, tag. Your campaign generates organic social content for free — and the buzz outlasts the poster.", accent: "#D4A010" },
-  { icon: "users",     title: "Raw Cultural Credibility", desc: "Street-level presence signals authenticity. The brands people talk about are the ones they see in real life — woven into the urban experience.", accent: "#1A1A1A" },
-  { icon: "pin",       title: "Hyper-Local Targeting",    desc: "Every placement is mapped to your audience's exact neighborhoods — their commutes, lunch spots, music venues, and midnight routes home.", accent: "#D4A010" },
-];
 
 function WhySection() {
   const scope = useSectionReveal<HTMLDivElement>();
@@ -658,58 +662,50 @@ function WhySection() {
           {/* Definition — display weight, condensed italic, on-brand */}
           <p data-reveal="fade-up"
             className="font-black uppercase italic m-0 mt-4 leading-[0.95] hidden md:block"
-            style={{ fontSize: "clamp(13px, 1.4vw, 18px)", letterSpacing: "-0.01em", color: "rgba(0,0,0,0.50)" }}>
+            style={{ fontSize: "clamp(15px, 1.6vw, 20px)", letterSpacing: "-0.01em", color: "rgba(0,0,0,0.50)" }}>
             Street-level. Unskippable. Documented.
           </p>
         </div>
 
-        {/* Cards — absolute centered on desktop, fill remaining on mobile */}
-        <div className="relative md:absolute md:inset-0 z-10 flex-1 flex items-center justify-center px-0 md:px-10 py-4 md:py-0 pointer-events-none min-h-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 w-full max-w-[1100px] pointer-events-auto h-full md:h-auto" style={{ gridAutoRows: "1fr" }}>
+        {/* Cards — absolute centered on desktop, content-sized on mobile */}
+        <div className="relative md:absolute md:inset-0 z-10 flex-1 flex items-center justify-center px-0 md:px-10 py-2 md:py-0 pointer-events-none min-h-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-7 w-full max-w-[1320px] pointer-events-auto md:h-auto" style={{ gridAutoRows: "auto" }}>
             {WHY_ITEMS.map((item, i) => (
-              <div key={item.title} data-reveal="scale" className="h-full">
-              <SpotlightCard className="h-full rounded-2xl md:rounded-3xl overflow-hidden">
+              <div key={item.title} data-reveal="scale" className="md:h-full">
+              <SpotlightCard className="rounded-2xl md:rounded-3xl overflow-hidden md:h-full">
               <div
-                className="why-card relative flex items-center md:flex-col md:items-start gap-4 md:gap-0 px-5 md:px-8 py-5 md:py-8 rounded-2xl md:rounded-3xl overflow-hidden cursor-default h-full"
+                className="why-card relative flex items-center md:flex-col md:items-start gap-4 md:gap-0 rounded-2xl md:rounded-3xl px-5 py-4 md:p-10 text-left overflow-hidden cursor-default md:h-full"
                 style={{
                   background: "rgba(242,240,236,0.82)",
+                  border: "1px solid rgba(255,255,255,0.68)",
                   backdropFilter: "blur(10px)",
                   WebkitBackdropFilter: "blur(10px)",
-                  border: "1px solid rgba(255,255,255,0.68)",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.04)",
-                }}
-              >
-                {/* Gold top-edge accent on odd cards */}
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9)",
+                }}>
+                {/* Gold top stripe */}
                 <div className="absolute inset-x-0 top-0 h-px pointer-events-none"
-                  style={{
-                    background: i % 2 === 1
-                      ? "linear-gradient(90deg, transparent 10%, rgba(212,160,16,0.5) 40%, rgba(212,160,16,0.3) 60%, transparent 90%)"
-                      : "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.95) 30%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.95) 70%, transparent 95%)"
-                  }} />
+                  style={{ background: "linear-gradient(90deg, transparent 10%, rgba(212,160,16,0.5) 40%, rgba(212,160,16,0.3) 60%, transparent 90%)" }} />
 
-                {/* Icon + index */}
+                {/* Icon + index column (mobile: left; desktop: top) */}
                 <div className="flex flex-col items-center gap-1.5 shrink-0 md:flex-row md:items-center md:gap-3 md:mb-5">
-                  <span className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-xl"
-                    style={{
-                      background: i % 2 === 1 ? "rgba(212,160,16,0.08)" : "rgba(0,0,0,0.04)",
-                      border: `1.5px solid ${i % 2 === 1 ? "rgba(212,160,16,0.2)" : "rgba(0,0,0,0.07)"}`,
-                    }}>
+                  <span className="w-11 h-11 md:w-11 md:h-11 flex items-center justify-center rounded-xl"
+                    style={{ background: "rgba(0,0,0,0.04)", border: "1.5px solid rgba(0,0,0,0.07)" }}>
                     {WHY_ICONS[item.icon]}
                   </span>
-                  <span className="font-mono text-[8px] tracking-[0.3em] uppercase"
-                    style={{ color: "rgba(0,0,0,0.18)" }}>
+                  <span className="font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase"
+                    style={{ color: "rgba(212,160,16,0.7)" }}>
                     0{i + 1}
                   </span>
                 </div>
 
                 {/* Text */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-black uppercase leading-[0.88] m-0 mb-1 md:mb-3"
-                    style={{ fontSize: "clamp(18px, 2.6vw, 33px)", letterSpacing: "-0.025em", color: "#1A1A1A" }}>
-                    {item.title}<span style={{ color: item.accent }}>.</span>
+                  <h3 className="font-black uppercase m-0 mb-1.5 md:mb-4 leading-[0.95] md:leading-[0.9]"
+                    style={{ fontSize: "clamp(18px, 2.2vw, 28px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
+                    {item.title}<span className="md:hidden" style={{ color: "#D4A010" }}>.</span>
                   </h3>
                   <p className="font-light leading-snug md:leading-relaxed m-0"
-                    style={{ color: "rgba(0,0,0,0.60)", fontSize: "clamp(13px, 1.1vw, 15px)", maxWidth: "380px" }}>
+                    style={{ color: "rgba(0,0,0,0.62)", fontSize: "clamp(14px, 1.1vw, 16px)" }}>
                     {item.desc}
                   </p>
                 </div>
@@ -751,7 +747,7 @@ function TLDRSection() {
 
   return (
     <SnapPage style={{ background: "transparent" }}>
-      <div ref={scope} className="w-full h-full flex items-center justify-center px-5 sm:px-8 md:px-12 lg:px-16 overflow-hidden" style={{ background: "transparent" }}>
+      <div ref={scope} className="w-full h-full flex items-start md:items-center justify-center pt-16 md:pt-0 pb-6 md:pb-0 px-5 sm:px-8 md:px-12 lg:px-16 overflow-hidden" style={{ background: "transparent" }}>
 
         {/* Ghost bg text */}
         <div data-watermark="0.04" className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
@@ -762,24 +758,24 @@ function TLDRSection() {
           </span>
         </div>
 
-        <div className="relative z-10 max-w-[1100px] w-full mx-auto text-center">
+        <div className="relative z-10 max-w-[1320px] w-full mx-auto text-center">
 
-          <div data-reveal="fade-up" className="mb-3">
+          <div data-reveal="fade-up" className="mb-2 md:mb-3">
             <Label>Key Takeaways</Label>
           </div>
 
-          <h2 data-reveal="fade-up-big" className="font-black uppercase m-0 mb-10 leading-[0.9]"
-            style={{ fontSize: "clamp(32px, 5vw, 64px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}>
+          <h2 data-reveal="fade-up-big" className="font-black uppercase m-0 mb-5 md:mb-14 leading-[0.9]"
+            style={{ fontSize: "clamp(28px, 5vw, 64px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}>
             WHY GUERRILLA MARKETING<br />
             <ShinyGoldText>WORKS.</ShinyGoldText>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-7">
             {TLDR_CARDS.map((card, i) => (
               <div key={card.bold} data-reveal="scale">
-                <SpotlightCard className="rounded-2xl overflow-hidden">
+                <SpotlightCard className="rounded-2xl md:rounded-3xl overflow-hidden h-full">
                 <div
-                  className="relative rounded-2xl p-6 md:p-8 text-left overflow-hidden"
+                  className="relative rounded-2xl md:rounded-3xl p-5 md:p-10 text-left overflow-hidden h-full"
                   style={{
                     background: "rgba(242,240,236,0.82)",
                     border: "1px solid rgba(255,255,255,0.68)",
@@ -790,14 +786,14 @@ function TLDRSection() {
                   {/* Gold top stripe */}
                   <div className="absolute inset-x-0 top-0 h-px pointer-events-none"
                     style={{ background: "linear-gradient(90deg, transparent 10%, rgba(212,160,16,0.5) 40%, rgba(212,160,16,0.3) 60%, transparent 90%)" }} />
-                  <div className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4"
+                  <div className="font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase mb-2 md:mb-5"
                     style={{ color: "rgba(212,160,16,0.7)" }}>0{i + 1}</div>
-                  <h3 className="font-black uppercase m-0 mb-3 leading-[0.88]"
-                    style={{ fontSize: "clamp(15px, 1.6vw, 20px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
+                  <h3 className="font-black uppercase m-0 mb-2 md:mb-4 leading-[0.95] md:leading-[0.9]"
+                    style={{ fontSize: "clamp(17px, 2.2vw, 28px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
                     {card.bold}
                   </h3>
-                  <p className="font-light leading-relaxed m-0"
-                    style={{ color: "rgba(0,0,0,0.60)", fontSize: "13px" }}>
+                  <p className="font-light leading-snug md:leading-relaxed m-0"
+                    style={{ color: "rgba(0,0,0,0.62)", fontSize: "clamp(13px, 1.1vw, 16px)" }}>
                     {card.body}
                   </p>
                 </div>
@@ -1007,12 +1003,9 @@ function ContactSection() {
   };
 
   return (
-    <SnapPage id="contact" style={mobileFormOpen ? { height: "auto", minHeight: "100vh" } : undefined}>
+    <SnapPage id="contact" style={mobileFormOpen ? { height: "auto", minHeight: "100dvh" } : undefined}>
       <div ref={scope} className="w-full py-10 px-5 sm:px-8 md:px-12 lg:px-16">
 
-
-        <div className="absolute inset-0 pointer-events-none" aria-hidden
-          style={{ backgroundImage: "url(/gallery/bedstuy-stencil.webp)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.08, filter: "grayscale(1)" }} />
 
         <div className="max-w-[1400px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 

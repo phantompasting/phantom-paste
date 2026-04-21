@@ -16,15 +16,15 @@ function FormField({
     >
       <label
         htmlFor={name}
-        className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-        style={{ color: "rgba(0,0,0,0.55)" }}
+        className="absolute top-3 left-5 font-mono text-[10px] tracking-[0.25em] uppercase pointer-events-none"
+        style={{ color: "rgba(0,0,0,0.62)" }}
       >
         {label}
       </label>
       <input
         id={name} name={name} type={type} placeholder={placeholder} required={required}
         className="w-full bg-transparent outline-none pt-8 pb-3 px-5 font-light"
-        style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }}
+        style={{ color: "rgba(0,0,0,0.85)", fontSize: "16px", fontFamily: "inherit" }}
       />
     </div>
   );
@@ -38,15 +38,15 @@ function FormSelect({ label, name, options }: { label: string; name: string; opt
     >
       <label
         htmlFor={name}
-        className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none z-10"
-        style={{ color: "rgba(0,0,0,0.55)" }}
+        className="absolute top-3 left-5 font-mono text-[10px] tracking-[0.25em] uppercase pointer-events-none z-10"
+        style={{ color: "rgba(0,0,0,0.62)" }}
       >
         {label}
       </label>
       <select
         id={name} name={name} defaultValue=""
         className="w-full bg-transparent outline-none pt-8 pb-3 px-5 appearance-none font-light"
-        style={{ color: "rgba(0,0,0,0.6)", fontSize: "14px", fontFamily: "inherit" }}
+        style={{ color: "rgba(0,0,0,0.7)", fontSize: "16px", fontFamily: "inherit" }}
       >
         <option value="" disabled style={{ background: "#F2F0EC" }}>Select…</option>
         {options.map((opt) => (
@@ -109,7 +109,7 @@ export default function ContactForm() {
           style={{ fontSize: "clamp(28px, 4vw, 42px)", letterSpacing: "-0.02em" }}>
           You&apos;re In.
         </h3>
-        <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
+        <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.6)", fontSize: "17px" }}>
           We&apos;ll hit your inbox within 24 hours. Follow{" "}
           <a
             href="https://www.instagram.com/phantompasting"
@@ -152,7 +152,7 @@ export default function ContactForm() {
         className="p-4 border"
         style={{ background: "rgba(0,0,0,0.02)", borderColor: "rgba(0,0,0,0.08)" }}
       >
-        <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: "rgba(0,0,0,0.55)" }}>
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-3" style={{ color: "rgba(0,0,0,0.62)" }}>
           Service Needed
         </p>
         <div className="flex flex-wrap gap-2">
@@ -162,7 +162,7 @@ export default function ContactForm() {
               <button
                 key={svc} type="button" onClick={() => toggleSvc(svc)}
                 aria-pressed={active}
-                className="font-mono text-[10px] tracking-[0.1em] px-3 py-2 rounded-lg border cursor-pointer select-none"
+                className="font-mono text-[11px] tracking-[0.1em] px-3 py-2 rounded-lg border cursor-pointer select-none"
                 style={{
                   background: active ? "rgba(184,150,15,0.15)" : "rgba(242,240,236,0.7)",
                   borderColor: active ? "rgba(184,150,15,0.5)" : "rgba(0,0,0,0.12)",
@@ -240,8 +240,8 @@ export default function ContactForm() {
       >
         <label
           htmlFor="message"
-          className="absolute top-3 left-5 font-mono text-[9px] tracking-[0.25em] uppercase pointer-events-none"
-          style={{ color: "rgba(0,0,0,0.55)" }}
+          className="absolute top-3 left-5 font-mono text-[10px] tracking-[0.25em] uppercase pointer-events-none"
+          style={{ color: "rgba(0,0,0,0.62)" }}
         >
           Campaign Details
         </label>
@@ -250,7 +250,7 @@ export default function ContactForm() {
           name="message" rows={3}
           placeholder="Campaign goals, target audience, specific neighborhoods…"
           className="w-full bg-transparent outline-none resize-none pt-8 pb-3 px-5 font-light"
-          style={{ color: "rgba(0,0,0,0.8)", fontSize: "14px", fontFamily: "inherit" }}
+          style={{ color: "rgba(0,0,0,0.85)", fontSize: "16px", fontFamily: "inherit" }}
         />
       </div>
 
@@ -276,8 +276,8 @@ export default function ContactForm() {
       </button>
 
       <p
-        className="text-center font-mono text-[9px] tracking-[0.12em] py-3"
-        style={{ color: "rgba(0,0,0,0.52)", background: "rgba(0,0,0,0.02)" }}
+        className="text-center font-mono text-[10px] tracking-[0.12em] py-3"
+        style={{ color: "rgba(0,0,0,0.6)", background: "rgba(0,0,0,0.02)" }}
       >
         ✦ No spam. Your info is used only to build your campaign.
       </p>

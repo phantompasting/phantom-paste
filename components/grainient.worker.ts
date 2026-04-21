@@ -25,9 +25,12 @@
 import { createNoise3D } from "simplex-noise";
 
 // ───── Tuning constants (match the main-thread implementation) ─────
-const circleCount = 60;
+// circleCount is mutable — the main thread passes a smaller value on
+// mobile (see setupWorker in GrainientBackground.tsx). Float32Array
+// buffers are allocated/reallocated on init when the count is known.
+let circleCount = 60;
 const circlePropCount = 8;
-const circlePropsLength = circleCount * circlePropCount;
+let circlePropsLength = circleCount * circlePropCount;
 const baseSpeed = 0.15;
 const rangeSpeed = 1.5;
 const baseTTL = 150;
@@ -60,11 +63,15 @@ let raf = 0;
 let paused = false;
 let lastFrame = 0;
 let started = false;
+// Mobile softens the L/S ladder so the darkest tier (L=48, S=88%) never
+// saturates into "supper yellow" on small devices where the backdrop
+// occupies a larger share of the visible area.
+let isMobile = false;
 
 const noise3D = createNoise3D();
-const circleProps = new Float32Array(circlePropsLength);
-const circleHue = new Float32Array(circleCount);
-const circleSat = new Float32Array(circleCount);
+let circleProps = new Float32Array(circlePropsLength);
+let circleHue = new Float32Array(circleCount);
+let circleSat = new Float32Array(circleCount);
 
 // ───── Simulation ─────
 function initCircle(i: number, stagger = false) {
@@ -76,21 +83,35 @@ function initCircle(i: number, stagger = false) {
   const life = stagger ? rand(ttl) : 0;
   const radius = baseRadius + rand(rangeRadius);
   const r = Math.random();
-  const lightness =
-    r < 0.18 ? 91 :
-    r < 0.46 ? 82 :
-    r < 0.73 ? 70 :
-    r < 0.93 ? 58 :
-    48;
+  // Mobile ladder lifts the darkest tiers (L 48→53, L 58→62) and slightly
+  // caps saturation — roughly 10% less "dark yellow" at the intense end
+  // (halfway between no-change and the stronger 15% pass that was too
+  // desaturated). Pale highs stay identical so the overall cloud still
+  // reads as gold, just a shade gentler.
+  const lightness = isMobile
+    ? (r < 0.18 ? 91 :
+       r < 0.46 ? 82 :
+       r < 0.73 ? 71 :
+       r < 0.93 ? 62 :
+       53)
+    : (r < 0.18 ? 91 :
+       r < 0.46 ? 82 :
+       r < 0.73 ? 70 :
+       r < 0.93 ? 58 :
+       48);
   circleProps.set([x, y, speed, noiseSeed, life, ttl, radius, lightness], i);
   const idx = i / circlePropCount;
   const n = noise3D(x * xOff, y * yOff, idx * zOff);
   circleHue[idx] = BASE_HUE + n * rangeHue;
-  circleSat[idx] =
-    lightness >= 88 ? 48 :
-    lightness >= 75 ? 72 :
-    lightness >= 62 ? 85 :
-    88;
+  circleSat[idx] = isMobile
+    ? (lightness >= 88 ? 45 :
+       lightness >= 75 ? 68 :
+       lightness >= 62 ? 80 :
+       82)
+    : (lightness >= 88 ? 48 :
+       lightness >= 75 ? 72 :
+       lightness >= 62 ? 85 :
+       88);
 }
 
 function doResize(w: number, h: number) {
@@ -174,7 +195,7 @@ function draw(ts: number) {
 }
 
 // ───── Message handler ─────
-type InitMsg = { type: "init"; canvas: OffscreenCanvas; width: number; height: number; dpr: number };
+type InitMsg = { type: "init"; canvas: OffscreenCanvas; width: number; height: number; dpr: number; circleCount?: number; isMobile?: boolean };
 type ResizeMsg = { type: "resize"; width: number; height: number };
 type VisibilityMsg = { type: "visibility"; hidden: boolean };
 type StartMsg = { type: "start" };
@@ -192,6 +213,16 @@ self.onmessage = (e: MessageEvent<Msg>) => {
     ctx = canvas.getContext("2d");
     if (!ctx) return;
     dpr = msg.dpr;
+    if (typeof msg.isMobile === "boolean") isMobile = msg.isMobile;
+    // If main thread passed a smaller circleCount (mobile), re-allocate the
+    // typed-array buffers to match. Happens once at init; no per-frame cost.
+    if (typeof msg.circleCount === "number" && msg.circleCount !== circleCount) {
+      circleCount = msg.circleCount;
+      circlePropsLength = circleCount * circlePropCount;
+      circleProps = new Float32Array(circlePropsLength);
+      circleHue = new Float32Array(circleCount);
+      circleSat = new Float32Array(circleCount);
+    }
     doResize(msg.width, msg.height);
     for (let i = 0; i < circlePropsLength; i += circlePropCount) initCircle(i, true);
     // One-shot paint so the backdrop is up immediately even before the

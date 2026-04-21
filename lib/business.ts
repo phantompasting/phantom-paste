@@ -5,7 +5,7 @@
  * from here. DRY single-source-of-truth — update in one place, propagates site-wide.
  *
  * TODO (pending real data):
- *  - address: { streetAddress, addressLocality, addressRegion, postalCode, addressCountry: "US" }
+ *  - streetAddress + postalCode (once verified HQ suite is public)
  *  - gbpUrl: Google Business Profile URL (unlocks LocalBusiness.hasMap, Maps embed on /contact)
  *  - aggregateRating: { ratingValue, reviewCount } — add once review pipeline exists
  */
@@ -27,7 +27,15 @@ export const BUSINESS = {
   ogImageDefault: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  // address: undefined,  // TODO: fill when available
+  // PostalAddress — HQ origin for the nationwide service-area business.
+  // Satisfies LocalBusiness.address requirement in schema validators (Semrush
+  // #45, Google rich-result eligibility). Kept lean: locality/region/country
+  // only, no street until a verified suite is published.
+  address: {
+    addressLocality: "Orlando",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
   // gbpUrl: undefined,   // TODO: fill when Google Business Profile is live
 } as const;
 

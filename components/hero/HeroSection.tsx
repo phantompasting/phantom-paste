@@ -80,7 +80,7 @@ export default function HeroSection() {
           <p
             className="font-light leading-[1.7] max-w-[320px] md:max-w-[520px] m-0"
             style={{
-              fontSize: "clamp(14px, 1.6vw, 18px)",
+              fontSize: "clamp(16px, 1.8vw, 20px)",
               color: "rgba(0,0,0,0.55)",
               animation: `heroUp 0.55s 0.34s ${EXPO} both`,
             }}

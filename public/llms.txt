@@ -1,14 +1,8 @@
-# Phantom Pasting — AI search engine context
-# https://llmstxt.org
-#
-# Phantom Pasting is a nationwide guerrilla marketing agency specializing in
-# wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US
-# cities. Founded in 2014. 500+ campaigns completed. 100% photo-documented.
-# Clients include FashionPass, FIFA World Cup, and Incrediwear.
+# Phantom Pasting
 
-> Phantom Pasting is the premier street-level guerrilla marketing agency in the
-> United States, operating in every major metro market. Known for large-format
-> wheat paste poster campaigns and custom chalk spray stencil activations.
+> Phantom Pasting is the premier street-level guerrilla marketing agency in the United States, operating in every major metro market. Known for large-format wheat paste poster campaigns and custom chalk spray stencil activations.
+
+Phantom Pasting is a nationwide guerrilla marketing agency specializing in wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities. Founded in 2014. 500+ campaigns completed. 100% photo-documented. Clients include FashionPass, FIFA World Cup, and Incrediwear. See https://llmstxt.org for the llms.txt specification this file follows.
 
 ## Services
 

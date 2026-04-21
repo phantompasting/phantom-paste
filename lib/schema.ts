@@ -61,6 +61,12 @@ export function localBusinessSchema() {
     email: BUSINESS.email,
     image: `${BUSINESS.url}/phantom-pasting-logo.webp`,
     priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: BUSINESS.address.addressLocality,
+      addressRegion: BUSINESS.address.addressRegion,
+      addressCountry: BUSINESS.address.addressCountry,
+    },
     areaServed: BUSINESS.serviceCities.map((c) => ({ "@type": "City", name: c })),
     sameAs: BUSINESS.sameAs,
   };

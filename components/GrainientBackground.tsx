@@ -12,14 +12,23 @@ function setupWorker(visible: HTMLCanvasElement): () => void {
     new URL("./grainient.worker.ts", import.meta.url),
     { type: "module" },
   );
-  // DPR pinned to 1, NOT clamped to device DPR. The canvas is CSS-blurred
-  // at 8px by the compositor — that filter erases any sub-pixel detail
-  // a DPR=2 backing store would provide. So DPR=1 is visually identical
-  // after composite, but the backing buffer is 4× smaller (2× each axis),
-  // the per-frame texture upload is 4× cheaper, and the GPU blur pass
-  // processes 4× fewer pixels. This is the single biggest compositor win
-  // on Intel iGPU hardware where blur throughput is the bottleneck.
-  const dpr = 1;
+  // Desktop: DPR=1 keeps backing buffer small vs device DPR (the 8px CSS
+  // blur erases sub-pixel detail anyway, so DPR=2 has no visible benefit).
+  // Mobile: DPR=0.75 drops the backing buffer by another 44% on top of that
+  // — the mobile blur is even stronger (see .grainient-canvas media query
+  // in globals.css) so the resolution drop is invisible after composite.
+  // Smaller buffer = cheaper per-frame texture upload and cheaper GPU blur
+  // pass, which matters most on iGPUs during URL-bar-resize recomposition.
+  const isMobile = window.innerWidth <= 767;
+  const dpr = isMobile ? 0.75 : 1;
+  // Fewer circles everywhere — the field still reads as a soft gold cloud
+  // after the blur, and draw-op count scales linearly with circleCount.
+  // Tightened further: desktop 60→45 (-25%), mobile 40→28 (-30%). The
+  // mobile 6px blur in globals.css is heavy enough to hide the density
+  // drop, and cutting 12 circles reclaims ~12 arc+fill ops per frame on
+  // the device class most sensitive to per-frame cost (Intel iGPU
+  // MacBooks + iPhone A12 and older).
+  const circleCount = isMobile ? 28 : 45;
 
   worker.postMessage(
     {
@@ -28,6 +37,8 @@ function setupWorker(visible: HTMLCanvasElement): () => void {
       width: window.innerWidth,
       height: window.innerHeight,
       dpr,
+      circleCount,
+      isMobile,
     },
     [offscreen],
   );
@@ -97,6 +108,31 @@ function setupWorker(visible: HTMLCanvasElement): () => void {
  *   - rangeHue 8 (tight cluster of gold tones, not "some yellow")
  *   - ivory backdrop #FFFBED, light-background-tuned L/S ladder
  */
+/**
+ * Per-canvas worker registry. `transferControlToOffscreen` is one-shot, so
+ * once a canvas is transferred we must never retry on that same DOM node.
+ * React Strict Mode in dev mounts → unmounts → remounts the effect against
+ * the *same* canvas element on purpose (to surface cleanup bugs). Without
+ * a registry + deferred teardown, the cleanup terminates the worker and
+ * the remount either (a) throws `InvalidStateError` on the second transfer,
+ * or (b) short-circuits and leaves the backdrop flat.
+ *
+ * Strategy:
+ *   • Keep the worker cleanup function in a WeakMap keyed by canvas.
+ *   • On unmount, schedule cleanup via setTimeout(0) instead of running it.
+ *   • If the effect re-runs before that fires (Strict Mode remount), cancel
+ *     the pending teardown and reuse the live worker — no re-transfer.
+ *
+ * In production Strict Mode doesn't double-mount, so the scheduled teardown
+ * always runs immediately; the deferred wrapping adds one microtask, which
+ * is free.
+ */
+interface CanvasWorkerEntry {
+  cleanup: () => void;
+  pendingTeardown: number | null;
+}
+const canvasWorkers = new WeakMap<HTMLCanvasElement, CanvasWorkerEntry>();
+
 export default function GrainientBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -118,8 +154,36 @@ export default function GrainientBackground() {
     // falling back to the main-thread implementation is strictly better
     // than a broken page.
     if (typeof visible.transferControlToOffscreen === "function") {
+      // Strict Mode remount: if a teardown was scheduled for this canvas,
+      // cancel it — the worker is still alive and we should keep it.
+      const existing = canvasWorkers.get(visible);
+      if (existing) {
+        if (existing.pendingTeardown !== null) {
+          window.clearTimeout(existing.pendingTeardown);
+          existing.pendingTeardown = null;
+        }
+        // Return a deferred teardown so the next unmount is also cancellable.
+        return () => {
+          const entry = canvasWorkers.get(visible);
+          if (!entry) return;
+          entry.pendingTeardown = window.setTimeout(() => {
+            entry.cleanup();
+            canvasWorkers.delete(visible);
+          }, 0);
+        };
+      }
+
+      // Fresh canvas — set up worker for real.
       try {
-        return setupWorker(visible);
+        const cleanup = setupWorker(visible);
+        const entry: CanvasWorkerEntry = { cleanup, pendingTeardown: null };
+        canvasWorkers.set(visible, entry);
+        return () => {
+          entry.pendingTeardown = window.setTimeout(() => {
+            entry.cleanup();
+            canvasWorkers.delete(visible);
+          }, 0);
+        };
       } catch (err) {
         // Transfer can be one-shot — if it already succeeded but worker
         // setup failed afterward, the canvas is now detached and the
@@ -338,14 +402,15 @@ export default function GrainientBackground() {
       className="content--canvas"
       aria-hidden
       style={{
-        // Fixed wrapper pinned exactly to the viewport. The canvas inside
-        // fills this wrapper at 100% then scales up on the GPU — no
-        // percentage/scrollbar math, no containing-block surprises.
+        // Fixed wrapper pinned to the layout viewport. `inset: 0` sizes
+        // against the containing block for a `position: fixed` element
+        // (the layout viewport) — unlike `height: 100vh` which, on iOS
+        // Safari, resolves against the LARGE viewport and flickers when
+        // the URL bar hides/shows. This single change removes the
+        // mobile-only scroll flash that was caused by the canvas being
+        // resized + re-rasterized mid-scroll on every URL bar toggle.
         position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
+        inset: 0,
         overflow: "hidden",
         pointerEvents: "none",
         zIndex: 0,
@@ -353,35 +418,7 @@ export default function GrainientBackground() {
     >
       <canvas
         ref={canvasRef}
-        style={{
-          // Native 140% sizing — NO transform scale. The canvas element
-          // is larger than the wrapper and positioned at -20%/-20% so
-          // its overflow is clipped by the wrapper's overflow:hidden.
-          // This keeps the backing buffer at display-resolution: the
-          // GPU never upscales, so per-frame motion renders at true
-          // pixel fidelity. (The prior `transform: scale(1.4)` version
-          // was upscaling a 1× buffer to ~2.8× display size, producing
-          // a visible "frame-by-frame" stepping artifact at low blur.)
-          position: "absolute",
-          top: "-20%",
-          left: "-20%",
-          width: "140%",
-          height: "140%",
-          // GPU compositor blur — runs on the compositor thread, not
-          // main. translateZ(0) promotes the canvas to its own GPU layer
-          // so blur runs on the compositor pipeline, not software.
-          // Blur radius 12px → 8px: gaussian-filter cost scales roughly
-          // as radius², so 8² / 12² ≈ 44% of the original filter work
-          // per composite pass. Paired with DPR=1, the blur processes
-          // ~9× fewer pixels through a ~56% cheaper kernel — compositor
-          // cost on Intel iGPU drops from "noticeable stutter" to near-zero.
-          // The field still reads as a soft gold cloud; 8px is past the
-          // threshold where individual circles become visible.
-          filter: "blur(8px)",
-          transform: "translateZ(0)",
-          willChange: "filter, transform",
-          backfaceVisibility: "hidden",
-        }}
+        className="grainient-canvas"
       />
     </div>
   );

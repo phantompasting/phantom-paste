@@ -18,6 +18,16 @@ import { execSync } from "child_process";
 import { existsSync, statSync } from "fs";
 import { join } from "path";
 
+// Force static generation at BUILD time. Without this, Next.js 15 + the
+// Netlify plugin can wrap the sitemap as a serverless function per request —
+// which crashes because execSync("git log ...") needs a git binary that isn't
+// in the function runtime. "force-static" guarantees the sitemap is baked
+// during `next build` (where git + fs are available) and served as a flat
+// file thereafter. Sitemap still auto-updates on every deploy because Netlify
+// re-runs `next build` on every git push.
+export const dynamic = "force-static";
+export const revalidate = false;
+
 const BASE = "https://www.phantompasting.com";
 const REPO_ROOT = process.cwd();
 

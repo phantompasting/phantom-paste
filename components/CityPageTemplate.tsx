@@ -62,7 +62,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -93,7 +93,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                 </h1>
 
                 <p className="font-light leading-relaxed mt-8 mb-10"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                  style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
                   {data.intro}
                 </p>
 
@@ -107,6 +107,16 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                     Get a {data.city} Quote
                     <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
                   </Link>
+                  <a href={BUSINESS.telHref}
+                    aria-label={`Call Phantom Pasting at ${BUSINESS.telephoneDisplay}`}
+                    className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
+                    style={{ color: "rgba(0,0,0,0.82)", background: "rgba(255,255,255,0.9)",
+                      border: "1px solid rgba(0,0,0,0.14)", boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden style={{ color: ACCENT }}>
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call Now
+                  </a>
                   <Link href="/gallery"
                     className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
                     style={{ color: "rgba(0,0,0,0.72)", background: "rgba(255,255,255,0.9)",
@@ -241,7 +251,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
             </span>
             <h2 className="font-black uppercase m-0 mb-14 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              {data.city.toUpperCase()}<br /><span style={{ color: ACCENT }}>NEIGHBORHOODS.</span>
+              {data.city.toUpperCase()}<br /><ShinyGoldText>NEIGHBORHOODS.</ShinyGoldText>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
               style={{ background: "rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.06)", borderRadius: "20px", overflow: "hidden" }}>
@@ -301,14 +311,26 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
               Tell us your brand, your vision, and your timeline.
               We&apos;ll respond within 24 hours with a custom {data.city} street strategy.
             </p>
-            <Link href="/contact"
-              className="service-cta relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-10 py-5 rounded-full overflow-hidden"
-              style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #F5CA20 100%)`, color: "#FFF",
-                boxShadow: `0 6px 32px rgba(212,160,16,0.55), 0 1px 0 rgba(255,255,255,0.25) inset` }}>
-              <span className="absolute inset-0 pointer-events-none rounded-full"
-                style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 55%)" }} />
-              Launch My Campaign <span className="cta-arrow">→</span>
-            </Link>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/contact"
+                className="service-cta relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-10 py-5 rounded-full overflow-hidden"
+                style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #F5CA20 100%)`, color: "#FFF",
+                  boxShadow: `0 6px 32px rgba(212,160,16,0.55), 0 1px 0 rgba(255,255,255,0.25) inset` }}>
+                <span className="absolute inset-0 pointer-events-none rounded-full"
+                  style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 55%)" }} />
+                Launch My Campaign <span className="cta-arrow">→</span>
+              </Link>
+              <a href={BUSINESS.telHref}
+                aria-label={`Call Phantom Pasting at ${BUSINESS.telephoneDisplay}`}
+                className="inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-5 rounded-full"
+                style={{ color: "#1A1A1A", background: "rgba(255,255,255,0.9)",
+                  border: "1px solid rgba(0,0,0,0.14)", boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden style={{ color: ACCENT }}>
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                {BUSINESS.telephoneDisplay}
+              </a>
+            </div>
           </div>
         </section>
 

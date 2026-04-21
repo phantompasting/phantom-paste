@@ -190,7 +190,7 @@ export default function FullImpactCampaignsPage() {
         }}
       />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -218,7 +218,7 @@ export default function FullImpactCampaignsPage() {
                   FULL IMPACT<br /><ShinyGoldText>GUERRILLA CAMPAIGNS.</ShinyGoldText>
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "500px" }}>
+                  style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "500px" }}>
                   When you need to own a city, Full Impact combines wheat pasting, chalk stencils,
                   and strategic multi-format deployment for total street presence. One team. One plan.
                   Every corner.
@@ -339,7 +339,7 @@ export default function FullImpactCampaignsPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              WHAT IS A FULL IMPACT<br /><span style={{ color: ACCENT }}>CAMPAIGN?</span>
+              WHAT IS A FULL IMPACT<br /><ShinyGoldText>CAMPAIGN?</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed m-0 mb-4" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "760px" }}>
               A full impact guerrilla campaign is an end-to-end street marketing activation that combines multiple formats — wheat pasting, chalk spray stencils, and wild posting — into a single coordinated deployment. Instead of picking one format, every available medium is stacked for total visual saturation across targeted neighborhoods in your market.
@@ -364,7 +364,7 @@ export default function FullImpactCampaignsPage() {
               </span>
               <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
                 style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-                EVERY FORMAT.<br /><span style={{ color: ACCENT }}>ONE CAMPAIGN.</span>
+                EVERY FORMAT.<br /><ShinyGoldText>ONE CAMPAIGN.</ShinyGoldText>
               </h2>
               <p className="font-light leading-relaxed mb-8"
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "480px" }}>
@@ -406,7 +406,7 @@ export default function FullImpactCampaignsPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              FOUR PHASES<span style={{ color: ACCENT }}>.</span>
+              FOUR <ShinyGoldText>PHASES.</ShinyGoldText>
             </h2>
             <p className="font-light mb-10 m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "640px" }}>
               From brief to photo-documented install in 2–4 weeks. Every phase runs in parallel where possible — production starts the day strategy is approved.
@@ -446,7 +446,7 @@ export default function FullImpactCampaignsPage() {
               </span>
               <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
                 style={{ fontSize: "clamp(32px, 4.5vw, 54px)", letterSpacing: "-0.035em" }}>
-                FIFA WORLD CUP<br /><span style={{ color: ACCENT }}>ATLANTA TAKEOVER.</span>
+                FIFA WORLD CUP<br /><ShinyGoldText>ATLANTA TAKEOVER.</ShinyGoldText>
               </h2>
               <p className="font-light leading-relaxed m-0 mb-4" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}>
                 The FIFA World Cup activation in Atlanta is a textbook full impact deployment. Objective: saturate the neighborhoods surrounding the match venue with tournament branding in the week leading up to the first kickoff. Formats stacked: large-format wheat paste wall blocks, sidewalk chalk stencil activations at pedestrian approach routes, and wild posting on construction plywood along two key corridors.
@@ -483,7 +483,7 @@ export default function FullImpactCampaignsPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              WHO IS FULL IMPACT<span style={{ color: ACCENT }}> FOR?</span>
+              WHO IS FULL IMPACT <ShinyGoldText>FOR?</ShinyGoldText>
             </h2>
             <div className="flex flex-wrap gap-3">
               {["Product Launches", "City Takeovers", "Film & TV Releases", "Festival Marketing", "Brand Rebrands", "Multi-City Rollouts", "Album Drops", "Sports Activations"].map((item) => (
@@ -551,7 +551,7 @@ export default function FullImpactCampaignsPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              FULL IMPACT<span style={{ color: ACCENT }}> FAQ.</span>
+              FULL IMPACT <ShinyGoldText>FAQ.</ShinyGoldText>
             </h2>
             <div className="flex flex-col">
               {FAQS.map(({ q, a }) => (

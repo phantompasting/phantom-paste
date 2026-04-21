@@ -165,7 +165,7 @@ export default function ServicesPage() {
         }}
       />
 
-      <div style={{ background: "transparent", minHeight: "100vh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                   GUERRILLA<br />MARKETING<br /><ShinyGoldText>SERVICES.</ShinyGoldText>
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
+                  style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
                   Three formats. 50+ US cities. 500+ campaigns delivered. Every placement photo-documented and mapped. Pick the format that matches your launch, or stack every format for a full city takeover.
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -312,7 +312,7 @@ export default function ServicesPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(28px, 4vw, 56px)", letterSpacing: "-0.035em" }}>
-              WHAT IS GUERRILLA<span style={{ color: ACCENT }}> MARKETING?</span>
+              WHAT IS GUERRILLA <ShinyGoldText>MARKETING?</ShinyGoldText>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
               <div className="flex flex-col gap-4">
@@ -349,7 +349,7 @@ export default function ServicesPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(24px, 3.5vw, 48px)", letterSpacing: "-0.035em" }}>
-              WHICH FORMAT IS RIGHT FOR<span style={{ color: ACCENT }}> YOUR CAMPAIGN?</span>
+              WHICH FORMAT IS RIGHT FOR <ShinyGoldText>YOUR CAMPAIGN?</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed mb-10 m-0"
               style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "720px" }}>
@@ -401,7 +401,7 @@ export default function ServicesPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(24px, 3.5vw, 48px)", letterSpacing: "-0.035em" }}>
-              HOW TO CHOOSE A<span style={{ color: ACCENT }}> FORMAT.</span>
+              HOW TO CHOOSE A <ShinyGoldText>FORMAT.</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed mb-10 m-0"
               style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "720px" }}>
@@ -440,7 +440,7 @@ export default function ServicesPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-10 leading-[0.9]"
               style={{ fontSize: "clamp(24px, 3.5vw, 48px)", letterSpacing: "-0.035em" }}>
-              HOW DOES A CAMPAIGN<span style={{ color: ACCENT }}> WORK?</span>
+              HOW DOES A CAMPAIGN <ShinyGoldText>WORK?</ShinyGoldText>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -477,7 +477,7 @@ export default function ServicesPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-10 leading-[0.9]"
               style={{ fontSize: "clamp(24px, 3.5vw, 48px)", letterSpacing: "-0.035em" }}>
-              WHO USES GUERRILLA<span style={{ color: ACCENT }}> MARKETING?</span>
+              WHO USES GUERRILLA <ShinyGoldText>MARKETING?</ShinyGoldText>
             </h2>
 
             <div className="flex flex-wrap gap-3">
@@ -504,7 +504,7 @@ export default function ServicesPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(28px, 4vw, 56px)", letterSpacing: "-0.035em" }}>
-              SERVICES<span style={{ color: ACCENT }}> FAQ.</span>
+              SERVICES <ShinyGoldText>FAQ.</ShinyGoldText>
             </h2>
             <div className="flex flex-col">
               {FAQS.map(({ q, a }) => (
@@ -541,7 +541,7 @@ export default function ServicesPage() {
             </span>
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(24px, 3.5vw, 48px)", letterSpacing: "-0.035em" }}>
-              GUERRILLA MARKETING IN EVERY<span style={{ color: ACCENT }}> US CITY.</span>
+              GUERRILLA MARKETING IN EVERY <ShinyGoldText>US CITY.</ShinyGoldText>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {LOCATIONS.map(({ name, href }) => (
