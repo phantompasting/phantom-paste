@@ -469,6 +469,38 @@ form textarea::placeholder {
   will-change: transform;
 }
 @media (max-width: 767px) {
+  /* ── iOS overscroll white flash fix ───────────────────────────────
+     iOS Safari rubber-band scroll past the page boundary reveals the
+     html/body background color (#FFFBED) below or above the content.
+     On pages with a canvas or webp background this reads as a "white
+     rectangle" because the browser hasn't composited the background
+     layer yet. `overscroll-behavior-y: none` disables the rubber-band
+     entirely — no overscroll, no flash. The momentum scroll within the
+     page still works; only the elastic bounce at page boundaries is
+     removed. This is distinct from backdrop-filter (which the user
+     keeps); it only affects what happens when you scroll past the end. */
+  html, body {
+    overscroll-behavior-y: none;
+  }
+
+  /* ── Mobile nav — frosted-glass background ─────────────────────────
+     The nav is `sticky top-0` on mobile. On the homepage the transparent
+     nav sits over the grainient canvas and looks great. On inner pages
+     (blog, services, about, locations) the page content scrolls under
+     the nav, and without a background the logo and hamburger collide
+     with body text. A warm ivory glass background isolates the nav
+     from content on ALL inner pages while still reading as translucent
+     over the canvas on the homepage. The `!important` is needed because
+     the nav element carries `style={{ background: "transparent" }}` as
+     an inline style (set for desktop parity). */
+  .site-nav {
+    background: rgba(255, 251, 237, 0.88) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+  }
+
   /* Orbs: entirely hidden on mobile. orb-1 used to render as a static
      translucent blob but it still allocates a GPU layer (`contain: layout
      style paint`) and contributes to compositor memory pressure — invisible
@@ -792,6 +824,23 @@ html.perf-lite .glass-surface--fallback {
     inset 0 -1px 0 rgba(0,0,0,0.05),
     0 2px 6px rgba(26,20,6,0.05);
 }
+/* glass-surface--svg variant: backdrop-filter uses a multi-pass SVG
+   displacement chain (feDisplacementMap×3 + feBlend×2 + feGaussianBlur)
+   applied as a CSS backdrop-filter. On Intel iGPU this is 4-8ms per
+   compositor frame — with 6 stat cards visible simultaneously it fully
+   saturates the compositor thread. Kill the SVG filter and apply the same
+   warm-fallback treatment. GlassSurface.tsx also guards svgSupported with
+   the perf-lite check, but this CSS rule catches any race between
+   useLayoutEffect timing and initial paint. */
+html.perf-lite .glass-surface--svg {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgba(255,251,237,0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -1px 0 rgba(0,0,0,0.05),
+    0 2px 6px rgba(26,20,6,0.05);
+}
 
 /* Gold text in perf-lite — match the full version's rest state exactly.
    The base `.shiny-gold-text` rule already renders solid gold (#D4A010)
@@ -919,7 +968,8 @@ html.perf-lite .transition-opacity {
       inset 0 -1px 0 rgba(0,0,0,0.04),
       0 1px 2px rgba(26,20,6,0.04) !important;
   }
-  .glass-surface--fallback {
+  .glass-surface--fallback,
+  .glass-surface--svg {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: rgba(255,251,237,0.86);

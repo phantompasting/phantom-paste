@@ -115,12 +115,16 @@ function GlassSurfaceImpl({
 
   useEffect(() => {
     // Force the cheap fallback (one backdrop-filter blur instead of a 10-op
-    // SVG filter chain) on small screens and when the user prefers reduced
-    // motion. On phones the SVG filter chain is the single most expensive
-    // paint in any section containing multiple GlassSurface instances.
+    // SVG filter chain) on small screens, when the user prefers reduced
+    // motion, and in perf-lite mode. On phones the SVG filter chain is the
+    // single most expensive paint in any section containing multiple
+    // GlassSurface instances. In perf-lite (Intel iGPU), even a single SVG
+    // displacement filter chain costs 4-8ms per compositor frame — with 6
+    // stat cards on screen simultaneously that saturates the compositor budget.
     const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (isSmallScreen || prefersReduced) return; // leave svgSupported=false
+    const isPerfLite = document.documentElement.classList.contains("perf-lite");
+    if (isSmallScreen || prefersReduced || isPerfLite) return; // leave svgSupported=false
     const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
     const isFirefox = /Firefox/.test(navigator.userAgent);
     if (!isWebkit && !isFirefox) {

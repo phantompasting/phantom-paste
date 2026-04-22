@@ -36,7 +36,7 @@ export default function SiteNav() {
       // Mobile (< md) — `sticky top-0`: on narrow screens users lose the
       // hamburger (the primary nav entry point) the moment the hero scrolls
       // off, so the bar stays pinned so the menu is always one tap away.
-      className="sticky md:relative top-0 md:top-auto z-50 w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 py-4 md:py-5"
+      className="site-nav sticky md:relative top-0 md:top-auto z-50 w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 py-4 md:py-5"
       style={{
         background: "transparent",
         animation: `heroDown 0.6s 0.02s ${EXPO} both`,

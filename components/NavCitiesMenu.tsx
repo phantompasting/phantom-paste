@@ -65,7 +65,7 @@ export default function NavCitiesMenu() {
             {/* Hub link */}
             <a
               href="/locations"
-              className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] uppercase no-underline px-4 py-2.5 border-b"
+              className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.22em] uppercase no-underline px-4 py-2.5 border-b"
               style={{ color: ACCENT, borderColor: "rgba(0,0,0,0.06)", transition: "background 0.15s" }}
               onMouseEnter={e => { e.currentTarget.style.background = "rgba(0,0,0,0.04)"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
@@ -76,7 +76,7 @@ export default function NavCitiesMenu() {
               <a
                 key={href}
                 href={href}
-                className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] uppercase no-underline px-4 py-2.5"
+                className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.22em] uppercase no-underline px-4 py-2.5"
                 style={{ color: "rgba(0,0,0,0.65)", transition: "background 0.15s, color 0.15s" }}
                 onMouseEnter={e => {
                   e.currentTarget.style.background = "rgba(0,0,0,0.04)";

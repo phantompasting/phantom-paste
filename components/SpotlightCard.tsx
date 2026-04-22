@@ -29,6 +29,10 @@ export default function SpotlightCard({
     (e: React.MouseEvent<HTMLDivElement>) => {
       const el = ref.current;
       if (!el) return;
+      // perf-lite: ::after is already display:none via CSS, so no repaint
+      // occurs from property writes. But we still bail to avoid the rAF
+      // scheduling overhead on every mousemove on Intel iGPU machines.
+      if (document.documentElement.classList.contains("perf-lite")) return;
       const rect = el.getBoundingClientRect();
       latest.current.x = e.clientX - rect.left;
       latest.current.y = e.clientY - rect.top;
