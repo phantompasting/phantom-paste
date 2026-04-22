@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, DM_Mono } from "next/font/google";
 import GrainientBackgroundLazy from "@/components/GrainientBackgroundLazy";
 import ShinyGoldObserver from "@/components/ShinyGoldObserver";
+import PerfGate from "@/components/PerfGate";
 import { BUSINESS } from "@/lib/business";
 import { orgSchema, webSiteSchema, localBusinessSchema, jsonLd } from "@/lib/schema";
 import "./globals.css";
@@ -177,6 +178,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <GrainientBackgroundLazy />
         <ShinyGoldObserver />
+        <PerfGate />
         <div style={{ position: "relative", zIndex: 2 }}>
           {children}
         </div>

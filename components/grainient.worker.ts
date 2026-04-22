@@ -15,7 +15,6 @@
  *   - init       : transfer the OffscreenCanvas + initial dimensions + dpr
  *   - resize     : viewport changed
  *   - visibility : tab became hidden / visible → pause / resume
- *   - scroll     : user is actively scrolling → pause briefly
  *   - start      : begin the rAF loop (deferred past LCP)
  *
  * Worker uses its own `requestAnimationFrame` on the worker global scope
@@ -199,11 +198,6 @@ type InitMsg = { type: "init"; canvas: OffscreenCanvas; width: number; height: n
 type ResizeMsg = { type: "resize"; width: number; height: number };
 type VisibilityMsg = { type: "visibility"; hidden: boolean };
 type StartMsg = { type: "start" };
-// Scroll messages are intentionally NOT handled here. The scroll-pause
-// existed for the main-thread path where the canvas loop competed with
-// the scroll compositor. On the worker thread the loop is isolated —
-// it cannot block scroll — so pausing it on scroll only produces a
-// visible freeze with no performance benefit.
 type Msg = InitMsg | ResizeMsg | VisibilityMsg | StartMsg;
 
 self.onmessage = (e: MessageEvent<Msg>) => {

@@ -43,6 +43,16 @@ export default function ShinyGoldObserver() {
     // Reduced-motion opt-out — static gold only, never animated.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    // perf-lite opt-out — weak hardware (Intel Macs, low-core devices) gets
+    // solid gold, no animation, no drop-shadow. Skipping the observer
+    // entirely means `.sgt-play` is never added, so no compositor layer is
+    // ever allocated for any of the ~54 gold-text instances on the page.
+    // The CSS override in globals.css (`html.perf-lite .shiny-gold-text.sgt-play`)
+    // is a belt-and-suspenders backup for any edge case where the class
+    // might slip in — but in practice this bail-out means the full version
+    // shows shine and the lite version shows solid gold, exactly as designed.
+    if (document.documentElement.classList.contains("perf-lite")) return;
+
     let tabVisible = !document.hidden;
     const observed = new Set<Element>();
 

@@ -17,17 +17,16 @@ function setupWorker(visible: HTMLCanvasElement): () => void {
   // Mobile: DPR=0.75 drops the backing buffer by another 44% on top of that
   // — the mobile blur is even stronger (see .grainient-canvas media query
   // in globals.css) so the resolution drop is invisible after composite.
-  // Smaller buffer = cheaper per-frame texture upload and cheaper GPU blur
-  // pass, which matters most on iGPUs during URL-bar-resize recomposition.
   const isMobile = window.innerWidth <= 767;
   const dpr = isMobile ? 0.75 : 1;
-  // Fewer circles everywhere — the field still reads as a soft gold cloud
+
+  // Fewer circles on mobile — the field still reads as a soft gold cloud
   // after the blur, and draw-op count scales linearly with circleCount.
-  // Tightened further: desktop 60→45 (-25%), mobile 40→28 (-30%). The
-  // mobile 6px blur in globals.css is heavy enough to hide the density
-  // drop, and cutting 12 circles reclaims ~12 arc+fill ops per frame on
-  // the device class most sensitive to per-frame cost (Intel iGPU
-  // MacBooks + iPhone A12 and older).
+  //   Full desktop: 45
+  //   Full mobile:  28
+  // (Lite mode never reaches this code path — it's short-circuited at the
+  // top of the useEffect because the static webp fallback kicks in via
+  // globals.css. See GrainientBackground component below.)
   const circleCount = isMobile ? 28 : 45;
 
   worker.postMessage(
@@ -47,12 +46,6 @@ function setupWorker(visible: HTMLCanvasElement): () => void {
     worker.postMessage({ type: "resize", width: window.innerWidth, height: window.innerHeight });
   const onVisibility = () =>
     worker.postMessage({ type: "visibility", hidden: document.hidden });
-
-  // NOTE: No scroll-pause in the worker path. The scroll-pause existed
-  // when the canvas loop ran on the main thread (to avoid competing with
-  // the scroll compositor commit). In the worker path the canvas runs on
-  // a dedicated thread that physically cannot block scroll — pausing it
-  // on scroll only produces a visible freeze without any perf benefit.
 
   window.addEventListener("resize", onResize);
   document.addEventListener("visibilitychange", onVisibility);
@@ -139,6 +132,31 @@ export default function GrainientBackground() {
   useEffect(() => {
     const visible = canvasRef.current;
     if (!visible) return;
+
+    // ── Perf-lite bail-out ──────────────────────────────────────────────
+    // PerfGate (components/PerfGate.tsx) sets `html.perf-lite` at first
+    // paint on hardware that genuinely can't afford the full canvas cost
+    // (Intel iGPU Macs, OS reduced-motion, data saver, weak Android).
+    //
+    // On these devices we abandon the live canvas entirely — even a
+    // heavily throttled version (DPR 0.5, 28 circles, 30fps, scroll-pause)
+    // still contends with the GPU compositor thread for every texture
+    // commit, which shows up as scroll jank. A static background has
+    // exactly zero per-frame cost.
+    //
+    // The visual fallback is a pre-rendered screenshot of the live canvas
+    // (`public/perf-lite-bg.webp`, 12KB) wired up via globals.css:
+    //   html.perf-lite body { background: url("/perf-lite-bg.webp") ... }
+    //   html.perf-lite .grainient-canvas { display: none !important; }
+    // So we bail early — never construct the worker, never transfer the
+    // canvas, leave the DOM node in place so the `display: none` takes
+    // effect without a hydration mismatch.
+    if (
+      typeof document !== "undefined" &&
+      document.documentElement.classList.contains("perf-lite")
+    ) {
+      return;
+    }
 
     // ── Worker path: transfer the canvas to a Web Worker so the render
     // loop runs on a dedicated thread, never contending with React,

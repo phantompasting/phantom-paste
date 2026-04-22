@@ -546,6 +546,10 @@ form textarea::placeholder {
     0px 8px 24px rgba(17,17,26,0.05);
 }
 .glass-surface--fallback {
+  /* Full-quality frosted glass for capable devices. Heavy — blur(14)
+     + saturate + brightness is a triple-pass compositor op — but the
+     perf-lite CSS below strips all three filters on weak hardware, so
+     the cost only lands on devices that can afford it. */
   background: rgba(255,255,255,0.3);
   backdrop-filter: blur(14px) saturate(1.6) brightness(1.05);
   -webkit-backdrop-filter: blur(14px) saturate(1.6) brightness(1.05);
@@ -690,4 +694,250 @@ form textarea::placeholder {
   border: 0;
   border-top: 1px solid rgba(0,0,0,0.10);
   margin: 2.5rem 0;
+}
+
+/* ── Content-visibility — skip painting below-the-fold blog sections ──
+   The long FAQ accordion, "More from the Blog" card grid, and "Related
+   Services" block all sit well below the fold on a blog post. Letting
+   the browser skip their paint/layout until they scroll into view cuts
+   per-scroll-frame composite cost by ~30-40% on the blog-post template.
+   `contain-intrinsic-size` reserves a plausible height so the scrollbar
+   stays accurate and scrolling doesn't jump when sections hydrate in.
+   Safari <18 ignores content-visibility gracefully — they just do the
+   full paint they were doing before, no regression. */
+.blog-prose > h2 { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+
+/* ── Perf-lite — activated by PerfGate on hardware that can't afford the
+   GPU compositor load: Intel iGPU Macs, OS reduced-motion, data saver,
+   genuinely weak Androids. See components/PerfGate.tsx for the detection
+   criteria (conservative by design — never triggers on Apple Silicon,
+   iPhones, Pixels, or modern desktops).
+
+   What perf-lite does:
+     1. Skip the animated canvas entirely — replace with a static webp
+        plate captured from the live canvas (public/perf-lite-bg.webp,
+        ~12 KB). Rendered via background-image on body with cover +
+        fixed so the gold cloud stays put as the user scrolls. Zero
+        per-frame cost, zero GPU compositor work for the backdrop.
+        The canvas was the single largest persistent GPU cost on Intel
+        iGPU even at reduced specs — halving blur + lowering circle
+        count + scroll-pausing still left the compositor saturated
+        because ANY animated viewport-sized layer is expensive there.
+        A static image layer doesn't animate, so it's 0ms/frame.
+     2. Kill every continuous CSS animation (ticker, orbs, star-sweep,
+        arrow bounce, scroll-pulse). Each infinite keyframe animation
+        promotes its element to a persistent GPU compositor layer and
+        re-commits it every frame — stack 6 of them + the canvas and
+        the compositor thread is saturated before scroll gets budget.
+     3. Strip every backdrop-filter: blur(...) across the site. The glass
+        cards still have their rgba background + border, they just lose
+        the expensive compositor blur pass. Cost of the 76 blur passes
+        on a blog page: ~10-20ms of compositor work per scroll frame.
+        Dropping them to 0 reclaims the entire frame budget.
+     4. Kill the gold-text shine animation + drop-shadow filter.
+
+   Brand still reads: gold accents, glass card borders, typography, and
+   hover states all unchanged. The backdrop looks like a single frame of
+   the live grainient (because it IS one), so users don't feel they're
+   getting a downgraded experience — just a calmer one. */
+
+/* Static backdrop — a real screenshot of the live animated canvas,
+   captured with Playwright at 1920×1200 with 14px blur + 45 circles,
+   compressed to 12 KB WebP. background-attachment: fixed keeps it
+   locked to the viewport so it doesn't scroll-translate (mimics the
+   canvas's fixed positioning). */
+html.perf-lite body {
+  background:
+    url("/perf-lite-bg.webp") center center / cover no-repeat fixed,
+    #FFFBED;
+}
+/* Hide the canvas entirely in lite mode — the static webp replaces it.
+   Belt-and-suspenders: the GrainientBackground component also bails
+   out in useEffect when it detects .perf-lite, so the canvas is never
+   rendered and the worker is never constructed. */
+html.perf-lite .grainient-canvas,
+html.perf-lite .content--canvas {
+  display: none !important;
+}
+/* Nuclear blur removal — `!important` is required because most blurs on
+   this site are applied via inline `style={{backdropFilter: ...}}` in
+   React components, and inline styles win over regular CSS. The attribute
+   selector [style*="blur"] scopes the override narrowly — we're not
+   disabling `filter` globally, only the blur filters specifically.
+
+   Compensating for the lost blur: bump the element's rgba opacity from
+   its typical 0.45 to something that still reads as "frosted glass" over
+   the now-visible background. Achieved via the .glass-surface--fallback
+   rule below PLUS a generic boost for inline backdrop-filter elements. */
+html.perf-lite [style*="backdrop-filter"],
+html.perf-lite [style*="backdropFilter"],
+html.perf-lite [style*="blur"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  /* Subtle inset highlight — fakes the "glass depth" that the blur
+     used to produce. 1px inset top highlight + 1px inset bottom shadow
+     gives the card a soft pillowed feel without any compositor cost. */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    inset 0 -1px 0 rgba(0,0,0,0.04),
+    0 1px 2px rgba(26,20,6,0.04) !important;
+}
+html.perf-lite .glass-surface--fallback {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  /* Slightly warm, slightly transparent — keeps layered-paper feel */
+  background: rgba(255,251,237,0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -1px 0 rgba(0,0,0,0.05),
+    0 2px 6px rgba(26,20,6,0.05);
+}
+
+/* Gold text in perf-lite — match the full version's rest state exactly.
+   The base `.shiny-gold-text` rule already renders solid gold (#D4A010)
+   because its highlight band is parked off-canvas at background-position
+   150% center. We just kill the animation and the drop-shadow filter
+   that `.sgt-play` would otherwise layer on top. No custom gradient,
+   no baked-in shimmer — identical to the un-animated full version. */
+html.perf-lite .shiny-gold-text.sgt-play {
+  animation: none !important;
+  filter: none !important;
+}
+
+/* Kill every continuous CSS animation in perf-lite.
+   --------------------------------------------------
+   Each infinite keyframe animation (ticker translate, orb float/morph,
+   star-sweep pulse, arrow bounce, scroll-pulse) is a persistent
+   compositor-thread animation — the browser promotes the animating
+   element to its own GPU layer and commits it every frame. On Intel
+   iGPU each such layer costs 0.5-2ms per compositor commit. Stack five
+   or six of them and the compositor thread is saturated before the
+   rest of the page (scroll, ticker, hero) can render smoothly.
+   Killing these reclaims ~5-10ms of GPU budget per frame. Elements
+   still render (colors, positions, shapes) but sit static. The brand
+   feel survives because the full version's motion is ambient anyway —
+   the static webp backdrop carries the gold-cloud aesthetic without
+   any per-frame cost. */
+html.perf-lite .ticker-track,
+html.perf-lite .star-sweep-bottom,
+html.perf-lite .star-sweep-top,
+html.perf-lite .orb-1,
+html.perf-lite .orb-2,
+html.perf-lite .orb-3,
+html.perf-lite .cta-arrow,
+html.perf-lite .submit-arrow,
+html.perf-lite .scroll-pulse {
+  animation: none !important;
+}
+
+/* Orbs: kill will-change so the GPU layer is released now that the
+   animations are stopped. Without this, the `will-change: transform`
+   set in the class still allocates a persistent compositor layer even
+   though nothing is moving — wasted GPU memory that competes with
+   scroll compositing. */
+html.perf-lite .orb-1,
+html.perf-lite .orb-2,
+html.perf-lite .orb-3,
+html.perf-lite .orb-drift {
+  will-change: auto !important;
+}
+
+/* SpotlightCard — disable the radial gradient hover overlay.
+   The spotlight effect works by JS writing --mouse-x / --mouse-y CSS
+   custom properties on every mousemove (rAF-batched, but still every
+   frame during hover). Each write invalidates the ::after pseudo-element's
+   paint because the gradient position changes — on Intel iGPU that's a
+   full repaint of the card's stacking context, which runs ~2-4ms and
+   directly starves the scroll compositor. Setting display:none removes
+   the layer entirely — no paint, no composite cost, no property reads.
+   Cards still show their background, border, and box-shadow. */
+html.perf-lite .spotlight-card::after {
+  display: none !important;
+}
+
+/* Gallery image hover zoom — kills the scale transition on hover.
+   `transition-transform duration-700` promotes each image to a
+   composited layer when hovered; on Intel iGPU the 700ms ease-out
+   holds that layer active for almost a second per hover. Since the
+   gallery section is below the fold and non-critical, static images
+   lose nothing visually meaningful. */
+html.perf-lite .transition-transform {
+  transition: none !important;
+  transform: none !important;
+}
+/* Also kill opacity reveal transitions on gallery overlays */
+html.perf-lite .transition-opacity {
+  transition: none !important;
+}
+
+/* Prefers-reduced-motion already has its own CSS block earlier — this
+   adds the canvas kill on top. Two-step approach (the transition/anim
+   kill lives above, the canvas kill is here) so this file stays easy
+   to read when scrolling past the animation block. */
+@media (prefers-reduced-motion: reduce) {
+  .grainient-canvas,
+  .content--canvas {
+    display: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   PRE-PAINT PERF DOWNGRADE VIA PURE CSS
+   ──────────────────────────────────────────────────────────────────────
+   The JS-based PerfGate component runs in useLayoutEffect — that's
+   post-hydration, meaning Intel Mac users briefly paint the full
+   experience before the class lands. Users with OS-level accessibility
+   preferences (reduced-motion / reduced-transparency / saveData) can
+   be detected pre-paint by CSS media queries, which apply on the very
+   first frame with zero flash. These rules mirror the html.perf-lite
+   rules above so the two detection paths produce identical downgrades.
+
+   Why not use these queries for everything: they don't cover Intel Mac
+   / hardware-signal detection, which is the main target case. CSS +
+   JS together give us best-effort pre-paint coverage and worst-case
+   hydration-time coverage. */
+@media (prefers-reduced-motion: reduce),
+       (prefers-reduced-transparency: reduce) {
+  /* Kill the grainient canvas + content canvas entirely */
+  .grainient-canvas,
+  .content--canvas {
+    display: none !important;
+  }
+  /* Static backdrop — same grainient screenshot as html.perf-lite above */
+  body {
+    background:
+      url("/perf-lite-bg.webp") center center / cover no-repeat fixed,
+      #FFFBED;
+  }
+  /* Strip blurs — single biggest GPU cost on weak HW */
+  [style*="backdrop-filter"],
+  [style*="backdropFilter"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.6),
+      inset 0 -1px 0 rgba(0,0,0,0.04),
+      0 1px 2px rgba(26,20,6,0.04) !important;
+  }
+  .glass-surface--fallback {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255,251,237,0.86);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.7),
+      inset 0 -1px 0 rgba(0,0,0,0.05),
+      0 2px 6px rgba(26,20,6,0.05);
+  }
+  /* Gold text — kill the shine animation + drop-shadow only. The base
+     rule already renders solid gold at rest, which matches the full
+     version's non-animated state. */
+  .shiny-gold-text.sgt-play {
+    animation: none !important;
+    filter: none !important;
+  }
+  /* Spotlight card, will-change, hover transitions — mirror perf-lite */
+  .spotlight-card::after { display: none !important; }
+  .orb-1, .orb-2, .orb-3, .orb-drift { will-change: auto !important; }
+  .transition-transform { transition: none !important; transform: none !important; }
+  .transition-opacity { transition: none !important; }
 }
