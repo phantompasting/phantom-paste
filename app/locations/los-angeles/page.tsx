@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Los Angeles | Wild Posting",
+  title: "Wheat Pasting Los Angeles",
   description:
     "Wheat pasting and wild posting in Los Angeles. Large-format street posters across Melrose, Silver Lake, Fairfax, and DTLA. 100% documented. Get a quote.",
   keywords: ["wheat pasting Los Angeles", "wild posting LA", "Los Angeles guerrilla marketing", "street advertising LA", "wheat paste posters LA"],
   alternates: { canonical: "https://www.phantompasting.com/locations/los-angeles" },
   openGraph: {
-    title: "Wheat Pasting Los Angeles | Wild Posting LA",
+    title: "Wheat Pasting Los Angeles",
     description: "Large-format wheat paste and wild posting campaigns across Los Angeles. Melrose, Silver Lake, Fairfax, DTLA.",
     url: "https://www.phantompasting.com/locations/los-angeles",
     images: [

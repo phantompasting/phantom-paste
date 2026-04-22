@@ -19,7 +19,7 @@ import {
 
 const PAGE_URL = `${BUSINESS.url}/services/wheat-pasting`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp`;
-const PAGE_TITLE = "Wheat Pasting Services | Wild Posting Ads";
+const PAGE_TITLE = "Wheat Pasting Services";
 const PAGE_DESC =
   "Large-format wheat paste poster advertising on prime urban walls across 50+ US cities. We handle print, install, and 100% photo documentation. Get a quote.";
 const DATE_PUBLISHED = "2024-01-15";

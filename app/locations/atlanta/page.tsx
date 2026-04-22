@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Atlanta | Wild Posting GA",
+  title: "Wheat Pasting Atlanta",
   description:
     "Wheat pasting and wild posting in Atlanta. Large-format street posters across Midtown, Little Five Points, Buckhead, and East Atlanta. Get a quote.",
   keywords: ["wheat pasting Atlanta", "wild posting Atlanta", "Atlanta guerrilla marketing", "street advertising Atlanta", "wheat paste posters GA"],
   alternates: { canonical: "https://www.phantompasting.com/locations/atlanta" },
   openGraph: {
-    title: "Wheat Pasting Atlanta | Wild Posting GA",
+    title: "Wheat Pasting Atlanta",
     description: "Large-format wheat paste and wild posting campaigns across Atlanta. Midtown, Little Five Points, Buckhead.",
     url: "https://www.phantompasting.com/locations/atlanta",
     images: [

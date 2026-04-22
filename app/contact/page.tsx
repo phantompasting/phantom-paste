@@ -10,7 +10,7 @@ import { BUSINESS } from "@/lib/business";
 import { localBusinessSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/contact`;
-const PAGE_TITLE = "Hire a Wheat Pasting Company | Get a Quote";
+const PAGE_TITLE = "Hire a Wheat Pasting Company";
 const PAGE_DESC =
   "Ready to launch a wheat pasting or guerrilla marketing campaign? Contact Phantom Pasting and get a custom quote within 24 hours. Available in 50+ US cities.";
 

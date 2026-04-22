@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting NYC | Wild Posting New York",
+  title: "Wheat Pasting NYC",
   description:
     "Wheat pasting and wild posting in New York City. Large-format street posters across the Lower East Side, Brooklyn, SoHo, and Williamsburg. Get a quote.",
   keywords: ["wheat pasting NYC", "wild posting New York", "NYC guerrilla marketing", "street advertising New York", "wheat paste posters Brooklyn"],
   alternates: { canonical: "https://www.phantompasting.com/locations/new-york" },
   openGraph: {
-    title: "Wheat Pasting New York City | Wild Posting NYC",
+    title: "Wheat Pasting NYC",
     description: "Large-format wheat paste and wild posting campaigns across NYC. LES, Brooklyn, SoHo, Williamsburg.",
     url: "https://www.phantompasting.com/locations/new-york",
     images: [

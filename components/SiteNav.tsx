@@ -24,7 +24,19 @@ export default function SiteNav() {
       // heroDown entrance animation. The animated GrainientBackground canvas
       // sits behind every page (rendered in app/layout.tsx), so a transparent
       // nav reads identically across the site.
-      className="sticky top-0 z-50 w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 py-4 md:py-5"
+      //
+      // Sticky on mobile, static on desktop.
+      //
+      // Desktop (md+) — `md:relative`: the nav paints once at the top of the
+      // page and scrolls away with the hero, matching HeroNavBar's behavior on
+      // the homepage (md:absolute inside the scroll-snap hero). On wide screens
+      // a persistent bar fights the editorial feel of the hero and eats a slice
+      // of vertical space on long content pages like blog posts.
+      //
+      // Mobile (< md) — `sticky top-0`: on narrow screens users lose the
+      // hamburger (the primary nav entry point) the moment the hero scrolls
+      // off, so the bar stays pinned so the menu is always one tap away.
+      className="sticky md:relative top-0 md:top-auto z-50 w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 py-4 md:py-5"
       style={{
         background: "transparent",
         animation: `heroDown 0.6s 0.02s ${EXPO} both`,
@@ -47,11 +59,12 @@ export default function SiteNav() {
         </span>
       </Link>
 
-      {/* Center links (desktop) — Services ▾ · Gallery · Cities ▾ · About */}
-      <ul className="hidden md:flex items-center gap-10 lg:gap-14 list-none m-0 p-0">
+      {/* Center links (desktop) — Services ▾ · Gallery · Cities ▾ · Blog · About */}
+      <ul className="hidden md:flex items-center gap-8 lg:gap-12 list-none m-0 p-0">
         <li className="flex items-center"><NavServicesMenu /></li>
         <li className="flex items-center"><Link href="/gallery" className={LINK_CLS}>Gallery</Link></li>
         <li className="flex items-center"><NavCitiesMenu /></li>
+        <li className="flex items-center"><Link href="/blog"    className={LINK_CLS}>Blog</Link></li>
         <li className="flex items-center"><Link href="/about"   className={LINK_CLS}>About</Link></li>
       </ul>
 

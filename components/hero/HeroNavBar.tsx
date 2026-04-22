@@ -40,15 +40,16 @@ export default function HeroNavBar() {
         </a>
       </div>
 
-      {/* Center — Links (desktop only) — Services ▾ · Gallery · Cities ▾ · About.
+      {/* Center — Links (desktop only) — Services ▾ · Gallery · Cities ▾ · Blog · About.
           Every <li> uses flex items-center so the dropdown triggers (which are
           inline-flex containers holding text + chevron SVG) align to the same
           vertical center as the plain anchors. Without this, the dropdowns'
           flex baseline sits ~1px higher than the plain links' text baseline. */}
-      <ul className="relative z-10 hidden md:flex items-center gap-10 lg:gap-14 list-none m-0 p-0">
+      <ul className="relative z-10 hidden md:flex items-center gap-8 lg:gap-12 list-none m-0 p-0">
         <li className="flex items-center"><NavServicesMenu /></li>
         <li className="flex items-center"><a href="/gallery" className={LINK_CLS}>Gallery</a></li>
         <li className="flex items-center"><NavCitiesMenu /></li>
+        <li className="flex items-center"><a href="/blog"    className={LINK_CLS}>Blog</a></li>
         <li className="flex items-center"><a href="/about"   className={LINK_CLS}>About</a></li>
       </ul>
 

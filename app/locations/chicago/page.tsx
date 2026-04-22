@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Chicago | Wild Posting IL",
+  title: "Wheat Pasting Chicago",
   description:
     "Wheat pasting and wild posting in Chicago. Large-format street posters across Wicker Park, Wrigleyville, Logan Square, and the Loop. Get a quote.",
   keywords: ["wheat pasting Chicago", "wild posting Chicago", "Chicago guerrilla marketing", "street advertising Chicago", "wheat paste posters IL"],
   alternates: { canonical: "https://www.phantompasting.com/locations/chicago" },
   openGraph: {
-    title: "Wheat Pasting Chicago | Wild Posting IL",
+    title: "Wheat Pasting Chicago",
     description: "Large-format wheat paste and wild posting campaigns across Chicago. Wicker Park, Logan Square, Wrigleyville.",
     url: "https://www.phantompasting.com/locations/chicago",
     images: [

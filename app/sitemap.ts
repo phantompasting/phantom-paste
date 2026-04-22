@@ -17,6 +17,7 @@ import type { MetadataRoute } from "next";
 import { execSync } from "child_process";
 import { existsSync, statSync } from "fs";
 import { join } from "path";
+import { PUBLISHED_POSTS } from "@/lib/blogRegistry";
 
 // Force static generation at BUILD time. Without this, Next.js 15 + the
 // Netlify plugin can wrap the sitemap as a serverless function per request —
@@ -76,9 +77,24 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/locations/atlanta",              file: "app/locations/atlanta/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
 
   // ── Blog (add posts here as they go live) ─────────────────────────────────
-  // { path: "/blog",                        file: "app/blog/page.tsx",                                    priority: 0.8,  changeFreq: "weekly"  },
-  // { path: "/blog/what-is-wheat-pasting",  file: "app/blog/what-is-wheat-pasting/page.tsx",              priority: 0.75, changeFreq: "monthly" },
-  // { path: "/blog/wheat-pasting-cost-guide", file: "app/blog/wheat-pasting-cost-guide/page.tsx",         priority: 0.75, changeFreq: "monthly" },
+  // Dynamic [slug] route — each post's lastmod comes from its /content/blog/<slug>.tsx
+  // file, so editing a post body naturally updates the sitemap on next build.
+  { path: "/blog",                                         file: "app/blog/page.tsx",                                       priority: 0.8,  changeFreq: "weekly"  },
+  { path: "/blog/how-to-make-wheat-paste",                 file: "content/blog/how-to-make-wheat-paste.tsx",                priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/is-wheat-pasting-legal",                  file: "content/blog/is-wheat-pasting-legal.tsx",                 priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-campaign",                  file: "content/blog/wheat-pasting-campaign.tsx",                 priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/wheat-paste-recipes",                     file: "content/blog/wheat-paste-recipes.tsx",                    priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/snipe-posters-vs-wheat-paste-vs-floor-decals", file: "content/blog/snipe-posters-vs-wheat-paste-vs-floor-decals.tsx", priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/street-postering-tools",                  file: "content/blog/street-postering-tools.tsx",                 priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/flyposting-explained",                    file: "content/blog/flyposting-explained.tsx",                   priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/what-is-wheat-pasting",                   file: "content/blog/what-is-wheat-pasting.tsx",                  priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-cost",                      file: "content/blog/wheat-pasting-cost.tsx",                     priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-vs-billboards",             file: "content/blog/wheat-pasting-vs-billboards.tsx",            priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-for-fashion-brands",        file: "content/blog/wheat-pasting-for-fashion-brands.tsx",       priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/guerrilla-marketing-for-music",           file: "content/blog/guerrilla-marketing-for-music.tsx",          priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-los-angeles",               file: "content/blog/wheat-pasting-los-angeles.tsx",              priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-new-york",                  file: "content/blog/wheat-pasting-new-york.tsx",                 priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-phoenix",                   file: "content/blog/wheat-pasting-phoenix.tsx",                  priority: 0.75, changeFreq: "monthly" },
 ];
 
 // ── lastmod helper ────────────────────────────────────────────────────────────
@@ -114,11 +130,26 @@ function getLastMod(relFile: string): Date {
 
 // ── Sitemap export ────────────────────────────────────────────────────────────
 
+// Slugs of posts currently shipped (status: "published"). Any ROUTES_META entry
+// whose path is `/blog/<slug>` where <slug> is NOT in this set is filtered out —
+// keeps drafts out of the public sitemap without requiring a manual sitemap edit
+// every time we flip a post's status.
+const PUBLISHED_BLOG_SLUGS = new Set(PUBLISHED_POSTS.map((p) => p.slug));
+
+function isLivePath(path: string): boolean {
+  const blogMatch = path.match(/^\/blog\/([^/]+)$/);
+  if (!blogMatch) return true; // non-blog routes always ship
+  const slug = blogMatch[1];
+  return slug ? PUBLISHED_BLOG_SLUGS.has(slug) : false;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES_META.map(({ path, file, priority, changeFreq }) => ({
-    url: `${BASE}${path}`,
-    lastModified: getLastMod(file),
-    changeFrequency: changeFreq,
-    priority,
-  }));
+  return ROUTES_META.filter(({ path }) => isLivePath(path)).map(
+    ({ path, file, priority, changeFreq }) => ({
+      url: `${BASE}${path}`,
+      lastModified: getLastMod(file),
+      changeFrequency: changeFreq,
+      priority,
+    })
+  );
 }

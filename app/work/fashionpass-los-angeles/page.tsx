@@ -11,7 +11,7 @@ import { articleSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/
 
 const PAGE_URL = `${BUSINESS.url}/work/fashionpass-los-angeles`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp`;
-const PAGE_TITLE = "FashionPass Wild Posting Campaign LA";
+const PAGE_TITLE = "FashionPass Wheat Pasting Campaign LA";
 const PAGE_DESC =
   "FashionPass wheat paste and wild posting campaign across Los Angeles. Large-format posters in Melrose, Silver Lake, and DTLA. Photo documented.";
 
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "FashionPass Wild Posting Campaign LA | Phantom Pasting",
+    title: "FashionPass Wheat Pasting Campaign LA | Phantom Pasting",
     description: "Large-format wheat paste campaign for FashionPass across Los Angeles. Melrose, Silver Lake, DTLA.",
     url: PAGE_URL,
     type: "article",

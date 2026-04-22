@@ -595,3 +595,99 @@ form textarea::placeholder {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Blog prose — long-form post body ─────────────────────────
+   Applied via .blog-prose on the <article> wrapper in BlogPostLayout.
+   Handles raw HTML elements (p, h2, h3, ul, ol, table, a, etc.) inside
+   /content/blog/*.tsx so post bodies stay focused on content, not styling. */
+.blog-prose {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.80);
+}
+.blog-prose > * + * { margin-top: 1.25rem; }
+.blog-prose p { margin: 0; }
+.blog-prose strong { font-weight: 700; color: #1A1A1A; }
+.blog-prose em { font-style: italic; }
+
+.blog-prose h2 {
+  font-family: inherit;
+  font-weight: 900;
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.blog-prose h3 {
+  font-weight: 900;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #1A1A1A;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-prose a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 1px;
+  transition: background-color 0.2s;
+}
+.blog-prose a:hover {
+  background-color: rgba(212, 160, 16, 0.12);
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+.blog-prose ul { list-style: disc; }
+.blog-prose ol { list-style: decimal; }
+.blog-prose li + li { margin-top: 0.5rem; }
+.blog-prose li::marker { color: var(--accent); }
+
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  overflow-x: auto;
+  display: block;
+}
+.blog-prose thead {
+  background: rgba(26,26,26,0.92);
+  color: #FFF;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 700;
+}
+.blog-prose th,
+.blog-prose td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.blog-prose tbody tr:hover { background: rgba(212,160,16,0.04); }
+
+.blog-prose code {
+  background: rgba(0,0,0,0.06);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: "Menlo", "Monaco", monospace;
+}
+
+.blog-prose hr {
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.10);
+  margin: 2.5rem 0;
+}

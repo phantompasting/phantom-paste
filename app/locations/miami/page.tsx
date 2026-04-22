@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Miami | Wild Posting FL",
+  title: "Wheat Pasting Miami",
   description:
     "Wheat pasting and wild posting in Miami. Large-format street posters across Wynwood, South Beach, Brickell, and the Design District. Get a quote.",
   keywords: ["wheat pasting Miami", "wild posting Miami", "Miami guerrilla marketing", "street advertising Miami", "Wynwood wild posting"],
   alternates: { canonical: "https://www.phantompasting.com/locations/miami" },
   openGraph: {
-    title: "Wheat Pasting Miami | Wild Posting FL",
+    title: "Wheat Pasting Miami",
     description: "Large-format wheat paste and wild posting campaigns across Miami. Wynwood, South Beach, Brickell, Design District.",
     url: "https://www.phantompasting.com/locations/miami",
     images: [

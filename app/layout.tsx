@@ -24,7 +24,7 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
-const DEFAULT_TITLE = "Wheat Pasting & Wild Posting Company | Phantom Pasting";
+const DEFAULT_TITLE = "Wheat Pasting Company | Phantom Pasting";
 const DEFAULT_DESC =
   "The #1 guerrilla marketing agency for wheat pasting and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% photo-documented. Get a quote.";
 

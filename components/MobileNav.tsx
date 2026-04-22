@@ -5,9 +5,17 @@ import { BUSINESS } from "@/lib/business";
 
 const ACCENT = "#D4A010";
 
-const TOP_LINKS = [
+// ── Mobile menu order ────────────────────────────────────────────────────────
+// Requested order: Services · Gallery · Cities · Blog · About · (Get a Quote)
+// Services + Cities are accordions rendered inline below; the two flat link
+// groups wrap around the Cities accordion so the top-to-bottom sequence reads:
+//   Services(accordion) → Gallery → Cities(accordion) → Blog → About
+const LINKS_BEFORE_CITIES = [
   { label: "Gallery", href: "/gallery" },
-  { label: "About",   href: "/about" },
+] as const;
+const LINKS_AFTER_CITIES = [
+  { label: "Blog",  href: "/blog" },
+  { label: "About", href: "/about" },
 ] as const;
 
 const SERVICES = [
@@ -79,24 +87,6 @@ export default function MobileNav() {
           }}
         >
           <ul className="list-none m-0 p-0 flex flex-col">
-            {/* Click-to-call — top slot for max mobile conversion */}
-            <li>
-              <a
-                href={BUSINESS.telHref}
-                onClick={close}
-                aria-label={`Call Phantom Pasting at ${BUSINESS.telephoneDisplay}`}
-                className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.2em] uppercase no-underline py-2.5 px-4 rounded-xl"
-                style={{ color: "#1A1A1A" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(212,160,16,0.08)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden style={{ color: ACCENT }}>
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                <span>Call {BUSINESS.telephoneDisplay}</span>
-              </a>
-            </li>
-
             {/* Services accordion */}
             <li>
               <button
@@ -133,8 +123,8 @@ export default function MobileNav() {
               )}
             </li>
 
-            {/* Regular links */}
-            {TOP_LINKS.map(({ label, href }) => (
+            {/* Gallery (between Services and Cities) */}
+            {LINKS_BEFORE_CITIES.map(({ label, href }) => (
               <li key={label}>
                 <a
                   href={href}
@@ -186,9 +176,27 @@ export default function MobileNav() {
                 </ul>
               )}
             </li>
+
+            {/* Blog + About (after Cities) */}
+            {LINKS_AFTER_CITIES.map(({ label, href }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  onClick={close}
+                  className="block font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-2.5 px-4 rounded-xl"
+                  style={{ color: "rgba(0,0,0,0.65)" }}
+                  onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          {/* Get a Quote CTA */}
+          {/* Get a Quote CTA + compact click-to-call below
+              (smaller type + tighter tracking so the full number fits without
+              wrapping on narrow dropdowns). */}
           <div className="mx-2 mt-2 pt-2" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
             <a
               href="/contact"
@@ -201,6 +209,23 @@ export default function MobileNav() {
               }}
             >
               Get a Quote
+            </a>
+            <a
+              href={BUSINESS.telHref}
+              onClick={close}
+              aria-label={`Call Phantom Pasting at ${BUSINESS.telephoneDisplay}`}
+              className="flex items-center justify-center gap-1.5 font-mono uppercase no-underline mt-2 py-1.5"
+              style={{
+                fontSize: "9.5px",
+                letterSpacing: "0.14em",
+                color: "rgba(0,0,0,0.72)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden style={{ color: ACCENT, flexShrink: 0 }}>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Call {BUSINESS.telephoneDisplay}</span>
             </a>
           </div>
         </div>

@@ -14,12 +14,12 @@ import {
 import { HOMEPAGE_FAQS } from "@/lib/homepageFAQs";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting & Wild Posting Agency | Phantom Pasting" },
+  title: { absolute: "Wheat Pasting Agency | Phantom Pasting" },
   description:
     "Wheat pasting, wild posting & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
   alternates: { canonical: BUSINESS.url },
   openGraph: {
-    title: "Wheat Pasting & Wild Posting Agency | Phantom Pasting",
+    title: "Wheat Pasting Agency | Phantom Pasting",
     description:
       "Wheat pasting, wild posting & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
     url: BUSINESS.url,

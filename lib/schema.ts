@@ -125,7 +125,13 @@ export function faqPageSchema(qas: ReadonlyArray<{ q: string; a: string }>) {
   };
 }
 
-/** Article schema — for long-form content pages with a byline + datePublished. */
+/**
+ * Article schema — for long-form content pages with a byline + datePublished.
+ *
+ * Accepts an optional `author` Person schema object (see `mateoVargasPerson()`
+ * in `/lib/blogAuthor.ts`). When omitted, the Organization is the byline —
+ * appropriate for service pages. Blog posts pass a Person for richer EEAT.
+ */
 export function articleSchema(opts: {
   headline: string;
   description: string;
@@ -133,6 +139,7 @@ export function articleSchema(opts: {
   image: string;        // absolute URL
   datePublished: string;
   dateModified: string;
+  author?: Record<string, unknown>; // Person schema (from blogAuthor.ts) or undefined → Org byline
 }) {
   return {
     "@context": "https://schema.org",
@@ -147,7 +154,7 @@ export function articleSchema(opts: {
       width: 1200,
       height: 630,
     },
-    author: { "@id": ORG_ID },
+    author: opts.author ?? { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
