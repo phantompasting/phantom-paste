@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -170,7 +170,7 @@ export default function Post() {
       <h2>Cost vs. Billboards, Digital OOH, and Social</h2>
       <p>
         For the full side-by-side breakdown against other out-of-home formats, see{" "}
-        <Link href="/blog/wheat-pasting-vs-billboards">wheat pasting vs. billboards</Link>.
+        <BlogLink slug="wheat-pasting-vs-billboards">wheat pasting vs. billboards</BlogLink>.
       </p>
       <p>
         Short version: wheat paste runs $0.10–$0.30 CPM in-person, which is 25–80× cheaper than

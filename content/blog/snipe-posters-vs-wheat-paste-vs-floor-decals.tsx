@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -44,8 +44,8 @@ export default function Post() {
         major music labels default to for exactly that reason.
       </p>
       <p>
-        The <Link href="/blog/how-to-make-wheat-paste">actual recipe</Link> and{" "}
-        <Link href="/blog/wheat-pasting-campaign">campaign mechanics</Link> are detailed
+        The <BlogLink slug="how-to-make-wheat-paste">actual recipe</BlogLink> and{" "}
+        <BlogLink slug="wheat-pasting-campaign">campaign mechanics</BlogLink> are detailed
         separately — both assume you&apos;ve already chosen wheat paste as the format.
       </p>
 

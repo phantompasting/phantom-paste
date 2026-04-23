@@ -10,18 +10,18 @@ import { BUSINESS } from "@/lib/business";
 import { articleSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/fashionpass-los-angeles`;
-const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp`;
+const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp`;
 const PAGE_TITLE = "FashionPass Wheat Pasting Campaign LA";
 const PAGE_DESC =
-  "FashionPass wheat paste and wild posting campaign across Los Angeles. Large-format posters in Melrose, Silver Lake, and DTLA. Photo documented.";
+  "FashionPass wheat paste poster campaign across Los Angeles. Large-format posters in Melrose, Silver Lake, and DTLA. Photo documented.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
   keywords: [
-    "FashionPass wild posting",
+    "FashionPass poster campaign",
     "wheat pasting Los Angeles",
-    "wild posting LA",
+    "street postering LA",
     "fashion brand street marketing",
     "Los Angeles guerrilla marketing",
   ],
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     description: "Large-format wheat paste campaign for FashionPass across Los Angeles. Melrose, Silver Lake, DTLA.",
     url: PAGE_URL,
     type: "article",
-    images: [{ url: PAGE_OG, width: 1200, height: 630, alt: "FashionPass wild posting campaign wall in Los Angeles" }],
+    images: [{ url: PAGE_OG, width: 1200, height: 630, alt: "FashionPass wheat paste poster campaign wall in Los Angeles" }],
   },
 };
 
 const ACCENT = "#D4A010";
 
 const IMAGES = [
-  { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", alt: "FashionPass wild posting wall in Los Angeles" },
+  { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", alt: "FashionPass wheat paste poster campaign wall in Los Angeles" },
   { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp", alt: "FashionPass wheat paste street art wall LA" },
   { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp", alt: "FashionPass wheat paste campaign poster wall" },
 ];
@@ -51,7 +51,7 @@ export default function FashionPassCaseStudy() {
         dangerouslySetInnerHTML={{
           __html: jsonLd(
             articleSchema({
-              headline: "FashionPass Wild Posting Campaign — Los Angeles",
+              headline: "FashionPass — Wheat Paste Poster Campaign in Los Angeles",
               description: "Large-format wheat paste campaign for FashionPass across prime walls in Los Angeles.",
               url: PAGE_URL,
               image: PAGE_OG,
@@ -201,7 +201,7 @@ export default function FashionPassCaseStudy() {
                 large-format visual impact that gets photographed and shared — turning city walls
                 into organic social content. The brand had already saturated paid social and
                 influencer channels; what they hadn&apos;t done was show up in the physical streets
-                their customers actually occupy. We pitched wild posting as a flanking move — a way
+                their customers actually occupy. We pitched a wheat paste poster campaign as a flanking move — a way
                 to plant a flag in Melrose, Silver Lake, and DTLA and let the city do the talking.
                 The creative needed to feel less like an ad and more like a piece of the street.
               </p>
@@ -331,7 +331,7 @@ export default function FashionPassCaseStudy() {
           </div>
         </section>
 
-        {/* ── Why Wild Posting for Fashion ──────────────────────── */}
+        {/* ── Why Wheat Pasting Wins for Fashion Brands ─────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-16 md:pb-24">
           <div className="max-w-[1000px] mx-auto">
             <div className="mb-10 md:mb-12 text-center">
@@ -353,7 +353,7 @@ export default function FashionPassCaseStudy() {
                 },
                 {
                   h: "Organic Social Amplification",
-                  b: "Digital ads are taxed by platforms, ad blockers, and banner blindness. Wild posting campaigns get tagged, geotagged, and reposted by the exact creators brands pay to reach. FashionPass walls generated earned content from stylists and photographers who were never on the media plan.",
+                  b: "Digital ads are taxed by platforms, ad blockers, and banner blindness. Street poster campaigns get tagged, geotagged, and reposted by the exact creators brands pay to reach. FashionPass walls generated earned content from stylists and photographers who were never on the media plan.",
                 },
                 {
                   h: "Cultural Credibility",
@@ -439,7 +439,7 @@ export default function FashionPassCaseStudy() {
               </h2>
               <p className="font-light leading-relaxed mt-5"
                 style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "680px" }}>
-                We&apos;ve been running wild posting campaigns for brands since 2018, and the
+                We&apos;ve been running wheat paste poster campaigns for brands since 2018, and the
                 biggest complaint we hear from clients about previous vendors is the same
                 every time: they paid for walls they never saw. Our standard deliverable
                 package solves that. Every FashionPass wall in this campaign was GPS-logged,
@@ -490,7 +490,7 @@ export default function FashionPassCaseStudy() {
             <div className="flex flex-col gap-3">
               {[
                 { q: "How long do wheat paste posters stay up in Los Angeles?", a: "LA&apos;s dry climate is generous — most paste-ups hold for 14-21 days before sun-fade or tear-down. Coastal neighborhoods like Venice see shorter life from humidity; inland walls like DTLA often run longer." },
-                { q: "What makes wild posting a fit for fashion brands specifically?", a: "Fashion buyers are visual-first and neighborhood-loyal. Wild posting lets a brand show up physically in the streets where its buyers already shop, eat, and shoot content — earning credibility no feed ad can buy." },
+                { q: "What makes wheat pasting a fit for fashion brands specifically?", a: "Fashion buyers are visual-first and neighborhood-loyal. Wheat paste poster campaigns let a brand show up physically in the streets where its buyers already shop, eat, and shoot content — earning credibility no feed ad can buy." },
                 { q: "Do you handle permits and legal wall sourcing?", a: "Yes. Every FashionPass installation in this campaign was on a permitted or property-owner-authorized wall. We maintain an active inventory of approved wall partners across LA, NY, Atlanta, Chicago, and Miami." },
                 { q: "What neighborhoods in LA do you recommend for fashion campaigns?", a: "Melrose, Silver Lake, Abbot Kinney, Echo Park, and the Arts District in DTLA are our top-five for fashion. We match the neighborhood to the brand&apos;s target buyer — streetwear looks different from luxury resale, and we build plans accordingly." },
                 { q: "Can I get photo documentation for my brand&apos;s decks?", a: "Every campaign includes nighttime install documentation plus daylight hero shots within 48 hours. Files are delivered in high-res raw and web-ready formats, cleared for commercial use in pitch decks and social content." },

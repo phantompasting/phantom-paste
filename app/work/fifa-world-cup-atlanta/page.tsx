@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   keywords: [
     "FIFA World Cup street marketing",
     "wheat pasting Atlanta",
-    "wild posting Atlanta",
+    "poster campaign Atlanta",
     "sports event guerrilla marketing",
     "Atlanta street advertising",
   ],
@@ -55,7 +55,7 @@ export default function FIFACaseStudy() {
           __html: jsonLd(
             articleSchema({
               headline: "FIFA World Cup Street Campaign — Atlanta",
-              description: "Large-format wheat paste and wild posting campaign for FIFA World Cup across prime walls in Atlanta.",
+              description: "Large-format wheat paste poster campaign for FIFA World Cup across prime walls in Atlanta.",
               url: PAGE_URL,
               image: PAGE_OG,
               datePublished: "2026-01-20",
@@ -111,7 +111,7 @@ export default function FIFACaseStudy() {
             </h1>
             <p className="font-light leading-relaxed mt-8 mb-10 mx-auto"
               style={{ fontSize: "clamp(17px, 1.5vw, 20px)", color: "rgba(0,0,0,0.55)", maxWidth: "680px" }}>
-              Massive wheat paste and wild posting campaign across Atlanta for the
+              Massive wheat paste poster campaign across Atlanta for the
               FIFA World Cup. Multi-wall installations in high-traffic zones —
               creating an inescapable street presence for the world&apos;s biggest
               sporting event.
@@ -206,8 +206,8 @@ export default function FIFACaseStudy() {
                 atmosphere across the city&apos;s most walkable neighborhoods. Broadcast
                 spend and stadium-side OOH were already locked in; what the campaign
                 was missing was the connective tissue between venues — the streets,
-                corners, and bar districts where fans actually gather. Wild posting
-                was how we closed that gap and turned Atlanta itself into a co-host
+                corners, and bar districts where fans actually gather. A city-wide
+                wheat paste poster campaign closed that gap and turned Atlanta itself into a co-host
                 for the tournament.
               </p>
             </div>
@@ -251,7 +251,7 @@ export default function FIFACaseStudy() {
               <p className="font-light leading-relaxed mx-auto mt-5"
                 style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "680px" }}>
                 Host-city campaigns live or die on timing. Our Atlanta lead has run
-                event-driven wild posting for five World Cup, Super Bowl, and NCAA
+                event-driven poster campaigns for five World Cup, Super Bowl, and NCAA
                 Final Four rollouts — so the FIFA plan wasn&apos;t a first attempt. Every
                 wall was sequenced against the tournament calendar, fan migration
                 patterns, and the city&apos;s existing event infrastructure.
@@ -306,7 +306,7 @@ export default function FIFACaseStudy() {
                 {
                   name: "LITTLE FIVE POINTS",
                   tag: "Nightlife + Watch Party Density",
-                  body: "L5P&apos;s Euclid Avenue strip is where Atlanta&apos;s alternative nightlife and watch-party crowd concentrates. Wild posting hits a crowd that doesn&apos;t watch linear TV and skips streaming ads — but will photograph a wall on the way to a bar. Our installs clustered around Vortex, Star Bar, and the 529 corridor.",
+                  body: "L5P&apos;s Euclid Avenue strip is where Atlanta&apos;s alternative nightlife and watch-party crowd concentrates. Street postering hits a crowd that doesn&apos;t watch linear TV and skips streaming ads — but will photograph a wall on the way to a bar. Our installs clustered around Vortex, Star Bar, and the 529 corridor.",
                 },
                 {
                   name: "BUCKHEAD &amp; WEST",
@@ -332,7 +332,7 @@ export default function FIFACaseStudy() {
           </div>
         </section>
 
-        {/* ── Why Wild Posting for Sports ───────────────────────── */}
+        {/* ── Why Wheat Pasting Wins for Major Sports Events ────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-16 md:pb-24">
           <div className="max-w-[1000px] mx-auto">
             <div className="mb-10 md:mb-12 text-center">
@@ -350,7 +350,7 @@ export default function FIFACaseStudy() {
               {[
                 {
                   h: "Streets Are the Second Venue",
-                  b: "For major sporting events, the stadium is only half the story. Fans arrive, drink, eat, and post from the surrounding neighborhoods for hours before and after each match. Wild posting reaches them exactly in those windows — outside the building, inside the moment.",
+                  b: "For major sporting events, the stadium is only half the story. Fans arrive, drink, eat, and post from the surrounding neighborhoods for hours before and after each match. Wheat paste poster campaigns reach them exactly in those windows — outside the building, inside the moment.",
                 },
                 {
                   h: "Immune to Ad Fatigue",
@@ -358,7 +358,7 @@ export default function FIFACaseStudy() {
                 },
                 {
                   h: "Time-Stamped Scarcity",
-                  b: "Event wild posting is inherently event-locked. Walls that exist only during the tournament carry a sense of scarcity that drives fans to photograph and share while the campaign is live — the same behavioral trigger that makes limited drops work in streetwear.",
+                  b: "Event-driven street postering is inherently event-locked. Walls that exist only during the tournament carry a sense of scarcity that drives fans to photograph and share while the campaign is live — the same behavioral trigger that makes limited drops work in streetwear.",
                 },
                 {
                   h: "Neighborhood-Native Signal",
@@ -487,7 +487,7 @@ export default function FIFACaseStudy() {
             </div>
             <div className="flex flex-col gap-3">
               {[
-                { q: "How far ahead of an event should a wild posting campaign launch?", a: "For major tournaments and host-city moments, we recommend a 3-week pre-event run, with a booster install wave 3-5 days before the marquee match. That window gives the city time to notice, photograph, and share without exhausting the visual before game day." },
+                { q: "How far ahead of an event should a wheat paste poster campaign launch?", a: "For major tournaments and host-city moments, we recommend a 3-week pre-event run, with a booster install wave 3-5 days before the marquee match. That window gives the city time to notice, photograph, and share without exhausting the visual before game day." },
                 { q: "Do you handle permits and legal wall sourcing in Atlanta?", a: "Yes. Our Atlanta wall inventory is built on property-owner relationships going back to 2019. Every wall in the FIFA plan was permitted or owner-authorized, and permit references were shared with FIFA&apos;s legal team ahead of install." },
                 { q: "What Atlanta neighborhoods work best for event campaigns?", a: "For stadium-adjacent events, Midtown, Little Five Points, Buckhead, and West Midtown cover the walkable density and fan-migration routes. For non-stadium events we shift toward East Atlanta, Old Fourth Ward, and Castleberry Hill based on the audience." },
                 { q: "How do you handle rain and weather in Atlanta summers?", a: "We use extra-pigment ink loads and heavier blueback stock for summer campaigns. Walls that take weather damage inside the campaign window get replaced at no charge — Atlanta humidity is the main reason that clause exists in our SOW." },

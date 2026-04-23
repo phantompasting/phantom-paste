@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 /**
@@ -74,7 +74,7 @@ export default function Post() {
       </p>
       <p>
         The paste itself is a separate science — see{" "}
-        <Link href="/blog/how-to-make-wheat-paste">how to make wheat paste</Link> for the full mix
+        <BlogLink slug="how-to-make-wheat-paste">how to make wheat paste</BlogLink> for the full mix
         breakdown.
       </p>
 
@@ -85,7 +85,7 @@ export default function Post() {
         <li>Batches by neighborhood (Melrose walls together, DTLA walls together) to minimize drive time</li>
         <li>
           Avoids known surveillance-heavy blocks (government buildings, banks) — not for legality
-          reasons (<Link href="/blog/is-wheat-pasting-legal">we&apos;re authorized</Link>) but to avoid
+          reasons (<BlogLink slug="is-wheat-pasting-legal">we&apos;re authorized</BlogLink>) but to avoid
           unnecessary delays
         </li>
         <li>Ends near a car wash or home base for bucket rinse-down</li>

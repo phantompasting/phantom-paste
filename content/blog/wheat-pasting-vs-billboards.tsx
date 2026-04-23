@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -27,7 +27,7 @@ export default function Post() {
         <strong>Wheat paste</strong> campaigns are wall-based paper poster installations on
         authorized private walls in dense urban neighborhoods. Bought directly through specialty
         agencies at $3,500–$7,500 per city for a 150–250 poster rollout. See{" "}
-        <Link href="/blog/wheat-pasting-cost">wheat pasting cost breakdown</Link> for the full
+        <BlogLink slug="wheat-pasting-cost">wheat pasting cost breakdown</BlogLink> for the full
         pricing model.
       </p>
 
@@ -171,9 +171,9 @@ export default function Post() {
       <p>
         If the answer is yes to both, use both — wheat paste for the cultural moment, billboards
         for the scale. For a full format picker including snipes and floor decals,{" "}
-        <Link href="/blog/snipe-posters-vs-wheat-paste-vs-floor-decals">
+        <BlogLink slug="snipe-posters-vs-wheat-paste-vs-floor-decals">
           see the three-format guide
-        </Link>.
+        </BlogLink>.
       </p>
     </>
   );

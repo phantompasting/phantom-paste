@@ -4,19 +4,19 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 export const metadata: Metadata = {
   title: "Wheat Pasting Los Angeles",
   description:
-    "Wheat pasting and wild posting in Los Angeles. Large-format street posters across Melrose, Silver Lake, Fairfax, and DTLA. 100% documented. Get a quote.",
-  keywords: ["wheat pasting Los Angeles", "wild posting LA", "Los Angeles guerrilla marketing", "street advertising LA", "wheat paste posters LA"],
+    "Wheat pasting in Los Angeles — poster campaigns across Melrose, Silver Lake, Fairfax, and DTLA. Large-format street posters. 100% documented. Get a quote.",
+  keywords: ["wheat pasting Los Angeles", "LA poster campaigns", "Los Angeles guerrilla marketing", "street postering LA", "wheat paste posters LA"],
   alternates: { canonical: "https://www.phantompasting.com/locations/los-angeles" },
   openGraph: {
     title: "Wheat Pasting Los Angeles",
-    description: "Large-format wheat paste and wild posting campaigns across Los Angeles. Melrose, Silver Lake, Fairfax, DTLA.",
+    description: "Large-format wheat paste poster campaigns across Los Angeles. Melrose, Silver Lake, Fairfax, DTLA.",
     url: "https://www.phantompasting.com/locations/los-angeles",
     images: [
       {
-        url: "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+        url: "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
         width: 1200,
         height: 630,
-        alt: "Wheat paste wild posting wall campaign in Los Angeles",
+        alt: "Wheat paste poster campaign wall in Los Angeles",
       },
     ],
   },
@@ -38,13 +38,13 @@ const data: CityPageData = {
     { name: "Venice / Abbot Kinney", desc: "Beach-adjacent foot traffic. Tourists and locals mix along one of LA's most walkable strips." },
     { name: "Echo Park", desc: "Indie music and art scene. Tight community, high engagement, and walls that get noticed." },
   ],
-  heroImage1: { src: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp", alt: "FashionPass wild posting wall in Los Angeles" },
+  heroImage1: { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", alt: "FashionPass wheat paste poster campaign wall in Los Angeles" },
   heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp", alt: "Wheat paste street view in Los Angeles" },
   localBusiness: {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Phantom Pasting — Los Angeles",
-    description: "Wheat pasting and wild posting services in Los Angeles, CA. Large-format street poster campaigns across Melrose, Silver Lake, Fairfax, and DTLA.",
+    description: "Wheat pasting and poster campaign services in Los Angeles, CA. Large-format street postering across Melrose, Silver Lake, Fairfax, and DTLA.",
     url: "https://www.phantompasting.com/locations/los-angeles",
     areaServed: { "@type": "City", name: "Los Angeles", addressRegion: "CA" },
     parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },

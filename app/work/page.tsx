@@ -12,7 +12,7 @@ import { collectionPageSchema, localBusinessSchema, breadcrumbSchema, jsonLd } f
 const PAGE_URL = `${BUSINESS.url}/work`;
 const PAGE_TITLE = "Guerrilla Marketing Case Studies";
 const PAGE_DESC =
-  "Real guerrilla marketing campaigns — FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Wheat pasting and wild posting case studies, fully photo-documented.";
+  "Real guerrilla marketing campaigns — FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Wheat pasting and poster campaign case studies, fully photo-documented.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -43,8 +43,8 @@ const CASE_STUDIES = [
     city: "Los Angeles, CA",
     format: "Wheat Pasting",
     href: "/work/fashionpass-los-angeles",
-    image: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
-    alt: "FashionPass wild posting wall in Los Angeles",
+    image: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
+    alt: "FashionPass wheat paste poster campaign wall in Los Angeles",
   },
   {
     client: "FIFA World Cup",
@@ -231,9 +231,9 @@ export default function WorkPage() {
                 <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
                   style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
-                  <Image src="/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp"
+                  <Image src="/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp"
                     alt="FashionPass case study wall" fill style={{ objectFit: "cover" }}
-                    sizes="40vw" priority />
+                    sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
                 </div>
                 <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
                   style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",

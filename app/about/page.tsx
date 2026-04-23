@@ -12,7 +12,7 @@ import { webPageSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/
 const PAGE_URL = `${BUSINESS.url}/about`;
 const PAGE_TITLE = "About — Guerrilla Marketing Since 2014";
 const PAGE_DESC =
-  "Guerrilla marketing agency founded in 2014. 500+ campaigns across 50+ US cities. Wheat pasting, wild posting, and chalk stencil activations nationwide.";
+  "Wheat pasting company founded in 2014. 500+ campaigns across 50+ US cities. Nationwide poster campaigns, street postering, and chalk stencil activations.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "about phantom pasting",
     "guerrilla marketing agency",
     "wheat pasting company",
-    "wild posting agency",
+    "street postering agency",
     "street marketing company",
     "founded 2014",
     "US street advertising agency",
@@ -113,7 +113,7 @@ export default function AboutPage() {
                   style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
                   Phantom Pasting is a guerrilla marketing agency founded in 2014.{" "}
                   <Link href="/services/wheat-pasting" style={{ color: "rgba(0,0,0,0.72)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>Wheat pasting</Link>,
-                  wild posting, and{" "}
+                  street postering, and{" "}
                   <Link href="/services/chalk-spray-stencils" style={{ color: "rgba(0,0,0,0.72)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>chalk spray stencils</Link>{" "}
                   across{" "}
                   <Link href="/locations" style={{ color: "rgba(0,0,0,0.72)", textDecoration: "underline", textDecorationColor: ACCENT, textUnderlineOffset: "3px" }}>every major US city</Link>.
@@ -171,23 +171,28 @@ export default function AboutPage() {
                 <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
                   style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
+                  {/* Wrapper above is `hidden lg:block`. Mobile never sees this image,
+                      but `priority` preloads regardless of CSS visibility — was wasting
+                      ~300KB of mobile bandwidth on every load. */}
                   <Image
-                    src="/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp"
+                    src="/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp"
                     alt="Phantom Pasting wheat paste campaign wall"
-                    fill style={{ objectFit: "cover" }} sizes="40vw" priority
+                    fill style={{ objectFit: "cover" }}
+                    sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy"
                   />
                 </div>
 
                 <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
                   style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
                     boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
-                  {/* Second hero image is above-the-fold on desktop (split hero
-                      grid). Without `priority` it loaded late and could become
-                      the LCP element on wide viewports. */}
+                  {/* Hidden on mobile (hidden lg:block) — let lazy loading handle it
+                      on desktop; the H1 text paints first anyway, so the LCP impact
+                      of dropping priority is negligible. */}
                   <Image
                     src="/gallery/fifa-world-cup-atlanta-wall-installation.webp"
                     alt="FIFA World Cup street campaign in Atlanta"
-                    fill style={{ objectFit: "cover" }} sizes="25vw" priority
+                    fill style={{ objectFit: "cover" }}
+                    sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy"
                   />
                 </div>
 
@@ -227,7 +232,7 @@ export default function AboutPage() {
               WHAT IS GUERRILLA <ShinyGoldText>MARKETING?</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "680px" }}>
-              Guerrilla marketing is unconventional, street-level advertising that uses physical media to create brand presence in the real world. Unlike digital ads that are skipped, blocked, or scrolled past, guerrilla campaigns — wheat pasting, chalk stencils, wild posting — exist in the physical environment where they demand attention through sheer visibility.
+              Guerrilla marketing is unconventional, street-level advertising that uses physical media to create brand presence in the real world. Unlike digital ads that are skipped, blocked, or scrolled past, guerrilla campaigns — wheat pasting, chalk stencils, street postering — exist in the physical environment where they demand attention through sheer visibility.
             </p>
           </div>
         </section>

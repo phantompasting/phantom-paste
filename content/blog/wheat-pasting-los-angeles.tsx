@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -126,8 +126,8 @@ export default function Post() {
         </tbody>
       </table>
       <p>
-        For general cost drivers, see <Link href="/blog/wheat-pasting-cost">wheat pasting cost
-        breakdown</Link>.
+        For general cost drivers, see <BlogLink slug="wheat-pasting-cost">wheat pasting cost
+        breakdown</BlogLink>.
       </p>
 
       <h2>Installer&apos;s Perspective — Water and the Warehouse</h2>
@@ -159,8 +159,8 @@ export default function Post() {
         <li>Scaffold wraps require DBS permits and insurance certs — 2-4 week lead time</li>
       </ul>
       <p>
-        For the full legal picture, see <Link href="/blog/is-wheat-pasting-legal">is wheat pasting
-        legal</Link>.
+        For the full legal picture, see <BlogLink slug="is-wheat-pasting-legal">is wheat pasting
+        legal</BlogLink>.
       </p>
 
       <h2>LA Wall Types and Paste Behavior</h2>
@@ -214,9 +214,9 @@ export default function Post() {
       <p>
         We&apos;ve run 200+ LA campaigns across every neighborhood mapped above. For the
         operational breakdown, see{" "}
-        <Link href="/blog/wheat-pasting-campaign">
+        <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight
-        </Link>.
+        </BlogLink>.
       </p>
     </>
   );

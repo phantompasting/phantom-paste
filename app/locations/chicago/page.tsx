@@ -4,12 +4,12 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 export const metadata: Metadata = {
   title: "Wheat Pasting Chicago",
   description:
-    "Wheat pasting and wild posting in Chicago. Large-format street posters across Wicker Park, Wrigleyville, Logan Square, and the Loop. Get a quote.",
-  keywords: ["wheat pasting Chicago", "wild posting Chicago", "Chicago guerrilla marketing", "street advertising Chicago", "wheat paste posters IL"],
+    "Wheat pasting in Chicago — poster campaigns across Wicker Park, Wrigleyville, Logan Square, and the Loop. Large-format street posters. Get a quote.",
+  keywords: ["wheat pasting Chicago", "Chicago poster campaigns", "Chicago guerrilla marketing", "street postering Chicago", "wheat paste posters IL"],
   alternates: { canonical: "https://www.phantompasting.com/locations/chicago" },
   openGraph: {
     title: "Wheat Pasting Chicago",
-    description: "Large-format wheat paste and wild posting campaigns across Chicago. Wicker Park, Logan Square, Wrigleyville.",
+    description: "Large-format wheat paste poster campaigns across Chicago. Wicker Park, Logan Square, Wrigleyville.",
     url: "https://www.phantompasting.com/locations/chicago",
     images: [
       {
@@ -44,7 +44,7 @@ const data: CityPageData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Phantom Pasting — Chicago",
-    description: "Wheat pasting and wild posting services in Chicago, IL. Street poster campaigns across Wicker Park, Logan Square, Wrigleyville, and the Loop.",
+    description: "Wheat pasting and poster campaign services in Chicago, IL. Street postering across Wicker Park, Logan Square, Wrigleyville, and the Loop.",
     url: "https://www.phantompasting.com/locations/chicago",
     areaServed: { "@type": "City", name: "Chicago", addressRegion: "IL" },
     parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 /**
@@ -144,7 +144,7 @@ export default function Post() {
       </ol>
       <p>
         For a full walk-through of how our crews execute,{" "}
-        <Link href="/blog/wheat-pasting-campaign">see how a campaign actually works</Link>.
+        <BlogLink slug="wheat-pasting-campaign">see how a campaign actually works</BlogLink>.
       </p>
 
       <h2>Is Wheat Pasting Ever Prosecuted?</h2>
@@ -171,7 +171,7 @@ export default function Post() {
 
       <p>
         Curious how crews actually prep paste in the first place? Our{" "}
-        <Link href="/blog/how-to-make-wheat-paste">full paste recipe breakdown</Link> walks through
+        <BlogLink slug="how-to-make-wheat-paste">full paste recipe breakdown</BlogLink> walks through
         the mix, cook, and cool-down.
       </p>
     </>

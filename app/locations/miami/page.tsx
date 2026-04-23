@@ -4,12 +4,12 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 export const metadata: Metadata = {
   title: "Wheat Pasting Miami",
   description:
-    "Wheat pasting and wild posting in Miami. Large-format street posters across Wynwood, South Beach, Brickell, and the Design District. Get a quote.",
-  keywords: ["wheat pasting Miami", "wild posting Miami", "Miami guerrilla marketing", "street advertising Miami", "Wynwood wild posting"],
+    "Wheat pasting in Miami — poster campaigns across Wynwood, South Beach, Brickell, and the Design District. Large-format street posters. Get a quote.",
+  keywords: ["wheat pasting Miami", "Miami poster campaigns", "Miami guerrilla marketing", "street postering Miami", "Wynwood poster campaign"],
   alternates: { canonical: "https://www.phantompasting.com/locations/miami" },
   openGraph: {
     title: "Wheat Pasting Miami",
-    description: "Large-format wheat paste and wild posting campaigns across Miami. Wynwood, South Beach, Brickell, Design District.",
+    description: "Large-format wheat paste poster campaigns across Miami. Wynwood, South Beach, Brickell, Design District.",
     url: "https://www.phantompasting.com/locations/miami",
     images: [
       {
@@ -27,7 +27,7 @@ const data: CityPageData = {
   state: "FL",
   slug: "miami",
   heroWord: "MIAMI",
-  intro: "Miami's outdoor culture, year-round foot traffic, and world-famous art scene make it one of the best cities in the US for street marketing. We deploy across Wynwood, South Beach, Brickell, and the Design District. Phantom Pasting has run wheat paste and wild posting campaigns for brands and artists across Miami's most visible neighborhoods.",
+  intro: "Miami's outdoor culture, year-round foot traffic, and world-famous art scene make it one of the best cities in the US for street marketing. We deploy across Wynwood, South Beach, Brickell, and the Design District. Phantom Pasting has run wheat paste and poster campaigns for brands and artists across Miami's most visible neighborhoods.",
   whyTitle: "MIAMI IS\nALWAYS ON.",
   whyText: "Miami has no off-season. Year-round warm weather means year-round foot traffic. Wynwood is already the street art capital of the US — your wheat paste campaign fits right into the visual culture. South Beach draws tourists from around the world. Brickell's professionals walk to lunch. Every surface is an opportunity.",
   neighborhoods: [
@@ -44,7 +44,7 @@ const data: CityPageData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Phantom Pasting — Miami",
-    description: "Wheat pasting and wild posting services in Miami, FL. Street poster campaigns across Wynwood, South Beach, Brickell, and the Design District.",
+    description: "Wheat pasting and poster campaign services in Miami, FL. Street postering across Wynwood, South Beach, Brickell, and the Design District.",
     url: "https://www.phantompasting.com/locations/miami",
     areaServed: { "@type": "City", name: "Miami", addressRegion: "FL" },
     parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },

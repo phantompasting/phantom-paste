@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 /**
@@ -54,7 +54,7 @@ export default function Post() {
       </ul>
       <p>
         For the full campaign walk-through — crew size, route, install timing — see{" "}
-        <Link href="/blog/wheat-pasting-campaign">how a wheat pasting campaign actually works</Link>.
+        <BlogLink slug="wheat-pasting-campaign">how a wheat pasting campaign actually works</BlogLink>.
       </p>
 
       <h2>Technical Specs</h2>
@@ -153,7 +153,7 @@ export default function Post() {
           <strong>One recipe for all walls.</strong> A popcorn cement wall gets the same paste as
           brick and the campaign fails in 48 hours. The legal side of where you can paste also
           changes by wall — see{" "}
-          <Link href="/blog/is-wheat-pasting-legal">is wheat pasting legal</Link> for the
+          <BlogLink slug="is-wheat-pasting-legal">is wheat pasting legal</BlogLink> for the
           city-by-city breakdown.
         </li>
       </ol>

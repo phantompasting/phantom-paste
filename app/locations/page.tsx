@@ -12,7 +12,7 @@ import { collectionPageSchema, localBusinessSchema, faqPageSchema, breadcrumbSch
 const PAGE_URL = `${BUSINESS.url}/locations`;
 const PAGE_TITLE = "Guerrilla Marketing Locations";
 const PAGE_DESC =
-  "Wheat pasting and wild posting campaigns in New York, Los Angeles, Miami, Chicago, Atlanta, and 50+ other US cities. Get a custom quote for your city.";
+  "Wheat pasting and poster campaigns in New York, Los Angeles, Miami, Chicago, Atlanta, and 50+ other US cities. Get a custom quote for your city.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -170,7 +170,7 @@ export default function LocationsHubPage() {
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10"
                   style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
-                  Phantom Pasting runs wheat pasting and wild posting campaigns across 50+ US cities.
+                  Phantom Pasting runs wheat pasting and poster campaigns across 50+ US cities.
                   Five flagship markets, unlimited reach. Name your city — we can hit it.
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -222,13 +222,13 @@ export default function LocationsHubPage() {
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
                   <Image src="/gallery/fifa-world-cup-atlanta-wall-installation.webp"
                     alt="Multi-city wheat paste campaign" fill style={{ objectFit: "cover" }}
-                    sizes="40vw" priority />
+                    sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
                 </div>
                 <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
                   style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
                     boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
-                  <Image src="/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp"
-                    alt="FashionPass wild posting wall in LA" fill style={{ objectFit: "cover" }}
+                  <Image src="/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp"
+                    alt="FashionPass wheat paste poster campaign wall in LA" fill style={{ objectFit: "cover" }}
                     sizes="25vw" />
                 </div>
                 <div aria-hidden className="absolute pointer-events-none"

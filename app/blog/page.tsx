@@ -106,6 +106,12 @@ export default function BlogHubPage() {
           </div>
         </section>
 
+        {/* The "Why this blog exists" silos block was removed — the three
+            category cards + intro prose read as visual clutter above the
+            featured post. The /blog/what-is-wheat-pasting link still surfaces
+            from the SiteFooter and from in-body links inside other posts, so
+            the orphan-link Semrush warning stays addressed. */}
+
         {/* ── Featured: latest post as page hero ──────────────────────── */}
         {latest && (
           <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-16 md:pb-20">

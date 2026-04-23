@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -160,8 +160,8 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        For the broader legal picture, see <Link href="/blog/is-wheat-pasting-legal">is wheat
-        pasting legal</Link>.
+        For the broader legal picture, see <BlogLink slug="is-wheat-pasting-legal">is wheat
+        pasting legal</BlogLink>.
       </p>
 
       <h2>NYC Wall Types</h2>
@@ -233,9 +233,9 @@ export default function Post() {
       <p>
         We&apos;ve run 150+ NYC campaigns across all four boroughs mapped above. For the full
         operational breakdown, see{" "}
-        <Link href="/blog/wheat-pasting-campaign">
+        <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight
-        </Link>.
+        </BlogLink>.
       </p>
     </>
   );

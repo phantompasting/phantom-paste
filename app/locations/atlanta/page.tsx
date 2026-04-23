@@ -4,12 +4,12 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 export const metadata: Metadata = {
   title: "Wheat Pasting Atlanta",
   description:
-    "Wheat pasting and wild posting in Atlanta. Large-format street posters across Midtown, Little Five Points, Buckhead, and East Atlanta. Get a quote.",
-  keywords: ["wheat pasting Atlanta", "wild posting Atlanta", "Atlanta guerrilla marketing", "street advertising Atlanta", "wheat paste posters GA"],
+    "Wheat pasting in Atlanta — poster campaigns across Midtown, Little Five Points, Buckhead, and East Atlanta. Large-format street posters. Get a quote.",
+  keywords: ["wheat pasting Atlanta", "Atlanta poster campaigns", "Atlanta guerrilla marketing", "street postering Atlanta", "wheat paste posters GA"],
   alternates: { canonical: "https://www.phantompasting.com/locations/atlanta" },
   openGraph: {
     title: "Wheat Pasting Atlanta",
-    description: "Large-format wheat paste and wild posting campaigns across Atlanta. Midtown, Little Five Points, Buckhead.",
+    description: "Large-format wheat paste poster campaigns across Atlanta. Midtown, Little Five Points, Buckhead.",
     url: "https://www.phantompasting.com/locations/atlanta",
     images: [
       {
@@ -44,7 +44,7 @@ const data: CityPageData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Phantom Pasting — Atlanta",
-    description: "Wheat pasting and wild posting services in Atlanta, GA. Street poster campaigns across Midtown, Little Five Points, Buckhead, and East Atlanta.",
+    description: "Wheat pasting and poster campaign services in Atlanta, GA. Street postering across Midtown, Little Five Points, Buckhead, and East Atlanta.",
     url: "https://www.phantompasting.com/locations/atlanta",
     areaServed: { "@type": "City", name: "Atlanta", addressRegion: "GA" },
     parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },

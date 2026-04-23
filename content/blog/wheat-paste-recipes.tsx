@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -26,7 +26,7 @@ export default function Post() {
         This is the single biggest gap between DIY wheat paste tutorials and actual campaign work.
         YouTube gives you one recipe. Campaigns demand four or five, with notes on when to reach
         for each. The{" "}
-        <Link href="/blog/how-to-make-wheat-paste">base recipe guide</Link> covers the universal
+        <BlogLink slug="how-to-make-wheat-paste">base recipe guide</BlogLink> covers the universal
         starting point — this post covers the variants.
       </p>
 
@@ -179,8 +179,8 @@ export default function Post() {
 
       <p>
         Ready to see these recipes in motion? See{" "}
-        <Link href="/blog/wheat-pasting-campaign">how a real 12-location campaign runs them
-        overnight</Link>.
+        <BlogLink slug="wheat-pasting-campaign">how a real 12-location campaign runs them
+        overnight</BlogLink>.
       </p>
     </>
   );

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -61,7 +61,7 @@ export default function Post() {
       </p>
       <p>
         DIY flour-and-water mixes are viable for small campaigns — see{" "}
-        <Link href="/blog/how-to-make-wheat-paste">the home recipe</Link> — but for 12+ locations
+        <BlogLink slug="how-to-make-wheat-paste">the home recipe</BlogLink> — but for 12+ locations
         commercial powder is more consistent, stores longer, and mixes faster in the field.
       </p>
 
@@ -90,14 +90,14 @@ export default function Post() {
       <p>
         Phone on a gimbal with a shotgun mic for the morning documentation pass. Wide-shot, tight
         shot, and location pin per wall. See{" "}
-        <Link href="/blog/wheat-pasting-campaign">the campaign breakdown</Link> for how that feeds
+        <BlogLink slug="wheat-pasting-campaign">the campaign breakdown</BlogLink> for how that feeds
         the client report.
       </p>
 
       <h3>8. Trash bags, heavy-duty 3-mil</h3>
       <p>
         Leave-no-trace is the foundation of how cities tolerate{" "}
-        <Link href="/blog/is-wheat-pasting-legal">legitimate paste campaigns</Link>. Trash bags
+        <BlogLink slug="is-wheat-pasting-legal">legitimate paste campaigns</BlogLink>. Trash bags
         are for our debris and anyone else&apos;s we pick up while we&apos;re on the block.
       </p>
 

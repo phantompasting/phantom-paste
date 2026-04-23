@@ -1,10 +1,14 @@
 "use client";
 
-import { useState, useCallback, useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
+import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import { GALLERY_IMGS } from "@/lib/gallery-data";
+
+// Lightbox is the only surface that needs framer-motion. Loading it on demand
+// keeps framer (~38 KB) out of the initial gallery bundle. ssr:false because
+// the lightbox uses createPortal(document.body) which is browser-only.
+const GalleryLightbox = dynamic(() => import("./GalleryLightbox"), { ssr: false });
 
 const ACCENT = "#D4A010";
 const PER_PAGE = 12;
@@ -34,20 +38,12 @@ const IconChevronRight = () => (
     <path d="M9 18l6-6-6-6" />
   </svg>
 );
-const IconClose = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
 
 export default function GalleryPageClient() {
-  const [mounted, setMounted] = useState(false);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [activeTag, setActiveTag] = useState<string>("All");
   const [page, setPage] = useState(0);
   const gridRef = useRef<HTMLDivElement>(null);
-
-  const lightbox = lightboxIdx !== null ? GALLERY_IMGS[lightboxIdx] : null;
 
   // ── Filtered + paged data ──────────────────────────────────────
   // Carry the original GALLERY_IMGS index alongside each image so the
@@ -84,28 +80,14 @@ export default function GalleryPageClient() {
     []
   );
 
-  useEffect(() => { setMounted(true); }, []);
-
-  useEffect(() => {
-    if (lightboxIdx === null) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeLightbox();
-      else if (e.key === "ArrowLeft") prevImage();
-      else if (e.key === "ArrowRight") nextImage();
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [lightboxIdx, closeLightbox, prevImage, nextImage]);
+  // Keyboard nav now lives inside GalleryLightbox so the listener only attaches
+  // when framer-motion has loaded and the modal is mounted.
 
   return (
     <>
       {/* ── Page Header ───────────────────────────────────────────── */}
       <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-16 pb-8 md:pt-24 md:pb-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div>
           {/* Label */}
           <span className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.35em] uppercase mb-4"
             style={{ color: "rgba(0,0,0,0.55)" }}>
@@ -114,6 +96,9 @@ export default function GalleryPageClient() {
           </span>
 
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            {/* Page H1 — the SSR page intro was removed because two stacked
+                titles ("FIELD-SHOT DOCUMENTATION" + "OUR WORK") read as
+                redundant. Single H1 lives here, above the gallery grid. */}
             <h1
               className="font-black uppercase m-0 leading-[0.88]"
               style={{ fontSize: "clamp(40px, 6vw, 80px)", letterSpacing: "-0.03em", color: "#1A1A1A" }}
@@ -128,7 +113,7 @@ export default function GalleryPageClient() {
 
           {/* Divider */}
           <div className="mt-8 w-full h-px" style={{ background: "rgba(0,0,0,0.07)" }} />
-        </motion.div>
+        </div>
       </section>
 
       {/* ── Filter Pills ──────────────────────────────────────────── */}
@@ -170,16 +155,15 @@ export default function GalleryPageClient() {
         className="px-5 sm:px-8 md:px-12 lg:px-16 pb-10"
         style={{ scrollMarginTop: "80px" }}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`${activeTag}-${page}`}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="columns-1 sm:columns-2 lg:columns-3"
-            style={{ columnGap: "16px" }}
-          >
+        {/* Filter/page transitions previously used framer AnimatePresence. Replaced
+            with a plain keyed div so framer-motion stays out of the initial bundle.
+            The `key` change still remounts the grid; we just skip the fade animation
+            because pre-paint opacity:0 was delaying observed FCP on this page. */}
+        <div
+          key={`${activeTag}-${page}`}
+          className="columns-1 sm:columns-2 lg:columns-3"
+          style={{ columnGap: "16px" }}
+        >
             {paged.map(({ img, idx }, i) => (
               <div key={idx} className="break-inside-avoid mb-4">
                 <button
@@ -196,8 +180,8 @@ export default function GalleryPageClient() {
                       src={img.src}
                       alt={img.alt}
                       fill
-                      loading={i < 3 ? "eager" : "lazy"}
-                      fetchPriority={i < 3 ? "high" : "low"}
+                      loading="lazy"
+                      fetchPriority="low"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -218,8 +202,7 @@ export default function GalleryPageClient() {
                 </button>
               </div>
             ))}
-          </motion.div>
-        </AnimatePresence>
+        </div>
 
         {/* ── Pagination ──────────────────────────────────────────── */}
         {totalPages > 1 && (
@@ -291,12 +274,7 @@ export default function GalleryPageClient() {
       {/* ── Footer CTA ────────────────────────────────────────────── */}
       <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24">
         <div className="w-full h-px mb-16" style={{ background: "rgba(0,0,0,0.07)" }} />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center"
-        >
+        <div className="text-center">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6"
             style={{ color: "rgba(0,0,0,0.55)" }}>
             Ready to own your streets?
@@ -312,74 +290,10 @@ export default function GalleryPageClient() {
           >
             Launch Your Campaign →
           </a>
-        </motion.div>
+        </div>
       </section>
 
-      {/* ── Lightbox Portal ───────────────────────────────────────── */}
-      {mounted && createPortal(
-        <AnimatePresence>
-          {lightbox && lightboxIdx !== null && (
-            <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              role="dialog"
-              aria-modal="true"
-              aria-label={lightbox ? `${lightbox.label} — enlarged view` : "Image viewer"}
-              className="fixed inset-0 z-[9999] flex items-center justify-center"
-              style={{ background: "rgba(0,0,0,0.96)" }}
-              onClick={closeLightbox}
-              tabIndex={-1}
-              ref={(el) => el?.focus()}
-            >
-              <motion.div
-                key={lightboxIdx}
-                initial={{ scale: 0.92, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
-                transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full h-full flex items-center justify-center p-4 md:p-10"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="relative w-full h-full max-w-5xl max-h-[85vh] rounded-2xl overflow-hidden"
-                  style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}>
-                  <Image
-                    src={lightbox.src}
-                    alt={lightbox.alt}
-                    fill
-                    sizes="(min-width: 768px) 80vw, 100vw"
-                    className="object-contain"
-                  />
-                </div>
-                {/* Label */}
-                <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">
-                  <span className="font-black uppercase tracking-tight text-white text-sm md:text-base block">{lightbox.label}</span>
-                  <span className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1 block" style={{ color: ACCENT }}>
-                    {lightboxIdx + 1} / {GALLERY_IMGS.length} · Phantom Pasting
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Prev */}
-              <button onClick={(e) => { e.stopPropagation(); prevImage(); }} aria-label="Previous"
-                className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
-                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
-                <IconChevronLeft />
-              </button>
-              {/* Next */}
-              <button onClick={(e) => { e.stopPropagation(); nextImage(); }} aria-label="Next"
-                className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
-                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
-                <IconChevronRight />
-              </button>
-              {/* Close */}
-              <button onClick={closeLightbox} aria-label="Close"
-                className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-full text-white cursor-pointer transition-all hover:scale-110"
-                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
-                <IconClose />
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body
-      )}
+      <GalleryLightbox lightboxIdx={lightboxIdx} closeLightbox={closeLightbox} prevImage={prevImage} nextImage={nextImage} />
     </>
   );
 }

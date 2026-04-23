@@ -28,12 +28,12 @@ export default function StaticSEOSections() {
         <h2>Real Numbers. Real Streets.</h2>
         <p>
           A decade of guerrilla marketing campaigns across every major US
-          market. Every wheat paste placement photographed, every wild posting
+          market. Every wheat paste placement photographed, every poster
           campaign documented.
         </p>
         <ul>
           <li>50+ US Cities covered nationwide</li>
-          <li>500+ Wheat pasting and wild posting campaigns delivered</li>
+          <li>500+ Wheat pasting and street postering campaigns delivered</li>
           <li>200+ Hits per campaign run</li>
           <li>24-hour response on every new brief</li>
           <li>100% Photo-documented at install</li>
@@ -42,7 +42,7 @@ export default function StaticSEOSections() {
       </section>
 
       <section>
-        <h2>How It Works — Our Wheat Pasting &amp; Wild Posting Process</h2>
+        <h2>How It Works — Our Wheat Pasting &amp; Poster Campaign Process</h2>
         <h3>01 — Brief Us</h3>
         <p>
           Tell us your brand, target city, campaign goals, and timeline. We
@@ -118,7 +118,7 @@ export default function StaticSEOSections() {
             <li>Full wheat pasting campaign</li>
             <li>Chalk spray stencil activations (25–200+)</li>
             <li>Strategic placement mapping</li>
-            <li>Nationwide wild posting deployment</li>
+            <li>Nationwide poster campaign deployment</li>
           </ul>
         </article>
       </section>
@@ -129,7 +129,7 @@ export default function StaticSEOSections() {
           <h3>Impossible to Ignore</h3>
           <p>
             Traditional ads are scrolled past, muted, or blocked. Our wheat
-            pasting and wild posting campaigns live at street level — where
+            pasting and street postering campaigns live at street level — where
             people walk, gather, and exist. You can&apos;t close a popup on a
             brick wall.
           </p>
@@ -153,7 +153,7 @@ export default function StaticSEOSections() {
         <article>
           <h3>Hyper-Local Targeting</h3>
           <p>
-            Every wild posting placement is mapped to your audience&apos;s exact
+            Every street poster placement is mapped to your audience&apos;s exact
             neighborhoods — their commutes, lunch spots, music venues, and
             midnight routes home.
           </p>
@@ -180,7 +180,7 @@ export default function StaticSEOSections() {
         <article>
           <h3>50+ cities, any scale.</h3>
           <p>
-            Single-market drops or simultaneous national wild posting
+            Single-market drops or simultaneous nationwide poster campaign
             saturation. Local crews in every city. Rush timelines from 5
             business days.
           </p>
@@ -188,7 +188,7 @@ export default function StaticSEOSections() {
       </section>
 
       <section>
-        <h2>Frequently Asked Questions — Wheat Pasting &amp; Wild Posting</h2>
+        <h2>Frequently Asked Questions — Wheat Pasting &amp; Poster Campaigns</h2>
         {HOMEPAGE_FAQS.map((faq, i) => (
           <article key={i}>
             <h3>{faq.q}</h3>

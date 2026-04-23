@@ -20,6 +20,8 @@ const FOOTER_LINKS = {
     { label: "About", href: "/about" },
     { label: "Work", href: "/work" },
     { label: "Gallery", href: "/gallery" },
+    { label: "Blog", href: "/blog" },
+    { label: "Wheat Pasting Guide", href: "/blog/what-is-wheat-pasting" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

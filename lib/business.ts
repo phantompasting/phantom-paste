@@ -24,7 +24,7 @@ export const BUSINESS = {
   sameAs: ["https://www.instagram.com/phantompasting"],
   instagramUrl: "https://www.instagram.com/phantompasting",
   instagramHandle: "@phantompasting",
-  ogImageDefault: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+  ogImageDefault: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   // PostalAddress — HQ origin for the nationwide service-area business.

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -82,7 +82,7 @@ export default function Post() {
       </p>
       <p>
         For the full recipe adaptation, see{" "}
-        <Link href="/blog/wheat-paste-recipes">wheat paste recipes</Link>.
+        <BlogLink slug="wheat-paste-recipes">wheat paste recipes</BlogLink>.
       </p>
 
       <h2>Installer&apos;s Perspective — Car Wash Water at 2 A.M.</h2>
@@ -173,8 +173,8 @@ export default function Post() {
         </tbody>
       </table>
       <p>
-        For the general pricing model, see <Link href="/blog/wheat-pasting-cost">wheat pasting
-        cost breakdown</Link>.
+        For the general pricing model, see <BlogLink slug="wheat-pasting-cost">wheat pasting
+        cost breakdown</BlogLink>.
       </p>
 
       <h2>Phoenix Legal Reality</h2>
@@ -259,9 +259,9 @@ export default function Post() {
       <p>
         We&apos;ve run 50+ Phoenix campaigns across every corridor mapped above. For the
         operational breakdown, see{" "}
-        <Link href="/blog/wheat-pasting-campaign">
+        <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight
-        </Link>.
+        </BlogLink>.
       </p>
     </>
   );

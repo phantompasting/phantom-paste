@@ -2,13 +2,13 @@
 
 > Phantom Pasting is the premier street-level guerrilla marketing agency in the United States, operating in every major metro market. Known for large-format wheat paste poster campaigns and custom chalk spray stencil activations.
 
-Phantom Pasting is a nationwide guerrilla marketing agency specializing in wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities. Founded in 2014. 500+ campaigns completed. 100% photo-documented. Clients include FashionPass, FIFA World Cup, and Incrediwear. See https://llmstxt.org for the llms.txt specification this file follows.
+Phantom Pasting is a nationwide guerrilla marketing agency specializing in wheat pasting, poster campaigns, and chalk spray stencil campaigns across 50+ US cities. Founded in 2014. 500+ campaigns completed. 100% photo-documented. Clients include FashionPass, FIFA World Cup, and Incrediwear. See https://llmstxt.org for the llms.txt specification this file follows.
 
 ## Services
 
 - [Wheat Pasting](https://www.phantompasting.com/services/wheat-pasting): Large-format wheat paste poster campaigns. Multi-wall coverage, overnight installation, 100% photo-documented.
 - [Chalk Spray Stencils](https://www.phantompasting.com/services/chalk-spray-stencils): Custom-cut stencil activations on sidewalks, streets, and public surfaces. Temporary and removable.
-- [Full Impact Campaigns](https://www.phantompasting.com/services/full-impact-campaigns): Combined wheat pasting + stencil + wild posting packages for maximum street presence.
+- [Full Impact Campaigns](https://www.phantompasting.com/services/full-impact-campaigns): Combined wheat pasting + stencil + street postering packages for maximum street presence.
 
 ## Markets
 
@@ -26,30 +26,10 @@ Phantom Pasting is a nationwide guerrilla marketing agency specializing in wheat
 
 ## Blog
 
-Installer-written field notes by Mateo Vargas (Field Operations Lead) covering the craft, strategy, and legal reality of wheat pasting.
+Installer-written field notes by Mateo Vargas (Field Operations Lead) covering the craft, strategy, and legal reality of wheat pasting. New posts ship roughly weekly across three silos: The Craft, Strategy & ROI, and Local & Legal.
 
-- [Field Notes Hub](https://www.phantompasting.com/blog): All posts across The Craft, Strategy & ROI, and Local & Legal silos.
-
-### The Craft
-- [How to Make Wheat Paste: Field Installer Guide](https://www.phantompasting.com/blog/how-to-make-wheat-paste): Base recipe, wall-type adjustments, storage, and real campaign-scale mixing.
-- [Wheat Paste Recipes: Why One Formula Doesn't Work on Every Wall](https://www.phantompasting.com/blog/wheat-paste-recipes): Wall-type-specific formulas for brick, popcorn cement, stucco, and cold weather.
-- [Snipe Posters vs Wheat Paste vs Floor Decals: Which Format Wins](https://www.phantompasting.com/blog/snipe-posters-vs-wheat-paste-vs-floor-decals): Three street formats compared — when to use each, and how they combine.
-- [Street Postering Tools: The Install Kit We Actually Carry](https://www.phantompasting.com/blog/street-postering-tools): The soft-brush broom, locked-lid buckets, and everything else in a working kit.
-- [Flyposting Explained: What It Is, How It Works, What It Costs](https://www.phantompasting.com/blog/flyposting-explained): The British term for wheat pasting — history, technique, and 2026 usage.
-
-### Strategy & ROI
-- [What Is Wheat Pasting? A Brand's Guide to the Medium](https://www.phantompasting.com/blog/what-is-wheat-pasting): The 140-year format, why brands use it in 2026, and how it beats digital OOH.
-- [How Much Does Wheat Pasting Cost in 2026?](https://www.phantompasting.com/blog/wheat-pasting-cost): Real per-poster and per-city pricing from 500+ campaigns. Five cost drivers.
-- [Wheat Pasting vs Billboards: ROI Breakdown for Marketers](https://www.phantompasting.com/blog/wheat-pasting-vs-billboards): Side-by-side cost, reach, and cultural signal — which format wins for which goal.
-- [Wheat Pasting for Fashion Brands: Why Streetwear Lives on Walls](https://www.phantompasting.com/blog/wheat-pasting-for-fashion-brands): The streetwear playbook — teaser + reveal, anchor neighborhoods, creative rules.
-- [Guerrilla Marketing for Music Festivals and Album Launches](https://www.phantompasting.com/blog/guerrilla-marketing-for-music): Album drops, tour announcements, festival lineups — music OOH economics.
-
-### Local & Legal
-- [Is Wheat Pasting Legal? What Installers Actually Experience](https://www.phantompasting.com/blog/is-wheat-pasting-legal): City-by-city enforcement reality from 500+ campaigns.
-- [How a Wheat Pasting Campaign Actually Works: 12 Locations, One Night](https://www.phantompasting.com/blog/wheat-pasting-campaign): Prep, route, install, and documentation breakdown.
-- [Wheat Pasting in Los Angeles: Neighborhoods, Walls, and Why LA Works](https://www.phantompasting.com/blog/wheat-pasting-los-angeles): The LA neighborhood map — Melrose, Fairfax, Silver Lake, DTLA, Venice.
-- [Wheat Pasting in New York City: NYC Wall Culture Explained](https://www.phantompasting.com/blog/wheat-pasting-new-york): SoHo, LES, Williamsburg, Chinatown, scaffold wraps, and five-borough logistics.
-- [Wheat Pasting in Phoenix: What Desert Heat Does to Paste](https://www.phantompasting.com/blog/wheat-pasting-phoenix): Popcorn cement walls, 110°F install timing, monsoon season, and water sourcing.
+- [Field Notes Hub](https://www.phantompasting.com/blog): All published posts.
+- [What Is Wheat Pasting? A Brand's Guide to the Medium](https://www.phantompasting.com/blog/what-is-wheat-pasting): The 140-year format, why brands use it in 2026, and how it beats digital OOH on attention and cost.
 
 ## Company
 

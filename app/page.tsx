@@ -14,23 +14,23 @@ import {
 import { HOMEPAGE_FAQS } from "@/lib/homepageFAQs";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Agency | Phantom Pasting" },
+  title: { absolute: "Wheat Pasting Company | Phantom Pasting" },
   description:
-    "Wheat pasting, wild posting & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
+    "Wheat pasting, street postering & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
   alternates: { canonical: BUSINESS.url },
   openGraph: {
-    title: "Wheat Pasting Agency | Phantom Pasting",
+    title: "Wheat Pasting Company | Phantom Pasting",
     description:
-      "Wheat pasting, wild posting & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
+      "Wheat pasting, street postering & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
     url: BUSINESS.url,
     type: "website",
     siteName: "Phantom Pasting",
     images: [
       {
-        url: `${BUSINESS.url}/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp`,
+        url: `${BUSINESS.url}/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp`,
         width: 1200,
         height: 630,
-        alt: "Phantom Pasting — wheat paste wild posting wall campaign Los Angeles",
+        alt: "Phantom Pasting — wheat paste poster campaign wall Los Angeles",
       },
     ],
   },
@@ -47,10 +47,11 @@ const homepageGraph = {
     {
       ...orgSchema(),
       description:
-        "Guerrilla marketing agency specializing in wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities.",
+        "Wheat pasting company specializing in large-format poster campaigns, street postering, and chalk spray stencil activations across 50+ US cities.",
       knowsAbout: [
         "Wheat Pasting",
-        "Wild Posting",
+        "Street Postering",
+        "Poster Campaigns",
         "Guerrilla Marketing",
         "Street Advertising",
         "Chalk Spray Stencils",
@@ -85,7 +86,7 @@ const homepageGraph = {
               "@type": "Service",
               name: "Full Impact Street Campaigns",
               description:
-                "End-to-end guerrilla marketing campaigns combining wheat pasting, wild posting, and stencil activations.",
+                "End-to-end guerrilla marketing campaigns combining wheat pasting, street postering, and stencil activations.",
               url: `${BUSINESS.url}/services/full-impact-campaigns`,
             },
           },
@@ -96,7 +97,7 @@ const homepageGraph = {
     {
       ...localBusinessSchema(),
       description:
-        "Guerrilla marketing agency specializing in wheat pasting, wild posting, and chalk spray stencil campaigns across 50+ US cities. Founded 2014. 500+ campaigns. 100% photo documented.",
+        "Wheat pasting company specializing in large-format poster campaigns, street postering, and chalk spray stencil activations across 50+ US cities. Founded 2014. 500+ campaigns. 100% photo documented.",
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",

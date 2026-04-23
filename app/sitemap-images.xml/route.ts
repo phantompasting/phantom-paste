@@ -59,7 +59,7 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
   },
   "dont-fall-off-wheat-paste-street-view-la.webp": {
     title: "Don't Fall Off wheat paste poster — street view Los Angeles",
-    caption: "Don't Fall Off brand wild posting wheat paste campaign — street-level view in Los Angeles",
+    caption: "Don't Fall Off brand wheat paste poster campaign — street-level view in Los Angeles",
   },
   "dont-fall-off-wheat-paste-urban-wall-pink.webp": {
     title: "Don't Fall Off wheat paste on urban wall — pink colorway",
@@ -71,15 +71,15 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
   },
   "fashionpass-wheat-paste-campaign-poster-wall.webp": {
     title: "FashionPass wheat paste campaign poster wall — Los Angeles",
-    caption: "FashionPass wild posting wheat paste campaign — full poster wall installation in Los Angeles",
+    caption: "FashionPass wheat paste poster campaign — full poster wall installation in Los Angeles",
   },
   "fashionpass-wheat-paste-street-art-wall-la.webp": {
     title: "FashionPass wheat paste street art wall — Los Angeles",
     caption: "FashionPass brand wheat paste street art wall — Phantom Pasting Los Angeles campaign",
   },
-  "fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp": {
-    title: "FashionPass wild posting wall campaign — Los Angeles",
-    caption: "FashionPass wild posting wheat paste wall campaign — Los Angeles guerrilla marketing by Phantom Pasting",
+  "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp": {
+    title: "FashionPass wheat paste poster campaign wall — Los Angeles",
+    caption: "FashionPass wheat paste poster campaign wall — Los Angeles street postering by Phantom Pasting",
   },
   "fifa-world-cup-atlanta-wall-installation.webp": {
     title: "FIFA World Cup wheat paste wall installation — Atlanta",
@@ -99,7 +99,7 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
   },
   "fifa-world-cup-poster-wall-street-perspective.webp": {
     title: "FIFA World Cup poster wall — street perspective Atlanta",
-    caption: "Street-level perspective of FIFA World Cup poster wall wild posting — Atlanta",
+    caption: "Street-level perspective of FIFA World Cup wheat paste poster wall — Atlanta",
   },
   "fifa-world-cup-street-gallery-pedestrian-viewing.webp": {
     title: "FIFA World Cup street gallery — pedestrian viewing",
@@ -134,7 +134,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
   "/work/fashionpass-los-angeles": [
     "fashionpass-wheat-paste-campaign-poster-wall.webp",
     "fashionpass-wheat-paste-street-art-wall-la.webp",
-    "fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+    "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
   ],
   "/work/fifa-world-cup-atlanta": [
     "fifa-world-cup-atlanta-wall-installation.webp",
@@ -168,7 +168,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "custom-stencil-template-cut-out-design.webp",
   ],
   "/services/full-impact-campaigns": [
-    "fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+    "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     "fifa-world-cup-poster-wall-gallery-wide.webp",
     "incrediwear-pole-wrap-guerrilla-advertising-night.webp",
     "sticker-campaign-street-intersection-urban.webp",
@@ -176,7 +176,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
 
   // City pages — hero/OG images used in those markets
   "/locations/los-angeles": [
-    "fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+    "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     "dont-fall-off-wheat-paste-street-view-la.webp",
     "black-pearl-la-chalk-spray-stencil-sidewalk.webp",
   ],

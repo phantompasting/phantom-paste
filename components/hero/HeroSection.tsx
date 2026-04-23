@@ -52,7 +52,7 @@ export default function HeroSection() {
             }}
           >
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-            Wheat Pasting &amp; Wild Posting Agency
+            Wheat Pasting Company · Nationwide Poster Campaigns
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT, opacity: 0.35 }} />
           </h1>
         </div>

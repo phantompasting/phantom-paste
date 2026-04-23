@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -79,9 +79,9 @@ export default function Post() {
       </p>
       <p>
         For the full recipe breakdown, see{" "}
-        <Link href="/blog/how-to-make-wheat-paste">how to make wheat paste</Link>. For the tools
+        <BlogLink slug="how-to-make-wheat-paste">how to make wheat paste</BlogLink>. For the tools
         behind a commercial flyposting install, see{" "}
-        <Link href="/blog/street-postering-tools">the install kit breakdown</Link>.
+        <BlogLink slug="street-postering-tools">the install kit breakdown</BlogLink>.
       </p>
 
       <h2>Where Flyposting Happens Legitimately</h2>
@@ -104,7 +104,7 @@ export default function Post() {
       </ol>
       <p>
         For the US enforcement picture, see{" "}
-        <Link href="/blog/is-wheat-pasting-legal">is wheat pasting legal</Link> — city-by-city
+        <BlogLink slug="is-wheat-pasting-legal">is wheat pasting legal</BlogLink> — city-by-city
         reality from 500+ campaigns.
       </p>
 
@@ -164,9 +164,9 @@ export default function Post() {
       </p>
       <p>
         If you&apos;re comparing formats,{" "}
-        <Link href="/blog/snipe-posters-vs-wheat-paste-vs-floor-decals">
+        <BlogLink slug="snipe-posters-vs-wheat-paste-vs-floor-decals">
           snipes vs. wheat paste vs. floor decals
-        </Link>{" "}
+        </BlogLink>{" "}
         breaks down when each wins.
       </p>
     </>

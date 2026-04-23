@@ -243,7 +243,7 @@ export default function IncrediwearCaseStudy() {
               <p className="font-light leading-relaxed mx-auto mt-5"
                 style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "680px" }}>
                 Wellness brands live and die on frequency. Our team has run multi-format
-                wild posting for eight performance and recovery brands since 2020 — so the
+                street poster campaigns for eight performance and recovery brands since 2020 — so the
                 Incrediwear plan was built on a proven stack: pole wraps for commuter
                 repetition, sticker clusters for neighborhood saturation, nighttime formats
                 for after-gym visibility.
@@ -325,7 +325,7 @@ export default function IncrediwearCaseStudy() {
           </div>
         </section>
 
-        {/* ── Why Wild Posting for Wellness ─────────────────────── */}
+        {/* ── Why Street Posters Work for Wellness Brands ───────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-16 md:pb-24">
           <div className="max-w-[1000px] mx-auto">
             <div className="mb-10 md:mb-12 text-center">
@@ -433,7 +433,7 @@ export default function IncrediwearCaseStudy() {
               </h2>
               <p className="font-light leading-relaxed mt-5"
                 style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "680px" }}>
-                We&apos;ve been running multi-format wild posting for wellness and performance
+                We&apos;ve been running multi-format street campaigns for wellness and performance
                 brands since 2020. The documentation package we built for Incrediwear is the
                 same standard we apply across every campaign — because the biggest complaint
                 clients bring us from previous vendors is always the same: they paid for units

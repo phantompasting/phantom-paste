@@ -92,7 +92,7 @@ export default function MobileNav() {
               <button
                 onClick={() => setServicesOpen(o => !o)}
                 className="w-full flex items-center justify-between font-mono text-[11px] tracking-[0.22em] uppercase py-2.5 px-4 rounded-xl cursor-pointer"
-                style={{ background: "none", border: "none", fontFamily: "inherit", color: "rgba(0,0,0,0.65)" }}
+                style={{ background: "none", border: "none", color: "rgba(0,0,0,0.65)" }}
                 onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
                 onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
               >
@@ -144,7 +144,7 @@ export default function MobileNav() {
               <button
                 onClick={() => setCitiesOpen(o => !o)}
                 className="w-full flex items-center justify-between font-mono text-[11px] tracking-[0.22em] uppercase py-2.5 px-4 rounded-xl cursor-pointer"
-                style={{ background: "none", border: "none", fontFamily: "inherit", color: "rgba(0,0,0,0.65)" }}
+                style={{ background: "none", border: "none", color: "rgba(0,0,0,0.65)" }}
                 onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
                 onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
               >

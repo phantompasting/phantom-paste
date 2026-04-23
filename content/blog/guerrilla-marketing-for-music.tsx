@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -125,9 +125,9 @@ export default function Post() {
         A typical album campaign: 200 paste posters on 12 walls + 400 snipes across 60 poles in the
         same neighborhood. The paste walls deliver the hero shot. The snipes deliver
         impression-count saturation. For the full format breakdown, see{" "}
-        <Link href="/blog/snipe-posters-vs-wheat-paste-vs-floor-decals">
+        <BlogLink slug="snipe-posters-vs-wheat-paste-vs-floor-decals">
           snipes vs wheat paste vs floor decals
-        </Link>.
+        </BlogLink>.
       </p>
 
       <h2>Stencils for the Extra Edge</h2>
@@ -223,8 +223,8 @@ export default function Post() {
         </tbody>
       </table>
       <p>
-        For per-city paste economics, see <Link href="/blog/wheat-pasting-cost">wheat pasting cost
-        breakdown</Link>.
+        For per-city paste economics, see <BlogLink slug="wheat-pasting-cost">wheat pasting cost
+        breakdown</BlogLink>.
       </p>
 
       <h2>What Fails in Music Wheat Paste</h2>
@@ -255,7 +255,7 @@ export default function Post() {
         We&apos;ve run paste and snipe campaigns for album drops, tour announcements, festival
         lineups, and single launches across LA, NYC, Atlanta, Nashville, Austin, Miami, Chicago, and
         30+ other US markets. For the operational breakdown, see{" "}
-        <Link href="/blog/wheat-pasting-campaign">how a 12-location campaign runs overnight</Link>.
+        <BlogLink slug="wheat-pasting-campaign">how a 12-location campaign runs overnight</BlogLink>.
       </p>
     </>
   );

@@ -991,3 +991,7 @@ html.perf-lite .transition-opacity {
   .transition-transform { transition: none !important; transform: none !important; }
   .transition-opacity { transition: none !important; }
 }
+
+/* Gallery grid — no entrance animation. The previous framer AnimatePresence
+   was replaced with a plain remount on key change. Keeping initial paint
+   instant matters more than a 280 ms fade on filter/page swaps. */

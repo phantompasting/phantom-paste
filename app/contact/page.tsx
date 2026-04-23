@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "hire wheat pasting company",
     "guerrilla marketing quote",
     "wheat paste advertising quote",
-    "wild posting campaign quote",
+    "poster campaign quote",
     "street marketing contact",
     "get a quote guerrilla marketing",
   ],

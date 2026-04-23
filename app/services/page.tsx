@@ -55,7 +55,7 @@ const SERVICES = [
   },
   {
     label: "Full Impact Campaigns",
-    desc: "End-to-end campaigns combining wheat pasting, wild posting, and chalk stencils for total street saturation.",
+    desc: "End-to-end campaigns combining wheat pasting, street postering, and chalk stencils for total street saturation.",
     href: "/services/full-impact-campaigns",
   },
 ];
@@ -98,7 +98,7 @@ const DECISION_GUIDE = [
   {
     title: "Running a citywide rollout or takeover",
     recommendation: "Full Impact Campaign",
-    reason: "Stacking wheat paste + chalk + wild posting in targeted zones creates compound impressions that own the neighborhood.",
+    reason: "Stacking wheat paste + chalk + street postering in targeted zones creates compound impressions that own the neighborhood.",
   },
   {
     title: "Testing a new market",
@@ -318,7 +318,7 @@ export default function ServicesPage() {
               <div className="flex flex-col gap-4">
                 <p className="font-light leading-relaxed m-0"
                   style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
-                  Guerrilla marketing is unconventional, street-level advertising that uses physical media — wheat paste posters, chalk spray stencils, stickers, and wild postings — to reach audiences where they actually live, commute, and gather. Unlike digital ads that can be skipped, blocked, or muted, guerrilla campaigns exist in the real world and demand attention through physical presence.
+                  Guerrilla marketing is unconventional, street-level advertising that uses physical media — wheat paste posters, chalk spray stencils, stickers, and street postering — to reach audiences where they actually live, commute, and gather. Unlike digital ads that can be skipped, blocked, or muted, guerrilla campaigns exist in the real world and demand attention through physical presence.
                 </p>
                 <p className="font-light leading-relaxed m-0"
                   style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>

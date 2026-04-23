@@ -4,12 +4,12 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 export const metadata: Metadata = {
   title: "Wheat Pasting NYC",
   description:
-    "Wheat pasting and wild posting in New York City. Large-format street posters across the Lower East Side, Brooklyn, SoHo, and Williamsburg. Get a quote.",
-  keywords: ["wheat pasting NYC", "wild posting New York", "NYC guerrilla marketing", "street advertising New York", "wheat paste posters Brooklyn"],
+    "Wheat pasting in New York City — poster campaigns across the Lower East Side, Brooklyn, SoHo, and Williamsburg. Large-format street posters. Get a quote.",
+  keywords: ["wheat pasting NYC", "NYC poster campaigns", "NYC guerrilla marketing", "street postering New York", "wheat paste posters Brooklyn"],
   alternates: { canonical: "https://www.phantompasting.com/locations/new-york" },
   openGraph: {
     title: "Wheat Pasting NYC",
-    description: "Large-format wheat paste and wild posting campaigns across NYC. LES, Brooklyn, SoHo, Williamsburg.",
+    description: "Large-format wheat paste poster campaigns across NYC. LES, Brooklyn, SoHo, Williamsburg.",
     url: "https://www.phantompasting.com/locations/new-york",
     images: [
       {
@@ -44,7 +44,7 @@ const data: CityPageData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Phantom Pasting — New York City",
-    description: "Wheat pasting and wild posting services in New York City. Street poster campaigns across LES, Brooklyn, SoHo, and Williamsburg.",
+    description: "Wheat pasting and poster campaign services in New York City. Street postering across LES, Brooklyn, SoHo, and Williamsburg.",
     url: "https://www.phantompasting.com/locations/new-york",
     areaServed: { "@type": "City", name: "New York", addressRegion: "NY" },
     parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },

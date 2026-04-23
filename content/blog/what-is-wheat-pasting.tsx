@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 import Callout from "@/components/Callout";
 
@@ -33,7 +33,7 @@ export default function Post() {
         industry calls &quot;wall takeovers.&quot; The format is also known as <em>wild
         posting</em> (a trademarked US trade term) or <em>flyposting</em> (the British
         equivalent — see{" "}
-        <Link href="/blog/flyposting-explained">flyposting explained</Link>). The technique
+        <BlogLink slug="flyposting-explained">flyposting explained</BlogLink>). The technique
         itself is the same across all three names.
       </p>
       <p>
@@ -74,9 +74,9 @@ export default function Post() {
         which grid pattern, which route. A brick wall takes the base recipe; popcorn cement
         needs thicker paste; stucco needs a pre-wet. Cold weather changes the cure time. Direct
         sun halves the poster&apos;s lifespan. For the full process, see{" "}
-        <Link href="/blog/how-to-make-wheat-paste">how to make wheat paste</Link> and the
+        <BlogLink slug="how-to-make-wheat-paste">how to make wheat paste</BlogLink> and the
         wall-type breakdown in{" "}
-        <Link href="/blog/wheat-paste-recipes">wheat paste recipes</Link>.
+        <BlogLink slug="wheat-paste-recipes">wheat paste recipes</BlogLink>.
       </p>
 
       <Callout variant="muted" label="The numbers in one line">
@@ -119,7 +119,7 @@ export default function Post() {
         a $0.10–$0.30 CPM before counting social amplification. Measured digital OOH in the
         same market runs $8–$20 CPM — 25–80× the cost for equivalent reach, without the
         cultural signal wheat paste carries. For the full cost breakdown, see{" "}
-        <Link href="/blog/wheat-pasting-cost">how much wheat pasting costs</Link>.
+        <BlogLink slug="wheat-pasting-cost">how much wheat pasting costs</BlogLink>.
       </p>
 
       <h3>Attention is harder to buy than ever</h3>
@@ -142,13 +142,13 @@ export default function Post() {
           <strong>Fashion and streetwear.</strong> Supreme, Fear of God, Kith, FashionPass,
           Aimé Leon Dore, and hundreds of smaller labels. Capsule launches, seasonal campaigns,
           fashion-week tie-ins. See{" "}
-          <Link href="/blog/wheat-pasting-for-fashion-brands">wheat pasting for fashion
-          brands</Link> for the playbook.
+          <BlogLink slug="wheat-pasting-for-fashion-brands">wheat pasting for fashion
+          brands</BlogLink> for the playbook.
         </li>
         <li>
           <strong>Music and entertainment.</strong> Album drops, tour announcements, festival
           lineups, film premieres. Both majors and indies. See{" "}
-          <Link href="/blog/guerrilla-marketing-for-music">guerrilla marketing for music</Link>.
+          <BlogLink slug="guerrilla-marketing-for-music">guerrilla marketing for music</BlogLink>.
         </li>
         <li>
           <strong>DTC and culture-adjacent brands.</strong> Liquid Death, Oatly, Tushy, Casper,
@@ -190,7 +190,7 @@ export default function Post() {
           <strong>Not always illegal.</strong> Legitimate agencies operate on authorized
           private walls — full permission from property owners, sometimes with monthly lease
           agreements. See{" "}
-          <Link href="/blog/is-wheat-pasting-legal">the legality breakdown</Link>.
+          <BlogLink slug="is-wheat-pasting-legal">the legality breakdown</BlogLink>.
         </li>
         <li>
           <strong>Not dead.</strong> Wildposting.com, AltTerrain, DashTwo, Phantom Pasting, and
@@ -224,8 +224,8 @@ export default function Post() {
       </ul>
       <p>
         For the full operational breakdown,{" "}
-        <Link href="/blog/wheat-pasting-campaign">see how a real 12-location campaign runs
-        overnight</Link>.
+        <BlogLink slug="wheat-pasting-campaign">see how a real 12-location campaign runs
+        overnight</BlogLink>.
       </p>
 
       <Callout variant="accent" label="Planning a campaign?" href="/contact" cta="Get a quote →">
@@ -243,12 +243,12 @@ export default function Post() {
         <li>
           <strong>Los Angeles</strong> — Melrose, Fairfax, Silver Lake, DTLA Arts District,
           Venice. The highest-signal paste market in the US. See{" "}
-          <Link href="/blog/wheat-pasting-los-angeles">LA neighborhood guide</Link>.
+          <BlogLink slug="wheat-pasting-los-angeles">LA neighborhood guide</BlogLink>.
         </li>
         <li>
           <strong>New York</strong> — Lower East Side, Williamsburg, SoHo, Chinatown,
           Bushwick. Scaffolding wraps are a secondary NYC-specific format. See{" "}
-          <Link href="/blog/wheat-pasting-new-york">NYC wall culture explained</Link>.
+          <BlogLink slug="wheat-pasting-new-york">NYC wall culture explained</BlogLink>.
         </li>
         <li>
           <strong>Miami</strong> — Wynwood, Little Havana, Design District. Strong fashion and
@@ -271,7 +271,7 @@ export default function Post() {
         <li>
           <strong>Phoenix</strong> — Roosevelt Row, Grand Avenue, Melrose District, downtown
           Tempe. Desert heat changes the install window and the paste recipe. See{" "}
-          <Link href="/blog/wheat-pasting-phoenix">Phoenix desert install guide</Link>.
+          <BlogLink slug="wheat-pasting-phoenix">Phoenix desert install guide</BlogLink>.
         </li>
       </ul>
       <p>
@@ -301,10 +301,10 @@ export default function Post() {
       </ul>
       <p>
         For the direct comparison,{" "}
-        <Link href="/blog/snipe-posters-vs-wheat-paste-vs-floor-decals">
+        <BlogLink slug="snipe-posters-vs-wheat-paste-vs-floor-decals">
           see the three-format breakdown
-        </Link>. Against traditional OOH, see{" "}
-        <Link href="/blog/wheat-pasting-vs-billboards">wheat pasting vs. billboards</Link>.
+        </BlogLink>. Against traditional OOH, see{" "}
+        <BlogLink slug="wheat-pasting-vs-billboards">wheat pasting vs. billboards</BlogLink>.
       </p>
 
       <h2>Common Mistakes Brands Make</h2>

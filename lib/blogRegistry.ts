@@ -3,16 +3,45 @@
  * consumed by:
  *   - `/app/blog/page.tsx` (hub page, CollectionPage + ItemList schema)
  *   - `/app/blog/[slug]/page.tsx` (dynamic post route, generateStaticParams)
- *   - `/app/sitemap.ts` (auto-registered blog URLs; no manual sitemap edits)
+ *   - `/app/sitemap.ts` (auto-registered; drafts filtered out of sitemap)
+ *   - `/components/BlogLink.tsx` (smart cross-post links; drafts render as
+ *     <strong> instead of a broken <Link>)
+ *   - `/components/BlogPostLayout.tsx` related-posts rail (drafts skipped)
  *
  * Each post's long-form body component lives at
  *   `/content/blog/<slug>.tsx`
  * and is dynamically imported by the [slug] route at render time.
  *
- * To add a post:
- *   1. Create `/content/blog/<slug>.tsx` exporting a default body component
- *   2. Add a BlogPostMeta entry here with `status: "published"`
- *   3. Rebuild — sitemap and hub auto-pick up the new post
+ * ═════════════════════════════════════════════════════════════════════════════
+ *                     BLOG-PUBLISH RUNBOOK  (2-step)
+ * ═════════════════════════════════════════════════════════════════════════════
+ * Goal: ship a new post without triggering Semrush "4xx errors",
+ * "broken internal links", or "orphan page" warnings.
+ *
+ * STEP 1 — Draft the post
+ *   a. Create `/content/blog/<slug>.tsx` exporting `tldr()` + default body
+ *      component. Use <BlogLink slug="..."> instead of <Link href="/blog/...">
+ *      for every cross-post reference. Draft slugs referenced from published
+ *      prose auto-render as <strong> — no 4xx.
+ *   b. Add a BlogPostMeta entry here with status: "draft". Post is invisible
+ *      to sitemap, /blog hub, and related rails.
+ *
+ * STEP 2 — Publish the post
+ *   a. Flip its status: "draft" → "published" in this file.
+ *   b. Add one bullet to `/public/llms.txt` under "## Blog".
+ *   c. Add one entry to `/app/sitemap-images.xml/route.ts` if the hero image
+ *      isn't already in the sitemap.
+ *   d. `npm run build` and confirm: new URL appears in /sitemap.xml, old
+ *      BlogLink references in already-published posts now render as anchors.
+ *
+ * That's it. No other files need edits. The footer "Wheat Pasting Guide" link,
+ * the /blog hub featured card, the sitemap generator, and the related-posts
+ * rails all pull from PUBLISHED_POSTS automatically.
+ *
+ * MAINTENANCE RULE: Every cross-post reference in a blog body MUST use
+ * <BlogLink slug="..."> — never a raw <Link href="/blog/...">. That rule is
+ * what makes draft-before-publish safe.
+ * ═════════════════════════════════════════════════════════════════════════════
  */
 import { MATEO_VARGAS } from "./blogAuthor";
 
@@ -566,7 +595,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     silo: "the-craft",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
-    heroImage: "/gallery/fashionpass-wheat-paste-wild-posting-wall-los-angeles.webp",
+    heroImage: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     heroAlt: "Wheat paste poster installation on an urban wall",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["wheat-paste", "how-to", "recipe", "installation"],

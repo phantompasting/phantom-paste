@@ -88,7 +88,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
 
                 <h1 className="font-black uppercase m-0 leading-[0.88]"
                   style={{ fontSize: "clamp(42px, 6.5vw, 88px)", letterSpacing: "-0.04em" }}>
-                  WHEAT PASTING &amp;<br />WILD POSTING IN<br />
+                  WHEAT PASTING<br />POSTER CAMPAIGNS IN<br />
                   <ShinyGoldText>{data.city.toUpperCase()}.</ShinyGoldText>
                 </h1>
 
@@ -155,12 +155,20 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                   {data.heroWord}
                 </span>
 
+                {/*
+                  Wrapper above is `hidden lg:block` — these images don't render on mobile.
+                  Removed `priority` from heroImage1: Next/image preloads priority assets
+                  regardless of CSS visibility, so mobile users were downloading a 318KB
+                  hero they never saw. On desktop the H1 text paints first anyway, so the
+                  LCP impact of removing priority is negligible.
+                */}
                 {data.heroImage1 && (
                   <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
                     style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
                       boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
                     <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
-                      fill style={{ objectFit: "cover" }} sizes="40vw" priority />
+                      fill style={{ objectFit: "cover" }}
+                      sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
                   </div>
                 )}
 
@@ -169,7 +177,8 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                     style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
                       boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
                     <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
-                      fill style={{ objectFit: "cover" }} sizes="25vw" />
+                      fill style={{ objectFit: "cover" }}
+                      sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
                   </div>
                 )}
 

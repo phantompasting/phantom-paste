@@ -27,7 +27,7 @@ const dmMono = DM_Mono({
 
 const DEFAULT_TITLE = "Wheat Pasting Company | Phantom Pasting";
 const DEFAULT_DESC =
-  "The #1 guerrilla marketing agency for wheat pasting and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% photo-documented. Get a quote.";
+  "The #1 wheat pasting company for nationwide poster campaigns across 50+ US cities. 500+ campaigns. 100% photo-documented. Get a quote.";
 
 export const metadata: Metadata = {
   title: {
@@ -42,13 +42,15 @@ export const metadata: Metadata = {
   category: "Advertising",
   keywords: [
     "wheat pasting company",
-    "wild posting company",
     "wheat paste advertising",
+    "street postering agency",
+    "poster campaign agency",
     "guerrilla marketing agency",
-    "wild posting advertising",
+    "guerrilla postering company",
     "chalk spray stencil marketing",
     "street level marketing",
     "wheat pasting service",
+    "nationwide poster campaigns",
   ],
   metadataBase: new URL(BUSINESS.url),
   alternates: {
@@ -73,7 +75,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: DEFAULT_TITLE,
     description:
-      "Street-level wheat paste and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% documented. Clients include FashionPass, FIFA World Cup, Incrediwear.",
+      "Street-level wheat paste poster campaigns across 50+ US cities. 500+ campaigns. 100% documented. Clients include FashionPass, FIFA World Cup, Incrediwear.",
     type: "website",
     url: BUSINESS.url,
     siteName: BUSINESS.name,
@@ -83,7 +85,7 @@ export const metadata: Metadata = {
         url: BUSINESS.ogImageDefault,
         width: BUSINESS.ogImageWidth,
         height: BUSINESS.ogImageHeight,
-        alt: "Phantom Pasting — wheat paste wild posting wall campaign",
+        alt: "Phantom Pasting — wheat paste poster campaign wall",
       },
     ],
   },
@@ -91,7 +93,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description:
-      "Street-level wheat paste and wild posting campaigns across 50+ US cities. 500+ campaigns. 100% documented.",
+      "Street-level wheat paste poster campaigns across 50+ US cities. 500+ campaigns. 100% documented.",
     images: [BUSINESS.ogImageDefault],
   },
   appleWebApp: {

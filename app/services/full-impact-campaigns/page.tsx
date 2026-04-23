@@ -21,7 +21,7 @@ const PAGE_URL = `${BUSINESS.url}/services/full-impact-campaigns`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fifa-world-cup-poster-wall-gallery-wide.webp`;
 const PAGE_TITLE = "Full Impact Guerrilla Campaigns";
 const PAGE_DESC =
-  "Multi-format guerrilla marketing: wheat pasting, wild posting, and chalk stencils combined for total street saturation across 50+ US cities.";
+  "Multi-format guerrilla marketing: wheat pasting, street postering, and chalk stencils combined for total street saturation across 50+ US cities.";
 const DATE_PUBLISHED = "2024-03-05";
 const DATE_MODIFIED = "2026-04-01";
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   keywords: [
     "guerrilla marketing campaign",
     "full street marketing campaign",
-    "wheat pasting and wild posting",
+    "wheat pasting and street postering",
     "end-to-end guerrilla marketing",
     "street advertising campaign",
     "multi-format street campaign",
@@ -95,7 +95,7 @@ const INCLUDED = [
 const FAQS = [
   {
     q: "What is a full impact guerrilla campaign?",
-    a: "A full impact guerrilla campaign is a coordinated multi-format street marketing activation that combines wheat pasting, wild posting, and chalk spray stencils into one deployment. Instead of one channel, every format is stacked in targeted neighborhoods for total visual saturation — wall-level and street-level messaging running at the same time.",
+    a: "A full impact guerrilla campaign is a coordinated multi-format street marketing activation that combines wheat pasting, street postering, and chalk spray stencils into one deployment. Instead of one channel, every format is stacked in targeted neighborhoods for total visual saturation — wall-level and street-level messaging running at the same time.",
   },
   {
     q: "How much does a full impact campaign cost?",
@@ -107,7 +107,7 @@ const FAQS = [
   },
   {
     q: "Which formats are included in a full impact campaign?",
-    a: "Full impact campaigns include large-format wheat paste posters, chalk spray stencil activations, and wild posting on street-level walls and poles. We also add pole wraps, sticker passes, and sidewalk decals when the market and objective justify it.",
+    a: "Full impact campaigns include large-format wheat paste posters, chalk spray stencil activations, and street postering on street-level walls and poles. We also add pole wraps, sticker passes, and sidewalk decals when the market and objective justify it.",
   },
   {
     q: "Can I get exclusive neighborhood or wall placements?",
@@ -132,7 +132,7 @@ export default function FullImpactCampaignsPage() {
               name: "Full Impact Guerrilla Campaigns",
               alternateName: "Multi-Format Street Campaigns",
               description:
-                "End-to-end guerrilla marketing combining wheat pasting, wild posting, and chalk spray stencils for total street saturation. Available in 50+ US cities.",
+                "End-to-end guerrilla marketing combining wheat pasting, street postering, and chalk spray stencils for total street saturation. Available in 50+ US cities.",
               url: PAGE_URL,
             })
           ),
@@ -274,13 +274,14 @@ export default function FullImpactCampaignsPage() {
                   style={{ width: "82%", height: "62%",
                     transform: "rotate(1.2deg)",
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
+                  {/* Hidden on mobile — see CityPageTemplate for context. */}
                   <Image
                     src="/gallery/sticker-campaign-street-intersection-urban.webp"
                     alt="Full impact multi-format street campaign"
                     fill
                     style={{ objectFit: "cover" }}
-                    sizes="40vw"
-                    priority
+                    sizes="(max-width: 1024px) 0vw, 40vw"
+                    loading="lazy"
                   />
                 </div>
 
@@ -342,7 +343,7 @@ export default function FullImpactCampaignsPage() {
               WHAT IS A FULL IMPACT<br /><ShinyGoldText>CAMPAIGN?</ShinyGoldText>
             </h2>
             <p className="font-light leading-relaxed m-0 mb-4" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "760px" }}>
-              A full impact guerrilla campaign is an end-to-end street marketing activation that combines multiple formats — wheat pasting, chalk spray stencils, and wild posting — into a single coordinated deployment. Instead of picking one format, every available medium is stacked for total visual saturation across targeted neighborhoods in your market.
+              A full impact guerrilla campaign is an end-to-end street marketing activation that combines multiple formats — wheat pasting, chalk spray stencils, and street postering — into a single coordinated deployment. Instead of picking one format, every available medium is stacked for total visual saturation across targeted neighborhoods in your market.
             </p>
             <p className="font-light leading-relaxed m-0 mb-4" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "760px" }}>
               The value is density. When a consumer walks a five-block corridor and passes your brand on a wall, then on the sidewalk, then on a utility pole — each impression reinforces the last. Recall climbs and the neighborhood starts to feel owned. That compound effect is what standalone wheat pasting or a single chalk activation cannot produce on its own.
@@ -449,7 +450,7 @@ export default function FullImpactCampaignsPage() {
                 FIFA WORLD CUP<br /><ShinyGoldText>ATLANTA TAKEOVER.</ShinyGoldText>
               </h2>
               <p className="font-light leading-relaxed m-0 mb-4" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}>
-                The FIFA World Cup activation in Atlanta is a textbook full impact deployment. Objective: saturate the neighborhoods surrounding the match venue with tournament branding in the week leading up to the first kickoff. Formats stacked: large-format wheat paste wall blocks, sidewalk chalk stencil activations at pedestrian approach routes, and wild posting on construction plywood along two key corridors.
+                The FIFA World Cup activation in Atlanta is a textbook full impact deployment. Objective: saturate the neighborhoods surrounding the match venue with tournament branding in the week leading up to the first kickoff. Formats stacked: large-format wheat paste wall blocks, sidewalk chalk stencil activations at pedestrian approach routes, and street postering on construction plywood along two key corridors.
               </p>
               <p className="font-light leading-relaxed m-0 mb-6" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}>
                 Crews deployed over three nights; documentation was delivered inside 48 hours. Every placement was geo-tagged, photographed in-daylight for social reuse, and mapped. By match week the corridors felt owned — which is the entire point of full impact.
@@ -501,7 +502,7 @@ export default function FullImpactCampaignsPage() {
           <div className="max-w-[1200px] mx-auto">
             <div className="rounded-2xl p-6" style={{ border: "2px solid rgba(212,160,16,0.3)", background: "rgba(212,160,16,0.04)" }}>
               <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}>
-                <strong style={{ color: ACCENT }}>TL;DR</strong> — Full impact = wheat pasting + chalk stencils + wild posting in one coordinated campaign. Total street presence across 50+ US cities. 100% photo-documented. Call <a href={BUSINESS.telHref} style={{ color: ACCENT }}>{BUSINESS.telephoneDisplay}</a> to plan a takeover.
+                <strong style={{ color: ACCENT }}>TL;DR</strong> — Full impact = wheat pasting + chalk stencils + street postering in one coordinated campaign. Total street presence across 50+ US cities. 100% photo-documented. Call <a href={BUSINESS.telHref} style={{ color: ACCENT }}>{BUSINESS.telephoneDisplay}</a> to plan a takeover.
               </p>
             </div>
           </div>

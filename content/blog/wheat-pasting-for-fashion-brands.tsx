@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlogLink from "@/components/BlogLink";
 import PullQuote from "@/components/PullQuote";
 
 export function tldr() {
@@ -144,7 +144,7 @@ export default function Post() {
       </table>
       <p>
         For the general cost breakdown,{" "}
-        <Link href="/blog/wheat-pasting-cost">see wheat pasting cost</Link>.
+        <BlogLink slug="wheat-pasting-cost">see wheat pasting cost</BlogLink>.
       </p>
 
       <h2>Why This Beats Paid Social for Fashion</h2>
@@ -189,9 +189,9 @@ export default function Post() {
         We&apos;ve run paste campaigns for FashionPass, streetwear capsules, and fashion-week tie-ins
         across LA, NYC, Miami, Chicago, and Atlanta. For the operational breakdown on how a
         campaign comes together,{" "}
-        <Link href="/blog/wheat-pasting-campaign">
+        <BlogLink slug="wheat-pasting-campaign">
           see how a 12-location campaign runs overnight
-        </Link>.
+        </BlogLink>.
       </p>
     </>
   );

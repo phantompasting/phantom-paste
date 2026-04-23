@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "wheat pasting service",
     "wheat paste advertising",
     "wheat paste posters",
-    "wild posting",
+    "street postering",
     "large format street advertising",
     "guerrilla marketing posters",
   ],
@@ -117,7 +117,7 @@ const FAQS = [
   },
   {
     q: "Is wheat pasting legal?",
-    a: "Yes, when installed on permitted walls and with property-owner agreements. Phantom Pasting only installs on sourced permitted surfaces — construction hoardings, owner-approved walls, and legal wild-posting corridors — so every campaign is covered and photo-documented.",
+    a: "Yes, when installed on permitted walls and with property-owner agreements. Phantom Pasting only installs on sourced permitted surfaces — construction hoardings, owner-approved walls, and legal poster campaign corridors — so every campaign is covered and photo-documented.",
   },
   {
     q: "How much does a wheat pasting campaign cost?",
@@ -144,7 +144,7 @@ export default function WheatPastingPage() {
           __html: jsonLd(
             serviceSchema({
               name: "Wheat Pasting",
-              alternateName: "Wild Posting",
+              alternateName: "Street Postering",
               description:
                 "Large-format wheat paste poster advertising installed on prime urban walls across 50+ US cities. Includes print, installation, and photo documentation.",
               url: PAGE_URL,
@@ -351,13 +351,16 @@ export default function WheatPastingPage() {
                       "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)",
                   }}
                 >
+                  {/* Hidden on mobile (hidden lg:block wrapper). Removed priority
+                      so Next.js doesn't preload this ~300KB hero to mobile users
+                      who never see it. */}
                   <Image
                     src="/gallery/dont-fall-off-wheat-paste-street-view-la.webp"
                     alt="Wheat paste poster wall campaign"
                     fill
                     style={{ objectFit: "cover" }}
-                    sizes="40vw"
-                    priority
+                    sizes="(max-width: 1024px) 0vw, 40vw"
+                    loading="lazy"
                   />
                 </div>
 
@@ -461,14 +464,12 @@ export default function WheatPastingPage() {
                 className="font-light leading-relaxed m-0 mb-4"
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}
               >
-                <a
-                  href="https://en.wikipedia.org/wiki/Wheatpaste"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/blog/what-is-wheat-pasting"
                   style={{ color: ACCENT, textDecoration: "underline", textDecorationThickness: "1px" }}
                 >
                   Wheat pasting
-                </a>{" "}
+                </Link>{" "}
                 is the original street advertising format — large printed posters adhered directly
                 to urban walls, construction plywood, and hoardings using a simple paste of wheat
                 flour, water, and PVA. The technique dates back to mid-20th-century political
@@ -670,7 +671,7 @@ export default function WheatPastingPage() {
               {[
                 {
                   h: "Permitted walls only",
-                  p: "We maintain an active roster of property-owner agreements in every city we operate. Posters only go on walls, plywood, and hoardings where we have written permission or legal wild-posting rights.",
+                  p: "We maintain an active roster of property-owner agreements in every city we operate. Posters only go on walls, plywood, and hoardings where we have written permission or legal poster campaign rights.",
                 },
                 {
                   h: "Construction hoardings",

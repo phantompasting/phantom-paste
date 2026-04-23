@@ -11,7 +11,7 @@ import { GALLERY_IMGS } from "@/lib/gallery-data";
 const PAGE_URL = `${BUSINESS.url}/gallery`;
 const PAGE_TITLE = "Campaign Gallery | Our Work";
 const PAGE_DESC =
-  "Browse 500+ documented wheat paste, wild posting, and chalk spray stencil campaigns across the US. Every activation photo-documented.";
+  "Browse 500+ documented wheat paste, street postering, and chalk spray stencil campaigns across the US. Every activation photo-documented.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -80,7 +80,13 @@ export default function GalleryPage() {
           ]}
         />
         <TrustBar />
+
+        {/* The page H1 lives inside GalleryPageClient ("OUR WORK.") — keeping a
+            single title block above the grid. SEO is carried by the document
+            <title>, meta description, and the gallerySchema/ImageObject JSON-LD
+            already injected into <head>. */}
         <GalleryPageClient />
+
         <SiteFooter />
       </div>
     </>
