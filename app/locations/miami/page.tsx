@@ -1,11 +1,27 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
+import { KW_CITY_BASE } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting Miami",
   description:
     "Wheat pasting in Miami — poster campaigns across Wynwood, South Beach, Brickell, and the Design District. Large-format street posters. Get a quote.",
-  keywords: ["wheat pasting Miami", "Miami poster campaigns", "Miami guerrilla marketing", "street postering Miami", "Wynwood poster campaign"],
+  keywords: [
+    "wheat pasting Miami",
+    "Miami poster campaigns",
+    "Miami guerrilla marketing",
+    "street postering Miami",
+    "Wynwood poster campaign",
+    "Miami street media",
+    "Miami street marketing agency",
+    "Miami flyposting",
+    "Miami OOH advertising",
+    "Wynwood guerrilla marketing",
+    "South Beach street advertising",
+    "Brickell wheat pasting",
+    "Design District poster campaigns",
+    ...KW_CITY_BASE,
+  ],
   alternates: { canonical: "https://www.phantompasting.com/locations/miami" },
   openGraph: {
     title: "Wheat Pasting Miami",

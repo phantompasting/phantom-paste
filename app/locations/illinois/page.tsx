@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
+import { KW_CITY_BASE, KW_NATIONWIDE } from "@/lib/keywordSets";
 
 /**
  * Illinois state landing page — captures statewide search intent that the
@@ -30,6 +31,17 @@ export const metadata: Metadata = {
     "Illinois guerrilla marketing",
     "Chicago wheat pasting",
     "Champaign Urbana poster campaigns",
+    "Illinois street media",
+    "Illinois street marketing agency",
+    "Illinois flyposting",
+    "Illinois OOH advertising",
+    "Naperville wheat pasting",
+    "Rockford poster campaigns",
+    "Peoria street advertising",
+    "Springfield IL guerrilla marketing",
+    "statewide Illinois OOH",
+    ...KW_CITY_BASE,
+    ...KW_NATIONWIDE.slice(0, 4),
   ],
   alternates: { canonical: "https://www.phantompasting.com/locations/illinois" },
   openGraph: {

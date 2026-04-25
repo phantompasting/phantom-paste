@@ -15,26 +15,28 @@ import {
   breadcrumbSchema,
   jsonLd,
 } from "@/lib/schema";
+import {
+  KW_SERVICE_WHEAT_PASTING,
+  KW_CRAFT,
+  KW_STREET_POSTERS,
+  KW_FLYPOSTING,
+  KW_OOH,
+  KW_STREET_MARKETING,
+  ORG_ADDITIONAL_TYPES,
+} from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/services/wheat-pasting`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp`;
 const PAGE_TITLE = "Wheat Pasting Services";
 const PAGE_DESC =
-  "Large-format wheat paste poster advertising on prime urban walls across 50+ US cities. We handle print, install, and 100% photo documentation. Get a quote.";
+  "Large-format wheat paste poster advertising — also called street postering, flyposting, or street media — on prime urban walls across 50+ US cities. Print, install, and 100% photo documentation. Get a quote.";
 const DATE_PUBLISHED = "2024-01-15";
 const DATE_MODIFIED = "2026-04-01";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
-  keywords: [
-    "wheat pasting service",
-    "wheat paste advertising",
-    "wheat paste posters",
-    "street postering",
-    "large format street advertising",
-    "guerrilla marketing posters",
-  ],
+  keywords: [...KW_SERVICE_WHEAT_PASTING],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Wheat Pasting Services | Large Format Street Posters | Phantom Pasting",
@@ -143,9 +145,24 @@ export default function WheatPastingPage() {
           __html: jsonLd(
             serviceSchema({
               name: "Wheat Pasting",
-              alternateName: "Street Postering",
+              // Array of synonym terms — Google reads each as an alternate
+              // service name and surfaces this page for queries using any of
+              // them. Centralized vocabulary in lib/keywordSets.ts.
+              alternateName: [
+                "Street Postering",
+                "Wheatpasting",
+                "Wheat Paste Posters",
+                "Wheat Paste Advertising",
+                "Flyposting",
+                "Poster Campaigns",
+                "Street Poster Advertising",
+                "Street Media",
+                "Urban Poster Advertising",
+                "Alternative OOH Posters",
+              ],
+              additionalType: ORG_ADDITIONAL_TYPES,
               description:
-                "Large-format wheat paste poster advertising installed on prime urban walls across 50+ US cities. Includes print, installation, and photo documentation.",
+                "Large-format wheat paste poster advertising installed on prime urban walls across 50+ US cities. Includes print, installation, and photo documentation. Also marketed as street postering, flyposting, street media, and alternative OOH.",
               url: PAGE_URL,
               serviceType: "Wheat Pasting",
               category: "Outdoor Advertising",
@@ -202,13 +219,11 @@ export default function WheatPastingPage() {
               articleSection: "Services",
               articleBody: PAGE_DESC,
               keywords: [
-                "wheat pasting",
-                "wheat paste posters",
-                "street postering",
-                "poster campaigns",
-                "guerrilla marketing",
-                "outdoor advertising",
-                "OOH",
+                ...KW_CRAFT.slice(0, 5),
+                ...KW_STREET_POSTERS.slice(0, 5),
+                ...KW_FLYPOSTING.slice(0, 2),
+                ...KW_OOH.slice(0, 4),
+                ...KW_STREET_MARKETING.slice(0, 4),
               ],
               audienceType: "Brand Marketers, Marketing Agencies",
               genre: "Service Page",

@@ -7,15 +7,17 @@ import GalleryPageClient from "./GalleryPageClient";
 import { BUSINESS } from "@/lib/business";
 import { webPageSchema, breadcrumbSchema, imageObjectSchema, jsonLd } from "@/lib/schema";
 import { GALLERY_IMGS } from "@/lib/gallery-data";
+import { KW_GALLERY } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/gallery`;
 const PAGE_TITLE = "Campaign Gallery | Our Work";
 const PAGE_DESC =
-  "Browse 500+ documented wheat paste, street postering, and chalk spray stencil campaigns across the US. Every activation photo-documented.";
+  "Browse 500+ photo-documented wheat paste, street postering, snipe poster, pole wrap, sticker, and chalk spray stencil campaigns across the US. Guerrilla marketing and street media activations from 50+ markets.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: [...KW_GALLERY],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Campaign Gallery | Phantom Pasting",

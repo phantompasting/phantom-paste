@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
+import { KW_CITY_BASE } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting NYC",
@@ -14,6 +15,16 @@ export const metadata: Metadata = {
     "Lower East Side wheat pasting",
     "LES poster campaigns",
     "Lower East Side street advertising",
+    "NYC street media",
+    "NYC street marketing agency",
+    "NYC flyposting",
+    "NYC OOH advertising",
+    "Williamsburg wheat pasting",
+    "SoHo poster campaigns",
+    "Bushwick street advertising",
+    "DUMBO guerrilla marketing",
+    "Manhattan scaffold wraps",
+    ...KW_CITY_BASE,
   ],
   alternates: { canonical: "https://www.phantompasting.com/locations/new-york" },
   openGraph: {

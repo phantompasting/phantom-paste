@@ -8,24 +8,17 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
 import { webPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { KW_ABOUT } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/about`;
 const PAGE_TITLE = "About — Guerrilla Marketing Since 2014";
 const PAGE_DESC =
-  "Wheat pasting company founded in 2014. 500+ campaigns across 50+ US cities. Nationwide poster campaigns, street postering, and chalk stencil activations.";
+  "Wheat pasting company founded 2014 — also operating as a guerrilla marketing agency, street media buyer, alternative OOH agency, and nationwide street marketing partner. 500+ campaigns, 50+ US cities.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
-  keywords: [
-    "about phantom pasting",
-    "guerrilla marketing agency",
-    "wheat pasting company",
-    "street postering agency",
-    "street marketing company",
-    "founded 2014",
-    "US street advertising agency",
-  ],
+  keywords: [...KW_ABOUT],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: PAGE_TITLE,

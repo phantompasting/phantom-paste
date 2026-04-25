@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
+import { KW_CITY_BASE, KW_NATIONWIDE } from "@/lib/keywordSets";
 
 /**
  * Georgia state landing page — captures statewide search intent that the
@@ -28,6 +29,17 @@ export const metadata: Metadata = {
     "Georgia guerrilla marketing",
     "Atlanta wheat pasting",
     "Savannah poster campaigns",
+    "Georgia street media",
+    "Georgia street marketing agency",
+    "Georgia flyposting",
+    "Georgia OOH advertising",
+    "Athens wheat pasting",
+    "Augusta poster campaigns",
+    "Macon street advertising",
+    "Columbus GA guerrilla marketing",
+    "statewide Georgia OOH",
+    ...KW_CITY_BASE,
+    ...KW_NATIONWIDE.slice(0, 4),
   ],
   alternates: { canonical: "https://www.phantompasting.com/locations/georgia" },
   openGraph: {

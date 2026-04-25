@@ -8,23 +8,17 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
+import { KW_CONTACT } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/contact`;
 const PAGE_TITLE = "Hire a Wheat Pasting Company";
 const PAGE_DESC =
-  "Ready to launch a wheat pasting or guerrilla marketing campaign? Contact Phantom Pasting and get a custom quote within 24 hours. Available in 50+ US cities.";
+  "Get a wheat pasting, street media, or full guerrilla marketing campaign quote within 24 hours — also handles flyposting, alternative OOH, street postering, snipes, and chalk stencils. 50+ US cities.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
-  keywords: [
-    "hire wheat pasting company",
-    "guerrilla marketing quote",
-    "wheat paste advertising quote",
-    "poster campaign quote",
-    "street marketing contact",
-    "get a quote guerrilla marketing",
-  ],
+  keywords: [...KW_CONTACT],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: PAGE_TITLE,

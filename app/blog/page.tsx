@@ -10,6 +10,7 @@ import { BUSINESS } from "@/lib/business";
 import { MATEO_VARGAS } from "@/lib/blogAuthor";
 import { PUBLISHED_POSTS, SILO_LABELS } from "@/lib/blogRegistry";
 import { collectionPageSchema, jsonLd } from "@/lib/schema";
+import { KW_BLOG_HUB } from "@/lib/keywordSets";
 
 const ACCENT = "#D4A010";
 const PAGE_URL = `${BUSINESS.url}/blog`;
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
   // (73 chars — Google truncates past ~60).
   title: { absolute: PAGE_TITLE },
   description: PAGE_DESC,
+  keywords: [...KW_BLOG_HUB],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Wheat Pasting Blog — Field Notes from the Street",

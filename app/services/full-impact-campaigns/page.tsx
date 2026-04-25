@@ -15,27 +15,29 @@ import {
   breadcrumbSchema,
   jsonLd,
 } from "@/lib/schema";
+import {
+  KW_SERVICE_FULL_IMPACT,
+  KW_CRAFT,
+  KW_STREET_POSTERS,
+  KW_STREET_MARKETING,
+  KW_OOH,
+  KW_VERTICALS,
+  KW_NATIONWIDE,
+  ORG_ADDITIONAL_TYPES,
+} from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/services/full-impact-campaigns`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fifa-world-cup-poster-wall-gallery-wide.webp`;
 const PAGE_TITLE = "Full Impact Guerrilla Campaigns";
 const PAGE_DESC =
-  "Multi-format guerrilla marketing: wheat pasting, street postering, and chalk stencils combined for total street saturation across 50+ US cities.";
+  "Multi-format guerrilla marketing — wheat pasting, street postering, snipes, chalk stencils, and pole wraps combined for total street saturation. Also marketed as multi-format OOH, alternative OOH rollouts, and street media takeovers. 50+ US cities.";
 const DATE_PUBLISHED = "2024-03-05";
 const DATE_MODIFIED = "2026-04-01";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
-  keywords: [
-    "guerrilla marketing campaign",
-    "full street marketing campaign",
-    "wheat pasting and street postering",
-    "end-to-end guerrilla marketing",
-    "street advertising campaign",
-    "multi-format street campaign",
-    "city takeover marketing",
-  ],
+  keywords: [...KW_SERVICE_FULL_IMPACT],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Full Impact Guerrilla Campaigns | Phantom Pasting",
@@ -129,9 +131,21 @@ export default function FullImpactCampaignsPage() {
           __html: jsonLd(
             serviceSchema({
               name: "Full Impact Guerrilla Campaigns",
-              alternateName: "Multi-Format Street Campaigns",
+              alternateName: [
+                "Multi-Format Street Campaigns",
+                "Multi-Format OOH Rollouts",
+                "Street Media Takeovers",
+                "Guerrilla OOH Saturation",
+                "City-Wide Street Campaigns",
+                "Multi-City OOH Rollouts",
+                "Alternative OOH Rollouts",
+                "Wheat Pasting + Stencil + Snipe Packages",
+                "Brand Activation Campaigns",
+                "Nationwide Guerrilla Marketing Rollouts",
+              ],
+              additionalType: ORG_ADDITIONAL_TYPES,
               description:
-                "End-to-end guerrilla marketing combining wheat pasting, street postering, and chalk spray stencils for total street saturation. Available in 50+ US cities.",
+                "End-to-end guerrilla marketing combining wheat pasting, street postering, snipes, pole wraps, and chalk spray stencils for total street saturation — also marketed as multi-format OOH, alternative OOH rollouts, and street media takeovers. Available in 50+ US cities.",
               url: PAGE_URL,
               serviceType: "Multi-Format Guerrilla Marketing Campaigns",
               category: "Outdoor Advertising",
@@ -188,13 +202,12 @@ export default function FullImpactCampaignsPage() {
               articleSection: "Services",
               articleBody: PAGE_DESC,
               keywords: [
-                "full impact campaigns",
-                "guerrilla marketing campaigns",
-                "multi-format street campaigns",
-                "wheat pasting",
-                "street postering",
-                "chalk stencils",
-                "OOH",
+                ...KW_CRAFT.slice(0, 3),
+                ...KW_STREET_POSTERS.slice(0, 4),
+                ...KW_STREET_MARKETING.slice(0, 6),
+                ...KW_OOH.slice(0, 4),
+                ...KW_VERTICALS.slice(0, 5),
+                ...KW_NATIONWIDE.slice(0, 3),
               ],
               audienceType: "Brand Marketers, Marketing Agencies",
               genre: "Service Page",

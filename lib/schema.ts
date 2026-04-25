@@ -7,17 +7,27 @@
  *     dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema({...})) }} />
  */
 import { BUSINESS } from "./business";
+import { ORG_KNOWS_ABOUT, ORG_ADDITIONAL_TYPES } from "./keywordSets";
 
 const ORG_ID = `${BUSINESS.url}/#org`;
 const WEBSITE_ID = `${BUSINESS.url}/#website`;
 const LOCALBUSINESS_ID = `${BUSINESS.url}/#localbusiness`;
 
-/** Organization schema — used in root layout @graph. */
+/**
+ * Organization schema — used in root layout @graph.
+ *
+ * Includes `knowsAbout` (39 topical concepts) and `additionalType` (5
+ * Schema.org / productontology URLs) so the Org node carries broad
+ * topical breadth across every synonym family the agency targets.
+ * The homepage @graph spreads this object and adds richer fields like
+ * `hasOfferCatalog` and `description`.
+ */
 export function orgSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": ORG_ID,
+    additionalType: ORG_ADDITIONAL_TYPES,
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
     url: BUSINESS.url,
@@ -25,6 +35,7 @@ export function orgSchema() {
     email: BUSINESS.email,
     telephone: BUSINESS.telephone,
     foundingDate: BUSINESS.foundingDate,
+    knowsAbout: ORG_KNOWS_ABOUT,
     sameAs: BUSINESS.sameAs,
   };
 }
@@ -60,6 +71,12 @@ export function localBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": LOCALBUSINESS_ID,
+    // Schema.org `additionalType` URLs declare the multi-category nature of
+    // the business: AdvertisingAgency + Out-of-home_advertising +
+    // Guerrilla_marketing + Flyposting + Wheatpaste. Google reads each as
+    // an additional classification signal that widens impression surface
+    // for queries using ANY of those lexicons.
+    additionalType: ORG_ADDITIONAL_TYPES,
     name: BUSINESS.name,
     url: BUSINESS.url,
     telephone: BUSINESS.telephone,
@@ -77,6 +94,10 @@ export function localBusinessSchema() {
     // Top market cities — secondary `areaServed` signal kept for keyword/topic
     // breadth. Google reads both fields; `serviceArea` carries the SAB intent.
     areaServed: BUSINESS.serviceCities.map((c) => ({ "@type": "City", name: c })),
+    // Topical breadth signal — each entry is a concept Google reads as
+    // evidence of authority. Wider knowsAbout = wider impression surface
+    // across every synonym family (street media, OOH, flyposting, etc).
+    knowsAbout: ORG_KNOWS_ABOUT,
     sameAs: BUSINESS.sameAs,
   };
 }
@@ -100,7 +121,13 @@ export function serviceSchema(opts: {
   name: string;
   description: string;
   url: string;
-  alternateName?: string;
+  /**
+   * Alternate names for the service. Accepts a string OR a string[] — pass
+   * an array to declare multiple synonym terms ("Street Postering",
+   * "Flyposting", "Wild Posting Alternative", etc.) so Google reads the
+   * service under each lexicon a campaign-buyer might use.
+   */
+  alternateName?: string | ReadonlyArray<string>;
   /** Specific service classification (e.g. "Wheat Pasting"). */
   serviceType?: string;
   /**
@@ -120,6 +147,14 @@ export function serviceSchema(opts: {
   offerItems?: ReadonlyArray<{ name: string; description: string }>;
   /** Audience type — "Marketing Agencies", "Brand Marketers", etc. */
   audienceType?: string;
+  /**
+   * Schema.org `additionalType` URLs — supplemental type classifications
+   * beyond `@type: Service`. Each URL is a public Schema.org or
+   * productontology.org concept. Google reads these as evidence the service
+   * fits multiple categories (e.g. AdvertisingAgency + Out-of-home_advertising
+   * + Guerrilla_marketing). Wider classification = wider impression surface.
+   */
+  additionalType?: ReadonlyArray<string>;
 }) {
   const offerCatalog = opts.offerItems && opts.offerItems.length > 0
     ? {
@@ -147,6 +182,9 @@ export function serviceSchema(opts: {
     "@type": "Service",
     name: opts.name,
     ...(opts.alternateName ? { alternateName: opts.alternateName } : {}),
+    ...(opts.additionalType && opts.additionalType.length > 0
+      ? { additionalType: opts.additionalType }
+      : {}),
     description: opts.description,
     url: opts.url,
     serviceType: opts.serviceType ?? opts.name,

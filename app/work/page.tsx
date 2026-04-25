@@ -8,15 +8,17 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
 import { collectionPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { KW_WORK } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/work`;
 const PAGE_TITLE = "Guerrilla Marketing Case Studies";
 const PAGE_DESC =
-  "Real guerrilla marketing campaigns — FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Wheat pasting and poster campaign case studies, fully photo-documented.";
+  "Wheat pasting, street postering, and full-impact OOH case studies — FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Real guerrilla marketing campaigns and street media activations, fully photo-documented.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: [...KW_WORK],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Guerrilla Marketing Case Studies | Phantom Pasting",

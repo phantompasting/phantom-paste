@@ -12,11 +12,16 @@ import {
   jsonLd,
 } from "@/lib/schema";
 import { HOMEPAGE_FAQS } from "@/lib/homepageFAQs";
+import { KW_HOMEPAGE } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: { absolute: "Wheat Pasting Company | Phantom Pasting" },
   description:
-    "Wheat pasting, street postering & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
+    "Wheat pasting, street postering, street media & chalk stencil campaigns across 50+ US cities. Guerrilla marketing agency, 500+ photo-documented activations. Also called flyposting, street marketing, alternative OOH.",
+  // Meta keywords: low Google weight, real Bing weight, also indexed by some
+  // AI search engines. Centralized in lib/keywordSets.ts so the synonym set
+  // stays coherent across pages.
+  keywords: [...KW_HOMEPAGE],
   alternates: { canonical: BUSINESS.url },
   openGraph: {
     title: "Wheat Pasting Company | Phantom Pasting",
@@ -47,15 +52,11 @@ const homepageGraph = {
     {
       ...orgSchema(),
       description:
-        "Wheat pasting company specializing in large-format poster campaigns, street postering, and chalk spray stencil activations across 50+ US cities.",
-      knowsAbout: [
-        "Wheat Pasting",
-        "Street Postering",
-        "Poster Campaigns",
-        "Guerrilla Marketing",
-        "Street Advertising",
-        "Chalk Spray Stencils",
-      ],
+        "Wheat pasting company also known as a flyposting, street postering, street media, guerrilla marketing, and alternative OOH agency. Large-format poster campaigns, chalk spray stencil activations, and full-impact multi-format rollouts across 50+ US cities.",
+      // knowsAbout already supplied by orgSchema() via ORG_KNOWS_ABOUT (39
+      // topical entities) — the spread above carries it. No inline override
+      // needed; the previous 6-entry inline list was narrower than the
+      // centralized version.
       areaServed: BUSINESS.areaServed,
       hasOfferCatalog: {
         "@type": "OfferCatalog",

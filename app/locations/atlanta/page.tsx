@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
+import { KW_CITY_BASE } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting Atlanta",
   description:
     "Wheat pasting in Atlanta — poster campaigns across Midtown, Little Five Points, Buckhead, and East Atlanta. Large-format street posters. Get a quote.",
-  keywords: ["wheat pasting Atlanta", "Atlanta poster campaigns", "Atlanta guerrilla marketing", "street postering Atlanta", "wheat paste posters GA"],
+  keywords: [
+    "wheat pasting Atlanta",
+    "Atlanta poster campaigns",
+    "Atlanta guerrilla marketing",
+    "street postering Atlanta",
+    "wheat paste posters GA",
+    "Atlanta street media",
+    "Atlanta street marketing agency",
+    "Atlanta flyposting",
+    "Atlanta OOH advertising",
+    "Midtown Atlanta wheat pasting",
+    "Little Five Points poster campaigns",
+    "Buckhead street advertising",
+    "East Atlanta Village guerrilla marketing",
+    "Old Fourth Ward OOH",
+    ...KW_CITY_BASE,
+  ],
   alternates: { canonical: "https://www.phantompasting.com/locations/atlanta" },
   openGraph: {
     title: "Wheat Pasting Atlanta",

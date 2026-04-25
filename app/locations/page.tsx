@@ -8,15 +8,17 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
 import { collectionPageSchema, faqPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { KW_LOCATIONS_HUB } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/locations`;
 const PAGE_TITLE = "Guerrilla Marketing Locations";
 const PAGE_DESC =
-  "Wheat pasting and poster campaigns in New York, Los Angeles, Miami, Chicago, Atlanta, and 50+ other US cities. Get a custom quote for your city.";
+  "Wheat pasting, street postering, and street media campaigns in New York, Los Angeles, Miami, Chicago, Atlanta, and 50+ other US cities. Multi-city OOH rollouts and nationwide guerrilla marketing — single brief, statewide or coast-to-coast coverage.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  keywords: [...KW_LOCATIONS_HUB],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Guerrilla Marketing Locations | Phantom Pasting",

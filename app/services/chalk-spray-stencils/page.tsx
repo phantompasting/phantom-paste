@@ -15,26 +15,27 @@ import {
   breadcrumbSchema,
   jsonLd,
 } from "@/lib/schema";
+import {
+  KW_SERVICE_STENCILS,
+  KW_STENCILS,
+  KW_FLOOR_MEDIA,
+  KW_STREET_MARKETING,
+  KW_OOH,
+  ORG_ADDITIONAL_TYPES,
+} from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/services/chalk-spray-stencils`;
 const PAGE_OG = `${BUSINESS.url}/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp`;
 const PAGE_TITLE = "Chalk Spray Stencil Advertising";
 const PAGE_DESC =
-  "Chalk spray stencil advertising on sidewalks, plazas, and venue entrances. Water-based, photo-documented. Campaigns across 50+ US cities.";
+  "Chalk spray stencil advertising — also called sidewalk stencils, spray chalk advertising, or street stencil marketing — on sidewalks, plazas, and venue entrances. Water-based, photo-documented. 50+ US cities.";
 const DATE_PUBLISHED = "2024-02-10";
 const DATE_MODIFIED = "2026-04-01";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
-  keywords: [
-    "chalk spray stencil marketing",
-    "chalk stencil advertising",
-    "sidewalk chalk advertising",
-    "guerrilla marketing stencils",
-    "street level marketing",
-    "chalk spray marketing",
-  ],
+  keywords: [...KW_SERVICE_STENCILS],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Chalk Spray Stencil Advertising | Phantom Pasting",
@@ -115,9 +116,19 @@ export default function ChalkSprayStencilsPage() {
           __html: jsonLd(
             serviceSchema({
               name: "Chalk Spray Stencils",
-              alternateName: "Chalk Stencil Advertising",
+              alternateName: [
+                "Chalk Stencil Advertising",
+                "Sidewalk Stencils",
+                "Sidewalk Chalk Advertising",
+                "Spray Chalk Advertising",
+                "Street Stencils",
+                "Stencil Marketing",
+                "Pavement Stencil Advertising",
+                "Sidewalk Activation Stencils",
+              ],
+              additionalType: ORG_ADDITIONAL_TYPES,
               description:
-                "Precision chalk spray stencil activations at sidewalk level. Water-based, temporary, and 100% photo documented. Available in 50+ US cities.",
+                "Precision chalk spray stencil activations at sidewalk level — also called sidewalk stencils, spray chalk advertising, or street stencil marketing. Water-based, temporary, and 100% photo documented. Available in 50+ US cities.",
               url: PAGE_URL,
               serviceType: "Chalk Spray Stencil Advertising",
               category: "Outdoor Advertising",
@@ -174,12 +185,10 @@ export default function ChalkSprayStencilsPage() {
               articleSection: "Services",
               articleBody: PAGE_DESC,
               keywords: [
-                "chalk spray stencils",
-                "chalk stencil advertising",
-                "sidewalk advertising",
-                "guerrilla marketing",
-                "street activations",
-                "temporary OOH",
+                ...KW_STENCILS.slice(0, 6),
+                ...KW_FLOOR_MEDIA.slice(0, 4),
+                ...KW_STREET_MARKETING.slice(0, 4),
+                ...KW_OOH.slice(0, 3),
               ],
               audienceType: "Brand Marketers, Event Marketers",
               genre: "Service Page",

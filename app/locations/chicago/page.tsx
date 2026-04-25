@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
+import { KW_CITY_BASE } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting Chicago",
   description:
     "Wheat pasting in Chicago — poster campaigns across Wicker Park, Wrigleyville, Logan Square, and the Loop. Large-format street posters. Get a quote.",
-  keywords: ["wheat pasting Chicago", "Chicago poster campaigns", "Chicago guerrilla marketing", "street postering Chicago", "wheat paste posters IL"],
+  keywords: [
+    "wheat pasting Chicago",
+    "Chicago poster campaigns",
+    "Chicago guerrilla marketing",
+    "street postering Chicago",
+    "wheat paste posters IL",
+    "Chicago street media",
+    "Chicago street marketing agency",
+    "Chicago flyposting",
+    "Chicago OOH advertising",
+    "Wicker Park wheat pasting",
+    "Logan Square poster campaigns",
+    "Wrigleyville street advertising",
+    "Pilsen guerrilla marketing",
+    "Loop OOH advertising",
+    ...KW_CITY_BASE,
+  ],
   alternates: { canonical: "https://www.phantompasting.com/locations/chicago" },
   openGraph: {
     title: "Wheat Pasting Chicago",
