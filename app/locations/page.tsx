@@ -13,7 +13,7 @@ import { KW_LOCATIONS_HUB } from "@/lib/keywordSets";
 const PAGE_URL = `${BUSINESS.url}/locations`;
 const PAGE_TITLE = "Guerrilla Marketing Locations";
 const PAGE_DESC =
-  "Wheat pasting, street postering, and street media campaigns in New York, Los Angeles, Miami, Chicago, Atlanta, and 50+ other US cities. Multi-city OOH rollouts and nationwide guerrilla marketing — single brief, statewide or coast-to-coast coverage.";
+  "Wheat pasting, street postering & street media campaigns in NYC, LA, Miami, Chicago, Atlanta, and 50+ US cities. Multi-city OOH rollouts nationwide.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

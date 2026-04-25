@@ -5,7 +5,7 @@ import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 export const metadata: Metadata = {
   title: "Wheat Pasting NYC",
   description:
-    "Wheat pasting in New York City — poster campaigns across the Lower East Side, Williamsburg, SoHo, Bushwick, and East Village. Large-format street posters. Get a quote.",
+    "Wheat pasting in NYC — poster campaigns across the Lower East Side, Williamsburg, SoHo, Bushwick, East Village. Large-format street posters.",
   keywords: [
     "wheat pasting NYC",
     "NYC poster campaigns",

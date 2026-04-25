@@ -121,7 +121,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-pasting-phoenix",
     title: "Wheat Pasting in Phoenix: What Desert Heat Does to Paste",
-    metaTitle: "Wheat Pasting in Phoenix: Desert Install Guide",
+    metaTitle: "Wheat Pasting in Phoenix: Field Guide",
     metaDescription:
       "110°F paste behavior, popcorn cement walls, water sourcing, night install timing. Phoenix-specific wheat pasting install logic from a Field Operations Lead.",
     excerpt:
@@ -162,7 +162,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-pasting-new-york",
     title: "Wheat Pasting in New York City: NYC Wall Culture Explained",
-    metaTitle: "Wheat Pasting in New York: NYC Wall Culture",
+    metaTitle: "Wheat Pasting in NYC: Field Guide",
     metaDescription:
       "Lower East Side, Williamsburg, SoHo, Chinatown — NYC wheat pasting wall map from a crew that works all five boroughs. Pricing, permits, timing.",
     excerpt:
@@ -203,14 +203,17 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-pasting-los-angeles",
     title: "Wheat Pasting in Los Angeles: Neighborhoods, Walls, and Why LA Works",
-    metaTitle: "Wheat Pasting in Los Angeles: LA Neighborhood Guide",
+    // metaTitle stays under 42 chars so the rendered SERP title (with the
+    // " | Phantom Pasting" template suffix = 18c) lands at 56 chars total,
+    // well under Google's ~60-char truncation threshold.
+    metaTitle: "Wheat Pasting Los Angeles: Field Guide",
     metaDescription:
       "Melrose, Silver Lake, Fairfax, DTLA — where LA wheat pasting walls live, how we pick them, why LA outperforms most US markets for street media.",
     excerpt:
       "Los Angeles is the single most important wheat pasting market in the United States. Dense creative-class neighborhoods, industry HQ, and 300+ sunny days a year built LA into a paste capital before anywhere else caught on.",
     silo: "local-legal",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-04-25",
+    updatedAt: "2026-04-25",
     heroImage: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp",
     heroAlt: "Wheat paste wall on a Los Angeles street in a creative-class neighborhood",
     authorSlug: MATEO_VARGAS.slug,
@@ -244,7 +247,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "guerrilla-marketing-for-music",
     title: "Guerrilla Marketing for Music Festivals and Album Launches",
-    metaTitle: "Guerrilla Marketing for Music: Album & Festival Plays",
+    metaTitle: "Guerrilla Marketing for Music Brands",
     metaDescription:
       "From album drops to festival promo — how music brands use wheat paste, snipes, and stencils to build pre-launch heat. Real campaign economics for 2026.",
     excerpt:
@@ -285,7 +288,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-pasting-for-fashion-brands",
     title: "Wheat Pasting for Fashion Brands: Why Streetwear Lives on Walls",
-    metaTitle: "Wheat Pasting for Fashion Brands: Why It Works",
+    metaTitle: "Wheat Pasting for Fashion Brands",
     metaDescription:
       "Supreme, Fear of God, FashionPass — fashion lives on walls. How wheat pasting converts street attention into cultural weight for streetwear and luxury.",
     excerpt:
@@ -326,7 +329,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-pasting-vs-billboards",
     title: "Wheat Pasting vs Billboards: ROI Breakdown for Marketers",
-    metaTitle: "Wheat Pasting vs Billboards: Real ROI Breakdown",
+    metaTitle: "Wheat Pasting vs Billboards: ROI Guide",
     metaDescription:
       "Side-by-side: cost per impression, attention, permit friction, install speed. Which OOH format wins for your goal — wheat pasting or billboards.",
     excerpt:
@@ -367,7 +370,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-pasting-cost",
     title: "How Much Does Wheat Pasting Cost in 2026?",
-    metaTitle: "Wheat Pasting Cost 2026: Real Campaign Pricing",
+    metaTitle: "Wheat Pasting Cost: 2026 Pricing Guide",
     metaDescription:
       "Real wheat pasting pricing from 500+ campaigns. Per-poster cost, full-city rollout cost, variables that move the number. No guesswork, just field data.",
     excerpt:
@@ -449,7 +452,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "flyposting-explained",
     title: "Flyposting Explained: What It Is, How It Works, What It Costs",
-    metaTitle: "Flyposting Explained: What It Is and How It Works",
+    metaTitle: "Flyposting Explained: A Brand's Guide",
     metaDescription:
       "Flyposting defined — history, technique, and how it compares to wheat pasting and wild posting. Written from an active street-postering crew.",
     excerpt:
@@ -490,7 +493,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "street-postering-tools",
     title: "Street Postering Tools: The Install Kit We Actually Carry",
-    metaTitle: "Street Postering Tools: The Real Install Kit",
+    metaTitle: "Street Postering Tools: Install Kit",
     metaDescription:
       "Broom type, bucket count, paste prep, locked lids. Exactly what a 12-location overnight street postering campaign requires. No filler — field-tested only.",
     excerpt:
@@ -531,7 +534,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "snipe-posters-vs-wheat-paste-vs-floor-decals",
     title: "Snipe Posters vs Wheat Paste vs Floor Decals: Which Format Wins",
-    metaTitle: "Snipes vs Wheat Paste vs Floor Decals: Field Guide",
+    metaTitle: "Snipes vs Wheat Paste vs Floor Decals",
     metaDescription:
       "Three street formats, three use cases. When to snipe, when to paste, when to drop floor decals. Installer-grade comparison from 500+ campaigns.",
     excerpt:
@@ -572,7 +575,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-paste-recipes",
     title: "Wheat Paste Recipes: Why One Formula Doesn't Work on Every Wall",
-    metaTitle: "Wheat Paste Recipes: Wall-Type Specific Formulas",
+    metaTitle: "Wheat Paste Recipes: Wall-Type Guide",
     metaDescription:
       "Different walls need different wheat paste recipes. Brick, popcorn cement, stucco — a Field Operations Lead breaks down the formula per surface.",
     excerpt:
@@ -614,7 +617,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "how-to-make-wheat-paste",
     title: "How to Make Wheat Paste: Field Installer Guide",
-    metaTitle: "How to Make Wheat Paste: Installer's Recipe Guide",
+    metaTitle: "How to Make Wheat Paste: Recipe Guide",
     metaDescription:
       "Real wheat paste recipe from 10+ years on active crews. Flour-to-water ratios, wall-type adjustments, storage. No fluff, just field notes.",
     excerpt:
@@ -656,7 +659,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "is-wheat-pasting-legal",
     title: "Is Wheat Pasting Legal? What Installers Actually Experience",
-    metaTitle: "Is Wheat Pasting Legal? What Really Happens",
+    metaTitle: "Is Wheat Pasting Legal? Field Reality",
     metaDescription:
       "Laws vary by city. Here's what actually happens on LA and NYC streets, from a crew with 500+ clean campaigns. Written by a Field Operations Lead.",
     excerpt:
@@ -697,7 +700,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "wheat-pasting-campaign",
     title: "How a Wheat Pasting Campaign Actually Works: 12 Locations, One Night",
-    metaTitle: "How Wheat Pasting Campaigns Work: Night-of Breakdown",
+    metaTitle: "How Wheat Pasting Campaigns Work",
     metaDescription:
       "Behind a real 12-location wheat pasting campaign install. Prep, route, tools, timing, documentation. Nothing left to imagination.",
     excerpt:

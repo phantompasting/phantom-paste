@@ -28,7 +28,7 @@ const PAGE_URL = `${BUSINESS.url}/services/chalk-spray-stencils`;
 const PAGE_OG = `${BUSINESS.url}/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp`;
 const PAGE_TITLE = "Chalk Spray Stencil Advertising";
 const PAGE_DESC =
-  "Chalk spray stencil advertising — also called sidewalk stencils, spray chalk advertising, or street stencil marketing — on sidewalks, plazas, and venue entrances. Water-based, photo-documented. 50+ US cities.";
+  "Chalk spray stencil advertising — also called sidewalk stencils or spray chalk advertising — on sidewalks, plazas, venue entrances. 50+ US cities.";
 const DATE_PUBLISHED = "2024-02-10";
 const DATE_MODIFIED = "2026-04-01";
 

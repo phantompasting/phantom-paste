@@ -5,7 +5,7 @@ import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 export const metadata: Metadata = {
   title: "Wheat Pasting Los Angeles",
   description:
-    "Wheat pasting in Los Angeles — poster campaigns across Melrose, Silver Lake, Fairfax, DTLA, Venice, Echo Park, Highland Park, and Hollywood. 100% documented. Get a quote.",
+    "Wheat pasting in LA — poster campaigns across Melrose, Silver Lake, Fairfax, DTLA, Venice, Echo Park, Highland Park, Hollywood. 100% documented.",
   keywords: [
     "wheat pasting Los Angeles",
     "LA poster campaigns",

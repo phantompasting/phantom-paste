@@ -13,7 +13,7 @@ import { KW_CONTACT } from "@/lib/keywordSets";
 const PAGE_URL = `${BUSINESS.url}/contact`;
 const PAGE_TITLE = "Hire a Wheat Pasting Company";
 const PAGE_DESC =
-  "Get a wheat pasting, street media, or full guerrilla marketing campaign quote within 24 hours — also handles flyposting, alternative OOH, street postering, snipes, and chalk stencils. 50+ US cities.";
+  "Get a wheat pasting, street media, or full guerrilla marketing campaign quote in 24 hours — flyposting, alternative OOH, snipes, stencils. 50+ cities.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

@@ -13,7 +13,7 @@ import { KW_ABOUT } from "@/lib/keywordSets";
 const PAGE_URL = `${BUSINESS.url}/about`;
 const PAGE_TITLE = "About — Guerrilla Marketing Since 2014";
 const PAGE_DESC =
-  "Wheat pasting company founded 2014 — also operating as a guerrilla marketing agency, street media buyer, alternative OOH agency, and nationwide street marketing partner. 500+ campaigns, 50+ US cities.";
+  "Wheat pasting company founded 2014 — guerrilla marketing agency, street media buyer, nationwide alternative OOH partner. 500+ campaigns, 50+ cities.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

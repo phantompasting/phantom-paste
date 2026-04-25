@@ -18,7 +18,7 @@ import { KW_SERVICES_HUB } from "@/lib/keywordSets";
 const PAGE_URL = `${BUSINESS.url}/services`;
 const PAGE_TITLE = "Guerrilla Marketing Services";
 const PAGE_DESC =
-  "Wheat pasting, chalk spray stencils, snipes, pole wraps, and full-impact street media campaigns — also marketed as guerrilla advertising, alternative OOH, street marketing, and flyposting — across 50+ US cities. 500+ photo-documented activations.";
+  "Wheat pasting, chalk stencils, snipes, pole wraps & full-impact street media campaigns — guerrilla marketing across 50+ US cities. 500+ activations.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

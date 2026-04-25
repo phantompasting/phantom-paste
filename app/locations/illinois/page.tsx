@@ -21,7 +21,7 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
 export const metadata: Metadata = {
   title: "Wheat Pasting Illinois",
   description:
-    "Wheat pasting and poster campaigns across Illinois — Chicago, Naperville, Champaign-Urbana, Rockford, Peoria, and Springfield. Statewide street postering. Get a quote.",
+    "Wheat pasting & street media across Illinois — Chicago, Naperville, Champaign-Urbana, Rockford, Peoria, Springfield. Statewide rollouts.",
   keywords: [
     "wheat pasting Illinois",
     "wheatpasting Illinois",

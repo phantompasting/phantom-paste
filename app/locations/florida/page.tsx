@@ -22,7 +22,7 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
 export const metadata: Metadata = {
   title: "Wheat Pasting Florida",
   description:
-    "Wheat pasting and poster campaigns across Florida — Miami, Tampa, Orlando, Jacksonville, Ft. Lauderdale, and St. Petersburg. Statewide street postering and street media. Get a quote.",
+    "Wheat pasting & street media campaigns across Florida — Miami, Tampa, Orlando, Jacksonville, Ft. Lauderdale, St. Petersburg. Statewide rollouts.",
   keywords: [
     "wheat pasting Florida",
     "wheatpasting Florida",

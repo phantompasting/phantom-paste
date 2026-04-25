@@ -13,7 +13,7 @@ import { KW_WORK } from "@/lib/keywordSets";
 const PAGE_URL = `${BUSINESS.url}/work`;
 const PAGE_TITLE = "Guerrilla Marketing Case Studies";
 const PAGE_DESC =
-  "Wheat pasting, street postering, and full-impact OOH case studies — FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Real guerrilla marketing campaigns and street media activations, fully photo-documented.";
+  "Wheat pasting, street postering & OOH case studies — FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Photo-documented guerrilla marketing.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

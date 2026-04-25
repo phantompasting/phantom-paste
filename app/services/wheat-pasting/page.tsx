@@ -29,7 +29,7 @@ const PAGE_URL = `${BUSINESS.url}/services/wheat-pasting`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp`;
 const PAGE_TITLE = "Wheat Pasting Services";
 const PAGE_DESC =
-  "Large-format wheat paste poster advertising — also called street postering, flyposting, or street media — on prime urban walls across 50+ US cities. Print, install, and 100% photo documentation. Get a quote.";
+  "Large-format wheat paste poster advertising — also called street postering, flyposting, street media — on urban walls in 50+ US cities. 100% documented.";
 const DATE_PUBLISHED = "2024-01-15";
 const DATE_MODIFIED = "2026-04-01";
 
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   keywords: [...KW_SERVICE_WHEAT_PASTING],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Wheat Pasting Services | Large Format Street Posters | Phantom Pasting",
+    title: "Wheat Pasting · Large-Format Street Posters | Phantom Pasting",
     description:
       "Large-format wheat paste poster advertising on prime urban walls across 50+ US cities. Print, install, document.",
     url: PAGE_URL,

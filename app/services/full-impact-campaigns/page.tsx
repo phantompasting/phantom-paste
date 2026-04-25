@@ -30,7 +30,7 @@ const PAGE_URL = `${BUSINESS.url}/services/full-impact-campaigns`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fifa-world-cup-poster-wall-gallery-wide.webp`;
 const PAGE_TITLE = "Full Impact Guerrilla Campaigns";
 const PAGE_DESC =
-  "Multi-format guerrilla marketing — wheat pasting, street postering, snipes, chalk stencils, and pole wraps combined for total street saturation. Also marketed as multi-format OOH, alternative OOH rollouts, and street media takeovers. 50+ US cities.";
+  "Multi-format guerrilla marketing — wheat pasting, street postering, snipes, chalk stencils, pole wraps for total street saturation. 50+ US cities.";
 const DATE_PUBLISHED = "2024-03-05";
 const DATE_MODIFIED = "2026-04-01";
 

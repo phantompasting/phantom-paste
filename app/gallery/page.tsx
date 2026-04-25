@@ -12,7 +12,7 @@ import { KW_GALLERY } from "@/lib/keywordSets";
 const PAGE_URL = `${BUSINESS.url}/gallery`;
 const PAGE_TITLE = "Campaign Gallery | Our Work";
 const PAGE_DESC =
-  "Browse 500+ photo-documented wheat paste, street postering, snipe poster, pole wrap, sticker, and chalk spray stencil campaigns across the US. Guerrilla marketing and street media activations from 50+ markets.";
+  "Browse 500+ photo-documented wheat paste, street postering, snipe, pole wrap, sticker & chalk stencil campaigns across 50+ US markets.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
