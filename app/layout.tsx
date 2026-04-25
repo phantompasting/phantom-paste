@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, DM_Mono } from "next/font/google";
-import Script from "next/script";
 import GrainientBackgroundLazy from "@/components/GrainientBackgroundLazy";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ShinyGoldObserver from "@/components/ShinyGoldObserver";
 import PerfGate from "@/components/PerfGate";
 import { BUSINESS } from "@/lib/business";
@@ -179,21 +179,12 @@ export default function RootLayout({
           DarkReader, etc.) inject attributes onto <body> before React hydrates, which
           otherwise triggers a hydration mismatch warning. */}
       <body suppressHydrationWarning>
-        {/* Google Analytics 4 — uses next/script with strategy="afterInteractive"
-            so the loader downloads after hydration (doesn't block FCP/LCP).
-            Connected/script-src CSP allowances live in middleware.ts. */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-VP57JXQ83G"
-          strategy="afterInteractive"
-        />
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VP57JXQ83G');
-          `}
-        </Script>
+        {/* Google Analytics 4 — performance-deferred. Loads gtag.js only
+            after first user interaction (mousedown / touchstart / keydown /
+            scroll) or a 5s fallback timeout, so it never costs TBT during
+            the initial Lighthouse measurement window. CSP allowances for
+            googletagmanager.com + *.google-analytics.com live in middleware.ts. */}
+        <GoogleAnalytics />
 
         <GrainientBackgroundLazy />
         <ShinyGoldObserver />
