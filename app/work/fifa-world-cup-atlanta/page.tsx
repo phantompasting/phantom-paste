@@ -60,6 +60,21 @@ export default function FIFACaseStudy() {
               image: PAGE_OG,
               datePublished: "2026-01-20",
               dateModified: "2026-04-16",
+              articleSection: "Case Studies",
+              articleBody:
+                "FIFA World Cup activation across Atlanta — multi-wall wheat paste rollout in Midtown, Little Five Points, and Old Fourth Ward, timed to the tournament window with daylight photo documentation across every install location.",
+              keywords: [
+                "fifa world cup",
+                "atlanta",
+                "wheat pasting",
+                "sports marketing",
+                "tournament campaign",
+                "case study",
+                "guerrilla marketing",
+              ],
+              audienceType:
+                "Brand Marketers, Sports Marketing Agencies, Event Marketers",
+              genre: "Case Study",
             })
           ),
         }}

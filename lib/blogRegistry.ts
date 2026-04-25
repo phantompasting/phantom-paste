@@ -79,8 +79,22 @@ export interface BlogPostMeta {
   heroAlt: string;
   /** Author — currently always Mateo Vargas, scaffolded for future contributors */
   authorSlug: string;
-  /** Tags for future topic pages; not rendered yet */
+  /** Tags for future topic pages + emitted as `keywords` in Article JSON-LD. */
   tags: string[];
+  /**
+   * Word count of the prose body — emitted in Article schema's `wordCount`
+   * field. Google reads this as a substantive-content signal; AI Overview
+   * engines use it as one factor in passage-citation ranking. Computed by
+   * `scripts/wordcount-blog.mjs` once at content-edit time, not at render.
+   */
+  wordCount?: number;
+  /**
+   * Optional schema kind. Defaults to `"article"`. Set to `"howto"` for
+   * step-by-step guides ("how to make wheat paste", "wheat paste recipes")
+   * so BlogPostLayout emits HowTo JSON-LD alongside Article — Google rewards
+   * HowTo with rich-result eligibility on those queries.
+   */
+  schemaKind?: "article" | "howto";
   /** FAQs rendered at bottom of post + emitted as FAQPage JSON-LD */
   faqs: BlogFaq[];
   /** Related-post slugs rendered at end of post body */
@@ -119,6 +133,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Wheat paste wall installation in a Sun Belt commercial corridor",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["phoenix", "arizona", "desert", "popcorn-cement", "city-guide"],
+    wordCount: 1112,
     faqs: [
       {
         q: "Does wheat paste work in Phoenix summer heat?",
@@ -159,6 +174,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Wheat paste wall on an NYC street corridor with pedestrian foot traffic",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["new-york", "nyc", "manhattan", "brooklyn", "city-guide"],
+    wordCount: 954,
     faqs: [
       {
         q: "Is wheat pasting legal in NYC?",
@@ -199,6 +215,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Wheat paste wall on a Los Angeles street in a creative-class neighborhood",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["los-angeles", "la", "melrose", "fairfax", "city-guide"],
+    wordCount: 977,
     faqs: [
       {
         q: "Which LA neighborhoods are best for wheat pasting?",
@@ -239,6 +256,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Guerrilla marketing pole wrap for a music-industry campaign",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["music", "album-launch", "festivals", "guerrilla-marketing", "strategy"],
+    wordCount: 1157,
     faqs: [
       {
         q: "Why do music brands use wheat pasting more than other verticals?",
@@ -279,6 +297,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Fashion brand wheat paste campaign wall in Los Angeles",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["fashion", "streetwear", "supreme", "brand-strategy"],
+    wordCount: 898,
     faqs: [
       {
         q: "Why do fashion brands use wheat pasting over digital ads?",
@@ -319,6 +338,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Wheat paste poster installation close-up contrasted with traditional OOH media",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["billboards", "ooh", "comparison", "roi"],
+    wordCount: 841,
     faqs: [
       {
         q: "Is wheat pasting cheaper than billboards?",
@@ -359,6 +379,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Completed wheat paste campaign wall showing scale of a standard commercial install",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["pricing", "budget", "cost", "media-planning"],
+    wordCount: 794,
     faqs: [
       {
         q: "How much does a wheat pasting campaign cost?",
@@ -399,6 +420,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Large-format wheat paste wall takeover on an urban brick building",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["definition", "guide", "brand-101", "overview"],
+    wordCount: 2145,
     faqs: [
       {
         q: "What is wheat pasting?",
@@ -439,6 +461,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Flyposting wall on a dense urban street",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["flyposting", "definition", "uk", "terminology"],
+    wordCount: 861,
     faqs: [
       {
         q: "What is flyposting?",
@@ -479,6 +502,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Street postering crew install on a commercial wall",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["tools", "install-kit", "equipment", "how-to"],
+    wordCount: 843,
     faqs: [
       {
         q: "What's the single most important tool in a wheat paste kit?",
@@ -519,6 +543,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Snipe poster campaign on urban street poles",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["snipes", "floor-decals", "formats", "comparison"],
+    wordCount: 831,
     faqs: [
       {
         q: "What's the difference between wheat paste and snipe posters?",
@@ -559,6 +584,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Close-up of wheat paste bonding to a textured wall surface",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["recipe", "wall-types", "technique", "how-to"],
+    wordCount: 846,
+    schemaKind: "howto",
     faqs: [
       {
         q: "Does wheat paste work on every wall type?",
@@ -599,6 +626,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Wheat paste poster installation on an urban wall",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["wheat-paste", "how-to", "recipe", "installation"],
+    wordCount: 797,
+    schemaKind: "howto",
     faqs: [
       {
         q: "Can I make wheat paste with just flour and water?",
@@ -639,6 +668,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Wheat paste poster wall in a dense urban street corridor",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["legal", "compliance", "permits", "city-laws"],
+    wordCount: 797,
     faqs: [
       {
         q: "Is wheat pasting considered graffiti?",
@@ -679,6 +709,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Overnight wheat paste installation crew at work on an urban wall",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["campaign", "installation", "logistics", "tools"],
+    wordCount: 798,
     faqs: [
       {
         q: "How long does a wheat pasting campaign take to install?",

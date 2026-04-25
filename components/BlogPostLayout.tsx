@@ -13,6 +13,7 @@ import {
   articleSchema,
   breadcrumbSchema,
   faqPageSchema,
+  howToSchema,
   jsonLd,
 } from "@/lib/schema";
 import {
@@ -21,6 +22,52 @@ import {
   getPublishedPost,
   type BlogPostMeta,
 } from "@/lib/blogRegistry";
+import { topic, topics, type TopicKey } from "@/lib/topicEntities";
+
+/**
+ * Map a post's tags array to known topic-entity keys for the Article
+ * `mentions` field. Unknown tags are silently skipped — the topicEntities
+ * registry curates which tags get Wikipedia-anchored Things; non-canonical
+ * tags ("strategy", "media-planning") have no counterpart and are dropped.
+ *
+ * Order matters: we put canonical topical entities first so they're the
+ * leading mentions in the rendered JSON-LD.
+ */
+const TAG_TO_TOPIC: Record<string, TopicKey> = {
+  // Cities
+  "los-angeles": "los-angeles",
+  "la": "los-angeles",
+  "new-york": "new-york-city",
+  "nyc": "new-york-city",
+  "miami": "miami",
+  "chicago": "chicago",
+  "atlanta": "atlanta",
+  "phoenix": "phoenix",
+  "denver": "denver",
+  // States
+  "georgia": "georgia",
+  "illinois": "illinois",
+  "arizona": "phoenix", // closest match
+  // Concepts
+  "wheat-paste": "wheat-pasting",
+  "flyposting": "flyposting",
+  "guerrilla-marketing": "guerrilla-marketing",
+  "ooh": "outdoor-advertising",
+  "billboards": "billboard",
+  "stencil": "stencil",
+};
+
+function tagsToMentions(tags: ReadonlyArray<string>) {
+  const seen = new Set<TopicKey>();
+  const mentions: ReturnType<typeof topic>[] = [];
+  for (const t of tags) {
+    const key = TAG_TO_TOPIC[t];
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    mentions.push(topic(key));
+  }
+  return mentions;
+}
 
 const ACCENT = "#D4A010";
 
@@ -101,10 +148,54 @@ export default function BlogPostLayout({
               datePublished: post.publishedAt,
               dateModified: post.updatedAt,
               author: mateoVargasPerson(),
+              wordCount: post.wordCount,
+              articleSection: siloMeta.label,
+              articleBody: post.excerpt,
+              keywords: post.tags,
+              about: topic("wheat-pasting"),
+              mentions: tagsToMentions(post.tags),
+              audienceType:
+                post.silo === "strategy-roi"
+                  ? "Brand Marketers, Marketing Agencies"
+                  : post.silo === "the-craft"
+                    ? "Installers, Field Teams, Marketing Agencies"
+                    : "Brand Marketers, Marketing Agencies, Independent Artists",
+              genre:
+                post.schemaKind === "howto"
+                  ? "How-To Guide"
+                  : siloMeta.label === "Local & Legal"
+                    ? "City Guide"
+                    : siloMeta.label === "The Craft"
+                      ? "Field Guide"
+                      : "Industry Analysis",
             })
           ),
         }}
       />
+      {post.schemaKind === "howto" && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd(
+              howToSchema({
+                name: post.title,
+                description: post.metaDescription,
+                image: heroAbsUrl,
+                url: postUrl,
+                // Steps are derived from FAQs as the canonical step source —
+                // each FAQ Q acts as a step name, A as the step text. This is
+                // a pragmatic mapping that works for "how-to-make-wheat-paste"
+                // and "wheat-paste-recipes" without authors duplicating content
+                // into a separate steps array.
+                steps: post.faqs.map((f) => ({
+                  name: f.q,
+                  text: f.a,
+                })),
+              })
+            ),
+          }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -183,9 +274,12 @@ export default function BlogPostLayout({
                   />
                 </div>
 
-                {/* TL;DR */}
+                {/* TL;DR — `speakable-tldr` class is referenced by the
+                    Article schema's speakable.cssSelector array so AI Overviews
+                    and voice assistants extract this passage as the headline
+                    answer for the post's topic queries. */}
                 <section
-                  className="rounded-2xl mb-10"
+                  className="speakable-tldr rounded-2xl mb-10"
                   style={{
                     background: "rgba(255,255,255,0.45)",
                     backdropFilter: "blur(10px)",
@@ -211,8 +305,11 @@ export default function BlogPostLayout({
                 {/* Body */}
                 <article className="blog-prose">{children}</article>
 
-                {/* FAQ */}
-                <section className="mt-16">
+                {/* FAQ — `speakable-faq` class targets the answers as a
+                    secondary speakable group. AI engines can extract any
+                    matching FAQ answer for "wheat paste" sub-queries without
+                    re-fetching the page body. */}
+                <section className="speakable-faq mt-16">
                   <h2
                     className="font-black uppercase m-0 mb-8 leading-[0.95]"
                     style={{ fontSize: "clamp(26px, 3vw, 38px)", letterSpacing: "-0.03em" }}

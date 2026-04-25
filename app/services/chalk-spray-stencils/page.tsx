@@ -119,6 +119,29 @@ export default function ChalkSprayStencilsPage() {
               description:
                 "Precision chalk spray stencil activations at sidewalk level. Water-based, temporary, and 100% photo documented. Available in 50+ US cities.",
               url: PAGE_URL,
+              serviceType: "Chalk Spray Stencil Advertising",
+              category: "Outdoor Advertising",
+              image: PAGE_OG,
+              slogan: "Sidewalk-level activations that vanish on schedule.",
+              audienceType:
+                "Brand Marketers, Event Marketers, Music Festivals, Pop-Up Activations",
+              offerItems: [
+                {
+                  name: "Single-City Chalk Stencil Activation",
+                  description:
+                    "20–60 sidewalk placements in one US city, custom stencil cut from supplied artwork, water-based chalk spray, full geo-tagged photo documentation.",
+                },
+                {
+                  name: "Event-Window Stencil Saturation",
+                  description:
+                    "Multi-day rolling stencil refreshes timed to a festival, conference, or product launch window. Coordinated routes across the venue catchment area.",
+                },
+                {
+                  name: "Multi-City Chalk Stencil Tour",
+                  description:
+                    "Coordinated stencil drops across 2–7 US cities on the same launch sequence. Single brief, single price sheet, unified photo deliverable.",
+                },
+              ],
             })
           ),
         }}
@@ -148,6 +171,18 @@ export default function ChalkSprayStencilsPage() {
               image: PAGE_OG,
               datePublished: DATE_PUBLISHED,
               dateModified: DATE_MODIFIED,
+              articleSection: "Services",
+              articleBody: PAGE_DESC,
+              keywords: [
+                "chalk spray stencils",
+                "chalk stencil advertising",
+                "sidewalk advertising",
+                "guerrilla marketing",
+                "street activations",
+                "temporary OOH",
+              ],
+              audienceType: "Brand Marketers, Event Marketers",
+              genre: "Service Page",
             })
           ),
         }}

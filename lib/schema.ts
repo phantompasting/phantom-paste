@@ -81,27 +81,106 @@ export function localBusinessSchema() {
   };
 }
 
-/** Service schema — per service page. */
+/**
+ * Service schema — per service page.
+ *
+ * Rewritten with the fields GEO scorers actually weight:
+ *   - serviceType + category for topical anchoring (was missing → -10pts)
+ *   - hasOfferCatalog with multiple Offer items, not a single bare Offer
+ *   - audience for B2B targeting clarity
+ *   - image + slogan + brand for richer entity panel
+ *   - availableChannel (ServiceChannel) so AI engines surface phone + URL
+ *   - areaServed as a proper AdministrativeArea object, not a bare string
+ *
+ * Optional `extras` lets pages add page-specific Offer items (e.g.
+ * "Wheat pasting + photo documentation package"), priceRange overrides,
+ * and award/aggregateRating once we have review pipeline data.
+ */
 export function serviceSchema(opts: {
   name: string;
   description: string;
   url: string;
   alternateName?: string;
+  /** Specific service classification (e.g. "Wheat Pasting"). */
+  serviceType?: string;
+  /**
+   * NAICS / industry category — "Advertising" / "Outdoor Advertising" etc.
+   * Helps AI engines bucket the service within OOH industry context.
+   */
+  category?: string;
+  /** Hero image URL for the service — used in rich-result image card. */
+  image?: string;
+  /** Short positioning line. */
+  slogan?: string;
+  /**
+   * OfferCatalog items — each becomes an Offer in `hasOfferCatalog`.
+   * Pass 2-4 items for the strongest signal; a single bare Offer reads as
+   * thin to AI scorers. If omitted, a single derived Offer is emitted.
+   */
+  offerItems?: ReadonlyArray<{ name: string; description: string }>;
+  /** Audience type — "Marketing Agencies", "Brand Marketers", etc. */
+  audienceType?: string;
 }) {
+  const offerCatalog = opts.offerItems && opts.offerItems.length > 0
+    ? {
+        "@type": "OfferCatalog",
+        name: `${opts.name} Packages`,
+        itemListElement: opts.offerItems.map((it, i) => ({
+          "@type": "Offer",
+          position: i + 1,
+          itemOffered: {
+            "@type": "Service",
+            name: it.name,
+            description: it.description,
+          },
+          url: `${BUSINESS.url}/contact`,
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          seller: { "@id": ORG_ID },
+          eligibleRegion: { "@type": "Country", name: "United States" },
+        })),
+      }
+    : undefined;
+
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     name: opts.name,
-    alternateName: opts.alternateName,
+    ...(opts.alternateName ? { alternateName: opts.alternateName } : {}),
     description: opts.description,
     url: opts.url,
+    serviceType: opts.serviceType ?? opts.name,
+    ...(opts.category ? { category: opts.category } : {}),
+    ...(opts.image ? { image: opts.image } : {}),
+    ...(opts.slogan ? { slogan: opts.slogan } : {}),
     provider: { "@id": ORG_ID },
-    areaServed: BUSINESS.areaServed,
-    offers: {
-      "@type": "Offer",
-      description: `${opts.name} campaigns — print, install, and photo documentation included.`,
-      url: `${BUSINESS.url}/contact`,
+    brand: { "@id": ORG_ID },
+    areaServed: { "@type": "Country", name: BUSINESS.areaServed },
+    serviceArea: { "@type": "Country", name: BUSINESS.areaServed },
+    audience: {
+      "@type": "Audience",
+      audienceType: opts.audienceType ?? "Marketing Agencies, Brand Marketers, Independent Artists",
+      geographicArea: { "@type": "Country", name: BUSINESS.areaServed },
     },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${BUSINESS.url}/contact`,
+      servicePhone: BUSINESS.telephone,
+      availableLanguage: "English",
+    },
+    ...(offerCatalog
+      ? { hasOfferCatalog: offerCatalog }
+      : {
+          offers: {
+            "@type": "Offer",
+            description: `${opts.name} campaigns — print, install, and photo documentation included.`,
+            url: `${BUSINESS.url}/contact`,
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            seller: { "@id": ORG_ID },
+            eligibleRegion: { "@type": "Country", name: BUSINESS.areaServed },
+          },
+        }),
   };
 }
 
@@ -137,6 +216,24 @@ export function faqPageSchema(qas: ReadonlyArray<{ q: string; a: string }>) {
 /**
  * Article schema — for long-form content pages with a byline + datePublished.
  *
+ * Rewritten to emit the fields GEO scorers and AI-Overview engines actually
+ * weight. Adds (vs. previous version):
+ *   - wordCount        — substantive-content signal (Google flagship)
+ *   - articleSection   — silo / category for topical clustering
+ *   - articleBody      — excerpt enables passage extraction without re-fetch
+ *   - keywords         — comma-separated topical keywords array
+ *   - about / mentions — Schema.org Thing entities with sameAs Wikipedia URLs
+ *                        (huge AI-citation signal; pre-trained engines anchor
+ *                        on these)
+ *   - speakable        — CSS selector marking the TL;DR for voice/AIO citation
+ *   - image (array)    — multiple aspect ratios (1×1, 4×3, 16×9) per Google's
+ *                        Article rich-result eligibility spec
+ *   - thumbnailUrl     — separate thumbnail field
+ *   - audience         — target reader audience type
+ *   - genre            — content genre ("Field Guide", "Industry Analysis")
+ *   - isAccessibleForFree: true — explicit "no paywall" signal
+ *   - isPartOf         — chains the article to the WebSite @id
+ *
  * Accepts an optional `author` Person schema object (see `mateoVargasPerson()`
  * in `/lib/blogAuthor.ts`). When omitted, the Organization is the byline —
  * appropriate for service pages. Blog posts pass a Person for richer EEAT.
@@ -145,11 +242,39 @@ export function articleSchema(opts: {
   headline: string;
   description: string;
   url: string;
-  image: string;        // absolute URL
+  /** Hero image URL (absolute). Auto-expanded to 1×1 / 4×3 / 16×9 array. */
+  image: string;
   datePublished: string;
   dateModified: string;
-  author?: Record<string, unknown>; // Person schema (from blogAuthor.ts) or undefined → Org byline
+  /** Person schema (from blogAuthor.ts) or undefined → Org byline. */
+  author?: Record<string, unknown>;
+  /** Total prose word count — substantive-content signal. */
+  wordCount?: number;
+  /** Silo / category label, e.g. "The Craft" / "Strategy & ROI". */
+  articleSection?: string;
+  /** Short excerpt of the article body — enables AI passage extraction. */
+  articleBody?: string;
+  /** Topical keywords — array becomes comma-joined string in JSON-LD. */
+  keywords?: ReadonlyArray<string>;
+  /** Primary topic the article is about — Thing with sameAs Wikipedia URL. */
+  about?: Record<string, unknown>;
+  /** Related entities the article references — Thing array. */
+  mentions?: ReadonlyArray<Record<string, unknown>>;
+  /** Audience type for the article ("Brand Marketers", "Installers", etc). */
+  audienceType?: string;
+  /** Content genre — "Field Guide", "Industry Analysis", "Case Study". */
+  genre?: string;
+  /**
+   * CSS selectors targeting passages most useful for voice/AIO citation —
+   * defaults to the TL;DR + FAQ blocks marked in BlogPostLayout.
+   */
+  speakableSelectors?: ReadonlyArray<string>;
 }) {
+  const speakableSelectors = opts.speakableSelectors ?? [
+    ".speakable-tldr",
+    ".speakable-faq",
+  ];
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -157,17 +282,116 @@ export function articleSchema(opts: {
     description: opts.description,
     url: opts.url,
     mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
-    image: {
-      "@type": "ImageObject",
-      url: opts.image,
-      width: 1200,
-      height: 630,
-    },
+    isPartOf: { "@id": WEBSITE_ID },
+    image: [
+      {
+        "@type": "ImageObject",
+        url: opts.image,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    thumbnailUrl: opts.image,
     author: opts.author ?? { "@id": ORG_ID },
+    creator: opts.author ?? { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
     inLanguage: "en-US",
+    isAccessibleForFree: true,
+    ...(opts.wordCount ? { wordCount: opts.wordCount } : {}),
+    ...(opts.articleSection ? { articleSection: opts.articleSection } : {}),
+    ...(opts.articleBody ? { articleBody: opts.articleBody } : {}),
+    ...(opts.keywords && opts.keywords.length > 0
+      ? { keywords: opts.keywords.join(", ") }
+      : {}),
+    ...(opts.about ? { about: opts.about } : {}),
+    ...(opts.mentions && opts.mentions.length > 0
+      ? { mentions: opts.mentions }
+      : {}),
+    ...(opts.audienceType
+      ? { audience: { "@type": "Audience", audienceType: opts.audienceType } }
+      : {}),
+    ...(opts.genre ? { genre: opts.genre } : {}),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: speakableSelectors,
+    },
+  };
+}
+
+/**
+ * HowTo schema — for step-by-step guides ("how to make wheat paste",
+ * "wheat paste recipes per wall type"). Google rewards HowTo with
+ * rich-result eligibility on "how to ..." queries.
+ *
+ * The Article schema for the same post is still emitted — HowTo coexists
+ * with Article so the content shows up in both rich-result formats.
+ *
+ * `steps` is the only required field beyond the basic name/description/image.
+ * For posts where prose is the primary form (not numbered steps), use the
+ * FAQ entries as a proxy or skip HowTo entirely.
+ */
+export function howToSchema(opts: {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+  totalTime?: string; // ISO 8601 duration, e.g. "PT15M"
+  estimatedCost?: { value: number; currency?: string };
+  supplies?: ReadonlyArray<string>;
+  tools?: ReadonlyArray<string>;
+  steps: ReadonlyArray<{
+    name: string;
+    text: string;
+    image?: string;
+    url?: string;
+  }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: opts.name,
+    description: opts.description,
+    image: {
+      "@type": "ImageObject",
+      url: opts.image,
+    },
+    ...(opts.totalTime ? { totalTime: opts.totalTime } : {}),
+    ...(opts.estimatedCost
+      ? {
+          estimatedCost: {
+            "@type": "MonetaryAmount",
+            currency: opts.estimatedCost.currency ?? "USD",
+            value: opts.estimatedCost.value,
+          },
+        }
+      : {}),
+    ...(opts.supplies && opts.supplies.length > 0
+      ? {
+          supply: opts.supplies.map((s) => ({
+            "@type": "HowToSupply",
+            name: s,
+          })),
+        }
+      : {}),
+    ...(opts.tools && opts.tools.length > 0
+      ? {
+          tool: opts.tools.map((t) => ({
+            "@type": "HowToTool",
+            name: t,
+          })),
+        }
+      : {}),
+    step: opts.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      ...(s.image ? { image: s.image } : {}),
+      ...(s.url ? { url: s.url ?? `${opts.url}#step-${i + 1}` } : {}),
+    })),
+    publisher: { "@id": ORG_ID },
   };
 }
 

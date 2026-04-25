@@ -147,6 +147,29 @@ export default function WheatPastingPage() {
               description:
                 "Large-format wheat paste poster advertising installed on prime urban walls across 50+ US cities. Includes print, installation, and photo documentation.",
               url: PAGE_URL,
+              serviceType: "Wheat Pasting",
+              category: "Outdoor Advertising",
+              image: PAGE_OG,
+              slogan: "Posters that own walls.",
+              audienceType:
+                "Brand Marketers, Marketing Agencies, Music Labels, Streetwear Brands, Independent Artists",
+              offerItems: [
+                {
+                  name: "Single-City Wheat Pasting Test",
+                  description:
+                    "12–15 walls, 80–250 posters, one US city, 4–8 unique designs, full next-morning daylight photo documentation. Standard install window 7–10 days from sign-off.",
+                },
+                {
+                  name: "Multi-City Wheat Pasting Rollout",
+                  description:
+                    "Coordinated installs across 2–7 US cities on the same launch weekend. Single brief, single price sheet, single unified campaign report. Volume discount applied.",
+                },
+                {
+                  name: "Tour-Window Recurring Wheat Pasting",
+                  description:
+                    "Weekly or bi-weekly rolling refreshes for album campaigns, festival lineups, and product-drop sequences. Maintains continuous wall presence over 4–12 week tours.",
+                },
+              ],
             })
           ),
         }}
@@ -176,6 +199,19 @@ export default function WheatPastingPage() {
               image: PAGE_OG,
               datePublished: DATE_PUBLISHED,
               dateModified: DATE_MODIFIED,
+              articleSection: "Services",
+              articleBody: PAGE_DESC,
+              keywords: [
+                "wheat pasting",
+                "wheat paste posters",
+                "street postering",
+                "poster campaigns",
+                "guerrilla marketing",
+                "outdoor advertising",
+                "OOH",
+              ],
+              audienceType: "Brand Marketers, Marketing Agencies",
+              genre: "Service Page",
             })
           ),
         }}

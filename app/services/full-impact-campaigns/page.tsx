@@ -133,6 +133,29 @@ export default function FullImpactCampaignsPage() {
               description:
                 "End-to-end guerrilla marketing combining wheat pasting, street postering, and chalk spray stencils for total street saturation. Available in 50+ US cities.",
               url: PAGE_URL,
+              serviceType: "Multi-Format Guerrilla Marketing Campaigns",
+              category: "Outdoor Advertising",
+              image: PAGE_OG,
+              slogan: "Wheat paste, snipes, and stencils — one brief, total saturation.",
+              audienceType:
+                "Brand Marketers, Marketing Agencies, Music Labels, Streetwear Brands, Film Studios",
+              offerItems: [
+                {
+                  name: "Single-City Full Impact Activation",
+                  description:
+                    "Wheat paste walls + snipe posters + chalk stencils in one US city, coordinated overnight install, full daylight photo documentation across all formats.",
+                },
+                {
+                  name: "Multi-City Full Impact Tour",
+                  description:
+                    "Coordinated multi-format installs across 3–7 US cities on the same launch weekend. Single brief, single timeline, unified photo deliverable.",
+                },
+                {
+                  name: "Album / Film / Festival Launch Campaign",
+                  description:
+                    "Pre-launch teaser wave + drop-day reveal wave across the brand's anchor cities. Recurring refresh schedule for continuous wall presence through the launch window.",
+                },
+              ],
             })
           ),
         }}
@@ -162,6 +185,19 @@ export default function FullImpactCampaignsPage() {
               image: PAGE_OG,
               datePublished: DATE_PUBLISHED,
               dateModified: DATE_MODIFIED,
+              articleSection: "Services",
+              articleBody: PAGE_DESC,
+              keywords: [
+                "full impact campaigns",
+                "guerrilla marketing campaigns",
+                "multi-format street campaigns",
+                "wheat pasting",
+                "street postering",
+                "chalk stencils",
+                "OOH",
+              ],
+              audienceType: "Brand Marketers, Marketing Agencies",
+              genre: "Service Page",
             })
           ),
         }}

@@ -57,6 +57,21 @@ export default function FashionPassCaseStudy() {
               image: PAGE_OG,
               datePublished: "2026-02-10",
               dateModified: "2026-04-16",
+              articleSection: "Case Studies",
+              articleBody:
+                "FashionPass needed a Melrose-anchored wheat paste campaign that read as cultural rather than promotional. Phantom Pasting executed a multi-wall rollout across Melrose, Fairfax, and Silver Lake with full daylight photo documentation.",
+              keywords: [
+                "fashionpass",
+                "wheat pasting",
+                "los angeles",
+                "melrose",
+                "fashion brand campaign",
+                "case study",
+                "guerrilla marketing",
+              ],
+              audienceType:
+                "Brand Marketers, Marketing Agencies, Fashion Brands",
+              genre: "Case Study",
             })
           ),
         }}

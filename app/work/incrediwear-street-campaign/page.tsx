@@ -57,6 +57,21 @@ export default function IncrediwearCaseStudy() {
               image: PAGE_OG,
               datePublished: "2026-03-05",
               dateModified: "2026-04-16",
+              articleSection: "Case Studies",
+              articleBody:
+                "Incrediwear required a high-frequency street presence — multi-format pole wraps, snipe stickers, and urban placements at intersection eye-level. Phantom Pasting executed the campaign across multiple US markets with full geo-tagged documentation.",
+              keywords: [
+                "incrediwear",
+                "guerrilla marketing",
+                "pole wraps",
+                "snipe posters",
+                "sticker campaigns",
+                "case study",
+                "wellness brand campaign",
+              ],
+              audienceType:
+                "Brand Marketers, DTC Marketers, Wellness Brands",
+              genre: "Case Study",
             })
           ),
         }}
