@@ -82,6 +82,7 @@ export const ROUTES_META: RouteMeta[] = [
   // Tier 1 cities at 0.85 priority.
   { path: "/locations/georgia",              file: "app/locations/georgia/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/illinois",             file: "app/locations/illinois/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/florida",              file: "app/locations/florida/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
 
   // ── Blog (add posts here as they go live) ─────────────────────────────────
   // Dynamic [slug] route — each post's lastmod comes from its /content/blog/<slug>.tsx

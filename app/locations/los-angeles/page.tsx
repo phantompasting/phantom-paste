@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
-import { KW_CITY_BASE } from "@/lib/keywordSets";
+import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting Los Angeles",
@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     "Highland Park street postering",
     "Venice Abbot Kinney advertising",
     "Echo Park poster campaigns",
+    ...cityBuyerIntent("Los Angeles"),
+    ...cityBuyerIntent("LA"),
     ...KW_CITY_BASE,
   ],
   alternates: { canonical: "https://www.phantompasting.com/locations/los-angeles" },

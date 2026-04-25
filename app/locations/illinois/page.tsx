@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
-import { KW_CITY_BASE, KW_NATIONWIDE } from "@/lib/keywordSets";
+import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 /**
  * Illinois state landing page — captures statewide search intent that the
@@ -40,6 +40,8 @@ export const metadata: Metadata = {
     "Peoria street advertising",
     "Springfield IL guerrilla marketing",
     "statewide Illinois OOH",
+    ...cityBuyerIntent("Illinois"),
+    ...cityBuyerIntent("Chicago"),
     ...KW_CITY_BASE,
     ...KW_NATIONWIDE.slice(0, 4),
   ],

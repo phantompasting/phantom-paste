@@ -15,18 +15,26 @@ import { HOMEPAGE_FAQS } from "@/lib/homepageFAQs";
 import { KW_HOMEPAGE } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Company | Phantom Pasting" },
+  // `absolute` bypasses the root layout's "%s | Phantom Pasting" template so
+  // the homepage title can carry trust signals without going past Google's
+  // ~60-char SERP truncation. Current: 54 chars (wheat pasting + cities-served
+  // trust signal + brand). Was: "Wheat Pasting Company | Phantom Pasting" (40
+  // chars, redundant "Pasting" duplication, no trust signal — weak CTR).
+  title: { absolute: "Wheat Pasting Agency · 50+ US Cities · Phantom Pasting" },
+  // Description targeted at ~135 chars (Google truncates ~155). Leads with
+  // anchor keyword + capability, includes founding year + campaign-count
+  // trust signals, ends with the CTA hook.
   description:
-    "Wheat pasting, street postering, street media & chalk stencil campaigns across 50+ US cities. Guerrilla marketing agency, 500+ photo-documented activations. Also called flyposting, street marketing, alternative OOH.",
+    "Wheat pasting, street postering & guerrilla marketing across 50+ US cities since 2014. 500+ photo-documented campaigns. Quote in 24 hours.",
   // Meta keywords: low Google weight, real Bing weight, also indexed by some
   // AI search engines. Centralized in lib/keywordSets.ts so the synonym set
   // stays coherent across pages.
   keywords: [...KW_HOMEPAGE],
   alternates: { canonical: BUSINESS.url },
   openGraph: {
-    title: "Wheat Pasting Company | Phantom Pasting",
+    title: "Wheat Pasting Agency · 50+ US Cities · Phantom Pasting",
     description:
-      "Wheat pasting, street postering & chalk spray stencil campaigns across 50+ US cities. 500+ photo-documented guerrilla marketing activations.",
+      "Wheat pasting, street postering & guerrilla marketing across 50+ US cities since 2014. 500+ photo-documented campaigns. Quote in 24 hours.",
     url: BUSINESS.url,
     type: "website",
     siteName: "Phantom Pasting",

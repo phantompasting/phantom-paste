@@ -59,6 +59,14 @@ const STATES = [
     cities: ["Chicago", "Naperville", "Champaign-Urbana", "Rockford", "Peoria", "Springfield"],
     desc: "Most agencies treat Illinois as Chicago-only. We run Chicago plus the under-served secondary markets where wall-space competition is dramatically lower.",
   },
+  {
+    name: "Florida",
+    state: "FL",
+    slug: "florida",
+    tagline: "Miami plus 5 secondary FL markets",
+    cities: ["Miami", "Tampa", "Orlando", "Jacksonville", "Ft. Lauderdale", "St. Petersburg"],
+    desc: "Most agencies route Florida to Miami and stop. We run Miami plus Tampa's Ybor City, Orlando's Mills 50, Jacksonville's Riverside, Ft. Lauderdale, and St. Petersburg on one brief.",
+  },
 ];
 
 const CITIES = [

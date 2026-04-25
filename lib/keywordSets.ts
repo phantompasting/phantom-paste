@@ -175,12 +175,219 @@ export const KW_PRICING = [
   "wild posting cost",
 ] as const;
 
+// ── Buyer intent — services / agency / company / hire framing ─────────────
+//
+// These are the high-conversion queries a brand marketer types when they're
+// ready to buy: "wheat pasting agency", "guerrilla marketing services",
+// "hire street postering company", "best OOH agency". The dashboard's
+// topic-cluster data (see weekly directives) shows we're getting impressions
+// on descriptive terms ("wild posting advertising") but not these
+// commercial-intent terms — likely because we haven't been declaring
+// ourselves under each agency-side lexicon. Fixing that.
+export const KW_BUYER_INTENT = [
+  // Services framing
+  "wheat pasting services",
+  "street postering services",
+  "street poster services",
+  "guerrilla marketing services",
+  "street media services",
+  "street marketing services",
+  "OOH services",
+  "alternative OOH services",
+  "outdoor advertising services",
+  "flyposting services",
+  "postering services",
+  "commercial postering services",
+  // Agency / company framing
+  "wheat pasting agency",
+  "wheat pasting company",
+  "street postering agency",
+  "street postering company",
+  "postering agency",
+  "postering company",
+  "guerrilla marketing agency",
+  "guerrilla marketing company",
+  "guerrilla advertising agency",
+  "street marketing agency",
+  "street marketing company",
+  "street media agency",
+  "street media buyer",
+  "OOH agency",
+  "OOH agency for brands",
+  "alternative OOH agency",
+  "alternative advertising agency",
+  "outdoor advertising agency",
+  "outdoor marketing company",
+  "flyposting agency",
+  "flyposting company",
+  "ambient media agency",
+  "experiential marketing agency",
+  // Hire / find / best framing
+  "hire wheat pasting company",
+  "hire guerrilla marketing agency",
+  "hire street postering crew",
+  "find wheat pasting agency",
+  "find guerrilla marketing company",
+  "best wheat pasting agency",
+  "best guerrilla marketing agency",
+  "best OOH agency",
+  "best street marketing agency",
+  "best alternative OOH agency",
+  "top guerrilla marketing agencies",
+  "top OOH agencies",
+  "professional wheat pasting service",
+  "professional flyposting service",
+] as const;
+
+// ── Geographic intent — "near me" + local + nationwide ────────────────────
+export const KW_NEAR_ME = [
+  "wheat pasting near me",
+  "guerrilla marketing near me",
+  "street postering near me",
+  "OOH agency near me",
+  "outdoor advertising near me",
+  "brand activation near me",
+  "alternative OOH near me",
+  "local wheat pasting company",
+  "local guerrilla marketing agency",
+] as const;
+
+// ── Long-tail / question queries (informational + bottom-funnel) ──────────
+//
+// Question-format searches are huge AI-Overview surfaces because Google
+// answers them with featured snippets and AIO panels. Each entry maps to
+// at least one published or drafted blog post.
+export const KW_QUESTIONS = [
+  "what is wheat pasting",
+  "what is flyposting",
+  "what is street postering",
+  "what is wild posting",
+  "what is guerrilla marketing",
+  "what is street media",
+  "what is alternative OOH",
+  "how does wheat pasting work",
+  "how does flyposting work",
+  "how does guerrilla marketing work",
+  "how to make wheat paste",
+  "how to start a wheat pasting campaign",
+  "how to do guerrilla marketing",
+  "how much does wheat pasting cost",
+  "how much is a guerrilla marketing campaign",
+  "how much do street posters cost",
+  "is wheat pasting legal",
+  "is flyposting legal",
+  "is street postering legal",
+  "where to do wheat pasting",
+  "when to use guerrilla marketing",
+  "why use wheat pasting",
+] as const;
+
+// ── Vertical-specific buyer queries ───────────────────────────────────────
+//
+// Brand-vertical queries that map directly to the verticals we serve.
+// These are how a music label / fashion brand / film studio searches when
+// they're scoping a campaign — very high commercial intent, very specific.
+export const KW_VERTICAL_BUYERS = [
+  // Music
+  "guerrilla marketing for music labels",
+  "guerrilla marketing for music",
+  "street campaigns for album launches",
+  "OOH for album launches",
+  "street media for music festivals",
+  "festival lineup advertising",
+  "tour promo posters",
+  "tour OOH campaigns",
+  "music industry guerrilla marketing",
+  "music brand street marketing",
+  // Fashion
+  "wheat pasting for fashion brands",
+  "wheat pasting for streetwear",
+  "fashion brand street campaigns",
+  "streetwear drop campaigns",
+  "fashion week OOH",
+  "luxury brand guerrilla marketing",
+  "streetwear marketing agency",
+  // Film / TV
+  "OOH for film launches",
+  "street campaigns for film premieres",
+  "movie launch wheat pasting",
+  "streaming originals OOH",
+  "film festival advertising",
+  "movie poster campaigns",
+  // DTC + consumer brands
+  "guerrilla marketing for DTC brands",
+  "DTC brand street campaigns",
+  "consumer brand OOH",
+  "product launch street campaigns",
+  "wellness brand guerrilla marketing",
+  "beverage brand street marketing",
+  // Tech + SaaS
+  "guerrilla marketing for startups",
+  "SaaS launch OOH",
+  "tech brand street campaigns",
+  "conference activation campaigns",
+  // Sports + tournaments
+  "sports tournament guerrilla marketing",
+  "sports league OOH",
+  "stadium-area street campaigns",
+] as const;
+
+// ── Comparison queries (vs. other media) ──────────────────────────────────
+//
+// Comparison searches are mid-funnel: the buyer is evaluating wheat pasting
+// against billboards / digital OOH / programmatic. We want to be the first
+// answer for each comparison.
+export const KW_COMPARISON = [
+  "wheat pasting vs billboards",
+  "wheat pasting vs digital OOH",
+  "street postering vs billboards",
+  "street postering vs digital advertising",
+  "guerrilla marketing vs traditional OOH",
+  "guerrilla marketing vs digital marketing",
+  "street media vs digital advertising",
+  "alternative OOH vs digital",
+  "alternative OOH vs traditional OOH",
+  "flyposting vs billboards",
+  "wheat pasting vs wild posting",
+  "wheat pasting vs flyposting",
+  "OOH vs digital",
+  "wheat pasting ROI",
+  "guerrilla marketing ROI",
+] as const;
+
+// ── City + buyer-intent combos ────────────────────────────────────────────
+//
+// Helper: for each Tier-1 city, generate a set of "guerrilla marketing
+// agency [city]" / "wheat pasting company [city]" / "OOH agency [city]"
+// style queries. These are the highest-conversion local queries and they're
+// what city pages should target on top of the city-craft baseline.
+export function cityBuyerIntent(city: string): ReadonlyArray<string> {
+  return [
+    `wheat pasting agency ${city}`,
+    `wheat pasting company ${city}`,
+    `wheat pasting services ${city}`,
+    `street postering agency ${city}`,
+    `street postering company ${city}`,
+    `guerrilla marketing agency ${city}`,
+    `guerrilla marketing company ${city}`,
+    `street marketing agency ${city}`,
+    `OOH agency ${city}`,
+    `outdoor advertising agency ${city}`,
+    `alternative OOH agency ${city}`,
+    `flyposting agency ${city}`,
+    `${city} guerrilla marketing services`,
+    `${city} street media buying`,
+    `hire wheat pasting company ${city}`,
+    `best guerrilla marketing agency ${city}`,
+  ];
+}
+
 // ──────────────────────────────────────────────────────────────────────────
 // Combined sets — pre-bundled for common page types. Use these instead of
 // composing inline on the page so the keyword strategy stays centralized.
 // ──────────────────────────────────────────────────────────────────────────
 
-/** Homepage — broadest synonym coverage. */
+/** Homepage — broadest synonym coverage + buyer-intent + question + vertical. */
 export const KW_HOMEPAGE = [
   ...KW_CRAFT,
   ...KW_STREET_POSTERS.slice(0, 6),
@@ -189,9 +396,19 @@ export const KW_HOMEPAGE = [
   ...KW_OOH.slice(0, 6),
   ...KW_FLYPOSTING.slice(0, 2),
   ...KW_NATIONWIDE.slice(0, 3),
+  // High-conversion buyer-intent queries — the "agency", "services",
+  // "company", "hire", "best" framings buyers type when ready to buy.
+  ...KW_BUYER_INTENT.slice(0, 18),
+  // Top informational + comparison queries that drive SERP feature visibility.
+  ...KW_QUESTIONS.slice(0, 8),
+  ...KW_COMPARISON.slice(0, 4),
+  // Top vertical-buyer queries (music + fashion + film).
+  ...KW_VERTICAL_BUYERS.slice(0, 8),
+  // "Near me" geo-intent.
+  ...KW_NEAR_ME.slice(0, 4),
 ];
 
-/** Wheat-pasting service page — craft + posters + flyposting + OOH. */
+/** Wheat-pasting service page — craft + posters + flyposting + OOH + buyer + Q&A. */
 export const KW_SERVICE_WHEAT_PASTING = [
   ...KW_CRAFT,
   ...KW_STREET_POSTERS,
@@ -199,18 +416,32 @@ export const KW_SERVICE_WHEAT_PASTING = [
   ...KW_OOH.slice(0, 5),
   ...KW_STREET_MARKETING.slice(0, 5),
   ...KW_VERTICALS.slice(0, 6),
+  // Buyer-intent + question coverage drives bottom-funnel impressions.
+  ...KW_BUYER_INTENT.slice(0, 16),
+  ...KW_QUESTIONS.filter((q) => q.includes("wheat") || q.includes("flyposting") || q.includes("postering")),
+  ...KW_COMPARISON.slice(0, 5),
+  ...KW_VERTICAL_BUYERS.slice(0, 6),
 ];
 
-/** Chalk stencil service page — stencil family + floor + activation. */
+/** Chalk stencil service page — stencil family + floor + activation + buyer. */
 export const KW_SERVICE_STENCILS = [
   ...KW_STENCILS,
   ...KW_FLOOR_MEDIA,
   ...KW_STREET_MARKETING.slice(0, 6),
   ...KW_VERTICALS.slice(0, 6),
   ...KW_OOH.slice(0, 4),
+  // Stencil-flavored buyer intent.
+  "chalk stencil agency",
+  "chalk stencil company",
+  "chalk stencil services",
+  "sidewalk stencil agency",
+  "sidewalk advertising agency",
+  "spray chalk advertising company",
+  ...KW_BUYER_INTENT.slice(13, 25), // agency / company framing
+  ...KW_VERTICAL_BUYERS.slice(0, 6),
 ];
 
-/** Full-impact service page — everything. */
+/** Full-impact service page — everything + buyer + comparison + vertical. */
 export const KW_SERVICE_FULL_IMPACT = [
   ...KW_CRAFT.slice(0, 4),
   ...KW_STREET_POSTERS.slice(0, 6),
@@ -219,9 +450,12 @@ export const KW_SERVICE_FULL_IMPACT = [
   ...KW_VERTICALS,
   ...KW_NATIONWIDE,
   ...KW_STICKERS_WRAPS.slice(0, 4),
+  ...KW_BUYER_INTENT.slice(0, 20),
+  ...KW_VERTICAL_BUYERS,
+  ...KW_COMPARISON.slice(0, 6),
 ];
 
-/** Services hub — broad coverage of every service vertical. */
+/** Services hub — broad coverage + buyer-intent across every vertical. */
 export const KW_SERVICES_HUB = [
   ...KW_CRAFT.slice(0, 4),
   ...KW_STREET_POSTERS.slice(0, 5),
@@ -230,15 +464,20 @@ export const KW_SERVICES_HUB = [
   ...KW_STREET_MARKETING.slice(0, 6),
   ...KW_OOH.slice(0, 5),
   ...KW_VERTICALS.slice(0, 5),
+  ...KW_BUYER_INTENT.slice(0, 18),
+  ...KW_QUESTIONS.slice(0, 6),
+  ...KW_VERTICAL_BUYERS.slice(0, 8),
 ];
 
-/** Locations hub — geographic + craft + nationwide rollout. */
+/** Locations hub — geographic + craft + nationwide rollout + buyer intent. */
 export const KW_LOCATIONS_HUB = [
   ...KW_CRAFT.slice(0, 4),
   ...KW_STREET_POSTERS.slice(0, 4),
   ...KW_STREET_MARKETING.slice(0, 5),
   ...KW_OOH.slice(0, 4),
   ...KW_NATIONWIDE,
+  ...KW_BUYER_INTENT.slice(0, 14),
+  ...KW_NEAR_ME,
 ];
 
 /** Per-city pages — craft + street poster + city-aware. Caller appends city terms. */
@@ -248,6 +487,8 @@ export const KW_CITY_BASE = [
   ...KW_STREET_MARKETING.slice(0, 4),
   ...KW_OOH.slice(0, 3),
   ...KW_FLYPOSTING.slice(0, 1),
+  // Buyer-intent core that applies to every city.
+  ...KW_BUYER_INTENT.slice(0, 12),
 ];
 
 /** About page — agency / company / brand framing. */
@@ -261,6 +502,7 @@ export const KW_ABOUT = [
   "nationwide OOH agency",
   ...KW_CRAFT.slice(0, 3),
   ...KW_STREET_MEDIA.slice(0, 3),
+  ...KW_BUYER_INTENT.slice(13, 25),
 ];
 
 /** Work / case studies hub. */
@@ -269,9 +511,13 @@ export const KW_WORK = [
   "guerrilla marketing case studies",
   "street poster campaign portfolio",
   "OOH campaign portfolio",
+  "wheat pasting examples",
+  "guerrilla marketing examples",
+  "street media campaign examples",
   ...KW_CRAFT.slice(0, 3),
   ...KW_STREET_POSTERS.slice(0, 3),
   ...KW_VERTICALS.slice(0, 6),
+  ...KW_VERTICAL_BUYERS.slice(0, 8),
 ];
 
 /** Gallery — visual / photo documentation framing. */
@@ -280,6 +526,9 @@ export const KW_GALLERY = [
   "guerrilla marketing photo gallery",
   "street poster campaign photos",
   "OOH campaign documentation",
+  "wheat paste wall photos",
+  "street postering photos",
+  "stencil campaign documentation",
   ...KW_CRAFT.slice(0, 3),
   ...KW_STREET_POSTERS.slice(0, 3),
   ...KW_STENCILS.slice(0, 3),
@@ -292,8 +541,14 @@ export const KW_CONTACT = [
   "street poster campaign quote",
   "OOH campaign pricing",
   "wheat pasting cost estimate",
+  "hire wheat pasting company",
+  "hire guerrilla marketing agency",
+  "request wheat pasting quote",
+  "request OOH quote",
+  "wheat pasting consultation",
   ...KW_CRAFT.slice(0, 3),
   ...KW_PRICING,
+  ...KW_NEAR_ME.slice(0, 4),
 ];
 
 /** Blog hub. */
@@ -302,9 +557,13 @@ export const KW_BLOG_HUB = [
   "wheat pasting guides",
   "street postering field notes",
   "guerrilla marketing blog",
+  "guerrilla marketing guides",
+  "street media insights",
+  "OOH advertising blog",
   ...KW_CRAFT.slice(0, 3),
   ...KW_STREET_POSTERS.slice(0, 3),
   ...KW_STREET_MARKETING.slice(0, 3),
+  ...KW_QUESTIONS.slice(0, 8),
 ];
 
 // ──────────────────────────────────────────────────────────────────────────

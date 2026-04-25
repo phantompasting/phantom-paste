@@ -239,7 +239,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["wheat-pasting-new-york", "wheat-pasting-campaign", "wheat-pasting-for-fashion-brands"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "guerrilla-marketing-for-music",
