@@ -40,14 +40,13 @@ const data: CityPageData = {
   ],
   heroImage1: { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp", alt: "FIFA World Cup wall installation in Atlanta" },
   heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall gallery in Atlanta" },
+  // Service schema base — CityPageTemplate enriches with @type, provider,
+  // areaServed, and offers. Field stays named `localBusiness` for type
+  // compat with the shared template interface.
   localBusiness: {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
     name: "Phantom Pasting — Atlanta",
     description: "Wheat pasting and poster campaign services in Atlanta, GA. Street postering across Midtown, Little Five Points, Buckhead, and East Atlanta.",
     url: "https://www.phantompasting.com/locations/atlanta",
-    areaServed: { "@type": "City", name: "Atlanta", addressRegion: "GA" },
-    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   },
 };
 

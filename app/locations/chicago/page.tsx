@@ -40,14 +40,13 @@ const data: CityPageData = {
   ],
   heroImage1: { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp", alt: "Wheat paste campaign poster wall in Chicago" },
   heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at Chicago street intersection" },
+  // Service schema base — CityPageTemplate enriches with @type, provider,
+  // areaServed, and offers. Field stays named `localBusiness` for type
+  // compat with the shared template interface.
   localBusiness: {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
     name: "Phantom Pasting — Chicago",
     description: "Wheat pasting and poster campaign services in Chicago, IL. Street postering across Wicker Park, Logan Square, Wrigleyville, and the Loop.",
     url: "https://www.phantompasting.com/locations/chicago",
-    areaServed: { "@type": "City", name: "Chicago", addressRegion: "IL" },
-    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   },
 };
 

@@ -40,14 +40,13 @@ const data: CityPageData = {
   ],
   heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster on pink urban wall in Miami" },
   heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil sidewalk activation in Miami" },
+  // Service schema base — CityPageTemplate enriches with @type, provider,
+  // areaServed, and offers. Field stays named `localBusiness` for type
+  // compat with the shared template interface.
   localBusiness: {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
     name: "Phantom Pasting — Miami",
     description: "Wheat pasting and poster campaign services in Miami, FL. Street postering across Wynwood, South Beach, Brickell, and the Design District.",
     url: "https://www.phantompasting.com/locations/miami",
-    areaServed: { "@type": "City", name: "Miami", addressRegion: "FL" },
-    parentOrganization: { "@type": "Organization", name: "Phantom Pasting", url: "https://www.phantompasting.com" },
   },
 };
 

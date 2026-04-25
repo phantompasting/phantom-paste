@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { collectionPageSchema, localBusinessSchema, faqPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { collectionPageSchema, faqPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/locations`;
 const PAGE_TITLE = "Guerrilla Marketing Locations";
@@ -35,6 +35,29 @@ export const metadata: Metadata = {
 };
 
 const ACCENT = "#D4A010";
+
+// Statewide coverage pages — capture state-level search intent that the
+// city pages can't address (e.g. "wheat pasting georgia" / "illinois").
+// Rendered as a separate section below the city grid so the city cards
+// remain the primary visual hierarchy.
+const STATES = [
+  {
+    name: "Georgia",
+    state: "GA",
+    slug: "georgia",
+    tagline: "Statewide rollouts across 6 GA markets",
+    cities: ["Atlanta", "Savannah", "Athens", "Augusta", "Macon", "Columbus"],
+    desc: "Atlanta drives the volume, but Savannah, Athens, Augusta, Macon, and Columbus each carry walkable corridors competitors ignore. Statewide rollouts in a single brief.",
+  },
+  {
+    name: "Illinois",
+    state: "IL",
+    slug: "illinois",
+    tagline: "Chicago plus 5 secondary IL markets",
+    cities: ["Chicago", "Naperville", "Champaign-Urbana", "Rockford", "Peoria", "Springfield"],
+    desc: "Most agencies treat Illinois as Chicago-only. We run Chicago plus the under-served secondary markets where wall-space competition is dramatically lower.",
+  },
+];
 
 const CITIES = [
   {
@@ -116,18 +139,21 @@ export default function LocationsHubPage() {
               name: "Guerrilla Marketing Locations — Phantom Pasting",
               description: PAGE_DESC,
               url: PAGE_URL,
-              items: CITIES.map((c) => ({
-                name: `Guerrilla Marketing in ${c.name}, ${c.state}`,
-                url: `${BUSINESS.url}/locations/${c.slug}`,
-              })),
+              items: [
+                ...CITIES.map((c) => ({
+                  name: `Guerrilla Marketing in ${c.name}, ${c.state}`,
+                  url: `${BUSINESS.url}/locations/${c.slug}`,
+                })),
+                ...STATES.map((s) => ({
+                  name: `Wheat Pasting Across ${s.name}`,
+                  url: `${BUSINESS.url}/locations/${s.slug}`,
+                })),
+              ],
             })
           ),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
-      />
+      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(FAQS)) }}
@@ -314,6 +340,66 @@ export default function LocationsHubPage() {
                 Get a Custom Quote →
               </span>
             </Link>
+          </div>
+        </section>
+
+        {/* ── Statewide Coverage ────────────────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[1200px] mx-auto">
+            <span className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase mb-5"
+              style={{ color: "rgba(0,0,0,0.55)" }}>
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Statewide Coverage
+            </span>
+            <h2 className="font-black uppercase m-0 mb-3 leading-[0.9]"
+              style={{ fontSize: "clamp(28px, 3.8vw, 50px)", letterSpacing: "-0.035em" }}>
+              ROLL THE WHOLE STATE<span style={{ color: ACCENT }}>.</span>
+            </h2>
+            <p className="font-light leading-relaxed mb-10 max-w-[640px]"
+              style={{ fontSize: "15px", color: "rgba(0,0,0,0.55)" }}>
+              When the brief is bigger than a single metro — fashion-week tour, statewide product launch,
+              college-market saturation — these state pages anchor the multi-city rollout under one quote.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {STATES.map(({ name, state, slug, tagline, cities, desc }) => (
+                <Link
+                  key={slug}
+                  href={`/locations/${slug}`}
+                  className="no-underline group rounded-3xl p-7 flex flex-col justify-between gap-6 transition-all duration-200"
+                  style={{ ...GLASS, minHeight: "260px" }}
+                >
+                  <div>
+                    <div className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3"
+                      style={{ color: "rgba(0,0,0,0.55)" }}>
+                      {state} · {tagline}
+                    </div>
+                    <h3 className="font-black uppercase m-0 mb-4 leading-[0.9]"
+                      style={{ fontSize: "clamp(28px, 3vw, 40px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}>
+                      {name}<span style={{ color: ACCENT }}>.</span>
+                    </h3>
+                    <p className="font-light leading-relaxed m-0"
+                      style={{ fontSize: "14px", color: "rgba(0,0,0,0.55)" }}>
+                      {desc}
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {cities.map((c) => (
+                        <span key={c}
+                          className="font-mono text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full"
+                          style={{ background: "rgba(0,0,0,0.05)", color: "rgba(0,0,0,0.58)" }}>
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="font-bold text-[11px] tracking-[0.2em] uppercase inline-flex items-center gap-1.5"
+                      style={{ color: ACCENT }}>
+                      View {name} <span className="cta-arrow">→</span>
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 

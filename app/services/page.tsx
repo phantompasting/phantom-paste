@@ -10,7 +10,6 @@ import { BUSINESS, LOCATIONS } from "@/lib/business";
 import {
   collectionPageSchema,
   faqPageSchema,
-  localBusinessSchema,
   breadcrumbSchema,
   jsonLd,
 } from "@/lib/schema";
@@ -145,10 +144,7 @@ export default function ServicesPage() {
           ),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
-      />
+      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(FAQS)) }}

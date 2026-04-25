@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { webPageSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { webPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/about`;
 const PAGE_TITLE = "About — Guerrilla Marketing Since 2014";
@@ -67,10 +67,8 @@ export default function AboutPage() {
           ),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
-      />
+      {/* localBusinessSchema is emitted globally via app/layout.tsx — duplicating it
+          per page adds no signal and bloats the HTML. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

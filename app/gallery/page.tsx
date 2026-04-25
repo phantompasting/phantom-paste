@@ -5,7 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import GalleryPageClient from "./GalleryPageClient";
 import { BUSINESS } from "@/lib/business";
-import { webPageSchema, localBusinessSchema, breadcrumbSchema, imageObjectSchema, jsonLd } from "@/lib/schema";
+import { webPageSchema, breadcrumbSchema, imageObjectSchema, jsonLd } from "@/lib/schema";
 import { GALLERY_IMGS } from "@/lib/gallery-data";
 
 const PAGE_URL = `${BUSINESS.url}/gallery`;
@@ -56,10 +56,8 @@ export default function GalleryPage() {
         }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
-      />
+      {/* localBusinessSchema is emitted globally via app/layout.tsx — re-injecting
+          here would duplicate the @id node Google already merges across pages. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

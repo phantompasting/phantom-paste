@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { localBusinessSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
+import { breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/contact`;
 const PAGE_TITLE = "Hire a Wheat Pasting Company";
@@ -103,10 +103,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
-      />
+      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

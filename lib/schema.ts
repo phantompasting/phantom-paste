@@ -43,12 +43,17 @@ export function webSiteSchema() {
 }
 
 /**
- * ProfessionalService schema — nationwide service-area business variant.
- * Phantom Pasting operates across 50+ US cities with no single storefront, so
- * ProfessionalService (a LocalBusiness subtype) is more accurate than bare
- * LocalBusiness: it preserves the LB signals Google uses for agencies while
- * correctly declaring this as a professional-service agency, not a local pin.
- * City-specific pages still use LocalBusiness + PostalAddress via CityPageTemplate.
+ * ProfessionalService schema — nationwide service-area business (SAB).
+ *
+ * Phantom Pasting operates across 50+ US cities with no public storefront
+ * customers visit. Per Google's SAB structured-data guidance, this requires
+ * an explicit `serviceArea` declaration (not just `areaServed`) so Google
+ * does NOT treat the HQ address as a local pin competing in Orlando-only
+ * SERPs. The HQ `address` is kept as a registered-business signal, but the
+ * top-level `serviceArea: Country=US` overrides the local-pin assumption.
+ *
+ * City pages emit `Service` schema (NOT `LocalBusiness`) — see
+ * /app/locations/[city]/page.tsx — because we have no physical pin per city.
  */
 export function localBusinessSchema() {
   return {
@@ -67,6 +72,10 @@ export function localBusinessSchema() {
       addressRegion: BUSINESS.address.addressRegion,
       addressCountry: BUSINESS.address.addressCountry,
     },
+    // Nationwide reach — primary geographic signal for an SAB.
+    serviceArea: { "@type": "Country", name: "United States" },
+    // Top market cities — secondary `areaServed` signal kept for keyword/topic
+    // breadth. Google reads both fields; `serviceArea` carries the SAB intent.
     areaServed: BUSINESS.serviceCities.map((c) => ({ "@type": "City", name: c })),
     sameAs: BUSINESS.sameAs,
   };

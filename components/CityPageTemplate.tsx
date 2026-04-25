@@ -25,6 +25,31 @@ export interface CityPageData {
   localBusiness: Record<string, unknown>;
   heroImage1?: { src: string; alt: string };
   heroImage2?: { src: string; alt: string };
+  /**
+   * Heading label for the neighborhoods/cities grid. Defaults to "NEIGHBORHOODS".
+   * State pages override to "CITIES SERVED" so the grid reads "GEORGIA · CITIES SERVED"
+   * instead of the awkward "GEORGIA · NEIGHBORHOODS".
+   */
+  areaLabel?: string;
+  /**
+   * Optional spotlight section rendered between the neighborhoods grid and the
+   * how-it-works strip. Used to add city-specific depth (case-study reference,
+   * neighborhood deep-dive, FAQ block) on high-impression pages where the base
+   * template content isn't winning the SERP. Each link supports both internal
+   * ({ href: "/work/..." }) and external destinations.
+   */
+  spotlight?: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    links?: { label: string; href: string }[];
+  };
+  /**
+   * Schema.org `areaServed` overrides. State pages emit `@type: "State"`
+   * (or `AdministrativeArea`) instead of City. City pages omit this and the
+   * default City + PostalAddress is used.
+   */
+  serviceAreaType?: "City" | "State" | "AdministrativeArea";
 }
 
 export default function CityPageTemplate({ data }: { data: CityPageData }) {
@@ -37,30 +62,51 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
     ],
   };
 
-  // Enrich the LocalBusiness schema with serviceArea and address fields
-  const localBusinessSchema = {
+  // Service schema — NOT LocalBusiness. Phantom Pasting has no physical
+  // pin per city; we travel to install. LocalBusiness with a per-city
+  // PostalAddress falsely claims a storefront in each market and competes
+  // (badly) with real local agencies in city-pack SERPs.
+  //
+  // Service + areaServed + provider (chained to the global Organization
+  // @id) is the correct pattern for a nationwide service-area business
+  // declaring per-city offerings. The page-level `data.localBusiness`
+  // field supplies name + description + url; the rest is derived here.
+  const areaServedType = data.serviceAreaType ?? "City";
+  // For state pages, swap PostalAddress.addressLocality for addressRegion so
+  // the schema reads "service offered statewide in GA" not "in a city named GA".
+  const serviceSchema = {
     ...data.localBusiness,
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    email: BUSINESS.email,
-    telephone: BUSINESS.telephone,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: data.city,
-      addressRegion: data.state,
-      addressCountry: "US",
-    },
-    serviceArea: {
-      "@type": "City",
+    "@type": "Service",
+    serviceType: "Wheat Pasting",
+    provider: { "@id": `${BUSINESS.url}/#org` },
+    areaServed: {
+      "@type": areaServedType,
       name: data.city,
-      addressRegion: data.state,
+      address: {
+        "@type": "PostalAddress",
+        ...(areaServedType === "City"
+          ? {
+              addressLocality: data.city,
+              addressRegion: data.state,
+            }
+          : {
+              addressRegion: data.state,
+            }),
+        addressCountry: "US",
+      },
+    },
+    offers: {
+      "@type": "Offer",
+      url: `${BUSINESS.url}/contact`,
+      priceCurrency: "USD",
     },
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
@@ -260,7 +306,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
             </span>
             <h2 className="font-black uppercase m-0 mb-14 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
-              {data.city.toUpperCase()}<br /><ShinyGoldText>NEIGHBORHOODS.</ShinyGoldText>
+              {data.city.toUpperCase()}<br /><ShinyGoldText>{(data.areaLabel ?? "NEIGHBORHOODS")}.</ShinyGoldText>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
               style={{ background: "rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.06)", borderRadius: "20px", overflow: "hidden" }}>
@@ -277,6 +323,64 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
             </div>
           </div>
         </section>
+
+        {/* ── Spotlight (optional, rendered for high-impression depth boost) ── */}
+        {data.spotlight && (
+          <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+            <div className="max-w-[1200px] mx-auto">
+              <div
+                className="rounded-3xl p-8 md:p-14"
+                style={{
+                  background: "rgba(255,255,255,0.42)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.7)",
+                  boxShadow: "0 18px 48px rgba(0,0,0,0.10)",
+                }}
+              >
+                <span
+                  className="font-mono text-[9px] tracking-[0.35em] uppercase mb-4 inline-flex items-center gap-2"
+                  style={{ color: ACCENT, fontWeight: 700 }}
+                >
+                  <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                  {data.spotlight.eyebrow}
+                </span>
+                <h2
+                  className="font-black uppercase m-0 mb-6 leading-[0.92]"
+                  style={{ fontSize: "clamp(26px, 3.6vw, 44px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}
+                >
+                  {data.spotlight.title}<span style={{ color: ACCENT }}>.</span>
+                </h2>
+                <p
+                  className="font-light leading-relaxed m-0 mb-8"
+                  style={{ color: "rgba(0,0,0,0.65)", fontSize: "16px", maxWidth: "780px" }}
+                >
+                  {data.spotlight.body}
+                </p>
+                {data.spotlight.links && data.spotlight.links.length > 0 && (
+                  <div className="flex flex-wrap gap-3">
+                    {data.spotlight.links.map((lnk) => (
+                      <Link
+                        key={lnk.href}
+                        href={lnk.href}
+                        className="inline-flex items-center gap-2 font-bold uppercase no-underline"
+                        style={{
+                          fontSize: "11px",
+                          letterSpacing: "0.22em",
+                          color: ACCENT,
+                          borderBottom: `1.5px solid ${ACCENT}`,
+                          paddingBottom: 3,
+                        }}
+                      >
+                        {lnk.label} <span aria-hidden>→</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ── How it works ──────────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">

@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { articleSchema, localBusinessSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/fifa-world-cup-atlanta`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fifa-world-cup-atlanta-wall-installation.webp`;
@@ -64,10 +64,7 @@ export default function FIFACaseStudy() {
           ),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
-      />
+      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
