@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, DM_Mono } from "next/font/google";
+import Script from "next/script";
 import GrainientBackgroundLazy from "@/components/GrainientBackgroundLazy";
 import ShinyGoldObserver from "@/components/ShinyGoldObserver";
 import PerfGate from "@/components/PerfGate";
@@ -178,6 +179,22 @@ export default function RootLayout({
           DarkReader, etc.) inject attributes onto <body> before React hydrates, which
           otherwise triggers a hydration mismatch warning. */}
       <body suppressHydrationWarning>
+        {/* Google Analytics 4 — uses next/script with strategy="afterInteractive"
+            so the loader downloads after hydration (doesn't block FCP/LCP).
+            Connected/script-src CSP allowances live in middleware.ts. */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VP57JXQ83G"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VP57JXQ83G');
+          `}
+        </Script>
+
         <GrainientBackgroundLazy />
         <ShinyGoldObserver />
         <PerfGate />
