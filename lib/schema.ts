@@ -11,30 +11,68 @@ import { ORG_KNOWS_ABOUT, ORG_ADDITIONAL_TYPES } from "./keywordSets";
 
 const ORG_ID = `${BUSINESS.url}/#org`;
 const WEBSITE_ID = `${BUSINESS.url}/#website`;
-const LOCALBUSINESS_ID = `${BUSINESS.url}/#localbusiness`;
+// LOCALBUSINESS_ID was removed — the previous ProfessionalService node was
+// pinning the entity geographically. All entity signals consolidated onto
+// the canonical Organization @id (#org). See orgSchema() below.
 
 /**
- * Organization schema — used in root layout @graph.
+ * Organization schema — single canonical entity emission.
  *
- * Includes `knowsAbout` (39 topical concepts) and `additionalType` (5
- * Schema.org / productontology URLs) so the Org node carries broad
- * topical breadth across every synonym family the agency targets.
- * The homepage @graph spreads this object and adds richer fields like
- * `hasOfferCatalog` and `description`.
+ * Phantom Pasting is a nationwide service-area business (SAB) with no public
+ * storefront. The right Schema.org type for that profile is `Organization`,
+ * NOT `LocalBusiness` or any of its subtypes (LocalBusiness, AdvertisingAgency,
+ * ProfessionalService all descend from `Place` and trigger Google's local-pack
+ * ranking + city-of-record assignment, both of which actively hurt a SAB
+ * trying to surface for "wheat pasting [any-of-50-cities]" queries).
+ *
+ * This emission carries ALL the entity signals — knowsAbout, additionalType,
+ * serviceArea, areaServed, contactPoint, address (country-only) — that
+ * previously lived on a separate `localBusinessSchema()` ProfessionalService
+ * node. That second node was deleted because it was double-emitting Org-level
+ * data under a LocalBusiness subtype, which pinned us geographically.
  */
 export function orgSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": ORG_ID,
+    // Conceptual classifications via productontology only — schema.org/
+    // AdvertisingAgency is intentionally excluded because it descends from
+    // LocalBusiness. See lib/keywordSets.ts ORG_ADDITIONAL_TYPES.
     additionalType: ORG_ADDITIONAL_TYPES,
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
     url: BUSINESS.url,
     logo: `${BUSINESS.url}/phantom-pasting-logo.webp`,
+    image: `${BUSINESS.url}/phantom-pasting-logo.webp`,
     email: BUSINESS.email,
     telephone: BUSINESS.telephone,
     foundingDate: BUSINESS.foundingDate,
+    // Country-only address. Locality/region intentionally omitted — see
+    // lib/business.ts BUSINESS.address docstring.
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: BUSINESS.address.addressCountry,
+    },
+    // Nationwide reach — primary geographic signal for an SAB.
+    serviceArea: { "@type": "Country", name: "United States" },
+    // Top-market cities — secondary `areaServed` for keyword/topic breadth.
+    // Google reads both `serviceArea` and `areaServed`; the former carries
+    // the SAB intent, the latter declares which cities the service operates in.
+    areaServed: BUSINESS.serviceCities.map((c) => ({ "@type": "City", name: c })),
+    // ContactPoint — formerly nested inside the deleted LocalBusiness node.
+    // Now lives on Org so AI engines surface phone + email for any synonym
+    // query (street media, guerrilla marketing, OOH, etc).
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: BUSINESS.telephone,
+      email: BUSINESS.email,
+      url: `${BUSINESS.url}/contact`,
+      areaServed: "US",
+      availableLanguage: "English",
+    },
+    // Topical breadth — 39 concepts spanning every synonym family.
     knowsAbout: ORG_KNOWS_ABOUT,
     sameAs: BUSINESS.sameAs,
   };
@@ -53,54 +91,12 @@ export function webSiteSchema() {
   };
 }
 
-/**
- * ProfessionalService schema — nationwide service-area business (SAB).
- *
- * Phantom Pasting operates across 50+ US cities with no public storefront
- * customers visit. Per Google's SAB structured-data guidance, this requires
- * an explicit `serviceArea` declaration (not just `areaServed`) so Google
- * does NOT treat the HQ address as a local pin competing in Orlando-only
- * SERPs. The HQ `address` is kept as a registered-business signal, but the
- * top-level `serviceArea: Country=US` overrides the local-pin assumption.
- *
- * City pages emit `Service` schema (NOT `LocalBusiness`) — see
- * /app/locations/[city]/page.tsx — because we have no physical pin per city.
- */
-export function localBusinessSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": LOCALBUSINESS_ID,
-    // Schema.org `additionalType` URLs declare the multi-category nature of
-    // the business: AdvertisingAgency + Out-of-home_advertising +
-    // Guerrilla_marketing + Flyposting + Wheatpaste. Google reads each as
-    // an additional classification signal that widens impression surface
-    // for queries using ANY of those lexicons.
-    additionalType: ORG_ADDITIONAL_TYPES,
-    name: BUSINESS.name,
-    url: BUSINESS.url,
-    telephone: BUSINESS.telephone,
-    email: BUSINESS.email,
-    image: `${BUSINESS.url}/phantom-pasting-logo.webp`,
-    priceRange: "$$",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: BUSINESS.address.addressLocality,
-      addressRegion: BUSINESS.address.addressRegion,
-      addressCountry: BUSINESS.address.addressCountry,
-    },
-    // Nationwide reach — primary geographic signal for an SAB.
-    serviceArea: { "@type": "Country", name: "United States" },
-    // Top market cities — secondary `areaServed` signal kept for keyword/topic
-    // breadth. Google reads both fields; `serviceArea` carries the SAB intent.
-    areaServed: BUSINESS.serviceCities.map((c) => ({ "@type": "City", name: c })),
-    // Topical breadth signal — each entry is a concept Google reads as
-    // evidence of authority. Wider knowsAbout = wider impression surface
-    // across every synonym family (street media, OOH, flyposting, etc).
-    knowsAbout: ORG_KNOWS_ABOUT,
-    sameAs: BUSINESS.sameAs,
-  };
-}
+// localBusinessSchema() was deleted on 2026-04-25 — it was emitting
+// @type: "ProfessionalService" (a LocalBusiness subtype) plus priceRange
+// and a city-level address, all of which pinned us geographically. All
+// SAB signals (serviceArea, areaServed, contactPoint, knowsAbout) are now
+// consolidated onto orgSchema() above. This comment exists so future
+// engineers don't grep the call sites and assume the function got lost.
 
 /**
  * Service schema — per service page.

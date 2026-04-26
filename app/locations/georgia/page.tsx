@@ -73,6 +73,7 @@ const data: CityPageData = {
   neighborhoods: [
     {
       name: "Atlanta",
+      slug: "atlanta",
       desc: "Midtown, Little Five Points, Buckhead, East Atlanta Village, Old Fourth Ward, Decatur. State-leading volume, fastest install windows.",
     },
     {
@@ -100,6 +101,14 @@ const data: CityPageData = {
   heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall in Atlanta, Georgia" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
+  lastUpdated: "2026-04-25",
+  faqs: [
+    { q: "Is wheat pasting legal in Georgia?", a: "Yes on owner-authorized walls. Georgia has no state-level prohibition; cities handle their own ordinances. Atlanta is highly permissive on private walls with property-owner consent. Savannah, Athens, Augusta, Macon, and Columbus all follow similar patterns." },
+    { q: "What Georgia cities do you cover?", a: "All major GA metros: Atlanta, Savannah, Athens, Augusta, Macon, Columbus, plus secondary markets like Athens-Clarke County, Warner Robins, Albany, and Valdosta. Statewide multi-city rollouts are our specialty — single brief, every market." },
+    { q: "How much does a Georgia wheat pasting campaign cost?", a: "Single-city GA campaigns run $2,800-$5,500 (Atlanta on the higher end). Statewide rollouts hitting 4-6 metros run $11K-$22K with the multi-city volume discount. Atlanta-led campaigns can scale statewide on 48 hours' notice when timing requires it." },
+    { q: "How quickly can a Georgia campaign launch?", a: "Standard turnaround is 7-10 business days from approved brief. Atlanta can rush to 5 days; secondary markets typically need the full 7-10. Statewide multi-city briefs need 10-14 days to coordinate crews." },
+    { q: "Can you handle Athens football-weekend or SCAD-week deployments?", a: "Yes. UGA football weekends drive Athens foot traffic 5x+ over baseline; SCAD events drive Savannah student-density windows. Saturation campaigns timed to game weekends or SCAD-week academic peaks are a specialty." },
+  ],
   spotlight: {
     eyebrow: "Statewide Capability",
     title: "ONE QUOTE, EVERY GEORGIA MARKET",

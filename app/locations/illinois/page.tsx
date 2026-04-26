@@ -75,6 +75,7 @@ const data: CityPageData = {
   neighborhoods: [
     {
       name: "Chicago",
+      slug: "chicago",
       desc: "Wicker Park, Logan Square, Wrigleyville, the Loop, Pilsen, Lincoln Park. State-leading volume; full neighborhood breakdown on the Chicago page.",
     },
     {
@@ -102,6 +103,14 @@ const data: CityPageData = {
   heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at urban Illinois street intersection" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
+  lastUpdated: "2026-04-25",
+  faqs: [
+    { q: "Is wheat pasting legal in Illinois?", a: "Yes on owner-authorized walls. Illinois has no state-level prohibition; cities handle their own ordinances. Chicago is permissive on private walls with property-owner consent. Naperville, Champaign-Urbana, Rockford, Peoria, Springfield all follow similar patterns." },
+    { q: "What Illinois cities do you cover?", a: "All major IL metros: Chicago, Naperville, Champaign-Urbana, Rockford, Peoria, Springfield, plus secondary markets like Aurora, Joliet, Elgin, Bloomington-Normal, Decatur, and the Quad Cities." },
+    { q: "How much does an Illinois wheat pasting campaign cost?", a: "Single-city IL campaigns run $2,800-$5,500 (Chicago on the higher end). Statewide rollouts hitting 4-6 metros run $11K-$22K with the multi-city volume discount." },
+    { q: "Can you handle UIUC semester-window deployments in Champaign-Urbana?", a: "Yes. UIUC's 35K+ undergrad density drives 5x+ baseline foot traffic during semester windows. Move-in week (mid-August), Engineering Open House (March), Mom's Weekend, and Dad's Weekend are the highest-attention saturation peaks." },
+    { q: "How does Illinois winter affect campaigns?", a: "Chicago + Northern IL winters are wet, cold, and below freezing. Paste sets slower below 45°F; we use winter-formulated paste with methylcellulose for December-March installs. May-October is the reliable budget-friendly window." },
+  ],
   spotlight: {
     eyebrow: "Statewide Capability",
     title: "CHICAGO + 5 SECONDARY MARKETS, ONE BRIEF",

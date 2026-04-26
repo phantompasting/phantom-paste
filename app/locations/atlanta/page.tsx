@@ -57,8 +57,32 @@ const data: CityPageData = {
     { name: "Old Fourth Ward", desc: "BeltLine adjacent. One of the most walkable corridors in the city with year-round foot traffic." },
     { name: "Decatur", desc: "Walkable downtown square. Festivals, restaurants, and a community that supports local and independent brands." },
   ],
+  heroStats: [
+    { stat: "FIFA", label: "World Cup Client" },
+    { stat: "6", label: "Neighborhoods" },
+    { stat: "Statewide", label: "GA Coverage" },
+  ],
   heroImage1: { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp", alt: "FIFA World Cup wall installation in Atlanta" },
   heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall gallery in Atlanta" },
+  lastUpdated: "2026-04-25",
+  spotlight: {
+    eyebrow: "ATL Spotlight",
+    title: "FIFA WORLD CUP + STATEWIDE GA REACH",
+    body:
+      "Atlanta is the South's music + film + culture capital — every major tour, album drop, and sports moment passes through here. We've executed the FIFA World Cup wheat paste activation across Midtown, Little Five Points, and Old Fourth Ward, plus 100+ campaigns for music labels and DTC brands across L5P, East Atlanta Village, and the BeltLine corridor. The medium is also called wild posting, flyposting, or street postering depending on the audience; wheat pasting names the actual material we use. Atlanta-led campaigns can scale statewide on 48 hours' notice across Savannah, Athens, Augusta, Macon, and Columbus.",
+    links: [
+      { label: "FIFA World Cup Atlanta Case Study", href: "/work/fifa-world-cup-atlanta" },
+      { label: "Georgia Statewide Page", href: "/locations/georgia" },
+      { label: "Get an Atlanta Quote", href: "/contact" },
+    ],
+  },
+  faqs: [
+    { q: "Is wheat pasting legal in Atlanta?", a: "Yes on owner-authorized walls. Atlanta is permissive on private walls with property-owner consent — the city's mural-friendly culture (especially Old Fourth Ward + Little Five Points) makes wheat paste land naturally. Historic-district walls need permits; we handle them." },
+    { q: "What Atlanta neighborhoods work best for wheat pasting?", a: "Little Five Points for arts/cultural reach, Midtown for professional + Piedmont Park foot traffic, East Atlanta Village for indie-music audience, Buckhead for affluent retail, Old Fourth Ward for BeltLine-corridor density, Decatur for walkable retail." },
+    { q: "How much does an Atlanta wheat pasting campaign cost?", a: "Single-neighborhood test: $2,800-$4,200 for 60-90 posters. Full-city activation across 4-5 districts: $10K-$16K. Major-event saturation (FIFA World Cup, Super Bowl, MLB All-Star) runs $18K-$35K depending on multi-week refresh." },
+    { q: "When is the best time to run Atlanta campaigns?", a: "Year-round mild weather makes Atlanta consistently good for wheat paste. Music Midtown (September), AfroPunk, Atlanta Dogwood Festival (April), and major sports event windows (Falcons, Hawks, Braves) drive the highest event-window saturation." },
+    { q: "Can you handle Georgia statewide rollouts from Atlanta?", a: "Yes. Atlanta + Savannah + Athens + Augusta + Macon + Columbus is a natural Georgia statewide configuration — same crew rotation handles all six markets on coordinated rollouts." },
+  ],
   // Service schema base — CityPageTemplate enriches with @type, provider,
   // areaServed, and offers. Field stays named `localBusiness` for type
   // compat with the shared template interface.

@@ -5,7 +5,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ShinyGoldObserver from "@/components/ShinyGoldObserver";
 import PerfGate from "@/components/PerfGate";
 import { BUSINESS } from "@/lib/business";
-import { orgSchema, webSiteSchema, localBusinessSchema, jsonLd } from "@/lib/schema";
+import { orgSchema, webSiteSchema, jsonLd } from "@/lib/schema";
 import "./globals.css";
 
 /**
@@ -147,10 +147,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://api.web3forms.com" />
 
-        {/* Global JSON-LD — Organization + WebSite + LocalBusiness stable @ids */}
+        {/* Global JSON-LD — Organization + WebSite. The previous LocalBusiness
+            (ProfessionalService) emission was deleted because it was geographically
+            pinning a nationwide service-area business. All SAB signals (serviceArea,
+            areaServed, contactPoint, knowsAbout) now live on orgSchema(). */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(orgSchema()) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webSiteSchema()) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }} />
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes heroUp{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
           @keyframes heroUpVisible{from{transform:translateY(24px)}to{transform:translateY(0)}}
@@ -189,9 +191,13 @@ export default function RootLayout({
         <GrainientBackgroundLazy />
         <ShinyGoldObserver />
         <PerfGate />
-        <div style={{ position: "relative", zIndex: 2 }}>
+        {/* `<main>` landmark — required for accessibility (Lighthouse a11y check
+            "landmark-one-main"). Lives at the layout level so every page gets one
+            without per-page wrapping. Nav and footer technically render inside
+            this main, but the WCAG check is satisfied by presence + uniqueness. */}
+        <main style={{ position: "relative", zIndex: 2 }}>
           {children}
-        </div>
+        </main>
       </body>
     </html>
   );

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import ShinyGoldText from "@/components/ShinyGoldText";
@@ -38,105 +37,217 @@ export const metadata: Metadata = {
 
 const ACCENT = "#D4A010";
 
-// Statewide coverage pages — capture state-level search intent that the
-// city pages can't address (e.g. "wheat pasting georgia" / "illinois").
-// Rendered as a separate section below the city grid so the city cards
-// remain the primary visual hierarchy.
-const STATES = [
+// ── State-grouped directory (single source of truth on this page) ────────
+//
+// Each state is a column with the state name (links to state page) followed
+// by every city we cover under it. Cities with `slug` render as Links to the
+// dedicated city page; cities without render as plain text.
+//
+// The page used to have separate "Statewide Coverage" + "City Cards" + "How
+// We Choose Locations" sections — that totaled ~5000px on mobile. This single
+// directory replaces all of them. Mega-footer (every page) duplicates the
+// content for users who scroll, so visitors landing here get the full
+// inventory in one screen.
+interface DirCity {
+  name: string;
+  slug?: string;
+}
+interface DirState {
+  name: string;
+  abbr: string;
+  slug: string;
+  cities: DirCity[];
+}
+
+const DIRECTORY: DirState[] = [
   {
-    name: "Georgia",
-    state: "GA",
-    slug: "georgia",
-    tagline: "Statewide rollouts across 6 GA markets",
-    cities: ["Atlanta", "Savannah", "Athens", "Augusta", "Macon", "Columbus"],
-    desc: "Atlanta drives the volume, but Savannah, Athens, Augusta, Macon, and Columbus each carry walkable corridors competitors ignore. Statewide rollouts in a single brief.",
+    name: "California", abbr: "CA", slug: "california",
+    cities: [
+      { name: "Los Angeles", slug: "los-angeles" },
+      { name: "San Francisco", slug: "san-francisco" },
+      { name: "San Diego" },
+      { name: "Sacramento" },
+      { name: "Oakland" },
+      { name: "San Jose" },
+    ],
   },
   {
-    name: "Illinois",
-    state: "IL",
-    slug: "illinois",
-    tagline: "Chicago plus 5 secondary IL markets",
-    cities: ["Chicago", "Naperville", "Champaign-Urbana", "Rockford", "Peoria", "Springfield"],
-    desc: "Most agencies treat Illinois as Chicago-only. We run Chicago plus the under-served secondary markets where wall-space competition is dramatically lower.",
+    name: "New York", abbr: "NY", slug: "new-york-state",
+    cities: [
+      { name: "New York City", slug: "new-york" },
+      { name: "Buffalo" },
+      { name: "Rochester" },
+      { name: "Yonkers" },
+      { name: "Syracuse" },
+      { name: "Albany" },
+    ],
   },
   {
-    name: "Florida",
-    state: "FL",
-    slug: "florida",
-    tagline: "Miami plus 5 secondary FL markets",
-    cities: ["Miami", "Tampa", "Orlando", "Jacksonville", "Ft. Lauderdale", "St. Petersburg"],
-    desc: "Most agencies route Florida to Miami and stop. We run Miami plus Tampa's Ybor City, Orlando's Mills 50, Jacksonville's Riverside, Ft. Lauderdale, and St. Petersburg on one brief.",
+    name: "Texas", abbr: "TX", slug: "texas",
+    cities: [
+      { name: "Houston", slug: "houston" },
+      { name: "Dallas", slug: "dallas" },
+      { name: "Austin", slug: "austin" },
+      { name: "San Antonio" },
+      { name: "Fort Worth" },
+      { name: "El Paso" },
+    ],
+  },
+  {
+    name: "Florida", abbr: "FL", slug: "florida",
+    cities: [
+      { name: "Miami", slug: "miami" },
+      { name: "Tampa" },
+      { name: "Orlando" },
+      { name: "Jacksonville" },
+      { name: "Ft. Lauderdale" },
+      { name: "St. Petersburg" },
+    ],
+  },
+  {
+    name: "Georgia", abbr: "GA", slug: "georgia",
+    cities: [
+      { name: "Atlanta", slug: "atlanta" },
+      { name: "Savannah" },
+      { name: "Athens" },
+      { name: "Augusta" },
+      { name: "Macon" },
+      { name: "Columbus" },
+    ],
+  },
+  {
+    name: "Illinois", abbr: "IL", slug: "illinois",
+    cities: [
+      { name: "Chicago", slug: "chicago" },
+      { name: "Naperville" },
+      { name: "Champaign-Urbana" },
+      { name: "Rockford" },
+      { name: "Peoria" },
+      { name: "Springfield" },
+    ],
+  },
+  {
+    name: "Arizona", abbr: "AZ", slug: "arizona",
+    cities: [
+      { name: "Phoenix", slug: "phoenix" },
+      { name: "Tucson" },
+      { name: "Mesa" },
+      { name: "Scottsdale" },
+      { name: "Tempe" },
+      { name: "Flagstaff" },
+    ],
+  },
+  {
+    name: "Washington", abbr: "WA", slug: "washington",
+    cities: [
+      { name: "Seattle", slug: "seattle" },
+      { name: "Spokane" },
+      { name: "Tacoma" },
+      { name: "Vancouver WA" },
+      { name: "Bellevue" },
+      { name: "Olympia" },
+    ],
+  },
+  {
+    name: "Oregon", abbr: "OR", slug: "oregon",
+    cities: [
+      { name: "Portland", slug: "portland" },
+      { name: "Eugene" },
+      { name: "Salem" },
+      { name: "Bend" },
+      { name: "Beaverton" },
+      { name: "Hillsboro" },
+    ],
+  },
+  {
+    name: "Colorado", abbr: "CO", slug: "colorado",
+    cities: [
+      { name: "Denver", slug: "denver" },
+      { name: "Colorado Springs" },
+      { name: "Aurora" },
+      { name: "Boulder" },
+      { name: "Fort Collins" },
+      { name: "Greeley" },
+    ],
+  },
+  {
+    name: "Nevada", abbr: "NV", slug: "nevada",
+    cities: [
+      { name: "Las Vegas", slug: "las-vegas" },
+      { name: "Henderson" },
+      { name: "Reno" },
+      { name: "North Las Vegas" },
+      { name: "Carson City" },
+      { name: "Sparks" },
+    ],
+  },
+  {
+    name: "Massachusetts", abbr: "MA", slug: "massachusetts",
+    cities: [
+      { name: "Boston", slug: "boston" },
+      { name: "Cambridge" },
+      { name: "Worcester" },
+      { name: "Springfield MA" },
+      { name: "Lowell" },
+      { name: "New Bedford" },
+    ],
+  },
+  {
+    name: "Pennsylvania", abbr: "PA", slug: "pennsylvania",
+    cities: [
+      { name: "Philadelphia" },
+      { name: "Pittsburgh" },
+      { name: "Allentown" },
+      { name: "Erie" },
+      { name: "Reading" },
+      { name: "Lancaster" },
+    ],
+  },
+  {
+    name: "Tennessee", abbr: "TN", slug: "nashville", // Nashville city page acts as TN landing
+    cities: [
+      { name: "Nashville", slug: "nashville" },
+      { name: "Memphis" },
+      { name: "Knoxville" },
+      { name: "Chattanooga" },
+    ],
+  },
+  {
+    name: "DC", abbr: "DC", slug: "washington-dc",
+    cities: [
+      { name: "Washington DC", slug: "washington-dc" },
+    ],
   },
 ];
 
-const CITIES = [
-  {
-    name: "New York",
-    state: "NY",
-    slug: "new-york",
-    tagline: "The highest-density street market in the US",
-    neighborhoods: ["SoHo", "Williamsburg", "Lower East Side", "Bushwick"],
-    desc: "New York is the gold standard for guerrilla marketing. Every cultural moment that matters breaks here first — and wheat pasting is how you claim your spot on the wall.",
-  },
-  {
-    name: "Los Angeles",
-    state: "CA",
-    slug: "los-angeles",
-    tagline: "Where street culture and fashion collide",
-    neighborhoods: ["Melrose", "Silver Lake", "DTLA", "Echo Park"],
-    desc: "LA runs on visual culture. From Melrose to Silver Lake, the city's creative class is constantly looking at walls — and sharing what they see. This is where brands become icons.",
-  },
-  {
-    name: "Miami",
-    state: "FL",
-    slug: "miami",
-    tagline: "Year-round events, year-round foot traffic",
-    neighborhoods: ["Wynwood", "Miami Beach", "Little Havana", "Brickell"],
-    desc: "Miami's Wynwood district is the street art capital of the South. With year-round events, festivals, and one of the most photographed neighborhoods in the world, Miami is a perpetual launch pad.",
-  },
-  {
-    name: "Chicago",
-    state: "IL",
-    slug: "chicago",
-    tagline: "Midwest's most walkable city for street marketing",
-    neighborhoods: ["Wicker Park", "River North", "Logan Square", "Pilsen"],
-    desc: "Chicago's dense neighborhoods and massive foot traffic make it one of the best-value street marketing cities in the country. Wicker Park and Pilsen are where culture moves first.",
-  },
-  {
-    name: "Atlanta",
-    state: "GA",
-    slug: "atlanta",
-    tagline: "The creative capital of the South",
-    neighborhoods: ["Little Five Points", "Midtown", "Old Fourth Ward", "Buckhead"],
-    desc: "Atlanta is the hub of Southern music, film, and culture — and it's growing fast. Every major tour, album drop, and sports event passes through ATL, making it a must for street campaigns.",
-  },
+// Markets we serve on a per-campaign basis but don't yet have dedicated pages
+// for. Listed as a single comma-separated tail strip — gives crawlers + users
+// confidence the nationwide claim isn't 30 markets, it's 50+.
+const ADDITIONAL_MARKETS = [
+  "Detroit", "Minneapolis", "Kansas City", "St. Louis", "Cleveland",
+  "Cincinnati", "Charlotte", "Raleigh", "Salt Lake City", "Albuquerque",
+  "Indianapolis", "Columbus OH", "Milwaukee", "Memphis", "New Orleans",
+  "Birmingham", "Jacksonville", "Hartford", "Providence", "Burlington",
 ];
 
 const FAQS = [
   {
-    q: "Do you run campaigns outside of the 5 listed cities?",
-    a: "Yes — the 5 city pages are our flagship markets, but we operate in 50+ US cities. If your target city isn't listed, contact us and we'll build a custom quote. We've run campaigns from Austin to Seattle to Nashville.",
+    q: "Do you cover cities outside the listed states?",
+    a: "Yes. The 14 state directories above cover our highest-volume markets, but we run campaigns in 50+ US cities total. Detroit, Minneapolis, Charlotte, Raleigh, Kansas City, Cleveland, Salt Lake City, and 30+ other secondary markets are all rollable on a per-campaign basis. If your target city isn't listed, contact us — we've almost certainly worked there.",
   },
   {
-    q: "How do you know the best walls and spots in each city?",
-    a: "We've been running campaigns since 2014. Our local crews in each market know which walls get the most foot traffic, which neighborhoods index highest for your target audience, and which locations have the best longevity for posted materials.",
+    q: "Can I run a multi-city or statewide campaign on one brief?",
+    a: "Yes. Statewide rollouts are a specialty — single brief, single price sheet, coordinated crews. Common configurations: California (LA + SF), Texas (Houston + Dallas + Austin), Florida (Miami + Tampa + Orlando), Pacific Northwest (Seattle + Portland), and full state takeovers in GA + IL + FL + CA + TX.",
   },
   {
-    q: "Can I target multiple cities in one campaign?",
-    a: "Absolutely. Multi-city campaigns are one of our specialties — coordinated installs across multiple markets on the same weekend, with a single unified campaign report delivered after. This is what a Full Impact Campaign is built for.",
+    q: "How quickly can a campaign launch?",
+    a: "Single-city standard: 7-10 business days from approved brief. Rush windows (4-5 days) are possible in flagship markets. Statewide multi-city rollouts: 12-15 days to coordinate crews. Festival-week deployments (SXSW, Art Basel, CMA Fest, CES, etc) book 6-8 weeks ahead.",
   },
   {
-    q: "How far in advance do I need to book?",
-    a: "We recommend 2–3 weeks minimum for a single city, 3–4 weeks for multi-city. Rush timelines are possible — contact us and we'll tell you what's feasible in your market.",
+    q: "How do you pick walls and neighborhoods in each market?",
+    a: "Local crews in each market maintain databases of permitted private walls — owners we've worked with for years, neighborhood corridors with proven foot traffic, and venue-adjacent surfaces for event-window saturation. We map your target audience to the corridors that index highest, then pull from the wall database.",
   },
 ];
-
-const GLASS = {
-  background: "rgba(255,255,255,0.35)",
-  backdropFilter: "blur(10px)",
-  WebkitBackdropFilter: "blur(10px)",
-  border: "1px solid rgba(255,255,255,0.6)",
-} as const;
 
 export default function LocationsHubPage() {
   return (
@@ -149,21 +260,20 @@ export default function LocationsHubPage() {
               name: "Guerrilla Marketing Locations — Phantom Pasting",
               description: PAGE_DESC,
               url: PAGE_URL,
-              items: [
-                ...CITIES.map((c) => ({
-                  name: `Guerrilla Marketing in ${c.name}, ${c.state}`,
-                  url: `${BUSINESS.url}/locations/${c.slug}`,
-                })),
-                ...STATES.map((s) => ({
-                  name: `Wheat Pasting Across ${s.name}`,
-                  url: `${BUSINESS.url}/locations/${s.slug}`,
-                })),
-              ],
+              items: DIRECTORY.flatMap((s) => [
+                { name: `Wheat Pasting Across ${s.name}`, url: `${BUSINESS.url}/locations/${s.slug}` },
+                ...s.cities
+                  .filter((c) => c.slug)
+                  .map((c) => ({
+                    name: `Guerrilla Marketing in ${c.name}, ${s.abbr}`,
+                    url: `${BUSINESS.url}/locations/${c.slug}`,
+                  })),
+              ]),
             })
           ),
         }}
       />
-      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
+      {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(FAQS)) }}
@@ -182,344 +292,328 @@ export default function LocationsHubPage() {
 
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
-        <Breadcrumb
-          items={[
-            { name: "Home", href: "/" },
-            { name: "Locations" },
-          ]}
-        />
+        <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Locations" }]} />
         <TrustBar />
 
-        {/* ── Hero (split-screen) ───────────────────────────────── */}
-        <section className="relative overflow-hidden">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] lg:min-h-[660px] items-center">
-              <div className="relative z-10 flex flex-col justify-center py-16 md:py-20 lg:py-24 lg:pr-16">
-                <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
-                  style={{ color: "rgba(0,0,0,0.55)" }}>
-                  <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-                  US Markets
-                </span>
-                <h1 className="font-black uppercase m-0 leading-[0.88]"
-                  style={{ fontSize: "clamp(48px, 7vw, 100px)", letterSpacing: "-0.04em" }}>
-                  WE HIT EVERY<br /><ShinyGoldText>MAJOR MARKET.</ShinyGoldText>
-                </h1>
-                <p className="font-light leading-relaxed mt-8 mb-10"
-                  style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
-                  Phantom Pasting runs wheat pasting and poster campaigns across 50+ US cities.
-                  Five flagship markets, unlimited reach. Name your city — we can hit it.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/contact"
-                    className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
-                    style={{ background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)", color: "#FFF",
-                      boxShadow: "0 4px 28px rgba(0,0,0,0.42), 0 1px 0 rgba(255,255,255,0.08) inset" }}>
-                    <span className="absolute inset-0 pointer-events-none rounded-full"
-                      style={{ background: "linear-gradient(180deg, rgba(196,162,18,0.28) 0%, transparent 48%)" }} />
-                    Get a Quote <span className="cta-arrow" style={{ color: ACCENT }}>→</span>
-                  </Link>
-                  <a href={BUSINESS.telHref}
-                    className="hero-cta-secondary inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-6 py-4 rounded-full"
-                    style={{ color: "rgba(0,0,0,0.82)", background: "rgba(255,255,255,0.9)",
-                      border: "1px solid rgba(0,0,0,0.14)",
-                      boxShadow: "0 2px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
-                    Call {BUSINESS.telephoneDisplay}
-                  </a>
-                </div>
-                <div className="flex flex-wrap gap-10 md:gap-16 mt-12 pt-10"
-                  style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-                  {[
-                    { stat: "5", label: "Flagship Cities" },
-                    { stat: "50+", label: "Total Markets" },
-                    { stat: "100%", label: "Documented" },
-                  ].map(({ stat, label }) => (
-                    <div key={label}>
-                      <div className="font-black uppercase leading-none"
-                        style={{ fontSize: "clamp(28px, 3.5vw, 48px)", letterSpacing: "-0.04em", color: ACCENT }}>
-                        {stat}
-                      </div>
-                      <div className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1.5" style={{ color: "rgba(0,0,0,0.55)" }}>
-                        {label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative hidden lg:block h-[660px] overflow-hidden">
-                <span aria-hidden className="absolute right-0 top-1/2 font-black uppercase pointer-events-none select-none"
-                  style={{ fontSize: "clamp(80px, 12vw, 180px)", letterSpacing: "-0.06em",
-                    color: "rgba(212,160,16,0.05)", lineHeight: 1,
-                    writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}>
-                  CITIES
-                </span>
-                <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
-                  style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
-                    boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
-                  <Image src="/gallery/fifa-world-cup-atlanta-wall-installation.webp"
-                    alt="Multi-city wheat paste campaign" fill style={{ objectFit: "cover" }}
-                    sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
-                </div>
-                <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
-                  style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
-                    boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
-                  <Image src="/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp"
-                    alt="FashionPass wheat paste poster campaign wall in LA" fill style={{ objectFit: "cover" }}
-                    sizes="25vw" />
-                </div>
-                <div aria-hidden className="absolute pointer-events-none"
-                  style={{ top: "30%", left: "32%", width: "1px", height: "28%",
-                    background: "linear-gradient(to bottom, transparent, rgba(212,160,16,0.5), transparent)",
-                    transform: "rotate(18deg)" }} />
-                <div className="absolute top-6 left-4 rounded-xl px-4 py-3"
-                  style={{ background: "rgba(255,254,248,0.92)", backdropFilter: "blur(10px)",
-                    WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.75)",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.09)" }}>
-                  <div className="font-black uppercase leading-none"
-                    style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}>
-                    50+
-                  </div>
-                  <div className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1"
-                    style={{ color: "rgba(0,0,0,0.55)" }}>
-                    US Cities
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── City Cards ────────────────────────────────────────── */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {CITIES.map(({ name, state, slug, tagline, neighborhoods, desc }) => (
-              <Link
-                key={slug}
-                href={`/locations/${slug}`}
-                className="no-underline group rounded-3xl p-7 flex flex-col justify-between gap-6 transition-all duration-200"
-                style={{ ...GLASS, minHeight: "280px" }}
-              >
-                <div>
-                  <div className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3"
-                    style={{ color: "rgba(0,0,0,0.55)" }}>
-                    {state} · {tagline}
-                  </div>
-                  <h2 className="font-black uppercase m-0 mb-4 leading-[0.9]"
-                    style={{ fontSize: "clamp(28px, 3vw, 40px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}>
-                    {name}<span style={{ color: ACCENT }}>.</span>
-                  </h2>
-                  <p className="font-light leading-relaxed m-0"
-                    style={{ fontSize: "14px", color: "rgba(0,0,0,0.55)" }}>
-                    {desc}
-                  </p>
-                </div>
-                <div>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {neighborhoods.map((n) => (
-                      <span key={n}
-                        className="font-mono text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full"
-                        style={{ background: "rgba(0,0,0,0.05)", color: "rgba(0,0,0,0.58)" }}>
-                        {n}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="font-bold text-[11px] tracking-[0.2em] uppercase inline-flex items-center gap-1.5"
-                    style={{ color: ACCENT }}>
-                    View {name} <span className="cta-arrow">→</span>
-                  </span>
-                </div>
-              </Link>
-            ))}
-
-            {/* +50 Cities card */}
-            <Link
-              href="/contact"
-              className="no-underline rounded-3xl p-7 flex flex-col justify-center items-center text-center gap-4"
-              style={{ border: `1.5px dashed rgba(212,160,16,0.4)`, background: "rgba(212,160,16,0.04)", minHeight: "280px" }}
+        {/* ── Compact hero (text-only, no images) ──────────────────────
+            Was: split-screen hero with two photos + stats row + 3 CTAs.
+            Now: single column, sub-1-screen on mobile, ~25vh on desktop.
+            Drops 800-1000px of hero chrome. */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-8 pb-12 md:pb-16">
+          <div className="max-w-[1100px] mx-auto">
+            <span
+              className="inline-flex items-center gap-2 font-mono uppercase mb-5"
+              style={{ fontSize: "9px", letterSpacing: "0.3em", color: "rgba(0,0,0,0.55)" }}
             >
-              <div className="font-black uppercase leading-[0.9]"
-                style={{ fontSize: "clamp(36px, 4vw, 52px)", letterSpacing: "-0.04em", color: ACCENT }}>
-                50+<br />MORE
-              </div>
-              <p className="font-light m-0"
-                style={{ fontSize: "13px", color: "rgba(0,0,0,0.58)", maxWidth: "200px" }}>
-                Austin, Nashville, Seattle, Denver, Portland, and beyond.
-              </p>
-              <span className="font-bold text-[11px] tracking-[0.2em] uppercase"
-                style={{ color: ACCENT }}>
-                Get a Custom Quote →
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              50+ US Markets
+            </span>
+            <h1
+              className="font-black uppercase m-0 leading-[0.92]"
+              style={{ fontSize: "clamp(36px, 5.5vw, 68px)", letterSpacing: "-0.04em" }}
+            >
+              FIND YOUR MARKET<br />
+              <ShinyGoldText>WE OPERATE THERE.</ShinyGoldText>
+            </h1>
+            <p
+              className="font-light leading-relaxed mt-5 max-w-[640px]"
+              style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.6)" }}
+            >
+              Wheat pasting, street postering & street media campaigns across 14 state regions and 17 dedicated city markets — plus 30+ additional metros on a per-campaign basis. Tap a state to see statewide rollout details, or jump straight to a city.
+            </p>
+          </div>
+        </section>
+
+        {/* ── States & Cities Directory — "Typographic Index" treatment ──
+            No cards. Editorial restraint: massive Barlow Black state names
+            paired with gold abbrs, hairline vertical column dividers, DM
+            Mono city links with leader-line dots between the city name and
+            the gold arrow. A floating "50+ CITIES" pull-quote in gold
+            shimmer sits in the right margin at desktop widths. All scoped
+            CSS in the <style> block below. */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          .location-index-wrap { position: relative; }
+
+          /* Top rule + responsive grid with hairline dividers. */
+          .location-index {
+            border-top: 2px solid #1A1A1A;
+            padding-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 36px;
+          }
+          @media (min-width: 640px) {
+            .location-index { grid-template-columns: 1fr 1fr; column-gap: 0; }
+            .location-index > .state:nth-child(2n) { border-left: 1px solid rgba(0,0,0,0.10); padding-left: 28px; }
+          }
+          @media (min-width: 1024px) {
+            .location-index { grid-template-columns: 1fr 1fr 1fr; }
+            .location-index > .state { border-left: 1px solid rgba(0,0,0,0.10); padding-left: 28px; }
+            .location-index > .state:nth-child(3n+1) { border-left: 0; padding-left: 0; }
+            .location-index > .state:nth-child(2n) { border-left: 1px solid rgba(0,0,0,0.10); padding-left: 28px; }
+          }
+
+          .location-index .state { padding-bottom: 8px; }
+          .location-index .state-header {
+            display: flex; align-items: baseline; gap: 12px;
+            margin-bottom: 14px; text-decoration: none;
+          }
+          .location-index .state-name {
+            font-family: var(--font-barlow), "Barlow Condensed", sans-serif;
+            font-weight: 900; text-transform: uppercase; letter-spacing: -0.025em; line-height: 1;
+            font-size: clamp(34px, 3.8vw, 46px);
+            color: #1A1A1A;
+            transition: color 0.15s;
+          }
+          .location-index .state-header:hover .state-name { color: #D4A010; }
+          .location-index .state-abbr {
+            font-family: var(--font-barlow), "Barlow Condensed", sans-serif;
+            font-weight: 900;
+            color: #D4A010; font-size: clamp(26px, 3vw, 36px); letter-spacing: -0.02em;
+          }
+          .location-index .state-rule {
+            height: 1px; background: rgba(0,0,0,0.10); margin: 0 0 14px 0;
+          }
+
+          .location-index .cities {
+            list-style: none; margin: 0; padding: 0;
+            display: flex; flex-direction: column; gap: 6px;
+          }
+          .location-index .cities li a {
+            display: flex; align-items: baseline; gap: 8px;
+            text-decoration: none;
+          }
+          .location-index .city-name {
+            font-family: var(--font-mono), "DM Mono", monospace;
+            text-transform: uppercase; font-size: 11px; letter-spacing: 0.18em;
+            color: rgba(0,0,0,0.72);
+            transition: color 0.15s;
+          }
+          .location-index .cities li a:hover .city-name { color: #D4A010; }
+          .location-index .cities li a:hover .city-arrow { color: #D4A010; opacity: 1; }
+          .location-index .city-arrow {
+            font-family: var(--font-mono), "DM Mono", monospace;
+            font-size: 10px; color: #D4A010; opacity: 0.6;
+            transition: color 0.15s, opacity 0.15s;
+          }
+          .location-index .cities-empty {
+            font-family: var(--font-mono), "DM Mono", monospace;
+            text-transform: uppercase; font-size: 10px; letter-spacing: 0.18em;
+            color: rgba(0,0,0,0.42);
+          }
+        ` }} />
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-14 md:pb-20">
+          <div className="max-w-[1280px] mx-auto location-index-wrap">
+            <div className="location-index">
+              {DIRECTORY.map((state) => {
+                const linkedCities = state.cities.filter((c) => c.slug);
+                return (
+                  <div key={state.abbr} className="state">
+                    <Link href={`/locations/${state.slug}`} className="state-header">
+                      <span className="state-name">{state.name}</span>
+                      <span className="state-abbr">·{state.abbr}</span>
+                    </Link>
+                    <div className="state-rule" aria-hidden />
+                    <ul className="cities">
+                      {linkedCities.length > 0 ? (
+                        linkedCities.map((c) => (
+                          <li key={c.name}>
+                            <Link href={`/locations/${c.slug}`}>
+                              <span className="city-name">{c.name}</span>
+                              <span className="city-arrow" aria-hidden>→</span>
+                            </Link>
+                          </li>
+                        ))
+                      ) : (
+                        <li className="cities-empty">— Statewide rollouts only —</li>
+                      )}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Additional markets — single dense paragraph, not a grid.
+                Reinforces "50+ US cities" claim without taking 1000px of
+                additional vertical real estate. */}
+            <div
+              className="mt-10 md:mt-14 pt-7 md:pt-9 border-t"
+              style={{ borderColor: "rgba(0,0,0,0.08)" }}
+            >
+              <span
+                className="inline-flex items-center gap-2 font-mono uppercase mb-3"
+                style={{ fontSize: "9px", letterSpacing: "0.3em", color: "rgba(0,0,0,0.55)" }}
+              >
+                <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                Plus per-campaign coverage
               </span>
-            </Link>
-          </div>
-        </section>
-
-        {/* ── Statewide Coverage ────────────────────────────────── */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
-          <div className="max-w-[1200px] mx-auto">
-            <span className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase mb-5"
-              style={{ color: "rgba(0,0,0,0.55)" }}>
-              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-              Statewide Coverage
-            </span>
-            <h2 className="font-black uppercase m-0 mb-3 leading-[0.9]"
-              style={{ fontSize: "clamp(28px, 3.8vw, 50px)", letterSpacing: "-0.035em" }}>
-              ROLL THE WHOLE STATE<span style={{ color: ACCENT }}>.</span>
-            </h2>
-            <p className="font-light leading-relaxed mb-10 max-w-[640px]"
-              style={{ fontSize: "15px", color: "rgba(0,0,0,0.55)" }}>
-              When the brief is bigger than a single metro — fashion-week tour, statewide product launch,
-              college-market saturation — these state pages anchor the multi-city rollout under one quote.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {STATES.map(({ name, state, slug, tagline, cities, desc }) => (
-                <Link
-                  key={slug}
-                  href={`/locations/${slug}`}
-                  className="no-underline group rounded-3xl p-7 flex flex-col justify-between gap-6 transition-all duration-200"
-                  style={{ ...GLASS, minHeight: "260px" }}
-                >
-                  <div>
-                    <div className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3"
-                      style={{ color: "rgba(0,0,0,0.55)" }}>
-                      {state} · {tagline}
-                    </div>
-                    <h3 className="font-black uppercase m-0 mb-4 leading-[0.9]"
-                      style={{ fontSize: "clamp(28px, 3vw, 40px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}>
-                      {name}<span style={{ color: ACCENT }}>.</span>
-                    </h3>
-                    <p className="font-light leading-relaxed m-0"
-                      style={{ fontSize: "14px", color: "rgba(0,0,0,0.55)" }}>
-                      {desc}
-                    </p>
-                  </div>
-                  <div>
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {cities.map((c) => (
-                        <span key={c}
-                          className="font-mono text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full"
-                          style={{ background: "rgba(0,0,0,0.05)", color: "rgba(0,0,0,0.58)" }}>
-                          {c}
-                        </span>
-                      ))}
-                    </div>
-                    <span className="font-bold text-[11px] tracking-[0.2em] uppercase inline-flex items-center gap-1.5"
-                      style={{ color: ACCENT }}>
-                      View {name} <span className="cta-arrow">→</span>
-                    </span>
-                  </div>
+              <p
+                className="font-light leading-relaxed m-0 max-w-[1000px]"
+                style={{ fontSize: "14px", color: "rgba(0,0,0,0.62)" }}
+              >
+                {ADDITIONAL_MARKETS.join(" · ")} — and 20+ other secondary metros nationwide.
+                Don&apos;t see your city?{" "}
+                <Link href="/contact" className="font-bold no-underline" style={{ color: ACCENT }}>
+                  Ask for a quote
                 </Link>
-              ))}
+                .
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ── How We Choose Locations ───────────────────────────── */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
-          <div className="max-w-[800px]">
-            <span className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase mb-6"
-              style={{ color: "rgba(0,0,0,0.55)" }}>
-              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-              How We Work
-            </span>
-            <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]"
-              style={{ fontSize: "clamp(30px, 4vw, 56px)", letterSpacing: "-0.04em" }}>
-              HOW WE CHOOSE THE <ShinyGoldText>RIGHT SPOTS.</ShinyGoldText>
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
-              {[
-                { num: "01", title: "Foot Traffic First", body: "We map your target neighborhood against foot traffic data — pedestrian count, transit proximity, event density." },
-                { num: "02", title: "Audience Alignment", body: "Every neighborhood has a demographic fingerprint. We match your brand to the streets where your actual audience walks." },
-                { num: "03", title: "Wall Quality", body: "Not every wall is created equal. We know which surfaces hold paste, which get the most eyes, and which last longest." },
-              ].map(({ num, title, body }) => (
-                <div key={num} className="rounded-2xl p-6" style={{ ...GLASS }}>
-                  <div className="font-black mb-3" style={{ fontSize: "24px", color: ACCENT, letterSpacing: "-0.03em" }}>{num}</div>
-                  <div className="font-black uppercase mb-2 leading-tight"
-                    style={{ fontSize: "13px", letterSpacing: "-0.01em", color: "#1A1A1A" }}>
-                    {title}
-                  </div>
-                  <p className="font-light leading-relaxed m-0"
-                    style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)" }}>
-                    {body}
-                  </p>
+        {/* ── Trust strip (3 inline points, no cards) ────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-14 md:pb-16">
+          <div
+            className="max-w-[1100px] mx-auto rounded-2xl px-7 py-7 md:px-10 md:py-8 grid grid-cols-1 sm:grid-cols-3 gap-7 sm:gap-10"
+            style={{
+              background: "rgba(255,255,255,0.42)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              border: "1px solid rgba(255,255,255,0.7)",
+            }}
+          >
+            {[
+              {
+                stat: "100%",
+                label: "Photo-documented",
+                body: "Every install timestamped + geo-tagged. Branded report within 48 hours.",
+              },
+              {
+                stat: "Multi-City",
+                label: "One brief",
+                body: "Statewide or coast-to-coast rollouts on a single price sheet. No subcontractors.",
+              },
+              {
+                stat: "10+ yrs",
+                label: "On the streets",
+                body: "Founded 2014. 500+ campaigns. Local crews in every flagship market.",
+              },
+            ].map(({ stat, label, body }) => (
+              <div key={label}>
+                <div
+                  className="font-black uppercase leading-none mb-1"
+                  style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.025em", color: ACCENT }}
+                >
+                  {stat}
                 </div>
-              ))}
-            </div>
-            <p className="font-light leading-relaxed"
-              style={{ fontSize: "15px", color: "rgba(0,0,0,0.55)" }}>
-              Every campaign starts with a location strategy — not just a list of walls. We build a
-              deployment map based on your brand, your target audience, and your city, then execute and
-              photograph every placement. Want to see what a{" "}
-              <Link href="/services/wheat-pasting" className="no-underline font-medium"
-                style={{ color: ACCENT }}>
-                wheat pasting campaign
-              </Link>
-              {" "}looks like from start to finish? Or check our{" "}
-              <Link href="/services/full-impact-campaigns" className="no-underline font-medium"
-                style={{ color: ACCENT }}>
-                Full Impact service
-              </Link>
-              {" "}for multi-format city saturation.
-            </p>
+                <div
+                  className="font-mono uppercase mb-2"
+                  style={{ fontSize: "9px", letterSpacing: "0.28em", color: "rgba(0,0,0,0.55)" }}
+                >
+                  {label}
+                </div>
+                <p className="font-light m-0 leading-relaxed" style={{ fontSize: "13px", color: "rgba(0,0,0,0.65)" }}>
+                  {body}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* ── FAQ ───────────────────────────────────────────────── */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
-          <div className="max-w-[800px]">
-            <span className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase mb-6"
-              style={{ color: "rgba(0,0,0,0.55)" }}>
-              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-              FAQ
-            </span>
-            <h2 className="font-black uppercase m-0 mb-10 leading-[0.9]"
-              style={{ fontSize: "clamp(28px, 3.5vw, 48px)", letterSpacing: "-0.035em" }}>
+        {/* ── FAQ (4 Qs, accordion — no card grid) ────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-16 md:pb-20">
+          <div className="max-w-[820px] mx-auto">
+            <h2
+              className="font-black uppercase m-0 mb-8 leading-[0.92]"
+              style={{ fontSize: "clamp(26px, 3.5vw, 38px)", letterSpacing: "-0.035em" }}
+            >
               LOCATION QUESTIONS<span style={{ color: ACCENT }}>.</span>
             </h2>
-            <div className="flex flex-col gap-px" style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.06)" }}>
+            <div className="flex flex-col gap-3">
               {FAQS.map(({ q, a }) => (
-                <div key={q} className="p-6 md:p-8"
-                  style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
-                  <h3 className="font-black uppercase m-0 mb-3 leading-tight"
-                    style={{ fontSize: "clamp(15px, 1.6vw, 18px)", letterSpacing: "-0.01em", color: "#1A1A1A" }}>
-                    {q}
-                  </h3>
-                  <p className="font-light leading-relaxed m-0"
-                    style={{ fontSize: "14px", color: "rgba(0,0,0,0.55)" }}>
+                <details
+                  key={q}
+                  className="rounded-2xl group"
+                  style={{
+                    background: "rgba(255,255,255,0.40)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255,255,255,0.7)",
+                  }}
+                >
+                  <summary
+                    className="cursor-pointer font-black uppercase list-none flex items-center justify-between gap-4"
+                    style={{
+                      fontSize: "14px",
+                      letterSpacing: "-0.01em",
+                      padding: "1.05rem 1.4rem",
+                      color: "#1A1A1A",
+                    }}
+                  >
+                    <span>{q}</span>
+                    <span aria-hidden className="font-mono" style={{ color: ACCENT, fontSize: "18px", flexShrink: 0 }}>+</span>
+                  </summary>
+                  <div
+                    className="font-light leading-relaxed"
+                    style={{ fontSize: "14px", color: "rgba(0,0,0,0.7)", padding: "0 1.4rem 1.15rem" }}
+                  >
                     {a}
-                  </p>
-                </div>
+                  </div>
+                </details>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── CTA ───────────────────────────────────────────────── */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32 text-center">
-          <div className="max-w-[600px] mx-auto">
-            <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
-              style={{ fontSize: "clamp(36px, 5vw, 70px)", letterSpacing: "-0.04em" }}>
-              YOUR CITY,<br /><ShinyGoldText>YOUR WALLS.</ShinyGoldText>
+        {/* ── Compact CTA ─────────────────────────────────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20 md:pb-24">
+          <div
+            className="max-w-[900px] mx-auto rounded-3xl text-center"
+            style={{
+              background: "linear-gradient(135deg, #221C0E 0%, #1A1A1A 60%)",
+              color: "#FFF",
+              padding: "clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem)",
+              boxShadow: "0 18px 48px rgba(0,0,0,0.20)",
+            }}
+          >
+            <div
+              className="font-mono uppercase mb-3"
+              style={{ fontSize: "10px", letterSpacing: "0.3em", color: ACCENT }}
+            >
+              Planning a Campaign?
+            </div>
+            <h2
+              className="font-black uppercase m-0 mb-5 leading-[0.95]"
+              style={{ fontSize: "clamp(24px, 3.5vw, 40px)", letterSpacing: "-0.03em" }}
+            >
+              Get a Quote in <span style={{ color: ACCENT }}>24 Hours.</span>
             </h2>
-            <p className="font-light leading-relaxed mb-10"
-              style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px" }}>
-              Tell us your market and your timeline. We&apos;ll respond within 24 hours
-              with a custom location strategy and quote.
+            <p
+              className="font-light leading-relaxed mb-7 mx-auto"
+              style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", maxWidth: "520px" }}
+            >
+              Tell us your city or your statewide rollout plan — we&apos;ll respond with a custom strategy and quote.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link href="/contact"
-                className="service-cta relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-10 py-5 rounded-full overflow-hidden"
-                style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #F5CA20 100%)`, color: "#FFF",
-                  boxShadow: `0 6px 32px rgba(212,160,16,0.55), 0 1px 0 rgba(255,255,255,0.25) inset` }}>
-                <span className="absolute inset-0 pointer-events-none rounded-full"
-                  style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 55%)" }} />
-                Get a Quote <span className="cta-arrow">→</span>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 font-bold uppercase no-underline rounded-full"
+                style={{
+                  fontSize: "11px",
+                  letterSpacing: "0.22em",
+                  padding: "14px 28px",
+                  background: "#FFF",
+                  color: "#1A1A1A",
+                }}
+              >
+                Get a Quote <span style={{ color: ACCENT }}>→</span>
               </Link>
-              <Link href="/services"
-                className="inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.18em] uppercase no-underline px-8 py-5 rounded-full"
-                style={{ background: "rgba(255,255,255,0.9)", border: "1px solid rgba(0,0,0,0.12)",
-                  color: "rgba(0,0,0,0.72)", boxShadow: "0 2px 12px rgba(0,0,0,0.08)" }}>
-                View Services <span className="cta-arrow">→</span>
-              </Link>
+              <a
+                href={BUSINESS.telHref}
+                aria-label={`Call Phantom Pasting at ${BUSINESS.telephoneDisplay}`}
+                className="inline-flex items-center gap-2 font-bold uppercase no-underline rounded-full"
+                style={{
+                  fontSize: "11px",
+                  letterSpacing: "0.18em",
+                  padding: "14px 24px",
+                  background: "transparent",
+                  color: "#FFF",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                }}
+              >
+                {BUSINESS.telephoneDisplay}
+              </a>
             </div>
           </div>
         </section>

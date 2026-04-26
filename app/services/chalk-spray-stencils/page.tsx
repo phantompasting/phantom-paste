@@ -196,7 +196,7 @@ export default function ChalkSprayStencilsPage() {
           ),
         }}
       />
-      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
+      {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -273,10 +273,10 @@ export default function ChalkSprayStencilsPage() {
                   CHALK
                 </span>
                 <div className="absolute top-10 right-0 rounded-2xl overflow-hidden" style={{ width: "82%", height: "62%", transform: "rotate(1.8deg)", boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
-                  <Image src="/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp" alt="Chalk spray stencil guerrilla marketing" fill style={{ objectFit: "cover" }} sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
+                  <Image src="/gallery/vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp" alt="Vaura Pilates chalk spray stencil sidewalk campaign Austin Texas" fill style={{ objectFit: "cover" }} sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
                 </div>
                 <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden" style={{ width: "50%", height: "44%", transform: "rotate(-2.2deg)", boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
-                  <Image src="/gallery/black-pearl-la-stencil-template-grass.webp" alt="Chalk stencil street activation" fill style={{ objectFit: "cover" }} sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
+                  <Image src="/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp" alt="Black Pearl LA chalk spray stencil sidewalk guerrilla marketing campaign" fill style={{ objectFit: "cover" }} sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
                 </div>
                 <div aria-hidden className="absolute pointer-events-none" style={{ top: "30%", left: "32%", width: "1px", height: "28%", background: "linear-gradient(to bottom, transparent, rgba(212,160,16,0.5), transparent)", transform: "rotate(18deg)" }} />
                 <div className="absolute top-6 left-4 rounded-xl px-4 py-3" style={{ background: "rgba(255,254,248,0.92)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.75)", boxShadow: "0 4px 20px rgba(0,0,0,0.09)" }}>

@@ -4,6 +4,10 @@ import ShinyGoldText from "@/components/ShinyGoldText";
 import { BUSINESS, LOCATIONS } from "@/lib/business";
 
 const ACCENT = "#D4A010";
+// Darker gold used for body text on the cream footer bg — `#D4A010` only hits
+// 2.29:1 contrast at small sizes (fails WCAG AA 4.5:1). `#8C6500` clears AA
+// at 11px while still reading as the brand gold.
+const ACCENT_TEXT = "#8C6500";
 
 const FOOTER_LINKS = {
   Services: [
@@ -25,6 +29,61 @@ const FOOTER_LINKS = {
     { label: "Contact", href: "/contact" },
   ],
 } as const;
+
+// ── Mega-footer states + cities grid ────────────────────────────────────
+//
+// Renders every state landing page + every city landing page as a flat
+// crawlable internal-link surface on every page of the site. Three SEO
+// reasons this matters more than the compact "Markets" column above:
+//
+//   1. Internal-link weight: each city/state page picks up footer links
+//      from every other page. With 25+ location pages, the cumulative
+//      internal-link count per page jumps from ~5 → ~30.
+//   2. Crawl depth: location pages were 2-clicks-deep from the homepage
+//      (Home → /locations → city). Now they're 1-click-deep from every
+//      page (Home → footer city link).
+//   3. Anchor-text variety: the footer renders state + city names as
+//      anchor text, reinforcing topical relevance for every nationwide
+//      page on the site.
+//
+// Cities listed under each state link only when a dedicated city page
+// exists. Cities without pages render as plain text (mentioned for context
+// + supporting body of evidence that we serve them).
+interface FooterCity { label: string; href?: string }
+interface FooterStateGroup { name: string; href: string; cities: FooterCity[] }
+
+const FOOTER_STATE_GROUPS: FooterStateGroup[] = [
+  { name: "California",    href: "/locations/california",
+    cities: [{ label: "Los Angeles", href: "/locations/los-angeles" }, { label: "San Francisco", href: "/locations/san-francisco" }, { label: "San Diego" }, { label: "Sacramento" }, { label: "Oakland" }] },
+  { name: "New York",      href: "/locations/new-york-state",
+    cities: [{ label: "New York City", href: "/locations/new-york" }, { label: "Buffalo" }, { label: "Rochester" }, { label: "Syracuse" }, { label: "Albany" }] },
+  { name: "Texas",         href: "/locations/texas",
+    cities: [{ label: "Houston", href: "/locations/houston" }, { label: "Dallas", href: "/locations/dallas" }, { label: "Austin", href: "/locations/austin" }, { label: "San Antonio" }, { label: "Fort Worth" }] },
+  { name: "Florida",       href: "/locations/florida",
+    cities: [{ label: "Miami", href: "/locations/miami" }, { label: "Tampa" }, { label: "Orlando" }, { label: "Jacksonville" }, { label: "St. Petersburg" }] },
+  { name: "Georgia",       href: "/locations/georgia",
+    cities: [{ label: "Atlanta", href: "/locations/atlanta" }, { label: "Savannah" }, { label: "Athens" }, { label: "Augusta" }, { label: "Macon" }] },
+  { name: "Illinois",      href: "/locations/illinois",
+    cities: [{ label: "Chicago", href: "/locations/chicago" }, { label: "Naperville" }, { label: "Champaign-Urbana" }, { label: "Rockford" }, { label: "Springfield" }] },
+  { name: "Arizona",       href: "/locations/arizona",
+    cities: [{ label: "Phoenix", href: "/locations/phoenix" }, { label: "Tucson" }, { label: "Mesa" }, { label: "Scottsdale" }, { label: "Tempe" }] },
+  { name: "Washington",    href: "/locations/washington",
+    cities: [{ label: "Seattle", href: "/locations/seattle" }, { label: "Spokane" }, { label: "Tacoma" }, { label: "Vancouver WA" }, { label: "Bellevue" }] },
+  { name: "Oregon",        href: "/locations/oregon",
+    cities: [{ label: "Portland", href: "/locations/portland" }, { label: "Eugene" }, { label: "Salem" }, { label: "Bend" }] },
+  { name: "Colorado",      href: "/locations/colorado",
+    cities: [{ label: "Denver", href: "/locations/denver" }, { label: "Colorado Springs" }, { label: "Boulder" }, { label: "Fort Collins" }] },
+  { name: "Nevada",        href: "/locations/nevada",
+    cities: [{ label: "Las Vegas", href: "/locations/las-vegas" }, { label: "Henderson" }, { label: "Reno" }] },
+  { name: "Massachusetts", href: "/locations/massachusetts",
+    cities: [{ label: "Boston", href: "/locations/boston" }, { label: "Cambridge" }, { label: "Worcester" }, { label: "Springfield MA" }] },
+  { name: "Pennsylvania",  href: "/locations/pennsylvania",
+    cities: [{ label: "Philadelphia" }, { label: "Pittsburgh" }, { label: "Allentown" }, { label: "Erie" }] },
+  { name: "Tennessee",     href: "/locations/nashville",
+    cities: [{ label: "Nashville", href: "/locations/nashville" }, { label: "Memphis" }, { label: "Knoxville" }] },
+  { name: "DC",            href: "/locations/washington-dc",
+    cities: [{ label: "Washington DC", href: "/locations/washington-dc" }] },
+];
 
 // Inline SVG icons — small, no external deps.
 function InstagramIcon() {
@@ -116,7 +175,7 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
                 <span
                   className="font-mono text-[9px] tracking-[0.35em] uppercase"
-                  style={{ color: "rgba(0,0,0,0.3)" }}
+                  style={{ color: "rgba(0,0,0,0.55)" }}
                 >
                   Contact
                 </span>
@@ -125,14 +184,14 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
                 <a
                   href={BUSINESS.telHref}
                   className="font-mono text-[11px] tracking-[0.1em] no-underline inline-flex items-center gap-2"
-                  style={{ color: ACCENT }}
+                  style={{ color: ACCENT_TEXT }}
                 >
                   <PhoneIcon /> {BUSINESS.telephoneDisplay}
                 </a>
                 <a
                   href={BUSINESS.mailtoHref}
                   className="font-mono text-[11px] tracking-[0.1em] no-underline inline-flex items-center gap-2"
-                  style={{ color: ACCENT }}
+                  style={{ color: ACCENT_TEXT }}
                 >
                   <MailIcon /> {BUSINESS.email}
                 </a>
@@ -157,7 +216,7 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
               <div key={col}>
                 <h3
                   className="font-mono text-[9px] tracking-[0.3em] uppercase mb-5 m-0"
-                  style={{ color: "rgba(0,0,0,0.3)" }}
+                  style={{ color: "rgba(0,0,0,0.55)" }}
                 >
                   {col}
                 </h3>
@@ -176,6 +235,66 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* ── States & Cities Mega-Grid (SEO internal linking) ──────────
+              Every state + every city we serve, listed as crawlable anchor
+              text on every page of the site. See FOOTER_STATE_GROUPS docstring
+              above for the SEO rationale. */}
+          <div className="pt-12 pb-10 border-b" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+            <div className="flex items-center gap-2 mb-7">
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              <span
+                className="font-mono text-[9px] tracking-[0.35em] uppercase"
+                style={{ color: "rgba(0,0,0,0.55)" }}
+              >
+                States &amp; Cities Served
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-6">
+              {FOOTER_STATE_GROUPS.map((sg) => (
+                <div key={sg.name}>
+                  <Link
+                    href={sg.href}
+                    className="block font-mono text-[10px] tracking-[0.24em] uppercase mb-2 no-underline footer-link"
+                    style={{ color: "#1A1A1A", fontWeight: 700 }}
+                  >
+                    {sg.name}
+                  </Link>
+                  {/* Show only cities with their own page. Unlinked cities
+                      are hidden from the footer until their pages ship —
+                      each state's full editorial city list lives on its
+                      state page. */}
+                  {/* gap-1.5 + py-1 on each anchor lifts the tap target above
+                      24×24 (Lighthouse target-size requirement). The visual
+                      density only changes by ~2px per row. */}
+                  <ul className="list-none m-0 p-0 flex flex-col gap-1.5">
+                    {sg.cities
+                      .filter((c) => c.href)
+                      .map((c) => (
+                        <li key={c.label} className="m-0 p-0">
+                          <Link
+                            href={c.href!}
+                            className="block font-light no-underline footer-link py-1"
+                            style={{ fontSize: "12px" }}
+                          >
+                            {c.label}
+                          </Link>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="mt-7">
+              <Link
+                href="/locations"
+                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase no-underline"
+                style={{ color: ACCENT_TEXT }}
+              >
+                View All Locations <span aria-hidden>→</span>
+              </Link>
+            </div>
           </div>
 
           {/* Bottom row */}

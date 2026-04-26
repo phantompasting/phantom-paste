@@ -6,16 +6,23 @@ import { BUSINESS } from "@/lib/business";
 const ACCENT = "#D4A010";
 
 // ── Mobile menu order ────────────────────────────────────────────────────────
-// Requested order: Services · Gallery · Cities · Blog · About · (Get a Quote)
-// Services + Cities are accordions rendered inline below; the two flat link
-// groups wrap around the Cities accordion so the top-to-bottom sequence reads:
-//   Services(accordion) → Gallery → Cities(accordion) → Blog → About
-const LINKS_BEFORE_CITIES = [
-  { label: "Gallery", href: "/gallery" },
-] as const;
-const LINKS_AFTER_CITIES = [
-  { label: "Blog",  href: "/blog" },
-  { label: "About", href: "/about" },
+// Requested order: Services · Gallery · Locations · Blog · About · (Get a Quote)
+// Services is the only accordion; everything else is a flat link.
+//
+// Locations was previously a nested accordion (8 quick-access cities + "All
+// Locations" link). Removed because:
+//   1. Nested accordions cost users 3-4 taps to reach the full markets list,
+//      hiding the nationwide footprint behind a tap-to-expand interaction.
+//   2. The /locations hub now has the comprehensive 13-state + 17-city grid
+//      with FAQs + explainer — that IS the canonical "see everything" page,
+//      so the mobile nav should route users straight there.
+//   3. Mega-footer (every page) already lists every state + city as crawlable
+//      anchors, so users who scroll get the full inventory anyway.
+const LINKS_AFTER_SERVICES = [
+  { label: "Gallery",   href: "/gallery" },
+  { label: "Locations", href: "/locations" },
+  { label: "Blog",      href: "/blog" },
+  { label: "About",     href: "/about" },
 ] as const;
 
 const SERVICES = [
@@ -24,18 +31,9 @@ const SERVICES = [
   { label: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
 ] as const;
 
-const CITIES = [
-  { label: "New York",    href: "/locations/new-york" },
-  { label: "Los Angeles", href: "/locations/los-angeles" },
-  { label: "Chicago",     href: "/locations/chicago" },
-  { label: "Atlanta",     href: "/locations/atlanta" },
-  { label: "Miami",       href: "/locations/miami" },
-] as const;
-
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [citiesOpen, setCitiesOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,7 +42,6 @@ export default function MobileNav() {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
         setServicesOpen(false);
-        setCitiesOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -54,14 +51,13 @@ export default function MobileNav() {
   function close() {
     setOpen(false);
     setServicesOpen(false);
-    setCitiesOpen(false);
   }
 
   return (
     <div ref={ref} className="md:hidden relative">
       {/* Hamburger / X */}
       <button
-        onClick={() => { setOpen(o => !o); setServicesOpen(false); setCitiesOpen(false); }}
+        onClick={() => { setOpen(o => !o); setServicesOpen(false); }}
         aria-label={open ? "Close menu" : "Open menu"}
         className="flex flex-col items-center justify-center w-10 h-10 gap-[5px] cursor-pointer"
         style={{ background: "none", border: "none", padding: 0 }}
@@ -123,62 +119,10 @@ export default function MobileNav() {
               )}
             </li>
 
-            {/* Gallery (between Services and Cities) */}
-            {LINKS_BEFORE_CITIES.map(({ label, href }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  onClick={close}
-                  className="block font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-2.5 px-4 rounded-xl"
-                  style={{ color: "rgba(0,0,0,0.65)" }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-
-            {/* Cities accordion */}
-            <li>
-              <button
-                onClick={() => setCitiesOpen(o => !o)}
-                className="w-full flex items-center justify-between font-mono text-[11px] tracking-[0.22em] uppercase py-2.5 px-4 rounded-xl cursor-pointer"
-                style={{ background: "none", border: "none", color: "rgba(0,0,0,0.65)" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-              >
-                <span>Cities</span>
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden
-                  style={{ transition: "transform 0.2s", transform: citiesOpen ? "rotate(180deg)" : "none", opacity: 0.45 }}>
-                  <path d="M2.5 4.5L6 7.5L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-
-              {/* City sub-links */}
-              {citiesOpen && (
-                <ul className="list-none m-0 pl-4 pr-2 pb-1 flex flex-col gap-0.5">
-                  {CITIES.map(({ label, href }) => (
-                    <li key={href}>
-                      <a
-                        href={href}
-                        onClick={close}
-                        className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase no-underline py-2 px-3 rounded-lg"
-                        style={{ color: "rgba(0,0,0,0.55)" }}
-                        onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.04)")}
-                        onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-                      >
-                        <span className="block w-1 h-1 rounded-full shrink-0" style={{ background: ACCENT }} />
-                        {label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* Blog + About (after Cities) */}
-            {LINKS_AFTER_CITIES.map(({ label, href }) => (
+            {/* Gallery + Locations + Blog + About (flat links).
+                Locations is a direct anchor → /locations, NOT an accordion.
+                See LINKS_AFTER_SERVICES docstring for the rationale. */}
+            {LINKS_AFTER_SERVICES.map(({ label, href }) => (
               <li key={label}>
                 <a
                   href={href}

@@ -97,7 +97,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
-      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
+      {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { BUSINESS } from "@/lib/business";
 
 const MobileNav = dynamic(() => import("@/components/MobileNav"), { ssr: false });
-const NavCitiesMenu = dynamic(() => import("@/components/NavCitiesMenu"), { ssr: false });
+const NavLocationsMenu = dynamic(() => import("@/components/NavLocationsMenu"), { ssr: false });
 const NavServicesMenu = dynamic(() => import("@/components/NavServicesMenu"), { ssr: false });
 
 const ACCENT = "#D4A010";
@@ -59,11 +59,11 @@ export default function SiteNav() {
         </span>
       </Link>
 
-      {/* Center links (desktop) — Services ▾ · Gallery · Cities ▾ · Blog · About */}
+      {/* Center links (desktop) — Services ▾ · Gallery · Locations ▾ · Blog · About */}
       <ul className="hidden md:flex items-center gap-8 lg:gap-12 list-none m-0 p-0">
         <li className="flex items-center"><NavServicesMenu /></li>
         <li className="flex items-center"><Link href="/gallery" className={LINK_CLS}>Gallery</Link></li>
-        <li className="flex items-center"><NavCitiesMenu /></li>
+        <li className="flex items-center"><NavLocationsMenu /></li>
         <li className="flex items-center"><Link href="/blog"    className={LINK_CLS}>Blog</Link></li>
         <li className="flex items-center"><Link href="/about"   className={LINK_CLS}>About</Link></li>
       </ul>

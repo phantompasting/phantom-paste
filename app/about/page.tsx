@@ -60,8 +60,8 @@ export default function AboutPage() {
           ),
         }}
       />
-      {/* localBusinessSchema is emitted globally via app/layout.tsx — duplicating it
-          per page adds no signal and bloats the HTML. */}
+      {/* Org + WebSite schema injected globally via app/layout.tsx
+          (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

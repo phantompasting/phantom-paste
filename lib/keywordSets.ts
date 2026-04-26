@@ -619,16 +619,23 @@ export const ORG_KNOWS_ABOUT = [
 ];
 
 /**
- * Schema.org `additionalType` URLs for the Organization / ProfessionalService.
- * Each URL is a public Schema.org type the entity also embodies — Google
- * reads these as additional classification signals beyond the main @type.
+ * Schema.org `additionalType` URLs for the Organization. Each URL is a
+ * public concept the entity also embodies — Google reads these as
+ * classification signals beyond the main @type.
  *
- * AdvertisingAgency is the canonical Schema.org type for our category;
- * MarketingAgency is its sibling on the productontology side. Both carry
- * weight in Google's entity graph.
+ * IMPORTANT: schema.org/AdvertisingAgency is intentionally EXCLUDED.
+ * AdvertisingAgency descends from LocalBusiness in the Schema.org type
+ * hierarchy (AdvertisingAgency → LocalBusiness → Place), so declaring it
+ * pins the org as a local-business entity even when the rest of the schema
+ * is set up for a nationwide service-area model. We're a US-wide SAB with
+ * no public storefront — declaring AdvertisingAgency would pull us back
+ * into city-pack SERPs we cannot win.
+ *
+ * The productontology.org URLs are conceptual classifications (not
+ * Schema.org subtypes), so they carry topical breadth without inheriting
+ * the LocalBusiness type-hierarchy baggage.
  */
 export const ORG_ADDITIONAL_TYPES = [
-  "https://schema.org/AdvertisingAgency",
   "https://www.productontology.org/id/Out-of-home_advertising",
   "https://www.productontology.org/id/Guerrilla_marketing",
   "https://www.productontology.org/id/Flyposting",

@@ -25,6 +25,31 @@ export const GALLERY_IMGS = [
   { src: "/gallery/sticker-campaign-street-intersection-urban.webp",            label: "Sticker Campaign — Intersection",        alt: "Sticker campaign street intersection urban advertising guerrilla marketing",                            tag: "Sticker"      },
   { src: "/gallery/custom-stencil-template-cut-out-design.webp",                label: "Custom Stencil Template",                alt: "Custom stencil template cut-out design for chalk spray guerrilla marketing campaigns",                  tag: "Stencil"      },
   { src: "/gallery/dont-fall-off-wheat-paste-building-bike-rack.webp",          label: "Don't Fall Off — Building Perspective",  alt: "Don't Fall Off wheat paste campaign building wall installation street perspective with bike rack",       tag: "Wheat Paste"  },
+
+  // ── Momentous "Trend Proof" — Wheat Paste Wall, Los Angeles ─────────────
+  // All `aspect: "portrait"` — these were shot vertical and need 3:4 thumbnails.
+  // The default rotating thumbnail aspect (4:3 landscape) center-crops portrait
+  // photos to a tiny middle band that reads as wrong orientation.
+  { src: "/gallery/momentous-wheat-paste-poster-wall-los-angeles-overhead.webp",        label: "Momentous — Overhead Wall",             alt: "Momentous Trend Proof wheat paste campaign poster wall overhead view Los Angeles",                            tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",     label: "Momentous — Street Corner",             alt: "Momentous Trend Proof wheat paste poster wall street corner view Los Angeles guerrilla marketing",             tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp",            label: "Momentous — Poster Close-Up",           alt: "Momentous Trend Proof wheat paste posters close-up Los Angeles street postering campaign",                     tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp",                 label: "Momentous — Corner View",               alt: "Momentous wheat paste poster wall corner perspective Los Angeles street advertising",                           tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-billboard-wall-palm-trees-los-angeles.webp",   label: "Momentous — Wide Street View",          alt: "Momentous wheat paste campaign billboard wall with palm trees Los Angeles wide street view",                   tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp",          label: "Momentous — Campaign Wall",             alt: "Momentous wheat paste campaign wall wide street view Los Angeles poster campaign",                               tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp",   label: "Momentous — Poster Detail",             alt: "Momentous Trend Proof wheat paste poster detail close-up Los Angeles street advertising",                       tag: "Wheat Paste", aspect: "portrait" },
+
+  // ── Post-Campaign Cleanup — Wheat Paste Wall, Los Angeles ────────────────
+  { src: "/gallery/wheat-paste-crew-power-washing-wall-los-angeles.webp",               label: "Post-Campaign — Power Washing",         alt: "Wheat paste crew power washing and cleaning wall after campaign removal Los Angeles",                           tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/wheat-paste-installer-cleaning-wall-los-angeles.webp",               label: "Post-Campaign — Wall Cleanup",          alt: "Wheat paste installer cleaning campaign wall after poster removal Los Angeles",                                  tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/wheat-paste-installer-scraping-old-posters-los-angeles.webp",        label: "Post-Campaign — Poster Removal",        alt: "Wheat paste installer scraping and removing old posters from wall Los Angeles post-campaign cleanup",            tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/wheat-paste-wall-blank-before-install-los-angeles.webp",             label: "Post-Campaign — Clean Wall",            alt: "Clean blank wheat paste wall after full post-campaign removal Los Angeles",                                      tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/wheat-paste-wall-location-street-corner-los-angeles.webp",           label: "Campaign Wall — Street Corner LA",      alt: "Wheat paste campaign wall location street corner Los Angeles palm trees",                                       tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/wheat-paste-wall-location-los-angeles-wide.webp",                    label: "Campaign Wall — Wide View LA",          alt: "Wheat paste campaign wall location wide street view Los Angeles",                                               tag: "Wheat Paste", aspect: "portrait" },
+
+  // ── Vaura Pilates — Chalk Spray Stencil, Austin TX ──────────────────────
+  { src: "/gallery/vaura-pilates-chalk-stencil-sidewalk-austin-texas.webp",             label: "Vaura Pilates — Chalk Stencil Austin",  alt: "Vaura Pilates chalk spray stencil on sidewalk concrete Austin Texas guerrilla marketing",                      tag: "Stencil",     aspect: "portrait" },
+  { src: "/gallery/vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp", label: "Vaura Pilates — Street View Stencil",   alt: "Vaura Pilates chalk stencil on sidewalk street aerial view Austin Texas guerrilla marketing",                  tag: "Stencil",     aspect: "portrait" },
+  { src: "/gallery/vaura-pilates-sidewalk-chalk-stencil-guerrilla-marketing-austin.webp", label: "Vaura Pilates — Sidewalk Stencil",    alt: "Vaura Pilates sidewalk chalk stencil guerrilla marketing campaign Austin Texas",                               tag: "Stencil",     aspect: "portrait" },
 ] as const;
 
 export type GalleryImg = typeof GALLERY_IMGS[number];

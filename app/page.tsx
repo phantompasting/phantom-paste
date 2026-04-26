@@ -6,7 +6,6 @@ import { BUSINESS } from "@/lib/business";
 import {
   orgSchema,
   webSiteSchema,
-  localBusinessSchema,
   faqPageSchema,
   breadcrumbSchema,
   jsonLd,
@@ -103,21 +102,24 @@ const homepageGraph = {
       },
     },
     webSiteSchema(),
-    {
-      ...localBusinessSchema(),
-      description:
-        "Wheat pasting company specializing in large-format poster campaigns, street postering, and chalk spray stencil activations across 50+ US cities. Founded 2014. 500+ campaigns. 100% photo documented.",
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "sales",
-        telephone: BUSINESS.telephone,
-        email: BUSINESS.email,
-        url: `${BUSINESS.url}/contact`,
-        areaServed: "US",
-        availableLanguage: "English",
-      },
-    },
+    // Previous third node was a `localBusinessSchema()` ProfessionalService
+    // spread that pinned the org geographically (Orlando, FL + priceRange +
+    // LocalBusiness subtype). Removed entirely. The Org node above already
+    // carries serviceArea (Country=US), areaServed (cities array),
+    // contactPoint, and the description that lived here. Description below
+    // remains as a homepage-specific Org enrichment via @id merge.
   ],
+};
+
+// Homepage-specific Org enrichment — same @id as the layout's orgSchema(),
+// so Google merges this into a single Organization node with the richer
+// homepage-only `description`. Kept as a separate emission to avoid
+// duplicating orgSchema()'s 39-entry knowsAbout / serviceArea / etc.
+const homepageOrgEnrichment = {
+  "@context": "https://schema.org",
+  "@id": `${BUSINESS.url}/#org`,
+  description:
+    "Wheat pasting company specializing in large-format poster campaigns, street postering, street media, chalk spray stencil activations, and full-impact guerrilla marketing across 50+ US cities. Founded 2014. 500+ campaigns. 100% photo documented.",
 };
 
 export default function Home() {
@@ -126,6 +128,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homepageGraph) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(homepageOrgEnrichment) }}
       />
       <script
         type="application/ld+json"

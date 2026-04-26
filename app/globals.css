@@ -356,7 +356,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 
 /* ── Footer links (CSS hover, no JS) ─────────────────────────── */
 .footer-link {
-  color: rgba(0,0,0,0.45);
+  /* 0.62 opacity on cream bg gives ~4.6:1 — clears WCAG AA at 12-13px.
+     Previous 0.45 = 3.33:1, AA failure for body-size text. */
+  color: rgba(0,0,0,0.62);
   transition: color 0.2s ease;
 }
 .footer-link:hover {

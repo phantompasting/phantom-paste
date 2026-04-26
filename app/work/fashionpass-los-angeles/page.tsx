@@ -76,7 +76,7 @@ export default function FashionPassCaseStudy() {
           ),
         }}
       />
-      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
+      {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

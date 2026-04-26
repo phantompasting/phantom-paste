@@ -131,8 +131,13 @@ export default function GalleryPageClient() {
                 onClick={() => handleTagChange(tag)}
                 className="shrink-0 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.2em] uppercase whitespace-nowrap px-4 py-2 rounded-full transition-all"
                 style={{
-                  background: isActive ? ACCENT : "rgba(0,0,0,0.05)",
-                  color: isActive ? "#fff" : "rgba(0,0,0,0.6)",
+                  // Active tab uses near-black bg with gold border for WCAG AA
+                  // contrast on the small (10px) label. Pure gold-on-white was
+                  // 2.37:1 contrast — failed AA — so the active state inverts to
+                  // dark bg + cream text while the gold accent remains visible
+                  // as the border + glow.
+                  background: isActive ? "#1A1A1A" : "rgba(0,0,0,0.05)",
+                  color: isActive ? "#FFF8E0" : "rgba(0,0,0,0.6)",
                   border: isActive ? `1px solid ${ACCENT}` : "1px solid rgba(0,0,0,0.08)",
                   fontFamily: "inherit",
                   boxShadow: isActive ? "0 2px 12px rgba(212,160,16,0.35)" : "none",
@@ -174,15 +179,34 @@ export default function GalleryPageClient() {
                 >
                   <div
                     className="relative w-full overflow-hidden rounded-2xl"
-                    style={{ aspectRatio: i % 5 === 0 ? "3/4" : i % 3 === 0 ? "1/1" : "4/3" }}
+                    style={{
+                      // Per-image override wins over the rotating default. Images
+                      // tagged `aspect: "portrait"` in gallery-data force a 3/4
+                      // thumbnail so vertical photos aren't center-cropped to a
+                      // tiny middle band by a 4/3 landscape container.
+                      aspectRatio: ("aspect" in img && img.aspect === "portrait")
+                        ? "3/4"
+                        : i % 5 === 0
+                        ? "3/4"
+                        : i % 3 === 0
+                        ? "1/1"
+                        : "4/3",
+                    }}
                   >
                     <Image
                       src={img.src}
                       alt={img.alt}
                       fill
-                      loading="lazy"
-                      fetchPriority="low"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      // First 3 images on each page form the above-fold row.
+                      // Eager-load + high priority on those for fast LCP;
+                      // everything else stays lazy + low priority.
+                      loading={i < 3 ? "eager" : "lazy"}
+                      fetchPriority={i === 0 ? "high" : i < 3 ? "auto" : "low"}
+                      priority={i === 0}
+                      // Tighter sizes — column-gap accounted for. Mobile is
+                      // 1 col with 40px page padding; sm 2 cols; lg 3 cols.
+                      // Previous `100vw` over-requested by ~2x at common widths.
+                      sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(50vw - 24px), calc(33vw - 24px)"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Hover overlay */}

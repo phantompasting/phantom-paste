@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 
 const MobileNav = dynamic(() => import("@/components/MobileNav"), { ssr: false });
-const NavCitiesMenu = dynamic(() => import("@/components/NavCitiesMenu"), { ssr: false });
+const NavLocationsMenu = dynamic(() => import("@/components/NavLocationsMenu"), { ssr: false });
 const NavServicesMenu = dynamic(() => import("@/components/NavServicesMenu"), { ssr: false });
 
 const ACCENT = "#D4A010";
@@ -40,7 +40,7 @@ export default function HeroNavBar() {
         </a>
       </div>
 
-      {/* Center — Links (desktop only) — Services ▾ · Gallery · Cities ▾ · Blog · About.
+      {/* Center — Links (desktop only) — Services ▾ · Gallery · Locations ▾ · Blog · About.
           Every <li> uses flex items-center so the dropdown triggers (which are
           inline-flex containers holding text + chevron SVG) align to the same
           vertical center as the plain anchors. Without this, the dropdowns'
@@ -48,7 +48,7 @@ export default function HeroNavBar() {
       <ul className="relative z-10 hidden md:flex items-center gap-8 lg:gap-12 list-none m-0 p-0">
         <li className="flex items-center"><NavServicesMenu /></li>
         <li className="flex items-center"><a href="/gallery" className={LINK_CLS}>Gallery</a></li>
-        <li className="flex items-center"><NavCitiesMenu /></li>
+        <li className="flex items-center"><NavLocationsMenu /></li>
         <li className="flex items-center"><a href="/blog"    className={LINK_CLS}>Blog</a></li>
         <li className="flex items-center"><a href="/about"   className={LINK_CLS}>About</a></li>
       </ul>

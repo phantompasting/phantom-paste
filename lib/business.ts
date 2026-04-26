@@ -4,10 +4,19 @@
  * Every schema, footer, `tel:` / `mailto:` link, and metadata export should pull
  * from here. DRY single-source-of-truth — update in one place, propagates site-wide.
  *
- * TODO (pending real data):
- *  - streetAddress + postalCode (once verified HQ suite is public)
- *  - gbpUrl: Google Business Profile URL (unlocks LocalBusiness.hasMap, Maps embed on /contact)
- *  - aggregateRating: { ratingValue, reviewCount } — add once review pipeline exists
+ * IMPORTANT — NO LOCAL ADDRESS BY DESIGN:
+ * Phantom Pasting is a nationwide service-area business (SAB) with no public
+ * storefront customers visit. Declaring an addressLocality / addressRegion in
+ * schema actively pins us as a local business in that city — Google then
+ * routes city-pack SERPs locally and excludes us from "wheat pasting [other
+ * city]" queries we ARE qualified to serve. So `address` here carries only
+ * `addressCountry: "US"`. If a future GBP profile or verified storefront is
+ * added, it should live in a SEPARATE constant (e.g. `BUSINESS.headquarters`)
+ * and be opted into per-page, never injected globally.
+ *
+ * Also intentionally absent: `priceRange`. Schema.org only defines
+ * `priceRange` on LocalBusiness, so emitting it would re-inherit LocalBusiness
+ * pinning baggage even if @type stays Organization.
  */
 export const BUSINESS = {
   name: "Phantom Pasting",
@@ -27,16 +36,13 @@ export const BUSINESS = {
   ogImageDefault: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  // PostalAddress — HQ origin for the nationwide service-area business.
-  // Satisfies LocalBusiness.address requirement in schema validators (Semrush
-  // #45, Google rich-result eligibility). Kept lean: locality/region/country
-  // only, no street until a verified suite is published.
+  // PostalAddress — country-only for the nationwide service-area business.
+  // Locality + region intentionally omitted (see file-level docstring). Any
+  // future verified storefront / GBP profile should live in a SEPARATE
+  // constant and never replace this one.
   address: {
-    addressLocality: "Orlando",
-    addressRegion: "FL",
     addressCountry: "US",
   },
-  // gbpUrl: undefined,   // TODO: fill when Google Business Profile is live
 } as const;
 
 /** Machine-friendly locations list used across schemas + city chips. */

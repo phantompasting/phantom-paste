@@ -58,8 +58,8 @@ export default function GalleryPage() {
         }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />
-      {/* localBusinessSchema is emitted globally via app/layout.tsx — re-injecting
-          here would duplicate the @id node Google already merges across pages. */}
+      {/* Org + WebSite schema injected globally via app/layout.tsx
+          (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

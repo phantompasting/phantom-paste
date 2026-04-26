@@ -78,11 +78,38 @@ export const ROUTES_META: RouteMeta[] = [
 
   // ── Locations (statewide pages) ──────────────────────────────────────────
   // State-level coverage for multi-city search intent ("wheat pasting georgia",
-  // "wheat pasting illinois") that the city pages can't address. Sit alongside
-  // Tier 1 cities at 0.85 priority.
+  // "wheat pasting california") that city pages can't address. Each captures
+  // statewide queries we couldn't surface for before.
+  { path: "/locations/california",           file: "app/locations/california/page.tsx",                    priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/new-york-state",       file: "app/locations/new-york-state/page.tsx",                priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/texas",                file: "app/locations/texas/page.tsx",                         priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/florida",              file: "app/locations/florida/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/georgia",              file: "app/locations/georgia/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/illinois",             file: "app/locations/illinois/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
-  { path: "/locations/florida",              file: "app/locations/florida/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/arizona",              file: "app/locations/arizona/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/washington",           file: "app/locations/washington/page.tsx",                    priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/oregon",               file: "app/locations/oregon/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/colorado",             file: "app/locations/colorado/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/nevada",               file: "app/locations/nevada/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/massachusetts",        file: "app/locations/massachusetts/page.tsx",                 priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/pennsylvania",         file: "app/locations/pennsylvania/page.tsx",                  priority: 0.85, changeFreq: "monthly" },
+
+  // ── Locations (Tier 2 city pages, added 2026-04-25) ─────────────────────
+  // Same priority as Tier 1 cities — each is an active market we serve and
+  // want to surface for "wheat pasting [city]" / "guerrilla marketing [city]"
+  // / "OOH agency [city]" queries.
+  { path: "/locations/nashville",            file: "app/locations/nashville/page.tsx",                     priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/austin",               file: "app/locations/austin/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/denver",               file: "app/locations/denver/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/seattle",              file: "app/locations/seattle/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/portland",             file: "app/locations/portland/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/phoenix",              file: "app/locations/phoenix/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/boston",               file: "app/locations/boston/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/washington-dc",        file: "app/locations/washington-dc/page.tsx",                 priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/san-francisco",        file: "app/locations/san-francisco/page.tsx",                 priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/las-vegas",            file: "app/locations/las-vegas/page.tsx",                     priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/houston",              file: "app/locations/houston/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/dallas",               file: "app/locations/dallas/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
 
   // ── Blog (add posts here as they go live) ─────────────────────────────────
   // Dynamic [slug] route — each post's lastmod comes from its /content/blog/<slug>.tsx

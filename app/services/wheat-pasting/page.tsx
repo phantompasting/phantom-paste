@@ -231,7 +231,7 @@ export default function WheatPastingPage() {
           ),
         }}
       />
-      {/* localBusinessSchema is emitted globally via app/layout.tsx. */}
+      {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -402,8 +402,8 @@ export default function WheatPastingPage() {
                       so Next.js doesn't preload this ~300KB hero to mobile users
                       who never see it. */}
                   <Image
-                    src="/gallery/dont-fall-off-wheat-paste-street-view-la.webp"
-                    alt="Wheat paste poster wall campaign"
+                    src="/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp"
+                    alt="Momentous Trend Proof wheat paste poster wall campaign Los Angeles"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 1024px) 0vw, 40vw"
@@ -423,7 +423,7 @@ export default function WheatPastingPage() {
                 >
                   <Image
                     src="/gallery/fifa-world-cup-poster-wall-street-perspective.webp"
-                    alt="Street wheat paste poster installation"
+                    alt="FIFA World Cup wheat paste poster wall street perspective Atlanta"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="25vw"
