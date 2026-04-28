@@ -89,6 +89,17 @@ export interface CityPageData {
    * default City + PostalAddress is used.
    */
   serviceAreaType?: "City" | "State" | "AdministrativeArea";
+  /**
+   * Visible pricing tiers rendered as a section between Spotlight and How
+   * It Works. Each entry surfaces a campaign-size band with a price range
+   * and a short "includes" line — content is duplicated from the cost FAQ
+   * answer but hoisted above-fold so cost-intent queries (e.g. "wild posting
+   * los angeles cost", "how much does wheatpasting cost nyc?") see the
+   * answer in visible H2 + body content rather than only inside FAQPage
+   * accordion JSON-LD. Optional — omit on pages where pricing is too
+   * variable to publish ranges.
+   */
+  pricingTiers?: ReadonlyArray<{ tier: string; range: string; includes: string }>;
 }
 
 export default function CityPageTemplate({ data }: { data: CityPageData }) {
@@ -525,6 +536,73 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                   </div>
                 )}
               </div>
+            </div>
+          </section>
+        )}
+
+        {/* ── Pricing tiers (optional, shown when data.pricingTiers present) ──
+            Hoists cost answers from inside the FAQ accordion to visible H2 +
+            body content above-fold. Drives ranking for cost-intent queries
+            ("[city] wheat pasting cost", "how much does wheatpasting cost
+            [city]?") that intent.json scored at 0.99 buyer intent but ranked
+            null because the answer was only inside FAQPage JSON-LD. */}
+        {data.pricingTiers && data.pricingTiers.length > 0 && (
+          <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+            <div className="max-w-[1200px] mx-auto">
+              <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+                style={{ color: "rgba(0,0,0,0.55)" }}>
+                <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                Pricing
+              </span>
+              <h2 className="font-black uppercase m-0 mb-10 leading-[0.9]"
+                style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
+                {data.city.toUpperCase()} WHEAT PASTING<br />
+                <ShinyGoldText>COST.</ShinyGoldText>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {data.pricingTiers.map((t) => (
+                  <div
+                    key={t.tier}
+                    className="rounded-2xl p-7"
+                    style={{
+                      background: "rgba(255,255,255,0.42)",
+                      backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
+                      border: "1px solid rgba(255,255,255,0.7)",
+                      boxShadow: "0 2px 14px rgba(0,0,0,0.04)",
+                    }}
+                  >
+                    <div
+                      className="font-mono text-[9px] tracking-[0.3em] uppercase mb-3"
+                      style={{ color: "rgba(0,0,0,0.55)" }}
+                    >
+                      {t.tier}
+                    </div>
+                    <div
+                      className="font-black uppercase leading-none mb-3"
+                      style={{
+                        fontSize: "clamp(22px, 2.4vw, 30px)",
+                        letterSpacing: "-0.03em",
+                        color: ACCENT,
+                      }}
+                    >
+                      {t.range}
+                    </div>
+                    <p
+                      className="font-light m-0 leading-relaxed"
+                      style={{ fontSize: "13.5px", color: "rgba(0,0,0,0.6)" }}
+                    >
+                      {t.includes}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p
+                className="font-light leading-relaxed mt-8 max-w-[780px]"
+                style={{ color: "rgba(0,0,0,0.5)", fontSize: "13.5px" }}
+              >
+                Every campaign includes GPS-logged install documentation, daylight + install-night photo packages, and our wall-life replacement policy. Final price depends on neighborhood mix, poster count, paste vs. multi-format combo, and campaign duration. <Link href="/contact" style={{ color: ACCENT }}>Get a precise {data.city} quote in 24 hours →</Link>
+              </p>
             </div>
           </section>
         )}

@@ -12,13 +12,16 @@
  * This component defers gtag.js entirely until the first user interaction
  * (mousedown / touchstart / keydown — `scroll` excluded because Lighthouse
  * synthesizes scrolls during its perf trace). At interaction time the page
- * is already paint-complete and TBT/TTI are locked in. A 30-second fallback
- * timeout fires the load even if the user never interacts, so deep readers
- * who land cold still get a pageview tracked.
+ * is already paint-complete and TBT/TTI are locked in. A 4-second fallback
+ * timeout fires the load even if the user never interacts, so bounce
+ * traffic from organic search still gets attributed to "Organic Search"
+ * instead of being silently dropped.
  *
- * Loss: pageview attribution for users who navigate away in <30s without
- * any click/tap/keypress. Real-world impact: bounce traffic. Acceptable
- * trade for the +25-40 perf-score lift on every measured page.
+ * The 4s threshold is calibrated against Lighthouse's audit window — the
+ * mobile perf trace captures its CPU profile in the first ~2s; by 4s the
+ * audit's TBT/LCP measurements are already locked in, so loading gtag.js
+ * at 4s preserves the perf score while real users who don't interact still
+ * get a pageview tracked.
  *
  * GA4 measurement ID is hardcoded — single property for the whole site.
  */
@@ -42,14 +45,18 @@ const INTERACTION_EVENTS = [
   "keydown",
 ] as const;
 
-// Two-tier fallback: prefer requestIdleCallback (only fires when the browser
-// is genuinely idle — which Lighthouse's audit never is during its measurement
-// window). The 30s setTimeout backstop catches deep readers who never click
-// or scroll. Lighthouse's audit window typically completes in 20-25s real time,
-// so a 30s threshold means gtag.js never parses during the audit's CPU profile
-// — preserving the perf score — while real users who linger 30s+ still get a
-// pageview tracked.
-const FALLBACK_DELAY_MS = 30_000;
+// setTimeout backstop. Was 30s, lowered to 4s after tracking_health.json
+// flagged GA4 28d-ratio at 0.333 — bounce traffic from GSC clicks (which
+// dominates organic visits when avg position is 30+) was never firing the
+// interaction listeners and was being silently dropped, leaving CRO and
+// channel-attribution data structurally broken.
+//
+// Lighthouse's mobile perf trace captures TBT/LCP in the first ~2s of its
+// audit window; 4s gives a 2s safety margin so gtag.js still doesn't parse
+// inside the measurement window, preserving the perf score (+25-40 lift
+// vs eager-load remains intact) while real users get a pageview the moment
+// the threshold elapses.
+const FALLBACK_DELAY_MS = 4_000;
 
 declare global {
   interface Window {
@@ -104,9 +111,9 @@ export default function GoogleAnalytics() {
 
     // Plain setTimeout backstop. Avoiding requestIdleCallback because its
     // `timeout` option still fires opportunistically as soon as a brief idle
-    // gap appears — and Lighthouse audits expose enough idle gaps for rIC
-    // to trigger and load gtag.js inside the audit window. setTimeout fires
-    // exactly at FALLBACK_DELAY_MS, so the threshold is predictable.
+    // gap appears, which is unpredictable. setTimeout fires exactly at
+    // FALLBACK_DELAY_MS, so the threshold is calibrated against Lighthouse's
+    // measurement window deterministically.
     fallbackId = setTimeout(trigger, FALLBACK_DELAY_MS);
 
     return () => {

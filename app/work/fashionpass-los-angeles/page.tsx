@@ -11,27 +11,37 @@ import { articleSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/fashionpass-los-angeles`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp`;
-const PAGE_TITLE = "FashionPass Wheat Pasting Campaign LA";
+// Title repositions this URL as a CASE STUDY rather than a service page so
+// it stops cannibalizing /locations/los-angeles for "wheat pasting Los Angeles"
+// service-intent queries. Raw title 37 chars + 18-char " | Phantom Pasting"
+// template = 55 rendered (under Google's ~60-char SERP truncation).
+const PAGE_TITLE = "FashionPass Melrose Wall · Case Study";
 const PAGE_DESC =
-  "FashionPass wheat paste poster campaign across Los Angeles. Large-format posters in Melrose, Silver Lake, and DTLA. Photo documented.";
+  "FashionPass case study — Melrose wheat paste wall campaign across Silver Lake and DTLA. Brief, execution, install spec, photo documentation.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
+  // Keywords retargeted from service-intent ("wheat pasting Los Angeles",
+  // "street postering LA") to case-study-intent so this page no longer
+  // duplicates targeting with /locations/los-angeles. The 6 cannibalization
+  // conflicts in cannibalization_age.json are all rooted in the previous
+  // keyword overlap. Service-intent queries should land on the LA city page.
   keywords: [
-    "FashionPass poster campaign",
-    "wheat pasting Los Angeles",
-    "street postering LA",
-    "fashion brand street marketing",
-    "Los Angeles guerrilla marketing",
+    "FashionPass campaign case study",
+    "Melrose wheat paste wall case study",
+    "fashion brand wheat paste case study",
+    "DTC fashion OOH case study",
+    "Silver Lake DTLA poster rollout",
+    "Melrose Avenue poster campaign",
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "FashionPass Wheat Pasting Campaign LA | Phantom Pasting",
-    description: "Large-format wheat paste campaign for FashionPass across Los Angeles. Melrose, Silver Lake, DTLA.",
+    title: "FashionPass Melrose Wall · Case Study | Phantom Pasting",
+    description: "FashionPass wheat paste wall case study — Melrose, Silver Lake, DTLA. Brief, install, documentation.",
     url: PAGE_URL,
     type: "article",
-    images: [{ url: PAGE_OG, width: 1200, height: 630, alt: "FashionPass wheat paste poster campaign wall in Los Angeles" }],
+    images: [{ url: PAGE_OG, width: 1200, height: 630, alt: "FashionPass wheat paste poster campaign wall on Melrose Avenue Los Angeles" }],
   },
 };
 
@@ -62,12 +72,12 @@ export default function FashionPassCaseStudy() {
                 "FashionPass needed a Melrose-anchored wheat paste campaign that read as cultural rather than promotional. Phantom Pasting executed a multi-wall rollout across Melrose, Fairfax, and Silver Lake with full daylight photo documentation.",
               keywords: [
                 "fashionpass",
-                "wheat pasting",
-                "los angeles",
-                "melrose",
-                "fashion brand campaign",
                 "case study",
-                "guerrilla marketing",
+                "melrose",
+                "silver lake",
+                "dtla arts district",
+                "fashion brand wheat paste",
+                "wall campaign documentation",
               ],
               audienceType:
                 "Brand Marketers, Marketing Agencies, Fashion Brands",

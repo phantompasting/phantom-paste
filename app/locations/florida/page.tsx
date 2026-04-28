@@ -112,6 +112,10 @@ const data: CityPageData = {
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
   lastUpdated: "2026-04-25",
+  pricingTiers: [
+    { tier: "Single-City FL Campaign", range: "$3,000 – $5,800", includes: "Miami runs higher during Art Basel · 1 FL metro · Photo doc + install report" },
+    { tier: "Statewide FL Rollout", range: "$12K – $24K", includes: "4–6 metros · Multi-city volume discount · PVA-reinforced for hurricane season" },
+  ],
   faqs: [
     { q: "Is wheat pasting legal in Florida?", a: "Yes on owner-authorized walls. Florida has no state-level prohibition; cities handle their own ordinances. Miami's Wynwood is highly permissive (the world's largest outdoor mural complex is built on it). Tampa, Orlando, Jacksonville, Ft. Lauderdale, St. Petersburg all follow similar patterns." },
     { q: "What Florida cities do you cover?", a: "All major FL metros: Miami, Tampa, Orlando, Jacksonville, Ft. Lauderdale, St. Petersburg, plus secondary markets like Hialeah, Pembroke Pines, Tallahassee, Sarasota, Gainesville, and Pensacola." },

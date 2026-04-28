@@ -5,7 +5,7 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
 export const metadata: Metadata = {
   title: "Wheat Pasting Arizona",
   description:
-    "Wheat pasting & street media across Arizona — Phoenix, Tucson, Mesa, Scottsdale, Tempe. Statewide AZ rollouts.",
+    "Wheat pasting & street media across Arizona — Phoenix, Tucson, Mesa, Scottsdale, Tempe, Flagstaff. Desert-adapted AZ poster campaigns + ASU/UA windows.",
   keywords: [
     "wheat pasting Arizona",
     "wheatpasting Arizona",

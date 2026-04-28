@@ -85,7 +85,23 @@ export default function ContactForm() {
     data.append("from_name", "Phantom Pasting Website");
     try {
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
-      if (res.ok) setSubmitted(true);
+      if (res.ok) {
+        // Push a `generate_lead` event to dataLayer. We use dataLayer.push
+        // (not gtag) so the event queues even if GoogleAnalytics.tsx hasn't
+        // loaded gtag.js yet — the queue replays once gtag boots. Without
+        // this, ga4.json shows conversions:0 even when leads are landing.
+        if (typeof window !== "undefined") {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "generate_lead",
+            lead_city: data.get("city") || "",
+            lead_budget: data.get("budget") || "",
+            lead_timeline: data.get("timeline") || "",
+            lead_services: Array.from(selectedSvcs).join("|") || "",
+          });
+        }
+        setSubmitted(true);
+      }
     } catch { /* fail silently */ }
     setSubmitting(false);
   };

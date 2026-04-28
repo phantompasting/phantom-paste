@@ -104,6 +104,10 @@ const data: CityPageData = {
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
   lastUpdated: "2026-04-25",
+  pricingTiers: [
+    { tier: "Single-City IL Campaign", range: "$2,800 – $5,500", includes: "Chicago on the higher end · 1 IL metro · Photo doc + install report" },
+    { tier: "Statewide IL Rollout", range: "$11K – $22K", includes: "4–6 metros · Multi-city volume discount · UIUC semester windows available" },
+  ],
   faqs: [
     { q: "Is wheat pasting legal in Illinois?", a: "Yes on owner-authorized walls. Illinois has no state-level prohibition; cities handle their own ordinances. Chicago is permissive on private walls with property-owner consent. Naperville, Champaign-Urbana, Rockford, Peoria, Springfield all follow similar patterns." },
     { q: "What Illinois cities do you cover?", a: "All major IL metros: Chicago, Naperville, Champaign-Urbana, Rockford, Peoria, Springfield, plus secondary markets like Aurora, Joliet, Elgin, Bloomington-Normal, Decatur, and the Quad Cities." },

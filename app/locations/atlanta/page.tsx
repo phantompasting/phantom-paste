@@ -65,6 +65,11 @@ const data: CityPageData = {
   heroImage1: { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp", alt: "FIFA World Cup wall installation in Atlanta" },
   heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall gallery in Atlanta" },
   lastUpdated: "2026-04-25",
+  pricingTiers: [
+    { tier: "Single-Neighborhood Test", range: "$2,800 – $4,200", includes: "60–90 posters · 1 ATL district · Photo doc + GPS-logged install" },
+    { tier: "Full-City Activation", range: "$10K – $16K", includes: "Four to five Atlanta districts · Multi-design rotation · Daylight shots" },
+    { tier: "Major-Event Saturation", range: "$18K – $35K", includes: "FIFA World Cup / Super Bowl / All-Star window · Multi-week refresh" },
+  ],
   spotlight: {
     eyebrow: "ATL Spotlight",
     title: "FIFA WORLD CUP + STATEWIDE GA REACH",

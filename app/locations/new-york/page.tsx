@@ -74,6 +74,11 @@ const data: CityPageData = {
   heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Guerrilla advertising pole wrap campaign at night in New York" },
   heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at NYC street intersection" },
   lastUpdated: "2026-04-25",
+  pricingTiers: [
+    { tier: "Single-Neighborhood Test", range: "$4,200 – $6,800", includes: "80–120 posters · 1 NYC neighborhood · Photo doc + GPS-logged install" },
+    { tier: "Manhattan + Brooklyn", range: "$14K – $22K", includes: "Two-crew split · LES + Williamsburg most common · Multi-design rotation" },
+    { tier: "Scaffold Wraps (per wrap)", range: "$2K – $8K", includes: "DOB permit + install · 3–4 week lead time · Manhattan-specific premium format" },
+  ],
   faqs: [
     { q: "Is wheat pasting legal in NYC?", a: "On owner-authorized private walls, yes — with zero enforcement concern. Scaffold wraps require DOB permits and owner consent. NYC Administrative Code §10-117 covers public-property unlawful posting but is rarely enforced on clean commercial campaigns with property-owner consent." },
     { q: "Which NYC neighborhoods work best for wheat pasting?", a: "Lower East Side, Williamsburg (Bedford Ave), SoHo (Lafayette + Mercer), Bushwick, East Village, Chelsea/Meatpacking, Greenpoint, DUMBO. Midtown is a scaffold-wrap market, not a standard paste play." },

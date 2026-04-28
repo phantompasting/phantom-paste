@@ -5,7 +5,7 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
 export const metadata: Metadata = {
   title: "Wheat Pasting Oregon",
   description:
-    "Wheat pasting & street media across Oregon — Portland, Eugene, Salem, Bend. Statewide OR rollouts.",
+    "Wheat pasting & street media across Oregon — Portland, Eugene, Salem, Bend, Beaverton, Hillsboro. Rain-adapted OR campaigns + UO Eugene windows.",
   keywords: [
     "wheat pasting Oregon",
     "wheatpasting Oregon",

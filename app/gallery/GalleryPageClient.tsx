@@ -11,7 +11,11 @@ import { GALLERY_IMGS } from "@/lib/gallery-data";
 const GalleryLightbox = dynamic(() => import("./GalleryLightbox"), { ssr: false });
 
 const ACCENT = "#D4A010";
-const PER_PAGE = 12;
+// Lowered from 12 to 9 to cut initial mobile DOM size by 25% — gallery PSI
+// mobile_perf was 74 (LCP 3.3s, TBT 500ms) per pagespeed.json. 3-column
+// desktop layout still fills cleanly at 9 items; mobile single-column users
+// scroll past 9 thumbs to the pagination control just as quickly as 12.
+const PER_PAGE = 9;
 
 // Unique tags derived from data — order: All first, then sorted
 const ALL_TAGS = [
@@ -207,6 +211,12 @@ export default function GalleryPageClient() {
                       // 1 col with 40px page padding; sm 2 cols; lg 3 cols.
                       // Previous `100vw` over-requested by ~2x at common widths.
                       sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(50vw - 24px), calc(33vw - 24px)"
+                      // Quality 70 instead of Next's default 75 — gallery
+                      // thumbnails are decorative + clicked through to the
+                      // lightbox for a hi-res view, so the ~10-15% byte
+                      // savings on every thumb is a clean LCP win on the
+                      // mobile gallery (which was scoring 74 on PSI).
+                      quality={70}
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Hover overlay */}

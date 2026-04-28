@@ -5,7 +5,7 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
 export const metadata: Metadata = {
   title: "Wheat Pasting Washington",
   description:
-    "Wheat pasting & street media across Washington — Seattle, Spokane, Tacoma, Vancouver, Bellevue. Statewide WA rollouts.",
+    "Wheat pasting & street media across Washington — Seattle, Spokane, Tacoma, Vancouver, Bellevue, Olympia. Rain-adapted statewide WA poster campaigns.",
   keywords: [
     "wheat pasting Washington",
     "wheatpasting Washington state",

@@ -102,6 +102,10 @@ const data: CityPageData = {
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
   lastUpdated: "2026-04-25",
+  pricingTiers: [
+    { tier: "Single-City GA Campaign", range: "$2,800 – $5,500", includes: "Atlanta on the higher end · 1 GA metro · Photo doc + install report" },
+    { tier: "Statewide GA Rollout", range: "$11K – $22K", includes: "4–6 metros · Multi-city volume discount · Unified statewide reporting" },
+  ],
   faqs: [
     { q: "Is wheat pasting legal in Georgia?", a: "Yes on owner-authorized walls. Georgia has no state-level prohibition; cities handle their own ordinances. Atlanta is highly permissive on private walls with property-owner consent. Savannah, Athens, Augusta, Macon, and Columbus all follow similar patterns." },
     { q: "What Georgia cities do you cover?", a: "All major GA metros: Atlanta, Savannah, Athens, Augusta, Macon, Columbus, plus secondary markets like Athens-Clarke County, Warner Robins, Albany, and Valdosta. Statewide multi-city rollouts are our specialty — single brief, every market." },

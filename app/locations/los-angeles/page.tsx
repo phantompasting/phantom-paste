@@ -70,6 +70,12 @@ const data: CityPageData = {
   heroImage1: { src: "/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp", alt: "Momentous Trend Proof wheat paste poster wall street corner Los Angeles" },
   heroImage2: { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", alt: "FashionPass wheat paste poster campaign wall Los Angeles" },
   lastUpdated: "2026-04-25",
+  pricingTiers: [
+    { tier: "Single-Neighborhood Test", range: "$3,500 – $5,500", includes: "80–120 posters · 1 LA neighborhood · Photo doc + GPS-logged install" },
+    { tier: "Four-Neighborhood Activation", range: "$11K – $18K", includes: "Four LA districts · Multi-design rotation · Daylight + install-night shots" },
+    { tier: "LA Flagship", range: "$16K – $32K", includes: "Paste + snipes + chalk · Multi-week run · Full city coverage" },
+    { tier: "Scaffold + Wall Combo", range: "$25K – $60K", includes: "Fashion-week / awards-season · DBS permits · Multi-format saturation" },
+  ],
   faqs: [
     { q: "Is wheat pasting legal in Los Angeles?", a: "Yes on owner-authorized walls. LAPD does not enforce unlawful posting on clean commercial campaigns. Historic preservation zones (parts of Hollywood, downtown, Beverly Hills-adjacent) need DBS permits — we handle them." },
     { q: "What LA neighborhoods work best for wheat pasting?", a: "Melrose Avenue between Fairfax and La Brea is the highest-signal corridor in the US. Fairfax Avenue, Silver Lake, Echo Park, DTLA Arts District, Highland Park, and Abbot Kinney round out the primary LA paste map. Hollywood for awards-season activations." },

@@ -182,9 +182,10 @@ export default function RootLayout({
           otherwise triggers a hydration mismatch warning. */}
       <body suppressHydrationWarning>
         {/* Google Analytics 4 — performance-deferred. Loads gtag.js only
-            after first user interaction (mousedown / touchstart / keydown /
-            scroll) or a 5s fallback timeout, so it never costs TBT during
-            the initial Lighthouse measurement window. CSP allowances for
+            after first user interaction (mousedown / touchstart / keydown)
+            or a 4s fallback timeout, so it never costs TBT during the
+            initial Lighthouse measurement window but still tracks bounce
+            traffic from organic search. CSP allowances for
             googletagmanager.com + *.google-analytics.com live in middleware.ts. */}
         <GoogleAnalytics />
 

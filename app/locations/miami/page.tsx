@@ -63,6 +63,11 @@ const data: CityPageData = {
   heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster on pink urban wall in Miami" },
   heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil sidewalk activation in Miami" },
   lastUpdated: "2026-04-25",
+  pricingTiers: [
+    { tier: "Single-Neighborhood Test", range: "$3,200 – $4,800", includes: "60–90 posters · 1 Miami neighborhood · Photo doc + GPS-logged install" },
+    { tier: "Full-City Activation", range: "$13K – $22K", includes: "Wynwood + South Beach + Brickell + Design District · Multi-design rotation" },
+    { tier: "Art Basel Saturation", range: "$25K – $50K", includes: "Early-December window · 8–10 weeks lead time · Wynwood + Design District focus" },
+  ],
   spotlight: {
     eyebrow: "Miami Spotlight",
     title: "WYNWOOD + ART BASEL ARE WHAT MIAMI DOES",
