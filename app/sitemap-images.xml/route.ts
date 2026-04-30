@@ -113,6 +113,77 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Incrediwear pole wrap guerrilla advertising — nighttime",
     caption: "Incrediwear brand pole wrap guerrilla advertising campaign — nighttime installation by Phantom Pasting",
   },
+
+  // ── Momentous "Trend Proof" campaign — Los Angeles ───────────────────
+  "momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp": {
+    title: "Momentous Trend Proof wheat paste poster detail — Los Angeles",
+    caption: "Momentous Trend Proof wheat paste poster campaign — closeup detail, Los Angeles, Phantom Pasting",
+  },
+  "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp": {
+    title: "Momentous Trend Proof wheat paste wall — Los Angeles street view",
+    caption: "Momentous Trend Proof wheat paste poster wall at street level — Los Angeles campaign by Phantom Pasting",
+  },
+  "momentous-wheat-paste-billboard-wall-palm-trees-los-angeles.webp": {
+    title: "Momentous wheat paste billboard wall — Los Angeles palm trees",
+    caption: "Momentous brand billboard-scale wheat paste wall installation with palm trees — Los Angeles",
+  },
+  "momentous-wheat-paste-campaign-wall-wide-los-angeles.webp": {
+    title: "Momentous wheat paste campaign wall — wide shot Los Angeles",
+    caption: "Wide shot of Momentous wheat paste poster campaign wall — Los Angeles street advertising by Phantom Pasting",
+  },
+  "momentous-wheat-paste-poster-wall-los-angeles-overhead.webp": {
+    title: "Momentous wheat paste poster wall — overhead view Los Angeles",
+    caption: "Overhead perspective of Momentous wheat paste poster wall installation — Los Angeles",
+  },
+  "momentous-wheat-paste-posters-close-up-los-angeles.webp": {
+    title: "Momentous wheat paste posters — closeup Los Angeles",
+    caption: "Closeup of Momentous wheat paste posters on Los Angeles wall — Phantom Pasting guerrilla campaign",
+  },
+  "momentous-wheat-paste-wall-corner-los-angeles.webp": {
+    title: "Momentous wheat paste wall — corner installation Los Angeles",
+    caption: "Momentous brand wheat paste wall wrapping a street corner — Los Angeles campaign by Phantom Pasting",
+  },
+
+  // ── Vaura Pilates chalk stencil campaign — Austin ─────────────────────
+  "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp": {
+    title: "Vaura Pilates chalk spray stencil — Austin sidewalk street view",
+    caption: "Vaura Pilates chalk spray stencil on Austin sidewalk — street-level view, Phantom Pasting campaign",
+  },
+  "vaura-pilates-chalk-stencil-sidewalk-austin-texas.webp": {
+    title: "Vaura Pilates chalk stencil on sidewalk — Austin Texas",
+    caption: "Vaura Pilates chalk stencil guerrilla marketing on Austin Texas sidewalk — Phantom Pasting",
+  },
+  "vaura-pilates-sidewalk-chalk-stencil-guerrilla-marketing-austin.webp": {
+    title: "Vaura Pilates sidewalk chalk stencil — Austin guerrilla marketing",
+    caption: "Vaura Pilates sidewalk chalk stencil guerrilla marketing campaign — Austin Texas by Phantom Pasting",
+  },
+
+  // ── Process / behind-the-scenes — Los Angeles wall prep ───────────────
+  "wheat-paste-crew-power-washing-wall-los-angeles.webp": {
+    title: "Wheat paste crew power washing wall — Los Angeles prep",
+    caption: "Phantom Pasting crew power washing Los Angeles wall surface before wheat paste poster install",
+  },
+  "wheat-paste-installer-cleaning-wall-los-angeles.webp": {
+    title: "Wheat paste installer cleaning wall — Los Angeles surface prep",
+    caption: "Phantom Pasting installer cleaning Los Angeles wall surface before campaign install",
+  },
+  "wheat-paste-installer-scraping-old-posters-los-angeles.webp": {
+    title: "Wheat paste installer scraping old posters — Los Angeles wall prep",
+    caption: "Phantom Pasting crew scraping old posters from Los Angeles wall before wheat paste install",
+  },
+  "wheat-paste-wall-blank-before-install-los-angeles.webp": {
+    title: "Blank wall before wheat paste install — Los Angeles",
+    caption: "Clean Los Angeles wall surface prepared and ready for wheat paste poster campaign install",
+  },
+  "wheat-paste-wall-location-los-angeles-wide.webp": {
+    title: "Wheat paste wall location — wide shot Los Angeles",
+    caption: "Wide shot of prime Los Angeles wheat paste wall location — Phantom Pasting campaign site scouting",
+  },
+  "wheat-paste-wall-location-street-corner-los-angeles.webp": {
+    title: "Wheat paste wall location — Los Angeles street corner",
+    caption: "High-traffic Los Angeles street corner wheat paste wall location — Phantom Pasting campaign site",
+  },
+
   "sticker-campaign-street-intersection-urban.webp": {
     title: "Sticker campaign at street intersection — urban guerrilla marketing",
     caption: "Street intersection sticker guerrilla marketing campaign — urban advertising by Phantom Pasting",
@@ -159,6 +230,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "dont-fall-off-wheat-paste-urban-wall-pink.webp",
     "dont-fall-off-wheat-paste-wall-closeup.webp",
     "fashionpass-wheat-paste-campaign-poster-wall.webp",
+    "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",
   ],
   "/services/chalk-spray-stencils": [
     "bedstuy-stencil.webp",
@@ -166,6 +238,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "black-pearl-la-stencil-template-grass.webp",
     "chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",
     "custom-stencil-template-cut-out-design.webp",
+    "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp",
   ],
   "/services/full-impact-campaigns": [
     "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
@@ -176,9 +249,15 @@ const PAGE_IMAGES: Record<string, string[]> = {
 
   // City pages — hero/OG images used in those markets
   "/locations/los-angeles": [
+    "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",
     "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     "dont-fall-off-wheat-paste-street-view-la.webp",
     "black-pearl-la-chalk-spray-stencil-sidewalk.webp",
+  ],
+  "/locations/austin": [
+    "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp",
+    "vaura-pilates-chalk-stencil-sidewalk-austin-texas.webp",
+    "vaura-pilates-sidewalk-chalk-stencil-guerrilla-marketing-austin.webp",
   ],
   "/locations/atlanta": [
     "fifa-world-cup-atlanta-wall-installation.webp",

@@ -148,3 +148,41 @@ export function getSiblingCities(citySlug: string): ReadonlyArray<CityPageRef> {
   if (!me) return [];
   return CITY_PAGES.filter((c) => c.state === me.state && c.slug !== citySlug);
 }
+
+// ── Cross-state proximity map ───────────────────────────────────────────
+//
+// Cities that commonly appear on the same multi-city campaign brief even
+// though they're in different states. Used by CityPageTemplate to render
+// a "Nearby markets" cross-link section beneath the same-state siblings row.
+//
+// Both directions must be listed explicitly — if NYC → Boston then
+// Boston → NYC must also appear.
+const CROSS_STATE_PROXIMITY: Record<string, ReadonlyArray<string>> = {
+  // Northeast corridor
+  "new-york":      ["boston", "washington-dc"],
+  "boston":        ["new-york", "washington-dc"],
+  "washington-dc": ["new-york", "boston"],
+  // Pacific Northwest corridor — Portland + Seattle are the natural pair
+  "seattle":       ["portland"],
+  "portland":      ["seattle"],
+  // Southwest corridor
+  "los-angeles":   ["las-vegas", "phoenix"],
+  "las-vegas":     ["los-angeles", "phoenix"],
+  "phoenix":       ["los-angeles", "las-vegas"],
+  // Southeast corridor
+  "miami":         ["atlanta"],
+  "atlanta":       ["miami", "nashville"],
+  "nashville":     ["atlanta"],
+};
+
+/**
+ * Get cross-state nearby city pages for a given city slug — cities that
+ * commonly share a multi-city campaign brief even though they're in
+ * different states. Empty array if no proximity entries exist for the slug.
+ */
+export function getCrossStateLinks(citySlug: string): ReadonlyArray<CityPageRef> {
+  const slugs = CROSS_STATE_PROXIMITY[citySlug] ?? [];
+  return slugs
+    .map((s) => CITY_PAGES.find((c) => c.slug === s))
+    .filter((c): c is CityPageRef => c !== undefined);
+}

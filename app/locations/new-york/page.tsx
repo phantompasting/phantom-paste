@@ -80,11 +80,11 @@ const data: CityPageData = {
     { tier: "Scaffold Wraps (per wrap)", range: "$2K – $8K", includes: "DOB permit + install · 3–4 week lead time · Manhattan-specific premium format" },
   ],
   faqs: [
-    { q: "Is wheat pasting legal in NYC?", a: "On owner-authorized private walls, yes — with zero enforcement concern. Scaffold wraps require DOB permits and owner consent. NYC Administrative Code §10-117 covers public-property unlawful posting but is rarely enforced on clean commercial campaigns with property-owner consent." },
+    { q: "Is wheat pasting legal in NYC?", a: "On owner-authorized private walls, yes — with zero enforcement concern. Scaffold wraps require DOB permits and owner consent. NYC Administrative Code §10-119 covers public-property unlawful posting but is rarely enforced on clean commercial campaigns with property-owner consent." },
     { q: "Which NYC neighborhoods work best for wheat pasting?", a: "Lower East Side, Williamsburg (Bedford Ave), SoHo (Lafayette + Mercer), Bushwick, East Village, Chelsea/Meatpacking, Greenpoint, DUMBO. Midtown is a scaffold-wrap market, not a standard paste play." },
     { q: "How much does a NYC wheat pasting campaign cost?", a: "Single-neighborhood test: $4,200-$6,800 for 80-120 posters. Full Manhattan + Brooklyn activation with two crews: $14K-$22K. Scaffold wraps run $2K-$8K each on top. LES + Williamsburg combinations are the most common configuration." },
     { q: "Can you handle scaffold wraps in NYC?", a: "Yes. Scaffold wraps are a Manhattan-specific premium format — $2K-$8K per wrap, DOB permit required, 3-4 week lead time. Different production path than paste; we manage permits + install + photo documentation." },
-    { q: "What's different about NYC installs?", a: "We split crews by borough — one Manhattan, one Brooklyn. Documentation windows are tight (7-9 a.m. Sunday for SoHo walls). Summer humidity shortens poster life to 3-4 weeks; we use PVA-reinforced paste for May-September installs." },
+    { q: "How long do wheat paste posters last in NYC?", a: "3–4 weeks in summer (heat and humidity accelerate fade); 5–8 weeks in fall and spring. SoHo and LES walls under overhangs hold 8–10 weeks. We use PVA-reinforced paste for May–September installs to extend lifespan. Brooklyn and Williamsburg walls run 4–6 weeks average." },
   ],
   spotlight: {
     eyebrow: "Lower East Side · Spotlight",

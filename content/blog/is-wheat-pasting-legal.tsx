@@ -23,11 +23,13 @@ export default function Post() {
       <h2>What the Law Actually Says</h2>
       <p>
         Most US municipalities have &quot;unlawful posting&quot; or &quot;illegal posting&quot; ordinances
-        that cover wheat pasting, flyposting, and sticker placement. Penalties range from:
+        that cover wheat pasting,{" "}
+        <a href="https://en.wikipedia.org/wiki/Flyposting" target="_blank" rel="noopener noreferrer">flyposting</a>
+        , and sticker placement. Penalties range from:
       </p>
       <ul>
         <li><strong>Civil fines</strong>, $75–$500 per poster, rarely enforced</li>
-        <li><strong>Misdemeanor charges</strong> in a handful of cities (NYC Admin Code §10-117 is the most cited)</li>
+        <li><strong>Misdemeanor charges</strong> in a handful of cities (<a href="https://www.nyc.gov/assets/dsny/site/resources/streets-and-sidewalks-laws/posting-graffiti-laws" target="_blank" rel="noopener noreferrer">NYC Admin Code §10-119</a> is the most cited)</li>
         <li><strong>Property owner complaints</strong> that trigger cleanup fees, not criminal action</li>
       </ul>
       <p>
@@ -104,8 +106,8 @@ export default function Post() {
           </tr>
         </thead>
         <tbody>
-          <tr><td>Los Angeles</td><td>LAMC 28.00</td><td>Low on private property</td><td>Only for historic zones</td></tr>
-          <tr><td>New York City</td><td>NYC Admin §10-117</td><td>Moderate; strong in Midtown</td><td>Yes for scaffold wrapping</td></tr>
+          <tr><td>Los Angeles</td><td><a href="https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-128154" target="_blank" rel="noopener noreferrer">LAMC §28.04</a></td><td>Low on private property</td><td>Only for historic zones</td></tr>
+          <tr><td>New York City</td><td><a href="https://www.nyc.gov/assets/dsny/site/resources/streets-and-sidewalks-laws/posting-graffiti-laws" target="_blank" rel="noopener noreferrer">NYC Admin §10-119</a></td><td>Moderate; strong in Midtown</td><td>Yes for scaffold wrapping</td></tr>
           <tr><td>Miami</td><td>Miami Code §54-3</td><td>Higher in historic districts</td><td>Yes in Wynwood / South Beach</td></tr>
           <tr><td>Chicago</td><td>MCC 10-8-320</td><td>Low with property consent</td><td>Rarely</td></tr>
           <tr><td>Atlanta</td><td>ACC §16-5A.006</td><td>Low</td><td>No on private walls</td></tr>

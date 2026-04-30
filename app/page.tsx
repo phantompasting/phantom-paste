@@ -16,24 +16,24 @@ import { KW_HOMEPAGE } from "@/lib/keywordSets";
 export const metadata: Metadata = {
   // `absolute` bypasses the root layout's "%s | Phantom Pasting" template so
   // the homepage title can carry trust signals without going past Google's
-  // ~60-char SERP truncation. Current: 54 chars (wheat pasting + cities-served
-  // trust signal + brand). Was: "Wheat Pasting Company | Phantom Pasting" (40
-  // chars, redundant "Pasting" duplication, no trust signal — weak CTR).
-  title: { absolute: "Wheat Pasting Agency · 50+ US Cities · Phantom Pasting" },
-  // Description targeted at ~135 chars (Google truncates ~155). Leads with
-  // anchor keyword + capability, includes founding year + campaign-count
-  // trust signals, ends with the CTA hook.
+  // ~60-char SERP truncation. 58 chars — positions Phantom Pasting as a full
+  // street-advertising agency (postering + guerrilla marketing) rather than
+  // a single-tactic shop. Avoids the "wild posting" trademark term.
+  title: { absolute: "Wheat Pasting · Street Advertising Agency | Phantom Pasting" },
+  // Description leads with the full-service positioning (wheat pasting +
+  // postering + guerrilla marketing), price anchor ($3,500) and urgency
+  // (24 hrs) for cost queries, closes with trust signal + target verticals.
   description:
-    "Wheat pasting, street postering & guerrilla marketing across 50+ US cities since 2014. 500+ photo-documented campaigns. Quote in 24 hours.",
+    "Wheat pasting, postering & guerrilla marketing across 50+ US cities. From $3,500 — quote in 24 hours. 500+ campaigns for fashion, music & DTC.",
   // Meta keywords: low Google weight, real Bing weight, also indexed by some
   // AI search engines. Centralized in lib/keywordSets.ts so the synonym set
   // stays coherent across pages.
   keywords: [...KW_HOMEPAGE],
   alternates: { canonical: BUSINESS.url },
   openGraph: {
-    title: "Wheat Pasting Agency · 50+ US Cities · Phantom Pasting",
+    title: "Wheat Pasting · Street Advertising Agency | Phantom Pasting",
     description:
-      "Wheat pasting, street postering & guerrilla marketing across 50+ US cities since 2014. 500+ photo-documented campaigns. Quote in 24 hours.",
+      "Wheat pasting, postering & guerrilla marketing across 50+ US cities. From $3,500 — quote in 24 hours. 500+ campaigns for fashion, music & DTC.",
     url: BUSINESS.url,
     type: "website",
     siteName: "Phantom Pasting",

@@ -11,7 +11,7 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
 import { MATEO_VARGAS, mateoVargasPerson } from "@/lib/blogAuthor";
-import { getStatePage, getSiblingCities } from "@/lib/locationGraph";
+import { getStatePage, getSiblingCities, getCrossStateLinks } from "@/lib/locationGraph";
 
 const ACCENT = "#D4A010";
 
@@ -195,6 +195,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
   const isStatePage = data.serviceAreaType === "State";
   const parentState = isStatePage ? undefined : getStatePage(data.state);
   const siblingCities = isStatePage ? [] : getSiblingCities(data.slug);
+  const crossStateCities = isStatePage ? [] : getCrossStateLinks(data.slug);
 
   return (
     <>
@@ -740,6 +741,65 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                   }}
                 >
                   View Statewide {parentState.name} <span aria-hidden>→</span>
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ── Cross-state nearby markets — cities that commonly share a
+            multi-city campaign brief even though they're in different
+            states. Driven by lib/locationGraph.ts CROSS_STATE_PROXIMITY.
+            Renders as its own card below the same-state siblings row
+            (or standalone if there are no same-state siblings). */}
+        {crossStateCities.length > 0 && (
+          <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-20 md:pb-24">
+            <div className="max-w-[1200px] mx-auto">
+              <div
+                className="rounded-2xl px-7 py-6 md:px-9 md:py-7 flex flex-wrap items-center justify-between gap-5"
+                style={{
+                  background: "rgba(255,255,255,0.42)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255,255,255,0.7)",
+                }}
+              >
+                <div>
+                  <div
+                    className="font-mono text-[9px] tracking-[0.32em] uppercase mb-2"
+                    style={{ color: "rgba(0,0,0,0.55)" }}
+                  >
+                    Nearby markets
+                  </div>
+                  <div className="flex flex-wrap gap-x-4 gap-y-2">
+                    {crossStateCities.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/locations/${c.slug}`}
+                        className="font-bold uppercase no-underline inline-flex items-center gap-1.5"
+                        style={{
+                          fontSize: "13px",
+                          letterSpacing: "-0.005em",
+                          color: "#1A1A1A",
+                          transition: "color 0.15s",
+                        }}
+                      >
+                        {c.name}
+                        <span aria-hidden style={{ color: ACCENT, fontSize: "11px" }}>→</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <Link
+                  href="/locations"
+                  className="inline-flex items-center gap-2 font-mono uppercase no-underline shrink-0"
+                  style={{
+                    fontSize: "10px",
+                    letterSpacing: "0.22em",
+                    color: ACCENT,
+                  }}
+                >
+                  All Markets <span aria-hidden>→</span>
                 </Link>
               </div>
             </div>

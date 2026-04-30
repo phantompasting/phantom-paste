@@ -173,8 +173,9 @@ export default function Post() {
         <BlogLink slug="wheat-pasting-vs-billboards">wheat pasting vs. billboards</BlogLink>.
       </p>
       <p>
-        Short version: wheat paste runs $0.10–$0.30 CPM in-person, which is 25–80× cheaper than
-        DOOH in the same market, with the added upside of organic social amplification that
+        Short version: wheat paste runs $0.10–$0.30 CPM in-person, which is 25–80× cheaper than{" "}
+        <a href="https://en.wikipedia.org/wiki/Out-of-home_advertising" target="_blank" rel="noopener noreferrer">digital out-of-home (DOOH)</a>{" "}
+        in the same market, with the added upside of organic social amplification that
         pushes effective CPM far lower still.
       </p>
     </>

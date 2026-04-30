@@ -168,8 +168,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     excerpt:
       "New York is the second major US paste market — denser than LA, more regulated, and the only US city where scaffold wraps are a primary format. NYC's wall economy concentrates in four neighborhoods.",
     silo: "local-legal",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-05-01",
+    updatedAt: "2026-05-01",
     heroImage: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
     heroAlt: "Wheat paste wall on an NYC street corridor with pedestrian foot traffic",
     authorSlug: MATEO_VARGAS.slug,
@@ -178,7 +178,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     faqs: [
       {
         q: "Is wheat pasting legal in NYC?",
-        a: "On authorized private-property walls, yes — with zero enforcement concern. Scaffold wraps require DOB permits and owner consent. NYC Administrative Code §10-117 covers public-property unlawful posting.",
+        a: "On authorized private-property walls, yes — with zero enforcement concern. Scaffold wraps require DOB permits and owner consent. NYC Administrative Code §10-119 covers public-property unlawful posting.",
       },
       {
         q: "Which NYC neighborhoods work best for wheat pasting?",
@@ -376,8 +376,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     excerpt:
       "Wheat pasting campaigns run $3,000–$8,000 per city for a standard 150–250 poster rollout, with per-poster costs settling at $12–$22 installed. Real pricing from 500+ campaigns, what moves the number, what doesn't.",
     silo: "strategy-roi",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-04-26",
+    updatedAt: "2026-04-26",
     heroImage: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
     heroAlt: "Completed wheat paste campaign wall showing scale of a standard commercial install",
     authorSlug: MATEO_VARGAS.slug,
@@ -406,7 +406,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["wheat-pasting-vs-billboards", "wheat-pasting-campaign", "what-is-wheat-pasting"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "what-is-wheat-pasting",
@@ -665,8 +665,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     excerpt:
       "Wheat pasting sits in a legal gray zone in most US cities. Here's what actually happens on the street — from 500+ campaigns across LA, NYC, Miami, Chicago, Atlanta, Phoenix, and Denver. Not what city code says in theory.",
     silo: "local-legal",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-04-28",
+    updatedAt: "2026-04-28",
     heroImage: "/gallery/fifa-world-cup-poster-wall-street-perspective.webp",
     heroAlt: "Wheat paste poster wall in a dense urban street corridor",
     authorSlug: MATEO_VARGAS.slug,
@@ -695,7 +695,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["wheat-pasting-campaign", "how-to-make-wheat-paste"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "wheat-pasting-campaign",
@@ -706,8 +706,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     excerpt:
       "A typical client campaign: 12–15 locations, 6–16 posters per wall, 4–8 designs, finished overnight. The math behind it — prep, route, paste, document — is what separates a campaign that holds 6 weeks from one that peels in 3 days.",
     silo: "local-legal",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
     heroImage: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp",
     heroAlt: "Overnight wheat paste installation crew at work on an urban wall",
     authorSlug: MATEO_VARGAS.slug,
@@ -736,7 +736,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["how-to-make-wheat-paste", "is-wheat-pasting-legal"],
-    status: "draft",
+    status: "published",
   },
 ];
 
