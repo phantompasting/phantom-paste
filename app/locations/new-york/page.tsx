@@ -72,7 +72,7 @@ const data: CityPageData = {
     { stat: "DOB", label: "Permitted Wraps" },
   ],
   heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Guerrilla advertising pole wrap campaign at night in New York" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at NYC street intersection" },
+  heroImage2: { src: "/gallery/bedstuy-stencil.webp", alt: "Guerrilla marketing stencil campaign Bed-Stuy Brooklyn New York" },
   lastUpdated: "2026-04-25",
   pricingTiers: [
     { tier: "Single-Neighborhood Test", range: "$4,200 – $6,800", includes: "80–120 posters · 1 NYC neighborhood · Photo doc + GPS-logged install" },

@@ -49,8 +49,8 @@ const data: CityPageData = {
     { name: "Rice Village", desc: "University Boulevard + Times Boulevard. Affluent retail + Rice University adjacent foot traffic." },
     { name: "Museum District", desc: "Main Street, Bissonnet. Museum + walkable arts corridor between Rice + downtown." },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in Houston" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at Houston street intersection" },
+  heroImage1: { src: "/gallery/wheat-paste-wall-location-los-angeles-wide.webp", alt: "Wheat paste wall location wide shot" },
+  heroImage2: { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp", alt: "Momentous wheat paste posters close-up" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Largest TX Metro",

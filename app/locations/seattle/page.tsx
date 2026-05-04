@@ -49,8 +49,8 @@ const data: CityPageData = {
     { name: "Belltown", desc: "1st + 2nd Avenue corridor. Downtown nightlife district + Space Needle-adjacent foot traffic." },
     { name: "U District", desc: "University Way, The Ave, UW campus zone. 50K+ UW undergrad density during academic year." },
   ],
-  heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Wheat paste pole wrap in Seattle at night" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at Seattle street intersection" },
+  heroImage1: { src: "/gallery/wheat-paste-installer-cleaning-wall-los-angeles.webp", alt: "Wheat paste installer cleaning wall prep" },
+  heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil sidewalk guerrilla marketing activation" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Pacific Northwest Spotlight",

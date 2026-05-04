@@ -346,22 +346,26 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                   LCP impact of removing priority is negligible.
                 */}
                 {data.heroImage1 && (
-                  <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
+                  <div className="absolute top-10 right-0 rounded-2xl"
                     style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
                       boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
-                    <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
-                      fill style={{ objectFit: "cover" }}
-                      sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                      <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
+                        fill style={{ objectFit: "cover" }}
+                        sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
+                    </div>
                   </div>
                 )}
 
                 {data.heroImage2 && (
-                  <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
+                  <div className="absolute bottom-10 left-2 rounded-xl"
                     style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
                       boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
-                    <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
-                      fill style={{ objectFit: "cover" }}
-                      sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
+                    <div className="relative w-full h-full rounded-xl overflow-hidden">
+                      <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
+                        fill style={{ objectFit: "cover" }}
+                        sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
+                    </div>
                   </div>
                 )}
 

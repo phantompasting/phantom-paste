@@ -60,8 +60,8 @@ const data: CityPageData = {
     { stat: "Year-Round", label: "Event Density" },
     { stat: "Art Basel", label: "December Anchor" },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster on pink urban wall in Miami" },
-  heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil sidewalk activation in Miami" },
+  heroImage1: { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp", alt: "Momentous wheat paste wall corner installation" },
+  heroImage2: { src: "/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp", alt: "Black Pearl LA chalk spray stencil sidewalk activation" },
   lastUpdated: "2026-04-25",
   pricingTiers: [
     { tier: "Single-Neighborhood Test", range: "$3,200 – $4,800", includes: "60–90 posters · 1 Miami neighborhood · Photo doc + GPS-logged install" },

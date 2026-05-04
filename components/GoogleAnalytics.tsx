@@ -1,128 +1,69 @@
-"use client";
-
 /**
- * Performance-deferred Google Analytics 4 loader.
+ * Google Analytics 4 loader — next/script lazyOnload.
  *
- * Standard `next/script` with `strategy="afterInteractive"` puts gtag.js on
- * the main thread immediately after hydration. On mobile the gtag.js bundle
- * (156KB, ~1.4s of scripting on simulated mobile CPU) tanks Lighthouse TBT
- * by 2,500ms+ and drops the perf score from ~90 → ~50. Even `lazyOnload`
- * runs during the load window, which still counts against Total Blocking Time.
+ * WHY lazyOnload FIXES BOTH PROBLEMS
+ * ────────────────────────────────────
+ * Problem 1 — Lighthouse TBT (Total Blocking Time):
+ *   strategy="afterInteractive" fires immediately after React hydration, which
+ *   is during Lighthouse's TBT measurement window (FCP → TTI). On a 4× CPU-
+ *   throttled device, gtag.js (156 KB) takes ~1.4 s to parse → long task →
+ *   TBT +2,500 ms → score collapses from 100 to ~50.
  *
- * This component defers gtag.js entirely until the first user interaction
- * (mousedown / touchstart / keydown — `scroll` excluded because Lighthouse
- * synthesizes scrolls during its perf trace). At interaction time the page
- * is already paint-complete and TBT/TTI are locked in. A 4-second fallback
- * timeout fires the load even if the user never interacts, so bounce
- * traffic from organic search still gets attributed to "Organic Search"
- * instead of being silently dropped.
+ *   strategy="lazyOnload" fires only after window.load + requestIdleCallback.
+ *   For this static Next.js site (no heavy client data-fetching), TTI locks in
+ *   at ~1–2 s even on throttled mobile. window.load follows at ~2–3 s; the idle
+ *   callback fires at ~2.5–3.5 s. By that point the TBT window is already
+ *   closed, so gtag.js parsing costs zero TBT → Lighthouse score is unaffected.
  *
- * The 4s threshold is calibrated against Lighthouse's audit window — the
- * mobile perf trace captures its CPU profile in the first ~2s; by 4s the
- * audit's TBT/LCP measurements are already locked in, so loading gtag.js
- * at 4s preserves the perf score while real users who don't interact still
- * get a pageview tracked.
+ * Problem 2 — Organic session loss (was 86% capture failure):
+ *   The previous interaction-gated design (mousedown / touchstart / keydown +
+ *   4 s fallback) was structurally broken for bounce traffic:
+ *     • GSC: 14 organic clicks over 28 days
+ *     • GA4: 2 sessions (14 % capture rate)
+ *     • All 2 sessions tagged "Direct" — attribution was wrong too
+ *   Mobile bouncers leave in < 4 s without interacting, so neither trigger fired.
  *
- * GA4 measurement ID is hardcoded — single property for the whole site.
+ *   lazyOnload has NO interaction gate. Every visitor — including zero-
+ *   interaction bouncers — gets a pageview within ~2.5 s of landing.
+ *   document.referrer still points to google.com at that moment, so GA4
+ *   correctly attributes the session to "Organic Search".
+ *
+ * HOW THE DATAlayer QUEUE WORKS
+ * ──────────────────────────────
+ * Both scripts load lazily. The order of execution doesn't matter because
+ * gtag.js is designed around a queue pattern:
+ *   1. The config script runs (any order) — pushes events into window.dataLayer
+ *   2. gtag.js loads — reads window.dataLayer and processes all queued events
+ * This is the exact pattern in Google's official gtag.js snippet, just deferred.
+ *
+ * CSP: script-src and connect-src for googletagmanager.com / google-analytics.com
+ * are already in middleware.ts.
+ *
+ * GA4 measurement ID: G-VP57JXQ83G (single property, whole site).
  */
 
-import { useEffect } from "react";
+import Script from "next/script";
 
 const GA_ID = "G-VP57JXQ83G";
 
-// Events that trigger early load. `passive: true` so we never block scroll.
-// `capture: true` catches the event on the way down (before any handler).
-// `once: true` means the listener auto-removes after firing — no cleanup needed.
-//
-// `scroll` is intentionally excluded: Lighthouse synthesizes a scroll event
-// during its perf trace to measure scroll responsiveness, and that synthetic
-// event triggers our listener mid-audit → gtag.js parses → ~1.4s TBT charged
-// to the score. Real users still get tracked the moment they click, tap, or
-// hit any key, which happens within the first 1-3s for any engaged session.
-const INTERACTION_EVENTS = [
-  "mousedown",
-  "touchstart",
-  "keydown",
-] as const;
-
-// setTimeout backstop. Was 30s, lowered to 4s after tracking_health.json
-// flagged GA4 28d-ratio at 0.333 — bounce traffic from GSC clicks (which
-// dominates organic visits when avg position is 30+) was never firing the
-// interaction listeners and was being silently dropped, leaving CRO and
-// channel-attribution data structurally broken.
-//
-// Lighthouse's mobile perf trace captures TBT/LCP in the first ~2s of its
-// audit window; 4s gives a 2s safety margin so gtag.js still doesn't parse
-// inside the measurement window, preserving the perf score (+25-40 lift
-// vs eager-load remains intact) while real users get a pageview the moment
-// the threshold elapses.
-const FALLBACK_DELAY_MS = 4_000;
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    __gaLoaded?: boolean;
-  }
-}
-
-function loadGA() {
-  if (typeof window === "undefined" || window.__gaLoaded) return;
-  window.__gaLoaded = true;
-
-  // Inject the gtag.js loader. async=true so it never blocks parsing.
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-  document.head.appendChild(s);
-
-  // Initialize dataLayer + push the initial config. This runs synchronously;
-  // gtag.js below picks up the queued events once it loads.
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: unknown[]) {
-    window.dataLayer!.push(args);
-  }
-  gtag("js", new Date());
-  gtag("config", GA_ID);
-}
-
 export default function GoogleAnalytics() {
-  useEffect(() => {
-    if (window.__gaLoaded) return;
+  return (
+    <>
+      {/* 1. Load the gtag.js library lazily — fires after window.load + idle. */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="lazyOnload"
+      />
 
-    let fallbackId: ReturnType<typeof setTimeout> | undefined;
-
-    const trigger = () => {
-      if (fallbackId) clearTimeout(fallbackId);
-      // Remove any still-attached listeners (some events may have fired,
-      // others may not — `once` handles that, but be defensive on cleanup).
-      INTERACTION_EVENTS.forEach((evt) =>
-        window.removeEventListener(evt, trigger, { capture: true })
-      );
-      loadGA();
-    };
-
-    INTERACTION_EVENTS.forEach((evt) =>
-      window.addEventListener(evt, trigger, {
-        passive: true,
-        capture: true,
-        once: true,
-      })
-    );
-
-    // Plain setTimeout backstop. Avoiding requestIdleCallback because its
-    // `timeout` option still fires opportunistically as soon as a brief idle
-    // gap appears, which is unpredictable. setTimeout fires exactly at
-    // FALLBACK_DELAY_MS, so the threshold is calibrated against Lighthouse's
-    // measurement window deterministically.
-    fallbackId = setTimeout(trigger, FALLBACK_DELAY_MS);
-
-    return () => {
-      if (fallbackId) clearTimeout(fallbackId);
-      INTERACTION_EVENTS.forEach((evt) =>
-        window.removeEventListener(evt, trigger, { capture: true })
-      );
-    };
-  }, []);
-
-  return null;
+      {/* 2. Initialise dataLayer and push the config event. Runs in the same
+          lazy batch. dataLayer queuing means this works regardless of which
+          script executes first. */}
+      <Script id="ga4-config" strategy="lazyOnload">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_ID}');
+      `}</Script>
+    </>
+  );
 }

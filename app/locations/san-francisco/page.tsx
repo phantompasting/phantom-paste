@@ -50,8 +50,8 @@ const data: CityPageData = {
     { name: "North Beach", desc: "Columbus Avenue, Grant Avenue. Italian-heritage restaurant district + tourism foot traffic anchor." },
     { name: "Lower Haight", desc: "Haight Street between Pierce + Webster. Indie music + DIY arts scene density." },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in San Francisco" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at SF street intersection" },
+  heroImage1: { src: "/gallery/momentous-wheat-paste-poster-wall-los-angeles-overhead.webp", alt: "Momentous wheat paste poster wall overhead angle" },
+  heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp", alt: "Street view wheat paste poster installation" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Bay Area Spotlight",

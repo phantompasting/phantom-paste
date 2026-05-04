@@ -740,10 +740,15 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   },
 ];
 
-/** Filtered view — posts that ship publicly (sitemap, hub, [slug] route). */
+/**
+ * Filtered view — posts that ship publicly (sitemap, hub, [slug] route).
+ * Sorted newest-first by publishedAt so the hub's "latest" hero, the rest
+ * grid, and every BlogCard rail render in chronological order regardless
+ * of the entry's position in the registry array.
+ */
 export const PUBLISHED_POSTS: BlogPostMeta[] = BLOG_POSTS.filter(
   (p) => p.status === "published"
-);
+).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
 /** Lookup by slug. Returns undefined for drafts + unknown slugs. */
 export function getPublishedPost(slug: string): BlogPostMeta | undefined {

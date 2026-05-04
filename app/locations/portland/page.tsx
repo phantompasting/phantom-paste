@@ -49,8 +49,8 @@ const data: CityPageData = {
     { name: "Pearl District", desc: "NW Pearl, downtown gallery district. Walkable retail + arts + warehouse-to-loft conversions." },
     { name: "Old Town / Chinatown", desc: "NW 3rd + 4th, Chinatown gateway. Downtown gateway + nightlife district." },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in Portland" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at Portland street intersection" },
+  heroImage1: { src: "/gallery/wheat-paste-wall-location-street-corner-los-angeles.webp", alt: "Wheat paste wall street corner location" },
+  heroImage2: { src: "/gallery/black-pearl-la-stencil-template-grass.webp", alt: "Black Pearl LA stencil template grass surface" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "PDX Spotlight",

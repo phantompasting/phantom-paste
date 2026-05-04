@@ -50,8 +50,8 @@ const data: CityPageData = {
     { name: "Georgetown", desc: "M Street + Wisconsin Avenue. Historic shopping core + tourism foot traffic anchor." },
     { name: "Dupont Circle", desc: "Connecticut Avenue NW corridor. Downtown affluent retail + diplomatic-corps density." },
   ],
-  heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Wheat paste campaign in Washington DC at night" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at DC street intersection" },
+  heroImage1: { src: "/gallery/momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp", alt: "Momentous Trend Proof wheat paste poster detail" },
+  heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-angle-view.webp", alt: "FIFA World Cup wheat paste poster wall angle view" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Federal City Spotlight",

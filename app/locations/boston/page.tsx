@@ -49,8 +49,8 @@ const data: CityPageData = {
     { name: "North End", desc: "Hanover Street, Salem Street. Tourism + restaurant-district foot traffic anchor." },
     { name: "Seaport", desc: "Seaport Boulevard, Fan Pier. Tech-corporate workforce + new-build density." },
   ],
-  heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Wheat paste pole wrap in Boston at night" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at Boston street intersection" },
+  heroImage1: { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp", alt: "Momentous wheat paste posters close-up" },
+  heroImage2: { src: "/gallery/street-pole-sticker-campaign-urban-advertising.webp", alt: "Street pole sticker campaign urban advertising" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "College-Market Spotlight",

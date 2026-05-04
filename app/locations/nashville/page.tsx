@@ -60,8 +60,8 @@ const data: CityPageData = {
     { stat: "CMA Fest", label: "June Anchor" },
     { stat: "6", label: "Districts" },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in Nashville" },
-  heroImage2: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Pole wrap guerrilla advertising in Nashville at night" },
+  heroImage1: { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp", alt: "Momentous wheat paste wall corner installation" },
+  heroImage2: { src: "/gallery/wheat-paste-wall-blank-before-install-los-angeles.webp", alt: "Blank wall prepped before wheat paste install" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Music City Spotlight",

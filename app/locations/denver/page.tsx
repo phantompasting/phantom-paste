@@ -50,8 +50,8 @@ const data: CityPageData = {
     { name: "LoDo", desc: "Downtown Denver, 16th Street Mall, Larimer Square. Tourism + sports-game-day foot traffic." },
     { name: "Cap Hill / City Park", desc: "Capitol Hill, City Park West. Walkable historic neighborhood with arts + nightlife overlap." },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in Denver" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at Denver street intersection" },
+  heroImage1: { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp", alt: "FashionPass wheat paste campaign poster wall" },
+  heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp", alt: "Street view wheat paste poster installation" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Mile-High Spotlight",

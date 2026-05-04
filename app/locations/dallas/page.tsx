@@ -49,8 +49,8 @@ const data: CityPageData = {
     { name: "Oak Cliff", desc: "Bishop, Tyler, Davis Street west of Bishop Arts. Emerging arts neighborhood + Latino cultural anchor." },
     { name: "Knox-Henderson", desc: "Knox Street + Henderson Avenue. Boutique retail + restaurant strip; affluent young-professional reach." },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in Dallas" },
-  heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at Dallas street intersection" },
+  heroImage1: { src: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp", alt: "Momentous wheat paste campaign wall wide shot" },
+  heroImage2: { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp", alt: "FIFA World Cup wheat paste posters close-up" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Big D Spotlight",

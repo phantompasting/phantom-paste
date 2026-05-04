@@ -11,6 +11,20 @@ import { ORG_KNOWS_ABOUT, ORG_ADDITIONAL_TYPES } from "./keywordSets";
 
 const ORG_ID = `${BUSINESS.url}/#org`;
 const WEBSITE_ID = `${BUSINESS.url}/#website`;
+
+/**
+ * Shared ImageObject licensing fields. Google Search Console flags these as
+ * "non-critical issues" when missing — they make images eligible for the
+ * licensable badge in Google Images and signal proper provenance to AI
+ * citation engines. Spread into every ImageObject emission site so the four
+ * fields stay consistent across gallery, Article hero, and HowTo image schemas.
+ */
+const IMAGE_LICENSE_FIELDS = {
+  copyrightNotice: `© ${BUSINESS.name}`,
+  creditText: BUSINESS.name,
+  acquireLicensePage: `${BUSINESS.url}/contact`,
+  license: BUSINESS.url,
+} as const;
 // LOCALBUSINESS_ID was removed — the previous ProfessionalService node was
 // pinning the entity geographically. All entity signals consolidated onto
 // the canonical Organization @id (#org). See orgSchema() below.
@@ -323,6 +337,7 @@ export function articleSchema(opts: {
         url: opts.image,
         width: 1200,
         height: 630,
+        ...IMAGE_LICENSE_FIELDS,
       },
     ],
     thumbnailUrl: opts.image,
@@ -390,6 +405,7 @@ export function howToSchema(opts: {
     image: {
       "@type": "ImageObject",
       url: opts.image,
+      ...IMAGE_LICENSE_FIELDS,
     },
     ...(opts.totalTime ? { totalTime: opts.totalTime } : {}),
     ...(opts.estimatedCost
@@ -494,7 +510,7 @@ export function imageObjectSchema(opts: {
     ...(opts.caption ? { caption: opts.caption } : {}),
     creator: { "@id": ORG_ID },
     copyrightHolder: { "@id": ORG_ID },
-    license: BUSINESS.url,
+    ...IMAGE_LICENSE_FIELDS,
   };
 }
 

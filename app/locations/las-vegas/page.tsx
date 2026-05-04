@@ -56,8 +56,8 @@ const data: CityPageData = {
     { stat: "EDC + Defcon", label: "Spring/Summer Anchors" },
     { stat: "6", label: "Districts" },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in Las Vegas" },
-  heroImage2: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Pole wrap guerrilla advertising in Vegas at night" },
+  heroImage1: { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp", alt: "FIFA World Cup wheat paste posters close-up" },
+  heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Urban wheat paste poster wall pink background" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Conference Window Spotlight",

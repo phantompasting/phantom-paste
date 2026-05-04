@@ -69,7 +69,7 @@ const data: CityPageData = {
     { stat: "NYC Anchor", label: "+ 5 Upstate" },
     { stat: "DOB", label: "Scaffold Wraps" },
   ],
-  heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Wheat paste campaign across New York State" },
+  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-pedestrian-street-art.webp", alt: "Wheat paste street art pedestrian urban installation New York" },
   heroImage2: { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at New York street intersection" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",

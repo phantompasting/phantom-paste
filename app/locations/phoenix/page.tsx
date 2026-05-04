@@ -49,8 +49,8 @@ const data: CityPageData = {
     { name: "Old Town Scottsdale", desc: "Scottsdale Road between Indian School + Camelback. Premium tourism + luxury-brand activation corridor." },
     { name: "Downtown Phoenix", desc: "Central Avenue, downtown core. Government workforce + light-rail commuter foot traffic." },
   ],
-  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Wheat paste poster wall in Phoenix" },
-  heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil activation in Phoenix" },
+  heroImage1: { src: "/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp", alt: "Black Pearl LA chalk spray stencil sidewalk activation" },
+  heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-building-bike-rack.webp", alt: "Wheat paste poster building with bike rack" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Desert Install Spotlight",
