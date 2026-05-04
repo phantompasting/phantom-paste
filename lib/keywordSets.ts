@@ -332,6 +332,54 @@ export const KW_VERTICAL_BUYERS = [
   "stadium-area street campaigns",
 ] as const;
 
+// ── Parent categories — broader marketing buckets wheat pasting belongs to ─
+//
+// Wheat pasting IS a form of guerrilla marketing IS a form of street
+// marketing IS a form of ambient advertising. Buyers searching for the
+// PARENT category (e.g. "guerrilla marketing examples", "stunt marketing
+// campaigns", "viral marketing case studies") are upper-funnel — they
+// haven't narrowed to "wheat pasting [city]" yet. Capturing these terms
+// brings them into the funnel earlier so we can convert before competitors
+// do. Trademark-free, all terms; no "wild posting" exposure.
+//
+// Note "guerilla" (one R) is the most-searched misspelling of "guerrilla"
+// and is intentionally included as a separate variant — Google does not
+// always auto-correct it before serving SERPs, so the misspelled query
+// surfaces a different (less-competitive) result set.
+//
+// Pop-up shops are NOT a service Phantom offers, but Phantom DOES run the
+// street marketing AROUND pop-up shops (snipes, sidewalk stencils, paste
+// walls signaling the pop-up location). Including the pop-up phrasing here
+// lets the buyer searching "pop-up shop marketing" land on Phantom for the
+// adjacent OOH layer they actually need.
+export const KW_PARENT_CATEGORIES = [
+  "viral marketing",
+  "viral marketing campaigns",
+  "viral marketing examples",
+  "stunt marketing",
+  "stunt marketing campaigns",
+  "stunt marketing examples",
+  "guerrilla marketing examples",
+  "guerilla marketing examples", // misspelling kept intentionally
+  "guerrilla marketing case studies",
+  "guerrilla marketing campaigns",
+  "ambient advertising examples",
+  "ambient marketing",
+  "experiential marketing examples",
+  "experiential marketing campaigns",
+  "street marketing examples",
+  "street marketing campaigns",
+  "OOH advertising examples",
+  "OOH marketing examples",
+  "alternative marketing",
+  "alternative advertising examples",
+  // Pop-up adjacent
+  "pop-up shop marketing",
+  "pop-up activation marketing",
+  "pop-up shop OOH",
+  "pop-up street campaigns",
+] as const;
+
 // ── Comparison queries (vs. other media) ──────────────────────────────────
 //
 // Comparison searches are mid-funnel: the buyer is evaluating wheat pasting
@@ -402,6 +450,10 @@ export const KW_HOMEPAGE = [
   // Top informational + comparison queries that drive SERP feature visibility.
   ...KW_QUESTIONS.slice(0, 8),
   ...KW_COMPARISON.slice(0, 4),
+  // Parent-category umbrella terms — captures upper-funnel buyers searching
+  // for "guerrilla marketing examples", "viral marketing campaigns", etc.
+  // before they narrow to "wheat pasting [city]".
+  ...KW_PARENT_CATEGORIES.slice(0, 12),
   // Top vertical-buyer queries (music + fashion + film).
   ...KW_VERTICAL_BUYERS.slice(0, 8),
   // "Near me" geo-intent.
@@ -453,6 +505,7 @@ export const KW_SERVICE_FULL_IMPACT = [
   ...KW_BUYER_INTENT.slice(0, 20),
   ...KW_VERTICAL_BUYERS,
   ...KW_COMPARISON.slice(0, 6),
+  ...KW_PARENT_CATEGORIES, // full umbrella coverage on the flagship service page
 ];
 
 /** Services hub — broad coverage + buyer-intent across every vertical. */
@@ -467,6 +520,7 @@ export const KW_SERVICES_HUB = [
   ...KW_BUYER_INTENT.slice(0, 18),
   ...KW_QUESTIONS.slice(0, 6),
   ...KW_VERTICAL_BUYERS.slice(0, 8),
+  ...KW_PARENT_CATEGORIES.slice(0, 14),
 ];
 
 /** Locations hub — geographic + craft + nationwide rollout + buyer intent. */
@@ -503,7 +557,12 @@ export const KW_ABOUT = [
   ...KW_CRAFT.slice(0, 3),
   ...KW_STREET_MEDIA.slice(0, 3),
   ...KW_BUYER_INTENT.slice(13, 25),
+  ...KW_PARENT_CATEGORIES.slice(0, 10),
 ];
+
+/** Per-city pages get a parent-category overlay too — buyers searching
+ *  "guerrilla marketing examples [city]" should land on city pages. */
+export const KW_CITY_PARENT_OVERLAY = KW_PARENT_CATEGORIES.slice(0, 8);
 
 /** Work / case studies hub. */
 export const KW_WORK = [

@@ -104,17 +104,30 @@ export const metadata: Metadata = {
   },
   icons: {
     // favicon.ico (32×32) is auto-discovered by Next from app/favicon.ico.
-    // Explicitly declare the 192×192 PNG so Google Search picks it up —
-    // Google requires a square favicon at ≥ 48 × 48 px to show in SERPs.
-    // favicon-32.png retained as a fallback for older browsers/RSS readers.
+    // Multi-size declaration so every search engine + browser picks the right
+    // file: Google → 192×192, Bing → 512×512 (Bing prefers larger square PNGs
+    // and applies a circular mask, so favicon-512 has a 92% safe zone),
+    // older browsers → 32×32 ico/png. apple-touch-icon is required for iOS
+    // home-screen + Safari pinned tabs (180×180).
     icon: [
+      { url: "/favicon-512.png", type: "image/png", sizes: "512x512" },
       { url: "/favicon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/favicon-32.png",  type: "image/png", sizes: "32x32"  },
     ],
-    // apple-touch-icon.png must be square (180×180). Re-exported from the
-    // source logo with transparent padding to fill the square canvas.
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    // Microsoft tile (Windows pinned site, Edge legacy). msapplication-config
+    // points to /browserconfig.xml; we skip that and rely on the meta-tag
+    // emission via `other` below since it's the more modern path.
+    other: [
+      { rel: "mask-icon", url: "/favicon.svg", color: "#1A1A1A" },
+    ],
   },
+  // PWA + modern Bing/Edge favicon discovery. Bing reads the manifest's
+  // icons array as a primary source; without this it falls back to the
+  // <link rel="icon"> tags only, which historically loaded a non-square
+  // 32×28 PNG that Bing silently rejected — leaving Phantom faviconless
+  // in Bing/Brave/DuckDuckGo SERPs.
+  manifest: "/site.webmanifest",
   // TODO: add when verification codes are issued
   // verification: {
   //   google: "",
@@ -152,6 +165,15 @@ export default function RootLayout({
 <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://api.web3forms.com" />
+
+        {/* Microsoft tile / Edge legacy favicon hints. Bing's web crawler
+            still reads msapplication-TileImage on some surfaces; Edge uses it
+            for pinned Windows tiles. TileColor matches the brand cream
+            background so the tile reads as part of the brand, not a system
+            default. */}
+        <meta name="msapplication-TileColor" content="#1A1A1A" />
+        <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+        <meta name="msapplication-config" content="none" />
 
         {/* Global JSON-LD — Organization + WebSite. The previous LocalBusiness
             (ProfessionalService) emission was deleted because it was geographically

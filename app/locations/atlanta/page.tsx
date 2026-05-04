@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
-import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
+import { KW_CITY_BASE, cityBuyerIntent, KW_CITY_PARENT_OVERLAY } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting Atlanta",
@@ -21,9 +21,16 @@ export const metadata: Metadata = {
     "Buckhead street advertising",
     "East Atlanta Village guerrilla marketing",
     "Old Fourth Ward OOH",
+    "Atlanta experiential marketing",
+    "Atlanta ambient advertising",
+    "Atlanta stunt marketing",
+    "Atlanta viral marketing campaigns",
+    "guerrilla marketing examples Atlanta",
+    "Atlanta music industry guerrilla marketing",
     ...cityBuyerIntent("Atlanta"),
     ...cityBuyerIntent("ATL"),
     ...KW_CITY_BASE,
+    ...KW_CITY_PARENT_OVERLAY,
   ],
   alternates: { canonical: "https://www.phantompasting.com/locations/atlanta" },
   openGraph: {
@@ -46,9 +53,9 @@ const data: CityPageData = {
   state: "GA",
   slug: "atlanta",
   heroWord: "ATLANTA",
-  intro: "Atlanta is one of the fastest-growing cities in the US — and one of the best for street marketing. We deploy across Midtown, Little Five Points, Buckhead, and East Atlanta Village with large-format wheat paste posters and chalk stencils.",
+  intro: "Atlanta is one of the fastest-growing cities in the US — and one of the best for guerrilla marketing. We deploy across Midtown, Little Five Points, Buckhead, and East Atlanta Village with large-format wheat paste posters, chalk stencils, and stunt marketing wall takeovers. Phantom Pasting executed the FIFA World Cup wheat paste activation across Atlanta and runs music-industry album-launch campaigns for labels routing through ATL. Whether you need experiential marketing for a tour stop or ambient advertising for a film premiere, Atlanta's walkable corridors carry every format.",
   whyTitle: "ATLANTA\nIS GROWING.",
-  whyText: "Atlanta is a hub for music, film, and culture — and it's growing fast. Little Five Points is the city's creative nerve center. Midtown draws young professionals and students. Buckhead has the spending power. Every major tour, album drop, and cultural event passes through ATL — and street marketing is how you make noise here.",
+  whyText: "Atlanta is a hub for music, film, and culture — and it's growing fast. Little Five Points is the city's creative nerve center, where street art and viral marketing campaigns blend into the visual fabric. Midtown draws young professionals and students. Buckhead has the spending power. Every major tour, album drop, and cultural event passes through ATL — and guerrilla marketing examples on Atlanta walls become the photographs that travel further than any digital ad. We've executed FIFA World Cup wall installations, hip-hop album launches, and DTC product activations across all six core ATL neighborhoods.",
   neighborhoods: [
     { name: "Midtown", desc: "Arts and entertainment hub. Piedmont Park foot traffic, Georgia Tech students, and Peachtree Street density." },
     { name: "Little Five Points", desc: "Atlanta's creative district. Independent shops, music venues, and the most street-culture-native audience in the city." },
@@ -64,7 +71,7 @@ const data: CityPageData = {
   ],
   heroImage1: { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp", alt: "FIFA World Cup wall installation in Atlanta" },
   heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall gallery in Atlanta" },
-  lastUpdated: "2026-04-25",
+  lastUpdated: "2026-05-04",
   pricingTiers: [
     { tier: "Single-Neighborhood Test", range: "$2,800 – $4,200", includes: "60–90 posters · 1 ATL district · Photo doc + GPS-logged install" },
     { tier: "Full-City Activation", range: "$10K – $16K", includes: "Four to five Atlanta districts · Multi-design rotation · Daylight shots" },

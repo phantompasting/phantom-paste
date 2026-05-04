@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
-import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
+import { KW_CITY_BASE, cityBuyerIntent, KW_CITY_PARENT_OVERLAY } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting NYC",
@@ -24,10 +24,17 @@ export const metadata: Metadata = {
     "Bushwick street advertising",
     "DUMBO guerrilla marketing",
     "Manhattan scaffold wraps",
+    "NYC experiential marketing",
+    "NYC ambient advertising",
+    "NYC stunt marketing",
+    "NYC viral marketing campaigns",
+    "guerrilla marketing examples NYC",
+    "NYC pop-up activation marketing",
     ...cityBuyerIntent("New York"),
     ...cityBuyerIntent("NYC"),
     ...cityBuyerIntent("Brooklyn"),
     ...KW_CITY_BASE,
+    ...KW_CITY_PARENT_OVERLAY,
   ],
   alternates: { canonical: "https://www.phantompasting.com/locations/new-york" },
   openGraph: {
@@ -50,9 +57,9 @@ const data: CityPageData = {
   state: "NY",
   slug: "new-york",
   heroWord: "NEW YORK",
-  intro: "New York City is the birthplace of wheat pasting culture. More foot traffic per block than anywhere in the country. We hit the Lower East Side, Brooklyn, SoHo, Williamsburg, and every high-density neighborhood in between. Phantom Pasting has executed wheat paste and guerrilla campaigns for national brands across New York's streets.",
+  intro: "New York City is the birthplace of wheat pasting culture — the original guerrilla marketing format that taught every other city how to do street media. More foot traffic per block than anywhere in the country. We hit the Lower East Side, Brooklyn, SoHo, Williamsburg, and every high-density neighborhood in between with wheat paste, scaffold wraps, snipes, and chalk stencils. Phantom Pasting has executed paste walls, viral marketing campaigns, and pop-up activation marketing for national brands across NYC streets, and we run scaffold-wrap programs across Manhattan with full DOB permitting.",
   whyTitle: "NYC IS WHERE\nIT STARTED.",
-  whyText: "New York has the highest pedestrian density in the US — millions of daily commuters, tourists, and residents who experience the city on foot. A wheat paste poster in Williamsburg or SoHo isn't just advertising — it's part of the visual fabric of the street. NYC campaigns generate organic social shares at a rate no other city can match.",
+  whyText: "New York has the highest pedestrian density in the US — millions of daily commuters, tourists, and residents who experience the city on foot. A wheat paste poster in Williamsburg or SoHo isn't just advertising — it's experiential marketing in its purest form, part of the visual fabric of the street. NYC campaigns generate organic social shares at a rate no other city can match: every one of our LES walls becomes its own viral marketing surface within 48 hours of install. Scaffold wraps are the Manhattan-specific premium format — $2K-$8K per wrap, 3–4 week DOB permit lead time, and the highest impression-density placement of any OOH format in the city.",
   neighborhoods: [
     {
       name: "Lower East Side",
@@ -73,7 +80,7 @@ const data: CityPageData = {
   ],
   heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Guerrilla advertising pole wrap campaign at night in New York" },
   heroImage2: { src: "/gallery/bedstuy-stencil.webp", alt: "Guerrilla marketing stencil campaign Bed-Stuy Brooklyn New York" },
-  lastUpdated: "2026-04-25",
+  lastUpdated: "2026-05-04",
   pricingTiers: [
     { tier: "Single-Neighborhood Test", range: "$4,200 – $6,800", includes: "80–120 posters · 1 NYC neighborhood · Photo doc + GPS-logged install" },
     { tier: "Manhattan + Brooklyn", range: "$14K – $22K", includes: "Two-crew split · LES + Williamsburg most common · Multi-design rotation" },

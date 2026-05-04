@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CityPageTemplate, { type CityPageData } from "@/components/CityPageTemplate";
-import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
+import { KW_CITY_BASE, cityBuyerIntent, KW_CITY_PARENT_OVERLAY } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
   title: "Wheat Pasting Chicago",
@@ -21,8 +21,13 @@ export const metadata: Metadata = {
     "Wrigleyville street advertising",
     "Pilsen guerrilla marketing",
     "Loop OOH advertising",
+    "Chicago experiential marketing",
+    "Chicago ambient advertising",
+    "Chicago stunt marketing",
+    "guerrilla marketing examples Chicago",
     ...cityBuyerIntent("Chicago"),
     ...KW_CITY_BASE,
+    ...KW_CITY_PARENT_OVERLAY,
   ],
   alternates: { canonical: "https://www.phantompasting.com/locations/chicago" },
   openGraph: {
@@ -45,9 +50,9 @@ const data: CityPageData = {
   state: "IL",
   slug: "chicago",
   heroWord: "CHICAGO",
-  intro: "Chicago's neighborhoods are built for street marketing — walkable blocks, dense populations, and a culture that supports local art and independent brands. We deploy across Wicker Park, Logan Square, Wrigleyville, and the Loop. Phantom Pasting has run wheat paste campaigns for national brands and independent artists across Chicago's most walkable streets.",
+  intro: "Chicago's neighborhoods are built for street marketing — walkable blocks, dense populations, and a culture that supports local art and independent brands. Wheat pasting in Chicago is a form of guerrilla marketing that lands harder than billboards because the city lives on its sidewalks. We deploy across Wicker Park, Logan Square, Wrigleyville, and the Loop with paste, snipes, and chalk stencils — full-stack experiential street marketing that converts foot traffic into share-of-feed.",
   whyTitle: "CHICAGO\nHITS DIFFERENT.",
-  whyText: "Chicago has some of the most walkable and culturally distinct neighborhoods in the Midwest. Wicker Park's independent retail strip, Logan Square's arts corridor, and Wrigleyville's game-day foot traffic create natural high-visibility zones. Chicago campaigns work because the city lives on its streets — especially in summer.",
+  whyText: "Chicago has some of the most walkable and culturally distinct neighborhoods in the Midwest. Wicker Park's independent retail strip, Logan Square's arts corridor, and Wrigleyville's game-day foot traffic create natural high-visibility zones for guerrilla marketing campaigns. Chicago campaigns work because the city lives on its streets — especially in summer. We pair paste walls with chalk stencils and pop-up activation marketing for brands launching retail or running festival-week saturation around Lollapalooza, Pitchfork, and Riot Fest.",
   neighborhoods: [
     { name: "Wicker Park", desc: "Independent retail, bars, and creative studios. Milwaukee Ave is prime wall territory." },
     { name: "Logan Square", desc: "Arts and music corridor. Walkable, young, and culturally engaged." },
@@ -63,7 +68,15 @@ const data: CityPageData = {
   ],
   heroImage1: { src: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp", alt: "Momentous wheat paste campaign wall wide shot" },
   heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil sidewalk guerrilla marketing activation" },
-  lastUpdated: "2026-04-25",
+  lastUpdated: "2026-05-04",
+  // Pricing tiers — hoist Chicago cost answers above-fold so cost-intent
+  // queries ("wheat pasting chicago cost", "guerrilla marketing chicago
+  // cost") see visible H2/body content, not just the FAQPage JSON-LD.
+  pricingTiers: [
+    { tier: "Single-Neighborhood Test", range: "$2,800 – $4,200", includes: "60–90 posters · 1 Chicago district · Photo doc + GPS-logged install" },
+    { tier: "Full-City Activation", range: "$10K – $16K", includes: "Four to five Chicago districts · Multi-design rotation · Daylight shots" },
+    { tier: "Festival Saturation", range: "$14K – $28K", includes: "Lollapalooza / Pitchfork / Riot Fest window · Multi-week refresh" },
+  ],
   spotlight: {
     eyebrow: "Chicago Spotlight",
     title: "WICKER PARK + LOGAN SQUARE + LOLLA WINDOWS",

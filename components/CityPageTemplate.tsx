@@ -329,47 +329,49 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                 </div>
               </div>
 
-              {/* RIGHT — image composition */}
-              <div className="relative hidden lg:block h-[660px] overflow-hidden">
-                <span aria-hidden className="absolute right-0 top-1/2 font-black uppercase pointer-events-none select-none"
-                  style={{ fontSize: "clamp(80px, 12vw, 180px)", letterSpacing: "-0.06em",
-                    color: "rgba(212,160,16,0.05)", lineHeight: 1,
-                    writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}>
-                  {data.heroWord}
-                </span>
+              {/* RIGHT — image composition.
+                  Parent column NO LONGER has overflow-hidden — that was clipping
+                  the box-shadow on hero images regardless of which descendant level
+                  the shadow lived on (filter:drop-shadow has the same problem in
+                  Safari). The watermark text is the only element that needs
+                  clipping; it now lives in its own absolutely-positioned
+                  overflow:hidden container so the rest of the column can let
+                  shadows render naturally. */}
+              <div className="relative hidden lg:block h-[660px]">
+                {/* Watermark — clipped to column bounds in its own container so
+                    removing overflow:hidden from the parent doesn't let it bleed. */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  <span aria-hidden className="absolute right-0 top-1/2 font-black uppercase select-none"
+                    style={{ fontSize: "clamp(80px, 12vw, 180px)", letterSpacing: "-0.06em",
+                      color: "rgba(212,160,16,0.05)", lineHeight: 1,
+                      writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}>
+                    {data.heroWord}
+                  </span>
+                </div>
 
-                {/*
-                  Wrapper above is `hidden lg:block` — these images don't render on mobile.
-                  Removed `priority` from heroImage1: Next/image preloads priority assets
-                  regardless of CSS visibility, so mobile users were downloading a 318KB
-                  hero they never saw. On desktop the H1 text paints first anyway, so the
-                  LCP impact of removing priority is negligible.
-                */}
+                {/* heroImage1 — single div carries width, rotation, border-radius,
+                    overflow:hidden (clips the rounded image) AND box-shadow.
+                    overflow:hidden only clips CHILDREN of an element; it never
+                    clips the element's own box-shadow (which renders outside the
+                    border box). With the parent column no longer clipping, the
+                    shadow now renders cleanly with rounded corners as expected. */}
                 {data.heroImage1 && (
-                  // Outer div: positions + rotates the card. No box-shadow here —
-                  // box-shadow on a descendant is clipped by the parent's overflow-hidden.
-                  // Shadow lives on the inner div via filter:drop-shadow(), which is
-                  // composited AFTER overflow clipping and is NOT clipped by ancestors.
-                  <div className="absolute top-10 right-0"
-                    style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)" }}>
-                    <div className="relative w-full h-full rounded-2xl overflow-hidden"
-                      style={{ filter: "drop-shadow(0 24px 64px rgba(0,0,0,0.20)) drop-shadow(0 4px 14px rgba(0,0,0,0.10))" }}>
-                      <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
-                        fill style={{ objectFit: "cover" }}
-                        sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
-                    </div>
+                  <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
+                    style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
+                      boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
+                    <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
+                      fill style={{ objectFit: "cover" }}
+                      sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
                   </div>
                 )}
 
                 {data.heroImage2 && (
-                  <div className="absolute bottom-10 left-2"
-                    style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)" }}>
-                    <div className="relative w-full h-full rounded-xl overflow-hidden"
-                      style={{ filter: "drop-shadow(0 16px 48px rgba(0,0,0,0.26)) drop-shadow(0 3px 10px rgba(0,0,0,0.12))" }}>
-                      <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
-                        fill style={{ objectFit: "cover" }}
-                        sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
-                    </div>
+                  <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
+                    style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
+                      boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                    <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
+                      fill style={{ objectFit: "cover" }}
+                      sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
                   </div>
                 )}
 
