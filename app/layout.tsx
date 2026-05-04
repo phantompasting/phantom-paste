@@ -103,11 +103,17 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
   },
   icons: {
-    // favicon.ico is auto-discovered by Next from app/; don't redeclare.
-    icon: [{ url: "/favicon-32.png", type: "image/png" }],
-    // iOS home-screen icons need PNG (webp support is spotty on older iOS).
-    // apple-touch-icon.png is a 180×180 PNG generated from the source webp.
-    apple: "/apple-touch-icon.png",
+    // favicon.ico (32×32) is auto-discovered by Next from app/favicon.ico.
+    // Explicitly declare the 192×192 PNG so Google Search picks it up —
+    // Google requires a square favicon at ≥ 48 × 48 px to show in SERPs.
+    // favicon-32.png retained as a fallback for older browsers/RSS readers.
+    icon: [
+      { url: "/favicon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon-32.png",  type: "image/png", sizes: "32x32"  },
+    ],
+    // apple-touch-icon.png must be square (180×180). Re-exported from the
+    // source logo with transparent padding to fill the square canvas.
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   // TODO: add when verification codes are issued
   // verification: {
