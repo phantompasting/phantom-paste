@@ -19,13 +19,21 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        This guide is for marketing leads, brand managers, and creative directors evaluating
+        wheat pasting as a media channel — not a DIY guide for hobbyists. Everything here
+        comes from running paid commercial campaigns across 50+ US cities since 2014.
+      </p>
+
       <h2>Wheat Pasting, Defined</h2>
       <p>
         Wheat pasting is the practice of adhering paper posters to urban walls using a paste
-        made from wheat flour and water. The technique has been in continuous use since the
-        late 1800s — first for Victorian music-hall advertising, then for political agitation,
-        then for punk and hip-hop show flyers, and since the early 2000s for commercial brand
-        campaigns targeting streetwear, music, film, and culture-adjacent DTC audiences.
+        made from{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheat flour and water</a>.
+        The technique has been in continuous use since the late 1800s — first for Victorian
+        music-hall advertising, then for political agitation, then for punk and hip-hop show
+        flyers, and since the early 2000s for commercial brand campaigns targeting streetwear,
+        music, film, and culture-adjacent DTC audiences.
       </p>
       <p>
         A single wheat paste poster is usually 24×36 inches. Campaign installations cluster
@@ -119,7 +127,9 @@ export default function Post() {
         a $0.10–$0.30 CPM before counting social amplification. Measured digital OOH in the
         same market runs $8–$20 CPM — 25–80× the cost for equivalent reach, without the
         cultural signal wheat paste carries. For the full cost breakdown, see{" "}
-        <BlogLink slug="wheat-pasting-cost">how much wheat pasting costs</BlogLink>.
+        <BlogLink slug="wheat-pasting-cost">how much wheat pasting costs</BlogLink>. We
+        run this math for every brand at the kickoff call. Half of them ask us to send the
+        spreadsheet to their CFO.
       </p>
 
       <h3>Attention is harder to buy than ever</h3>

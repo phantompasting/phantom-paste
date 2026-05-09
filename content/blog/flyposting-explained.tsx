@@ -16,19 +16,30 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        For US brand and agency teams who&apos;ve received briefs from UK / Commonwealth
+        creative shops using the term &quot;flyposting&quot; — and want to know whether
+        it&apos;s the same thing as wheat pasting (yes), wild posting (mostly), and
+        what changes between US and UK execution.
+      </p>
+
       <h2>Flyposting — The Definition</h2>
       <p>
-        Flyposting (one word, occasionally hyphenated as fly-posting) refers to pasting posters
-        onto urban surfaces without the surface owner&apos;s permission — or with permission in the
-        case of authorized commercial campaigns. The term has been in British English since at
-        least the 1880s, when it described bill-stickers plastering music-hall posters onto any
-        vertical surface they could reach.
+        <a href="https://en.wikipedia.org/wiki/Flyposting" target="_blank" rel="noopener noreferrer">Flyposting</a>
+        {" "}(one word, occasionally hyphenated as fly-posting) refers to pasting posters
+        onto urban surfaces without the surface owner&apos;s permission — or with permission
+        in the case of authorized commercial campaigns. The term has been in British English
+        since at least the 1880s, when it described bill-stickers plastering music-hall
+        posters onto any vertical surface they could reach.
       </p>
       <p>
         In the US, the same practice is called <em>wheat pasting</em> (referencing the paste), or
         <em> wild posting</em> (a trademarked term owned by agencies). British and Commonwealth
         English have kept flyposting as the dominant term; American English split it into
-        technique-specific (wheat pasting) and trade-specific (wild posting) naming.
+        technique-specific (wheat pasting) and trade-specific (wild posting) naming. We get
+        called by all three names depending on whether the brief came from a London creative
+        agency, a New York label, or a procurement team that read the word in a Wikipedia article
+        ten minutes ago. The job is the same. The vocabulary follows the dialect.
       </p>
 
       <h2>Flyposting vs. Wheat Pasting vs. Wild Posting</h2>
@@ -167,7 +178,15 @@ export default function Post() {
         <BlogLink slug="snipe-posters-vs-wheat-paste-vs-floor-decals">
           snipes vs. wheat paste vs. floor decals
         </BlogLink>{" "}
-        breaks down when each wins.
+        breaks down when each wins. For deeper format history, the{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste</a>{" "}
+        and{" "}
+        <a href="https://en.wikipedia.org/wiki/Flyposting" target="_blank" rel="noopener noreferrer">flyposting</a>{" "}
+        references cover the British and American naming evolution.
+      </p>
+      <p>
+        Briefing a US crew with a UK / Commonwealth flyposting brief?{" "}
+        <a href="/contact">Get a quote</a> — translation included.
       </p>
     </>
   );

@@ -20,6 +20,12 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        This guide is for brand managers, agencies, and anyone considering a wheat paste
+        campaign and worried about the legal exposure. It&apos;s written from inside an
+        active commercial install crew — not legal advice, but field reality.
+      </p>
+
       <h2>What the Law Actually Says</h2>
       <p>
         Most US municipalities have &quot;unlawful posting&quot; or &quot;illegal posting&quot; ordinances
@@ -173,8 +179,15 @@ export default function Post() {
 
       <p>
         Curious how crews actually prep paste in the first place? Our{" "}
-        <BlogLink slug="how-to-make-wheat-paste">full paste recipe breakdown</BlogLink> walks through
-        the mix, cook, and cool-down.
+        <BlogLink slug="how-to-make-wheat-paste">full paste recipe breakdown</BlogLink> walks
+        through the mix, cook, and cool-down. For the operational side of an authorized
+        commercial campaign, see{" "}
+        <BlogLink slug="wheat-pasting-campaign">how a 12-location campaign runs overnight</BlogLink>.
+      </p>
+      <p>
+        Want a quote for an authorized, owner-consented campaign?{" "}
+        <a href="/contact">Contact us</a> — we handle wall rights, permits where required,
+        and full photo documentation per install.
       </p>
     </>
   );

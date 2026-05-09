@@ -164,7 +164,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "Wheat Pasting in New York City: NYC Wall Culture Explained",
     metaTitle: "Wheat Pasting in NYC: Field Guide",
     metaDescription:
-      "Lower East Side, Williamsburg, SoHo, Chinatown — NYC wheat pasting wall map from a crew that works all five boroughs. Pricing, permits, timing.",
+      "Lower East Side, Williamsburg, SoHo, Chinatown — full NYC wheat pasting wall map from a crew that works all five boroughs. Pricing, permits, install timing.",
     excerpt:
       "New York is the second major US paste market — denser than LA, more regulated, and the only US city where scaffold wraps are a primary format. NYC's wall economy concentrates in four neighborhoods.",
     silo: "local-legal",
@@ -208,7 +208,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     // well under Google's ~60-char truncation threshold.
     metaTitle: "Wheat Pasting Los Angeles: Field Guide",
     metaDescription:
-      "Melrose, Silver Lake, Fairfax, DTLA — where LA wheat pasting walls live, how we pick them, why LA outperforms most US markets for street media.",
+      "Melrose, Silver Lake, Fairfax, DTLA — where LA wheat pasting walls live, how we pick them, and why LA outperforms most US markets for street-level media.",
     excerpt:
       "Los Angeles is the single most important wheat pasting market in the United States. Dense creative-class neighborhoods, industry HQ, and 300+ sunny days a year built LA into a paste capital before anywhere else caught on.",
     silo: "local-legal",
@@ -331,12 +331,12 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "Wheat Pasting vs Billboards: ROI Breakdown for Marketers",
     metaTitle: "Wheat Pasting vs Billboards: ROI Guide",
     metaDescription:
-      "Side-by-side: cost per impression, attention, permit friction, install speed. Which OOH format wins for your goal — wheat pasting or billboards.",
+      "Side-by-side: cost per impression, attention quality, permit friction, install speed. Which OOH format wins for your goal — wheat pasting or billboards?",
     excerpt:
       "Billboards deliver scale and measurability; wheat pasting delivers cultural credibility and dramatically cheaper CPMs in the neighborhoods that matter. Neither is universally better — here's the honest side-by-side.",
     silo: "strategy-roi",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-05-05",
+    updatedAt: "2026-05-05",
     heroImage: "/gallery/fifa-world-cup-poster-installation-closeup.webp",
     heroAlt: "Wheat paste poster installation close-up contrasted with traditional OOH media",
     authorSlug: MATEO_VARGAS.slug,
@@ -365,7 +365,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["wheat-pasting-cost", "snipe-posters-vs-wheat-paste-vs-floor-decals", "what-is-wheat-pasting"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "wheat-pasting-cost",
@@ -413,7 +413,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "What Is Wheat Pasting? A Brand's Guide",
     metaTitle: "What Is Wheat Pasting? A Brand's Guide",
     metaDescription:
-      "Wheat pasting for brands — what it is, why it works, how it beats digital OOH on attention and cost. Field notes from an active install crew.",
+      "Wheat pasting for brands — what it is, why it works, how it beats digital OOH on attention and cost. Field notes from an active install crew, 500+ campaigns.",
     excerpt:
       "Wheat pasting is a 140-year-old street advertising format where large-format posters are adhered to urban walls with a flour-and-water paste. Here's what it is, why it works, and how it stacks up in 2026.",
     silo: "strategy-roi",
@@ -454,12 +454,12 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "Flyposting Explained: What It Is, How It Works, What It Costs",
     metaTitle: "Flyposting Explained: A Brand's Guide",
     metaDescription:
-      "Flyposting defined — history, technique, and how it compares to wheat pasting and wild posting. Written from an active street-postering crew.",
+      "Flyposting defined — history, technique, and how it compares to wheat pasting and wild posting. Written from an active street-postering crew across NYC and LA.",
     excerpt:
       "Flyposting is the British term for what Americans call wheat pasting or wild posting — the practice of adhering posters to urban walls with paste. The technique is identical; the word changed crossing the Atlantic.",
     silo: "the-craft",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-05-02",
+    updatedAt: "2026-05-02",
     heroImage: "/gallery/fifa-world-cup-poster-wall-angle-view.webp",
     heroAlt: "Flyposting wall on a dense urban street",
     authorSlug: MATEO_VARGAS.slug,
@@ -488,7 +488,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["what-is-wheat-pasting", "how-to-make-wheat-paste", "street-postering-tools"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "street-postering-tools",
@@ -536,7 +536,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "Snipe Posters vs Wheat Paste vs Floor Decals: Which Format Wins",
     metaTitle: "Snipes vs Wheat Paste vs Floor Decals",
     metaDescription:
-      "Three street formats, three use cases. When to snipe, when to paste, when to drop floor decals. Installer-grade comparison from 500+ campaigns.",
+      "Three street formats, three use cases. When to snipe, when to wheat paste, when to drop floor decals — installer-grade comparison from 500+ live campaigns.",
     excerpt:
       "Wheat paste, snipes, and floor decals aren't interchangeable. Each wins a different use case: walls for cultural weight, snipes for frequency, floor decals for attention at dwell points. Here's the installer-grade comparison.",
     silo: "the-craft",
@@ -577,7 +577,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "Wheat Paste Recipes: Why One Formula Doesn't Work on Every Wall",
     metaTitle: "Wheat Paste Recipes: Wall-Type Guide",
     metaDescription:
-      "Different walls need different wheat paste recipes. Brick, popcorn cement, stucco — a Field Operations Lead breaks down the formula per surface.",
+      "Different walls need different wheat paste recipes. Brick, popcorn cement, stucco, plywood — the Field Operations Lead recipe per surface, with ratios.",
     excerpt:
       "One wheat paste recipe doesn't work on every wall. Brick takes the base recipe; popcorn cement needs thicker paste; stucco needs a pre-wet. The wall-type-specific breakdown from 500+ campaigns.",
     silo: "the-craft",
@@ -619,12 +619,12 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "How to Make Wheat Paste: Field Installer Guide",
     metaTitle: "How to Make Wheat Paste: Recipe Guide",
     metaDescription:
-      "Real wheat paste recipe from 10+ years on active crews. Flour-to-water ratios, wall-type adjustments, storage. No fluff, just field notes.",
+      "Real wheat paste recipe from 10+ years on active install crews. Flour-to-water ratio, wall-type tweaks, water sourcing, storage — no fluff, just field notes.",
     excerpt:
       "The base recipe is 1 part flour to 4 parts water — but what changes per campaign is everything else. Wall surface, temperature, water source, application tool. The installer's guide to paste that actually holds.",
     silo: "the-craft",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-05-08",
+    updatedAt: "2026-05-08",
     heroImage: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     heroAlt: "Wheat paste poster installation on an urban wall",
     authorSlug: MATEO_VARGAS.slug,
@@ -654,14 +654,14 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["is-wheat-pasting-legal", "wheat-pasting-campaign"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "is-wheat-pasting-legal",
     title: "Is Wheat Pasting Legal? What Installers Actually Experience",
     metaTitle: "Is Wheat Pasting Legal? Field Reality",
     metaDescription:
-      "Laws vary by city. Here's what actually happens on LA and NYC streets, from a crew with 500+ clean campaigns. Written by a Field Operations Lead.",
+      "Wheat pasting laws vary by city. What actually happens on LA + NYC streets — police encounters, fines, owner-consent rules — from a 500-campaign crew.",
     excerpt:
       "Wheat pasting sits in a legal gray zone in most US cities. Here's what actually happens on the street — from 500+ campaigns across LA, NYC, Miami, Chicago, Atlanta, Phoenix, and Denver. Not what city code says in theory.",
     silo: "local-legal",
@@ -702,7 +702,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: "How a Wheat Pasting Campaign Actually Works: 12 Locations, One Night",
     metaTitle: "How Wheat Pasting Campaigns Work",
     metaDescription:
-      "Behind a real 12-location wheat pasting campaign install. Prep, route, tools, timing, documentation. Nothing left to imagination.",
+      "Inside a real 12-location wheat pasting campaign install — prep, route planning, kit, paste mix, install timing, documentation. Nothing left to imagination.",
     excerpt:
       "A typical client campaign: 12–15 locations, 6–16 posters per wall, 4–8 designs, finished overnight. The math behind it — prep, route, paste, document — is what separates a campaign that holds 6 weeks from one that peels in 3 days.",
     silo: "local-legal",

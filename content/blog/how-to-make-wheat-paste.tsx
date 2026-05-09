@@ -23,8 +23,19 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        Written for street-art crews, DIY postering teams, and brand-side production
+        people who need to understand what their installer is doing with the bucket.
+        The recipe scales from one home-kitchen test poster to a 200-poster commercial
+        campaign — and the variables that matter change as the scale changes.
+      </p>
+
       <h2>The Base Recipe</h2>
-      <p>For a single-poster test run at home:</p>
+      <p>
+        For a single-poster test run at home — basic{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste</a>{" "}
+        with no add-ins:
+      </p>
       <ul>
         <li>1 cup wheat flour — all-purpose or pastry flour. Not bread flour. Too much gluten makes the paste stringy.</li>
         <li>4 cups cold water, divided</li>
@@ -157,6 +168,17 @@ export default function Post() {
           city-by-city breakdown.
         </li>
       </ol>
+      <p>
+        For deeper recipe variants per wall surface, see{" "}
+        <BlogLink slug="wheat-paste-recipes">wheat paste recipes</BlogLink>. Quick refresher
+        on the underlying medium:{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste</a>{" "}
+        on Wikipedia covers the chemistry and historical use.
+      </p>
+      <p>
+        Don&apos;t want to mix paste at 2 a.m. on the parking lot of a Phoenix Home Depot?
+        Fair. <a href="/contact">Hire us</a> — we bring the bucket.
+      </p>
     </>
   );
 }

@@ -61,6 +61,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/about",                          file: "app/about/page.tsx",                                   priority: 0.65, changeFreq: "monthly" },
   { path: "/contact",                        file: "app/contact/page.tsx",                                 priority: 0.8,  changeFreq: "monthly" },
   { path: "/gallery",                        file: "app/gallery/page.tsx",                                 priority: 0.7,  changeFreq: "monthly" },
+  { path: "/pricing",                        file: "app/pricing/page.tsx",                                 priority: 0.9,  changeFreq: "monthly" },
 
   // ── Work / Case Studies ───────────────────────────────────────────────────
   { path: "/work",                           file: "app/work/page.tsx",                                    priority: 0.75, changeFreq: "monthly" },

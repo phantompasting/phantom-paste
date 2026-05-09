@@ -15,6 +15,13 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        For brand managers, OOH planners, and agencies choosing between three street
+        formats — wheat paste posters, snipe posters, and floor decals. Each has a
+        different attention pattern, different cost, different lifespan, and a
+        different right-fit use case.
+      </p>
+
       <h2>The Three Formats, Defined</h2>
       <p>
         <strong>Wheat paste posters</strong> are large-format (typically 24×36&quot;) paper posters
@@ -173,7 +180,17 @@ export default function Post() {
       </ol>
       <p>
         Most campaigns answer yes to two of the three. Those are the brands running pairings. Full
-        impact campaigns answer yes to all three.
+        impact campaigns answer yes to all three. For broader format context the{" "}
+        <a href="https://oaaa.org/" target="_blank" rel="noopener noreferrer">OAAA</a>{" "}
+        catalogs the formal OOH spec sheet, while{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">Wheatpaste</a>{" "}
+        and{" "}
+        <a href="https://en.wikipedia.org/wiki/Out-of-home_advertising" target="_blank" rel="noopener noreferrer">out-of-home advertising</a>{" "}
+        cover the medium history.
+      </p>
+      <p>
+        Picking a format for your campaign? <a href="/contact">Get a quote</a> — describe
+        the brief and we&apos;ll recommend the right format mix in the proposal.
       </p>
     </>
   );

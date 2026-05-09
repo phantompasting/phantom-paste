@@ -15,12 +15,23 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        For installer crews, street-art teams, and DIY postering operations who&apos;ve
+        used the base{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste</a>{" "}
+        recipe and watched it fail on a different wall. Each variant here has a real
+        wall it was developed for and a specific failure mode it solves.
+      </p>
+
       <h2>Why One Recipe Doesn&apos;t Cut It</h2>
       <p>
         Walls aren&apos;t a uniform substrate. A smooth brick wall in Brooklyn absorbs paste
-        differently than a textured stucco wall in Phoenix. A shaded plywood construction barrier
-        holds paste for 10 weeks; a sun-baked cinder block wall peels in 8 days. The recipe has to
-        match the wall.
+        differently than a textured stucco wall in Phoenix. A shaded plywood construction
+        barrier holds paste for 10 weeks; a sun-baked cinder block wall peels in 8 days. The
+        recipe has to match the wall. We learned this the long way — by losing posters in
+        Phoenix in August and trying to figure out why the same recipe that held for two months
+        on Melrose curled off a stucco wall in 11 days. The flour-water ratio that works in LA
+        is not the flour-water ratio that works in 110°F desert heat.
       </p>
       <p>
         This is the single biggest gap between DIY wheat paste tutorials and actual campaign work.
@@ -180,7 +191,15 @@ export default function Post() {
       <p>
         Ready to see these recipes in motion? See{" "}
         <BlogLink slug="wheat-pasting-campaign">how a real 12-location campaign runs them
-        overnight</BlogLink>.
+        overnight</BlogLink>. For paste-medium background, the{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste</a>{" "}
+        reference covers the chemistry; the{" "}
+        <BlogLink slug="how-to-make-wheat-paste">base recipe guide</BlogLink>{" "}
+        covers the universal starting point this post varies from.
+      </p>
+      <p>
+        Don&apos;t want to mix paste yourself? <a href="/contact">Hire us</a> — we bring
+        crew, kit, and the right recipe for the wall surface and weather.
       </p>
     </>
   );

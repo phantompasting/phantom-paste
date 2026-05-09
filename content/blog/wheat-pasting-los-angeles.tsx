@@ -16,30 +16,42 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        Written for brand managers, agencies, and creative directors planning LA
+        campaigns. Neighborhood-by-neighborhood map, foot-traffic numbers, wall-rights
+        pricing, and creative rules are all from active crews working LA walls weekly.
+      </p>
+
       <h2>Why LA Works Better Than Any Other US Market</h2>
       <p>
-        LA has four structural advantages no other market matches:
+        We work LA harder than any other city we run because four things line up here that
+        don&apos;t line up anywhere else:
       </p>
       <ol>
         <li>
           <strong>Pedestrianized corridors inside a driving city.</strong> Melrose, Abbot Kinney,
           Robertson, DTLA Arts District — these are walkable blocks inside a metro that drives
-          everywhere else. Concentration of attention is exactly what paste walls need.
+          everywhere else. Walking-pace attention is exactly what paste walls need, and LA has
+          it concentrated in five or six neighborhoods.
         </li>
         <li>
           <strong>Industry headquarters.</strong> Every major music label, every streetwear
-          flagship, every film studio, every DTC brand with a Venice or West Hollywood office. The
-          audience that decides what gets advertised lives here.
+          flagship, every film studio, every DTC brand with a Venice or West Hollywood office.
+          The audience that decides what gets advertised lives here. We&apos;ve installed walls
+          for clients whose creative directors live four blocks from the wall they signed off on.
         </li>
         <li>
-          <strong>Paparazzi and influencer density.</strong> A Fairfax paste wall has a 40-60%
-          chance of landing in a celebrity photo within a week. That&apos;s amplification no
-          programmatic ad buy delivers.
+          <strong>Paparazzi and influencer density.</strong> A Fairfax paste wall has a real
+          chance of landing in a celebrity photo within a week — we&apos;ve had brands tell us
+          their wall ended up in someone&apos;s feed before the campaign even officially launched.
+          That&apos;s amplification no programmatic ad buy delivers.
         </li>
         <li>
-          <strong>Weather cooperation.</strong> Posters hold 6-10 weeks in LA versus 3-5 weeks in
-          Miami or NYC. Rain and humidity don&apos;t eat the paper. Sun fades colors but the paste
-          itself is stable.
+          <strong>Weather cooperation.</strong> Posters hold 6–10 weeks in LA versus 3–5 weeks in
+          Miami or NYC. Rain and humidity don&apos;t eat the paper. Sun fades colors over time
+          but the paste itself is stable. The longest-lived poster I&apos;ve personally seen on
+          Melrose ran 11 weeks before we pulled it for a refresh — that&apos;s impossible weather
+          almost anywhere else.
         </li>
       </ol>
 
@@ -49,12 +61,17 @@ export default function Post() {
       <p>
         Between Fairfax and La Brea. 0.7 miles. 200+ authorized wall slots. The single most
         tracked paste corridor in the US. If a campaign is built around one city and one street,
-        it&apos;s this one. Supreme built their brand on this block. Fear of God, Palace, and Aimé
-        Leon Dore all ran major activations here.
+        it&apos;s this one. Supreme built their brand on this block. Fear of God, Palace, and
+        Aimé Leon Dore all ran major activations here. We hold long-standing relationships with
+        property managers along this stretch — most of them know us by name and we usually get
+        a call back within an hour during scout season.
       </p>
       <p>
         Foot traffic: 25,000–40,000 weekday pedestrians, higher on weekends. Wall rights run
-        $180–$400 per campaign slot. Premium walls near the Fairfax intersection hit $500+.
+        $180–$400 per campaign slot. Premium walls near the Fairfax intersection hit $500+. The
+        single best wall on the corridor right now is one we won&apos;t name in print — half our
+        repeat clients book it specifically and we don&apos;t advertise it to keep the rotation
+        clean.
       </p>
 
       <h3>Fairfax Avenue — The Original Supreme Block</h3>
@@ -216,7 +233,15 @@ export default function Post() {
         operational breakdown, see{" "}
         <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight
-        </BlogLink>.
+        </BlogLink>. LA paste-wall culture has a long published history — the{" "}
+        <a href="https://en.wikipedia.org/wiki/Street_art" target="_blank" rel="noopener noreferrer">street art</a>{" "}
+        and{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste</a>{" "}
+        references cover the medium back to its 1970s LA roots.
+      </p>
+      <p>
+        Running an LA campaign? <a href="/contact">Get a quote</a> — tell us neighborhoods,
+        poster count, and timeline and we&apos;ll send itemized pricing within 24 hours.
       </p>
     </>
   );

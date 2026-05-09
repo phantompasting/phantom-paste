@@ -6,9 +6,10 @@ export function tldr() {
     <p>
       Billboards deliver scale and measurability; wheat paste delivers cultural credibility and
       dramatically cheaper CPMs in the neighborhoods that matter. Neither is universally
-      &quot;better.&quot; For mass-market brands in high-volume markets, billboards win. For
+      &quot;better.&quot; For mass-market brands targeting drivers, billboards win. For
       culture-driven brands targeting dense urban audiences, wheat paste wins by a wide margin.
-      Here&apos;s the honest side-by-side.
+      Here&apos;s the honest side-by-side from someone who&apos;s pasted across 50+ cities and
+      watched both formats run on the same brief.
     </p>
   );
 }
@@ -16,6 +17,14 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        Written for media planners, brand-side OOH buyers, and creative directors choosing
+        between wheat paste and traditional{" "}
+        <a href="https://en.wikipedia.org/wiki/Out-of-home_advertising" target="_blank" rel="noopener noreferrer">out-of-home advertising</a>.
+        The framework comes from running both formats simultaneously for the same brands
+        across 50+ US markets.
+      </p>
+
       <h2>The Two Formats, in One Paragraph Each</h2>
       <p>
         <strong>Billboards</strong> are large-format outdoor displays — static vinyl, digital LED,
@@ -28,7 +37,9 @@ export default function Post() {
         authorized private walls in dense urban neighborhoods. Bought directly through specialty
         agencies at $3,500–$7,500 per city for a 150–250 poster rollout. See{" "}
         <BlogLink slug="wheat-pasting-cost">wheat pasting cost breakdown</BlogLink> for the full
-        pricing model.
+        pricing model. We&apos;ve been on both sides of this — installing paste at 2 a.m. and
+        watching brands renew their billboard contracts every quarter — and the right answer
+        depends on what the brand is actually trying to do.
       </p>
 
       <h2>Side-by-Side</h2>
@@ -58,9 +69,10 @@ export default function Post() {
       <h3>Mass-market product launches</h3>
       <p>
         If you&apos;re Geico, Verizon, a major automaker, or any brand whose audience is
-        &quot;Americans with cars,&quot; billboards are the right tool. The scale math is obvious —
-        a single highway billboard delivers 100,000+ daily impressions at a CPM digital can&apos;t
-        match for reach-focused buys.
+        &quot;Americans with cars,&quot; billboards are the right tool. The scale math is
+        obvious — a single highway billboard delivers 100,000+ daily impressions at a CPM
+        digital can&apos;t match for reach-focused buys. We don&apos;t pretend wheat paste
+        competes here. A poster on Bedford Ave does not reach the I-95 commute audience.
       </p>
 
       <h3>Markets with weak pedestrian density</h3>
@@ -68,7 +80,10 @@ export default function Post() {
         Most of the Sun Belt drives everywhere. Atlanta highways, Phoenix freeways, Dallas
         corridors — billboards deliver where pedestrians don&apos;t exist. Wheat paste in those
         markets still works, but the returns concentrate in specific neighborhoods (East Atlanta,
-        Phoenix&apos;s Roosevelt Row) rather than scaling across the metro.
+        Phoenix&apos;s Roosevelt Row) rather than scaling across the metro. We&apos;ve had brands
+        ask if we can run paste &quot;all over Phoenix&quot; and the honest answer is: only if you
+        define Phoenix as the four walkable corridors. Outside those, your money is better spent
+        on a billboard.
       </p>
 
       <h3>Measurement-heavy media planning</h3>
@@ -76,7 +91,10 @@ export default function Post() {
         Brands buying OOH through rigorous media-mix modeling want Geopath impressions they can
         feed into attribution models. Wheat paste doesn&apos;t deliver that structure. If the
         media plan requires every line to reconcile into a measured CPM, wheat paste is a
-        difficult fit.
+        difficult fit. We&apos;ve had brand-side analytics teams politely tell us the format is
+        &quot;unauditable.&quot; They&apos;re not wrong — what we deliver is photo documentation
+        and a per-wall install report, not a Geopath DMP feed. If the procurement team needs
+        the latter, billboards win that conversation.
       </p>
 
       <h2>When Wheat Paste Wins</h2>
@@ -85,8 +103,9 @@ export default function Post() {
       <p>
         If the audience is under 35 and the category is streetwear, music, film, premium alcohol,
         or culture-adjacent DTC (Liquid Death, Oatly, Tushy), wheat paste outperforms billboards
-        on every meaningful metric except raw reach. The audience photographs walls. They don&apos;t
-        photograph highway billboards.
+        on every meaningful metric except raw reach. The audience photographs walls. They
+        don&apos;t photograph highway billboards. Ever, basically. We&apos;ve been doing this for
+        ten years and I&apos;ve never seen a teenager post a billboard to TikTok.
       </p>
 
       <h3>Dense urban neighborhoods</h3>
@@ -94,50 +113,60 @@ export default function Post() {
         LA east of La Brea, all of Manhattan south of 14th, Miami Wynwood, Brooklyn from
         Williamsburg to Bed-Stuy, central Chicago, Atlanta&apos;s Old Fourth Ward — these
         neighborhoods have 30,000–80,000 daily pedestrian impressions at key intersections, and
-        wheat paste captures those pedestrians far more efficiently than a billboard a mile away
-        on the highway.
+        wheat paste captures those pedestrians far more efficiently than a billboard a mile
+        away on the highway. A wall on Melrose hits the exact streetwear shopper a Sunset Strip
+        billboard misses by half a mile.
       </p>
 
       <h3>Launch campaigns on compressed timelines</h3>
       <p>
         OOH networks quote 4–8 weeks from PO to live board. Wheat paste is 7–10 days. If the
-        product launch is next month, wheat paste is operational; most billboard plays aren&apos;t.
+        product launch is next month, wheat paste is operational; most billboard plays
+        aren&apos;t. We had a music label call us on a Tuesday for a Friday-night install — by
+        Friday at 11 p.m. we were on Fairfax. Try getting a Clear Channel board live in 72 hours.
       </p>
 
       <h3>Creative that&apos;s meant to be photographed</h3>
       <p>
-        Album covers. Movie posters. Capsule drop art. Creative that&apos;s designed as a standalone
-        art piece wins on walls, not on boards. The walls become set dressing for user-generated
-        social content in a way boards never do.
+        Album covers. Movie posters. Capsule drop art. Creative that&apos;s designed as a
+        standalone art piece wins on walls, not on boards. The walls become set dressing for
+        user-generated social content in a way boards never do.
       </p>
 
       <h2>Installer&apos;s Perspective — What Brands Discover After the First Campaign</h2>
       <PullQuote attribution="Mateo Vargas, Field Operations Lead">
         <p>
-          Brand marketers who&apos;ve only bought billboards are usually skeptical the first time. No
-          Geopath number, no structured report, paper on brick — it feels loose compared to the
-          quarterly OOH report they&apos;re used to.
+          Brand marketers who&apos;ve only bought billboards are usually skeptical the first
+          time. No Geopath number, no structured report, paper on brick — it feels loose
+          compared to the quarterly OOH report they&apos;re used to.
         </p>
         <p style={{ marginTop: "1rem" }}>
-          Then the first campaign ships and their social mentions spike. Their team photographs
-          the walls themselves and posts them to LinkedIn. A week in, someone on the brand team
-          has three DMs from people asking where the walls are. That&apos;s when they get it — the
-          paper on brick is doing the work the banner couldn&apos;t.
+          Then the first campaign ships and their social mentions spike. Their team
+          photographs the walls themselves and posts them to LinkedIn. A week in, someone on
+          the brand team has three DMs from people asking where the walls are. That&apos;s
+          when they get it — the paper on brick is doing the work the banner couldn&apos;t.
         </p>
       </PullQuote>
+      <p>
+        I&apos;ve watched this happen at least a dozen times in the past three years. The brand
+        side calls us nervous, runs the campaign reluctantly, and by the second invoice
+        they&apos;re asking about quarterly contracts. The skepticism dies the moment a wall
+        hits Complex&apos;s feed.
+      </p>
 
-      <h2>The Hybrid Play</h2>
+      <h2>The Hybrid Play (what brands actually do once they&apos;ve run both)</h2>
       <p>
         Most sophisticated brand programs use both. Billboards for scale and awareness (quarterly
         brand tentpoles, major product launches); wheat paste for cultural credibility and
         social-ready moments (capsule drops, partnerships, city-specific activations). The
-        formats complement rather than compete.
+        formats complement rather than compete — they&apos;re not even shopping the same shelf.
       </p>
       <p>
-        A typical quarterly buy: one national billboard flight at $120K reach-focused + four
-        wheat paste activations at $20K total, distributed across LA, NYC, Miami, Chicago. The
-        total $140K runs across 90 days with the wheat paste generating the social and press
-        coverage that makes the billboard-awareness numbers look better.
+        A typical quarterly buy I&apos;ve seen: one national billboard flight at $120K
+        reach-focused + four wheat paste activations at $20K total, distributed across LA, NYC,
+        Miami, Chicago. The total $140K runs across 90 days with the wheat paste generating the
+        social and press coverage that makes the billboard-awareness numbers look better. Same
+        dollar buys two different jobs at the same time.
       </p>
 
       <h2>What Billboards Can&apos;t Do</h2>
@@ -155,6 +184,13 @@ export default function Post() {
         <li>Reconcile into a Geopath-based media plan without workarounds</li>
         <li>Reach broad suburban or rural audiences</li>
       </ul>
+      <p>
+        We&apos;re very specific about what we can and can&apos;t deliver because the wrong
+        comparison kills the format&apos;s reputation. A streetwear brand expecting Geopath
+        impressions will tell their team wheat paste &quot;didn&apos;t work&quot; even if the
+        walls hit 200 organic posts. Set the right expectation upfront and the format earns
+        its slot in the next quarter&apos;s plan.
+      </p>
 
       <h2>The Decision Framework</h2>
       <p>Ask two questions:</p>
@@ -173,7 +209,16 @@ export default function Post() {
         for the scale. For a full format picker including snipes and floor decals,{" "}
         <BlogLink slug="snipe-posters-vs-wheat-paste-vs-floor-decals">
           see the three-format guide
-        </BlogLink>.
+        </BlogLink>. For background on industry-standard{" "}
+        <a href="https://geopath.org/" target="_blank" rel="noopener noreferrer">Geopath OOH measurement</a>{" "}
+        and the{" "}
+        <a href="https://oaaa.org/" target="_blank" rel="noopener noreferrer">OAAA</a>{" "}
+        OOH-format definitions, the linked sources cover the formal billboard side.
+      </p>
+      <p>
+        Already know which way you&apos;re leaning? <a href="/contact">Talk to us</a> — we
+        send itemized wheat paste quotes within 24 hours and can flag where billboards
+        might serve the brief better.
       </p>
     </>
   );

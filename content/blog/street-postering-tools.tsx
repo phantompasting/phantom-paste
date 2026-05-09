@@ -16,11 +16,20 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        For new installer crews, agencies hiring contract installers, and brand-side
+        production people who want to know whether their crew showed up with the right
+        gear. Every tool listed here is something we standardized after a specific
+        failure on a real campaign.
+      </p>
+
       <h2>The Kit, Top to Bottom</h2>
       <p>
         Every vehicle leaves the warehouse with the same kit. Variation at the tool level creates
-        chaos at 2 a.m. — an installer reaches for the broom they&apos;re used to, finds a different
-        one, and the paste handling changes for the worse.
+        chaos at 2 a.m. — an installer reaches for the broom they&apos;re used to, finds a
+        different one, and the paste handling changes for the worse. We standardized this after
+        the fifth time someone asked &quot;where&apos;s the broom that works&quot; on a wall in
+        Echo Park. Same kit, every truck, every night. Boring. Reliable.
       </p>
 
       <h3>1. Soft-brush car-wash broom</h3>
@@ -176,7 +185,15 @@ export default function Post() {
       </p>
       <p>
         $500 up front versus one ruined campaign ($3K–$7K of reprint plus crew time) — the math
-        makes itself.
+        makes itself. For installer crews looking at the underlying medium, see the{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste</a>{" "}
+        background. Our{" "}
+        <BlogLink slug="how-to-make-wheat-paste">paste recipe guide</BlogLink>{" "}
+        covers what goes in the bucket.
+      </p>
+      <p>
+        Hiring a crew for a campaign instead? <a href="/contact">Get a quote</a> — we
+        bring the kit, the crew, and the documentation.
       </p>
     </>
   );

@@ -16,12 +16,23 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        For label marketing leads, artist managers, festival promoters, and indie release
+        teams running street campaigns alongside paid social and PR. Pulled from running
+        wheat paste, snipes, and stencils for music clients at every scale — major-label
+        hip-hop drops, indie rock launches, festival lineup reveals.
+      </p>
+
       <h2>Why Music Is the Highest-Gravity Use Case</h2>
       <p>
-        Music fans are a subculture before they&apos;re an audience. They tattoo logos, buy vinyl they
-        can&apos;t play, and drive across cities to photograph an album poster. That&apos;s the exact
-        psychological profile wheat paste is built for — a format that rewards obsession with a
-        physical artifact worth photographing.
+        Music fans are a subculture before they&apos;re an audience. They tattoo logos, buy vinyl
+        they can&apos;t play, and drive across cities to photograph an album poster. That&apos;s
+        the exact psychological profile wheat paste is built for — a format that rewards
+        obsession with a physical artifact worth photographing. We&apos;ve installed walls for
+        artists at every level — major-label hip-hop, indie indie, established touring rock,
+        bedroom pop with a Discord server — and the engagement curve looks the same: fans show
+        up at the wall, photograph it, post it, and the album&apos;s social heat starts before the
+        algorithm ever weighs in.
       </p>
       <p>
         Every major album campaign in the past decade has leaned on street postering. Kendrick
@@ -256,6 +267,16 @@ export default function Post() {
         lineups, and single launches across LA, NYC, Atlanta, Nashville, Austin, Miami, Chicago, and
         30+ other US markets. For the operational breakdown, see{" "}
         <BlogLink slug="wheat-pasting-campaign">how a 12-location campaign runs overnight</BlogLink>.
+        For broader context on{" "}
+        <a href="https://en.wikipedia.org/wiki/Guerrilla_marketing" target="_blank" rel="noopener noreferrer">guerrilla marketing</a>{" "}
+        as a category and the{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">wheatpaste medium</a>{" "}
+        itself, the linked references cover the historical frame.
+      </p>
+      <p>
+        Briefing an album campaign? <a href="/contact">Get a quote</a> — tell us release
+        date, target cities, and brand tier and we&apos;ll send a per-city pricing sheet
+        within 24 hours.
       </p>
     </>
   );

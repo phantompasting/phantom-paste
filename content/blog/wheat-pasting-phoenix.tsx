@@ -16,6 +16,12 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        For brand managers and agencies running Sun Belt expansion campaigns who&apos;ve
+        been told to skip Phoenix in favor of LA — and want a real read on whether the
+        market actually works. The answer changes neighborhood by neighborhood.
+      </p>
+
       <h2>Why Phoenix Is Worth Running</h2>
       <p>
         Phoenix is the fifth-largest US city, growing faster than any other top-10 metro, and
@@ -261,7 +267,13 @@ export default function Post() {
         operational breakdown, see{" "}
         <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight
-        </BlogLink>.
+        </BlogLink>. Phoenix corridor culture is documented well by the{" "}
+        <a href="https://rooseveltrow.org/" target="_blank" rel="noopener noreferrer">Roosevelt Row CDC</a>{" "}
+        — useful background on the foot-traffic context we&apos;re installing into.
+      </p>
+      <p>
+        Running Phoenix? <a href="/contact">Get a quote</a> — tell us neighborhoods,
+        poster count, and timeline and we&apos;ll send itemized pricing within 24 hours.
       </p>
     </>
   );

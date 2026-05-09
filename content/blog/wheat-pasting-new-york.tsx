@@ -15,13 +15,22 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        For brand managers, label A&Rs, and agencies planning NYC street campaigns. The
+        borough-by-borough map, scaffold-wrap economics, and pricing bands come from
+        active install crews working all five boroughs of New York City.
+      </p>
+
       <h2>Why NYC Is Different</h2>
       <p>
         New York is the only major US city where most of the audience walks. 3.2 million daily
         subway riders, dense ground-level retail, and decades of street-art history mean a paste
         wall in the right NYC neighborhood generates 2–4× the in-person impressions of the same
         wall in LA. The tradeoff: walls cost more, permits are tighter, and the city physically
-        removes unauthorized posters within 48 hours in Midtown.
+        removes unauthorized posters within 48 hours in Midtown. We&apos;ve had clients try to
+        compare LA pricing against NYC pricing at the proposal stage and the answer is always
+        the same — they&apos;re not the same market, they&apos;re not even shopping the same
+        shelf. NYC pays more because NYC delivers more.
       </p>
       <p>
         The specific reasons brands run NYC:
@@ -235,7 +244,13 @@ export default function Post() {
         operational breakdown, see{" "}
         <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight
-        </BlogLink>.
+        </BlogLink>. NYC scaffolding rules sit under the city&apos;s{" "}
+        <a href="https://www.nyc.gov/site/buildings/index.page" target="_blank" rel="noopener noreferrer">Department of Buildings</a>{" "}
+        — wraps require permits, which we manage in-house.
+      </p>
+      <p>
+        Briefing an NYC campaign? <a href="/contact">Get a quote</a> — tell us neighborhoods,
+        poster count, and timeline and we&apos;ll send itemized pricing within 24 hours.
       </p>
     </>
   );

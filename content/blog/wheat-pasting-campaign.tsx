@@ -12,7 +12,8 @@ export function tldr() {
       A typical client campaign is 12–15 locations, 6–16 posters per wall, 4–8 unique designs,
       finished overnight in one city. The math behind it — how we prep, route, paste, and
       document — is what separates a campaign that holds for 6 weeks from one that peels in 3
-      days. Here&apos;s the full breakdown.
+      days. Here&apos;s the full breakdown from the warehouse at 9 p.m. to the documentation
+      shoot at 8 a.m. the next morning.
     </p>
   );
 }
@@ -20,11 +21,20 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        This is for brand managers, project leads, and anyone who&apos;s about to sign off
+        on a wheat paste campaign and wants to know what actually happens between
+        the PO and the morning photo pass. Walk-through is from a real LA install
+        we ran for a streetwear client.
+      </p>
+
       <h2>The Setup</h2>
       <p>
         Most campaigns arrive like this: a brand wants 200 posters up in Los Angeles by Friday
         morning. They&apos;ve signed off on 4–8 designs, all at 24×36 inches — our standard. Large
-        enough to read from 30 feet, small enough to paste solo.
+        enough to read from 30 feet, small enough to paste solo. We get the print files Tuesday,
+        prints arrive Thursday afternoon, install Thursday night. By the time the brand team is
+        having their Friday standup, the walls are already in our morning photo pass.
       </p>
       <p>From sign-off to install, we run:</p>
       <ol>
@@ -37,6 +47,13 @@ export default function Post() {
         <li><strong>Night of install</strong> (6–8 hours, typically 10 p.m. to 4 a.m.)</li>
         <li><strong>Documentation pass</strong> (next morning, daylight photos of every wall)</li>
       </ol>
+      <p>
+        That timeline assumes nothing goes sideways. Things go sideways constantly. A wall we
+        booked falls through Tuesday because a property manager flips. A truck loses a tire on
+        the 405 at 1 a.m. Brand uploads new designs to the wrong Dropbox folder. We&apos;ve
+        absorbed every version of this; the timeline holds because we built slack into every
+        step.
+      </p>
 
       <h2>Pre-Flight Prep</h2>
       <p>
@@ -44,12 +61,14 @@ export default function Post() {
         <strong>in install order</strong> — not by design, but by location and grid position. At a
         3×2 wall, the installer pulls posters top-to-bottom, left-to-right. Any other stacking
         costs 30 seconds per wall. 30 seconds × 15 locations = 7.5 minutes lost, which is the
-        difference between finishing at 4 a.m. and finishing at 4:10.
+        difference between finishing at 4 a.m. and finishing at 4:10. That sounds like nothing
+        until you&apos;re the crew at 3:50 a.m. realizing the morning photographer arrives in
+        four hours and you still have a wall to wrap.
       </p>
       <p>
-        Design order per wall is mapped: most campaigns run rows of three to eight posters wide and
-        columns of two tall. A 6×2 wall gets a specific sequence of designs — usually alternating
-        to create a rhythm readable from across the street.
+        Design order per wall is mapped: most campaigns run rows of three to eight posters wide
+        and columns of two tall. A 6×2 wall gets a specific sequence of designs — usually
+        alternating to create a rhythm readable from across the street.
       </p>
 
       <h2>Crew Kit Per Vehicle</h2>
@@ -70,7 +89,7 @@ export default function Post() {
       <p>
         Every bucket has a locking lid. We learned this the hard way. One tipped bucket in a
         vehicle bed means 10 gallons of wheat paste in the carpet, and that truck is out of
-        rotation for a week.
+        rotation for a week. Ask us how we know.
       </p>
       <p>
         The paste itself is a separate science — see{" "}
@@ -95,6 +114,11 @@ export default function Post() {
         (2 walls) → Silver Lake (2 walls) → Echo Park (2 walls) → DTLA Arts District (3 walls).
         Total drive time: under 90 minutes including breaks.
       </p>
+      <p>
+        We map this in advance because winging the route at midnight ends with a crew sitting on
+        the 101 at 3 a.m. trying to make it back to a Fairfax wall they should&apos;ve hit at
+        11. I&apos;ve been on that crew. Do not be that crew.
+      </p>
 
       <h2>The Install — Per Wall</h2>
       <ol>
@@ -111,7 +135,10 @@ export default function Post() {
       <p>
         A 3×2 grid (6 posters) takes a 2-person crew 8–10 minutes. A 4×2 grid (8 posters) takes
         11–13 minutes. Multiply across 12 locations: 120–150 minutes of active paste time, plus
-        transitions.
+        transitions. The other 4 hours of the install window are getting between walls, mixing
+        paste on-site, and dealing with whatever the night decides to do — a security guard
+        asking what we&apos;re doing, a wall scoutee changing their mind, a sudden rain that
+        pushes us to a covered overhang for 20 minutes.
       </p>
 
       <h2>Technical Specs — Typical LA Campaign</h2>
@@ -162,8 +189,19 @@ export default function Post() {
       </ul>
       <p>
         That package reaches the brand within 24 hours. Without photos, a wheat paste campaign
-        exists only in the installer&apos;s word. With photos, it becomes a deliverable the marketer
-        can send up the chain.
+        exists only in the installer&apos;s word. With photos, it becomes a deliverable the
+        marketer can send up the chain. We&apos;ve had brands forward the photo packages to
+        their CEO inside an hour of receiving them. That&apos;s why the documentation is
+        non-negotiable — it&apos;s not just receipts, it&apos;s the asset that makes the spend
+        defensible internally.
+      </p>
+      <p>
+        For more on the format itself, see{" "}
+        <a href="https://en.wikipedia.org/wiki/Wheatpaste" target="_blank" rel="noopener noreferrer">the wheatpaste medium</a>{" "}
+        and the{" "}
+        <a href="https://oaaa.org/" target="_blank" rel="noopener noreferrer">OAAA out-of-home industry</a>{" "}
+        context. Or, if you&apos;re ready to brief a campaign,{" "}
+        <a href="/contact">request a quote</a> — we send itemized pricing within 24 hours.
       </p>
     </>
   );

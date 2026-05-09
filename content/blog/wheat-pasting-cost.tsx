@@ -16,6 +16,13 @@ export function tldr() {
 export default function Post() {
   return (
     <>
+      <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
+        This guide is for marketing leads, agencies, and brand managers building a media
+        budget that includes wheat paste. Pricing reflects 2026 US rates from a
+        crew that&apos;s run 500+ live campaigns; per-poster math holds across most major
+        markets, with the variance explained below.
+      </p>
+
       <h2>The Baseline — What a Standard Campaign Costs</h2>
       <p>
         A standard single-city wheat paste campaign in 2026:
@@ -28,9 +35,11 @@ export default function Post() {
         <li>Overnight install, next-morning documentation</li>
       </ul>
       <p>
-        Typical all-in cost: <strong>$3,500–$7,500 per city</strong>. That&apos;s print + wall rights
-        + install labor + paste + photo documentation + project management. The range depends on
-        which five variables move against you.
+        Typical all-in cost: <strong>$3,500–$7,500 per city</strong>. That&apos;s print + wall
+        rights + install labor + paste + photo documentation + project management. The range
+        depends on which five variables move against you. We&apos;ve quoted hundreds of these
+        and the spread has stayed remarkably stable since 2022 — paper pricing crept up, wall
+        rights went up faster, but the bands held.
       </p>
 
       <h2>The Five Cost Drivers</h2>
@@ -56,7 +65,10 @@ export default function Post() {
         Not all walls are equal. A brick wall on Fairfax runs $180–$350 for a single-campaign
         placement. An entire scaffold wrap in Midtown Manhattan can run $2,000–$6,000 depending
         on dimensions and foot traffic. Most campaigns mix 8–12 standard walls with 1–3 premium
-        walls for the hero-shot images.
+        walls for the hero-shot images. We&apos;ve had brands try to fill an entire campaign
+        with $200 walls to hit a budget — the photos came back fine, but the brand team was
+        confused why their content team didn&apos;t want to post any of them. The premium walls
+        are premium because they make the photos worth posting.
       </p>
 
       <h3>4. Print quality — commercial vs. pro-grade</h3>
@@ -164,19 +176,33 @@ export default function Post() {
       <p>
         If a quote arrives as a single lump number with no breakdown, ask for one. Transparent
         pricing is a reliable signal of a trustworthy operator; opaque pricing usually means
-        corners are being cut on one of the seven line items above.
+        corners are being cut on one of the seven line items above. We&apos;ve had brands forward
+        us competitor quotes that read &quot;LA wheat paste campaign — $4,500 — net 30,&quot; full
+        stop. No poster count, no neighborhoods, no print spec. That&apos;s how a brand ends up
+        with 60 posters on three dead walls and a brand manager wondering where the money went.
       </p>
 
       <h2>Cost vs. Billboards, Digital OOH, and Social</h2>
       <p>
         For the full side-by-side breakdown against other out-of-home formats, see{" "}
         <BlogLink slug="wheat-pasting-vs-billboards">wheat pasting vs. billboards</BlogLink>.
+        And for the format-mix decision (paste vs. snipes vs. floor decals), see{" "}
+        <BlogLink slug="snipe-posters-vs-wheat-paste-vs-floor-decals">the three-format guide</BlogLink>.
       </p>
       <p>
         Short version: wheat paste runs $0.10–$0.30 CPM in-person, which is 25–80× cheaper than{" "}
         <a href="https://en.wikipedia.org/wiki/Out-of-home_advertising" target="_blank" rel="noopener noreferrer">digital out-of-home (DOOH)</a>{" "}
-        in the same market, with the added upside of organic social amplification that
-        pushes effective CPM far lower still.
+        in the same market — industry-tracked DOOH CPMs typically run $8–$20 per the{" "}
+        <a href="https://oaaa.org/" target="_blank" rel="noopener noreferrer">OAAA</a>{" "}
+        — with the added upside of organic social amplification that pushes effective CPM
+        far lower still.
+      </p>
+
+      <h2>Get a Quote</h2>
+      <p>
+        Want a per-city quote for a wheat pasting campaign? Tell us city, poster count, and
+        timeline and we&apos;ll send a fully itemized number within 24 hours.{" "}
+        <a href="/contact">Get a custom quote →</a>
       </p>
     </>
   );
