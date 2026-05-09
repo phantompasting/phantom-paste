@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Texas",
+  title: { absolute: "Wheat Pasting Texas | Houston + Dallas Statewide Agency" },
   description:
-    "Wheat pasting & street media across Texas — Houston, Dallas, Austin, San Antonio, Fort Worth, El Paso. Statewide TX rollouts.",
+    "Wheat pasting across Texas — Houston, Dallas, Austin, San Antonio, Fort Worth, El Paso. Statewide TX incl. SXSW + ACL festival-week saturation campaigns.",
   keywords: [
     "wheat pasting Texas",
     "wheatpasting Texas",

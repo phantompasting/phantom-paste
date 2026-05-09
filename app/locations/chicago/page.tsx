@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent, KW_CITY_PARENT_OVERLAY } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Chicago",
+  title: { absolute: "Wheat Pasting Chicago | Wicker Park Poster Campaigns" },
   description:
-    "Wheat pasting in Chicago — poster campaigns across Wicker Park, Wrigleyville, Logan Square, and the Loop. Large-format street posters. Get a quote.",
+    "Wheat pasting in Chicago — Wicker Park, Logan Square, Pilsen, River North. Lollapalooza + Pitchfork festival saturation, GPS-pinned photo documentation.",
   keywords: [
     "wheat pasting Chicago",
     "Chicago poster campaigns",

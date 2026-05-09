@@ -19,9 +19,9 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
  */
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Illinois",
+  title: { absolute: "Wheat Pasting Illinois | Chicago + Naperville Statewide" },
   description:
-    "Wheat pasting & street media across Illinois — Chicago, Naperville, Champaign-Urbana, Rockford, Peoria, Springfield. Statewide rollouts.",
+    "Wheat pasting across Illinois — Chicago Wicker Park + Logan Square, Naperville, Champaign-Urbana. Statewide IL with Lollapalooza-window peak booking 2026.",
   keywords: [
     "wheat pasting Illinois",
     "wheatpasting Illinois",

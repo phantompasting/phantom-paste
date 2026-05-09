@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Seattle",
+  title: { absolute: "Wheat Pasting Seattle | Capitol Hill + Ballard Agency" },
   description:
-    "Wheat pasting in Seattle — poster campaigns across Capitol Hill, Ballard, Fremont, Pioneer Square, Belltown, U District. PVA-reinforced for rain.",
+    "Wheat pasting in Seattle — Capitol Hill, Ballard, SoDo, Pioneer Square, U District. Mural-friendly culture, Pioneer Square historic permits handled in-house.",
   keywords: [
     "wheat pasting Seattle",
     "Seattle poster campaigns",

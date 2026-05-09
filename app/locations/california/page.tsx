@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting California",
+  title: { absolute: "Wheat Pasting California | Statewide Poster Campaigns" },
   description:
-    "Wheat pasting & street media campaigns across California — LA, San Francisco, San Diego, Sacramento, Oakland, San Jose. Statewide CA rollouts.",
+    "Wheat pasting across California — LA, San Francisco, San Diego, Sacramento, Oakland, San Jose. Statewide CA on a single brief, photo-documented overnight.",
   keywords: [
     "wheat pasting California",
     "wheatpasting California",

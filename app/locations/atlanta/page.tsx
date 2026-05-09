@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent, KW_CITY_PARENT_OVERLAY } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Atlanta",
+  title: { absolute: "Wheat Pasting Atlanta | Music + Sports Poster Campaigns" },
   description:
-    "Wheat pasting in Atlanta — poster campaigns across Midtown, Little Five Points, Buckhead, and East Atlanta. Large-format street posters. Get a quote.",
+    "Wheat pasting in Atlanta — Old Fourth Ward, L5P, East Atlanta Village, Midtown, BeltLine. Music + sports + film campaigns photo-documented since 2014.",
   keywords: [
     "wheat pasting Atlanta",
     "Atlanta poster campaigns",

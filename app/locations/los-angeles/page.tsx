@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Los Angeles",
+  title: { absolute: "Wheat Pasting LA | Melrose + Fairfax + DTLA Posters" },
   description:
-    "Wheat pasting in LA — poster campaigns across Melrose, Silver Lake, Fairfax, DTLA, Venice, Echo Park, Highland Park, Hollywood. 100% documented.",
+    "Wheat pasting in Los Angeles — Melrose, Fairfax, Silver Lake, Echo Park, DTLA Arts District, Venice. Highest-signal paste market in the US, 500+ campaigns.",
   keywords: [
     "wheat pasting Los Angeles",
     "LA poster campaigns",

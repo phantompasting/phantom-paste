@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Dallas",
+  title: { absolute: "Wheat Pasting Dallas | Deep Ellum + Bishop Arts Agency" },
   description:
-    "Wheat pasting in Dallas — poster campaigns across Deep Ellum, Bishop Arts, Lower Greenville, Uptown, Oak Cliff, Knox-Henderson.",
+    "Wheat pasting in Dallas — Deep Ellum, Bishop Arts, Lower Greenville, Uptown. Music venue + bar district saturation, photo-documented overnight crew installs.",
   keywords: [
     "wheat pasting Dallas",
     "Dallas poster campaigns",

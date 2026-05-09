@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Phoenix",
+  title: { absolute: "Wheat Pasting Phoenix | Roosevelt + Mesa Campaigns" },
   description:
-    "Wheat pasting in Phoenix — poster campaigns across Roosevelt Row, Grand Avenue, Melrose District, downtown Tempe. Desert-adapted recipes.",
+    "Wheat pasting in Phoenix — Roosevelt Row, Grand Avenue, Mesa, Melrose District. Sun Belt's most under-covered street media market, photo-documented installs.",
   keywords: [
     "wheat pasting Phoenix",
     "Phoenix poster campaigns",

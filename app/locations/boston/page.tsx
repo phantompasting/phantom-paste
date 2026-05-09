@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Boston",
+  title: { absolute: "Wheat Pasting Boston | Allston + Cambridge Posters Agency" },
   description:
-    "Wheat pasting in Boston — poster campaigns across Allston, Mission Hill, Fenway-Kenmore, Back Bay, North End, Seaport. College-market saturation.",
+    "Wheat pasting in Boston — Allston, Cambridge, Mission Hill, BU + BC + Northeastern + Harvard zones. Move-in + finals saturation, 7-day install turnaround.",
   keywords: [
     "wheat pasting Boston",
     "Boston poster campaigns",

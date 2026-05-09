@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Austin",
+  title: { absolute: "Wheat Pasting Austin | SXSW + ACL Poster Campaigns" },
   description:
-    "Wheat pasting in Austin — poster campaigns across South Congress, East 6th, Rainey, Domain. SXSW & ACL festival saturation.",
+    "Wheat pasting in Austin — South Congress, East 6th, Rainey, Domain, Convention Center. SXSW + ACL festival-week saturation, photo-documented installs.",
   keywords: [
     "wheat pasting Austin",
     "Austin poster campaigns",

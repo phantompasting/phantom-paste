@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Massachusetts",
+  title: { absolute: "Wheat Pasting Massachusetts | Boston Statewide Agency" },
   description:
-    "Wheat pasting & street media across Massachusetts — Boston, Cambridge, Worcester, Springfield, Lowell. Statewide MA rollouts.",
+    "Wheat pasting across Massachusetts — Boston, Cambridge, Worcester, Springfield. Statewide MA incl. academic-week saturation around BC, BU, Harvard zones.",
   keywords: [
     "wheat pasting Massachusetts",
     "wheatpasting Massachusetts",

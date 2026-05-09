@@ -17,9 +17,9 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
  */
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Georgia",
+  title: { absolute: "Wheat Pasting Georgia | Atlanta + Savannah Statewide" },
   description:
-    "Wheat pasting and poster campaigns across Georgia — Atlanta, Savannah, Athens, Augusta, Macon, and Columbus. Statewide street postering. Get a quote.",
+    "Wheat pasting across Georgia — Atlanta, Savannah, Athens, Augusta, Macon, Columbus. Statewide GA incl. Masters Week + UGA football weekend saturation.",
   keywords: [
     "wheat pasting Georgia",
     "wheatpasting Georgia",

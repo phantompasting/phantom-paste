@@ -3,9 +3,9 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: "Wheat Pasting Las Vegas",
+  title: { absolute: "Wheat Pasting Vegas | Strip + Fremont East CES Posters" },
   description:
-    "Wheat pasting in Las Vegas — poster campaigns across Strip, Fremont East, Arts District, Container Park, Chinatown. CES & conference saturation.",
+    "Wheat pasting in Las Vegas — Strip-adjacent properties, Fremont East, Arts District. CES + conference-week saturation, photo-documented overnight installs.",
   keywords: [
     "wheat pasting Las Vegas",
     "Vegas poster campaigns",
