@@ -11,4 +11,10 @@ interface Window {
    * arbitrary objects, arrays, and gtag() argument tuples.
    */
   dataLayer: unknown[];
+  /**
+   * Sentinel set by GoogleAnalytics.tsx after first load to prevent
+   * double-injection of gtag.js when Strict Mode double-mounts the
+   * effect in dev or when the component remounts on route change.
+   */
+  __ga_loaded__?: boolean;
 }
