@@ -90,7 +90,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does an Arizona campaign cost?",
-      a: "Single-city AZ campaigns run $3,000-$5,800 (Scottsdale luxury activations land higher). Statewide AZ rollouts hitting 4-5 metros run $13K-$22K with the multi-city volume discount.",
+      a: "Single-city AZ campaigns run $3,500-$6,500 (Scottsdale luxury activations land higher). Statewide AZ rollouts hitting 4-5 metros run $15K-$28K with the multi-city volume discount.",
     },
     {
       q: "Can you do festival-week saturation around ASU + UA games?",

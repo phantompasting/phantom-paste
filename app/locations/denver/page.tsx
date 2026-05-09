@@ -67,7 +67,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Denver?", a: "Yes on owner-authorized walls. Denver is highly permissive on private walls with property-owner consent — the city's mural-friendly culture makes wheat paste land naturally. RiNo + Highland + LoHi are particularly receptive to wall-based creative work." },
     { q: "When is the best time to run Denver campaigns?", a: "RiNo Mural Festival (early September) is the highest-attention window. Avalanche/Nuggets playoff windows (April-June) drive sports-fan foot traffic in LoDo. Outside specific event windows, standard 7-10 day lead times apply." },
-    { q: "How much does a Denver wheat pasting campaign cost?", a: "Single-neighborhood test: $2,800-$4,200 for 60-90 posters. Full-city activation across 4-5 districts: $9K-$15K. Mural Festival week saturation: $14K-$24K." },
+    { q: "How much does a Denver wheat pasting campaign cost?", a: "Single-neighborhood test: $3,200-$5,200 for 60-90 posters. Full-city activation across 4-5 districts: $11K-$17K. Mural Festival week saturation: $16K-$26K." },
     { q: "How long do posters last in Denver?", a: "8-10 weeks under typical conditions — Colorado's dry climate is friendly to wheat paste. Direct-sun walls fade colors faster (UV at altitude); we use UV-stable inks for premium campaigns. Indoor/covered walls hold 12+ weeks." },
     { q: "Can you handle Denver + Boulder Front Range deployments?", a: "Yes. Denver + Boulder is a natural Front Range corridor — same crew rotation handles both metros plus Fort Collins on coordinated rollouts. Common configuration: Denver + Boulder + Fort Collins on a single launch week." },
   ],

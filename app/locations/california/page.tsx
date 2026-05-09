@@ -93,7 +93,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a California wheat pasting campaign cost?",
-      a: "Single-city CA campaigns run $3,500-$7,500 (LA on the higher end). Statewide rollouts hitting 4-6 metros run $14K-$28K with the multi-city volume discount. SF + LA combined campaigns are the most common configuration.",
+      a: "Single-city CA campaigns run $4,000-$8,500 (LA on the higher end). Statewide rollouts hitting 4-6 metros run $18K-$32K with the multi-city volume discount. SF + LA combined campaigns are the most common configuration.",
     },
     {
       q: "How quickly can a California campaign launch?",

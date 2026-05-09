@@ -66,7 +66,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Boston?", a: "Yes on owner-authorized walls. Boston is permissive on private walls with property-owner consent. Beacon Hill + Back Bay historic districts need permits; we handle them." },
     { q: "When is the best time to run Boston campaigns?", a: "Move-in week (first week September) drives the year's highest student-density foot traffic. Other peak windows: spring semester start (mid-January), finals (December + May), graduations (May), Red Sox home stand, and major Boston Garden concert nights." },
-    { q: "How much does a Boston wheat pasting campaign cost?", a: "Single-neighborhood test: $3,000-$4,500 for 60-90 posters. Full-city activation across 4-5 districts: $11K-$18K. Move-in week saturation: $14K-$22K." },
+    { q: "How much does a Boston wheat pasting campaign cost?", a: "Single-neighborhood test: $3,500-$5,500 for 60-90 posters. Full-city activation across 4-5 districts: $13K-$20K. Move-in week saturation: $16K-$25K." },
     { q: "What Boston neighborhoods work best?", a: "Allston for student reach, Mission Hill for Northeastern + medical campus, Fenway-Kenmore for game-day + concert traffic, Back Bay for affluent shopping audience, Seaport for tech-corporate workforce, North End for tourism." },
     { q: "Can you handle the Greater Boston college tour?", a: "Yes. Boston + Cambridge + Worcester + Providence is a natural college-market corridor — same crew rotation handles all four metros on coordinated rollouts during move-in + graduation seasons." },
   ],

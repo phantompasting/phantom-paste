@@ -105,13 +105,13 @@ const data: CityPageData = {
   serviceAreaType: "State",
   lastUpdated: "2026-04-25",
   pricingTiers: [
-    { tier: "Single-City IL Campaign", range: "$2,800 – $5,500", includes: "Chicago on the higher end · 1 IL metro · Photo doc + install report" },
-    { tier: "Statewide IL Rollout", range: "$11K – $22K", includes: "4–6 metros · Multi-city volume discount · UIUC semester windows available" },
+    { tier: "Single-City IL Campaign", range: "$3,200 – $6,500", includes: "Chicago on the higher end · 1 IL metro · Photo doc + install report" },
+    { tier: "Statewide IL Rollout", range: "$15K – $28K", includes: "4–6 metros · Multi-city volume discount · UIUC semester windows available" },
   ],
   faqs: [
     { q: "Is wheat pasting legal in Illinois?", a: "Yes on owner-authorized walls. Illinois has no state-level prohibition; cities handle their own ordinances. Chicago is permissive on private walls with property-owner consent. Naperville, Champaign-Urbana, Rockford, Peoria, Springfield all follow similar patterns." },
     { q: "What Illinois cities do you cover?", a: "All major IL metros: Chicago, Naperville, Champaign-Urbana, Rockford, Peoria, Springfield, plus secondary markets like Aurora, Joliet, Elgin, Bloomington-Normal, Decatur, and the Quad Cities." },
-    { q: "How much does an Illinois wheat pasting campaign cost?", a: "Single-city IL campaigns run $2,800-$5,500 (Chicago on the higher end). Statewide rollouts hitting 4-6 metros run $11K-$22K with the multi-city volume discount." },
+    { q: "How much does an Illinois wheat pasting campaign cost?", a: "Single-city IL campaigns run $3,200-$6,500 (Chicago on the higher end). Statewide rollouts hitting 4-6 metros run $15K-$28K with the multi-city volume discount." },
     { q: "Can you handle UIUC semester-window deployments in Champaign-Urbana?", a: "Yes. UIUC's 35K+ undergrad density drives 5x+ baseline foot traffic during semester windows. Move-in week (mid-August), Engineering Open House (March), Mom's Weekend, and Dad's Weekend are the highest-attention saturation peaks." },
     { q: "How does Illinois winter affect campaigns?", a: "Chicago + Northern IL winters are wet, cold, and below freezing. Paste sets slower below 45°F; we use winter-formulated paste with methylcellulose for December-March installs. May-October is the reliable budget-friendly window." },
   ],

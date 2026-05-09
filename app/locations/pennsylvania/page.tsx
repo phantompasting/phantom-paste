@@ -85,7 +85,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a Pennsylvania campaign cost?",
-      a: "Single-city PA campaigns run $3,200-$6,200 (Philly + Pittsburgh on the higher end). Statewide PA rollouts hitting 4-6 metros run $14K-$24K with the multi-city volume discount. Combined Philly + NYC East Coast briefs are common.",
+      a: "Single-city PA campaigns run $3,500-$6,800 (Philly + Pittsburgh on the higher end). Statewide PA rollouts hitting 4-6 metros run $16K-$28K with the multi-city volume discount. Combined Philly + NYC East Coast briefs are common.",
     },
     {
       q: "Can you handle Penn + Pitt + CMU game-weekend deployments?",

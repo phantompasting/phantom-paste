@@ -252,7 +252,7 @@ export default function FullImpactCampaignsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] lg:min-h-[660px] items-center">
 
               {/* LEFT — text + stats */}
-              <div className="relative z-10 flex flex-col justify-center py-16 md:py-20 lg:py-24 lg:pr-16">
+              <div className="relative z-10 flex flex-col justify-center py-6 md:py-10 lg:py-14 lg:pr-16">
                 <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-6"
                   style={{ color: "rgba(0,0,0,0.55)" }}>
                   <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />

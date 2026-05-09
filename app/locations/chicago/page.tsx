@@ -73,9 +73,9 @@ const data: CityPageData = {
   // queries ("wheat pasting chicago cost", "guerrilla marketing chicago
   // cost") see visible H2/body content, not just the FAQPage JSON-LD.
   pricingTiers: [
-    { tier: "Single-Neighborhood Test", range: "$2,800 – $4,200", includes: "60–90 posters · 1 Chicago district · Photo doc + GPS-logged install" },
-    { tier: "Full-City Activation", range: "$10K – $16K", includes: "Four to five Chicago districts · Multi-design rotation · Daylight shots" },
-    { tier: "Festival Saturation", range: "$14K – $28K", includes: "Lollapalooza / Pitchfork / Riot Fest window · Multi-week refresh" },
+    { tier: "Single-Neighborhood Test", range: "$3,200 – $5,500", includes: "60–90 posters · 1 Chicago district · Photo doc + GPS-logged install" },
+    { tier: "Full-City Activation", range: "$12K – $22K", includes: "Four to five Chicago districts · Multi-design rotation · Daylight shots" },
+    { tier: "Festival Saturation", range: "$18K – $32K", includes: "Lollapalooza / Pitchfork / Riot Fest window · Multi-week refresh" },
   ],
   spotlight: {
     eyebrow: "Chicago Spotlight",
@@ -91,7 +91,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Chicago?", a: "Yes on owner-authorized walls. Chicago is permissive on private walls with property-owner consent. The Pilsen + Wicker Park mural-friendly cultures make wheat paste land naturally. Historic districts need permits; we handle them." },
     { q: "What Chicago neighborhoods work best for wheat pasting?", a: "Wicker Park (Milwaukee Ave) for retail/cultural reach, Logan Square for arts + walkability, Wrigleyville for game-day saturation, the Loop for downtown commuter density, Pilsen for mural-corridor audience, Lincoln Park for affluent walkable retail." },
-    { q: "How much does a Chicago wheat pasting campaign cost?", a: "Single-neighborhood test: $2,800-$4,200 for 60-90 posters. Full-city activation across 4-5 districts: $10K-$16K. Lollapalooza or Pitchfork Festival saturation runs $14K-$28K." },
+    { q: "How much does a Chicago wheat pasting campaign cost?", a: "Single-neighborhood test: $3,200-$5,500 for 60-90 posters. Full-city activation across 4-5 districts: $12K-$22K. Lollapalooza or Pitchfork Festival saturation runs $18K-$32K." },
     { q: "When is the best time to run Chicago campaigns?", a: "May-October (mild weather). Lollapalooza (early August), Pitchfork Festival (July), Cubs/Sox/Bulls/Bears game days, and Riot Fest (September) drive the highest event-window saturation. Winter installs (December-March) require winter-formulated paste." },
     { q: "Can you handle Illinois statewide rollouts from Chicago?", a: "Yes. Chicago + Naperville + Champaign-Urbana + Rockford + Peoria + Springfield is a natural Illinois statewide configuration — same crew rotation handles all six markets on coordinated rollouts." },
   ],

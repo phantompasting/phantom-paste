@@ -73,9 +73,9 @@ const data: CityPageData = {
   heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall gallery in Atlanta" },
   lastUpdated: "2026-05-04",
   pricingTiers: [
-    { tier: "Single-Neighborhood Test", range: "$2,800 – $4,200", includes: "60–90 posters · 1 ATL district · Photo doc + GPS-logged install" },
-    { tier: "Full-City Activation", range: "$10K – $16K", includes: "Four to five Atlanta districts · Multi-design rotation · Daylight shots" },
-    { tier: "Major-Event Saturation", range: "$18K – $35K", includes: "FIFA World Cup / Super Bowl / All-Star window · Multi-week refresh" },
+    { tier: "Single-Neighborhood Test", range: "$3,200 – $5,500", includes: "60–90 posters · 1 ATL district · Photo doc + GPS-logged install" },
+    { tier: "Full-City Activation", range: "$12K – $22K", includes: "Four to five Atlanta districts · Multi-design rotation · Daylight shots" },
+    { tier: "Major-Event Saturation", range: "$22K – $40K", includes: "FIFA World Cup / Super Bowl / All-Star window · Multi-week refresh" },
   ],
   spotlight: {
     eyebrow: "ATL Spotlight",
@@ -91,7 +91,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Atlanta?", a: "Yes on owner-authorized walls. Atlanta is permissive on private walls with property-owner consent — the city's mural-friendly culture (especially Old Fourth Ward + Little Five Points) makes wheat paste land naturally. Historic-district walls need permits; we handle them." },
     { q: "What Atlanta neighborhoods work best for wheat pasting?", a: "Little Five Points for arts/cultural reach, Midtown for professional + Piedmont Park foot traffic, East Atlanta Village for indie-music audience, Buckhead for affluent retail, Old Fourth Ward for BeltLine-corridor density, Decatur for walkable retail." },
-    { q: "How much does an Atlanta wheat pasting campaign cost?", a: "Single-neighborhood test: $2,800-$4,200 for 60-90 posters. Full-city activation across 4-5 districts: $10K-$16K. Major-event saturation (FIFA World Cup, Super Bowl, MLB All-Star) runs $18K-$35K depending on multi-week refresh." },
+    { q: "How much does an Atlanta wheat pasting campaign cost?", a: "Single-neighborhood test: $3,200-$5,500 for 60-90 posters. Full-city activation across 4-5 districts: $12K-$22K. Major-event saturation (FIFA World Cup, Super Bowl, MLB All-Star) runs $22K-$40K depending on multi-week refresh." },
     { q: "When is the best time to run Atlanta campaigns?", a: "Year-round mild weather makes Atlanta consistently good for wheat paste. Music Midtown (September), AfroPunk, Atlanta Dogwood Festival (April), and major sports event windows (Falcons, Hawks, Braves) drive the highest event-window saturation." },
     { q: "Can you handle Georgia statewide rollouts from Atlanta?", a: "Yes. Atlanta + Savannah + Athens + Augusta + Macon + Columbus is a natural Georgia statewide configuration — same crew rotation handles all six markets on coordinated rollouts." },
   ],

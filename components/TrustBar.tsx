@@ -9,7 +9,7 @@ const ACCENT = "#D4A010";
  */
 export default function TrustBar() {
   return (
-    <div className="px-5 sm:px-8 md:px-12 lg:px-16 pb-4">
+    <div className="px-5 sm:px-8 md:px-12 lg:px-16 pb-2">
       <div
         className="max-w-[1200px] mx-auto flex flex-wrap items-center justify-between gap-3 rounded-xl px-5 py-3"
         style={{

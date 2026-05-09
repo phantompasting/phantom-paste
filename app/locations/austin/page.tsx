@@ -86,7 +86,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does an Austin wheat pasting campaign cost?",
-      a: "Single-neighborhood test: $2,800-$4,500 for 60-100 posters. Full-city activation: $10K-$16K. SXSW or ACL festival-window saturation: $18K-$45K depending on poster count + creative complexity + multi-week refresh requirements.",
+      a: "Single-neighborhood test: $3,200-$5,500 for 60-100 posters. Full-city activation: $12K-$20K. SXSW or ACL festival-window saturation: $22K-$50K depending on poster count + creative complexity + multi-week refresh requirements.",
     },
     {
       q: "What Austin neighborhoods work best for wheat pasting?",

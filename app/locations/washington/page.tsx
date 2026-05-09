@@ -88,7 +88,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a Washington campaign cost?",
-      a: "Single-city WA campaigns run $3,200-$5,800 (Seattle on the higher end). Statewide WA rollouts hitting 4-5 metros run $13K-$22K with the multi-city volume discount. Combined Seattle + Portland Pacific Northwest briefs are common.",
+      a: "Single-city WA campaigns run $3,500-$6,500 (Seattle on the higher end). Statewide WA rollouts hitting 4-5 metros run $15K-$28K with the multi-city volume discount. Combined Seattle + Portland Pacific Northwest briefs are common.",
     },
     {
       q: "Can you handle the I-5 corridor (Portland-Seattle-Vancouver)?",

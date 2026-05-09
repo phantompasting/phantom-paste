@@ -49,7 +49,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "How much does wheat pasting cost?",
-    a: "Wheat pasting campaigns run $3,500–$9,500 per city for a standard 150–250 poster rollout. Per-poster all-in cost lands at $12–$22 installed. Multi-city national rollouts run $45K–$90K with volume discounts. See our pricing page for full breakdown by tier and format.",
+    a: "Wheat pasting campaigns run $5,000–$13,500 per city for a standard 150–250 poster rollout. Per-poster all-in cost lands at $33–$55 installed. Multi-city national rollouts run $45K–$90K with volume discounts. See our pricing page for full breakdown by tier and format.",
   },
   {
     q: "Do you need a permit to wheatpaste?",

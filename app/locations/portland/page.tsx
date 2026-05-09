@@ -66,7 +66,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Portland?", a: "Yes on owner-authorized walls. Portland is highly permissive on private walls with property-owner consent — the city's tolerance for street art makes wheat paste land naturally." },
     { q: "When is the best time to run Portland campaigns?", a: "May-September (driest months). Last Thursday on Alberta (last Thursday May-September) is the peak event-window. Outside specific events, standard 7-10 day lead times apply." },
-    { q: "How much does a Portland wheat pasting campaign cost?", a: "Single-neighborhood test: $2,800-$4,200 for 60-90 posters. Full-city activation across 4-5 districts: $9K-$15K. Combined Portland + Seattle PNW briefs run $18K-$30K." },
+    { q: "How much does a Portland wheat pasting campaign cost?", a: "Single-neighborhood test: $3,200-$5,200 for 60-90 posters. Full-city activation across 4-5 districts: $11K-$17K. Combined Portland + Seattle PNW briefs run $20K-$32K." },
     { q: "How does Portland rain affect campaigns?", a: "We use PVA-reinforced paste that holds 6-8 weeks even through wet seasons. Driest months (July-September) are the safest windows for budget-priced campaigns." },
     { q: "What Portland neighborhoods work best?", a: "Hawthorne, Mississippi Avenue, Alberta Arts District, Division, Pearl District. Each carries its own audience — Hawthorne for retail/lifestyle, Mississippi/Alberta for arts/culture, Division for restaurant/nightlife, Pearl for downtown affluent reach." },
   ],

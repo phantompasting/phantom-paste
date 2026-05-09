@@ -4,7 +4,17 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
-    deviceSizes: [390, 430, 768, 1080, 1440, 1920],
+    // Trimmed deviceSizes — every entry here generates a srcset variant
+    // for every <Image fill> on the site. Fewer breakpoints = fewer
+    // derivatives to generate (faster CDN) AND a shorter srcset string
+    // (smaller HTML bytes). 390 was redundant with 430 (both round-down
+    // to the same Lighthouse mobile target). 1920 was rarely picked
+    // because the only LCP images cap at ~50vw on desktop = 720-960px.
+    deviceSizes: [430, 768, 1080, 1440],
+    // imageSizes are used for `sizes`-aware <Image> with explicit width.
+    // 64/128 covers thumbnails (favicon, avatars), 256/384 covers card
+    // images, 512 is the cap. Removed because none of our cards exceed
+    // 512px on any breakpoint.
     imageSizes: [64, 128, 256, 384, 512],
   },
   compiler: {

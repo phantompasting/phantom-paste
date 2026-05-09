@@ -107,9 +107,9 @@ export default function Post() {
           </tr>
         </thead>
         <tbody>
-          <tr><td>Wheat paste (24×36)</td><td>$12–$22 installed</td><td>150–300 posters</td><td>$3K–$7K per city</td></tr>
-          <tr><td>Snipe posters</td><td>$4–$9 installed</td><td>400–1,000 posters</td><td>$2K–$6K per city</td></tr>
-          <tr><td>Floor decals</td><td>$18–$35 installed</td><td>50–150 decals</td><td>$1.5K–$4K per city</td></tr>
+          <tr><td>Wheat paste (24×36)</td><td>$33–$55 installed</td><td>150–300 posters</td><td>$5K–$13.5K per city</td></tr>
+          <tr><td>Snipe posters</td><td>$8–$14 installed</td><td>400–1,000 posters</td><td>$3.5K–$10K per city</td></tr>
+          <tr><td>Floor decals</td><td>$22–$45 installed</td><td>50–150 decals</td><td>$2K–$5K per city</td></tr>
         </tbody>
       </table>
       <p>

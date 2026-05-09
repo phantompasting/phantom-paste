@@ -204,6 +204,15 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
+      {/* NOTE: No <link rel="preload"> for heroImage1 here.
+          Tried it; the preload emits href=source while Next/Image fetches
+          a generated derivative (/_next/image?...&w=768&q=75) — two URLs,
+          two fetches, double the bytes. The `fetchPriority="high"` +
+          `loading="eager"` hints on the <Image> component below are
+          sufficient: the browser starts the image fetch as soon as the
+          element enters layout, and uses the derivative URL Next/Image
+          actually intends to render. Mobile gets nothing (parent is
+          `lg:block` → display:none on <1024px) so no wasted bytes. */}
 
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
@@ -217,12 +226,25 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
         <TrustBar />
 
         {/* ── Hero (split-screen) ───────────────────────────────── */}
+        {/*
+          SPACING NOTES (May 2026 tightening):
+          Previous: py-16 md:py-20 lg:py-24 + lg:min-h-[660px] items-center.
+          That stacked ~240-280px of negative space below the breadcrumbs
+          before the H1 — content felt to "float" mid-page on desktop.
+
+          Now: py-6 md:py-8 lg:py-10 (cuts top/bottom padding ~60%)
+          and lg:min-h-[600px] items-start (top-aligned, content rises).
+          Right-column images dropped from top-10 to top-0 to match.
+
+          Per taste-skill VISUAL_DENSITY: 4 (daily-app mode), not 1
+          (art-gallery mode). Keeps premium feel without dead space.
+        */}
         <section className="relative overflow-hidden">
           <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] lg:min-h-[660px] items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] lg:min-h-[600px] items-start">
 
               {/* LEFT — text + stats */}
-              <div className="relative z-10 flex flex-col justify-center py-16 md:py-20 lg:py-24 lg:pr-16">
+              <div className="relative z-10 flex flex-col py-6 md:py-8 lg:py-10 lg:pr-16">
                 <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-3"
                   style={{ color: "rgba(0,0,0,0.55)" }}>
                   <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
@@ -251,7 +273,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                   <ShinyGoldText>{data.city.toUpperCase()}.</ShinyGoldText>
                 </h1>
 
-                <p className="font-light leading-relaxed mt-8 mb-6"
+                <p className="font-light leading-relaxed mt-5 mb-4"
                   style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
                   {data.intro}
                 </p>
@@ -262,7 +284,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                     engines weight visible byline + freshness as expertise +
                     maintenance signals. */}
                 <div
-                  className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono uppercase mb-10"
+                  className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono uppercase mb-6"
                   style={{ fontSize: "10px", letterSpacing: "0.22em", color: "rgba(0,0,0,0.55)" }}
                 >
                   <span style={{ color: "#1A1A1A", fontWeight: 700 }}>{MATEO_VARGAS.name}</span>
@@ -309,7 +331,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                 {/* Stats row — defaults to generic 3-stat row but each page
                     can pass `heroStats` to surface city-specific trust signals
                     (e.g. years operating, walls completed, neighborhoods served). */}
-                <div className="flex flex-wrap gap-10 md:gap-16 mt-12 pt-10"
+                <div className="flex flex-wrap gap-10 md:gap-16 mt-8 pt-6"
                   style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
                   {(data.heroStats ?? [
                     { stat: "Wheat Paste", label: "Large Posters" },
@@ -337,7 +359,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                   clipping; it now lives in its own absolutely-positioned
                   overflow:hidden container so the rest of the column can let
                   shadows render naturally. */}
-              <div className="relative hidden lg:block h-[660px]">
+              <div className="relative hidden lg:block h-[600px]">
                 {/* Watermark — clipped to column bounds in its own container so
                     removing overflow:hidden from the parent doesn't let it bleed. */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -349,25 +371,29 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                   </span>
                 </div>
 
-                {/* heroImage1 — single div carries width, rotation, border-radius,
-                    overflow:hidden (clips the rounded image) AND box-shadow.
-                    overflow:hidden only clips CHILDREN of an element; it never
-                    clips the element's own box-shadow (which renders outside the
-                    border box). With the parent column no longer clipping, the
-                    shadow now renders cleanly with rounded corners as expected. */}
+                {/* heroImage1 — top-anchored to align with H1 baseline now
+                    that the left column padding is reduced. Single div carries
+                    width, rotation, border-radius, overflow:hidden (clips the
+                    rounded image) AND box-shadow.
+                    LCP optimization: fetchPriority="high" tells the browser to
+                    prioritize this image fetch on desktop. We can't use Next's
+                    `priority` prop because that triggers preload on mobile too
+                    (where the image is hidden via lg:block parent). */}
                 {data.heroImage1 && (
-                  <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
-                    style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
+                  <div className="absolute top-0 right-0 rounded-2xl overflow-hidden"
+                    style={{ width: "82%", height: "78%", transform: "rotate(1.8deg)",
                       boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
                     <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
                       fill style={{ objectFit: "cover" }}
-                      sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy" />
+                      sizes="(max-width: 1024px) 0vw, 40vw"
+                      fetchPriority="high"
+                      loading="eager" />
                   </div>
                 )}
 
                 {data.heroImage2 && (
-                  <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
-                    style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
+                  <div className="absolute bottom-2 left-2 rounded-xl overflow-hidden"
+                    style={{ width: "50%", height: "46%", transform: "rotate(-2.2deg)",
                       boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
                     <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
                       fill style={{ objectFit: "cover" }}
@@ -500,9 +526,9 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
               <div
                 className="rounded-3xl p-8 md:p-14"
                 style={{
-                  background: "rgba(255,255,255,0.42)",
-                  backdropFilter: "blur(12px)",
-                  WebkitBackdropFilter: "blur(12px)",
+                  background: "rgba(255,255,255,0.46)",
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
                   border: "1px solid rgba(255,255,255,0.7)",
                   boxShadow: "0 18px 48px rgba(0,0,0,0.10)",
                 }}

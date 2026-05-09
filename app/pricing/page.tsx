@@ -71,19 +71,19 @@ const ACCENT = "#D4A010";
 const FAQS = [
   {
     q: "How much does guerrilla marketing cost?",
-    a: "A typical guerrilla marketing campaign runs $3,500–$7,500 per city for a 150–250 poster wheat paste rollout. Multi-format campaigns combining paste, snipes, and chalk stencils run $8K–$18K per city. National rollouts across 5+ cities scale to $25K–$80K with multi-city volume discounts.",
+    a: "A typical guerrilla marketing campaign runs $5,000–$13,500 per city for a 150–250 poster wheat paste rollout. Multi-format campaigns combining paste, snipes, and chalk stencils run $8,500–$22,000 per city. National rollouts across 5+ cities scale to $45K–$90K with multi-city volume discounts.",
   },
   {
     q: "How much does flyposting cost in the US?",
-    a: "Flyposting (the British term for wheat pasting) costs $3,000–$8,000 per US city for a standard 150–250 poster campaign at $12–$22 per poster installed. UK creative agencies booking US flyposting should expect 25–40% higher wall-rights costs in LA and NYC versus secondary markets.",
+    a: "Flyposting (the British term for wheat pasting) costs $5,000–$13,500 per US city for a standard 150–250 poster campaign at $33–$55 per poster installed. UK creative agencies booking US flyposting should expect 25–40% higher wall-rights costs in LA and NYC versus secondary markets.",
   },
   {
     q: "How much does experiential marketing cost?",
-    a: "Experiential marketing budgets vary widely — from $5K wheat paste activations to $250K+ pop-up installations. The street-level component (paste, snipes, stencils) typically runs $4K–$15K per city as the surround-attention layer for a primary experiential moment like a pop-up or product launch.",
+    a: "Experiential marketing budgets vary widely — from $5,500 wheat paste activations to $250K+ pop-up installations. The street-level component (paste, snipes, stencils) typically runs $8,500–$22,000 per city as the surround-attention layer for a primary experiential moment like a pop-up or product launch.",
   },
   {
     q: "How much does out-of-home advertising cost in NYC?",
-    a: "Traditional NYC OOH (Times Square digital boards, scaffolding wraps, transit) runs $8K–$40K per placement on 4-week minimum flights. Wheat paste alternatives in NYC run $4,500–$8,500 per neighborhood activation — same audience reach in dense corridors at 25–80× lower CPM.",
+    a: "Traditional NYC OOH (Times Square digital boards, scaffolding wraps, transit) runs $8K–$40K per placement on 4-week minimum flights. Wheat paste alternatives in NYC run $5,500–$13,500 per neighborhood activation — same audience reach in dense corridors at 25–80× lower CPM.",
   },
   {
     q: "What's the difference between flyposting and wheat pasting cost?",
@@ -126,11 +126,24 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Pricing tier ranges are anchored to $33–$55 per-poster all-in math:
+ *   - 80-120 posters × $33-$55  = $2.6K-$6.6K  (Test tier; min nudged to $3.5K
+ *     because below 80 posters fixed costs dominate)
+ *   - 150-250 posters × $33-$55 = $5K-$13.5K   (Standard tier)
+ *   - 300-500 posters × $33-$55 = $9.9K-$27.5K (Multi-City; multi-city discount
+ *     pulls the top end down to ~$25K)
+ *   - 1,000+ posters × $33-$55 + multi-format premium = $45K-$90K (National;
+ *     premium walls, scaffold wraps, snipes, chalk stencils stack on top)
+ *
+ * Real reference: 450 posters / 3 cities / $15,179 = $33.73 per poster, which
+ * sits at the bottom of the Multi-City band (multi-city discount applied).
+ */
 const TIERS = [
   {
     eyebrow: "Single-City Test",
     title: "1 city, 80–120 posters, 1 wave",
-    range: "$3,500 – $5,500",
+    range: "$3,500 – $6,500",
     includes: [
       "1 neighborhood corridor",
       "Print + paste + install + paste",
@@ -141,7 +154,7 @@ const TIERS = [
   {
     eyebrow: "Standard Single-City",
     title: "1 city, 150–250 posters, full neighborhood mix",
-    range: "$5,500 – $9,500",
+    range: "$5,500 – $13,500",
     includes: [
       "4 neighborhoods, 12–15 walls",
       "4–8 unique creative designs",
@@ -152,7 +165,7 @@ const TIERS = [
   {
     eyebrow: "Multi-City",
     title: "2–3 cities, 300–500 posters, simultaneous install",
-    range: "$10K – $22K",
+    range: "$15K – $25K",
     includes: [
       "LA + NYC + Miami most common",
       "Coordinated overnight install windows",
@@ -215,17 +228,17 @@ export default function PricingPage() {
                 {
                   name: "Single-City Test Campaign",
                   description:
-                    "1 neighborhood, 80–120 posters, single overnight install — $3,500–$5,500",
+                    "1 neighborhood, 80–120 posters, single overnight install — $3,500–$6,500",
                 },
                 {
                   name: "Standard Single-City Campaign",
                   description:
-                    "4 neighborhoods, 150–250 posters, photo documentation — $5,500–$9,500",
+                    "4 neighborhoods, 150–250 posters, photo documentation — $5,500–$13,500",
                 },
                 {
                   name: "Multi-City Activation",
                   description:
-                    "2–3 cities, 300–500 posters, simultaneous install — $10K–$22K",
+                    "2–3 cities, 300–500 posters, simultaneous install — $15K–$25K",
                 },
                 {
                   name: "Full National Rollout",
@@ -264,7 +277,7 @@ export default function PricingPage() {
         <TrustBar />
 
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-16 md:pb-20">
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16">
           <div className="max-w-[1100px] mx-auto">
             <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase mb-4"
               style={{ color: "rgba(0,0,0,0.55)" }}>
@@ -313,12 +326,12 @@ export default function PricingPage() {
               KEY TAKEAWAYS
             </div>
             <ul className="space-y-2.5" style={{ color: "rgba(0,0,0,0.78)", fontSize: "16px", lineHeight: "1.6" }}>
-              <li>· <strong>Single-city wheat paste / flyposting / guerrilla marketing:</strong> $3,500–$9,500 depending on poster count and neighborhood mix</li>
-              <li>· <strong>Multi-city rollout:</strong> $10K–$22K for 2–3 cities; $45K–$90K for full 5–7 city national</li>
-              <li>· <strong>Per-poster all-in cost:</strong> $12–$22 installed (print + paste + wall rights + labor + documentation)</li>
+              <li>· <strong>Single-city wheat paste / flyposting / guerrilla marketing:</strong> $3,500–$13,500 depending on poster count and neighborhood mix</li>
+              <li>· <strong>Multi-city rollout:</strong> $15K–$25K for 2–3 cities; $45K–$90K for full 5–7 city national</li>
+              <li>· <strong>Per-poster all-in cost:</strong> $33–$55 installed (print + paste + wall rights + labor + documentation + project management)</li>
               <li>· <strong>OOH alternative math:</strong> Wheat paste delivers $0.10–$0.30 in-person CPM vs. $4–$15 for traditional out-of-home</li>
               <li>· <strong>Lead time:</strong> 7–10 days from sign-off to install (vs. 4–8 weeks for traditional billboard buys)</li>
-              <li>· <strong>Wild posting / experiential / pop-up activations:</strong> Same per-poster math; the surround-attention layer typically runs $4K–$15K per city</li>
+              <li>· <strong>Wild posting / experiential / pop-up activations:</strong> Same per-poster math; the surround-attention layer typically runs $8K–$22K per city</li>
             </ul>
           </div>
         </section>
@@ -484,32 +497,32 @@ export default function PricingPage() {
                   <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
                     <td className="px-6 py-4 font-bold">Wheat pasting</td>
                     <td className="px-6 py-4">Paper poster on wall with flour-water paste</td>
-                    <td className="px-6 py-4">$3,500–$9,500</td>
+                    <td className="px-6 py-4">$5,000–$13,500</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
                     <td className="px-6 py-4 font-bold">Flyposting</td>
                     <td className="px-6 py-4">UK term for the same wheat-paste medium</td>
-                    <td className="px-6 py-4">$3,500–$9,500</td>
+                    <td className="px-6 py-4">$5,000–$13,500</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
                     <td className="px-6 py-4 font-bold">Wild posting</td>
                     <td className="px-6 py-4">Trade term — same physical work as wheat paste</td>
-                    <td className="px-6 py-4">$3,500–$9,500</td>
+                    <td className="px-6 py-4">$5,000–$13,500</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
                     <td className="px-6 py-4 font-bold">Guerrilla marketing</td>
                     <td className="px-6 py-4">Umbrella category — paste + snipes + stencils + activation</td>
-                    <td className="px-6 py-4">$5,500–$18,000</td>
+                    <td className="px-6 py-4">$8,500–$22,000</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
                     <td className="px-6 py-4 font-bold">Experiential marketing</td>
                     <td className="px-6 py-4">Pop-up + activation + street layer combined</td>
-                    <td className="px-6 py-4">$8,000–$45,000</td>
+                    <td className="px-6 py-4">$15K–$60K</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 font-bold">Snipe posters</td>
                     <td className="px-6 py-4">11×17 / 18×24 posters on poles + signal boxes</td>
-                    <td className="px-6 py-4">$2,200–$5,500 (campaign add-on)</td>
+                    <td className="px-6 py-4">$3,500–$8,500 (campaign add-on)</td>
                   </tr>
                 </tbody>
               </table>

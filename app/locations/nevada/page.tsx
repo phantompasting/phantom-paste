@@ -90,7 +90,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a Nevada campaign cost?",
-      a: "Vegas-only: $3,500-$6,800 (conference weeks book at the higher end). Statewide NV rollouts (Vegas + Henderson + Reno) run $11K-$18K with the multi-city volume discount.",
+      a: "Vegas-only: $3,500-$7,500 (conference weeks book at the higher end). Statewide NV rollouts (Vegas + Henderson + Reno) run $13K-$22K with the multi-city volume discount.",
     },
   ],
   localBusiness: {

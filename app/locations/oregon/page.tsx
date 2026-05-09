@@ -87,7 +87,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does an Oregon campaign cost?",
-      a: "Single-city OR campaigns run $2,800-$5,200 (Portland on the higher end). Statewide OR rollouts hitting 4-5 metros run $11K-$19K with the multi-city volume discount. Combined Portland + Seattle Pacific Northwest briefs are common.",
+      a: "Single-city OR campaigns run $3,200-$5,800 (Portland on the higher end). Statewide OR rollouts hitting 4-5 metros run $13K-$22K with the multi-city volume discount. Combined Portland + Seattle Pacific Northwest briefs are common.",
     },
     {
       q: "Can you handle UO football-weekend deployments in Eugene?",

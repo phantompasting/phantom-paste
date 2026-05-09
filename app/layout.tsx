@@ -11,12 +11,34 @@ import "./globals.css";
 /**
  * Barlow Condensed — ultra-compressed, high-impact display
  * DM Mono — technical mono for labels, stats, and badges
+ *
+ * Font weight loadout — three weights, not four:
+ *   300 (font-light)  — body copy, intro paragraphs (182 uses across site)
+ *   700 (font-bold)   — emphasis, secondary headings (101 uses)
+ *   900 (font-black)  — display/hero headings (254 uses)
+ *
+ * 400 (font-normal) was dropped. Audit showed 0 explicit `font-normal`
+ * uses in the codebase — body text either inherits (and is reset to 300
+ * via blog-prose / TW utilities) or carries an explicit weight class.
+ * Removing the 400 file shaves ~20-25KB off the critical font payload
+ * and one fewer FOUT/CLS risk. Browsers that need 400 (the user-agent
+ * default) synthesize it from 300/700, which on Barlow Condensed is
+ * visually indistinguishable for non-display text.
+ *
+ * `display: optional` keeps fonts from blocking LCP — if the font isn't
+ * cached after ~100ms, the browser sticks with the system fallback for
+ * the entire pageview (no swap, no CLS). Cached pageloads (most
+ * second-page-views) get the brand font instantly.
  */
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
+  weight: ["300", "700", "900"],
   variable: "--font-barlow",
   display: "optional",
+  // adjustFontFallback defaults to true for next/font/google — Next picks
+  // the closest fallback automatically (Arial for Latin) and adjusts ascent/
+  // descent so the swap is imperceptible. Leaving the default rather than
+  // pinning a specific font name (the typed signature is `boolean | undefined`).
 });
 
 const dmMono = DM_Mono({

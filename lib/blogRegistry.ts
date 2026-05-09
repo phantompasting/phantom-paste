@@ -226,7 +226,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
       {
         q: "How much does a LA wheat pasting campaign cost?",
-        a: "Single-neighborhood test: $3,500–$5,500 for 80–120 posters. Four-neighborhood LA-only activation: $6,500–$9,500. LA flagship with paste + snipes: $11K–$16K. Scaffold + wall combos: $18K–$40K.",
+        a: "Single-neighborhood test: $3,500–$6,500 for 80–120 posters. Four-neighborhood LA-only activation: $8,500–$15,000. LA flagship with paste + snipes: $15K–$22K. Scaffold + wall combos: $18K–$40K.",
       },
       {
         q: "Is wheat pasting legal in Los Angeles?",
@@ -345,7 +345,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     faqs: [
       {
         q: "Is wheat pasting cheaper than billboards?",
-        a: "Per city, yes — $3,500–$7,500 for a full paste campaign versus $8,000–$40,000 for a comparable billboard flight. On CPM, wheat paste runs $0.10–$0.30 in-person versus $4–$15 for billboards.",
+        a: "Per city, yes — $5,000–$13,500 for a full paste campaign versus $8,000–$40,000 for a comparable billboard flight. On CPM, wheat paste runs $0.10–$0.30 in-person versus $4–$15 for billboards.",
       },
       {
         q: "When do billboards beat wheat pasting?",
@@ -374,7 +374,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     metaDescription:
       "Real wheat pasting pricing from 500+ campaigns. Per-poster cost, full-city rollout cost, variables that move the number. No guesswork, just field data.",
     excerpt:
-      "Wheat pasting campaigns run $3,000–$8,000 per city for a standard 150–250 poster rollout, with per-poster costs settling at $12–$22 installed. Real pricing from 500+ campaigns, what moves the number, what doesn't.",
+      "Wheat pasting campaigns run $5,000–$13,500 per city for a standard 150–250 poster rollout, with per-poster costs settling at $33–$55 installed. Real pricing from 500+ campaigns, what moves the number, what doesn't.",
     silo: "strategy-roi",
     publishedAt: "2026-04-26",
     updatedAt: "2026-04-26",
@@ -386,7 +386,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     faqs: [
       {
         q: "How much does a wheat pasting campaign cost?",
-        a: "A standard single-city campaign with 150–250 posters across 12–15 walls runs $3,500–$7,500 all-in. Per-poster cost lands at $12–$22 installed depending on market, print quality, and documentation tier.",
+        a: "A standard single-city campaign with 150–250 posters across 12–15 walls runs $5,000–$13,500 all-in. Per-poster cost lands at $33–$55 installed depending on market, print quality, wall mix, and documentation tier.",
       },
       {
         q: "What drives wheat pasting cost the most?",

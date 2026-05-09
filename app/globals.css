@@ -994,6 +994,35 @@ html.perf-lite .transition-opacity {
   .transition-opacity { transition: none !important; }
 }
 
+/* ── MOBILE BLUR CAP ───────────────────────────────────────────────────────
+   Backdrop blur is the single largest GPU cost on small devices. It's also
+   what Lighthouse measures (throttled mobile run). Cost scales roughly with
+   radius², so a 10px blur is ~6× more expensive than a 4px blur on the same
+   element. Visual difference at small sizes (badges, cards) is minimal —
+   imperceptible in motion, barely visible at rest.
+
+   This rule caps the radius at 4px on mobile WITHOUT removing the effect
+   (so the frosted-glass look remains). Cuts mobile-LCP/TBT cost dramatically
+   on pages with multiple blur layers (CityPageTemplate has 9, work pages
+   have 5-6). Desktop is unaffected — the full 8-10px radius still renders
+   on viewports where GPU power is a non-issue.
+
+   Combined with the existing perf-lite + prefers-reduced-transparency rules
+   (which strip blur entirely), this gives 3 tiers of fallback:
+     · Desktop / high-end: full 8-10px radius
+     · Mobile (Lighthouse target): capped at 4px
+     · perf-lite / a11y: blur stripped, replaced with inset shadow */
+@media (max-width: 768px) {
+  [style*="backdrop-filter"],
+  [style*="backdropFilter"] {
+    /* Cap the blur. Inline style still wins for everything else (background,
+       border, etc.) — we only override the blur radius. !important is needed
+       because inline styles otherwise dominate the cascade. */
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+  }
+}
+
 /* Gallery grid — no entrance animation. The previous framer AnimatePresence
    was replaced with a plain remount on key change. Keeping initial paint
    instant matters more than a 280 ms fade on filter/page swaps. */

@@ -90,7 +90,7 @@ export default function Post() {
       <Callout variant="muted" label="The numbers in one line">
         A typical single-city campaign runs <strong>150–250 posters across 12–15 walls</strong>,
         installed overnight by a 2–3 person crew, documented at daylight the next morning. All-in
-        cost: <strong>$3,500–$7,500</strong> depending on city, print tier, and wall mix.
+        cost: <strong>$5,000–$13,500</strong> depending on city, print tier, and wall mix.
       </Callout>
 
       <h2>Why Brands Came Back to Wheat Pasting in 2026</h2>

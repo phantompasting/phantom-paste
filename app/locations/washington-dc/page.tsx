@@ -66,7 +66,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Washington DC?", a: "Yes on owner-authorized walls. DC is permissive on private walls with property-owner consent. Federal-property and historic-district walls (Georgetown historic, Capitol Hill historic) need permits; we handle them." },
     { q: "What DC neighborhoods work best for wheat pasting?", a: "U Street Corridor + H Street NE are the two highest-signal corridors. Adams Morgan, Shaw, Georgetown, Dupont Circle round out the primary deployment map." },
-    { q: "How much does a DC wheat pasting campaign cost?", a: "Single-neighborhood test: $3,000-$4,500 for 60-90 posters. Full-city activation across 4-5 districts: $11K-$18K. Inauguration-week or major-event saturation runs $18K-$35K depending on creative + permit complexity." },
+    { q: "How much does a DC wheat pasting campaign cost?", a: "Single-neighborhood test: $3,500-$5,500 for 60-90 posters. Full-city activation across 4-5 districts: $13K-$20K. Inauguration-week or major-event saturation runs $20K-$38K depending on creative + permit complexity." },
     { q: "When is the best time to run DC campaigns?", a: "Spring (March-May) and fall (September-November) drive the most foot traffic — DC's mild seasons. Inauguration week (every 4 years), Cherry Blossom Festival (late March-April), and Howard + Georgetown commencement weekends are the highest-attention event windows." },
     { q: "Can you handle DC + Baltimore corridor deployments?", a: "Yes. DC + Baltimore is a natural Mid-Atlantic corridor — same crew rotation handles both metros on coordinated rollouts. Common configuration: DC + Baltimore + Northern Virginia (Arlington, Alexandria) on a single launch week." },
   ],

@@ -66,7 +66,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Dallas?", a: "Yes on owner-authorized walls. Dallas is permissive on private walls with property-owner consent. Deep Ellum + Bishop Arts are particularly receptive — both neighborhoods have property-owner cultures built around large-format wall art." },
     { q: "What Dallas neighborhoods work best for wheat pasting?", a: "Deep Ellum for music/cultural reach, Bishop Arts for retail/lifestyle, Lower Greenville for nightlife, Uptown for affluent retail audience, Oak Cliff for cultural credibility, Knox-Henderson for boutique-shopping demographic." },
-    { q: "How much does a Dallas wheat pasting campaign cost?", a: "Single-neighborhood test: $2,800-$4,200 for 60-90 posters. Full-city activation across 4-5 districts: $10K-$16K. Combined Dallas + Houston + Austin Texas-wide briefs run $22K-$38K." },
+    { q: "How much does a Dallas wheat pasting campaign cost?", a: "Single-neighborhood test: $3,200-$5,500 for 60-90 posters. Full-city activation across 4-5 districts: $11K-$18K. Combined Dallas + Houston + Austin Texas-wide briefs run $25K-$42K." },
     { q: "When is the best time to run Dallas campaigns?", a: "October-May (mild Texas seasons). Cowboys home games drive Uptown saturation; Mavericks playoff windows (April-June) and Stars NHL playoffs add volume. State Fair of Texas (late September-October) creates a 24-day saturation window." },
     { q: "Can you handle DFW Metroplex deployments?", a: "Yes. Dallas + Fort Worth + Arlington + Plano is a natural DFW corridor — same crew rotation handles the metroplex on coordinated rollouts. Common configuration: Dallas + Fort Worth on a single launch week." },
   ],

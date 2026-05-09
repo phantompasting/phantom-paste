@@ -123,17 +123,17 @@ export default function Post() {
           <tr>
             <td>Single-neighborhood test</td>
             <td>1 corridor (Melrose or Fairfax), 80–120 posters</td>
-            <td>$3,500–$5,500</td>
+            <td>$3,500–$6,500</td>
           </tr>
           <tr>
             <td>LA-only activation</td>
             <td>4 neighborhoods, 200–280 posters</td>
-            <td>$6,500–$9,500</td>
+            <td>$8,500–$15,000</td>
           </tr>
           <tr>
             <td>LA flagship + snipes</td>
             <td>5 neighborhoods, paste + 400 snipes</td>
-            <td>$11K–$16K</td>
+            <td>$15K–$22K</td>
           </tr>
           <tr>
             <td>Scaffold + wall combo</td>

@@ -74,7 +74,7 @@ const data: CityPageData = {
     { q: "Is wheat pasting legal in Las Vegas?", a: "Yes on owner-authorized walls. Vegas is permissive on private walls with property-owner consent. Strip-adjacent properties + Fremont East + the Arts District are the highest-volume corridors." },
     { q: "Can you handle CES or other conference-week saturation?", a: "Yes — it's a specialty. CES (January), NAB (April), Magic Week (Feb + August), Defcon (August), EDC (May) all drive 5-10x baseline foot traffic. Saturation campaigns timed to event windows book 6-8 weeks ahead." },
     { q: "How does Vegas heat affect campaigns?", a: "Summer (June-September) install windows shift to 9 p.m.-2 a.m. when surface temps drop. July-August daytime installs fail — 110°F+ heat flash-sets paste. October-April is the reliable window." },
-    { q: "How much does a Vegas wheat pasting campaign cost?", a: "Single-corridor test: $3,500-$5,500 for 60-90 posters. Full-Strip + Fremont East activation: $14K-$22K. CES or NAB conference-week saturation: $25K-$50K depending on multi-day refresh + creative complexity." },
+    { q: "How much does a Vegas wheat pasting campaign cost?", a: "Single-corridor test: $3,500-$6,500 for 60-90 posters. Full-Strip + Fremont East activation: $15K-$25K. CES or NAB conference-week saturation: $28K-$55K depending on multi-day refresh + creative complexity." },
     { q: "What Vegas neighborhoods work best for wheat pasting?", a: "The Strip (Las Vegas Blvd South) for conference + tourism reach, Fremont East for walkable arts + nightlife audience, Arts District (18b) for cultural credibility, Downtown Container Park for family + tourism." },
   ],
   localBusiness: {

@@ -103,7 +103,7 @@ export default function IncrediwearCaseStudy() {
 
         {/* ── Hero (wide, centered, sleek) ──────────────────────── */}
         <section className="relative overflow-hidden">
-          <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24 text-center">
+          <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-6 md:py-10 lg:py-14 text-center">
             <div className="inline-flex items-center gap-4 mb-8">
               <span style={{ width: 40, height: 1, background: "rgba(0,0,0,0.14)" }} />
               <Link href="/work" className="font-mono text-[10px] tracking-[0.3em] uppercase no-underline"

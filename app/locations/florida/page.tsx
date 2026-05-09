@@ -113,13 +113,13 @@ const data: CityPageData = {
   serviceAreaType: "State",
   lastUpdated: "2026-04-25",
   pricingTiers: [
-    { tier: "Single-City FL Campaign", range: "$3,000 – $5,800", includes: "Miami runs higher during Art Basel · 1 FL metro · Photo doc + install report" },
-    { tier: "Statewide FL Rollout", range: "$12K – $24K", includes: "4–6 metros · Multi-city volume discount · PVA-reinforced for hurricane season" },
+    { tier: "Single-City FL Campaign", range: "$3,500 – $6,800", includes: "Miami runs higher during Art Basel · 1 FL metro · Photo doc + install report" },
+    { tier: "Statewide FL Rollout", range: "$15K – $28K", includes: "4–6 metros · Multi-city volume discount · PVA-reinforced for hurricane season" },
   ],
   faqs: [
     { q: "Is wheat pasting legal in Florida?", a: "Yes on owner-authorized walls. Florida has no state-level prohibition; cities handle their own ordinances. Miami's Wynwood is highly permissive (the world's largest outdoor mural complex is built on it). Tampa, Orlando, Jacksonville, Ft. Lauderdale, St. Petersburg all follow similar patterns." },
     { q: "What Florida cities do you cover?", a: "All major FL metros: Miami, Tampa, Orlando, Jacksonville, Ft. Lauderdale, St. Petersburg, plus secondary markets like Hialeah, Pembroke Pines, Tallahassee, Sarasota, Gainesville, and Pensacola." },
-    { q: "How much does a Florida wheat pasting campaign cost?", a: "Single-city FL campaigns run $3,000-$5,800 (Miami during Art Basel runs higher). Statewide rollouts hitting 4-6 metros run $12K-$24K with the multi-city volume discount." },
+    { q: "How much does a Florida wheat pasting campaign cost?", a: "Single-city FL campaigns run $3,500-$6,800 (Miami during Art Basel runs higher). Statewide rollouts hitting 4-6 metros run $15K-$28K with the multi-city volume discount." },
     { q: "How does Florida hurricane season affect campaigns?", a: "Hurricane season (June-November) carries wash-off + damage risk. We use PVA-reinforced paste for FL installs that holds 6-8 weeks even through storm windows. October-May is the reliable window for budget-priced campaigns; Art Basel (early December) is the year's highest-volume event." },
     { q: "Can you handle Art Basel week saturation in Miami?", a: "Yes — it's a specialty. Art Basel (early December) drives Wynwood + Design District + South Beach foot traffic 8-10x over baseline. Saturation campaigns timed to Art Basel + Miami Music Week (March) book 8-10 weeks ahead." },
   ],

@@ -85,7 +85,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a Nashville wheat pasting campaign cost?",
-      a: "Single-neighborhood test: $2,800-$4,200 for 60-90 posters. Full-city activation across 4-5 districts: $8K-$14K. Album-launch sequence (4-week rotating refresh): $14K-$28K depending on city + creative complexity.",
+      a: "Single-neighborhood test: $3,200-$5,500 for 60-90 posters. Full-city activation across 4-5 districts: $11K-$18K. Album-launch sequence (4-week rotating refresh): $18K-$32K depending on city + creative complexity.",
     },
     {
       q: "When is the best time to run Nashville campaigns?",

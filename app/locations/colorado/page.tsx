@@ -88,7 +88,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a Colorado campaign cost?",
-      a: "Single-city CO campaigns run $2,800-$5,000. Statewide CO rollouts hitting 4-5 metros run $11K-$19K with the multi-city volume discount. Combined Denver + Boulder Front Range briefs are common.",
+      a: "Single-city CO campaigns run $3,200-$5,800. Statewide CO rollouts hitting 4-5 metros run $13K-$22K with the multi-city volume discount. Combined Denver + Boulder Front Range briefs are common.",
     },
     {
       q: "Can you handle game-weekend saturation around CU + CSU + Air Force Academy?",

@@ -35,7 +35,7 @@ export default function Post() {
       <p>
         <strong>Wheat paste</strong> campaigns are wall-based paper poster installations on
         authorized private walls in dense urban neighborhoods. Bought directly through specialty
-        agencies at $3,500–$7,500 per city for a 150–250 poster rollout. See{" "}
+        agencies at $5,000–$13,500 per city for a 150–250 poster rollout. See{" "}
         <BlogLink slug="wheat-pasting-cost">wheat pasting cost breakdown</BlogLink> for the full
         pricing model. We&apos;ve been on both sides of this — installing paste at 2 a.m. and
         watching brands renew their billboard contracts every quarter — and the right answer
@@ -52,7 +52,7 @@ export default function Post() {
           </tr>
         </thead>
         <tbody>
-          <tr><td>Typical cost (per city, 4 weeks)</td><td>$8,000–$40,000</td><td>$3,500–$7,500</td></tr>
+          <tr><td>Typical cost (per city, 4 weeks)</td><td>$8,000–$40,000</td><td>$5,000–$13,500</td></tr>
           <tr><td>Typical CPM</td><td>$4–$15</td><td>$0.10–$0.30 in-person</td></tr>
           <tr><td>Audience</td><td>Drivers, broad reach</td><td>Pedestrians, dense creative neighborhoods</td></tr>
           <tr><td>Measurability</td><td>Geopath DMP impressions</td><td>Photo-documented install, social amplification</td></tr>

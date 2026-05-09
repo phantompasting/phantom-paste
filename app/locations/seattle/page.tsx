@@ -66,7 +66,7 @@ const data: CityPageData = {
   faqs: [
     { q: "Is wheat pasting legal in Seattle?", a: "Yes on owner-authorized walls. Seattle is highly permissive on private walls with property-owner consent — the city's tolerance for street art makes wheat paste land naturally. Pioneer Square historic district needs permits; we handle them." },
     { q: "How does Seattle rain affect campaigns?", a: "We use PVA-reinforced paste that holds 6-8 weeks even through wet seasons. Driest months (July-September) are the safest windows; budget-priced campaigns time to those months when possible. Standard paste wash-off risk is real — we don't use it for Seattle." },
-    { q: "How much does a Seattle wheat pasting campaign cost?", a: "Single-neighborhood test: $3,200-$4,800 for 60-90 posters. Full-city activation across 4-5 districts: $11K-$18K. Combined Seattle + Portland Pacific Northwest briefs run $18K-$32K." },
+    { q: "How much does a Seattle wheat pasting campaign cost?", a: "Single-neighborhood test: $3,500-$5,500 for 60-90 posters. Full-city activation across 4-5 districts: $13K-$20K. Combined Seattle + Portland Pacific Northwest briefs run $20K-$35K." },
     { q: "What Seattle neighborhoods work best?", a: "Capitol Hill (Pike-Pine), Ballard (Ballard Ave), Fremont, Pioneer Square, Belltown, and U District during academic year. South Lake Union for tech-corporate audience reach." },
     { q: "Can you handle Pacific Northwest corridor deployments?", a: "Yes. Seattle + Portland + Vancouver WA is a natural PNW brand corridor — same crew rotation handles all three metros on coordinated rollouts. Common configuration: Seattle + Portland over a single launch week." },
   ],

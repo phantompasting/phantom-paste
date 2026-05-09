@@ -96,7 +96,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a New York campaign cost?",
-      a: "NYC-only: $4,200-$7,800 for 80-120 posters. Statewide NY rollout (NYC + 3-4 upstate metros): $16K-$32K with the multi-city volume discount. Scaffold wraps in NYC run $2K-$8K each on top — Manhattan-specific.",
+      a: "NYC-only: $4,500-$8,500 for 80-120 posters. Statewide NY rollout (NYC + 3-4 upstate metros): $18K-$38K with the multi-city volume discount. Scaffold wraps in NYC run $2K-$8K each on top — Manhattan-specific.",
     },
     {
       q: "How quickly can a New York campaign launch?",

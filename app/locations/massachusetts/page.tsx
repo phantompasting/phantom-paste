@@ -88,7 +88,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a Massachusetts campaign cost?",
-      a: "Boston-only: $3,800-$6,500 (Harvard Square + Back Bay land at the higher end). Statewide MA rollouts (Boston + 3-4 secondary cities) run $13K-$22K with the multi-city volume discount.",
+      a: "Boston-only: $4,000-$7,000 (Harvard Square + Back Bay land at the higher end). Statewide MA rollouts (Boston + 3-4 secondary cities) run $15K-$28K with the multi-city volume discount.",
     },
     {
       q: "Can you handle the New England college-tour circuit?",

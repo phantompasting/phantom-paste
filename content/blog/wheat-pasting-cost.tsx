@@ -4,8 +4,8 @@ import PullQuote from "@/components/PullQuote";
 export function tldr() {
   return (
     <p>
-      Wheat pasting campaigns run $3,000–$8,000 per city for a standard 150–250 poster rollout,
-      with per-poster costs settling at $12–$22 installed. Cost depends on five variables: city,
+      Wheat pasting campaigns run $5,000–$13,500 per city for a standard 150–250 poster rollout,
+      with per-poster costs settling at $33–$55 installed. Cost depends on five variables: city,
       poster count, wall mix, print quality, and documentation. Here&apos;s the real pricing from
       500+ campaigns — what moves the number, what doesn&apos;t, and what a fair quote looks like in
       2026.
@@ -35,11 +35,13 @@ export default function Post() {
         <li>Overnight install, next-morning documentation</li>
       </ul>
       <p>
-        Typical all-in cost: <strong>$3,500–$7,500 per city</strong>. That&apos;s print + wall
+        Typical all-in cost: <strong>$5,000–$13,500 per city</strong>. That&apos;s print + wall
         rights + install labor + paste + photo documentation + project management. The range
         depends on which five variables move against you. We&apos;ve quoted hundreds of these
         and the spread has stayed remarkably stable since 2022 — paper pricing crept up, wall
-        rights went up faster, but the bands held.
+        rights went up faster, but the bands held. A real reference point: a recent 450-poster
+        rollout across 3 cities ran $15,179 total, which works out to ~$33.70 per poster — at the
+        bottom of the range thanks to multi-city scale discounts.
       </p>
 
       <h2>The Five Cost Drivers</h2>
@@ -99,19 +101,21 @@ export default function Post() {
           </tr>
         </thead>
         <tbody>
-          <tr><td>Print (commercial)</td><td>$1.50</td><td>24×36, 70 lb blue-back, 200 qty</td></tr>
-          <tr><td>Paste + materials</td><td>$0.70</td><td>Paste, paper trim, broom wear</td></tr>
-          <tr><td>Wall rights (amortized)</td><td>$3.00</td><td>Per poster across a typical wall grid</td></tr>
-          <tr><td>Install labor</td><td>$5.50</td><td>2-person crew, ~1.5 min per poster</td></tr>
-          <tr><td>Documentation pass</td><td>$1.50</td><td>Morning photo, processing, delivery</td></tr>
-          <tr><td>Vehicle + fuel</td><td>$1.30</td><td>Amortized per poster per city night</td></tr>
-          <tr><td>Project management</td><td>$2.00</td><td>Scout, schedule, report</td></tr>
-          <tr><td><strong>Total</strong></td><td><strong>$15.50</strong></td><td>Standard all-in per-poster cost</td></tr>
+          <tr><td>Print (commercial)</td><td>$2.00</td><td>24×36, 70 lb blue-back, 200 qty</td></tr>
+          <tr><td>Paste + materials</td><td>$1.00</td><td>Paste, paper trim, broom wear</td></tr>
+          <tr><td>Wall rights (amortized)</td><td>$11.00</td><td>Per poster across a typical wall grid</td></tr>
+          <tr><td>Install labor</td><td>$9.00</td><td>2-person crew, ~1.5 min per poster + insurance</td></tr>
+          <tr><td>Documentation pass</td><td>$2.50</td><td>Morning photo, processing, delivery</td></tr>
+          <tr><td>Vehicle + fuel</td><td>$2.50</td><td>Amortized per poster per city night</td></tr>
+          <tr><td>Project management</td><td>$5.00</td><td>Scout, schedule, report</td></tr>
+          <tr><td>Insurance + overhead</td><td>$5.50</td><td>Liability, GL, business operations</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>$38.50</strong></td><td>Standard all-in per-poster cost</td></tr>
         </tbody>
       </table>
       <p>
-        That&apos;s the midpoint. Premium markets and premium walls push it to $20–$22. Secondary
-        markets and high-volume campaigns drop it to $11–$13.
+        That&apos;s the midpoint. Premium markets (LA Melrose, NYC SoHo, Manhattan scaffolding)
+        and premium walls push it to $50–$55. Secondary markets and high-volume multi-city
+        campaigns with scale discounts drop it to $33–$36.
       </p>
 
       <h2>Installer&apos;s Perspective — What Brands Get Wrong About Cost</h2>

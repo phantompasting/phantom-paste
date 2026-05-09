@@ -93,7 +93,7 @@ const data: CityPageData = {
     },
     {
       q: "How much does a Texas wheat pasting campaign cost?",
-      a: "Single-city TX campaigns run $3,200-$6,800 (Austin during SXSW lands at the higher end). Statewide TX rollouts hitting 4-6 metros run $14K-$26K with the multi-city volume discount.",
+      a: "Single-city TX campaigns run $3,500-$7,500 (Austin during SXSW lands at the higher end). Statewide TX rollouts hitting 4-6 metros run $18K-$32K with the multi-city volume discount.",
     },
     {
       q: "When is the best time to run Austin campaigns?",

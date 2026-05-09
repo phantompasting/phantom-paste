@@ -24,7 +24,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
       />
       <nav
         aria-label="Breadcrumb"
-        className="px-5 sm:px-8 md:px-12 lg:px-16 pt-5 pb-2"
+        className="px-5 sm:px-8 md:px-12 lg:px-16 pt-3 pb-1"
       >
         <ol
           className="max-w-[1200px] mx-auto flex flex-wrap items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase m-0 p-0 list-none"
