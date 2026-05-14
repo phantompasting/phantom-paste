@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { articleSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/incrediwear-street-campaign`;
 const PAGE_OG = `${BUSINESS.url}/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp`;
@@ -41,6 +41,26 @@ const IMAGES = [
   { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Incrediwear pole wrap guerrilla advertising at night" },
   { src: "/gallery/street-pole-sticker-campaign-urban-advertising.webp", alt: "Street pole sticker campaign urban advertising" },
   { src: "/gallery/sticker-campaign-street-intersection-urban.webp", alt: "Sticker campaign at street intersection" },
+];
+
+/**
+ * Case-study FAQs — campaign-specific, grounded in the page body narrative.
+ * Lifts FAQPage rich-result eligibility and AIO citability for
+ * "Incrediwear guerrilla marketing" queries.
+ */
+const CASE_STUDY_FAQS: ReadonlyArray<{ q: string; a: string }> = [
+  {
+    q: "Which cities and neighborhoods did the Incrediwear campaign target?",
+    a: "The campaign ran simultaneously in Los Angeles and New York. LA placements focused on Santa Monica, Venice, West Hollywood, and Silver Lake — gym-dense corridors along run and cycling routes. NY placements hit Williamsburg, Chelsea, and the Upper West Side gym corridor, matching Incrediwear's performance-recovery buyer profile in both markets.",
+  },
+  {
+    q: "What formats did the Incrediwear campaign use besides wheat paste?",
+    a: "The campaign stacked three formats: light-pole wraps at high-frequency commuter intersections for daily repetition, sticker clusters near CrossFit boxes and run clubs for neighborhood saturation, and reflective nighttime formats at gym-adjacent and bar-district corners for after-work visibility. All three ran simultaneously as a compounding multi-format push.",
+  },
+  {
+    q: "How long did the Incrediwear street campaign run?",
+    a: "All assets were installed within a 10-day window so the campaign launched coherently across both cities. Pole wraps typically hold 30-90 days; sticker clusters run 60-120 days in low-wash environments. Every asset was GPS-logged and photographed day and night — any early removal was replaced at no charge under the standard SOW.",
+  },
 ];
 
 export default function IncrediwearCaseStudy() {
@@ -88,6 +108,10 @@ export default function IncrediwearCaseStudy() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(CASE_STUDY_FAQS)) }}
       />
 
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
@@ -539,6 +563,52 @@ export default function IncrediwearCaseStudy() {
                 boxShadow: "0 4px 20px rgba(212,160,16,0.45)" }}>
               Learn About Full Impact →
             </Link>
+          </div>
+        </section>
+
+        {/* ── Campaign FAQ (added 2026-05-14)
+            Campaign-specific Q&As that mirror the FAQPage JSON-LD emitted at
+            the top of the page. Keeps case-study targeting clean while adding
+            rich-result eligibility. */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[820px] mx-auto">
+            <span
+              className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.55)" }}
+            >
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              About This Campaign
+            </span>
+            <h2 className="font-black uppercase m-0 mb-10 leading-[0.92]"
+              style={{ fontSize: "clamp(28px, 3.6vw, 44px)", letterSpacing: "-0.035em" }}>
+              CAMPAIGN<span style={{ color: ACCENT }}> Q&amp;A.</span>
+            </h2>
+            <div className="flex flex-col gap-3">
+              {CASE_STUDY_FAQS.map(({ q, a }) => (
+                <details key={q} className="rounded-2xl group"
+                  style={{
+                    background: "rgba(255,255,255,0.40)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255,255,255,0.7)",
+                  }}>
+                  <summary className="cursor-pointer font-black uppercase list-none flex items-center justify-between gap-4"
+                    style={{
+                      fontSize: "14px",
+                      letterSpacing: "-0.01em",
+                      padding: "1.1rem 1.5rem",
+                      color: "#1A1A1A",
+                    }}>
+                    <span>{q}</span>
+                    <span aria-hidden className="font-mono" style={{ color: ACCENT, fontSize: "18px", flexShrink: 0 }}>+</span>
+                  </summary>
+                  <div className="font-light leading-relaxed"
+                    style={{ fontSize: "15px", color: "rgba(0,0,0,0.72)", padding: "0 1.5rem 1.25rem" }}>
+                    {a}
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 

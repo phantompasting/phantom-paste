@@ -149,9 +149,20 @@ export default function ContactPage() {
 
         {/* ── Two-column layout ─────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
+          {/*
+            Mobile order swap (May 14): the form was rendering BELOW the
+            contact-info column on mobile because grid-cols-1 stacks in DOM
+            order. Users land on /contact via search → see H1 + phone/email
+            sidebar + nationwide-coverage box + services list BEFORE the form
+            ever appears. 9.5s avg session + 0 conversions / 5 sessions =
+            people leaving before scrolling to the form.
 
-            {/* Left — contact info */}
+            order-2 / order-1 swap on mobile only; lg:order-* restores the
+            desktop info-left / form-right layout exactly.
+          */}
+          <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start [&>*:first-child]:order-2 [&>*:last-child]:order-1 lg:[&>*:first-child]:order-1 lg:[&>*:last-child]:order-2">
+
+            {/* Left — contact info (renders SECOND on mobile, FIRST on desktop) */}
             <div>
               <div className="flex flex-col gap-4 mb-8">
                 {[

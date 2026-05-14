@@ -8,6 +8,10 @@ export const metadata: Metadata = {
     "Wheat pasting in Los Angeles — Melrose, Fairfax, Silver Lake, Echo Park, DTLA Arts District, Venice. Highest-signal paste market in the US, 500+ campaigns.",
   keywords: [
     "wheat pasting Los Angeles",
+    "wheatpasting Los Angeles",
+    "wheatpasting LA",
+    "wheat pasting LA",
+    "wheat paste posting LA",
     "LA poster campaigns",
     "Los Angeles guerrilla marketing",
     "street postering LA",
@@ -69,7 +73,7 @@ const data: CityPageData = {
   ],
   heroImage1: { src: "/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp", alt: "Momentous Trend Proof wheat paste poster wall street corner Los Angeles" },
   heroImage2: { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", alt: "FashionPass wheat paste poster campaign wall Los Angeles" },
-  lastUpdated: "2026-04-25",
+  lastUpdated: "2026-05-14",
   pricingTiers: [
     { tier: "Single-Neighborhood Test", range: "$3,500 – $6,500", includes: "80–120 posters · 1 LA neighborhood · Photo doc + GPS-logged install" },
     { tier: "Four-Neighborhood Activation", range: "$11K – $18K", includes: "Four LA districts · Multi-design rotation · Daylight + install-night shots" },

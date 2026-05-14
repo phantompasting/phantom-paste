@@ -4,8 +4,6 @@ import HeroSection from "@/components/hero/HeroSection";
 import StaticSEOSections from "@/components/sections/StaticSEOSections";
 import { BUSINESS } from "@/lib/business";
 import {
-  orgSchema,
-  webSiteSchema,
   faqPageSchema,
   breadcrumbSchema,
   jsonLd,
@@ -49,86 +47,69 @@ export const metadata: Metadata = {
 };
 
 /**
- * Consolidated @graph — Organization + WebSite + LocalBusiness in a single JSON-LD
- * block with stable @id references. All service/offer details are expressed once
- * via a hasOfferCatalog node attached to the Organization.
+ * Homepage-specific Org enrichment — references the canonical Organization
+ * @id from the layout's orgSchema() emission. Google's documented @id-merge
+ * behavior consolidates this onto the single Organization node, so we only
+ * need to express the FIELDS UNIQUE TO THE HOMEPAGE (description override
+ * + hasOfferCatalog) rather than re-spreading the full 39-entry knowsAbout
+ * + serviceCities array + sameAs + contactPoint that already live in the
+ * layout-emitted Organization.
+ *
+ * Previous emission had a subtle bug: it spread `...orgSchema()` (with rich
+ * areaServed city-array) then immediately overrode it with
+ * `areaServed: BUSINESS.areaServed` (a plain string "United States") —
+ * downgrading the homepage's geographic signal vs what every other page
+ * carries. Removing the spread fixes that AND saves ~1.3-1.9KB on every
+ * homepage HTML payload.
+ *
+ * WebSite schema is also no longer duplicated here — the layout's emission
+ * is canonical.
  */
-const homepageGraph = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      ...orgSchema(),
-      description:
-        "Wheat pasting company also known as a flyposting, street postering, street media, guerrilla marketing, and alternative OOH agency. Large-format poster campaigns, chalk spray stencil activations, and full-impact multi-format rollouts across 50+ US cities.",
-      // knowsAbout already supplied by orgSchema() via ORG_KNOWS_ABOUT (39
-      // topical entities) — the spread above carries it. No inline override
-      // needed; the previous 6-entry inline list was narrower than the
-      // centralized version.
-      areaServed: BUSINESS.areaServed,
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Street Marketing Services",
-        itemListElement: [
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Wheat Pasting",
-              description:
-                "Large-format wheat paste poster advertising on prime urban walls across 50+ US cities.",
-              url: `${BUSINESS.url}/services/wheat-pasting`,
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Chalk Spray Stencils",
-              description: "Precision chalk spray stencil activations at street level.",
-              url: `${BUSINESS.url}/services/chalk-spray-stencils`,
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Full Impact Street Campaigns",
-              description:
-                "End-to-end guerrilla marketing campaigns combining wheat pasting, street postering, and stencil activations.",
-              url: `${BUSINESS.url}/services/full-impact-campaigns`,
-            },
-          },
-        ],
-      },
-    },
-    webSiteSchema(),
-    // Previous third node was a `localBusinessSchema()` ProfessionalService
-    // spread that pinned the org geographically (Orlando, FL + priceRange +
-    // LocalBusiness subtype). Removed entirely. The Org node above already
-    // carries serviceArea (Country=US), areaServed (cities array),
-    // contactPoint, and the description that lived here. Description below
-    // remains as a homepage-specific Org enrichment via @id merge.
-  ],
-};
-
-// Homepage-specific Org enrichment — same @id as the layout's orgSchema(),
-// so Google merges this into a single Organization node with the richer
-// homepage-only `description`. Kept as a separate emission to avoid
-// duplicating orgSchema()'s 39-entry knowsAbout / serviceArea / etc.
 const homepageOrgEnrichment = {
   "@context": "https://schema.org",
   "@id": `${BUSINESS.url}/#org`,
   description:
-    "Wheat pasting company specializing in large-format poster campaigns, street postering, street media, chalk spray stencil activations, and full-impact guerrilla marketing across 50+ US cities. Founded 2014. 500+ campaigns. 100% photo documented.",
+    "Wheat pasting company also known as a flyposting, street postering, street media, guerrilla marketing, and alternative OOH agency. Large-format poster campaigns, chalk spray stencil activations, and full-impact multi-format rollouts across 50+ US cities. Founded 2014. 500+ campaigns. 100% photo documented.",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Street Marketing Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Wheat Pasting",
+          description:
+            "Large-format wheat paste poster advertising on prime urban walls across 50+ US cities.",
+          url: `${BUSINESS.url}/services/wheat-pasting`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Chalk Spray Stencils",
+          description: "Precision chalk spray stencil activations at street level.",
+          url: `${BUSINESS.url}/services/chalk-spray-stencils`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Full Impact Street Campaigns",
+          description:
+            "End-to-end guerrilla marketing campaigns combining wheat pasting, street postering, and stencil activations.",
+          url: `${BUSINESS.url}/services/full-impact-campaigns`,
+        },
+      },
+    ],
+  },
 };
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(homepageGraph) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homepageOrgEnrichment) }}

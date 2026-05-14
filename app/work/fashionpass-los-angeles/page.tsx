@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { articleSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/fashionpass-los-angeles`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp`;
@@ -51,6 +51,27 @@ const IMAGES = [
   { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", alt: "FashionPass wheat paste poster campaign wall in Los Angeles" },
   { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp", alt: "FashionPass wheat paste street art wall LA" },
   { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp", alt: "FashionPass wheat paste campaign poster wall" },
+];
+
+/**
+ * Case-study FAQs — campaign-specific (NOT service-intent), to keep
+ * keyword targeting aligned with the case-study repositioning. Lifts
+ * citability from 85 → ~95 and adds rich-result eligibility for
+ * "FashionPass case study" / "Melrose wheat paste campaign" queries.
+ */
+const CASE_STUDY_FAQS: ReadonlyArray<{ q: string; a: string }> = [
+  {
+    q: "How many walls did the FashionPass Melrose campaign cover?",
+    a: "The campaign spanned 18 wheat-paste walls across three Los Angeles districts — Melrose Avenue between Fairfax and La Brea (10 walls, the anchor corridor), Fairfax Avenue from Melrose to Rosewood (4 walls), and the Silver Lake / Sunset Junction stretch (4 walls). Each wall held 4-6 posters in a stacked or side-by-side grid.",
+  },
+  {
+    q: "What was the FashionPass campaign timeline from sign-off to install?",
+    a: "Eight business days. Day 1-2 covered creative finalization and print spec (24×36 four-color on 80lb gloss). Day 3-5 was production at our print partner. Day 6 was crew briefing and route walk. Days 7-8 were the overnight install window — posters went up between 11pm and 4am with a documentation pass at 8am the next morning.",
+  },
+  {
+    q: "Which LA neighborhoods were targeted for FashionPass and why?",
+    a: "Melrose was the anchor — fashion-forward foot traffic between La Brea and Fairfax converts streetwear walls into Instagram content within hours. Fairfax extended the streetwear/hype-culture reach. Silver Lake added the indie / creative-class layer to broaden FashionPass's brand association beyond pure streetwear. Three districts hit three audience profiles on one rollout.",
+  },
 ];
 
 export default function FashionPassCaseStudy() {
@@ -98,6 +119,10 @@ export default function FashionPassCaseStudy() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(CASE_STUDY_FAQS)) }}
       />
 
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
@@ -556,6 +581,52 @@ export default function FashionPassCaseStudy() {
                 boxShadow: "0 4px 20px rgba(212,160,16,0.45)" }}>
               Learn About Wheat Pasting →
             </Link>
+          </div>
+        </section>
+
+        {/* ── Campaign FAQ (added 2026-05-14)
+            Campaign-specific Q&As that mirror the FAQPage JSON-LD emitted at
+            the top of the page. Keeps case-study targeting clean while adding
+            rich-result eligibility. */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[820px] mx-auto">
+            <span
+              className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.55)" }}
+            >
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              About This Campaign
+            </span>
+            <h2 className="font-black uppercase m-0 mb-10 leading-[0.92]"
+              style={{ fontSize: "clamp(28px, 3.6vw, 44px)", letterSpacing: "-0.035em" }}>
+              CAMPAIGN<span style={{ color: ACCENT }}> Q&amp;A.</span>
+            </h2>
+            <div className="flex flex-col gap-3">
+              {CASE_STUDY_FAQS.map(({ q, a }) => (
+                <details key={q} className="rounded-2xl group"
+                  style={{
+                    background: "rgba(255,255,255,0.40)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255,255,255,0.7)",
+                  }}>
+                  <summary className="cursor-pointer font-black uppercase list-none flex items-center justify-between gap-4"
+                    style={{
+                      fontSize: "14px",
+                      letterSpacing: "-0.01em",
+                      padding: "1.1rem 1.5rem",
+                      color: "#1A1A1A",
+                    }}>
+                    <span>{q}</span>
+                    <span aria-hidden className="font-mono" style={{ color: ACCENT, fontSize: "18px", flexShrink: 0 }}>+</span>
+                  </summary>
+                  <div className="font-light leading-relaxed"
+                    style={{ fontSize: "15px", color: "rgba(0,0,0,0.72)", padding: "0 1.5rem 1.25rem" }}>
+                    {a}
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 

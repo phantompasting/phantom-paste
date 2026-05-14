@@ -408,68 +408,11 @@ form textarea::placeholder {
    AMBIENT LAVA BLOBS — float + morph + hue on separate timings.
 ══════════════════════════════════════════════════════════════ */
 
-/* ── Float paths ── */
-/* Translate-only — no scale(), pure GPU matrix, no composite recalc */
-@keyframes orbFloat1 {
-  0%   { transform: translate(0vw,    0vh);   }
-  17%  { transform: translate(14vw,   4vh);   }
-  33%  { transform: translate(10vw,   16vh);  }
-  50%  { transform: translate(-2vw,   12vh);  }
-  67%  { transform: translate(-12vw,  5vh);   }
-  83%  { transform: translate(-6vw,  -3vh);   }
-  100% { transform: translate(0vw,    0vh);   }
-}
-@keyframes orbFloat2 {
-  0%   { transform: translate(0vw,    0vh);   }
-  14%  { transform: translate(-8vw,   9vh);   }
-  28%  { transform: translate(-18vw,  3vh);   }
-  42%  { transform: translate(-14vw,  18vh);  }
-  57%  { transform: translate(2vw,    14vh);  }
-  71%  { transform: translate(10vw,   6vh);   }
-  85%  { transform: translate(6vw,   -4vh);   }
-  100% { transform: translate(0vw,    0vh);   }
-}
-@keyframes orbFloat3 {
-  0%   { transform: translate(0vw,    0vh);   }
-  20%  { transform: translate(6vw,   -12vh);  }
-  40%  { transform: translate(16vw,  -6vh);   }
-  55%  { transform: translate(18vw,   8vh);   }
-  70%  { transform: translate(8vw,    14vh);  }
-  85%  { transform: translate(-4vw,   8vh);   }
-  100% { transform: translate(0vw,    0vh);   }
-}
+/* Note: legacy .orb-1/2/3 + .orb-drift classes and their orbFloat /
+   orbMorph keyframes were removed 2026-05-14 after audit confirmed zero
+   JSX consumers (replaced by the GrainientBackground canvas layer).
+   ~7KB of unused CSS gone (~2KB gzipped). */
 
-/* ── Blob morph keyframes — organic shape cycling ── */
-@keyframes orbMorph1 {
-  0%, 100% { border-radius: 40% 60% 55% 45% / 55% 40% 60% 45%; }
-  25%       { border-radius: 58% 42% 64% 36% / 43% 65% 35% 57%; }
-  50%       { border-radius: 65% 35% 46% 54% / 60% 44% 56% 40%; }
-  75%       { border-radius: 44% 56% 38% 62% / 48% 60% 40% 52%; }
-}
-@keyframes orbMorph2 {
-  0%, 100% { border-radius: 55% 45% 50% 50% / 50% 55% 45% 50%; }
-  33%       { border-radius: 40% 60% 62% 38% / 64% 40% 60% 36%; }
-  66%       { border-radius: 60% 40% 44% 56% / 46% 62% 36% 54%; }
-}
-@keyframes orbMorph3 {
-  0%, 100% { border-radius: 45% 55% 58% 42% / 52% 48% 55% 45%; }
-  30%       { border-radius: 64% 36% 42% 58% / 38% 62% 46% 54%; }
-  65%       { border-radius: 36% 64% 56% 44% / 60% 36% 64% 40%; }
-}
-
-/* ── Orb classes — GPU layer, float + morph animations
-   (filter: blur removed — forces per-frame composite on 3 animated elements.
-    Softness now comes from the gradient itself.) ── */
-.orb-1, .orb-2, .orb-3 {
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  contain: layout style paint;
-}
-/* Orb mouse drift — JS sets transform directly via RAF, no CSS transition needed */
-.orb-drift {
-  will-change: transform;
-}
 @media (max-width: 767px) {
   /* ── iOS overscroll white flash fix ───────────────────────────────
      iOS Safari rubber-band scroll past the page boundary reveals the
@@ -503,13 +446,6 @@ form textarea::placeholder {
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
   }
 
-  /* Orbs: entirely hidden on mobile. orb-1 used to render as a static
-     translucent blob but it still allocates a GPU layer (`contain: layout
-     style paint`) and contributes to compositor memory pressure — invisible
-     trade for one less layer on the critical path. */
-  .orb-1, .orb-2, .orb-3 {
-    display: none !important;
-  }
   .noise-grain { display: none; }
   .cta-arrow, .submit-arrow { animation: none; }
   .gallery-item img { opacity: 1; transition: none; }
@@ -524,19 +460,6 @@ form textarea::placeholder {
      are in the viewport AND the tab is visible. No per-breakpoint
      override needed. */
 }
-.orb-1 {
-  border-radius: 40% 60% 55% 45% / 55% 40% 60% 45%;
-  animation: orbFloat1 37s linear infinite, orbMorph1 13s ease-in-out infinite;
-}
-.orb-2 {
-  border-radius: 55% 45% 50% 50% / 50% 55% 45% 50%;
-  animation: orbFloat2 53s linear infinite 7s, orbMorph2 19s ease-in-out infinite 5s;
-}
-.orb-3 {
-  border-radius: 45% 55% 58% 42% / 52% 48% 55% 45%;
-  animation: orbFloat3 71s linear infinite 19s, orbMorph3 23s ease-in-out infinite 11s;
-}
-
 /* ── Scroll indicator pulse (hero) ──────────────────────────── */
 @keyframes scrollPulse {
   0%   { transform: translateY(-100%); opacity: 0; }
@@ -872,25 +795,10 @@ html.perf-lite .shiny-gold-text.sgt-play {
 html.perf-lite .ticker-track,
 html.perf-lite .star-sweep-bottom,
 html.perf-lite .star-sweep-top,
-html.perf-lite .orb-1,
-html.perf-lite .orb-2,
-html.perf-lite .orb-3,
 html.perf-lite .cta-arrow,
 html.perf-lite .submit-arrow,
 html.perf-lite .scroll-pulse {
   animation: none !important;
-}
-
-/* Orbs: kill will-change so the GPU layer is released now that the
-   animations are stopped. Without this, the `will-change: transform`
-   set in the class still allocates a persistent compositor layer even
-   though nothing is moving — wasted GPU memory that competes with
-   scroll compositing. */
-html.perf-lite .orb-1,
-html.perf-lite .orb-2,
-html.perf-lite .orb-3,
-html.perf-lite .orb-drift {
-  will-change: auto !important;
 }
 
 /* SpotlightCard — disable the radial gradient hover overlay.
@@ -989,7 +897,6 @@ html.perf-lite .transition-opacity {
   }
   /* Spotlight card, will-change, hover transitions — mirror perf-lite */
   .spotlight-card::after { display: none !important; }
-  .orb-1, .orb-2, .orb-3, .orb-drift { will-change: auto !important; }
   .transition-transform { transition: none !important; transform: none !important; }
   .transition-opacity { transition: none !important; }
 }

@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { articleSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/fifa-world-cup-atlanta`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fifa-world-cup-atlanta-wall-installation.webp`;
@@ -44,6 +44,26 @@ const IMAGES = [
   { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp", alt: "FIFA World Cup wheat paste posters closeup" },
   { src: "/gallery/fifa-world-cup-poster-installation-closeup.webp", alt: "FIFA World Cup poster installation closeup" },
   { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup poster wall gallery wide shot" },
+];
+
+/**
+ * Case-study FAQs — campaign-specific, grounded in the page body narrative.
+ * Lifts FAQPage rich-result eligibility and AIO citability for
+ * "FIFA World Cup Atlanta campaign" queries.
+ */
+const CASE_STUDY_FAQS: ReadonlyArray<{ q: string; a: string }> = [
+  {
+    q: "How many walls did the FIFA World Cup Atlanta campaign cover?",
+    a: "The campaign deployed multi-wall gallery takeovers across three primary Atlanta neighborhoods — Midtown, Little Five Points, and the Buckhead/West Midtown stadium-approach corridors. Installations clustered near MARTA stops, the Beltline, and fan-migration routes into Mercedes-Benz Stadium, ensuring maximum wall impressions across the highest foot-traffic zones.",
+  },
+  {
+    q: "What was the FIFA World Cup campaign timeline and install window?",
+    a: "Installs launched three weeks before first kickoff and were sequenced against the tournament calendar — new walls dropped with each Atlanta match week so the visual footprint expanded throughout the event rather than peaking on day one. Overnight crews worked midnight-to-5am shifts to keep the city's streets fresh for each successive matchday.",
+  },
+  {
+    q: "Why was Atlanta selected as a FIFA World Cup wheat-paste market?",
+    a: "Atlanta is a 2026 FIFA World Cup host city with matches at Mercedes-Benz Stadium, giving the campaign a built-in audience of international fans, local watch-party crowds, and high pedestrian density around Midtown and Little Five Points. Street postering filled the gap between stadium OOH and the walkable neighborhoods where fans actually gathered.",
+  },
 ];
 
 export default function FIFACaseStudy() {
@@ -91,6 +111,10 @@ export default function FIFACaseStudy() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(CASE_STUDY_FAQS)) }}
       />
 
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
@@ -544,6 +568,52 @@ export default function FIFACaseStudy() {
                 boxShadow: "0 4px 20px rgba(212,160,16,0.45)" }}>
               Learn About Wheat Pasting →
             </Link>
+          </div>
+        </section>
+
+        {/* ── Campaign FAQ (added 2026-05-14)
+            Campaign-specific Q&As that mirror the FAQPage JSON-LD emitted at
+            the top of the page. Keeps case-study targeting clean while adding
+            rich-result eligibility. */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[820px] mx-auto">
+            <span
+              className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.55)" }}
+            >
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              About This Campaign
+            </span>
+            <h2 className="font-black uppercase m-0 mb-10 leading-[0.92]"
+              style={{ fontSize: "clamp(28px, 3.6vw, 44px)", letterSpacing: "-0.035em" }}>
+              CAMPAIGN<span style={{ color: ACCENT }}> Q&amp;A.</span>
+            </h2>
+            <div className="flex flex-col gap-3">
+              {CASE_STUDY_FAQS.map(({ q, a }) => (
+                <details key={q} className="rounded-2xl group"
+                  style={{
+                    background: "rgba(255,255,255,0.40)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255,255,255,0.7)",
+                  }}>
+                  <summary className="cursor-pointer font-black uppercase list-none flex items-center justify-between gap-4"
+                    style={{
+                      fontSize: "14px",
+                      letterSpacing: "-0.01em",
+                      padding: "1.1rem 1.5rem",
+                      color: "#1A1A1A",
+                    }}>
+                    <span>{q}</span>
+                    <span aria-hidden className="font-mono" style={{ color: ACCENT, fontSize: "18px", flexShrink: 0 }}>+</span>
+                  </summary>
+                  <div className="font-light leading-relaxed"
+                    style={{ fontSize: "15px", color: "rgba(0,0,0,0.72)", padding: "0 1.5rem 1.25rem" }}>
+                    {a}
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 

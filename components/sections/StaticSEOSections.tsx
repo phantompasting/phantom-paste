@@ -187,6 +187,78 @@ export default function StaticSEOSections() {
         </article>
       </section>
 
+      {/*
+        Statewide coverage map (May 14 — orphan recovery pass).
+        Surfaces all 15 state pages as named internal links from the homepage's
+        primary crawler-readable content (previously they were only linked from
+        the global footer). 0-impression orphan pages in page_coverage.json:
+        AZ, CA, CO, FL, GA, IL, MA, NV, NY-state, OR, TX, WA, plus city-paged
+        Portland / San Francisco / Washington DC. Homepage crawl equity should
+        now propagate to these state pages and let GSC start picking up
+        state-level queries.
+      */}
+      <section>
+        <h2>Where We Work — Statewide Wheat Pasting Coverage</h2>
+        <p>
+          Phantom Pasting runs wheat-paste, street-postering, and guerrilla-marketing
+          campaigns across every major US state. Each statewide rollout coordinates
+          city-level installs through a single brief — Phoenix to Tucson, LA to San
+          Francisco, Atlanta to Savannah — with shared crew rotation, unified
+          documentation, and a single point of contact for the brand.
+        </p>
+        <h3>Tier 1 Flagship States</h3>
+        <ul>
+          <li>
+            <a href="/locations/california">Wheat Pasting California</a> — Los Angeles,
+            San Francisco, San Diego, Sacramento, Oakland, San Jose. Statewide
+            rollouts most-booked as LA + SF or LA + LA-county-saturation.
+          </li>
+          <li>
+            <a href="/locations/new-york-state">Wheat Pasting New York State</a> — NYC
+            (LES, Williamsburg, SoHo, Bushwick), Buffalo, Rochester, Syracuse,
+            Albany. NYC + upstate is a single coordinated rollout.
+          </li>
+          <li>
+            <a href="/locations/texas">Wheat Pasting Texas</a> — Houston, Dallas,
+            Austin, San Antonio, Fort Worth. Texas-wide briefs run $25K-$42K combined.
+          </li>
+          <li>
+            <a href="/locations/florida">Wheat Pasting Florida</a> — Miami, Tampa,
+            Orlando, Jacksonville, St. Petersburg. Wynwood + Design District drives
+            the Miami volume share.
+          </li>
+          <li>
+            <a href="/locations/georgia">Wheat Pasting Georgia</a> — Atlanta, Savannah,
+            Athens, Augusta, Macon. Atlanta is the 2026 FIFA World Cup market.
+          </li>
+          <li>
+            <a href="/locations/illinois">Wheat Pasting Illinois</a> — Chicago
+            (Wicker Park, Logan Square, West Loop), plus downstate Champaign-Urbana
+            university market.
+          </li>
+        </ul>
+        <h3>Tier 2 Statewide Markets</h3>
+        <ul>
+          <li><a href="/locations/arizona">Wheat Pasting Arizona</a> — Phoenix, Tucson, Mesa, Scottsdale, Tempe, Flagstaff. Desert-specific install logic (popcorn cement, monsoon timing).</li>
+          <li><a href="/locations/washington">Wheat Pasting Washington</a> — Seattle, Spokane, Tacoma, Bellevue. Pacific Northwest creative-class corridor.</li>
+          <li><a href="/locations/oregon">Wheat Pasting Oregon</a> — Portland (Alberta, Hawthorne, Mississippi Ave), Eugene, Salem, Bend.</li>
+          <li><a href="/locations/colorado">Wheat Pasting Colorado</a> — Denver (RiNo Arts District, LoHi, Cherry Creek), Boulder, Colorado Springs.</li>
+          <li><a href="/locations/nevada">Wheat Pasting Nevada</a> — Las Vegas (Fremont Street, Arts District), Reno. Nightlife + tourism density.</li>
+          <li><a href="/locations/massachusetts">Wheat Pasting Massachusetts</a> — Boston (Allston, Brighton, Cambridge), Worcester, Springfield. University-dense market.</li>
+        </ul>
+        <h3>Statewide-Capability Markets</h3>
+        <ul>
+          <li>
+            Pennsylvania (Philadelphia, Pittsburgh), Tennessee (Nashville, Memphis),
+            Ohio (Cleveland, Columbus, Cincinnati), Michigan (Detroit, Ann Arbor),
+            North Carolina (Charlotte, Raleigh, Asheville), Minnesota
+            (Minneapolis-St. Paul), Missouri (St. Louis, Kansas City), Louisiana
+            (New Orleans), Utah (Salt Lake City), Indiana (Indianapolis), and
+            Wisconsin (Milwaukee). Reach out for a custom statewide quote.
+          </li>
+        </ul>
+      </section>
+
       <section>
         <h2>Frequently Asked Questions — Wheat Pasting &amp; Poster Campaigns</h2>
         {HOMEPAGE_FAQS.map((faq, i) => (

@@ -385,7 +385,13 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                       boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
                     <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
                       fill style={{ objectFit: "cover" }}
-                      sizes="(max-width: 1024px) 0vw, 40vw"
+                      // 36vw matches actual rendered width better than 40vw —
+                      // hero column is 0.9/2.0 = 45% of max-w-[1400px] container,
+                      // and image wrapper is 82% of that = ~37vw at 1440px.
+                      // Tighter hint lets Next/Image pick the 512w variant
+                      // instead of 640w on common 1280-1440px viewports
+                      // (~30-50KB saved per city page first load).
+                      sizes="(max-width: 1024px) 0vw, 36vw"
                       fetchPriority="high"
                       loading="eager" />
                   </div>
@@ -397,7 +403,9 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                       boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
                     <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
                       fill style={{ objectFit: "cover" }}
-                      sizes="(max-width: 1024px) 0vw, 25vw" loading="lazy" />
+                      // heroImage2 is 50% × 46% of the 600px-high hero column
+                      // = ~22vw at 1440px. 22vw is a tighter match than 25vw.
+                      sizes="(max-width: 1024px) 0vw, 22vw" loading="lazy" />
                   </div>
                 )}
 

@@ -886,6 +886,60 @@ export default function WheatPastingPage() {
                 </Link>
               ))}
             </div>
+
+            {/* Statewide pivot strip (May 14 — orphan recovery).
+                Adds visible internal links from /services/wheat-pasting to the
+                15 state landing pages currently sitting at 0 GSC impressions.
+                Service page is the highest-authority service-intent URL after
+                the homepage — passing link weight from here lifts the state
+                pages out of orphan status faster than footer-only links. */}
+            <div className="mt-10 pt-8" style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+              <p
+                className="font-mono text-[10px] tracking-[0.32em] uppercase mb-4"
+                style={{ color: "rgba(0,0,0,0.55)" }}
+              >
+                Statewide Rollouts
+              </p>
+              <p
+                className="font-light leading-relaxed m-0 mb-5"
+                style={{ color: "rgba(0,0,0,0.6)", fontSize: "14px", maxWidth: "640px" }}
+              >
+                Multi-city briefs anchored to a single state — same crew rotation, unified
+                documentation, single point of contact. Statewide rollouts run 20–30% cheaper
+                per-city than separately-booked one-offs.
+              </p>
+              <div className="flex flex-wrap gap-x-5 gap-y-2">
+                {[
+                  { name: "California", href: "/locations/california" },
+                  { name: "New York State", href: "/locations/new-york-state" },
+                  { name: "Texas", href: "/locations/texas" },
+                  { name: "Florida", href: "/locations/florida" },
+                  { name: "Georgia", href: "/locations/georgia" },
+                  { name: "Illinois", href: "/locations/illinois" },
+                  { name: "Arizona", href: "/locations/arizona" },
+                  { name: "Washington", href: "/locations/washington" },
+                  { name: "Oregon", href: "/locations/oregon" },
+                  { name: "Colorado", href: "/locations/colorado" },
+                  { name: "Nevada", href: "/locations/nevada" },
+                  { name: "Massachusetts", href: "/locations/massachusetts" },
+                ].map(({ name, href }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="font-bold uppercase no-underline inline-flex items-center gap-1.5"
+                    style={{
+                      fontSize: "12px",
+                      letterSpacing: "-0.005em",
+                      color: "#1A1A1A",
+                      transition: "color 0.15s",
+                    }}
+                  >
+                    {name}
+                    <span aria-hidden style={{ color: ACCENT, fontSize: "11px" }}>→</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

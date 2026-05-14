@@ -1,16 +1,22 @@
 /**
  * Single source of truth for all gallery images.
  * Used by both the /gallery page and the homepage gallery section.
+ *
+ * Alt-text strategy (May 14 cannibalization fix): for LA campaign photos,
+ * lead with the NEIGHBORHOOD (Melrose, Silver Lake, Fairfax) where the
+ * image was actually shot rather than generic "Los Angeles". More accurate
+ * image description AND removes /gallery from competing with
+ * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",          label: "FashionPass — Campaign Wall",           alt: "FashionPass wheat paste campaign poster wall guerrilla marketing Los Angeles",                          tag: "Wheat Paste"  },
+  { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",          label: "FashionPass — Campaign Wall",           alt: "FashionPass wheat paste campaign poster wall on Melrose Avenue",                                         tag: "Wheat Paste"  },
   { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",               label: "FIFA World Cup — Gallery Wall",          alt: "FIFA World Cup wheat paste poster wall gallery wide view Atlanta street advertising",                   tag: "Wheat Paste"  },
-  { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", label: "FashionPass — LA Poster Campaign",    alt: "FashionPass wheat paste poster campaign wall Los Angeles street postering marketing",                   tag: "Wheat Paste"  },
+  { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", label: "FashionPass — Melrose Poster Wall",   alt: "FashionPass wheat paste poster wall — Melrose Avenue street postering campaign",                         tag: "Wheat Paste"  },
   { src: "/gallery/fifa-world-cup-atlanta-wall-installation.webp",              label: "FIFA Atlanta — Wall Installation",       alt: "FIFA World Cup Atlanta wall installation wheat paste posters guerrilla advertising",                    tag: "Wheat Paste"  },
   { src: "/gallery/dont-fall-off-wheat-paste-wall-closeup.webp",                label: "Don't Fall Off — Wall Close-Up",         alt: "Don't Fall Off music wheat paste poster wall close-up guerrilla advertising campaign",                  tag: "Wheat Paste"  },
   { src: "/gallery/fifa-world-cup-poster-wall-angle-view.webp",                 label: "FIFA Posters — Angle View",              alt: "FIFA World Cup poster wall angle view wheat paste street postering advertising campaign",               tag: "Wheat Paste"      },
-  { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",            label: "FashionPass — Wide Format Paste",        alt: "FashionPass wide format wheat paste street art wall Los Angeles poster campaign",                       tag: "Wheat Paste"  },
-  { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp",              label: "Don't Fall Off — Street View LA",        alt: "Don't Fall Off wheat paste poster wall installation street view Los Angeles",                           tag: "Wheat Paste"  },
+  { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",            label: "FashionPass — Wide Format Paste",        alt: "FashionPass wide format wheat paste wall — Melrose / Fairfax corridor street art poster campaign",      tag: "Wheat Paste"  },
+  { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp",              label: "Don't Fall Off — Silver Lake Street",    alt: "Don't Fall Off wheat paste poster wall installation — Silver Lake street view",                          tag: "Wheat Paste"  },
   { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",            label: "FIFA Posters — Close Up",                alt: "FIFA World Cup wheat paste posters close-up street postering campaign",                                 tag: "Wheat Paste"      },
   { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp",     label: "Incrediwear — Night Pole Wrap",          alt: "Incrediwear pole wrap guerrilla advertising at night urban street marketing",                           tag: "Sticker"      },
   { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",      label: "Calvin Priice — Chalk Stencil",          alt: "Calvin Priice chalk spray stencil sidewalk guerrilla marketing campaign",                              tag: "Stencil"      },
@@ -30,13 +36,13 @@ export const GALLERY_IMGS = [
   // All `aspect: "portrait"` — these were shot vertical and need 3:4 thumbnails.
   // The default rotating thumbnail aspect (4:3 landscape) center-crops portrait
   // photos to a tiny middle band that reads as wrong orientation.
-  { src: "/gallery/momentous-wheat-paste-poster-wall-los-angeles-overhead.webp",        label: "Momentous — Overhead Wall",             alt: "Momentous Trend Proof wheat paste campaign poster wall overhead view Los Angeles",                            tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",     label: "Momentous — Street Corner",             alt: "Momentous Trend Proof wheat paste poster wall street corner view Los Angeles guerrilla marketing",             tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp",            label: "Momentous — Poster Close-Up",           alt: "Momentous Trend Proof wheat paste posters close-up Los Angeles street postering campaign",                     tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp",                 label: "Momentous — Corner View",               alt: "Momentous wheat paste poster wall corner perspective Los Angeles street advertising",                           tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-billboard-wall-palm-trees-los-angeles.webp",   label: "Momentous — Wide Street View",          alt: "Momentous wheat paste campaign billboard wall with palm trees Los Angeles wide street view",                   tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp",          label: "Momentous — Campaign Wall",             alt: "Momentous wheat paste campaign wall wide street view Los Angeles poster campaign",                               tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp",   label: "Momentous — Poster Detail",             alt: "Momentous Trend Proof wheat paste poster detail close-up Los Angeles street advertising",                       tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-poster-wall-los-angeles-overhead.webp",        label: "Momentous — Overhead Wall",             alt: "Momentous Trend Proof wheat paste poster wall — overhead view of urban street corner",                          tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",     label: "Momentous — Street Corner",             alt: "Momentous Trend Proof wheat paste poster wall — street corner guerrilla marketing campaign",                    tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp",            label: "Momentous — Poster Close-Up",           alt: "Momentous Trend Proof wheat paste posters — close-up detail of finished street postering install",              tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp",                 label: "Momentous — Corner View",               alt: "Momentous wheat paste poster wall — corner perspective of finished street campaign",                            tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-billboard-wall-palm-trees-los-angeles.webp",   label: "Momentous — Wide Street View",          alt: "Momentous wheat paste campaign wall with palm trees — wide street view of installed poster grid",                tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp",          label: "Momentous — Campaign Wall",             alt: "Momentous wheat paste campaign wall — wide street view of completed poster install",                            tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp",   label: "Momentous — Poster Detail",             alt: "Momentous Trend Proof wheat paste poster — close-up detail of printed surface and adhesion",                    tag: "Wheat Paste", aspect: "portrait" },
 
   // ── Post-Campaign Cleanup — Wheat Paste Wall, Los Angeles ────────────────
   { src: "/gallery/wheat-paste-crew-power-washing-wall-los-angeles.webp",               label: "Post-Campaign — Power Washing",         alt: "Wheat paste crew power washing and cleaning wall after campaign removal Los Angeles",                           tag: "Wheat Paste", aspect: "portrait" },

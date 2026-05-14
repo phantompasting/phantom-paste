@@ -128,6 +128,116 @@ export default function Post() {
         </em>
       </p>
 
+      <h2>City-by-City: What the Law Actually Looks Like</h2>
+      <p>
+        The table above is the quick reference. The reality on the ground is more granular —
+        the law on paper and the law as a beat cop or code-enforcement officer applies it
+        rarely match. Here&apos;s how it actually plays out in the six markets where we paste most.
+      </p>
+
+      <h3>Wheat Pasting in NYC: Admin Code §10-119</h3>
+      <p>
+        <a href="https://www.nyc.gov/assets/dsny/site/resources/streets-and-sidewalks-laws/posting-graffiti-laws" target="_blank" rel="noopener noreferrer">NYC Administrative Code §10-119</a>
+        {" "}covers unlawful posting on public property. The statutory fine starts at $75 per
+        poster and tops out around $500. In practice, NYPD doesn&apos;t enforce it on private-wall
+        commercial campaigns — they have actual crimes to chase. Where NYC does enforce: Midtown
+        government-building corridors, scaffold wraps without DOB permits, and any block where
+        an earlier crew left a paper-mess complaint trail. Lower East Side, Williamsburg,
+        Bushwick, and DUMBO operate with effectively zero enforcement on owner-authorized walls.
+        SoHo is moderate. We&apos;ve done 300+ NYC installs and have never seen a ticket on a
+        properly-authorized wall. Scaffold wraps are the only NYC format that legitimately
+        requires city paperwork — that&apos;s a DOB permit, 3-4 week lead time, runs $2K-$8K per
+        wrap on top of installation. <BlogLink slug="wheat-pasting-new-york">Our NYC field
+        guide</BlogLink> covers the borough-by-borough specifics; <a href="/locations/new-york">the
+        NYC service page</a> has pricing.
+      </p>
+
+      <h3>Wheat Pasting in Los Angeles: LAMC §28.04</h3>
+      <p>
+        <a href="https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-128154" target="_blank" rel="noopener noreferrer">Los Angeles Municipal Code §28.04</a>
+        {" "}prohibits posting on public property without consent. LAPD does not enforce this on
+        clean commercial campaigns. The exception is historic-preservation zones — chunks of
+        Hollywood, the DTLA Arts District&apos;s landmark structures, parts of Beverly Hills-adjacent
+        Sunset Boulevard, and any building under HPOZ (Historic Preservation Overlay Zone)
+        designation. Those require Department of Building &amp; Safety permits, which we handle when
+        a brief targets those walls. Outside historic zones, LA is the most permissive Tier-1
+        market in the US: Melrose Avenue between Fairfax and La Brea, Fairfax itself, Silver
+        Lake, Echo Park, DTLA Arts District (non-historic walls), Venice / Abbot Kinney, Highland
+        Park, and Hollywood corridors all operate with zero enforcement on owner-authorized walls.
+        We&apos;ve been pasting LA since 2014 — see <BlogLink slug="wheat-pasting-los-angeles">our LA
+        neighborhood breakdown</BlogLink> for the wall map and <a href="/locations/los-angeles">the LA
+        service page</a> for pricing.
+      </p>
+
+      <h3>Wheat Pasting in Chicago: MCC §10-8-320</h3>
+      <p>
+        <a href="https://codelibrary.amlegal.com/codes/chicago/latest/chicago_il/0-0-0-2502604" target="_blank" rel="noopener noreferrer">Chicago Municipal Code §10-8-320</a>
+        {" "}covers handbill and poster distribution. The Chicago Police Department doesn&apos;t
+        treat clean commercial wheat-pasting as a priority offense, and the city&apos;s mural-corridor
+        culture in Wicker Park, Logan Square, Pilsen, and the West Loop makes wall postings part
+        of the visible neighborhood character rather than a code-enforcement target. The Loop and
+        Magnificent Mile are stricter — both are tourist-heavy, sign-regulated, and police presence
+        is denser. We route around those zones and concentrate Chicago campaigns on the cultural
+        corridors. Property-owner authorization is the universal lane here as everywhere else: a
+        wall owner signs off, we paste, the campaign holds 4-6 weeks. Chicago summer humidity
+        shortens lifespan slightly versus the dry-climate markets. See <a href="/locations/chicago">our
+        Chicago service page</a> for neighborhood-level detail.
+      </p>
+
+      <h3>Wheat Pasting in Atlanta: ACC §16-5A.006</h3>
+      <p>
+        Atlanta&apos;s posting code is light enforcement across the board. Old Fourth Ward, West End,
+        Edgewood, the Beltline corridor, and Castleberry Hill all carry active mural cultures
+        that make wheat paste a natural extension of what walls already display. We ran the FIFA
+        World Cup activation across Atlanta in early 2026 and the city had no posting-related
+        intervention on any of the 40+ walls we papered for that brief. The exception zones in
+        Atlanta are around Buckhead luxury retail and the State Capitol area — both denser on
+        signage code and police presence. The 2026 FIFA World Cup brought renewed attention to
+        Atlanta&apos;s street-media corridors, and the city&apos;s response was overwhelmingly to lean
+        into the cultural moment rather than enforce against it. Brand briefs targeting Atlanta&apos;s
+        sports-event windows (Falcons, Hawks, Braves, MLS) get the most lift here. <a href="/locations/atlanta">Our Atlanta
+        service page</a> details neighborhood specifics.
+      </p>
+
+      <h3>Wheat Pasting in Miami: Code §54-3</h3>
+      <p>
+        Miami has the most format-specific posting code of any market we run. <a href="https://library.municode.com/fl/miami/codes/code_of_ordinances" target="_blank" rel="noopener noreferrer">Miami Code §54-3</a>
+        {" "}is enforced more actively in South Beach and the historic Art Deco district than in
+        Wynwood — Wynwood&apos;s commercial mural-and-paste culture is essentially expected at this
+        point, and the Wynwood Arts District operates with effectively zero posting enforcement on
+        owner-authorized walls. Design District is moderate; permits are sometimes required for
+        scaffolding or temporary installations. South Beach and Lincoln Road need permits more
+        often than not — historic-preservation overlay applies. Brickell and Downtown Miami are
+        mixed: enforcement varies by block. Humidity and salt-air degrade paste posters faster
+        in Miami than anywhere else we work — typical lifespan is 3-5 weeks versus 6-8 in dry
+        markets. We use PVA-reinforced paste for all Miami summer installs. <a href="/locations/miami">The
+        Miami service page</a> has neighborhood pricing.
+      </p>
+
+      <h3>Wheat Pasting in Brooklyn: NYC §10-119 (Borough Application)</h3>
+      <p>
+        Brooklyn operates under the same NYC Administrative Code as Manhattan but with a
+        practically different enforcement environment. Williamsburg, Bushwick, Greenpoint, and
+        DUMBO have zero meaningful enforcement on owner-authorized commercial paste — the
+        neighborhoods are dense with property owners who actively participate in the mural-paste
+        economy. The Bedford Avenue corridor in Williamsburg, Flushing Avenue through Bushwick,
+        and Manhattan Avenue through Greenpoint all carry walls we&apos;ve papered repeatedly with no
+        intervention. Park Slope, Cobble Hill, and Brooklyn Heights are stricter — residential
+        density and historic-district overlays change the calculus. We&apos;ve done 50+ Brooklyn
+        installs and have never had a property-owner complaint or city intervention on an
+        authorized wall. Brooklyn-only campaigns run 15-20% cheaper than Manhattan equivalents
+        because wall rights are generally lower-cost in the outer-borough creative zones. See <a href="/locations/new-york">the
+        NYC + Brooklyn service page</a> for combined-borough pricing.
+      </p>
+
+      <p>
+        The pattern across all six cities is the same: the letter of the law is broader than the
+        reality of enforcement, owner-authorization is the universal safe lane, and the agencies
+        that actually get tickets are the ones cutting corners on permits, cleanup, or wall
+        rights. Brand-side compliance comes down to picking an installer that operates in the
+        authorized lane — not to picking a city.
+      </p>
+
       <h2>How Reputable Agencies Protect Brands</h2>
       <p>If you&apos;re a brand marketer considering wheat pasting, here&apos;s how to avoid legal exposure:</p>
       <ol>

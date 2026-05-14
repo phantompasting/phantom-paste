@@ -64,7 +64,7 @@ const data: CityPageData = {
   heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-wall-closeup.webp", alt: "Wheat paste poster wall close-up detail" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
-  lastUpdated: "2026-04-25",
+  lastUpdated: "2026-05-14",
   spotlight: {
     eyebrow: "Statewide Capability",
     title: "PHOENIX + TUCSON + 3 SECONDARY MARKETS",
@@ -89,8 +89,12 @@ const data: CityPageData = {
       a: "October-April is the reliable window — temperatures cooperate, no monsoon risk. May-September installs shift to 9 p.m.-2 a.m. windows; July-August daytime installs fail because 105°F+ heat flash-sets the paste. Monsoon season (July-September) carries 48-hour wash-off risk.",
     },
     {
-      q: "How much does an Arizona campaign cost?",
-      a: "Single-city AZ campaigns run $3,500-$6,500 (Scottsdale luxury activations land higher). Statewide AZ rollouts hitting 4-5 metros run $15K-$28K with the multi-city volume discount.",
+      q: "How much does wheat pasting cost in Arizona?",
+      a: "Single-city Arizona campaigns run $3,500-$6,500 for 80-120 posters across one metro (Phoenix Roosevelt Row, Tucson 4th Avenue, Tempe Mill Avenue). Scottsdale luxury-corridor activations land 15-20% higher. Statewide AZ rollouts hitting 4-5 metros run $15K-$28K with the multi-city volume discount baked in.",
+    },
+    {
+      q: "Where in Arizona do you run wheat-paste campaigns?",
+      a: "Phoenix (Roosevelt Row, Grand Avenue, Melrose District on 7th Ave), Tucson (Fourth Avenue, downtown, University Boulevard), Mesa (downtown Arts District), Scottsdale (Old Town arts corridor), Tempe (Mill Avenue, ASU campus zone), and Flagstaff (downtown, NAU campus zone). Combined Phoenix + Tucson is the most-booked Arizona configuration.",
     },
     {
       q: "Can you do festival-week saturation around ASU + UA games?",

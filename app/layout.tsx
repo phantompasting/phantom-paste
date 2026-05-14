@@ -45,7 +45,18 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-mono",
-  display: "swap",
+  // Was "swap" — caused FOUT on every mono element above the fold
+  // (breadcrumb pills, stat labels, eyebrow tags). The text repaint
+  // after font load shifted layout on city pages whose hero stats
+  // wrap at certain breakpoints (e.g. Nashville's "Album Launch /
+  // CMA Fest / 6" row showed CLS 0.294 on mobile traced to mono
+  // swap reflow). "optional" matches Barlow Condensed strategy:
+  // ~100ms timeout, then commit to either the brand font or
+  // system fallback for the entire pageview — no swap, no CLS.
+  // Trade-off: first-time visitors briefly see system mono
+  // fallback; cached visitors get DM Mono instantly. Acceptable
+  // for non-display mono labels.
+  display: "optional",
 });
 
 const DEFAULT_TITLE = "Wheat Pasting Company | Phantom Pasting";

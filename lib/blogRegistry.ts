@@ -169,7 +169,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       "New York is the second major US paste market — denser than LA, more regulated, and the only US city where scaffold wraps are a primary format. NYC's wall economy concentrates in four neighborhoods.",
     silo: "local-legal",
     publishedAt: "2026-05-01",
-    updatedAt: "2026-05-01",
+    updatedAt: "2026-05-14",
     heroImage: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
     heroAlt: "Wheat paste wall on an NYC street corridor with pedestrian foot traffic",
     authorSlug: MATEO_VARGAS.slug,
@@ -198,7 +198,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["wheat-pasting-los-angeles", "is-wheat-pasting-legal", "wheat-pasting-cost"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "wheat-pasting-los-angeles",
@@ -666,12 +666,12 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       "Wheat pasting sits in a legal gray zone in most US cities. Here's what actually happens on the street — from 500+ campaigns across LA, NYC, Miami, Chicago, Atlanta, Phoenix, and Denver. Not what city code says in theory.",
     silo: "local-legal",
     publishedAt: "2026-04-28",
-    updatedAt: "2026-04-28",
+    updatedAt: "2026-05-14",
     heroImage: "/gallery/fifa-world-cup-poster-wall-street-perspective.webp",
     heroAlt: "Wheat paste poster wall in a dense urban street corridor",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["legal", "compliance", "permits", "city-laws"],
-    wordCount: 797,
+    wordCount: 2400,
     faqs: [
       {
         q: "Is wheat pasting considered graffiti?",
@@ -686,6 +686,14 @@ export const BLOG_POSTS: BlogPostMeta[] = [
         a: "On private walls with owner permission: usually no. On scaffolding wraps, historic districts, or public property: yes — reputable agencies handle the paperwork.",
       },
       {
+        q: "Is wheat pasting illegal in NYC?",
+        a: "On owner-authorized private walls in NYC, there is effectively zero enforcement risk. NYC Administrative Code §10-119 covers unlawful posting on public property and is enforced selectively — primarily Midtown government-building corridors and crews leaving paper-mess complaint trails. Lower East Side, Williamsburg, Bushwick, and DUMBO operate with no enforcement on authorized walls.",
+      },
+      {
+        q: "Where in LA is wheat pasting most regulated?",
+        a: "Historic-preservation zones — chunks of Hollywood, parts of the DTLA Arts District, and any building under HPOZ (Historic Preservation Overlay Zone) designation — require DBS permits. Outside those zones, Melrose, Fairfax, Silver Lake, Echo Park, Highland Park, Venice, and most of DTLA carry effectively zero enforcement on owner-authorized walls.",
+      },
+      {
         q: "Who is liable if a campaign violates city code — the brand or the installer?",
         a: "The installer, in practice. The brand hires the agency; the agency is responsible for compliance. Reputable agencies carry insurance and absorb that risk.",
       },
@@ -694,7 +702,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
         a: "Faster cleanup, lower priority enforcement, lighter penalties. Paste is removable; spray paint isn't. Cities respond proportionally.",
       },
     ],
-    relatedSlugs: ["wheat-pasting-campaign", "how-to-make-wheat-paste"],
+    relatedSlugs: ["wheat-pasting-campaign", "how-to-make-wheat-paste", "wheat-pasting-new-york"],
     status: "published",
   },
   {
