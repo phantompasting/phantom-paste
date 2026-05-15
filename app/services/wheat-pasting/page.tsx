@@ -12,7 +12,6 @@ import {
   webPageSchema,
   articleSchema,
   faqPageSchema,
-  breadcrumbSchema,
   jsonLd,
 } from "@/lib/schema";
 import {
@@ -238,19 +237,6 @@ export default function WheatPastingPage() {
           __html: jsonLd(faqPageSchema(FAQS.map(({ q, a }) => ({ q, a })))),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Services", href: "/services" },
-              { name: "Wheat Pasting", href: "/services/wheat-pasting" },
-            ])
-          ),
-        }}
-      />
-
       <div
         style={{
           background: "transparent",
@@ -266,7 +252,7 @@ export default function WheatPastingPage() {
           items={[
             { name: "Home", href: "/" },
             { name: "Services", href: "/services" },
-            { name: "Wheat Pasting" },
+            { name: "Wheat Pasting", href: "/services/wheat-pasting" },
           ]}
         />
 

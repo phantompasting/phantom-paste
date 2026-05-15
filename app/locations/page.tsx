@@ -6,7 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { collectionPageSchema, faqPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { collectionPageSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 import { KW_LOCATIONS_HUB } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/locations`;
@@ -278,21 +278,9 @@ export default function LocationsHubPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(FAQS)) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Locations", href: "/locations" },
-            ])
-          ),
-        }}
-      />
-
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
-        <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Locations" }]} />
+        <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Locations", href: "/locations" }]} />
         <TrustBar />
 
         {/* ── Compact hero (text-only, no images) ──────────────────────

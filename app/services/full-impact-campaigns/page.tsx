@@ -12,7 +12,6 @@ import {
   webPageSchema,
   articleSchema,
   faqPageSchema,
-  breadcrumbSchema,
   jsonLd,
 } from "@/lib/schema";
 import {
@@ -222,26 +221,13 @@ export default function FullImpactCampaignsPage() {
           __html: jsonLd(faqPageSchema(FAQS.map(({ q, a }) => ({ q, a })))),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Services", href: "/services" },
-              { name: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
-            ])
-          ),
-        }}
-      />
-
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
             { name: "Services", href: "/services" },
-            { name: "Full Impact Campaigns" },
+            { name: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
           ]}
         />
         <TrustBar />

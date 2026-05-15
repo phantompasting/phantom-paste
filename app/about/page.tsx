@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { webPageSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { webPageSchema, jsonLd } from "@/lib/schema";
 import { KW_ABOUT } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/about`;
@@ -62,24 +62,12 @@ export default function AboutPage() {
       />
       {/* Org + WebSite schema injected globally via app/layout.tsx
           (see lib/schema.ts orgSchema). */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "About", href: "/about" },
-            ])
-          ),
-        }}
-      />
-
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
-            { name: "About" },
+            { name: "About", href: "/about" },
           ]}
         />
         <TrustBar />

@@ -5,7 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import GalleryPageClient from "./GalleryPageClient";
 import { BUSINESS } from "@/lib/business";
-import { webPageSchema, breadcrumbSchema, imageObjectSchema, faqPageSchema, jsonLd } from "@/lib/schema";
+import { webPageSchema, imageObjectSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 import { GALLERY_IMGS } from "@/lib/gallery-data";
 import { KW_GALLERY } from "@/lib/keywordSets";
 
@@ -84,17 +84,6 @@ export default function GalleryPage() {
           (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Gallery", href: "/gallery" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(GALLERY_FAQS)) }}
       />
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
@@ -102,7 +91,7 @@ export default function GalleryPage() {
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
-            { name: "Gallery" },
+            { name: "Gallery", href: "/gallery" },
           ]}
         />
         <TrustBar />

@@ -67,6 +67,7 @@ export const metadata: Metadata = {
  */
 const homepageOrgEnrichment = {
   "@context": "https://schema.org",
+  "@type": "Organization",
   "@id": `${BUSINESS.url}/#org`,
   description:
     "Wheat pasting company also known as a flyposting, street postering, street media, guerrilla marketing, and alternative OOH agency. Large-format poster campaigns, chalk spray stencil activations, and full-impact multi-format rollouts across 50+ US cities. Founded 2014. 500+ campaigns. 100% photo documented.",

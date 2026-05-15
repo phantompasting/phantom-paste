@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { articleSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
+import { articleSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/fifa-world-cup-atlanta`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fifa-world-cup-atlanta-wall-installation.webp`;
@@ -102,18 +102,6 @@ export default function FIFACaseStudy() {
       {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Work", href: "/work" },
-              { name: "FIFA World Cup Atlanta", href: "/work/fifa-world-cup-atlanta" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(CASE_STUDY_FAQS)) }}
       />
 
@@ -123,7 +111,7 @@ export default function FIFACaseStudy() {
           items={[
             { name: "Home", href: "/" },
             { name: "Work", href: "/work" },
-            { name: "FIFA World Cup Atlanta" },
+            { name: "FIFA World Cup Atlanta", href: "/work/fifa-world-cup-atlanta" },
           ]}
         />
         <TrustBar />

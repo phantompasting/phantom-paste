@@ -45,7 +45,6 @@ import { BUSINESS } from "@/lib/business";
 import {
   serviceSchema,
   faqPageSchema,
-  breadcrumbSchema,
   webPageSchema,
   jsonLd,
 } from "@/lib/schema";
@@ -193,17 +192,6 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: BUSINESS.url },
-              { name: "Pricing", href: PAGE_URL },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
             serviceSchema({
               name: "Wheat Pasting & Guerrilla Marketing Campaigns",
               description: PAGE_DESC,
@@ -273,7 +261,7 @@ export default function PricingPage() {
 
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
-        <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
+        <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Pricing", href: "/pricing" }]} />
         <TrustBar />
 
         {/* ── Hero ─────────────────────────────────────────────── */}

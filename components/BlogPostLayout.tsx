@@ -11,7 +11,6 @@ import { MATEO_VARGAS, mateoVargasPerson } from "@/lib/blogAuthor";
 import { BUSINESS } from "@/lib/business";
 import {
   articleSchema,
-  breadcrumbSchema,
   faqPageSchema,
   howToSchema,
   jsonLd,
@@ -105,7 +104,7 @@ export default function BlogPostLayout({
   const breadcrumbItems = [
     { name: "Home", href: "/" },
     { name: "Blog", href: "/blog" },
-    { name: post.title },
+    { name: post.title, href: `/blog/${post.slug}` },
   ];
 
   const related = post.relatedSlugs
@@ -202,13 +201,6 @@ export default function BlogPostLayout({
           __html: jsonLd(faqPageSchema(post.faqs)),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(breadcrumbSchema(breadcrumbItems)),
-        }}
-      />
-
       <SiteNav />
       <Breadcrumb items={breadcrumbItems} />
 

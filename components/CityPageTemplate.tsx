@@ -103,14 +103,10 @@ export interface CityPageData {
 }
 
 export default function CityPageTemplate({ data }: { data: CityPageData }) {
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phantompasting.com" },
-      { "@type": "ListItem", position: 2, name: data.city, item: "https://www.phantompasting.com/locations/" + data.slug },
-    ],
-  };
+  // Breadcrumb JSON-LD is emitted by the <Breadcrumb> component below (single
+  // source of truth — 3-item: Home › Locations › City). The previous inline
+  // 2-item schema here was a duplicate that conflicted with the component's
+  // emission and caused Google to reject both, dropping breadcrumb rich results.
 
   // Service schema — NOT LocalBusiness. Phantom Pasting has no physical
   // pin per city; we travel to install. LocalBusiness with a per-city
@@ -199,7 +195,6 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -220,7 +215,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
           items={[
             { name: "Home", href: "/" },
             { name: "Locations", href: "/locations" },
-            { name: data.city },
+            { name: data.city, href: `/locations/${data.slug}` },
           ]}
         />
         <TrustBar />

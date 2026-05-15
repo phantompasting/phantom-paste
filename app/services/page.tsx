@@ -10,7 +10,6 @@ import { BUSINESS, LOCATIONS } from "@/lib/business";
 import {
   collectionPageSchema,
   faqPageSchema,
-  breadcrumbSchema,
   jsonLd,
 } from "@/lib/schema";
 import { KW_SERVICES_HUB } from "@/lib/keywordSets";
@@ -151,24 +150,12 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(FAQS)) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Services", href: "/services" },
-            ])
-          ),
-        }}
-      />
-
       <div style={{ background: "transparent", minHeight: "100dvh", color: "#1A1A1A", position: "relative", zIndex: 1 }}>
         <SiteNav />
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
-            { name: "Services" },
+            { name: "Services", href: "/services" },
           ]}
         />
         <TrustBar />

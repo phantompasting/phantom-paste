@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { articleSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
+import { articleSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/fashionpass-los-angeles`;
 const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp`;
@@ -110,18 +110,6 @@ export default function FashionPassCaseStudy() {
       {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Work", href: "/work" },
-              { name: "FashionPass Los Angeles", href: "/work/fashionpass-los-angeles" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(CASE_STUDY_FAQS)) }}
       />
 
@@ -131,7 +119,7 @@ export default function FashionPassCaseStudy() {
           items={[
             { name: "Home", href: "/" },
             { name: "Work", href: "/work" },
-            { name: "FashionPass Los Angeles" },
+            { name: "FashionPass Los Angeles", href: "/work/fashionpass-los-angeles" },
           ]}
         />
         <TrustBar />

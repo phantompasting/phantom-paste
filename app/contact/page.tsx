@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
+import { faqPageSchema, jsonLd } from "@/lib/schema";
 import { KW_CONTACT } from "@/lib/keywordSets";
 
 const PAGE_URL = `${BUSINESS.url}/contact`;
@@ -100,17 +100,6 @@ export default function ContactPage() {
       {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Contact", href: "/contact" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(FAQS)) }}
       />
 
@@ -119,7 +108,7 @@ export default function ContactPage() {
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
-            { name: "Contact" },
+            { name: "Contact", href: "/contact" },
           ]}
         />
         <TrustBar />

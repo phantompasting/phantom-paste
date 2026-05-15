@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
 import { BUSINESS } from "@/lib/business";
-import { articleSchema, breadcrumbSchema, faqPageSchema, jsonLd } from "@/lib/schema";
+import { articleSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 
 const PAGE_URL = `${BUSINESS.url}/work/incrediwear-street-campaign`;
 const PAGE_OG = `${BUSINESS.url}/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp`;
@@ -99,18 +99,6 @@ export default function IncrediwearCaseStudy() {
       {/* Org + WebSite schema injected globally via app/layout.tsx (see lib/schema.ts orgSchema). */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLd(
-            breadcrumbSchema([
-              { name: "Home", href: "/" },
-              { name: "Work", href: "/work" },
-              { name: "Incrediwear Street Campaign", href: "/work/incrediwear-street-campaign" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(CASE_STUDY_FAQS)) }}
       />
 
@@ -120,7 +108,7 @@ export default function IncrediwearCaseStudy() {
           items={[
             { name: "Home", href: "/" },
             { name: "Work", href: "/work" },
-            { name: "Incrediwear Street Campaign" },
+            { name: "Incrediwear Street Campaign", href: "/work/incrediwear-street-campaign" },
           ]}
         />
         <TrustBar />
