@@ -29,6 +29,32 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Biodance "Hydrogel Splash" campaign — Los Angeles (latest) ────────
+  "biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp": {
+    title: "Biodance wheat paste poster wall — Los Angeles",
+    caption: "Biodance \"We Are Making A Splash\" wheat paste poster wall with palm trees — Los Angeles campaign by Phantom Pasting",
+  },
+  "biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp": {
+    title: "Biodance The Grove poster wall — Los Angeles",
+    caption: "Biodance \"We Are Making A Splash\" The Grove launch wheat paste poster wall — Los Angeles street advertising by Phantom Pasting",
+  },
+  "biodance-hydrogel-splash-sticker-wall-los-angeles.webp": {
+    title: "Biodance Hydrogel Splash sticker on wall — Los Angeles",
+    caption: "Biodance Hydrogel Splash die-cut sticker on painted street wall — Los Angeles guerrilla marketing by Phantom Pasting",
+  },
+  "biodance-hydrogel-splash-sticker-pole-night-los-angeles.webp": {
+    title: "Biodance Hydrogel Splash pole sticker — Los Angeles nighttime",
+    caption: "Biodance Hydrogel Splash sticker on street pole at night — Los Angeles guerrilla advertising by Phantom Pasting",
+  },
+  "biodance-glow-on-the-go-chalk-stencil-sidewalk-los-angeles.webp": {
+    title: "Biodance Glow On The Go chalk stencil — Los Angeles sidewalk",
+    caption: "Biodance \"Glow On The Go This Way\" pink chalk spray sidewalk stencil — Los Angeles guerrilla marketing by Phantom Pasting",
+  },
+  "biodance-glow-on-the-go-chalk-stencil-street-los-angeles.webp": {
+    title: "Biodance Glow On The Go sidewalk stencil — Los Angeles street view",
+    caption: "Biodance \"Glow On The Go This Way\" chalk spray sidewalk stencil with directional arrow — Los Angeles by Phantom Pasting",
+  },
+
   "bedstuy-stencil.webp": {
     title: "Bedstuy chalk spray stencil — New York street campaign",
     caption: "Phantom Pasting chalk spray stencil activation in Bedford-Stuyvesant, New York",
@@ -249,6 +275,8 @@ const PAGE_IMAGES: Record<string, string[]> = {
 
   // City pages — hero/OG images used in those markets
   "/locations/los-angeles": [
+    "biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
+    "biodance-glow-on-the-go-chalk-stencil-sidewalk-los-angeles.webp",
     "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",
     "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     "dont-fall-off-wheat-paste-street-view-la.webp",

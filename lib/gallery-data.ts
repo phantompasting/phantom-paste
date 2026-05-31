@@ -9,6 +9,17 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
+  // ── Biodance "Hydrogel Splash" / "We Are Making A Splash" — Los Angeles (latest job) ──
+  // Multi-surface LA campaign: wheat paste poster walls (The Grove launch, May 30–31),
+  // die-cut stickers (wall + pole), and pink chalk-spray sidewalk stencils.
+  // Lead the gallery newest-first. Only the wall-sticker close-up is portrait.
+  { src: "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",        label: "Biodance — Wheat Paste Wall",           alt: "Biodance \"We Are Making A Splash\" wheat paste poster wall in Los Angeles with palm trees and street fire hydrant",   tag: "Wheat Paste"  },
+  { src: "/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp",   label: "Biodance — The Grove Poster Wall",      alt: "Biodance \"We Are Making A Splash\" The Grove launch wheat paste poster wall Los Angeles street advertising",          tag: "Wheat Paste"  },
+  { src: "/gallery/biodance-hydrogel-splash-sticker-wall-los-angeles.webp",            label: "Biodance — Hydrogel Splash Sticker",    alt: "Biodance Hydrogel Splash die-cut sticker on painted street wall Los Angeles guerrilla marketing campaign",             tag: "Sticker", aspect: "portrait" },
+  { src: "/gallery/biodance-hydrogel-splash-sticker-pole-night-los-angeles.webp",      label: "Biodance — Night Pole Sticker",         alt: "Biodance Hydrogel Splash sticker on street pole at night Los Angeles guerrilla advertising",                          tag: "Sticker"      },
+  { src: "/gallery/biodance-glow-on-the-go-chalk-stencil-sidewalk-los-angeles.webp",   label: "Biodance — Glow On The Go Stencil",     alt: "Biodance \"Glow On The Go This Way\" pink chalk spray stencil on sidewalk Los Angeles guerrilla marketing",            tag: "Stencil"      },
+  { src: "/gallery/biodance-glow-on-the-go-chalk-stencil-street-los-angeles.webp",     label: "Biodance — Sidewalk Chalk Stencil",     alt: "Biodance \"Glow On The Go This Way\" chalk spray sidewalk stencil with directional arrow Los Angeles street marketing", tag: "Stencil"      },
+
   { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",          label: "FashionPass — Campaign Wall",           alt: "FashionPass wheat paste campaign poster wall on Melrose Avenue",                                         tag: "Wheat Paste"  },
   { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",               label: "FIFA World Cup — Gallery Wall",          alt: "FIFA World Cup wheat paste poster wall gallery wide view Atlanta street advertising",                   tag: "Wheat Paste"  },
   { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", label: "FashionPass — Melrose Poster Wall",   alt: "FashionPass wheat paste poster wall — Melrose Avenue street postering campaign",                         tag: "Wheat Paste"  },
