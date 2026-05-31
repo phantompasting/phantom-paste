@@ -251,37 +251,38 @@ export default function Post() {
       </p>
       <ul>
         <li>
-          <strong>Los Angeles</strong> — Melrose, Fairfax, Silver Lake, DTLA Arts District,
-          Venice. The highest-signal paste market in the US. See{" "}
+          <strong><a href="/locations/los-angeles">Los Angeles</a></strong> — Melrose, Fairfax,
+          Silver Lake, DTLA Arts District, Venice. The highest-signal paste market in the US. See{" "}
           <BlogLink slug="wheat-pasting-los-angeles">LA neighborhood guide</BlogLink>.
         </li>
         <li>
-          <strong>New York</strong> — Lower East Side, Williamsburg, SoHo, Chinatown,
-          Bushwick. Scaffolding wraps are a secondary NYC-specific format. See{" "}
-          <BlogLink slug="wheat-pasting-new-york">NYC wall culture explained</BlogLink>.
+          <strong><a href="/locations/new-york">New York</a></strong> — Lower East Side,
+          Williamsburg, SoHo, Chinatown, Bushwick. Scaffolding wraps are a secondary NYC-specific
+          format. See <BlogLink slug="wheat-pasting-new-york">NYC wall culture explained</BlogLink>.
         </li>
         <li>
-          <strong>Miami</strong> — Wynwood, Little Havana, Design District. Strong fashion and
-          music vertical fit.
+          <strong><a href="/locations/miami">Miami</a></strong> — Wynwood, Little Havana, Design
+          District. Strong fashion and music vertical fit.
         </li>
         <li>
-          <strong>Chicago</strong> — Wicker Park, Logan Square, Pilsen, River North.
+          <strong><a href="/locations/chicago">Chicago</a></strong> — Wicker Park, Logan Square,
+          Pilsen, River North.
         </li>
         <li>
-          <strong>Atlanta</strong> — Old Fourth Ward, East Atlanta Village, Midtown, Castleberry
-          Hill.
+          <strong><a href="/locations/atlanta">Atlanta</a></strong> — Old Fourth Ward, East Atlanta
+          Village, Midtown, Castleberry Hill.
         </li>
         <li>
-          <strong>Austin</strong> — East 6th, South Congress, East Riverside. Strong indie
-          music crossover.
+          <strong><a href="/locations/austin">Austin</a></strong> — East 6th, South Congress, East
+          Riverside. Strong indie music crossover.
         </li>
         <li>
-          <strong>Denver</strong> — RiNo, South Broadway, LoHi.
+          <strong><a href="/locations/denver">Denver</a></strong> — RiNo, South Broadway, LoHi.
         </li>
         <li>
-          <strong>Phoenix</strong> — Roosevelt Row, Grand Avenue, Melrose District, downtown
-          Tempe. Desert heat changes the install window and the paste recipe. See{" "}
-          <BlogLink slug="wheat-pasting-phoenix">Phoenix desert install guide</BlogLink>.
+          <strong><a href="/locations/phoenix">Phoenix</a></strong> — Roosevelt Row, Grand Avenue,
+          Melrose District, downtown Tempe. Desert heat changes the install window and the paste
+          recipe. See <BlogLink slug="wheat-pasting-phoenix">Phoenix desert install guide</BlogLink>.
         </li>
       </ul>
       <p>

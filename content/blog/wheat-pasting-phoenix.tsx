@@ -109,6 +109,11 @@ export default function Post() {
       </PullQuote>
 
       <h2>The Phoenix Neighborhoods That Matter</h2>
+      <p>
+        A handful of corridors carry Phoenix paste volume. Our{" "}
+        <a href="/locations/phoenix">Phoenix wheat pasting page</a> maps them with
+        heat-adjusted pricing and recent installs; the field detail below explains the why.
+      </p>
 
       <h3>Roosevelt Row</h3>
       <p>
@@ -263,8 +268,9 @@ export default function Post() {
 
       <h2>Ready to Run Phoenix?</h2>
       <p>
-        We&apos;ve run 50+ Phoenix campaigns across every corridor mapped above. For the
-        operational breakdown, see{" "}
+        We&apos;ve run 50+ Phoenix campaigns across every corridor mapped above &mdash; service
+        details and current pricing live on <a href="/locations/phoenix">our Phoenix service
+        page</a>. For the operational breakdown, see{" "}
         <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight
         </BlogLink>. Phoenix corridor culture is documented well by the{" "}

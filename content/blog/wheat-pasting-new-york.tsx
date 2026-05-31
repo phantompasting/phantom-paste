@@ -43,6 +43,12 @@ export default function Post() {
       </ul>
 
       <h2>The Core NYC Neighborhoods</h2>
+      <p>
+        Four neighborhoods carry most of the press and social amplification. Our{" "}
+        <a href="/locations/new-york">New York wheat pasting page</a> tracks them with
+        current wall pricing and recent campaigns; the borough-by-borough detail below is
+        what sits behind it.
+      </p>
 
       <h3>Lower East Side</h3>
       <p>
@@ -240,7 +246,9 @@ export default function Post() {
 
       <h2>Ready to Run NYC?</h2>
       <p>
-        We&apos;ve run 150+ NYC campaigns across all four boroughs mapped above. For the full
+        We&apos;ve run 150+ NYC campaigns across all four boroughs mapped above &mdash; service
+        details, scaffold-wrap pricing, and recent walls live on{" "}
+        <a href="/locations/new-york">our New York service page</a>. For the full
         operational breakdown, see{" "}
         <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight

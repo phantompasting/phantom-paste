@@ -56,6 +56,12 @@ export default function Post() {
       </ol>
 
       <h2>The LA Neighborhood Map</h2>
+      <p>
+        Eight corridors carry most of LA&apos;s paste volume. Our{" "}
+        <a href="/locations/los-angeles">Los Angeles wheat pasting page</a> maps them with
+        current wall-rights pricing and live campaign examples; the breakdown below is the
+        field detail behind it.
+      </p>
 
       <h3>Melrose Avenue — The Street That Built The Category</h3>
       <p>
@@ -229,7 +235,9 @@ export default function Post() {
 
       <h2>Ready to Run LA?</h2>
       <p>
-        We&apos;ve run 200+ LA campaigns across every neighborhood mapped above. For the
+        We&apos;ve run 200+ LA campaigns across every neighborhood mapped above &mdash; full
+        service details, pricing tiers, and recent walls live on{" "}
+        <a href="/locations/los-angeles">our LA service page</a>. For the
         operational breakdown, see{" "}
         <BlogLink slug="wheat-pasting-campaign">
           how a 12-location campaign runs overnight

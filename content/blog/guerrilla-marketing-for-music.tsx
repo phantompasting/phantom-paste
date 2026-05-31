@@ -96,12 +96,12 @@ export default function Post() {
         Music campaigns are geographically concentrated. Six US cities carry most music OOH spend:
       </p>
       <ul>
-        <li><strong>Los Angeles</strong> — industry HQ, highest press pickup, Fairfax and Melrose walls</li>
-        <li><strong>New York</strong> — East Coast press, Lower East Side + Williamsburg</li>
-        <li><strong>Atlanta</strong> — hip-hop capital, Old Fourth Ward and EAV</li>
-        <li><strong>Nashville</strong> — country/Americana, East Nashville corridor</li>
-        <li><strong>Austin</strong> — festival town, East 6th + South Congress</li>
-        <li><strong>Miami</strong> — Latin music + festival culture, Wynwood</li>
+        <li><strong><a href="/locations/los-angeles">Los Angeles</a></strong> — industry HQ, highest press pickup, Fairfax and Melrose walls</li>
+        <li><strong><a href="/locations/new-york">New York</a></strong> — East Coast press, Lower East Side + Williamsburg</li>
+        <li><strong><a href="/locations/atlanta">Atlanta</a></strong> — hip-hop capital, Old Fourth Ward and EAV</li>
+        <li><strong><a href="/locations/nashville">Nashville</a></strong> — country/Americana, East Nashville corridor</li>
+        <li><strong><a href="/locations/austin">Austin</a></strong> — festival town, East 6th + South Congress</li>
+        <li><strong><a href="/locations/miami">Miami</a></strong> — Latin music + festival culture, Wynwood</li>
       </ul>
       <p>
         A typical major-label album activation hits all six for $40K–$75K total paste spend. An

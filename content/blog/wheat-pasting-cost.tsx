@@ -51,7 +51,10 @@ export default function Post() {
         Wall rights in Melrose or SoHo run materially higher than wall rights in Atlanta or
         Denver. Property owners in prime creative corridors know what a paste wall is worth and
         price accordingly. Same poster, same install crew, 25–40% cost spread between top-tier
-        (LA, NYC, Miami) and secondary markets (Atlanta, Denver, Phoenix, Chicago).
+        (<a href="/locations/los-angeles">LA</a>, <a href="/locations/new-york">NYC</a>,{" "}
+        <a href="/locations/miami">Miami</a>) and secondary markets (<a href="/locations/atlanta">Atlanta</a>,{" "}
+        Denver, <a href="/locations/phoenix">Phoenix</a>, <a href="/locations/chicago">Chicago</a>).
+        Each city page lists its own pricing tiers.
       </p>
 
       <h3>2. Poster count — there&apos;s a floor but no ceiling</h3>

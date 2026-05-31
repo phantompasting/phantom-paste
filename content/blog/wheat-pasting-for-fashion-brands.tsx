@@ -59,6 +59,12 @@ export default function Post() {
       </p>
 
       <h2>The Anchor Neighborhoods (where fashion paste actually lands)</h2>
+      <p>
+        Fashion paste concentrates in three markets — our{" "}
+        <a href="/locations/los-angeles">Los Angeles</a>, <a href="/locations/new-york">New York</a>,
+        and <a href="/locations/miami">Miami</a> service pages carry current wall pricing for each.
+        The corridors that matter for fashion specifically:
+      </p>
 
       <h3>Los Angeles</h3>
       <ul>
