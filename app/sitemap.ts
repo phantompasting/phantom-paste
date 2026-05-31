@@ -116,6 +116,7 @@ export const ROUTES_META: RouteMeta[] = [
   // Dynamic [slug] route — each post's lastmod comes from its /content/blog/<slug>.tsx
   // file, so editing a post body naturally updates the sitemap on next build.
   { path: "/blog",                                         file: "app/blog/page.tsx",                                       priority: 0.8,  changeFreq: "weekly"  },
+  { path: "/blog/guerrilla-marketing-for-business",        file: "content/blog/guerrilla-marketing-for-business.tsx",       priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/how-to-make-wheat-paste",                 file: "content/blog/how-to-make-wheat-paste.tsx",                priority: 0.75, changeFreq: "monthly" },
   { path: "/blog/is-wheat-pasting-legal",                  file: "content/blog/is-wheat-pasting-legal.tsx",                 priority: 0.75, changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-campaign",                  file: "content/blog/wheat-pasting-campaign.tsx",                 priority: 0.75, changeFreq: "monthly" },

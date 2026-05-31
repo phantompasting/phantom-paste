@@ -119,6 +119,49 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "guerrilla-marketing-for-business",
+    title: "Guerrilla Marketing for Business: If You're Not Doing It, Your Competitors Are",
+    metaTitle: "Guerrilla Marketing for Business",
+    metaDescription:
+      "The brands with the biggest budgets are taking marketing to the street. Why guerrilla marketing favors bold small brands over big budgets — and how to use it.",
+    excerpt:
+      "The brands with the biggest budgets are spending more on stickers, stencils, and street stunts than billboards. Here's why guerrilla marketing rewards the bold over the big — and what it means if you're sitting it out.",
+    silo: "strategy-roi",
+    publishedAt: "2026-05-30",
+    updatedAt: "2026-05-30",
+    heroImage: "/blog/guerrilla-marketing-wheatpaste-wall-biodance-la.jpg",
+    heroAlt:
+      "Wheat-pasted poster wall from a guerrilla marketing campaign on a Los Angeles street",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["guerrilla-marketing", "small-business", "brand-strategy", "street-marketing", "strategy"],
+    wordCount: 1014,
+    faqs: [
+      {
+        q: "What is guerrilla marketing?",
+        a: "Guerrilla marketing uses unconventional, low-cost, high-surprise tactics — stickers, stencils, wheat-paste walls, pop-ups, and street stunts — to earn attention in the real world instead of renting it through traditional ad channels.",
+      },
+      {
+        q: "Why are big brands investing in guerrilla marketing?",
+        a: "Audiences tune out conventional ads, so brands with effectively unlimited budgets — Coca-Cola, Red Bull, IKEA, Spotify — use guerrilla stunts because the cost-to-impact ratio and social amplification beat what another billboard or banner can deliver.",
+      },
+      {
+        q: "Does guerrilla marketing work for small businesses?",
+        a: "Yes — it's the rare arena where small operators out-punch giants, because the currency is ideas, not budget. One clever concept in the right location can make a local brand the one everyone's talking about without a seven-figure spend.",
+      },
+      {
+        q: "How is guerrilla marketing different from traditional advertising?",
+        a: "Traditional ads rent attention and interrupt people; guerrilla marketing earns attention by becoming the moment people stop to photograph and share. It feels human and physical rather than another interruption in a feed.",
+      },
+      {
+        q: "How much does a guerrilla marketing campaign cost?",
+        a: "It scales with format and city count. Street-level campaigns like wheat paste and stickers can start in the low four figures for a single neighborhood — far below comparable billboard or paid-social spend.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-vs-billboards", "wheat-pasting-campaign", "wheat-pasting-cost"],
+    status: "published",
+    titleHighlight: "Your Competitors Are",
+  },
+  {
     slug: "wheat-pasting-phoenix",
     title: "Wheat Pasting in Phoenix: What Desert Heat Does to Paste",
     metaTitle: "Wheat Pasting in Phoenix: Field Guide",
