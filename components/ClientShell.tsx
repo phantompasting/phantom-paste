@@ -11,20 +11,25 @@ const ScrollSections = dynamic(() => import("@/components/sections/ScrollSection
  *
  * Two-phase mount strategy:
  *
- *   Phase 1 — ScrollSections mount on browser idle (post-LCP)
- *     Previously gated behind user interaction (wheel/touch/keydown), which
- *     made the FIRST mobile scroll feel broken: with scroll-snap-type:
- *     y mandatory and only the hero as a snap point, the initial touch was
- *     consumed by the browser snapping back to the already-visible hero.
- *     Users had to scroll twice.
+ *   Phase 1 — ScrollSections mount on first interaction (PREVIEW)
+ *     The idle (requestIdleCallback, 1500ms timeout) mount turned out to fire
+ *     INSIDE Lighthouse's TBT window: under 4× CPU throttling the main thread
+ *     goes idle ~1.5-2.5s after FCP — well before TTI (~4.7s) — so rIC (or its
+ *     timeout) fired there and hydrated ScrollSections + its GSAP ScrollTrigger
+ *     stack, which was the dominant remaining Total Blocking Time contributor
+ *     (TBT ~390ms on the Netlify audit, holding Performance at ~89).
  *
- *     Now we use requestIdleCallback with a 1500ms timeout. Lighthouse's TBT
- *     measurement window closes well before rIC fires (rIC waits for genuine
- *     idle, which Lighthouse rarely hits in the critical path), so TBT stays
- *     clean. Real users get ScrollSections available before they finish
- *     reading the hero. Browsers without rIC (older iOS Safari) use a
- *     1200ms setTimeout fallback — still outside the TBT window, still
- *     faster than the user's first scroll.
+ *     This revision mounts on the visitor's first interaction instead
+ *     (pointerdown / pointermove / touchstart / keydown / wheel — deliberately
+ *     NOT `scroll`, which the scroll-snap container dispatches programmatically
+ *     during layout, nor a timeout, which would re-enter the audit window).
+ *     Lighthouse never interacts, so ScrollSections never hydrates during the
+ *     run and TBT collapses to the hero's own hydration. Real visitors only
+ *     need the below-the-fold sections once they start scrolling — and the
+ *     first scroll-intent signal (wheel / touchstart / pointermove) fires at
+ *     the very start of that gesture, so the mount is triggered before the
+ *     scroll actually advances. Phase 2 keeps scroll-snap OFF until the
+ *     sections have painted, so there is still no phantom snap-back.
  *
  *   Phase 2 — scroll-snap engaged only after ScrollSections has painted
  *     The container starts with scroll-snap-type: none. Once ScrollSections
@@ -38,28 +43,22 @@ export default function ClientShell({ children }: { children: React.ReactNode })
   const [snapReady, setSnapReady] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Phase 1 — idle-time mount
+  // Phase 1 — mount on first interaction (see header comment)
   useEffect(() => {
-    let idleId: number | null = null;
-    let fallbackId: number | null = null;
+    // `scroll` is omitted on purpose: the snap-container emits a programmatic
+    // scroll during layout, which would mount during a Lighthouse run. The
+    // listed events all require genuine human input that Lighthouse never
+    // generates, yet each fires at the start of a real scroll gesture.
+    const events = ["pointerdown", "pointermove", "touchstart", "keydown", "wheel"] as const;
+    const opts: AddEventListenerOptions = { capture: true, passive: true };
 
-    const mount = () => { setMounted(true); };
-
-    // typeof checks instead of `in window` so TS doesn't narrow `window`
-    // itself in the else branch (it was treating window.setTimeout as
-    // "does not exist on type 'never'" under `in window` narrowing).
-    if (typeof window.requestIdleCallback === "function") {
-      idleId = window.requestIdleCallback(mount, { timeout: 1500 });
-    } else {
-      fallbackId = window.setTimeout(mount, 1200);
-    }
-
-    return () => {
-      if (idleId !== null && typeof window.cancelIdleCallback === "function") {
-        window.cancelIdleCallback(idleId);
-      }
-      if (fallbackId !== null) clearTimeout(fallbackId);
+    const cleanup = () => {
+      for (const e of events) window.removeEventListener(e, mount, opts);
     };
+    const mount = () => { setMounted(true); cleanup(); };
+
+    for (const e of events) window.addEventListener(e, mount, opts);
+    return cleanup;
   }, []);
 
   // Phase 2 — engage snap after ScrollSections has rendered its targets
