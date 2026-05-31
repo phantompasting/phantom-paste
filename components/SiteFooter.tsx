@@ -26,6 +26,7 @@ const FOOTER_LINKS = {
     { label: "Gallery", href: "/gallery" },
     { label: "Blog", href: "/blog" },
     { label: "Wheat Pasting Guide", href: "/blog/what-is-wheat-pasting" },
+    { label: "Compare Companies", href: "/compare" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

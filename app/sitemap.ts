@@ -63,6 +63,11 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/gallery",                        file: "app/gallery/page.tsx",                                 priority: 0.7,  changeFreq: "monthly" },
   { path: "/pricing",                        file: "app/pricing/page.tsx",                                 priority: 0.9,  changeFreq: "monthly" },
 
+  // ── Compare / Competitor comparisons ──────────────────────────────────────
+  { path: "/compare",                                       file: "app/compare/page.tsx",                                          priority: 0.8,  changeFreq: "monthly" },
+  { path: "/compare/phantom-pasting-vs-alt-terrain",        file: "app/compare/phantom-pasting-vs-alt-terrain/page.tsx",            priority: 0.7,  changeFreq: "monthly" },
+  { path: "/compare/phantom-pasting-vs-wheatpaste-posters", file: "app/compare/phantom-pasting-vs-wheatpaste-posters/page.tsx",     priority: 0.7,  changeFreq: "monthly" },
+
   // ── Work / Case Studies ───────────────────────────────────────────────────
   { path: "/work",                           file: "app/work/page.tsx",                                    priority: 0.75, changeFreq: "monthly" },
   { path: "/work/fashionpass-los-angeles",   file: "app/work/fashionpass-los-angeles/page.tsx",            priority: 0.8,  changeFreq: "never"   },
