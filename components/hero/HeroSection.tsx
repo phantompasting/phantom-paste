@@ -36,7 +36,11 @@ export default function HeroSection() {
           <h1
             className="inline-flex items-center gap-2.5 font-mono text-[9px] md:text-[10px] tracking-[0.30em] uppercase px-4 md:px-5 py-2 md:py-2.5 rounded-full m-0"
             style={{
-              color: "rgba(0,0,0,0.52)",
+              // 0.52 → 0.62: at the original alpha this 9–10px label sat at
+              // ~4.2:1 over the pill's translucent cream fill — just under WCAG
+              // AA (4.5:1 for small text). 0.62 lifts it to ~5:1 with a barely
+              // perceptible darkening of an already-muted eyebrow.
+              color: "rgba(0,0,0,0.62)",
               // Swapped from `backdrop-filter: blur(10px)` to a slightly
               // more opaque static fill. The pill sits over the already-
               // blurred gold canvas, so a second live gaussian produced

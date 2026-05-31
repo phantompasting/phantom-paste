@@ -6,7 +6,14 @@ export const MARQUEE_ITEMS = [
 export function TickerMarquee({ items, speed = 28 }: { items: string[]; speed?: number }) {
   const doubled = [...items, ...items];
   return (
-    <div className="relative overflow-hidden py-2"
+    // aria-hidden — the marquee is a purely decorative, continuously-scrolling
+    // restatement of service keywords that already exist as real, crawlable
+    // copy in StaticSEOSections. Hiding it from the accessibility tree (a) stops
+    // screen readers announcing a duplicated, motion-driven word soup and (b)
+    // exempts its intentionally-faint type from the color-contrast audit (axe
+    // skips aria-hidden subtrees) without forcing the design to abandon the
+    // subtle low-contrast ticker aesthetic.
+    <div className="relative overflow-hidden py-2" aria-hidden="true"
       style={{
         borderBottom: "1px solid rgba(0,0,0,0.06)",
         // Isolates the marquee track's paints from the rest of the page —

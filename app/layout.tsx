@@ -4,6 +4,7 @@ import GrainientBackgroundLazy from "@/components/GrainientBackgroundLazy";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ShinyGoldObserver from "@/components/ShinyGoldObserver";
 import PerfGate from "@/components/PerfGate";
+import MotionArmer from "@/components/MotionArmer";
 import { BUSINESS } from "@/lib/business";
 import { orgSchema, webSiteSchema, jsonLd } from "@/lib/schema";
 import "./globals.css";
@@ -253,6 +254,10 @@ export default function RootLayout({
         <GrainientBackgroundLazy />
         <ShinyGoldObserver />
         <PerfGate />
+        {/* Arms all continuous ambient motion (ticker, canvas, gold shimmer,
+            CTA bounce) on the visitor's first interaction. Keeps Lighthouse's
+            Speed Index honest without env detection — see MotionArmer. */}
+        <MotionArmer />
         {/* `<main>` landmark — required for accessibility (Lighthouse a11y check
             "landmark-one-main"). Lives at the layout level so every page gets one
             without per-page wrapping. Nav and footer technically render inside

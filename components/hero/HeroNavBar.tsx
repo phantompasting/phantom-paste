@@ -34,8 +34,19 @@ export default function HeroNavBar() {
               priority
             />
           </div>
-          <span className="font-black text-[13px] tracking-[0.08em] uppercase" style={{ color: "#1A1A1A" }}>
-            Phantom<span style={{ color: ACCENT }}>Pasting</span>
+          {/* aria-hidden — this is the logotype wordmark, paired with the brand
+              mark <Image alt="Phantom Pasting Logo"> above, which already supplies
+              the link's accessible name, so it stays out of the a11y tree.
+              "Pasting" uses a deepened brand gold (#A06600) rather than the
+              brighter ACCENT (#D4A010): the wordmark sits on the page's ivory
+              background at first paint, where bright gold lands at only 2.3:1.
+              axe-core's color-contrast rule checks visible text regardless of
+              aria-hidden (it's a low-vision concern), so the logotype must clear
+              AA on its own — #A06600 reaches 4.6:1 on #FFFBED while reading as a
+              warm antique gold. ACCENT is unchanged everywhere else (it lives on
+              dark surfaces, where it has ample contrast). */}
+          <span className="font-black text-[13px] tracking-[0.08em] uppercase" style={{ color: "#1A1A1A" }} aria-hidden="true">
+            Phantom<span style={{ color: "#A06600" }}>Pasting</span>
           </span>
         </a>
       </div>

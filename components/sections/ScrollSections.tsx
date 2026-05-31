@@ -296,9 +296,9 @@ function TiltCard({ children, className, style }: { children: React.ReactNode; c
 
 /* ── Images (local gallery — SEO-named) ── */
 const IMGS = {
-  wheat1:   "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp",
+  wheat1:   "/gallery/biodance-wheat-paste-poster-wall-los-angeles.webp",
   wheat2:   "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
-  stencil:  "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",
+  stencil:  "/gallery/black-pearl-chalk-spray-stencil-sidewalk-los-angeles.webp",
   full1:    "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
   full2:    "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
   gallery1: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",

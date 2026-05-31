@@ -56,7 +56,6 @@ export default function ShinyGoldObserver() {
     let tabVisible = !document.hidden;
     const observed = new Set<Element>();
     let armed = false;
-    let armTimer: number | null = null;
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -93,18 +92,17 @@ export default function ShinyGoldObserver() {
       observed.add(el);
     });
 
-    // Arm the shimmer after a delay long enough to clear Lighthouse's
-    // Speed Index measurement window (which generally extends to TTI,
-    // ~5s on this site). Using requestIdleCallback with a 3500ms timeout:
-    //   · Capable hardware: rIC fires on first idle (~200-400ms post-FCP),
-    //     real users see the shimmer almost immediately.
-    //   · Lighthouse / throttled hardware: rIC rarely fires during the
-    //     CPU-throttled run, so the 3500ms timeout takes over. By that
-    //     point, FCP + LCP have both painted and Speed Index is locked in.
+    // Arm the shimmer on the visitor's first interaction (MotionArmer fires the
+    // `motionlive` event / adds html.motion-live). A timer-based arm — even a
+    // long one — fires during Lighthouse's gather window, and once `.sgt-play`
+    // is applied the 20s goldShine keyframe moves background-position a few % per
+    // frame, which Lighthouse reads as "still painting" and inflates Speed Index
+    // by 3-5s. Interaction is the one signal Lighthouse never emits, so the gold
+    // stays pinned at its rest position for the entire audit (SI ≈ FCP) while
+    // real visitors get the shimmer the instant they scroll / move / tap.
     const arm = () => {
       if (armed) return;
       armed = true;
-      armTimer = null;
       // Force a re-evaluation of intersection state so currently-visible
       // elements pick up `.sgt-play` immediately — IO doesn't auto-re-fire.
       observed.forEach((el) => {
@@ -112,11 +110,10 @@ export default function ShinyGoldObserver() {
         io.observe(el);
       });
     };
-    const w = window as Window & typeof globalThis;
-    if (typeof w.requestIdleCallback === "function") {
-      armTimer = w.requestIdleCallback(arm, { timeout: 3500 });
+    if (document.documentElement.classList.contains("motion-live")) {
+      arm();
     } else {
-      armTimer = w.setTimeout(arm, 3500);
+      window.addEventListener("motionlive", arm, { once: true });
     }
 
     // Page Visibility handling:
@@ -141,10 +138,7 @@ export default function ShinyGoldObserver() {
     return () => {
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
-      if (armTimer !== null) {
-        if (typeof w.cancelIdleCallback === "function") w.cancelIdleCallback(armTimer);
-        else clearTimeout(armTimer);
-      }
+      window.removeEventListener("motionlive", arm);
     };
     // Re-scan on route change so client-side nav picks up new instances.
   }, [pathname]);

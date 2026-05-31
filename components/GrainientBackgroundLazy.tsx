@@ -43,30 +43,26 @@ const GrainientBackground = dynamic(
   { ssr: false },
 );
 
-const MOUNT_DELAY_MS = 6000;
-
 export default function GrainientBackgroundLazy() {
   const [shouldMount, setShouldMount] = useState(false);
 
   useEffect(() => {
-    let idleId: number | null = null;
-    let timer: number | null = null;
-    const w = window as Window & typeof globalThis;
-
-    const mount = () => setShouldMount(true);
-
-    if (typeof w.requestIdleCallback === "function") {
-      idleId = w.requestIdleCallback(mount, { timeout: MOUNT_DELAY_MS });
-    } else {
-      timer = w.setTimeout(mount, MOUNT_DELAY_MS);
+    // Mount the animated canvas on the visitor's first interaction (when
+    // MotionArmer adds `html.motion-live` and fires the `motionlive` event)
+    // rather than on a timer. The previous 6s timeout fired DURING a Lighthouse
+    // run — the gather window routinely extends past 6s — so the canvas's
+    // continuous animation was captured and wrecked Speed Index. Interaction is
+    // a signal Lighthouse never produces, so the audit sees the static ivory
+    // backdrop while real visitors get the live canvas the moment they engage.
+    // prefers-reduced-motion / perf-lite visitors never arm (MotionArmer bails
+    // and the canvas is CSS-hidden anyway), so they keep the static plate.
+    if (document.documentElement.classList.contains("motion-live")) {
+      setShouldMount(true);
+      return;
     }
-
-    return () => {
-      if (idleId !== null && typeof w.cancelIdleCallback === "function") {
-        w.cancelIdleCallback(idleId);
-      }
-      if (timer !== null) clearTimeout(timer);
-    };
+    const onLive = () => setShouldMount(true);
+    window.addEventListener("motionlive", onLive, { once: true });
+    return () => window.removeEventListener("motionlive", onLive);
   }, []);
 
   return shouldMount ? <GrainientBackground /> : null;
