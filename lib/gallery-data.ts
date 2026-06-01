@@ -9,12 +9,17 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
+  // ── Latest sticker placements — Biodance "Hydrogel Splash" (supports /services/snipes) ──
+  { src: "/gallery/biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",          label: "Biodance — Graffiti Wall Sticker",      alt: "Biodance Hydrogel Splash sticker on a purple graffiti wall in Los Angeles guerrilla marketing campaign",           tag: "Sticker", aspect: "portrait" },
+  { src: "/gallery/biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp",    label: "Biodance — Night Pole Sticker",         alt: "Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy guerrilla advertising",         tag: "Sticker" },
+
   // ── Biodance "Hydrogel Splash" / "We Are Making A Splash" — Los Angeles (latest job) ──
   // Multi-surface LA campaign: wheat paste poster walls (The Grove launch, May 30–31),
   // die-cut stickers (wall + pole), and pink chalk-spray sidewalk stencils.
   // Lead the gallery newest-first. Only the wall-sticker close-up is portrait.
   { src: "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",        label: "Biodance — Wheat Paste Wall",           alt: "Biodance \"We Are Making A Splash\" wheat paste poster wall in Los Angeles with palm trees and street fire hydrant",   tag: "Wheat Paste"  },
   { src: "/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp",   label: "Biodance — The Grove Poster Wall",      alt: "Biodance \"We Are Making A Splash\" The Grove launch wheat paste poster wall Los Angeles street advertising",          tag: "Wheat Paste"  },
+  { src: "/gallery/biodance-making-a-splash-wheat-paste-barrier-wall-los-angeles.webp", label: "Biodance — Barrier Wall Paste",        alt: "Biodance \"We Are Making A Splash\" wheat paste poster wall on a street barrier with fire hydrant — Los Angeles",      tag: "Wheat Paste"  },
   { src: "/gallery/biodance-hydrogel-splash-sticker-wall-los-angeles.webp",            label: "Biodance — Hydrogel Splash Sticker",    alt: "Biodance Hydrogel Splash die-cut sticker on painted street wall Los Angeles guerrilla marketing campaign",             tag: "Sticker", aspect: "portrait" },
   { src: "/gallery/biodance-hydrogel-splash-sticker-pole-night-los-angeles.webp",      label: "Biodance — Night Pole Sticker",         alt: "Biodance Hydrogel Splash sticker on street pole at night Los Angeles guerrilla advertising",                          tag: "Sticker"      },
   { src: "/gallery/biodance-glow-on-the-go-chalk-stencil-sidewalk-los-angeles.webp",   label: "Biodance — Glow On The Go Stencil",     alt: "Biodance \"Glow On The Go This Way\" pink chalk spray stencil on sidewalk Los Angeles guerrilla marketing",            tag: "Stencil"      },
@@ -67,6 +72,9 @@ export const GALLERY_IMGS = [
   { src: "/gallery/vaura-pilates-chalk-stencil-sidewalk-austin-texas.webp",             label: "Vaura Pilates — Chalk Stencil Austin",  alt: "Vaura Pilates chalk spray stencil on sidewalk concrete Austin Texas guerrilla marketing",                      tag: "Stencil",     aspect: "portrait" },
   { src: "/gallery/vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp", label: "Vaura Pilates — Street View Stencil",   alt: "Vaura Pilates chalk stencil on sidewalk street aerial view Austin Texas guerrilla marketing",                  tag: "Stencil",     aspect: "portrait" },
   { src: "/gallery/vaura-pilates-sidewalk-chalk-stencil-guerrilla-marketing-austin.webp", label: "Vaura Pilates — Sidewalk Stencil",    alt: "Vaura Pilates sidewalk chalk stencil guerrilla marketing campaign Austin Texas",                               tag: "Stencil",     aspect: "portrait" },
+
+  // Moved to the end of the slider per art direction (still featured on /services/snipes + full-impact).
+  { src: "/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",     label: "Calvin Priice — Pole Install",          alt: "Phantom Pasting crew installing a Calvin Priice QR sticker on a pole at a Los Angeles gas station",            tag: "Sticker",     aspect: "portrait" },
 ] as const;
 
 export type GalleryImg = typeof GALLERY_IMGS[number];

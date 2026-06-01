@@ -453,6 +453,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
               {[
                 { title: "WHEAT PASTING", desc: "Large-format posters on prime walls throughout " + data.city, href: "/services/wheat-pasting" },
                 { title: "CHALK STENCILS", desc: "Sidewalk-level activations at high-foot-traffic locations", href: "/services/chalk-spray-stencils" },
+                { title: "SNIPES & STICKERS", desc: "Sticker and pole-snipe saturation along high-traffic corridors", href: "/services/snipes" },
                 { title: "FULL IMPACT", desc: "Multi-format city saturation campaigns", href: "/services/full-impact-campaigns" },
               ].map((svc) => (
                 <Link key={svc.title} href={svc.href}

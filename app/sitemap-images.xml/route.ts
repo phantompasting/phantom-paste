@@ -29,6 +29,20 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Snipes & Sticker Posting — Calvin Priice / Incrediwear / Biodance ──
+  "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp": {
+    title: "Calvin Priice pole sticker install — Los Angeles",
+    caption: "Phantom Pasting crew installing a Calvin Priice QR sticker on a pole at a Los Angeles gas station",
+  },
+  "biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp": {
+    title: "Biodance Hydrogel Splash sticker on graffiti wall — Los Angeles",
+    caption: "Biodance Hydrogel Splash sticker on a purple graffiti wall — Los Angeles guerrilla marketing by Phantom Pasting",
+  },
+  "biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp": {
+    title: "Biodance Hydrogel Splash pole sticker — Los Angeles pharmacy at night",
+    caption: "Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy — guerrilla advertising by Phantom Pasting",
+  },
+
   // ── Biodance "Hydrogel Splash" campaign — Los Angeles (latest) ────────
   "biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp": {
     title: "Biodance wheat paste poster wall — Los Angeles",
@@ -37,6 +51,10 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
   "biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp": {
     title: "Biodance The Grove poster wall — Los Angeles",
     caption: "Biodance \"We Are Making A Splash\" The Grove launch wheat paste poster wall — Los Angeles street advertising by Phantom Pasting",
+  },
+  "biodance-making-a-splash-wheat-paste-barrier-wall-los-angeles.webp": {
+    title: "Biodance We Are Making A Splash wheat paste barrier wall — Los Angeles",
+    caption: "Biodance \"We Are Making A Splash\" wheat paste poster wall on a street barrier — Los Angeles guerrilla marketing by Phantom Pasting",
   },
   "biodance-hydrogel-splash-sticker-wall-los-angeles.webp": {
     title: "Biodance Hydrogel Splash sticker on wall — Los Angeles",
@@ -267,10 +285,16 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp",
   ],
   "/services/full-impact-campaigns": [
-    "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
+    "biodance-making-a-splash-wheat-paste-barrier-wall-los-angeles.webp",
+    "black-pearl-la-chalk-spray-stencil-sidewalk.webp",
+    "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
     "fifa-world-cup-poster-wall-gallery-wide.webp",
-    "incrediwear-pole-wrap-guerrilla-advertising-night.webp",
-    "sticker-campaign-street-intersection-urban.webp",
+  ],
+  "/services/snipes": [
+    "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
+    "biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",
+    "biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp",
+    "incrediwear-qr-sticker-pole-night-intersection.webp",
   ],
 
   // City pages — hero/OG images used in those markets
@@ -281,6 +305,8 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     "dont-fall-off-wheat-paste-street-view-la.webp",
     "black-pearl-la-chalk-spray-stencil-sidewalk.webp",
+    "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
+    "biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",
   ],
   "/locations/austin": [
     "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp",

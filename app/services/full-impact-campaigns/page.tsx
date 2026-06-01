@@ -301,28 +301,43 @@ export default function FullImpactCampaignsPage() {
                   IMPACT
                 </span>
 
-                <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
-                  style={{ width: "82%", height: "62%",
-                    transform: "rotate(1.2deg)",
+                {/* One image per format the full-impact campaign stacks:
+                    wheat pasting, chalk stencils, and snipes. */}
+                <div className="absolute top-[6%] right-0 rounded-2xl overflow-hidden"
+                  style={{ width: "64%", height: "48%",
+                    transform: "rotate(1.5deg)",
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
                   {/* Hidden on mobile — see CityPageTemplate for context. */}
                   <Image
-                    src="/gallery/sticker-campaign-street-intersection-urban.webp"
-                    alt="Full impact multi-format street campaign"
+                    src="/gallery/biodance-making-a-splash-wheat-paste-barrier-wall-los-angeles.webp"
+                    alt="Biodance We Are Making A Splash wheat paste poster wall in Los Angeles — one of three full-impact formats"
                     fill
                     style={{ objectFit: "cover" }}
-                    sizes="(max-width: 1024px) 0vw, 40vw"
+                    sizes="(max-width: 1024px) 0vw, 32vw"
                     loading="lazy"
                   />
                 </div>
 
-                <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
-                  style={{ width: "50%", height: "44%",
-                    transform: "rotate(-2.2deg)",
+                <div className="absolute bottom-[8%] left-0 rounded-xl overflow-hidden"
+                  style={{ width: "46%", height: "40%",
+                    transform: "rotate(-2.5deg)",
                     boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
                   <Image
-                    src="/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp"
-                    alt="Guerrilla advertising pole wrap at night"
+                    src="/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp"
+                    alt="Black Pearl chalk spray sidewalk stencil — one of three full-impact formats"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="25vw"
+                  />
+                </div>
+
+                <div className="absolute bottom-[5%] right-[2%] rounded-xl overflow-hidden"
+                  style={{ width: "40%", height: "50%",
+                    transform: "rotate(2.5deg)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                  <Image
+                    src="/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp"
+                    alt="Calvin Priice pole sticker snipe — one of three full-impact formats"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="25vw"
@@ -546,7 +561,7 @@ export default function FullImpactCampaignsPage() {
               style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}>
               INDIVIDUAL SERVICES<span style={{ color: ACCENT }}>.</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Link href="/services/wheat-pasting" className="no-underline rounded-2xl p-7 flex items-center justify-between"
                 style={{ background: "rgba(248,247,244,0.9)", border: "1px solid rgba(0,0,0,0.07)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                 <div>
@@ -554,6 +569,17 @@ export default function FullImpactCampaignsPage() {
                   <div className="font-black uppercase leading-tight"
                     style={{ fontSize: "clamp(17px, 1.8vw, 22px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
                     WHEAT<br />PASTING
+                  </div>
+                </div>
+                <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>
+              </Link>
+              <Link href="/services/snipes" className="no-underline rounded-2xl p-7 flex items-center justify-between"
+                style={{ background: "rgba(248,247,244,0.9)", border: "1px solid rgba(0,0,0,0.07)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
+                <div>
+                  <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(0,0,0,0.55)" }}>Service</div>
+                  <div className="font-black uppercase leading-tight"
+                    style={{ fontSize: "clamp(17px, 1.8vw, 22px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
+                    SNIPES &amp;<br />STICKERS
                   </div>
                 </div>
                 <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>

@@ -15,32 +15,31 @@ import {
   jsonLd,
 } from "@/lib/schema";
 import {
-  KW_SERVICE_WHEAT_PASTING,
-  KW_CRAFT,
-  KW_STREET_POSTERS,
-  KW_FLYPOSTING,
-  KW_OOH,
+  KW_SERVICE_SNIPES,
+  KW_SNIPES,
+  KW_STICKERS_WRAPS,
   KW_STREET_MARKETING,
+  KW_OOH,
   ORG_ADDITIONAL_TYPES,
 } from "@/lib/keywordSets";
 
-const PAGE_URL = `${BUSINESS.url}/services/wheat-pasting`;
-const PAGE_OG = `${BUSINESS.url}/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp`;
-const PAGE_TITLE = "Wheat Pasting Services";
+const PAGE_URL = `${BUSINESS.url}/services/snipes`;
+const PAGE_OG = `${BUSINESS.url}/gallery/street-pole-sticker-campaign-urban-advertising.webp`;
+const PAGE_TITLE = "Snipes & Sticker Posting";
 const PAGE_DESC =
-  "Large-format wheat paste poster advertising — also called street postering, flyposting, street media — on urban walls in 50+ US cities. 100% documented.";
-const DATE_PUBLISHED = "2024-01-15";
-const DATE_MODIFIED = "2026-04-01";
+  "Sticker posting and pole snipe campaigns — die-cut vinyl stickers and pole-mounted snipe signs placed across high-traffic corridors in 50+ US cities. 100% documented.";
+const DATE_PUBLISHED = "2024-02-01";
+const DATE_MODIFIED = "2026-05-31";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESC,
-  keywords: [...KW_SERVICE_WHEAT_PASTING],
+  keywords: [...KW_SERVICE_SNIPES],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Wheat Pasting · Large-Format Street Posters | Phantom Pasting",
+    title: "Snipes & Sticker Posting · Street Sticker Campaigns | Phantom Pasting",
     description:
-      "Large-format wheat paste poster advertising on prime urban walls across 50+ US cities. Print, install, document.",
+      "Die-cut sticker campaigns and pole snipe signs placed across high-traffic urban corridors in 50+ US cities. Produce, install, document.",
     url: PAGE_URL,
     type: "article",
     publishedTime: DATE_PUBLISHED,
@@ -50,7 +49,7 @@ export const metadata: Metadata = {
         url: PAGE_OG,
         width: 1200,
         height: 630,
-        alt: "Wheat paste poster wall campaign by Phantom Pasting",
+        alt: "Street pole sticker campaign by Phantom Pasting",
       },
     ],
   },
@@ -62,43 +61,43 @@ const STEPS = [
   {
     num: "01",
     title: "STRATEGY",
-    desc: "We map your campaign goals to the cities, neighborhoods, and surface types that will earn the most photos, foot traffic, and word-of-mouth lift.",
+    desc: "We map your campaign to the commuter corridors, intersections, transit zones, and pole runs that deliver the most repeat impressions per route — then plan sticker and snipe density city by city.",
     bullets: [
-      "Audience + city fit workshop",
+      "Route + corridor saturation plan",
       "KPIs: impressions, photo proofs, geo coverage",
     ],
   },
   {
     num: "02",
-    title: "DESIGN & PRINT",
-    desc: "Send print-ready artwork or work with our in-house team. We print on 28# bond or 80# coated stock in sizes from 24×36 up to 48×72 jumbo wall takeovers.",
+    title: "PRODUCE",
+    desc: "Send print-ready artwork or work with our in-house team. We produce weatherproof die-cut vinyl and paper stickers plus rigid corrugated or poster snipe signs sized for pole and post mounting.",
     bullets: [
-      "28# bond or 80# coated stock",
-      "Sizes 24×36 → 48×72 (rush 48 hr available)",
+      "Weatherproof die-cut vinyl + paper stickers",
+      "Corrugated / poster pole snipe signs",
     ],
   },
   {
     num: "03",
-    title: "LOCATION SCOUT",
-    desc: "Local crews identify permitted walls, construction hoardings, and high-dwell corridors in the neighborhoods your audience actually moves through.",
+    title: "ROUTE SCOUT",
+    desc: "Local crews identify high-dwell poles, doorways, fixtures, newspaper boxes, and post runs in the neighborhoods your audience actually moves through — and map them before a single sticker goes up.",
     bullets: [
-      "Permitted walls + construction plywood",
+      "Permitted poles, posts & fixtures",
       "Geo-tagged placement map delivered pre-install",
     ],
   },
   {
     num: "04",
-    title: "OVERNIGHT INSTALL",
-    desc: "Crews paste overnight when sidewalks are empty and lighting is cinematic — each poster hung flat, brushed smooth, and sealed against weather.",
+    title: "DEPLOY",
+    desc: "Crews place stickers at eye level on high-traffic surfaces and mount pole snipes with zip-ties or staples along your target corridors — clustered for saturation, not scattered.",
     bullets: [
-      "Overnight crews in every target market",
-      "Edge-sealed paste for weeks of durability",
+      "Eye-level sticker placement",
+      "Zip-tied / stapled pole snipe runs",
     ],
   },
   {
     num: "05",
     title: "DOCUMENT & REPORT",
-    desc: "Every poster is photographed, timestamped, and geo-tagged. You receive a branded campaign report within 48 hours — ready to post, pitch, or repurpose.",
+    desc: "Every sticker cluster and snipe run is photographed, timestamped, and geo-tagged. You receive a branded campaign report within 48 hours — ready to post, pitch, or repurpose.",
     bullets: [
       "100% photo proof per location",
       "Branded report delivered within 48 hrs",
@@ -108,34 +107,64 @@ const STEPS = [
 
 const FAQS = [
   {
-    q: "What is wheat pasting?",
-    a: "Wheat pasting is a street advertising format where large printed posters are adhered to urban walls, plywood, and hoardings using a wheat-starch paste. Phantom Pasting produces wheat paste campaigns across 50+ US cities — print, install, and photo-documented.",
+    q: "What are snipes and sticker posting?",
+    a: "Snipes and sticker posting are street advertising formats where branded stickers and small pole-mounted signs are placed at scale across high-traffic urban surfaces — utility poles, posts, doorways, fixtures, and transit zones. Phantom Pasting runs sticker and snipe campaigns across 50+ US cities, fully produced, installed, and photo-documented.",
   },
   {
-    q: "How long do wheat paste posters last?",
-    a: "Wheat paste posters typically last 2–8 weeks depending on weather, surface type, and location. Covered walls and protected corridors can hold posters significantly longer; exposed walls in heavy-rain markets trend shorter.",
+    q: "What's the difference between stickers and pole snipes?",
+    a: "Stickers are die-cut vinyl or paper decals adhered to flat surfaces at eye level for dense, repeat-impression saturation. Pole snipes are rigid corrugated or poster signs zip-tied or stapled to utility poles, posts, and stakes — bigger, more visible at distance, and ideal for commuter corridors. Most campaigns stack both for compounding street presence.",
   },
   {
-    q: "Is wheat pasting legal?",
-    a: "Yes, when installed on permitted walls and with property-owner agreements. Phantom Pasting only installs on sourced permitted surfaces — construction hoardings, owner-approved walls, and legal poster campaign corridors — so every campaign is covered and photo-documented.",
+    q: "How long do snipes and stickers stay up?",
+    a: "Weatherproof vinyl stickers typically hold for several weeks to a few months depending on surface and location. Pole snipes last as long as they stay mounted — often weeks in protected corridors, shorter on heavily-maintained municipal poles. We document every placement on install so you have proof regardless of lifespan.",
   },
   {
-    q: "How much does a wheat pasting campaign cost?",
-    a: "Campaign cost scales with poster count, city, and print specs. Small neighborhood activations start in the low four figures; multi-city launches with 48×72 jumbos run higher. Call (917) 400-4594 for a custom quote within 24 hours.",
+    q: "Is sticker posting and sniping legal?",
+    a: "Yes, when placed on permitted surfaces and with property-owner or corridor agreements. Phantom Pasting works from sourced permitted poles, posts, and fixtures and operates against a city-by-city signage-code checklist, so your brand never appears on an unauthorized surface and compliance risk stays with us.",
   },
   {
-    q: "What cities do you cover?",
-    a: "We run wheat paste campaigns in 50+ US cities including New York, Los Angeles, Miami, Chicago, Atlanta, Austin, Nashville, Seattle, Portland, Boston, Philadelphia, San Francisco, Denver, and more. If your city is not listed we can usually source a crew within a week.",
+    q: "How much does a snipe or sticker campaign cost?",
+    a: "Cost scales with sticker quantity, snipe count, city, and corridor density. Single-neighborhood sticker runs start in the low four figures; multi-city sticker-plus-snipe campaigns run higher. Call (917) 400-4594 for a custom quote within 24 hours.",
   },
   {
-    q: "How do I book a wheat pasting campaign?",
-    a: "Call (917) 400-4594 or email info@phantompasting.com with your city, timeline, and campaign goal. Our team responds within 24 hours with a custom strategy, mock placement map, and quote.",
+    q: "How do I book a snipe or sticker campaign?",
+    a: "Call (917) 400-4594 or email info@phantompasting.com with your city, timeline, and campaign goal. Our team responds within 24 hours with a custom route strategy, a mock placement map, and a quote.",
   },
 ] as const;
 
 const ACCENT = "#D4A010";
 
-export default function WheatPastingPage() {
+/* Real campaign proof — sticker + pole-snipe placements we've run.
+   Biodance leads (latest campaign). The Incrediwear shots and the Calvin
+   sticker-strip live on the main /gallery page, so they're not repeated here. */
+const SHOTS = [
+  {
+    src: "/gallery/biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",
+    client: "Biodance",
+    meta: "Sticker · Los Angeles",
+    alt: "Biodance Hydrogel Splash sticker on a purple graffiti wall in Los Angeles",
+  },
+  {
+    src: "/gallery/biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp",
+    client: "Biodance",
+    meta: "Pole snipe · Los Angeles",
+    alt: "Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy",
+  },
+  {
+    src: "/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
+    client: "Calvin Priice",
+    meta: "Pole install · Los Angeles",
+    alt: "Phantom Pasting crew installing a Calvin Priice QR sticker on a pole at a Los Angeles gas station",
+  },
+  {
+    src: "/gallery/incrediwear-qr-sticker-pole-night-intersection.webp",
+    client: "Incrediwear",
+    meta: "Pole snipe · Night",
+    alt: "Incrediwear QR sticker on a pole at a night street intersection",
+  },
+];
+
+export default function SnipesPage() {
   return (
     <>
       <script
@@ -143,47 +172,47 @@ export default function WheatPastingPage() {
         dangerouslySetInnerHTML={{
           __html: jsonLd(
             serviceSchema({
-              name: "Wheat Pasting",
+              name: "Snipes & Sticker Posting",
               // Array of synonym terms — Google reads each as an alternate
               // service name and surfaces this page for queries using any of
               // them. Centralized vocabulary in lib/keywordSets.ts.
               alternateName: [
-                "Street Postering",
-                "Wheatpasting",
-                "Wheat Paste Posters",
-                "Wheat Paste Advertising",
-                "Flyposting",
-                "Poster Campaigns",
-                "Street Poster Advertising",
-                "Street Media",
-                "Urban Poster Advertising",
-                "Alternative OOH Posters",
+                "Sticker Posting",
+                "Sticker Campaigns",
+                "Snipe Posting",
+                "Snipe Posters",
+                "Pole Snipes",
+                "Sticker Bombing",
+                "Pole Sign Advertising",
+                "Lamppost Advertising",
+                "Vinyl Sticker Advertising",
+                "Guerrilla Sticker Marketing",
               ],
               additionalType: ORG_ADDITIONAL_TYPES,
               description:
-                "Large-format wheat paste poster advertising installed on prime urban walls across 50+ US cities. Includes print, installation, and photo documentation. Also marketed as street postering, flyposting, street media, and alternative OOH.",
+                "Die-cut sticker and pole snipe advertising placed across high-traffic urban corridors in 50+ US cities. Includes production, installation, and photo documentation. Also marketed as sticker posting, sticker campaigns, snipe posters, and pole sign advertising.",
               url: PAGE_URL,
-              serviceType: "Wheat Pasting",
+              serviceType: "Snipes & Sticker Posting",
               category: "Outdoor Advertising",
               image: PAGE_OG,
-              slogan: "Posters that own walls.",
+              slogan: "Stickers and snipes that own the corridor.",
               audienceType:
                 "Brand Marketers, Marketing Agencies, Music Labels, Streetwear Brands, Independent Artists",
               offerItems: [
                 {
-                  name: "Single-City Wheat Pasting Test",
+                  name: "Single-City Sticker Run",
                   description:
-                    "12–15 walls, 80–250 posters, one US city, 4–8 unique designs, full next-morning daylight photo documentation. Standard install window 7–10 days from sign-off.",
+                    "Dense sticker saturation across one US city's highest-dwell corridors — eye-level placement on permitted poles, fixtures, and surfaces, with next-morning daylight photo documentation. Standard install window 7–10 days from sign-off.",
                 },
                 {
-                  name: "Multi-City Wheat Pasting Rollout",
+                  name: "Sticker + Pole Snipe Corridor Campaign",
                   description:
-                    "Coordinated installs across 2–7 US cities on the same launch weekend. Single brief, single price sheet, single unified campaign report. Volume discount applied.",
+                    "Stacked sticker clusters and pole-mounted snipe signs along targeted commuter corridors and intersections for compounding repeat impressions. Single brief, geo-tagged placement map, unified campaign report.",
                 },
                 {
-                  name: "Tour-Window Recurring Wheat Pasting",
+                  name: "Multi-City Snipe Rollout",
                   description:
-                    "Weekly or bi-weekly rolling refreshes for album campaigns, festival lineups, and product-drop sequences. Maintains continuous wall presence over 4–12 week tours.",
+                    "Coordinated sticker and snipe installs across 2–7 US cities on the same launch window. Single price sheet, single point of contact, single unified documentation package. Volume discount applied.",
                 },
               ],
             })
@@ -209,7 +238,7 @@ export default function WheatPastingPage() {
         dangerouslySetInnerHTML={{
           __html: jsonLd(
             articleSchema({
-              headline: "Wheat Pasting That Owns Walls",
+              headline: "Snipes & Sticker Posting That Own the Corridor",
               description: PAGE_DESC,
               url: PAGE_URL,
               image: PAGE_OG,
@@ -218,11 +247,10 @@ export default function WheatPastingPage() {
               articleSection: "Services",
               articleBody: PAGE_DESC,
               keywords: [
-                ...KW_CRAFT.slice(0, 5),
-                ...KW_STREET_POSTERS.slice(0, 5),
-                ...KW_FLYPOSTING.slice(0, 2),
-                ...KW_OOH.slice(0, 4),
+                ...KW_SNIPES.slice(0, 8),
+                ...KW_STICKERS_WRAPS.slice(0, 4),
                 ...KW_STREET_MARKETING.slice(0, 4),
+                ...KW_OOH.slice(0, 4),
               ],
               audienceType: "Brand Marketers, Marketing Agencies",
               genre: "Service Page",
@@ -252,7 +280,7 @@ export default function WheatPastingPage() {
           items={[
             { name: "Home", href: "/" },
             { name: "Services", href: "/services" },
-            { name: "Wheat Pasting", href: "/services/wheat-pasting" },
+            { name: "Snipes & Sticker Posting", href: "/services/snipes" },
           ]}
         />
 
@@ -270,14 +298,14 @@ export default function WheatPastingPage() {
                   style={{ color: "rgba(0,0,0,0.55)" }}
                 >
                   <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-                  Wheat Pasting
+                  Snipes &amp; Sticker Posting
                 </span>
                 <h1
                   className="font-black uppercase m-0 leading-[0.88]"
                   style={{ fontSize: "clamp(48px, 7vw, 100px)", letterSpacing: "-0.04em" }}
                 >
-                  WHEAT PASTING<br />
-                  <ShinyGoldText>THAT OWNS WALLS.</ShinyGoldText>
+                  STICKERS &amp; SNIPES<br />
+                  <ShinyGoldText>THAT OWN THE STREET.</ShinyGoldText>
                 </h1>
                 <p
                   className="font-light leading-relaxed mt-8 mb-10"
@@ -287,8 +315,9 @@ export default function WheatPastingPage() {
                     maxWidth: "480px",
                   }}
                 >
-                  Large-format wheat paste posters on prime urban walls across 50+ US cities.
-                  We handle everything — print, crew, installation, and 100% photo documentation.
+                  Die-cut sticker campaigns and pole-mounted snipe signs placed across
+                  high-traffic corridors in 50+ US cities. We handle everything — production,
+                  crew, install, and 100% photo documentation.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
@@ -371,7 +400,7 @@ export default function WheatPastingPage() {
                     transform: "translateY(-50%) rotate(180deg)",
                   }}
                 >
-                  WHEAT
+                  SNIPES
                 </span>
 
                 <div
@@ -384,12 +413,12 @@ export default function WheatPastingPage() {
                       "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)",
                   }}
                 >
-                  {/* Hidden on mobile (hidden lg:block wrapper). Removed priority
-                      so Next.js doesn't preload this ~300KB hero to mobile users
-                      who never see it. */}
+                  {/* Hidden on mobile (hidden lg:block wrapper). Lazy-loaded so
+                      Next.js doesn't preload this hero to mobile users who never
+                      see it. */}
                   <Image
-                    src="/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp"
-                    alt="Momentous Trend Proof wheat paste poster wall campaign Los Angeles"
+                    src="/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp"
+                    alt="Phantom Pasting crew installing a Calvin Priice QR sticker on a pole at a Los Angeles gas station"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 1024px) 0vw, 40vw"
@@ -408,8 +437,8 @@ export default function WheatPastingPage() {
                   }}
                 >
                   <Image
-                    src="/gallery/fifa-world-cup-poster-wall-street-perspective.webp"
-                    alt="FIFA World Cup wheat paste poster wall street perspective Atlanta"
+                    src="/gallery/biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp"
+                    alt="Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="25vw"
@@ -471,12 +500,12 @@ export default function WheatPastingPage() {
             >
               By <span style={{ color: "rgba(0,0,0,0.58)" }}>Phantom Pasting</span>
               &nbsp;·&nbsp;
-              <time dateTime={DATE_MODIFIED}>Last updated April 2026</time>
+              <time dateTime={DATE_MODIFIED}>Last updated May 2026</time>
             </p>
           </div>
         </div>
 
-        {/* ── What is wheat pasting (expanded) ──────────────────── */}
+        {/* ── What are snipes (expanded) ────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
             <div>
@@ -491,51 +520,46 @@ export default function WheatPastingPage() {
                 className="font-black uppercase m-0 mb-6 leading-[0.9]"
                 style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
               >
-                WHAT IS<br /><ShinyGoldText>WHEAT PASTING?</ShinyGoldText>
+                WHAT ARE<br /><ShinyGoldText>SNIPES?</ShinyGoldText>
               </h2>
               <p
                 className="font-light leading-relaxed m-0 mb-4"
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}
               >
-                <Link
-                  href="/blog/what-is-wheat-pasting"
-                  style={{ color: ACCENT, textDecoration: "underline", textDecorationThickness: "1px" }}
-                >
-                  Wheat pasting
-                </Link>{" "}
-                is the original street advertising format — large printed posters adhered directly
-                to urban walls, construction plywood, and hoardings using a simple paste of wheat
-                flour, water, and PVA. The technique dates back to mid-20th-century political
-                postering and became the visual language of punk flyers, indie film promo, and
-                street art culture before brands adopted it for launches and tours.
+                Snipes are the street-saturation side of guerrilla marketing — branded{" "}
+                <strong>stickers</strong> and small{" "}
+                <strong>pole-mounted snipe signs</strong> placed at scale across the surfaces
+                your audience passes every day. Stickers handle dense, eye-level repetition;
+                pole snipes carry the message at distance along commuter corridors. Together
+                they turn a single route into a wall of brand impressions.
               </p>
               <p
                 className="font-light leading-relaxed m-0 mb-4"
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}
               >
-                A typical Phantom Pasting campaign runs at 24×36 inches for standard neighborhood
-                coverage and scales up to 48×72 jumbo wall takeovers when a brand wants a single
-                surface to dominate an entire block. Posters are brushed smooth, edge-sealed, and
-                stay up between two and eight weeks depending on weather, wall composition, and
-                city — longer on covered surfaces, shorter in heavy-rain markets.
+                Phantom Pasting produces weatherproof die-cut vinyl and paper stickers alongside
+                rigid corrugated or poster snipe signs cut for pole and post mounting. Crews
+                cluster placements for saturation — not scatter — so a neighborhood reads as a
+                deliberate takeover rather than stray decals.
               </p>
               <p
                 className="font-light leading-relaxed m-0 mb-6"
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}
               >
-                Unlike a banner ad, a wheat-paste poster can&apos;t be scrolled past. It lives in
-                your audience&apos;s neighborhood — on their commute, their lunch spot, their
-                Saturday walk — earning organic photo shares that paid social simply cannot buy.
+                Like every Phantom Pasting format, snipes live where digital ads can&apos;t — on
+                the commute, outside the venue, at the intersection. And because they&apos;re
+                small and repeatable, they&apos;re the most cost-efficient way to build frequency
+                in a target corridor.
               </p>
               <ul
                 className="list-none m-0 p-0 flex flex-col gap-2.5"
                 style={{ maxWidth: "520px" }}
               >
                 {[
-                  "Unskippable — physical presence that can't be muted, blocked, or scrolled past",
-                  "Hyper-local — placed in the exact neighborhoods your audience lives and moves through",
-                  "Social-ready — in-the-wild shots generate organic sharing at no extra cost",
-                  "Documented — every single install photographed, timestamped, and geo-tagged",
+                  "High-frequency — dense clusters build repeat impressions on every pass",
+                  "Two formats — eye-level stickers plus distance-readable pole snipes",
+                  "Cost-efficient — the lowest cost-per-impression format we run",
+                  "Documented — every cluster and snipe run photographed, timestamped, geo-tagged",
                 ].map((item) => (
                   <li
                     key={item}
@@ -554,7 +578,7 @@ export default function WheatPastingPage() {
 
             <div className="grid grid-cols-2 gap-3">
               {[
-                { label: "Poster Size", value: '24"×36" to 48"×72"' },
+                { label: "Formats", value: "Stickers + Pole Snipes" },
                 { label: "Coverage", value: "50+ US Cities" },
                 { label: "Turnaround", value: "5–21 Business Days" },
                 { label: "Documentation", value: "100% Photo Proof" },
@@ -591,6 +615,84 @@ export default function WheatPastingPage() {
           </div>
         </section>
 
+        {/* ── In the wild (real campaign proof) ─────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[1200px] mx-auto">
+            <span
+              className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.55)" }}
+            >
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Recent Work
+            </span>
+            <h2
+              className="font-black uppercase m-0 mb-6 leading-[0.9]"
+              style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
+            >
+              SNIPES IN THE <ShinyGoldText>WILD.</ShinyGoldText>
+            </h2>
+            <p
+              className="font-light mb-10 m-0"
+              style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}
+            >
+              Real sticker and pole-snipe placements from recent campaigns — Calvin Priice,
+              Incrediwear, and Biodance. Every placement is photographed, timestamped, and
+              geo-tagged so you see exactly what ran where.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+              {SHOTS.map((shot) => (
+                <div
+                  key={shot.src}
+                  className="relative rounded-2xl overflow-hidden"
+                  style={{
+                    aspectRatio: "3 / 4",
+                    border: "1px solid rgba(255,255,255,0.6)",
+                    boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)",
+                  }}
+                >
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    loading="lazy"
+                  />
+                  <div
+                    className="absolute inset-x-0 bottom-0 p-3 md:p-4"
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.32) 55%, transparent 100%)",
+                    }}
+                  >
+                    <div
+                      className="font-black uppercase leading-none"
+                      style={{ fontSize: "13px", letterSpacing: "-0.01em", color: "#FFF" }}
+                    >
+                      {shot.client}
+                    </div>
+                    <div
+                      className="font-mono text-[8px] tracking-[0.2em] uppercase mt-1"
+                      style={{ color: "rgba(255,255,255,0.82)" }}
+                    >
+                      {shot.meta}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Link
+                href="/gallery"
+                className="inline-flex items-center gap-2 font-bold text-[11px] tracking-[0.2em] uppercase no-underline"
+                style={{ color: ACCENT }}
+              >
+                See the full gallery <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ── How it works (5 steps) ────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto">
@@ -605,15 +707,15 @@ export default function WheatPastingPage() {
               className="font-black uppercase m-0 mb-6 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
             >
-              HOW DOES WHEAT<br />PASTING <ShinyGoldText>WORK?</ShinyGoldText>
+              HOW DOES A SNIPE<br />CAMPAIGN <ShinyGoldText>WORK?</ShinyGoldText>
             </h2>
             <p
               className="font-light mb-10 m-0"
               style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}
             >
-              Every wheat pasting campaign follows the same five-step process, from strategy
+              Every snipe and sticker campaign follows the same five-step process, from strategy
               intake through delivered photo report. Most campaigns run 5–21 business days
-              depending on city count, poster volume, and print specs.
+              depending on city count, sticker volume, and corridor density.
             </p>
             <ol
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px list-none m-0 p-0"
@@ -683,7 +785,7 @@ export default function WheatPastingPage() {
                 style={{ color: "rgba(0,0,0,0.55)" }}
               >
                 <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-                Trust & Compliance
+                Trust &amp; Compliance
               </span>
               <h2
                 className="font-black uppercase m-0 mb-6 leading-[0.9]"
@@ -695,28 +797,28 @@ export default function WheatPastingPage() {
                 className="font-light leading-relaxed m-0"
                 style={{ color: "rgba(0,0,0,0.55)", fontSize: "14px" }}
               >
-                Every brand that books wheat pasting asks the same question first: is it legal?
-                The short answer is yes — when done on permitted surfaces. Here is how Phantom
-                Pasting handles compliance so your brand is never the one answering to city code.
+                Sniping and sticker posting carry the same first question as every street format:
+                is it legal? The answer is yes — on permitted surfaces. Here is how Phantom
+                Pasting keeps your brand on the right side of city code.
               </p>
             </div>
             <div className="flex flex-col gap-4">
               {[
                 {
-                  h: "Permitted walls only",
-                  p: "We maintain an active roster of property-owner agreements in every city we operate. Posters only go on walls, plywood, and hoardings where we have written permission or legal poster campaign rights.",
-                },
-                {
-                  h: "Construction hoardings",
-                  p: "Temporary plywood around construction projects is often the single most-used legal canvas. We source these weekly and pay property fees when required.",
+                  h: "Permitted surfaces only",
+                  p: "Stickers and snipes go on poles, posts, fixtures, and corridors where we hold owner agreements or legal placement rights. Your brand logo never lands on an unauthorized surface.",
                 },
                 {
                   h: "City-by-city ordinance awareness",
-                  p: "Postering rules vary by municipality. Our install crews operate against an internal compliance checklist tuned to each target city's signage code, fines, and removal requirements.",
+                  p: "Sticker and pole-sign rules vary by municipality. Our crews work against an internal compliance checklist tuned to each target city's signage code, fines, and removal requirements.",
+                },
+                {
+                  h: "Clean, removable placement",
+                  p: "We place for clean removal — no damage to permitted surfaces. Pole snipes are zip-tied or stapled for safe takedown, and we can run a removal pass at campaign end on request.",
                 },
                 {
                   h: "Risk transfer to Phantom Pasting",
-                  p: "Because install is handled by our licensed crews on approved surfaces, your brand logo never appears on an unauthorized wall. Compliance risk stays with us, not you.",
+                  p: "Because production and install are handled by our crews on approved surfaces, compliance risk stays with us, not your brand — and every placement is photo-documented as proof.",
                 },
               ].map(({ h, p }) => (
                 <div
@@ -760,10 +862,39 @@ export default function WheatPastingPage() {
               className="font-light mb-8 m-0"
               style={{ color: "rgba(0,0,0,0.58)", fontSize: "14px" }}
             >
-              Combine wheat pasting with chalk stencils or book a full multi-format campaign for
-              total street saturation.
+              Pair snipes with large-format wheat pasting or stack every format into a full
+              multi-format campaign for total street saturation.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <Link
+                href="/services/wheat-pasting"
+                className="no-underline rounded-2xl p-7 flex items-center justify-between"
+                style={{
+                  background: "rgba(248,247,244,0.9)",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                }}
+              >
+                <div>
+                  <div
+                    className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2"
+                    style={{ color: "rgba(0,0,0,0.55)" }}
+                  >
+                    Service
+                  </div>
+                  <div
+                    className="font-black uppercase leading-tight"
+                    style={{
+                      fontSize: "clamp(17px, 1.8vw, 22px)",
+                      letterSpacing: "-0.02em",
+                      color: "#1A1A1A",
+                    }}
+                  >
+                    WHEAT<br />PASTING
+                  </div>
+                </div>
+                <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>
+              </Link>
               <Link
                 href="/services/chalk-spray-stencils"
                 className="no-underline rounded-2xl p-7 flex items-center justify-between"
@@ -789,35 +920,6 @@ export default function WheatPastingPage() {
                     }}
                   >
                     CHALK SPRAY<br />STENCILS
-                  </div>
-                </div>
-                <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>
-              </Link>
-              <Link
-                href="/services/snipes"
-                className="no-underline rounded-2xl p-7 flex items-center justify-between"
-                style={{
-                  background: "rgba(248,247,244,0.9)",
-                  border: "1px solid rgba(0,0,0,0.07)",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-                }}
-              >
-                <div>
-                  <div
-                    className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2"
-                    style={{ color: "rgba(0,0,0,0.55)" }}
-                  >
-                    Service
-                  </div>
-                  <div
-                    className="font-black uppercase leading-tight"
-                    style={{
-                      fontSize: "clamp(17px, 1.8vw, 22px)",
-                      letterSpacing: "-0.02em",
-                      color: "#1A1A1A",
-                    }}
-                  >
-                    SNIPES &amp;<br />STICKERS
                   </div>
                 </div>
                 <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>
@@ -869,14 +971,14 @@ export default function WheatPastingPage() {
               className="font-black uppercase m-0 mb-4 leading-[0.9]"
               style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}
             >
-              WHEAT PASTING IN EVERY MAJOR US CITY<span style={{ color: ACCENT }}>.</span>
+              SNIPES &amp; STICKER POSTING IN EVERY MAJOR US CITY<span style={{ color: ACCENT }}>.</span>
             </h2>
             <p
               className="font-light mb-8 m-0"
               style={{ color: "rgba(0,0,0,0.5)", fontSize: "14px", maxWidth: "640px" }}
             >
               Phantom Pasting maintains standing install crews in every major US metro. Below are
-              the five cities where we run the most campaigns — though we ship print and crew to
+              the cities where we run the most campaigns — though we ship production and crew to
               45+ additional markets on request.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -901,60 +1003,6 @@ export default function WheatPastingPage() {
                 </Link>
               ))}
             </div>
-
-            {/* Statewide pivot strip (May 14 — orphan recovery).
-                Adds visible internal links from /services/wheat-pasting to the
-                15 state landing pages currently sitting at 0 GSC impressions.
-                Service page is the highest-authority service-intent URL after
-                the homepage — passing link weight from here lifts the state
-                pages out of orphan status faster than footer-only links. */}
-            <div className="mt-10 pt-8" style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-              <p
-                className="font-mono text-[10px] tracking-[0.32em] uppercase mb-4"
-                style={{ color: "rgba(0,0,0,0.55)" }}
-              >
-                Statewide Rollouts
-              </p>
-              <p
-                className="font-light leading-relaxed m-0 mb-5"
-                style={{ color: "rgba(0,0,0,0.6)", fontSize: "14px", maxWidth: "640px" }}
-              >
-                Multi-city briefs anchored to a single state — same crew rotation, unified
-                documentation, single point of contact. Statewide rollouts run 20–30% cheaper
-                per-city than separately-booked one-offs.
-              </p>
-              <div className="flex flex-wrap gap-x-5 gap-y-2">
-                {[
-                  { name: "California", href: "/locations/california" },
-                  { name: "New York State", href: "/locations/new-york-state" },
-                  { name: "Texas", href: "/locations/texas" },
-                  { name: "Florida", href: "/locations/florida" },
-                  { name: "Georgia", href: "/locations/georgia" },
-                  { name: "Illinois", href: "/locations/illinois" },
-                  { name: "Arizona", href: "/locations/arizona" },
-                  { name: "Washington", href: "/locations/washington" },
-                  { name: "Oregon", href: "/locations/oregon" },
-                  { name: "Colorado", href: "/locations/colorado" },
-                  { name: "Nevada", href: "/locations/nevada" },
-                  { name: "Massachusetts", href: "/locations/massachusetts" },
-                ].map(({ name, href }) => (
-                  <Link
-                    key={href}
-                    href={href}
-                    className="font-bold uppercase no-underline inline-flex items-center gap-1.5"
-                    style={{
-                      fontSize: "12px",
-                      letterSpacing: "-0.005em",
-                      color: "#1A1A1A",
-                      transition: "color 0.15s",
-                    }}
-                  >
-                    {name}
-                    <span aria-hidden style={{ color: ACCENT, fontSize: "11px" }}>→</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -972,7 +1020,7 @@ export default function WheatPastingPage() {
               className="font-black uppercase m-0 mb-8 leading-[0.9]"
               style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
             >
-              WHEAT PASTING <ShinyGoldText>FAQ.</ShinyGoldText>
+              SNIPES <ShinyGoldText>FAQ.</ShinyGoldText>
             </h2>
             <div className="flex flex-col">
               {FAQS.map(({ q, a }) => (
@@ -1013,10 +1061,10 @@ export default function WheatPastingPage() {
                 className="font-light leading-relaxed m-0"
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}
               >
-                <strong style={{ color: ACCENT }}>TL;DR</strong> — Wheat pasting is large-format,
-                street-level poster advertising installed on permitted walls in 50+ US cities.
-                Print, crew, install, and 100% photo documentation are all included. Runs 2–8
-                weeks on wall. Call{" "}
+                <strong style={{ color: ACCENT }}>TL;DR</strong> — Snipes are street-level
+                sticker and pole-sign campaigns installed on permitted surfaces in 50+ US cities.
+                Production, crew, install, and 100% photo documentation are all included — the
+                most cost-efficient way to build frequency in a target corridor. Call{" "}
                 <a href={BUSINESS.telHref} style={{ color: ACCENT }}>
                   {BUSINESS.telephoneDisplay}
                 </a>{" "}

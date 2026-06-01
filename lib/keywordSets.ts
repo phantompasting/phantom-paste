@@ -155,7 +155,7 @@ export const KW_NATIONWIDE = [
   "US-wide poster campaigns",
 ] as const;
 
-// ── Format-specific stickers / wraps ───────────────────────────────────────
+// ── Format-specific stickers / wraps / snipes ──────────────────────────────
 export const KW_STICKERS_WRAPS = [
   "sticker campaigns",
   "vinyl stickers",
@@ -163,6 +163,24 @@ export const KW_STICKERS_WRAPS = [
   "pole wraps",
   "lamppost wraps",
   "construction barricade advertising",
+] as const;
+
+// ── Snipes / sticker posting (stickers + pole snipe signs) ──────────────────
+export const KW_SNIPES = [
+  "snipes",
+  "snipe posting",
+  "sticker posting",
+  "sticker campaigns",
+  "sticker bombing",
+  "snipe posters",
+  "pole snipes",
+  "pole sign advertising",
+  "lamppost advertising",
+  "utility pole advertising",
+  "die-cut sticker campaigns",
+  "vinyl sticker advertising",
+  "street sticker advertising",
+  "guerrilla sticker marketing",
 ] as const;
 
 // ── Pricing / cost intent ──────────────────────────────────────────────────
@@ -508,11 +526,30 @@ export const KW_SERVICE_FULL_IMPACT = [
   ...KW_PARENT_CATEGORIES, // full umbrella coverage on the flagship service page
 ];
 
+/** Snipes service page — sticker + pole-snipe family + street marketing + buyer. */
+export const KW_SERVICE_SNIPES = [
+  ...KW_SNIPES,
+  ...KW_STICKERS_WRAPS,
+  ...KW_STREET_MARKETING.slice(0, 6),
+  ...KW_VERTICALS.slice(0, 6),
+  ...KW_OOH.slice(0, 4),
+  // Snipe-flavored buyer intent.
+  "sticker posting agency",
+  "sticker posting company",
+  "snipe posting services",
+  "sticker campaign agency",
+  "pole snipe advertising company",
+  "guerrilla sticker agency",
+  ...KW_BUYER_INTENT.slice(13, 25), // agency / company framing
+  ...KW_VERTICAL_BUYERS.slice(0, 6),
+];
+
 /** Services hub — broad coverage + buyer-intent across every vertical. */
 export const KW_SERVICES_HUB = [
   ...KW_CRAFT.slice(0, 4),
   ...KW_STREET_POSTERS.slice(0, 5),
   ...KW_STENCILS.slice(0, 4),
+  ...KW_SNIPES.slice(0, 5),
   ...KW_STREET_MEDIA.slice(0, 4),
   ...KW_STREET_MARKETING.slice(0, 6),
   ...KW_OOH.slice(0, 5),

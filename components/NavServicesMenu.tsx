@@ -6,6 +6,7 @@ const SERVICES = [
   { label: "All Services",          href: "/services" },
   { label: "Wheat Pasting",         href: "/services/wheat-pasting" },
   { label: "Chalk Spray Stencils",  href: "/services/chalk-spray-stencils" },
+  { label: "Snipes & Sticker Posting", href: "/services/snipes" },
   { label: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
 ] as const;
 

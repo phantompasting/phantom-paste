@@ -508,7 +508,7 @@ const SERVICES_DATA = [
   },
   {
     num: "03", icon: "◉", name: "Full Impact", sub: "Total Street Ownership", accent: "#1A1A1A",
-    img: IMGS.full1,
+    img: "/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
     tagline: "Above eye level. Below every footstep.",
     desc: "The complete guerrilla takeover. Large-format wall posters combined with precision chalk spray stencils. Your brand woven into the daily rhythm of the city from every angle.",
     features: ["Full wheat pasting campaign","Stencil activations (25–200+)","Strategic placement mapping","Nationwide deployment"],
@@ -1366,6 +1366,7 @@ const FOOTER_LINKS = {
   Services: [
     { label: "Wheat Pasting", href: "/services/wheat-pasting" },
     { label: "Chalk Spray Stencils", href: "/services/chalk-spray-stencils" },
+    { label: "Snipes & Sticker Posting", href: "/services/snipes" },
     { label: "Full Impact", href: "/services/full-impact-campaigns" },
   ],
   Markets: [

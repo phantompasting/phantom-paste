@@ -54,6 +54,11 @@ const SERVICES = [
     href: "/services/chalk-spray-stencils",
   },
   {
+    label: "Snipes & Sticker Posting",
+    desc: "Die-cut sticker campaigns and pole-mounted snipe signs placed across high-traffic corridors. The most cost-efficient way to build frequency.",
+    href: "/services/snipes",
+  },
+  {
     label: "Full Impact Campaigns",
     desc: "End-to-end campaigns combining wheat pasting, street postering, and chalk stencils for total street saturation.",
     href: "/services/full-impact-campaigns",
@@ -61,11 +66,11 @@ const SERVICES = [
 ];
 
 const TABLE_ROWS = [
-  { feature: "Placement",      wheat: "Walls & surfaces",     chalk: "Sidewalks & plazas",  full: "Both" },
-  { feature: "Size Range",     wheat: '24"×36" to 48"×72"',  chalk: '6"×12" to 48"×48"',  full: "All sizes" },
-  { feature: "Lifespan",       wheat: "Weeks to months",      chalk: "Days to weeks",        full: "Mixed" },
-  { feature: "Best For",       wheat: "Brand awareness",      chalk: "Event activations",    full: "Market domination" },
-  { feature: "Documentation",  wheat: "100% photo proof",     chalk: "100% photo proof",     full: "100% photo proof" },
+  { feature: "Placement",      wheat: "Walls & surfaces",     chalk: "Sidewalks & plazas",  snipe: "Poles, posts & fixtures", full: "All of the above" },
+  { feature: "Size Range",     wheat: '24"×36" to 48"×72"',  chalk: '6"×12" to 48"×48"',  snipe: "Stickers + pole signs",   full: "All sizes" },
+  { feature: "Lifespan",       wheat: "Weeks to months",      chalk: "Days to weeks",        snipe: "Weeks to months",         full: "Mixed" },
+  { feature: "Best For",       wheat: "Brand awareness",      chalk: "Event activations",    snipe: "Corridor frequency",      full: "Market domination" },
+  { feature: "Documentation",  wheat: "100% photo proof",     chalk: "100% photo proof",     snipe: "100% photo proof",        full: "100% photo proof" },
 ];
 
 const PROCESS_STEPS = [
@@ -105,16 +110,21 @@ const DECISION_GUIDE = [
     recommendation: "Start with Wheat Pasting",
     reason: "A targeted wall run in two or three neighborhoods is the lowest-risk entry, with photo documentation you can reuse in paid social.",
   },
+  {
+    title: "Building frequency on a tight budget",
+    recommendation: "Snipes & Sticker Posting",
+    reason: "Stickers and pole snipes are the lowest cost-per-impression format we run — dense clusters along a commuter corridor build repeat exposure on every pass without a full wall budget.",
+  },
 ];
 
 const FAQS = [
   {
     q: "What kinds of guerrilla marketing services does Phantom Pasting offer?",
-    a: "Phantom Pasting offers three core guerrilla marketing formats: wheat pasting (large-format posters on urban walls), chalk spray stencils (temporary water-based sidewalk and plaza activations), and full impact campaigns (multi-format deployments combining every format for total market saturation). All three include strategy, production, install, and 100% photo documentation.",
+    a: "Phantom Pasting offers four core guerrilla marketing formats: wheat pasting (large-format posters on urban walls), chalk spray stencils (temporary water-based sidewalk and plaza activations), snipes and sticker posting (die-cut stickers and pole-mounted snipe signs for corridor saturation), and full impact campaigns (multi-format deployments combining every format for total market saturation). All include strategy, production, install, and 100% photo documentation.",
   },
   {
     q: "Which format is right for my campaign?",
-    a: "Wheat pasting is best for awareness, launches, and longer-run campaigns (weeks to months). Chalk stencils are best for event activations, venue entrances, and short-run cultural moments (days to weeks). Full impact is best when the goal is to dominate a neighborhood or market across multiple formats at once.",
+    a: "Wheat pasting is best for awareness, launches, and longer-run campaigns (weeks to months). Chalk stencils are best for event activations, venue entrances, and short-run cultural moments (days to weeks). Snipes and sticker posting are best for building cost-efficient frequency along commuter corridors and intersections. Full impact is best when the goal is to dominate a neighborhood or market across multiple formats at once.",
   },
   {
     q: "How much do guerrilla marketing campaigns cost?",
@@ -178,7 +188,7 @@ export default function ServicesPage() {
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10"
                   style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
-                  Three formats. 50+ US cities. 500+ campaigns delivered. Every placement photo-documented and mapped. Pick the format that matches your launch, or stack every format for a full city takeover.
+                  Four formats. 50+ US cities. 500+ campaigns delivered. Every placement photo-documented and mapped. Pick the format that matches your launch, or stack every format for a full city takeover.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/contact"
@@ -201,7 +211,7 @@ export default function ServicesPage() {
                 <div className="flex flex-wrap gap-10 md:gap-16 mt-12 pt-10"
                   style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
                   {[
-                    { stat: "3", label: "Formats" },
+                    { stat: "4", label: "Formats" },
                     { stat: "500+", label: "Campaigns" },
                     { stat: "50+", label: "Cities" },
                   ].map(({ stat, label }) => (
@@ -226,19 +236,34 @@ export default function ServicesPage() {
                     writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}>
                   SERVICES
                 </span>
-                <div className="absolute top-10 right-0 rounded-2xl overflow-hidden"
-                  style={{ width: "82%", height: "80%", transform: "rotate(1.8deg)",
+                {/* One image per service: wheat pasting, chalk stencils, snipes, full impact. */}
+                <div className="absolute top-[3%] right-0 rounded-2xl overflow-hidden"
+                  style={{ width: "54%", height: "46%", transform: "rotate(2deg)",
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
-                  <Image src="/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp"
-                    alt="Wheat paste poster wall campaign" fill style={{ objectFit: "cover" }}
-                    sizes="40vw" priority />
+                  <Image src="/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp"
+                    alt="Wheat pasting — Momentous Trend Proof poster wall on a Los Angeles street corner" fill style={{ objectFit: "cover" }}
+                    sizes="30vw" priority />
                 </div>
-                <div className="absolute bottom-10 left-2 rounded-xl overflow-hidden"
-                  style={{ width: "50%", height: "48%", transform: "rotate(-2.2deg)",
+                <div className="absolute top-[7%] left-0 rounded-xl overflow-hidden"
+                  style={{ width: "42%", height: "38%", transform: "rotate(-2.5deg)",
                     boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
-                  <Image src="/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp"
-                    alt="Chalk spray stencil sidewalk activation" fill style={{ objectFit: "cover" }}
-                    sizes="25vw" />
+                  <Image src="/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp"
+                    alt="Chalk spray stencils — sidewalk stencil activation" fill style={{ objectFit: "cover" }}
+                    sizes="20vw" />
+                </div>
+                <div className="absolute bottom-[4%] left-[3%] rounded-xl overflow-hidden"
+                  style={{ width: "46%", height: "46%", transform: "rotate(-1.5deg)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                  <Image src="/gallery/biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp"
+                    alt="Snipes & sticker posting — Biodance sticker on a graffiti wall" fill style={{ objectFit: "cover" }}
+                    sizes="20vw" />
+                </div>
+                <div className="absolute bottom-[6%] right-[3%] rounded-xl overflow-hidden"
+                  style={{ width: "47%", height: "44%", transform: "rotate(2.5deg)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                  <Image src="/gallery/fifa-world-cup-poster-wall-gallery-wide.webp"
+                    alt="Full impact campaigns — multi-format wall takeover" fill style={{ objectFit: "cover" }}
+                    sizes="20vw" />
                 </div>
                 <div aria-hidden className="absolute pointer-events-none"
                   style={{ top: "30%", left: "32%", width: "1px", height: "28%",
@@ -250,7 +275,7 @@ export default function ServicesPage() {
                     boxShadow: "0 4px 20px rgba(0,0,0,0.09)" }}>
                   <div className="font-black uppercase leading-none"
                     style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}>
-                    3
+                    4
                   </div>
                   <div className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1"
                     style={{ color: "rgba(0,0,0,0.55)" }}>
@@ -264,7 +289,7 @@ export default function ServicesPage() {
 
         {/* ── Service Cards ─────────────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICES.map(({ label, desc, href }) => (
               <Link key={href} href={href} className="no-underline group rounded-3xl p-8 flex flex-col justify-between"
                 style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(10px)",
@@ -313,7 +338,7 @@ export default function ServicesPage() {
               <div className="flex flex-col gap-4">
                 <p className="font-light leading-relaxed m-0"
                   style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
-                  Phantom Pasting specializes in three core guerrilla formats — wheat pasting, chalk spray stencils, and full impact campaigns — each designed for a different kind of street-level impact. Every campaign is photo-documented and geo-tagged so you can see exactly what ran where.
+                  Phantom Pasting specializes in four core guerrilla formats — wheat pasting, chalk spray stencils, snipes, and full impact campaigns — each designed for a different kind of street-level impact. Every campaign is photo-documented and geo-tagged so you can see exactly what ran where.
                 </p>
                 <p className="font-light leading-relaxed m-0"
                   style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px" }}>
@@ -338,17 +363,17 @@ export default function ServicesPage() {
             </h2>
             <p className="font-light leading-relaxed mb-10 m-0"
               style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "720px" }}>
-              Each format solves a different creative problem. Wheat paste is loud, physical, and lasts for weeks. Chalk stencils are temporary, event-ready, and nearly frictionless to permit. Full impact stacks both. Here&apos;s how they compare side-by-side.
+              Each format solves a different creative problem. Wheat paste is loud, physical, and lasts for weeks. Chalk stencils are temporary, event-ready, and nearly frictionless to permit. Snipes build cheap, repeat frequency along a corridor. Full impact stacks them all. Here&apos;s how they compare side-by-side.
             </p>
 
             <div className="rounded-3xl overflow-hidden"
               style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.6)" }}>
-              <div className="grid grid-cols-4 px-6 py-4 border-b" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
+              <div className="grid grid-cols-5 px-6 py-4 border-b" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
                 <div className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: "rgba(0,0,0,0.55)" }}>
                   Feature
                 </div>
-                {["Wheat Pasting", "Chalk Stencils", "Full Impact"].map((col) => (
+                {["Wheat Pasting", "Chalk Stencils", "Snipes", "Full Impact"].map((col) => (
                   <div key={col} className="font-black uppercase text-[11px] tracking-[0.05em]"
                     style={{ color: "#1A1A1A" }}>
                     {col}
@@ -356,9 +381,9 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              {TABLE_ROWS.map(({ feature, wheat, chalk, full }, i) => (
+              {TABLE_ROWS.map(({ feature, wheat, chalk, snipe, full }, i) => (
                 <div key={feature}
-                  className="grid grid-cols-4 px-6 py-5 border-b last:border-b-0"
+                  className="grid grid-cols-5 px-6 py-5 border-b last:border-b-0"
                   style={{
                     borderColor: "rgba(0,0,0,0.05)",
                     background: i % 2 === 0 ? "transparent" : "rgba(255,255,255,0.25)",
@@ -369,6 +394,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="font-light" style={{ color: "rgba(0,0,0,0.6)", fontSize: "13px" }}>{wheat}</div>
                   <div className="font-light" style={{ color: "rgba(0,0,0,0.6)", fontSize: "13px" }}>{chalk}</div>
+                  <div className="font-light" style={{ color: "rgba(0,0,0,0.6)", fontSize: "13px" }}>{snipe}</div>
                   <div className="font-light" style={{ color: "rgba(0,0,0,0.6)", fontSize: "13px" }}>{full}</div>
                 </div>
               ))}
@@ -510,7 +536,7 @@ export default function ServicesPage() {
                 backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}>
               <p className="font-black uppercase m-0 leading-snug"
                 style={{ fontSize: "clamp(16px, 2vw, 22px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
-                <span style={{ color: ACCENT }}>TL;DR</span> — Three guerrilla formats. 50+ US cities. 500+ campaigns. 100% photo documented. Custom quotes within 24 hours — call <a href={BUSINESS.telHref} style={{ color: ACCENT }}>{BUSINESS.telephoneDisplay}</a>.
+                <span style={{ color: ACCENT }}>TL;DR</span> — Four guerrilla formats. 50+ US cities. 500+ campaigns. 100% photo documented. Custom quotes within 24 hours — call <a href={BUSINESS.telHref} style={{ color: ACCENT }}>{BUSINESS.telephoneDisplay}</a>.
               </p>
             </aside>
           </div>

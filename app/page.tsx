@@ -98,6 +98,16 @@ const homepageOrgEnrichment = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          name: "Snipes & Sticker Posting",
+          description:
+            "Die-cut sticker campaigns and pole-mounted snipe signs placed across high-traffic urban corridors.",
+          url: `${BUSINESS.url}/services/snipes`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
           name: "Full Impact Street Campaigns",
           description:
             "End-to-end guerrilla marketing campaigns combining wheat pasting, street postering, and stencil activations.",
