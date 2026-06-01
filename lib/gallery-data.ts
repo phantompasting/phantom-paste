@@ -9,10 +9,6 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Latest sticker placements — Biodance "Hydrogel Splash" (supports /services/snipes) ──
-  { src: "/gallery/biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",          label: "Biodance — Graffiti Wall Sticker",      alt: "Biodance Hydrogel Splash sticker on a purple graffiti wall in Los Angeles guerrilla marketing campaign",           tag: "Sticker", aspect: "portrait" },
-  { src: "/gallery/biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp",    label: "Biodance — Night Pole Sticker",         alt: "Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy guerrilla advertising",         tag: "Sticker" },
-
   // ── Biodance "Hydrogel Splash" / "We Are Making A Splash" — Los Angeles (latest job) ──
   // Multi-surface LA campaign: wheat paste poster walls (The Grove launch, May 30–31),
   // die-cut stickers (wall + pole), and pink chalk-spray sidewalk stencils.
@@ -34,6 +30,7 @@ export const GALLERY_IMGS = [
   { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp",              label: "Don't Fall Off — Silver Lake Street",    alt: "Don't Fall Off wheat paste poster wall installation — Silver Lake street view",                          tag: "Wheat Paste"  },
   { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp",            label: "FIFA Posters — Close Up",                alt: "FIFA World Cup wheat paste posters close-up street postering campaign",                                 tag: "Wheat Paste"      },
   { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp",     label: "Incrediwear — Night Pole Wrap",          alt: "Incrediwear pole wrap guerrilla advertising at night urban street marketing",                           tag: "Sticker"      },
+  { src: "/gallery/incrediwear-qr-sticker-pole-night-palm-boulevard.webp",      label: "Incrediwear — Palm Boulevard Snipe",     alt: "Incrediwear QR sticker on a pole at night beside a palm-lined boulevard guerrilla advertising",         tag: "Sticker", aspect: "portrait" },
   { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp",      label: "Calvin Priice — Chalk Stencil",          alt: "Calvin Priice chalk spray stencil sidewalk guerrilla marketing campaign",                              tag: "Stencil"      },
   { src: "/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp",           label: "Black Pearl LA — Chalk Stencil",         alt: "Black Pearl Los Angeles chalk spray stencil marketing on sidewalk with custom stencil template",        tag: "Stencil"      },
   { src: "/gallery/fifa-world-cup-poster-wall-street-perspective.webp",         label: "FIFA Posters — Street Perspective",      alt: "FIFA World Cup poster wall street perspective street postering advertising campaign",                   tag: "Wheat Paste"      },

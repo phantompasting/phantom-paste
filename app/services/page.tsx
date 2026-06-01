@@ -254,8 +254,8 @@ export default function ServicesPage() {
                 <div className="absolute bottom-[4%] left-[3%] rounded-xl overflow-hidden"
                   style={{ width: "46%", height: "46%", transform: "rotate(-1.5deg)",
                     boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
-                  <Image src="/gallery/biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp"
-                    alt="Snipes & sticker posting — Biodance sticker on a graffiti wall" fill style={{ objectFit: "cover" }}
+                  <Image src="/gallery/biodance-hydrogel-splash-sticker-wall-los-angeles.webp"
+                    alt="Snipes & sticker posting — Biodance Hydrogel Splash sticker on a street wall" fill style={{ objectFit: "cover" }}
                     sizes="20vw" />
                 </div>
                 <div className="absolute bottom-[6%] right-[3%] rounded-xl overflow-hidden"

@@ -139,16 +139,16 @@ const ACCENT = "#D4A010";
    sticker-strip live on the main /gallery page, so they're not repeated here. */
 const SHOTS = [
   {
-    src: "/gallery/biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",
+    src: "/gallery/biodance-hydrogel-splash-sticker-wall-los-angeles.webp",
     client: "Biodance",
     meta: "Sticker · Los Angeles",
-    alt: "Biodance Hydrogel Splash sticker on a purple graffiti wall in Los Angeles",
+    alt: "Biodance Hydrogel Splash die-cut sticker on a painted street wall in Los Angeles",
   },
   {
-    src: "/gallery/biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp",
+    src: "/gallery/biodance-hydrogel-splash-sticker-pole-night-los-angeles.webp",
     client: "Biodance",
     meta: "Pole snipe · Los Angeles",
-    alt: "Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy",
+    alt: "Biodance Hydrogel Splash sticker on a street pole at night in Los Angeles",
   },
   {
     src: "/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
@@ -437,8 +437,8 @@ export default function SnipesPage() {
                   }}
                 >
                   <Image
-                    src="/gallery/biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp"
-                    alt="Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy"
+                    src="/gallery/biodance-hydrogel-splash-sticker-pole-night-los-angeles.webp"
+                    alt="Biodance Hydrogel Splash sticker on a street pole at night in Los Angeles"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="25vw"

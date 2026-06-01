@@ -34,13 +34,9 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Calvin Priice pole sticker install — Los Angeles",
     caption: "Phantom Pasting crew installing a Calvin Priice QR sticker on a pole at a Los Angeles gas station",
   },
-  "biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp": {
-    title: "Biodance Hydrogel Splash sticker on graffiti wall — Los Angeles",
-    caption: "Biodance Hydrogel Splash sticker on a purple graffiti wall — Los Angeles guerrilla marketing by Phantom Pasting",
-  },
-  "biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp": {
-    title: "Biodance Hydrogel Splash pole sticker — Los Angeles pharmacy at night",
-    caption: "Biodance Hydrogel Splash sticker on a pole at night outside a Los Angeles pharmacy — guerrilla advertising by Phantom Pasting",
+  "incrediwear-qr-sticker-pole-night-palm-boulevard.webp": {
+    title: "Incrediwear pole snipe — palm boulevard at night",
+    caption: "Incrediwear QR sticker on a pole at night beside a palm-lined boulevard — guerrilla advertising by Phantom Pasting",
   },
 
   // ── Biodance "Hydrogel Splash" campaign — Los Angeles (latest) ────────
@@ -288,8 +284,8 @@ const PAGE_IMAGES: Record<string, string[]> = {
   ],
   "/services/snipes": [
     "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
-    "biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",
-    "biodance-hydrogel-splash-sticker-pole-night-pharmacy-los-angeles.webp",
+    "biodance-hydrogel-splash-sticker-wall-los-angeles.webp",
+    "biodance-hydrogel-splash-sticker-pole-night-los-angeles.webp",
     "incrediwear-qr-sticker-pole-night-intersection.webp",
   ],
 
@@ -302,7 +298,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "dont-fall-off-wheat-paste-street-view-la.webp",
     "black-pearl-la-chalk-spray-stencil-sidewalk.webp",
     "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
-    "biodance-hydrogel-splash-sticker-graffiti-wall-los-angeles.webp",
+    "biodance-hydrogel-splash-sticker-wall-los-angeles.webp",
   ],
   "/locations/austin": [
     "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp",
