@@ -52,10 +52,6 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Biodance The Grove poster wall — Los Angeles",
     caption: "Biodance \"We Are Making A Splash\" The Grove launch wheat paste poster wall — Los Angeles street advertising by Phantom Pasting",
   },
-  "biodance-making-a-splash-wheat-paste-barrier-wall-los-angeles.webp": {
-    title: "Biodance We Are Making A Splash wheat paste barrier wall — Los Angeles",
-    caption: "Biodance \"We Are Making A Splash\" wheat paste poster wall on a street barrier — Los Angeles guerrilla marketing by Phantom Pasting",
-  },
   "biodance-hydrogel-splash-sticker-wall-los-angeles.webp": {
     title: "Biodance Hydrogel Splash sticker on wall — Los Angeles",
     caption: "Biodance Hydrogel Splash die-cut sticker on painted street wall — Los Angeles guerrilla marketing by Phantom Pasting",
@@ -285,7 +281,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp",
   ],
   "/services/full-impact-campaigns": [
-    "biodance-making-a-splash-wheat-paste-barrier-wall-los-angeles.webp",
+    "biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
     "black-pearl-la-chalk-spray-stencil-sidewalk.webp",
     "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
     "fifa-world-cup-poster-wall-gallery-wide.webp",

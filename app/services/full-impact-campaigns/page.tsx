@@ -309,7 +309,7 @@ export default function FullImpactCampaignsPage() {
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
                   {/* Hidden on mobile — see CityPageTemplate for context. */}
                   <Image
-                    src="/gallery/biodance-making-a-splash-wheat-paste-barrier-wall-los-angeles.webp"
+                    src="/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp"
                     alt="Biodance We Are Making A Splash wheat paste poster wall in Los Angeles — one of three full-impact formats"
                     fill
                     style={{ objectFit: "cover" }}
