@@ -183,6 +183,24 @@ export const KW_SNIPES = [
   "guerrilla sticker marketing",
 ] as const;
 
+// ── Street flyering (windshield flyers + hand-to-hand handbilling) ──────────
+export const KW_FLYERING = [
+  "street flyering",
+  "flyering",
+  "flyer distribution",
+  "flyer distribution services",
+  "windshield flyers",
+  "windshield advertising",
+  "windshield flyer distribution",
+  "handbilling",
+  "hand-to-hand flyering",
+  "leafleting",
+  "flyer drops",
+  "car flyer advertising",
+  "parking lot flyering",
+  "guerrilla flyer marketing",
+] as const;
+
 // ── Pricing / cost intent ──────────────────────────────────────────────────
 export const KW_PRICING = [
   "wheat pasting cost",
@@ -544,12 +562,30 @@ export const KW_SERVICE_SNIPES = [
   ...KW_VERTICAL_BUYERS.slice(0, 6),
 ];
 
+/** Street-flyering service page — flyering family + street marketing + buyer. */
+export const KW_SERVICE_STREET_FLYERING = [
+  ...KW_FLYERING,
+  ...KW_STREET_MARKETING.slice(0, 6),
+  ...KW_VERTICALS.slice(0, 6),
+  ...KW_OOH.slice(0, 4),
+  // Flyering-flavored buyer intent.
+  "flyer distribution agency",
+  "flyer distribution company",
+  "street flyering services",
+  "windshield flyer advertising company",
+  "handbilling agency",
+  "flyering company near me",
+  ...KW_BUYER_INTENT.slice(13, 25), // agency / company framing
+  ...KW_VERTICAL_BUYERS.slice(0, 6),
+];
+
 /** Services hub — broad coverage + buyer-intent across every vertical. */
 export const KW_SERVICES_HUB = [
   ...KW_CRAFT.slice(0, 4),
   ...KW_STREET_POSTERS.slice(0, 5),
   ...KW_STENCILS.slice(0, 4),
   ...KW_SNIPES.slice(0, 5),
+  ...KW_FLYERING.slice(0, 5),
   ...KW_STREET_MEDIA.slice(0, 4),
   ...KW_STREET_MARKETING.slice(0, 6),
   ...KW_OOH.slice(0, 5),

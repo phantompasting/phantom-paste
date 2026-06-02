@@ -412,7 +412,7 @@ export default function ChalkSprayStencilsPage() {
             <h2 className="font-black uppercase m-0 mb-8 leading-[0.9]" style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}>
               MORE SERVICES<span style={{ color: ACCENT }}>.</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link href="/services/wheat-pasting" className="no-underline rounded-2xl p-7 flex items-center justify-between" style={{ background: "rgba(248,247,244,0.9)", border: "1px solid rgba(0,0,0,0.07)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                 <div>
                   <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(0,0,0,0.55)" }}>Service</div>
@@ -424,6 +424,13 @@ export default function ChalkSprayStencilsPage() {
                 <div>
                   <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(0,0,0,0.55)" }}>Service</div>
                   <div className="font-black uppercase leading-tight" style={{ fontSize: "clamp(17px, 1.8vw, 22px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>SNIPES &amp;<br />STICKERS</div>
+                </div>
+                <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>
+              </Link>
+              <Link href="/services/street-flyering" className="no-underline rounded-2xl p-7 flex items-center justify-between" style={{ background: "rgba(248,247,244,0.9)", border: "1px solid rgba(0,0,0,0.07)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
+                <div>
+                  <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(0,0,0,0.55)" }}>Service</div>
+                  <div className="font-black uppercase leading-tight" style={{ fontSize: "clamp(17px, 1.8vw, 22px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>STREET<br />FLYERING</div>
                 </div>
                 <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>
               </Link>

@@ -39,6 +39,24 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     caption: "Incrediwear QR sticker on a pole at night beside a palm-lined boulevard — guerrilla advertising by Phantom Pasting",
   },
 
+  // ── Street Flyering — windshield flyers + handbilling, Los Angeles ──
+  "street-flyering-windshield-flyer-closeup-los-angeles.webp": {
+    title: "Street flyering windshield flyer — Los Angeles",
+    caption: "Phantom Pasting flyer placed under a windshield wiper on a parked car — Los Angeles street flyering",
+  },
+  "street-flyering-windshield-flyer-parked-cars-los-angeles.webp": {
+    title: "Street flyering on parked cars — Los Angeles",
+    caption: "Phantom Pasting windshield flyers on a row of parked cars along a Los Angeles street",
+  },
+  "street-flyering-windshield-flyer-tan-car-los-angeles.webp": {
+    title: "Windshield flyer on a parked car — Los Angeles",
+    caption: "Phantom Pasting flyer under the wiper of a parked car in a Los Angeles lot",
+  },
+  "street-flyering-windshield-flyer-parking-lot-sunset-los-angeles.webp": {
+    title: "Windshield flyer in a parking lot at sunset — Los Angeles",
+    caption: "Phantom Pasting windshield flyer on a car in a Los Angeles parking lot at sunset",
+  },
+
   // ── Biodance "Hydrogel Splash" campaign — Los Angeles (latest) ────────
   "biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp": {
     title: "Biodance wheat paste poster wall — Los Angeles",
@@ -287,6 +305,12 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "biodance-hydrogel-splash-sticker-wall-los-angeles.webp",
     "biodance-hydrogel-splash-sticker-pole-night-los-angeles.webp",
     "incrediwear-qr-sticker-pole-night-intersection.webp",
+  ],
+  "/services/street-flyering": [
+    "street-flyering-windshield-flyer-closeup-los-angeles.webp",
+    "street-flyering-windshield-flyer-parked-cars-los-angeles.webp",
+    "street-flyering-windshield-flyer-tan-car-los-angeles.webp",
+    "street-flyering-windshield-flyer-parking-lot-sunset-los-angeles.webp",
   ],
 
   // City pages — hero/OG images used in those markets

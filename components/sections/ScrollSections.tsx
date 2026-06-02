@@ -1367,6 +1367,7 @@ const FOOTER_LINKS = {
     { label: "Wheat Pasting", href: "/services/wheat-pasting" },
     { label: "Chalk Spray Stencils", href: "/services/chalk-spray-stencils" },
     { label: "Snipes & Sticker Posting", href: "/services/snipes" },
+    { label: "Street Flyering", href: "/services/street-flyering" },
     { label: "Full Impact", href: "/services/full-impact-campaigns" },
   ],
   Markets: [

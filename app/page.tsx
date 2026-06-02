@@ -108,6 +108,16 @@ const homepageOrgEnrichment = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          name: "Street Flyering",
+          description:
+            "Windshield flyers on parked cars and hand-to-hand handbilling across high-traffic lots, venues, and corridors.",
+          url: `${BUSINESS.url}/services/street-flyering`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
           name: "Full Impact Street Campaigns",
           description:
             "End-to-end guerrilla marketing campaigns combining wheat pasting, street postering, and stencil activations.",

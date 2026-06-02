@@ -302,7 +302,7 @@ export default function FullImpactCampaignsPage() {
                 </span>
 
                 {/* One image per format the full-impact campaign stacks:
-                    wheat pasting, chalk stencils, and snipes. */}
+                    wheat pasting, chalk stencils, snipes, and street flyering. */}
                 <div className="absolute top-[6%] right-0 rounded-2xl overflow-hidden"
                   style={{ width: "64%", height: "48%",
                     transform: "rotate(1.5deg)",
@@ -310,10 +310,25 @@ export default function FullImpactCampaignsPage() {
                   {/* Hidden on mobile — see CityPageTemplate for context. */}
                   <Image
                     src="/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp"
-                    alt="Biodance We Are Making A Splash wheat paste poster wall in Los Angeles — one of three full-impact formats"
+                    alt="Biodance We Are Making A Splash wheat paste poster wall in Los Angeles — a full-impact format"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 1024px) 0vw, 32vw"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Street Flyering — the newest format folded into the mix. */}
+                <div className="absolute top-[9%] left-0 rounded-xl overflow-hidden"
+                  style={{ width: "40%", height: "38%",
+                    transform: "rotate(-2deg)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
+                  <Image
+                    src="/gallery/street-flyering-windshield-flyer-parked-cars-los-angeles.webp"
+                    alt="Street flyering — windshield flyers on parked cars, a full-impact format"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="22vw"
                     loading="lazy"
                   />
                 </div>
@@ -324,7 +339,7 @@ export default function FullImpactCampaignsPage() {
                     boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
                   <Image
                     src="/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp"
-                    alt="Black Pearl chalk spray sidewalk stencil — one of three full-impact formats"
+                    alt="Black Pearl chalk spray sidewalk stencil — a full-impact format"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="25vw"
@@ -337,7 +352,7 @@ export default function FullImpactCampaignsPage() {
                     boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
                   <Image
                     src="/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp"
-                    alt="Calvin Priice pole sticker snipe — one of three full-impact formats"
+                    alt="Calvin Priice pole sticker snipe — a full-impact format"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="25vw"
@@ -355,7 +370,7 @@ export default function FullImpactCampaignsPage() {
                     border: "1px solid rgba(255,255,255,0.75)",
                     boxShadow: "0 4px 20px rgba(0,0,0,0.09)" }}>
                   <div className="font-black uppercase leading-none"
-                    style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}>3-Format</div>
+                    style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}>4-Format</div>
                   <div className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1"
                     style={{ color: "rgba(0,0,0,0.55)" }}>Street Blitz</div>
                 </div>
@@ -561,7 +576,7 @@ export default function FullImpactCampaignsPage() {
               style={{ fontSize: "clamp(20px, 2.5vw, 32px)", letterSpacing: "-0.025em" }}>
               INDIVIDUAL SERVICES<span style={{ color: ACCENT }}>.</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link href="/services/wheat-pasting" className="no-underline rounded-2xl p-7 flex items-center justify-between"
                 style={{ background: "rgba(248,247,244,0.9)", border: "1px solid rgba(0,0,0,0.07)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                 <div>
@@ -591,6 +606,17 @@ export default function FullImpactCampaignsPage() {
                   <div className="font-black uppercase leading-tight"
                     style={{ fontSize: "clamp(17px, 1.8vw, 22px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
                     CHALK SPRAY<br />STENCILS
+                  </div>
+                </div>
+                <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>
+              </Link>
+              <Link href="/services/street-flyering" className="no-underline rounded-2xl p-7 flex items-center justify-between"
+                style={{ background: "rgba(248,247,244,0.9)", border: "1px solid rgba(0,0,0,0.07)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
+                <div>
+                  <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(0,0,0,0.55)" }}>Service</div>
+                  <div className="font-black uppercase leading-tight"
+                    style={{ fontSize: "clamp(17px, 1.8vw, 22px)", letterSpacing: "-0.02em", color: "#1A1A1A" }}>
+                    STREET<br />FLYERING
                   </div>
                 </div>
                 <span style={{ color: ACCENT, fontSize: "24px" }}>→</span>

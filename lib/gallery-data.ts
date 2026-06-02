@@ -71,6 +71,12 @@ export const GALLERY_IMGS = [
 
   // Moved to the end of the slider per art direction (still featured on /services/snipes + full-impact).
   { src: "/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",     label: "Calvin Priice — Pole Install",          alt: "Phantom Pasting crew installing a Calvin Priice QR sticker on a pole at a Los Angeles gas station",            tag: "Sticker",     aspect: "portrait" },
+
+  // ── Street Flyering — windshield flyers + handbilling, Los Angeles (added at end of list) ──
+  { src: "/gallery/street-flyering-windshield-flyer-closeup-los-angeles.webp",            label: "Street Flyering — Windshield Flyer",    alt: "Phantom Pasting flyer placed under a windshield wiper on a parked car in Los Angeles",                         tag: "Flyering",    aspect: "portrait" },
+  { src: "/gallery/street-flyering-windshield-flyer-parked-cars-los-angeles.webp",        label: "Street Flyering — Street Run",          alt: "Phantom Pasting windshield flyers on a row of parked cars along a Los Angeles street",                         tag: "Flyering",    aspect: "portrait" },
+  { src: "/gallery/street-flyering-windshield-flyer-tan-car-los-angeles.webp",            label: "Street Flyering — Windshield Flyer",    alt: "Phantom Pasting flyer under the wiper of a parked car in a Los Angeles lot",                                   tag: "Flyering",    aspect: "portrait" },
+  { src: "/gallery/street-flyering-windshield-flyer-parking-lot-sunset-los-angeles.webp", label: "Street Flyering — Parking Lot",         alt: "Phantom Pasting windshield flyer on a car in a Los Angeles parking lot at sunset",                             tag: "Flyering",    aspect: "portrait" },
 ] as const;
 
 export type GalleryImg = typeof GALLERY_IMGS[number];
