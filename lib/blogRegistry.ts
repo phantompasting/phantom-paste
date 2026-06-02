@@ -119,6 +119,51 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "are-windshield-flyers-legal",
+    title: "Are Windshield Flyers Legal? A City-by-City Guide",
+    metaTitle: "Are Windshield Flyers Legal? City Guide",
+    metaDescription:
+      "Are windshield flyers legal? It varies by city. What actually happens placing flyers on parked cars vs. hand-to-hand handbilling — from a street-team crew.",
+    excerpt:
+      "Windshield flyers and hand-to-hand handbilling live in two different legal worlds. Here's how flyering actually plays out — public sidewalks vs. private lots, anti-litter rules, and who's liable — from a crew that runs it across LA and beyond.",
+    silo: "local-legal",
+    publishedAt: "2026-06-01",
+    updatedAt: "2026-06-01",
+    heroImage: "/blog/are-windshield-flyers-legal.jpg",
+    heroAlt: "Phantom Pasting flyer tucked under a windshield wiper on a parked car in Los Angeles",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["legal", "compliance", "flyering", "windshield-flyers", "handbilling"],
+    wordCount: 1051,
+    faqs: [
+      {
+        q: "Is it illegal to put flyers on car windshields?",
+        a: "It depends on the city and the property. Many US cities have a 'handbill on vehicle' ordinance that prohibits placing commercial flyers on parked cars, and even where none exists, a loose flyer that blows off becomes litter the placer can be cited for. Private lots also require the owner's permission. Hand-to-hand distribution on public sidewalks is far more protected.",
+      },
+      {
+        q: "Is putting flyers on cars considered littering?",
+        a: "Often, yes — that's the most common legal hook cities use. A flyer that ends up on the ground triggers anti-litter enforcement, and the person who placed it is liable. Tucking flyers securely under the wiper (never loose on the glass) is both a compliance practice and a litter-prevention one.",
+      },
+      {
+        q: "Is hand-to-hand flyering (handbilling) legal?",
+        a: "Broadly, yes. Handing leaflets to willing people on a public sidewalk is protected First Amendment activity — the Supreme Court struck down outright handbill bans in the 1930s. Cities can still impose reasonable time, place, and manner rules (no blocking doorways, no aggressive solicitation) and hold distributors responsible for litter.",
+      },
+      {
+        q: "Can you put flyers on cars in a private parking lot?",
+        a: "Only with the property owner's permission. Shopping-center, mall, and managed lots are private property — the owner's rules govern, and most prohibit flyering without consent. 'No soliciting' or 'no handbills' signage is a hard stop, and there's no First Amendment protection on private property.",
+      },
+      {
+        q: "Do you need a permit to distribute flyers?",
+        a: "For casual hand-to-hand distribution on public sidewalks, usually not — but organized distribution in certain zones, events, or transit areas can require a permit, and rules vary by city. A professional crew checks each market's handbill and anti-litter code before running a route.",
+      },
+      {
+        q: "Who is liable if a flyer campaign violates city code — the brand or the crew?",
+        a: "In practice, the distribution crew or agency that placed the flyers. That's the value of hiring a professional team: the brand briefs the campaign and the agency carries the compliance responsibility, local-code knowledge, and insurance — keeping your logo off unauthorized windshields and absorbing the risk.",
+      },
+    ],
+    relatedSlugs: ["is-wheat-pasting-legal", "flyposting-explained", "snipe-posters-vs-wheat-paste-vs-floor-decals"],
+    status: "published",
+  },
+  {
     slug: "guerrilla-marketing-for-business",
     title: "Guerrilla Marketing for Business: If You're Not Doing It, Your Competitors Are",
     metaTitle: "Guerrilla Marketing for Business",
