@@ -26,7 +26,7 @@ const PAGE_URL = `${BUSINESS.url}/services/street-flyering`;
 const PAGE_OG = `${BUSINESS.url}/gallery/street-flyering-windshield-flyer-closeup-los-angeles.webp`;
 const PAGE_TITLE = "Street Flyering & Windshield Flyers";
 const PAGE_DESC =
-  "Street flyering — windshield flyers on parked cars and hand-to-hand handbilling across high-traffic lots, venues, and corridors in 50+ US cities. 100% documented.";
+  "Street flyering — windshield flyers on parked cars and hand-to-hand handbilling across high-traffic lots and venues in 50+ US cities. 100% documented.";
 const DATE_PUBLISHED = "2024-03-01";
 const DATE_MODIFIED = "2026-06-01";
 
@@ -297,8 +297,8 @@ export default function StreetFlyeringPage() {
                   className="font-black uppercase m-0 leading-[0.88]"
                   style={{ fontSize: "clamp(48px, 7vw, 100px)", letterSpacing: "-0.04em" }}
                 >
-                  FLYERS ON EVERY<br />
-                  <ShinyGoldText>WINDSHIELD.</ShinyGoldText>
+                  STREET FLYERING<br />
+                  <ShinyGoldText>ON EVERY WINDSHIELD.</ShinyGoldText>
                 </h1>
                 <p
                   className="font-light leading-relaxed mt-8 mb-10"
