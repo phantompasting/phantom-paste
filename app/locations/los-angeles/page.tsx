@@ -96,6 +96,7 @@ const data: CityPageData = {
       { label: "See the FashionPass Campaign", href: "/work/fashionpass-los-angeles" },
       { label: "How a Campaign Works", href: "/blog/wheat-pasting-campaign" },
       { label: "Wheat Pasting in LA — Field Guide", href: "/blog/wheat-pasting-los-angeles" },
+      { label: "Street Flyering in LA", href: "/services/street-flyering/los-angeles" },
       { label: "Get an LA Quote", href: "/contact" },
     ],
   },

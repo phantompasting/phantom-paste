@@ -915,6 +915,13 @@ export default function StreetFlyeringPage() {
               the cities where we run the most campaigns — though we ship print and crew to 45+
               additional markets on request.
             </p>
+            <p className="font-light mb-8 m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "14px", maxWidth: "640px" }}>
+              Our flagship flyering market:{" "}
+              <Link href="/services/street-flyering/los-angeles" style={{ color: ACCENT, textDecoration: "underline", fontWeight: 700 }}>
+                street flyering in Los Angeles
+              </Link>{" "}
+              — windshield flyers and handbilling across Melrose, DTLA, Hollywood, Westwood, Venice, and LA event lots.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {LOCATIONS.map(({ name, href }) => (
                 <Link

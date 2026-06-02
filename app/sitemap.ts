@@ -57,6 +57,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/services/chalk-spray-stencils",  file: "app/services/chalk-spray-stencils/page.tsx",           priority: 0.9,  changeFreq: "monthly" },
   { path: "/services/snipes",                file: "app/services/snipes/page.tsx",                         priority: 0.9,  changeFreq: "monthly" },
   { path: "/services/street-flyering",       file: "app/services/street-flyering/page.tsx",                priority: 0.9,  changeFreq: "monthly" },
+  { path: "/services/street-flyering/los-angeles", file: "app/services/street-flyering/los-angeles/page.tsx",     priority: 0.85, changeFreq: "monthly" },
   { path: "/services/full-impact-campaigns", file: "app/services/full-impact-campaigns/page.tsx",          priority: 0.9,  changeFreq: "monthly" },
 
   // ── Core pages ────────────────────────────────────────────────────────────
