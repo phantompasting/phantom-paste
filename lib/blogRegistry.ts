@@ -628,8 +628,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     excerpt:
       "Wheat paste, snipes, and floor decals aren't interchangeable. Each wins a different use case: walls for cultural weight, snipes for frequency, floor decals for attention at dwell points. Here's the installer-grade comparison.",
     silo: "the-craft",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-02",
     heroImage: "/gallery/street-pole-sticker-campaign-urban-advertising.webp",
     heroAlt: "Snipe poster campaign on urban street poles",
     authorSlug: MATEO_VARGAS.slug,
@@ -657,8 +657,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
         a: "Snipes, on raw CPM — $0.05–$0.15 per in-person impression at scale. Wheat paste runs $0.10–$0.30. Floor decals run higher ($0.40–$0.80) but deliver longer dwell time per impression.",
       },
     ],
-    relatedSlugs: ["street-postering-tools", "wheat-pasting-vs-billboards", "guerrilla-marketing-for-music"],
-    status: "draft",
+    relatedSlugs: ["wheat-pasting-vs-billboards", "what-is-wheat-pasting", "are-windshield-flyers-legal"],
+    status: "published",
   },
   {
     slug: "wheat-paste-recipes",
