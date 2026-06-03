@@ -341,8 +341,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     excerpt:
       "Guerrilla marketing runs the music industry more than any other vertical. Album launches, tour announcements, festival lineups, and single drops all live or die on pre-release street heat.",
     silo: "strategy-roi",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-02",
     heroImage: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp",
     heroAlt: "Guerrilla marketing pole wrap for a music-industry campaign",
     authorSlug: MATEO_VARGAS.slug,
@@ -370,8 +370,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
         a: "Yes — paste walls carry the hero image, snipes carry impression count, stencils add authenticity signal. Campaigns that skip snipes leave 40–60% of the format's value unused.",
       },
     ],
-    relatedSlugs: ["wheat-pasting-for-fashion-brands", "snipe-posters-vs-wheat-paste-vs-floor-decals", "wheat-pasting-cost"],
-    status: "draft",
+    relatedSlugs: ["snipe-posters-vs-wheat-paste-vs-floor-decals", "wheat-pasting-cost", "guerrilla-marketing-for-business"],
+    status: "published",
   },
   {
     slug: "wheat-pasting-for-fashion-brands",
