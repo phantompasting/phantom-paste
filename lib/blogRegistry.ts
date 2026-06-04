@@ -382,8 +382,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     excerpt:
       "Fashion brands live on walls for a reason — the format converts attention into cultural weight faster than any other media buy. Supreme built its brand on paste walls. Here's the streetwear playbook.",
     silo: "strategy-roi",
-    publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-02",
     heroImage: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",
     heroAlt: "Fashion brand wheat paste campaign wall in Los Angeles",
     authorSlug: MATEO_VARGAS.slug,
@@ -412,7 +412,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["guerrilla-marketing-for-music", "wheat-pasting-vs-billboards", "wheat-pasting-cost"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "wheat-pasting-vs-billboards",
