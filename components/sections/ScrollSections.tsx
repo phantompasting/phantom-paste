@@ -405,15 +405,20 @@ const STEP_ICONS: Record<string, (color: string) => React.ReactNode> = {
 
 const STEPS = [
   { num: "01", icon: "mail",   title: "Brief Us",  color: "#1A1A1A",
+    img: "/gallery/wheat-paste-wall-location-street-corner-los-angeles.webp",
     desc: "Tell us your brand, target city, campaign goals, and timeline. We respond within 24 hours with a custom guerrilla strategy tailored to your market, audience, and budget.",
     sub: "Campaign brief → strategy proposal → pricing" },
   { num: "02", icon: "map",    title: "We Plan",   color: "#1A1A1A",
+    img: "/gallery/custom-stencil-template-cut-out-design.webp", imgOpacity: 0.6, imgFilter: "grayscale(0.3) contrast(1.03)",
     desc: "You bring the artwork — we handle everything else. We review your existing designs, print all posters or cut your stencils, source materials, and map out strategic high-traffic placement zones in your city.",
     sub: "Your artwork → print & materials → placement map" },
   { num: "03", icon: "bolt",   title: "We Deploy", color: "#D4A010",
+    img: "/gallery/wheat-paste-installer-cleaning-wall-los-angeles.webp",
     desc: "Our crew hits the streets. Walls pasted, sidewalks stenciled. 25–200+ precision placements per campaign run, executed at the exact locations agreed in your strategy brief.",
     sub: "Crew deployment → precision execution → city-wide coverage" },
   { num: "04", icon: "camera", title: "You See It", color: "#1A1A1A",
+    img: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
+    imgFilter: "saturate(1.05) contrast(1.03)", imgOpacity: 0.65,
     desc: "Full photo documentation from every single hit — timestamped, geo-tagged, and packaged into a clean campaign report. Proof of every placement, ready to share as social content.",
     sub: "Photo docs → geo-tags → campaign report delivered" },
 ];
@@ -425,6 +430,14 @@ function ProcessStepPage({ step, index }: { step: typeof STEPS[number]; index: n
     <SnapPage>
       <div ref={scope} className="w-full h-full flex items-center">
 
+        {/* Real placement photo — washed + desaturated so the type still leads */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden>
+          <Image src={step.img} alt="" fill loading="lazy" sizes="100vw"
+            className="object-cover"
+            style={{ filter: step.imgFilter ?? "grayscale(1) contrast(1.05)", opacity: step.imgOpacity ?? 0.38 }} />
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(105deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.72) 45%, rgba(255,255,255,0.38) 100%)" }} />
+        </div>
 
         {/* Side accent lines */}
         <div className="absolute left-0 top-0 bottom-0 w-px hidden md:block"
