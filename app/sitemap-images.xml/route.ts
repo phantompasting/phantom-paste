@@ -66,6 +66,22 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Biodance The Grove poster wall — Los Angeles",
     caption: "Biodance \"We Are Making A Splash\" The Grove launch wheat paste poster wall — Los Angeles street advertising by Phantom Pasting",
   },
+  "biodance-making-a-splash-wheat-paste-scaffold-wall-los-angeles.webp": {
+    title: "Biodance wheat paste wall under scaffolding — Los Angeles",
+    caption: "Biodance \"We Are Making A Splash\" wheat paste poster wall under scaffolding — Los Angeles guerrilla marketing by Phantom Pasting",
+  },
+  "biodance-making-a-splash-wheat-paste-underpass-wall-los-angeles.webp": {
+    title: "Biodance wheat paste underpass wall — Los Angeles",
+    caption: "Biodance \"We Are Making A Splash\" wheat paste poster wall under a Los Angeles underpass — guerrilla marketing by Phantom Pasting",
+  },
+  "biodance-making-a-splash-wheat-paste-plywood-wall-los-angeles.webp": {
+    title: "Biodance wheat paste on plywood barrier — Los Angeles",
+    caption: "Biodance \"We Are Making A Splash\" wheat paste posters on a plywood construction barrier — Los Angeles by Phantom Pasting",
+  },
+  "biodance-making-a-splash-wheat-paste-install-documentation-los-angeles.webp": {
+    title: "Biodance wheat paste install documentation — Los Angeles",
+    caption: "Photographer documenting a Biodance \"We Are Making A Splash\" wheat paste poster wall — Los Angeles by Phantom Pasting",
+  },
   "biodance-hydrogel-splash-sticker-wall-los-angeles.webp": {
     title: "Biodance Hydrogel Splash sticker on wall — Los Angeles",
     caption: "Biodance Hydrogel Splash die-cut sticker on painted street wall — Los Angeles guerrilla marketing by Phantom Pasting",
