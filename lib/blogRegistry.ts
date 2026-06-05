@@ -73,10 +73,12 @@ export interface BlogPostMeta {
   publishedAt: string;
   /** ISO date of last meaningful content edit */
   updatedAt: string;
-  /** Relative path under `/public`, used for og:image + hero */
-  heroImage: string;
-  /** Alt text for the hero image */
-  heroAlt: string;
+  /** Relative path under `/public`, used for og:image + hero. Optional — when
+   *  omitted, the post renders with no hero banner and og/schema images fall
+   *  back to the site default. */
+  heroImage?: string;
+  /** Alt text for the hero image (only needed when heroImage is set). */
+  heroAlt?: string;
   /** Author — currently always Mateo Vargas, scaffolded for future contributors */
   authorSlug: string;
   /** Tags for future topic pages + emitted as `keywords` in Article JSON-LD. */
@@ -129,8 +131,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     silo: "strategy-roi",
     publishedAt: "2026-06-04",
     updatedAt: "2026-06-04",
-    heroImage: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
-    heroAlt: "FIFA World Cup wheat paste poster wall — sports guerrilla marketing on a city street",
+    // heroImage intentionally omitted — custom photo coming; renders with no hero banner for now.
     authorSlug: MATEO_VARGAS.slug,
     tags: ["guerrilla-marketing", "history", "new-york", "knicks", "knickerbocker"],
     wordCount: 821,

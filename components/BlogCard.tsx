@@ -79,16 +79,18 @@ export default function BlogCard({
         color: "inherit",
       }}
     >
-      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
-        <Image
-          src={post.heroImage}
-          alt={post.heroAlt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={priority}
-        />
-      </div>
+      {post.heroImage && (
+        <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+          <Image
+            src={post.heroImage}
+            alt={post.heroAlt ?? post.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={priority}
+          />
+        </div>
+      )}
       <div className="p-6">
         <div
           className="font-mono uppercase mb-2"

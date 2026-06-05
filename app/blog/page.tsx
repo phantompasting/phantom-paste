@@ -130,20 +130,22 @@ export default function BlogHubPage() {
                   boxShadow: "0 20px 60px rgba(0,0,0,0.12)",
                 }}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr]">
-                  <div
-                    className="relative w-full"
-                    style={{ aspectRatio: "16/10", minHeight: 280 }}
-                  >
-                    <Image
-                      src={latest.heroImage}
-                      alt={latest.heroAlt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
+                <div className={`grid grid-cols-1 ${latest.heroImage ? "lg:grid-cols-[1.4fr_1fr]" : ""}`}>
+                  {latest.heroImage && (
+                    <div
+                      className="relative w-full"
+                      style={{ aspectRatio: "16/10", minHeight: 280 }}
+                    >
+                      <Image
+                        src={latest.heroImage}
+                        alt={latest.heroAlt ?? latest.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 60vw"
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                  )}
                   <div className="p-7 sm:p-9 md:p-11 flex flex-col justify-center">
                     <div
                       className="font-mono uppercase mb-4 inline-flex items-center gap-2"

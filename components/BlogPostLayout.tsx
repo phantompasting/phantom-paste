@@ -98,7 +98,7 @@ export default function BlogPostLayout({
   children: ReactNode;
 }) {
   const postUrl = `${BUSINESS.url}/blog/${post.slug}`;
-  const heroAbsUrl = `${BUSINESS.url}${post.heroImage}`;
+  const heroAbsUrl = `${BUSINESS.url}${post.heroImage ?? BUSINESS.ogImageDefault}`;
   const siloMeta = SILO_LABELS[post.silo];
 
   const breadcrumbItems = [
@@ -248,23 +248,26 @@ export default function BlogPostLayout({
                   </div>
                 </header>
 
-                {/* Hero image (inside main column, sits above TL;DR) */}
-                <div
-                  className="relative w-full rounded-2xl overflow-hidden mb-10"
-                  style={{
-                    aspectRatio: "16/9",
-                    boxShadow: "0 18px 50px rgba(0,0,0,0.15), 0 3px 10px rgba(0,0,0,0.06)",
-                  }}
-                >
-                  <Image
-                    src={post.heroImage}
-                    alt={post.heroAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 780px"
-                    priority
-                  />
-                </div>
+                {/* Hero image (inside main column, sits above TL;DR).
+                    Only renders when the post defines a heroImage. */}
+                {post.heroImage && (
+                  <div
+                    className="relative w-full rounded-2xl overflow-hidden mb-10"
+                    style={{
+                      aspectRatio: "16/9",
+                      boxShadow: "0 18px 50px rgba(0,0,0,0.15), 0 3px 10px rgba(0,0,0,0.06)",
+                    }}
+                  >
+                    <Image
+                      src={post.heroImage}
+                      alt={post.heroAlt ?? post.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 780px"
+                      priority
+                    />
+                  </div>
+                )}
 
                 {/* TL;DR — `speakable-tldr` class is referenced by the
                     Article schema's speakable.cssSelector array so AI Overviews

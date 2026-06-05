@@ -37,7 +37,9 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `${BUSINESS.url}/blog/${post.slug}`;
-  const heroAbs = `${BUSINESS.url}${post.heroImage}`;
+  // Fall back to the site default OG image when a post has no hero, so social
+  // shares never render a blank/broken preview.
+  const heroAbs = `${BUSINESS.url}${post.heroImage ?? BUSINESS.ogImageDefault}`;
 
   return {
     title: post.metaTitle,
@@ -57,7 +59,7 @@ export async function generateMetadata({
           url: heroAbs,
           width: BUSINESS.ogImageWidth,
           height: BUSINESS.ogImageHeight,
-          alt: post.heroAlt,
+          alt: post.heroAlt ?? post.title,
         },
       ],
     },
