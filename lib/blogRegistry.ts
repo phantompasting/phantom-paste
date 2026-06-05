@@ -119,6 +119,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "knickerbocker-hoax-guerrilla-marketing",
+    title: "The Knicks, the Finals, and the 1809 Hoax That Invented Guerrilla Marketing",
+    metaTitle: "How the Knicks Got Their Name (1809 Hoax)",
+    metaDescription:
+      "The New York Knicks are in the 2026 NBA Finals — and their name comes from an 1809 marketing hoax that arguably invented guerrilla marketing. The wild story.",
+    excerpt:
+      "The Knicks are in the 2026 NBA Finals — and their name traces back to one of the first guerrilla marketing campaigns in history: Washington Irving's 1809 fake missing-person hoax. Here's the story, and why the same playbook still owns the streets.",
+    silo: "strategy-roi",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    heroImage: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
+    heroAlt: "FIFA World Cup wheat paste poster wall — sports guerrilla marketing on a city street",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["guerrilla-marketing", "history", "new-york", "knicks", "knickerbocker"],
+    wordCount: 821,
+    titleHighlight: "Invented Guerrilla Marketing",
+    faqs: [
+      {
+        q: "Why are the New York Knicks called the Knicks?",
+        a: "\"Knicks\" is short for \"Knickerbockers.\" The name traces to Diedrich Knickerbocker, a fictional Dutch historian invented by Washington Irving to promote his 1809 book A History of New York. \"Knickerbocker\" became shorthand for New York itself, and when the city got a pro basketball team in 1946 it took the name — the New York Knickerbockers, shortened to the Knicks.",
+      },
+      {
+        q: "Did Washington Irving really fake a missing person to sell a book?",
+        a: "Yes. In October 1809 he planted newspaper notices in the New York Evening Post claiming an elderly historian named Diedrich Knickerbocker had gone missing, then a follow-up that his unpaid landlord would sell a manuscript the man left behind. The public got invested; some officials reportedly offered a reward. It was a hoax — Knickerbocker never existed — and the book published weeks later was an instant hit.",
+      },
+      {
+        q: "Is the Knickerbocker hoax the first guerrilla marketing campaign?",
+        a: "It's one of the earliest and most-cited examples in American history. Guerrilla marketing means creating buzz through unconventional, physical, attention-grabbing tactics rather than paid ads — and Irving's 1809 stunt did exactly that: a public, irresistible story engineered to make a whole city talk, with no media budget.",
+      },
+      {
+        q: "What was A History of New York about?",
+        a: "It was a satirical, comic history of New York's Dutch colonial era, written under the Knickerbocker pseudonym and published December 6, 1809. Its success made Washington Irving — later author of Rip Van Winkle and The Legend of Sleepy Hollow — the most famous American writer of his time.",
+      },
+      {
+        q: "What can modern brands learn from the Knickerbocker hoax?",
+        a: "That physical, unmissable, talkable marketing beats interruption. Irving used a newspaper hoax; today brands use wheat paste, snipes, stencils, and street stunts. The medium changed, but the playbook — show up where attention already lives, in the real world, and give people something worth sharing — hasn't.",
+      },
+    ],
+    relatedSlugs: ["guerrilla-marketing-for-business", "guerrilla-marketing-for-music", "wheat-pasting-new-york"],
+    status: "published",
+  },
+  {
     slug: "are-windshield-flyers-legal",
     title: "Are Windshield Flyers Legal? A City-by-City Guide",
     metaTitle: "Are Windshield Flyers Legal? City Guide",
