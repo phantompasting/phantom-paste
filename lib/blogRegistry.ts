@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "guerrilla-marketing-for-startups",
+    title: "Guerrilla Marketing for Tech & DTC Startups",
+    titleHighlight: "Startups",
+    metaTitle: "Guerrilla Marketing for Startups",
+    metaDescription:
+      "Rising CAC killing your growth? How tech and DTC startups use wheat paste, snipes, and QR-tagged street campaigns to launch and acquire users below digital CPMs.",
+    excerpt:
+      "Startups live and die on attention, and paid acquisition keeps getting more expensive. Wheat paste, snipes, and QR campaigns give a startup a physical, photographable presence in the exact neighborhoods where early adopters actually walk.",
+    silo: "strategy-roi",
+    publishedAt: "2026-06-06",
+    updatedAt: "2026-06-06",
+    heroImage: "/gallery/incrediwear-qr-sticker-pole-night-intersection.webp",
+    heroAlt: "QR-code sticker pole campaign for a DTC startup at a night intersection",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["startups", "dtc", "tech", "user-acquisition", "guerrilla-marketing", "strategy"],
+    wordCount: 1290,
+    faqs: [
+      {
+        q: "Why should a startup use guerrilla marketing instead of paid ads?",
+        a: "Paid social and search CPMs climb every year while a paste wall in the right neighborhood reaches every person who walks past it for a fraction of the cost — and gets photographed and reposted by the exact early adopters you're targeting. Startups also have the sharp, weird single idea that street marketing rewards most.",
+      },
+      {
+        q: "Can street marketing be measured like a digital campaign?",
+        a: "Yes. Put a unique, UTM-tagged QR code on every wall and pole, track scans by location and time, and reconcile installs against spend the same way you would a Meta campaign. QR-tagged snipe campaigns deliver per-wall scan-to-install attribution that billboards can't.",
+      },
+      {
+        q: "How much does a startup street campaign cost?",
+        a: "Pre-seed launches run $2,500–$4,000 for one neighborhood of snipes plus QR stickers. A seed launch wall runs $3,500–$6,500. A Series A credibility play across 2–3 cities runs $12K–$28K, and growth-stage saturation across 4–6 cities runs $35K–$80K.",
+      },
+      {
+        q: "Which cities matter most for startup campaigns?",
+        a: "San Francisco (founder/investor density), Los Angeles (consumer, DTC, creator economy), New York (fintech, media, B2B), and Austin (relocation hub + SXSW) carry most startup street spend. The rule: paste where your user walks, not where rent is highest.",
+      },
+      {
+        q: "What's the most common mistake startups make with street marketing?",
+        a: "Pasting where rent is high instead of where users actually are — neighborhood signal beats foot-traffic volume every time. The runners-up: putting the whole pitch on one poster, using no QR (or pointing it at a cluttered homepage), and skipping photo documentation.",
+      },
+    ],
+    relatedSlugs: ["guerrilla-marketing-for-business", "wheat-pasting-vs-billboards", "wheat-pasting-cost"],
+    status: "published",
+  },
+  {
     slug: "knickerbocker-hoax-guerrilla-marketing",
     title: "The Knicks, the Finals, and the 1809 Hoax That Invented Guerrilla Marketing",
     metaTitle: "How the Knicks Got Their Name (1809 Hoax)",
