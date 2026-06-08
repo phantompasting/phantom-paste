@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-melrose",
+    title: "Wheat Pasting on Melrose Avenue: A Wall-by-Wall Guide",
+    titleHighlight: "Melrose",
+    metaTitle: "Wheat Pasting Melrose Avenue (LA)",
+    metaDescription:
+      "Melrose Ave between Fairfax and La Brea is the highest-signal wheat pasting corridor in the US. Wall-by-wall slots, foot traffic, pricing, and how to book it.",
+    excerpt:
+      "Melrose Avenue between Fairfax and La Brea is the single highest-signal wheat pasting corridor in the US. Here's the wall-by-wall breakdown — slot counts, foot-traffic numbers, pricing, and how to book the corridor before your launch.",
+    silo: "local-legal",
+    publishedAt: "2026-06-08",
+    updatedAt: "2026-06-08",
+    heroImage: "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
+    heroAlt: "Biodance wheat paste poster wall in Los Angeles with palm trees on a street corner",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["melrose", "los-angeles", "la", "fairfax", "streetwear", "city-guide"],
+    wordCount: 1180,
+    faqs: [
+      {
+        q: "Why is Melrose Avenue the best street for wheat pasting in LA?",
+        a: "Melrose between Fairfax and La Brea carries the highest-intent foot traffic of any street-media corridor in the US — a walking, content-shooting audience pointed directly at retail walls. Supreme, Fear of God, Palace, and Aimé Leon Dore all ran major activations here, and the corridor has anchored streetwear for three decades.",
+      },
+      {
+        q: "How much does a Melrose wheat pasting campaign cost?",
+        a: "Wall rights run $250–$500+ per slot in the Fairfax–Spaulding hype core, $180–$300 in the boutique belt, and $150–$250 toward La Brea. A first 80-poster test across the core runs roughly $4,000–$6,000 including next-morning photo documentation.",
+      },
+      {
+        q: "How far in advance do I need to book Melrose walls?",
+        a: "Plan on 7–10 days from sign-off to install for a standard run; the best walls book weeks ahead around fashion week, awards season, and major drop calendars. We scout the corridor, hold walls against your creative, then print.",
+      },
+      {
+        q: "Is wheat pasting legal on Melrose?",
+        a: "Yes on owner-authorized private-property walls, which is what we run. LAPD does not enforce unlawful posting on clean commercial campaigns, and Melrose sits outside the historic-preservation zones that complicate parts of Hollywood and downtown. Scaffold wraps are the exception and need DBS permits.",
+      },
+      {
+        q: "Which part of Melrose should my brand run?",
+        a: "Match the zone to the brand: the Fairfax–Spaulding hype core for streetwear drops, the Spaulding–Gardner boutique belt for lifestyle and DTC, and the Gardner–La Brea transition for grid plays and drive-by reach. Fit beats price — the wrong cheap wall hurts a launch more than the right premium one helps it.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-los-angeles", "wheat-pasting-campaign", "is-wheat-pasting-legal"],
+    status: "published",
+  },
+  {
     slug: "guerrilla-marketing-for-startups",
     title: "Guerrilla Marketing for Tech & DTC Startups",
     titleHighlight: "Startups",
