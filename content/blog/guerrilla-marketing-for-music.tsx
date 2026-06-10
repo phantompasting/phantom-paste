@@ -29,7 +29,7 @@ export default function Post() {
         they can&apos;t play, and drive across cities to photograph an album poster. That&apos;s
         the exact psychological profile wheat paste is built for — a format that rewards
         obsession with a physical artifact worth photographing. We&apos;ve installed walls for
-        artists at every level — major-label hip-hop, indie indie, established touring rock,
+        artists at every level — major-label hip-hop, indie, established touring rock,
         bedroom pop with a Discord server — and the engagement curve looks the same: fans show
         up at the wall, photograph it, post it, and the album&apos;s social heat starts before the
         algorithm ever weighs in.

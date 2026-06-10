@@ -151,7 +151,7 @@ export default function Post() {
 
       <h2>NYC Legal Reality</h2>
       <p>
-        NYC Administrative Code §10-117 is the &quot;unlawful posting&quot; statute. In practice:
+        NYC Administrative Code §10-119 is the &quot;unlawful posting&quot; statute. In practice:
       </p>
       <ul>
         <li>
