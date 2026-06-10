@@ -82,6 +82,10 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Biodance wheat paste install documentation — Los Angeles",
     caption: "Photographer documenting a Biodance \"We Are Making A Splash\" wheat paste poster wall — Los Angeles by Phantom Pasting",
   },
+  "biodance-making-a-splash-wheat-paste-storefront-night-los-angeles.webp": {
+    title: "Biodance wheat paste storefront wall at night — Los Angeles",
+    caption: "Biodance \"We Are Making A Splash\" wheat paste posters on a storefront wall at night — Los Angeles by Phantom Pasting",
+  },
   "biodance-hydrogel-splash-sticker-wall-los-angeles.webp": {
     title: "Biodance Hydrogel Splash sticker on wall — Los Angeles",
     caption: "Biodance Hydrogel Splash die-cut sticker on painted street wall — Los Angeles guerrilla marketing by Phantom Pasting",
