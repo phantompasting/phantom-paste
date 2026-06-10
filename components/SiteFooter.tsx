@@ -98,6 +98,21 @@ function InstagramIcon() {
     </svg>
   );
 }
+function LinkedInIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M8 10.5V16.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="8" cy="7.6" r="1.1" fill="currentColor" />
+      <path
+        d="M12 16.5v-3.4a2.4 2.4 0 0 1 4.8 0v3.4M12 16.5v-6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 function MailIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -205,6 +220,14 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
                   className="font-mono text-[11px] tracking-[0.1em] no-underline footer-link inline-flex items-center gap-2"
                 >
                   <InstagramIcon /> {BUSINESS.instagramHandle}
+                </a>
+                <a
+                  href={BUSINESS.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[11px] tracking-[0.1em] no-underline footer-link inline-flex items-center gap-2"
+                >
+                  <LinkedInIcon /> LinkedIn
                 </a>
                 <span
                   className="font-mono text-[10px] tracking-[0.22em] uppercase mt-1"
@@ -317,6 +340,15 @@ export default function SiteFooter({ snap = false }: { snap?: boolean }) {
                 className="social-icon w-9 h-9 flex items-center justify-center rounded-lg no-underline transition-colors duration-200"
               >
                 <InstagramIcon />
+              </a>
+              <a
+                href={BUSINESS.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Phantom Pasting on LinkedIn"
+                className="social-icon w-9 h-9 flex items-center justify-center rounded-lg no-underline transition-colors duration-200"
+              >
+                <LinkedInIcon />
               </a>
               <a
                 href={BUSINESS.mailtoHref}
