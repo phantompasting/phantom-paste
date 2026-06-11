@@ -143,6 +143,10 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/blog/wheat-pasting-los-angeles",               file: "content/blog/wheat-pasting-los-angeles.tsx",              priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-new-york",                  file: "content/blog/wheat-pasting-new-york.tsx",                 priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-phoenix",                   file: "content/blog/wheat-pasting-phoenix.tsx",                  priority: 0.75, changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-melrose",                   file: "content/blog/wheat-pasting-melrose.tsx",                  priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-dtla-arts-district",        file: "content/blog/wheat-pasting-dtla-arts-district.tsx",       priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-silver-lake-echo-park",     file: "content/blog/wheat-pasting-silver-lake-echo-park.tsx",    priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/guerrilla-marketing-never-out-of-style",  file: "content/blog/guerrilla-marketing-never-out-of-style.tsx", priority: 0.8,  changeFreq: "monthly" },
 ];
 
 // ── lastmod helper ────────────────────────────────────────────────────────────
