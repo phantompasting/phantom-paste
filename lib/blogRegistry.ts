@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-dtla-arts-district",
+    title: "Wheat Pasting in DTLA's Arts District: The Gallery-Wall Corridor",
+    titleHighlight: "Arts District",
+    metaTitle: "Wheat Pasting DTLA Arts District",
+    metaDescription:
+      "The densest gallery-wall corridor in LA — Arts District zones, wall-rights pricing, surfaces that hold, and when downtown beats Melrose for a paste campaign.",
+    excerpt:
+      "The DTLA Arts District is the densest gallery-wall corridor in Los Angeles — lower foot traffic than Melrose, higher per-capita influence. The working zones, wall pricing, and when downtown is the right anchor for an LA campaign.",
+    silo: "local-legal",
+    publishedAt: "2026-06-10",
+    updatedAt: "2026-06-10",
+    heroImage: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp",
+    heroAlt: "Wide wheat paste campaign wall in downtown Los Angeles",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["dtla", "arts-district", "los-angeles", "la", "downtown", "city-guide"],
+    wordCount: 1013,
+    faqs: [
+      {
+        q: "Why run a wheat pasting campaign in the DTLA Arts District?",
+        a: "It's the densest gallery-wall and mural corridor in LA, so paste lands in a context that already reads as art. The audience is smaller than Melrose but heavier in influence — gallery owners, stylists, editors, and press — which makes it the right anchor for art-led, fashion-led, and event-tied campaigns.",
+      },
+      {
+        q: "How much do Arts District walls cost?",
+        a: "Wall rights run $150–$350 per slot in the Arts District core, $120–$250 around Row DTLA and the Produce District, and $100–$200 on viaduct and underpass runs. Broadway's historic core runs $200–$400 plus permit lead time. A DTLA-anchored activation with one west-side corridor runs roughly $6,000–$11,000.",
+      },
+      {
+        q: "Is wheat pasting legal in downtown LA?",
+        a: "Yes on owner-authorized private-property walls, same as the rest of LA. The downtown-specific exceptions are the Broadway historic preservation zone, which can need DBS permits with 2–4 week lead times, and government-adjacent blocks near City Hall and the federal courthouse, which we route around entirely.",
+      },
+      {
+        q: "What surfaces do DTLA walls have and how long do posters last?",
+        a: "Old porous brick in the Arts District core holds 6–10 weeks with a two-coat application. Plywood construction barriers install fast and clean but come down with the scaffolding. Patched concrete on viaduct runs needs a heavier flour mix to avoid bubbling.",
+      },
+      {
+        q: "Should I run DTLA instead of Melrose?",
+        a: "Run DTLA when the campaign needs art-world context, press pickup, or large-format scale — downtown takes 12–16 unit grids naturally. Run Melrose when it needs retail foot traffic and streetwear signal. Most LA campaigns pair both: an Arts District anchor plus a west-side corridor.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-los-angeles", "wheat-pasting-melrose", "wheat-pasting-campaign"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-melrose",
     title: "Wheat Pasting on Melrose Avenue: A Wall-by-Wall Guide",
     titleHighlight: "Melrose",
