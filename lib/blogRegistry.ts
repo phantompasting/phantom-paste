@@ -121,6 +121,90 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-silver-lake-echo-park",
+    title: "Wheat Pasting in Silver Lake & Echo Park: The East-Side Creative Belt",
+    titleHighlight: "Silver Lake & Echo Park",
+    metaTitle: "Wheat Pasting Silver Lake & Echo Park",
+    metaDescription:
+      "LA's east-side creative belt corridor by corridor — Sunset Junction to Echo Park Lake. Wall pricing, show-poster culture, stucco notes, and when the east side wins.",
+    excerpt:
+      "Silver Lake and Echo Park are LA's east-side creative belt — cheaper walls than Melrose, a denser under-30 audience, and a show-poster heritage that makes wheat paste read as native. The corridor breakdown, pricing, and creative rules.",
+    silo: "local-legal",
+    publishedAt: "2026-06-11",
+    updatedAt: "2026-06-11",
+    heroImage: "/gallery/street-level-cafe-wheat-paste-posters-echo-park-los-angeles.webp",
+    heroAlt: "Wheat paste show posters layered on a boarded storefront beside Street Level Café on LA's east side",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["silver-lake", "echo-park", "los-angeles", "la", "east-side", "music", "city-guide"],
+    wordCount: 1020,
+    faqs: [
+      {
+        q: "Why run wheat pasting in Silver Lake and Echo Park?",
+        a: "The east side has LA's densest under-30 creative audience and a show-poster culture that's papered Sunset Boulevard for decades, so paste reads as native rather than intrusive. Walls cost $120–$250 a slot — the best value-per-eyeball in the city for music and culture brands.",
+      },
+      {
+        q: "Which east-side corridors work best?",
+        a: "Sunset Junction in Silver Lake for coffee and boutique foot traffic, the Sunset spine through Echo Park (Echo Park Ave to Glendale) for venue and record-store culture, and Alvarado to Echo Park Lake for grid plays that mix pedestrian and drive-by reach.",
+      },
+      {
+        q: "How much does an east-side campaign cost?",
+        a: "Wall rights run $150–$250 at Sunset Junction, $120–$220 on the Echo Park spine, and $120–$180 toward the lake. A standard configuration pairing one east-side corridor with Melrose runs $5,500–$9,000 for 140–180 posters.",
+      },
+      {
+        q: "What surfaces do Silver Lake and Echo Park walls have?",
+        a: "Mostly stucco, which eats thin paste — we run 10–15% more flour and a heavier first coat for a 6–8 week hold. Boarded storefronts give smooth, fast grid installs, and pockets of painted brick around Sunset Junction hold 6–10 weeks.",
+      },
+      {
+        q: "When should a campaign choose the east side over Melrose?",
+        a: "When the audience is music-led, indie, or under 30 — Echo Park venue traffic buys tickets, and gig-poster culture means people actually read walls. Choose Melrose when the campaign needs streetwear signal and retail foot traffic; most LA runs pair both.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-los-angeles", "wheat-pasting-dtla-arts-district", "guerrilla-marketing-for-music"],
+    status: "published",
+  },
+  {
+    slug: "guerrilla-marketing-never-out-of-style",
+    title: "Why Guerrilla Marketing Will Never Go Out of Style",
+    titleHighlight: "Never",
+    metaTitle: "Guerrilla Marketing Won't Go Out of Style",
+    metaDescription:
+      "Algorithms throttle reach, CPMs climb, AI answers swallow the click — but a wall has no middleman. Why real-world advertising works as hard as digital in 2026.",
+    excerpt:
+      "Digital visibility keeps getting intermediated — algorithms, rising ad costs, AI answers that swallow the click. A poster on a wall is the one format nothing sits between. Why the street is the last unskippable medium, with the math to back it.",
+    silo: "strategy-roi",
+    publishedAt: "2026-06-11",
+    updatedAt: "2026-06-11",
+    heroImage: "/gallery/wheat-paste-poster-wall-sidewalk-pedestrians-los-angeles.webp",
+    heroAlt: "Pedestrians passing a wheat paste poster wall along a sunny Los Angeles sidewalk with palm trees",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["guerrilla-marketing", "strategy", "ooh", "digital-vs-physical", "visibility", "ai-search"],
+    wordCount: 961,
+    faqs: [
+      {
+        q: "Is guerrilla marketing still effective in 2026?",
+        a: "More than ever. Every digital channel keeps adding intermediaries — algorithms, auctions, AI answer boxes — that raise the cost of reaching a human. A street campaign has no middleman: every person who walks past sees it at full size, and the wall keeps working for 4–10 weeks per install.",
+      },
+      {
+        q: "Does real-world advertising work as well as digital ads?",
+        a: "It works differently and compounds with digital. A wall delivers unskippable walking-pace attention, weeks of free frequency, and neighborhood-level targeting by revealed behavior — and the best street campaigns get photographed and reposted, feeding the very social channels brands pay for.",
+      },
+      {
+        q: "How does AI search change street marketing?",
+        a: "It strengthens the case. As AI answers swallow clicks that used to reach websites, unmediated attention becomes scarcer and more valuable. An AI can summarize a webpage; it can't summarize a wall a person walks past on the way to coffee.",
+      },
+      {
+        q: "Can you measure a guerrilla marketing campaign?",
+        a: "Yes — QR codes give per-wall scan attribution, geo-fenced promo codes tie redemptions to neighborhoods, photo documentation proves delivery, and branded-search and social-mention spikes show up reliably during install weeks on campaigns of any real size.",
+      },
+      {
+        q: "Why hasn't wheat pasting gone out of style?",
+        a: "Formats die when attention or economics break, and street media has lost neither: foot traffic in creative-class neighborhoods keeps growing while wall costs have stayed roughly flat for a decade. Every shift that weakens digital — ad fatigue, privacy rules, AI answers — pushes value back to the unmediated channel.",
+      },
+    ],
+    relatedSlugs: ["guerrilla-marketing-for-business", "wheat-pasting-vs-billboards", "guerrilla-marketing-for-startups"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-dtla-arts-district",
     title: "Wheat Pasting in DTLA's Arts District: The Gallery-Wall Corridor",
     titleHighlight: "Arts District",
