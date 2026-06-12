@@ -34,30 +34,84 @@ const HOST         = "www.phantompasting.com";
 const KEY          = "0b647238e1ac4f2e8fa810ef49674e7a";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
-// Canonical URL list — keep in sync with app/sitemap.ts ROUTES_META
+// Canonical URL list — keep in sync with app/sitemap.ts ROUTES_META.
+// When adding a new page, add its canonical URL here too.
 const URL_LIST = [
+  // ── Core ────────────────────────────────────────────────────────────────
   `https://${HOST}/`,
+  `https://${HOST}/about`,
+  `https://${HOST}/contact`,
+  `https://${HOST}/gallery`,
+  `https://${HOST}/pricing`,
+
+  // ── Services ────────────────────────────────────────────────────────────
   `https://${HOST}/services`,
   `https://${HOST}/services/wheat-pasting`,
   `https://${HOST}/services/chalk-spray-stencils`,
   `https://${HOST}/services/full-impact-campaigns`,
-  `https://${HOST}/about`,
-  `https://${HOST}/contact`,
-  `https://${HOST}/gallery`,
+
+  // ── Work / Case Studies ─────────────────────────────────────────────────
   `https://${HOST}/work`,
   `https://${HOST}/work/fashionpass-los-angeles`,
   `https://${HOST}/work/fifa-world-cup-atlanta`,
   `https://${HOST}/work/incrediwear-street-campaign`,
+
+  // ── Locations hub ───────────────────────────────────────────────────────
   `https://${HOST}/locations`,
+
+  // ── Tier 1 cities ───────────────────────────────────────────────────────
   `https://${HOST}/locations/new-york`,
   `https://${HOST}/locations/los-angeles`,
   `https://${HOST}/locations/miami`,
   `https://${HOST}/locations/chicago`,
   `https://${HOST}/locations/atlanta`,
-  // Blog posts — uncomment as they go live:
-  // `https://${HOST}/blog`,
-  // `https://${HOST}/blog/what-is-wheat-pasting`,
-  // `https://${HOST}/blog/wheat-pasting-cost-guide`,
+
+  // ── Statewide pages ─────────────────────────────────────────────────────
+  `https://${HOST}/locations/california`,
+  `https://${HOST}/locations/new-york-state`,
+  `https://${HOST}/locations/texas`,
+  `https://${HOST}/locations/florida`,
+  `https://${HOST}/locations/georgia`,
+  `https://${HOST}/locations/illinois`,
+  `https://${HOST}/locations/arizona`,
+  `https://${HOST}/locations/washington`,
+  `https://${HOST}/locations/oregon`,
+  `https://${HOST}/locations/colorado`,
+  `https://${HOST}/locations/nevada`,
+  `https://${HOST}/locations/massachusetts`,
+  `https://${HOST}/locations/pennsylvania`,
+
+  // ── Tier 2 cities ───────────────────────────────────────────────────────
+  `https://${HOST}/locations/nashville`,
+  `https://${HOST}/locations/austin`,
+  `https://${HOST}/locations/denver`,
+  `https://${HOST}/locations/seattle`,
+  `https://${HOST}/locations/portland`,
+  `https://${HOST}/locations/phoenix`,
+  `https://${HOST}/locations/boston`,
+  `https://${HOST}/locations/washington-dc`,
+  `https://${HOST}/locations/san-francisco`,
+  `https://${HOST}/locations/las-vegas`,
+  `https://${HOST}/locations/houston`,
+  `https://${HOST}/locations/dallas`,
+
+  // ── Blog ────────────────────────────────────────────────────────────────
+  `https://${HOST}/blog`,
+  `https://${HOST}/blog/how-to-make-wheat-paste`,
+  `https://${HOST}/blog/is-wheat-pasting-legal`,
+  `https://${HOST}/blog/wheat-pasting-campaign`,
+  `https://${HOST}/blog/wheat-paste-recipes`,
+  `https://${HOST}/blog/snipe-posters-vs-wheat-paste-vs-floor-decals`,
+  `https://${HOST}/blog/street-postering-tools`,
+  `https://${HOST}/blog/flyposting-explained`,
+  `https://${HOST}/blog/what-is-wheat-pasting`,
+  `https://${HOST}/blog/wheat-pasting-cost`,
+  `https://${HOST}/blog/wheat-pasting-vs-billboards`,
+  `https://${HOST}/blog/wheat-pasting-for-fashion-brands`,
+  `https://${HOST}/blog/guerrilla-marketing-for-music`,
+  `https://${HOST}/blog/wheat-pasting-los-angeles`,
+  `https://${HOST}/blog/wheat-pasting-new-york`,
+  `https://${HOST}/blog/wheat-pasting-phoenix`,
 ];
 
 async function submitToOne(endpoint, payload) {
