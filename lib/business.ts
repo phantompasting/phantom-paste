@@ -30,7 +30,14 @@ export const BUSINESS = {
   foundingDate: "2014",
   areaServed: "United States",
   serviceCities: ["New York", "Los Angeles", "Miami", "Chicago", "Atlanta"] as const,
-  sameAs: ["https://www.instagram.com/phantompasting"],
+  // Entity-graph links: every verified off-site profile for Phantom Pasting.
+  // Google cross-references these against the Organization schema — keep in
+  // sync with new directory listings / social profiles as they go live.
+  sameAs: [
+    "https://www.instagram.com/phantompasting",
+    "https://www.linkedin.com/company/phantom-pasting",
+    "https://www.agencyspotter.com/phantom-pasting",
+  ],
   instagramUrl: "https://www.instagram.com/phantompasting",
   instagramHandle: "@phantompasting",
   ogImageDefault: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
