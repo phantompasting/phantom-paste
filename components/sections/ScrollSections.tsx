@@ -1471,10 +1471,16 @@ function Footer() {
               © 2026 Phantom Pasting — All Rights Reserved
             </p>
             <div className="flex gap-2.5">
-              {["IG","X","TK"].map((s) => (
-                <a key={s} href="#"
+              {[
+                { label: "IG", name: "Instagram", href: BUSINESS.instagramUrl },
+                { label: "X", name: "X (Twitter)", href: BUSINESS.xUrl },
+                { label: "LI", name: "LinkedIn", href: BUSINESS.linkedinUrl },
+                { label: "PIN", name: "Pinterest", href: BUSINESS.pinterestUrl },
+              ].map((s) => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                  aria-label={s.name}
                   className="social-icon w-8 h-8 flex items-center justify-center rounded-lg font-mono text-[10px] no-underline transition-colors duration-200">
-                  {s}
+                  {s.label}
                 </a>
               ))}
             </div>
