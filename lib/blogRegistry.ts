@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-hollywood",
+    title: "Wheat Pasting in Hollywood: Two Audiences, One Awards Season",
+    titleHighlight: "Hollywood",
+    metaTitle: "Wheat Pasting Hollywood",
+    metaDescription:
+      "How we run Hollywood — venue corridors vs. Hollywood Blvd tourists, awards-season pricing, preservation-zone permits, and the film-shoot mistake that costs walls.",
+    excerpt:
+      "Hollywood never stopped postering — the venue corridors have been papered for decades. Where the audiences split, what awards season does to wall prices, and the one mistake that costs brands a wall mid-campaign.",
+    silo: "local-legal",
+    publishedAt: "2026-06-12",
+    updatedAt: "2026-06-12",
+    heroImage: "/gallery/show-flyer-pole-snipes-hollywood-los-angeles.webp",
+    heroAlt: "Utility pole layered with show flyers and snipes on a sunny Hollywood side street",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["hollywood", "los-angeles", "la", "music", "awards-season", "city-guide"],
+    wordCount: 1105,
+    faqs: [
+      {
+        q: "Does street postering work in Hollywood or is it just tourists?",
+        a: "Both, and that's the point. Hollywood Blvd delivers tourist volume that photographs everything in sight, while the Sunset and venue corridors reach the locals who actually line up for shows. The neighborhood's poles and walls have absorbed promoter paper for decades because it keeps working.",
+      },
+      {
+        q: "How much do Hollywood wheat pasting walls cost?",
+        a: "Standard walls run $150–$300 a slot, with Blvd-adjacent premium placements above that. During awards season (January through the Oscars), premium walls jump past $450 and the best inventory books out in December.",
+      },
+      {
+        q: "What's different about wheat pasting during awards season?",
+        a: "It's Hollywood's fashion week. Studios and streamers book walls for for-your-consideration campaigns, prices climb, scaffold wraps need DBS permits with 2–4 week lead times, and film-shoot lockdowns can outrank poster placements — we check the film-permit calendar before locking any wall.",
+      },
+      {
+        q: "Is wheat pasting legal in Hollywood?",
+        a: "On owner-authorized walls, yes — same as the rest of LA. The wrinkle is that parts of Hollywood sit inside historic preservation zones where permits add lead time, and the boundaries run through the middle of blocks. We map placements against the zones during the scout.",
+      },
+      {
+        q: "Should my campaign run Hollywood Blvd or the Sunset venue blocks?",
+        a: "Depends who it's for. The Blvd buys sheer visibility and a backdrop that reads 'Hollywood' in every repost. Sunset and the venue blocks reach show-goers and the under-35 nightlife crowd — the right call for music drops and culture brands, usually at a lower cost per engaged eyeball.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-los-angeles", "wheat-pasting-melrose", "guerrilla-marketing-for-music"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-silver-lake-echo-park",
     title: "Wheat Pasting in Silver Lake & Echo Park: The East-Side Creative Belt",
     titleHighlight: "Silver Lake & Echo Park",
