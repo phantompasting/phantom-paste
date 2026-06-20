@@ -55,4 +55,51 @@ export const HOMEPAGE_FAQS = [
     q: "Do you need a permit to wheatpaste?",
     a: "Most wheat paste installations on owner-authorized private walls don't require permits — owner consent is the legal standard. Permits are needed for scaffold wraps in NYC (DOB), historic-district walls in Miami Wynwood, and some Pioneer Square locations in Seattle. We handle all required permits.",
   },
+  // ── "Wild posting" keyword coverage (added 2026-06-20) ──────────────────
+  // "Wild posting" is a high-intent synonym for wheat pasting / flyposting
+  // that the site ranks for almost nothing on (per GSC). These schema-only
+  // FAQs answer the definitional, how-it-works, effectiveness, and
+  // positioning queries people type for that exact term — the gaps not
+  // already covered under the "wheat pasting" phrasing above.
+  {
+    q: "What is wild posting?",
+    a: "Wild posting is a guerrilla advertising format where printed posters are installed across high-traffic urban surfaces — construction barricades, plywood hoarding, and authorized street-level walls — for maximum pedestrian visibility. Also called wheat pasting or flyposting, it's used by fashion, music, film, and culture brands to saturate walkable neighborhoods at a fraction of billboard cost.",
+  },
+  {
+    q: "How does wild posting work?",
+    a: "Phantom Pasting sources owner-authorized walls in your target neighborhoods, prints your artwork, and installs posters with wheat paste — a flour-based adhesive that bonds to brick, plywood, and concrete. Posters go up in clustered runs for saturation, then we deliver timestamped, geo-tagged photo documentation of every hit. Rush campaigns launch in 5–7 business days.",
+  },
+  {
+    q: "How effective is wild posting?",
+    a: "Wild posting delivers in-person CPMs of $0.10–$0.30 versus $4–$15 for traditional out-of-home media. Posters in dense pedestrian corridors get photographed and shared, extending reach onto social. It performs best for streetwear, music, film, and culture-driven brands targeting walkable urban neighborhoods where the audience is on foot, not behind a windshield.",
+  },
+  {
+    q: "What brands use wild posting?",
+    a: "Wild posting is used by streetwear and fashion labels, record labels and touring artists, film and TV studios, tech startups, event promoters, bars, restaurants, and nonprofits. Any brand wanting a credible street-level presence in culture-forward neighborhoods — from global names to indie launches — fits the format. Phantom Pasting runs campaigns at every budget.",
+  },
+  {
+    q: "Is wild posting the same as a billboard?",
+    a: "No. A billboard is a single large placement bought from a media owner at $4–$15 CPM; wild posting saturates a neighborhood with many street-level posters at $0.10–$0.30 CPM. Billboards reach drivers from a distance — wild posting reaches pedestrians up close, where posters get photographed and shared. The formats serve different goals and budgets.",
+  },
+  // ── "Wheat pasting" gap-fill (added 2026-06-20) ─────────────────────────
+  // "Wheat pasting" is already saturated sitewide (~147 FAQs cover cost,
+  // legality, duration, removal, DIY, etc.). These four answer the only
+  // genuine, buyer/property-owner-relevant gaps no existing FAQ touched:
+  // sustainability, wall-damage objection, drying time, and toxicity.
+  {
+    q: "Is wheat paste eco-friendly?",
+    a: "Yes. Traditional wheat paste is just wheat flour, water, and sometimes sugar — biodegradable, non-toxic, and free of the solvents used in vinyl or plastic signage. Posters are printed on paper, so the whole installation breaks down naturally and washes off without permanent residue, making it one of the lower-impact out-of-home advertising formats.",
+  },
+  {
+    q: "Does wheat pasting damage walls or buildings?",
+    a: "No. Wheat paste is a water-soluble flour adhesive that sits on the surface — it doesn't penetrate or stain brick, concrete, or plywood. Posters weather off naturally or peel away with water, leaving the wall intact. Phantom Pasting installs only on owner-authorized surfaces and can remove posters cleanly on request.",
+  },
+  {
+    q: "How long does wheat paste take to dry?",
+    a: "A freshly pasted poster is touch-dry within 30–60 minutes and fully cured in 2–4 hours, depending on temperature and humidity. Once cured, the bond is weather-resistant and holds for weeks. Cold or damp conditions slow drying; dry, mild weather sets fastest, which is why installers favor daytime application.",
+  },
+  {
+    q: "Is wheat paste toxic?",
+    a: "No. Wheat paste is made from wheat flour and water — non-toxic, solvent-free, and safe to handle without protective gear. It's the same basic adhesive used in bookbinding and conservation for centuries, which makes it suitable for both exterior walls and interior installations where chemical adhesives or fumes would be a concern.",
+  },
 ] as const;
