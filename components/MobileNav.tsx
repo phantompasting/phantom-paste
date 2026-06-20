@@ -31,6 +31,7 @@ const SERVICES = [
   { label: "Snipes & Sticker Posting", href: "/services/snipes" },
   { label: "Street Flyering",          href: "/services/street-flyering" },
   { label: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
+  { label: "Art Murals",            href: "/services/art-murals" },
 ] as const;
 
 export default function MobileNav() {

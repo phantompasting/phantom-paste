@@ -17,6 +17,7 @@ const FOOTER_LINKS = {
     { label: "Snipes & Sticker Posting", href: "/services/snipes" },
     { label: "Street Flyering", href: "/services/street-flyering" },
     { label: "Full Impact", href: "/services/full-impact-campaigns" },
+    { label: "Art Murals", href: "/services/art-murals" },
   ],
   Markets: [
     { label: "All Locations", href: "/locations" },

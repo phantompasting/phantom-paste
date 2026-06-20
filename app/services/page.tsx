@@ -68,6 +68,11 @@ const SERVICES = [
     desc: "End-to-end campaigns combining wheat pasting, street postering, and chalk stencils for total street saturation.",
     href: "/services/full-impact-campaigns",
   },
+  {
+    label: "Art Murals",
+    desc: "Original hand-painted murals for your business, interior or exterior. We match you with a vetted artist and manage the whole commission.",
+    href: "/services/art-murals",
+  },
 ];
 
 const TABLE_ROWS = [
