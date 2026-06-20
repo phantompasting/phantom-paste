@@ -13,7 +13,10 @@
 export type ServiceSlug =
   | "wheat-pasting"
   | "chalk-spray-stencils"
-  | "full-impact-campaigns";
+  | "snipes"
+  | "street-flyering"
+  | "full-impact-campaigns"
+  | "art-murals";
 
 export interface ServiceMeta {
   slug: ServiceSlug;
@@ -49,13 +52,40 @@ export const SERVICES: ServiceMeta[] = [
     cta: "Explore Chalk Stencils",
   },
   {
+    slug: "snipes",
+    href: "/services/snipes",
+    name: "Snipes & Stickers",
+    tag: "Service 03",
+    blurb:
+      "Die-cut sticker campaigns and pole-mounted snipe signs placed across high-traffic corridors. The cost-efficient way to build frequency.",
+    cta: "Explore Snipes",
+  },
+  {
+    slug: "street-flyering",
+    href: "/services/street-flyering",
+    name: "Street Flyering",
+    tag: "Service 04",
+    blurb:
+      "Windshield flyers and hand-to-hand handbilling across lots, venues, and corridors. The fastest way to drive a local push.",
+    cta: "Explore Street Flyering",
+  },
+  {
     slug: "full-impact-campaigns",
     href: "/services/full-impact-campaigns",
     name: "Full Impact Campaigns",
-    tag: "Service 03",
+    tag: "Service 05",
     blurb:
       "Wheat paste, snipes, stencils, and sticker passes stacked in one coordinated multi-format takeover.",
     cta: "Explore Full Impact",
+  },
+  {
+    slug: "art-murals",
+    href: "/services/art-murals",
+    name: "Art Murals",
+    tag: "Service 06",
+    blurb:
+      "Original hand-painted murals for business, interior or exterior. We match you with a vetted artist and manage the commission.",
+    cta: "Explore Art Murals",
   },
 ];
 

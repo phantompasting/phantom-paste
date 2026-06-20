@@ -493,10 +493,14 @@ export default function ArtMuralsPage() {
                     </span>
                   ))}
                 </div>
-                <div>
+                <div className="flex flex-wrap gap-3">
                   <Link href="/contact" className="inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-7 py-4 rounded-full"
                     style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #F5CA20 100%)`, color: "#FFF", boxShadow: "0 6px 28px rgba(212,160,16,0.45)" }}>
                     Commission Steven <span className="cta-arrow">→</span>
+                  </Link>
+                  <Link href="/artists/steven-sued" className="inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-6 py-4 rounded-full"
+                    style={{ color: "rgba(0,0,0,0.82)", background: "rgba(255,255,255,0.9)", border: "1px solid rgba(0,0,0,0.14)" }}>
+                    View Profile <span style={{ color: ACCENT }}>→</span>
                   </Link>
                 </div>
               </div>

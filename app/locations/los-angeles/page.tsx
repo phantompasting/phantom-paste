@@ -100,7 +100,7 @@ const data: CityPageData = {
     body:
       "Biodance — the Korean hydrogel-mask brand — launched “We Are Making A Splash” in LA with a multi-format street rollout we installed around The Grove and the surrounding corridors over a two-day push. Wheat paste poster walls anchored it: scaffold wraps, an underpass wall beside the Karl Lagerfeld run, plywood construction barriers, and a storefront wall lit up at night — backed by die-cut Hydrogel Splash stickers on walls and poles and pink “Glow On The Go” chalk-spray sidewalk stencils pointing toward the activation. The medium is also called wild posting, flyposting, or street postering — wheat pasting names the actual material we use. Multi-format LA campaigns like this book 7–10 days from sign-off to install; rush windows are possible during launch-week pushes.",
     links: [
-      { label: "See the Biodance Campaign", href: "/gallery" },
+      { label: "See the Biodance Campaign", href: "/work/biodance-los-angeles" },
       { label: "How a Campaign Works", href: "/blog/wheat-pasting-campaign" },
       { label: "Wheat Pasting in LA — Field Guide", href: "/blog/wheat-pasting-los-angeles" },
       { label: "Street Flyering in LA", href: "/services/street-flyering/los-angeles" },

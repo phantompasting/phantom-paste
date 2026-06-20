@@ -243,6 +243,27 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Art Murals options */}
+      <div
+        className="grid"
+        style={{
+          gridTemplateRows: selectedSvcs.has("Art Murals") ? "1fr" : "0fr",
+          opacity: selectedSvcs.has("Art Murals") ? 1 : 0,
+          transition: "grid-template-rows 0.3s ease-out, opacity 0.3s ease-out",
+        }}
+      >
+        <div style={{ overflow: "hidden", minHeight: 0 }}>
+          <div className="border-t" style={{ borderColor: "rgba(184,150,15,0.2)" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
+              <FormSelect label="Placement (optional)" name="mural_placement"
+                options={["Interior", "Exterior", "Both"]} />
+              <FormSelect label="Approx. Wall Size (optional)" name="mural_size"
+                options={["Small (under 100 sq ft)", "Medium (100–300 sq ft)", "Large (300+ sq ft)", "Not sure yet"]} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
         <FormSelect label="Campaign Budget" name="budget"
           options={["Under $2,000", "$2,000 – $5,000", "$5,000 – $10,000", "$10,000 – $25,000", "$25,000+"]} />

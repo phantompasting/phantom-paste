@@ -77,6 +77,10 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/work/fashionpass-los-angeles",   file: "app/work/fashionpass-los-angeles/page.tsx",            priority: 0.8,  changeFreq: "never"   },
   { path: "/work/fifa-world-cup-atlanta",    file: "app/work/fifa-world-cup-atlanta/page.tsx",             priority: 0.8,  changeFreq: "never"   },
   { path: "/work/incrediwear-street-campaign", file: "app/work/incrediwear-street-campaign/page.tsx",      priority: 0.8,  changeFreq: "never"   },
+  { path: "/work/biodance-los-angeles",      file: "app/work/biodance-los-angeles/page.tsx",               priority: 0.8,  changeFreq: "never"   },
+
+  // ── Artists (featured roster) ─────────────────────────────────────────────
+  { path: "/artists/steven-sued",            file: "app/artists/steven-sued/page.tsx",                     priority: 0.7,  changeFreq: "monthly" },
 
   // ── Locations (hub + Tier 1 cities) ──────────────────────────────────────
   { path: "/locations",                      file: "app/locations/page.tsx",                               priority: 0.85, changeFreq: "monthly" },
