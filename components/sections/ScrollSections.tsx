@@ -297,11 +297,11 @@ function TiltCard({ children, className, style }: { children: React.ReactNode; c
 /* ── Images (local gallery — SEO-named) ── */
 const IMGS = {
   wheat1:   "/gallery/biodance-wheat-paste-poster-wall-los-angeles.webp",
-  wheat2:   "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
+  wheat2:   "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
   stencil:  "/gallery/black-pearl-chalk-spray-stencil-sidewalk-los-angeles.webp",
   full1:    "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
   full2:    "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
-  gallery1: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
+  gallery1: "/gallery/biodance-making-a-splash-wheat-paste-storefront-night-los-angeles.webp",
   gallery2: "/gallery/fifa-world-cup-atlanta-wall-installation.webp",
   gallery3: "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
   gallery4: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp",

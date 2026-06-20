@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Phantom Pasting",
     images: [
       {
-        url: `${BUSINESS.url}/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp`,
+        url: `${BUSINESS.url}/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp`,
         width: 1200,
         height: 630,
         alt: "Phantom Pasting — wheat paste poster campaign wall Los Angeles",

@@ -47,7 +47,7 @@ export const BUSINESS = {
   xUrl: "https://x.com/PhantomPasting",
   pinterestUrl: "https://www.pinterest.com/phantompasting/",
   yelpUrl: "https://www.yelp.com/biz/phantom-pasting-los-angeles",
-  ogImageDefault: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
+  ogImageDefault: "/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   // PostalAddress — country-only for the nationwide service-area business.

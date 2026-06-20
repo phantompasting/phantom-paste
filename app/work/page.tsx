@@ -41,6 +41,14 @@ const ACCENT = "#D4A010";
 
 const CASE_STUDIES = [
   {
+    client: "Biodance",
+    city: "Los Angeles, CA",
+    format: "Multi-Format",
+    href: "/work/biodance-los-angeles",
+    image: "/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp",
+    alt: "Biodance We Are Making A Splash wheat paste poster wall at The Grove Los Angeles",
+  },
+  {
     client: "FashionPass",
     city: "Los Angeles, CA",
     format: "Wheat Pasting",
@@ -433,6 +441,8 @@ export default function WorkPage() {
             <p className="font-light leading-relaxed m-0"
               style={{ fontSize: "15px", color: "rgba(0,0,0,0.7)" }}>
               Real campaigns. Real streets. Every placement photographed and documented.{" "}
+              <Link href="/work/biodance-los-angeles" className="font-bold no-underline"
+                style={{ color: "#1A1A1A", borderBottom: `1.5px solid ${ACCENT}` }}>Biodance</Link>,{" "}
               <Link href="/work/fashionpass-los-angeles" className="font-bold no-underline"
                 style={{ color: "#1A1A1A", borderBottom: `1.5px solid ${ACCENT}` }}>FashionPass</Link>,{" "}
               <Link href="/work/fifa-world-cup-atlanta" className="font-bold no-underline"

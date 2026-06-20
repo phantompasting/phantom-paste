@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       "Statewide wheat paste poster campaigns across California — LA, SF, San Diego, Sacramento, Oakland, San Jose.",
     url: "https://www.phantompasting.com/locations/california",
     images: [{
-      url: "https://www.phantompasting.com/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
+      url: "https://www.phantompasting.com/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp",
       width: 1200,
       height: 630,
       alt: "Wheat paste poster campaign wall in California — Phantom Pasting statewide rollouts",

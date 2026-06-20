@@ -851,11 +851,12 @@ export default function StreetFlyeringPage() {
               Pair street flyering with snipes and wheat pasting, or stack every format into a
               full multi-format campaign for total street saturation.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { href: "/services/snipes", label: "SNIPES &<br />STICKERS" },
                 { href: "/services/wheat-pasting", label: "WHEAT<br />PASTING" },
                 { href: "/services/full-impact-campaigns", label: "FULL IMPACT<br />CAMPAIGNS" },
+                { href: "/services/art-murals", label: "ART<br />MURALS" },
               ].map((s) => (
                 <Link
                   key={s.href}

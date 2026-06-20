@@ -154,7 +154,7 @@ export default function AboutPage() {
                       but `priority` preloads regardless of CSS visibility — was wasting
                       ~300KB of mobile bandwidth on every load. */}
                   <Image
-                    src="/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp"
+                    src="/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp"
                     alt="Phantom Pasting wheat paste campaign wall"
                     fill style={{ objectFit: "cover" }}
                     sizes="(max-width: 1024px) 0vw, 40vw" loading="lazy"
