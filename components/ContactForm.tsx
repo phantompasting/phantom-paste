@@ -172,7 +172,7 @@ export default function ContactForm() {
           Service Needed
         </p>
         <div className="flex flex-wrap gap-2">
-          {["Wheat Pasting", "Chalk Spray Stencils", "Full Impact", "Custom"].map((svc) => {
+          {["Wheat Pasting", "Chalk Spray Stencils", "Snipes", "Street Flyering", "Full Impact", "Art Murals", "Custom"].map((svc) => {
             const active = selectedSvcs.has(svc);
             return (
               <button

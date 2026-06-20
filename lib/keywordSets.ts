@@ -201,6 +201,38 @@ export const KW_FLYERING = [
   "guerrilla flyer marketing",
 ] as const;
 
+// ── Mural art (commissioned hand-painted murals for business) ──────────────
+//
+// New service line (2026): Phantom Pasting connects businesses with vetted
+// mural artists and manages the commission end-to-end. Distinct demand from
+// the paste/poster services — buyers search "mural artist", "commission a
+// mural", "business mural" rather than the guerrilla-marketing lexicon. We
+// own all the client-side business; the artist creates.
+export const KW_MURALS = [
+  "mural artists",
+  "mural artist",
+  "hand-painted murals",
+  "commissioned murals",
+  "custom murals",
+  "business murals",
+  "commercial murals",
+  "mural painting",
+  "mural company",
+  "mural service",
+  "wall murals",
+  "interior murals",
+  "exterior murals",
+  "office murals",
+  "restaurant murals",
+  "retail murals",
+  "mural installation",
+  "mural design",
+  "hire a mural artist",
+  "commission a mural",
+  "branded mural",
+  "brand mural",
+] as const;
+
 // ── Pricing / cost intent ──────────────────────────────────────────────────
 export const KW_PRICING = [
   "wheat pasting cost",
@@ -577,6 +609,25 @@ export const KW_SERVICE_STREET_FLYERING = [
   "flyering company near me",
   ...KW_BUYER_INTENT.slice(13, 25), // agency / company framing
   ...KW_VERTICAL_BUYERS.slice(0, 6),
+];
+
+/** Art murals service page — mural family + street marketing + buyer + vertical. */
+export const KW_SERVICE_MURALS = [
+  ...KW_MURALS,
+  ...KW_STREET_MARKETING.slice(0, 4),
+  ...KW_VERTICALS.slice(0, 4),
+  // Mural-flavored buyer intent — the queries a business owner types.
+  "mural artist for business",
+  "mural artist near me",
+  "commission a mural for my business",
+  "hire a mural artist Los Angeles",
+  "business mural painting",
+  "office mural design",
+  "restaurant mural artist",
+  "retail store mural",
+  "mural artist agency",
+  "managed mural service",
+  ...KW_BUYER_INTENT.slice(13, 23), // agency / company framing
 ];
 
 /** Services hub — broad coverage + buyer-intent across every vertical. */

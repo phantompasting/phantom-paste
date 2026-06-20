@@ -59,6 +59,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/services/street-flyering",       file: "app/services/street-flyering/page.tsx",                priority: 0.9,  changeFreq: "monthly" },
   { path: "/services/street-flyering/los-angeles", file: "app/services/street-flyering/los-angeles/page.tsx",     priority: 0.85, changeFreq: "monthly" },
   { path: "/services/full-impact-campaigns", file: "app/services/full-impact-campaigns/page.tsx",          priority: 0.9,  changeFreq: "monthly" },
+  { path: "/services/art-murals",            file: "app/services/art-murals/page.tsx",                     priority: 0.9,  changeFreq: "monthly" },
 
   // ── Core pages ────────────────────────────────────────────────────────────
   { path: "/about",                          file: "app/about/page.tsx",                                   priority: 0.65, changeFreq: "monthly" },
