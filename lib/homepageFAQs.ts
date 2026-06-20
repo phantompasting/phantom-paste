@@ -102,4 +102,28 @@ export const HOMEPAGE_FAQS = [
     q: "Is wheat paste toxic?",
     a: "No. Wheat paste is made from wheat flour and water — non-toxic, solvent-free, and safe to handle without protective gear. It's the same basic adhesive used in bookbinding and conservation for centuries, which makes it suitable for both exterior walls and interior installations where chemical adhesives or fumes would be a concern.",
   },
+  // ── "Guerrilla marketing" general-term gap-fill (added 2026-06-20) ───────
+  // Site already covers what-it-is / cost / effectiveness / vs-traditional.
+  // These five answer the high-volume informational queries not yet covered:
+  // types, examples, origin, pros-and-cons, and general-term legality.
+  {
+    q: "What are the types of guerrilla marketing?",
+    a: "Guerrilla marketing spans several formats: ambient (brand messages in unexpected physical spots), experiential (live interactive activations), ambush (hijacking attention at an event you didn't sponsor), and stealth/buzz (seeding word-of-mouth) — plus street-level formats like wheat paste posters, stickers, and chalk stencils. Phantom Pasting specializes in the outdoor street-level category.",
+  },
+  {
+    q: "What are some examples of guerrilla marketing?",
+    a: "Classic guerrilla marketing includes street takeovers like wheat paste poster walls, sidewalk chalk stencils, projection bombing, flash mobs, and experiential pop-ups. In practice it's any high-impact, low-cost tactic that surprises people in public space — for Phantom Pasting, saturating a neighborhood's walls until a brand is unavoidable to foot traffic.",
+  },
+  {
+    q: "Who invented guerrilla marketing, and why is it called that?",
+    a: "The term was coined by Jay Conrad Levinson in his 1984 book Guerrilla Marketing. It borrows from guerrilla warfare — small, agile, unconventional tactics that win through surprise and creativity rather than brute spending. The idea: out-think bigger advertisers instead of trying to outspend them.",
+  },
+  {
+    q: "What are the pros and cons of guerrilla marketing?",
+    a: "Pros: low cost, high memorability, shareable moments, and outsized reach when a campaign catches on. Cons: outcomes are harder to predict than paid media, and poorly planned stunts can misfire or hit permit issues. Working with an experienced installer on owner-authorized walls keeps the upside without the risk.",
+  },
+  {
+    q: "Is guerrilla marketing legal?",
+    a: "Guerrilla marketing is legal when done on authorized surfaces with property-owner or permit consent. The tactics themselves — posters, stencils, activations — are lawful; issues only arise from unauthorized placement without permission. Phantom Pasting operates only on owner-authorized walls and handles any required permits.",
+  },
 ] as const;
