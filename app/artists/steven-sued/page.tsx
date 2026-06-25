@@ -126,7 +126,7 @@ export default function StevenSuedArtistPage() {
                 Steven is a creative director and graphic designer with 10+ years in design and
                 marketing, and the founder of Four Quarters Agency. His work spans brand identity,
                 illustration, and art direction for clients including the Avenue of the Arts Festival,
-                BFyne, Rutgers University, and NJIT.
+                Rutgers University, and NJIT.
               </p>
               <p className="font-light leading-relaxed m-0 mb-8" style={{ color: "rgba(0,0,0,0.6)", fontSize: "16px", maxWidth: "560px" }}>
                 As Phantom Pasting&apos;s first featured artist, he brings that design sensibility to the
