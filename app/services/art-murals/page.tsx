@@ -484,7 +484,7 @@ export default function ArtMuralsPage() {
                   Graphic Designer + Mural Artist
                 </div>
                 <p className="font-light leading-relaxed m-0 mb-4" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}>
-                  Steven is a creative director and graphic designer with 10+ years in design and marketing, and the founder of Four Quarters Agency. His work spans brand identity, illustration, and art direction for clients including the Avenue of the Arts Festival, BFyne, Rutgers University, and NJIT.
+                  Steven is a creative director and graphic designer with 10+ years in design and marketing, and the founder of Four Quarters Agency. His work spans brand identity, illustration, and art direction for clients including the Avenue of the Arts Festival, Rutgers University, and NJIT.
                 </p>
                 <p className="font-light leading-relaxed m-0 mb-6" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}>
                   As our first featured artist, he brings that design sensibility to the wall — translating a brand into an original, hand-painted mural. Commission Steven through Phantom Pasting and we handle everything around the art.
