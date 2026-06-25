@@ -464,19 +464,22 @@ export default function ArtMuralsPage() {
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto rounded-3xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.08)", background: "rgba(255,255,255,0.45)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}>
             <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr]">
-              {/* Portrait */}
-              <div className="relative min-h-[360px] md:min-h-[520px]">
-                <Image src="/artists/steven-sued/steven-sued-creative-director-mural-artist-portrait.webp" alt="Steven Sued — featured mural artist, creative director, and graphic designer" fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 40vw" loading="lazy" />
-              </div>
+              {/* Portrait — clickable, links to Steven's page */}
+              <Link href="/artists/steven-sued" className="relative block min-h-[360px] md:min-h-[520px]" aria-label="Steven Sued — view artist page">
+                <Image src="/artists/steven-sued/steven-sued-creative-director-mural-artist-portrait.webp" alt="Steven Sued — featured mural artist, creative director, and graphic designer" fill style={{ objectFit: "cover", objectPosition: "center top" }} sizes="(max-width: 768px) 100vw, 40vw" loading="lazy" />
+              </Link>
               {/* Bio */}
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2" style={{ color: ACCENT }}>
                   <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
                   Featured Artist · 01
                 </span>
-                <h2 className="font-black uppercase m-0 mb-2 leading-[0.9]" style={{ fontSize: "clamp(30px, 4vw, 52px)", letterSpacing: "-0.035em" }}>
-                  STEVEN <ShinyGoldText>SUED.</ShinyGoldText>
-                </h2>
+                <Link href="/artists/steven-sued" className="no-underline inline-block" style={{ color: "inherit" }} aria-label="Steven Sued — view artist page">
+                  <h2 className="font-black uppercase m-0 mb-2 leading-[0.9]" style={{ fontSize: "clamp(30px, 4vw, 52px)", letterSpacing: "-0.035em" }}>
+                    STEVEN <ShinyGoldText>SUED.</ShinyGoldText>
+                    <span aria-hidden style={{ color: ACCENT, fontSize: "0.42em", verticalAlign: "super", marginLeft: "0.15em" }}>↗</span>
+                  </h2>
+                </Link>
                 <div className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6" style={{ color: "rgba(0,0,0,0.55)" }}>
                   Graphic Designer + Mural Artist
                 </div>

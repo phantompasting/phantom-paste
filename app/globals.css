@@ -36,6 +36,22 @@ body {
   overflow-x: hidden;
 }
 
+/* Static gold backdrop BEFORE motion is armed — so the brand background is
+   visible on load without waiting for a tap. The live grainient canvas only
+   mounts on the visitor's first interaction (MotionArmer → `.motion-live`),
+   which previously left a flat ivory page until the user touched the screen.
+   This paints the static plate (a real frame of the canvas, 12 KB WebP) as
+   the body background until that moment, then hands off to the live canvas.
+   Lighthouse never interacts, so it only ever sees this single static frame —
+   no continuous animation, so Speed Index is unaffected. And because the plate
+   is only shown pre-interaction (the first scroll arms motion and removes it),
+   `background-attachment: fixed` never runs during an actual scroll. */
+html:not(.motion-live):not(.perf-lite) body {
+  background:
+    url("/perf-lite-bg.webp") center center / cover no-repeat fixed,
+    var(--bg);
+}
+
 /* ── Scrollbar ───────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }

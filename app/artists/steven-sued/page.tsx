@@ -48,6 +48,7 @@ const MURALS: { src: string; label: string; desc: string; wide?: boolean }[] = [
   { src: "/artists/steven-sued/steven-sued-mural-boo.webp", label: "Boo", desc: "Street-facing mural on a brick building corner." },
   { src: "/artists/steven-sued/steven-sued-mural-gratitude.webp", label: "Gratitude", desc: "Flowing single-color line-work across an interior wall." },
   { src: "/artists/steven-sued/steven-sued-mural-up.webp", label: "UP", desc: "Bold dimensional lettering on a concrete street wall." },
+  { src: "/artists/steven-sued/steven-sued-mural-live-and-learn.webp", label: "Live & Learn", desc: "Purple-and-gold hand-lettered script mural over a patterned wall." },
 ] as const;
 
 const SKILLS = [
