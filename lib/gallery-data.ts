@@ -15,7 +15,7 @@ export const GALLERY_IMGS = [
   { src: "/gallery/luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp", label: "Luke Borchelt — Bridgestone Snipe",     alt: "Water Town by Luke Borchelt sticker snipe on a pole by Bridgestone Arena with a crowd crossing in downtown Nashville",      tag: "Sticker", aspect: "portrait" },
   { src: "/gallery/luke-borchelt-water-town-sticker-snipe-riverboats-nashville.webp",        label: "Luke Borchelt — Riverboats Snipe",      alt: "Water Town by Luke Borchelt sticker snipe on a downtown Nashville pole with a red Nashville Riverboats trolley behind",      tag: "Sticker", aspect: "portrait" },
   { src: "/gallery/luke-borchelt-water-town-chalk-stencil-sidewalk-nashville.webp",          label: "Luke Borchelt — Sidewalk Stencil",      alt: "Water Town by Luke Borchelt chalk-spray sidewalk stencil between two Spin share bikes in downtown Nashville",               tag: "Stencil", aspect: "portrait" },
-  { src: "/gallery/luke-borchelt-water-town-chalk-stencil-trash-can-nashville.webp",         label: "Luke Borchelt — Stencil & Trash Can",   alt: "Water Town by Luke Borchelt chalk-spray sidewalk stencil beside a downtown Nashville trash can",                            tag: "Stencil", aspect: "portrait" },
+  { src: "/gallery/luke-borchelt-water-town-chalk-stencil-trash-can-nashville.webp",         label: "Luke Borchelt — Stencil in Nashville, TN",   alt: "Water Town by Luke Borchelt chalk-spray sidewalk stencil beside a downtown Nashville trash can",                            tag: "Stencil", aspect: "portrait" },
 
   // ── Biodance "Hydrogel Splash" / "We Are Making A Splash" — Los Angeles (latest job) ──
   // Multi-surface LA campaign: wheat paste poster walls (The Grove launch, May 30–31),
