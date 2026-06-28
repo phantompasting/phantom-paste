@@ -20,7 +20,7 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Florida | Miami + Tampa Statewide Agency" },
+  title: { absolute: "Wheat Pasting Florida | Miami + Tampa Wheatpasting" },
   description:
     "Wheat pasting across Florida — Miami, Tampa Ybor City, Orlando Mills 50, Jacksonville, Ft. Lauderdale. Statewide FL, Art Basel + spring break peak windows.",
   keywords: [

@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Arizona | Statewide Poster Campaigns" },
+  title: { absolute: "Wheat Pasting Arizona | Statewide Wheatpasting Posters" },
   description:
     "Wheat pasting across Arizona — Phoenix, Tucson, Mesa, Tempe, Flagstaff. Roosevelt Row + 4th Avenue corridors, photo-documented overnight crew installs.",
   keywords: [

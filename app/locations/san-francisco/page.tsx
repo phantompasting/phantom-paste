@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting SF | Mission + SoMa + Castro Poster Agency" },
+  title: { absolute: "Wheat Pasting SF | Mission + SoMa Wheatpasting Posters" },
   description:
     "Wheat pasting in San Francisco — Mission, SoMa, Hayes Valley, Castro, Lower Haight, North Beach. Densest mural corridors + tech-workforce reach, documented.",
   keywords: [

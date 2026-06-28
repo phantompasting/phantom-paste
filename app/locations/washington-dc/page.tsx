@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting DC | U Street + H Street Poster Agency" },
+  title: { absolute: "Wheat Pasting DC | U Street + H Street Wheatpasting" },
   description:
     "Wheat pasting in Washington DC — U Street, H Street, Shaw, Adams Morgan, Capitol Hill. Music venue + nightlife district saturation, photo-documented installs.",
   keywords: [
