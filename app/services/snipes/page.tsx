@@ -135,9 +135,22 @@ const FAQS = [
 const ACCENT = "#D4A010";
 
 /* Real campaign proof — sticker + pole-snipe placements we've run.
-   Biodance leads (latest campaign). The Incrediwear shots and the Calvin
-   sticker-strip live on the main /gallery page, so they're not repeated here. */
+   Luke Borchelt's Nashville run leads (latest campaign), then Biodance. The
+   Incrediwear shots and the Calvin sticker-strip live on the main /gallery
+   page, so they're not repeated here. */
 const SHOTS = [
+  {
+    src: "/gallery/luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp",
+    client: "Luke Borchelt",
+    meta: "Pole snipe · Nashville",
+    alt: "Water Town by Luke Borchelt sticker snipe on a pole by Bridgestone Arena with a crowd crossing in downtown Nashville",
+  },
+  {
+    src: "/gallery/luke-borchelt-water-town-sticker-snipe-riverboats-nashville.webp",
+    client: "Luke Borchelt",
+    meta: "Pole snipe · Nashville",
+    alt: "Water Town by Luke Borchelt sticker snipe on a downtown Nashville pole with a red Nashville Riverboats trolley behind",
+  },
   {
     src: "/gallery/biodance-hydrogel-splash-sticker-wall-los-angeles.webp",
     client: "Biodance",
@@ -635,9 +648,9 @@ export default function SnipesPage() {
               className="font-light mb-10 m-0"
               style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}
             >
-              Real sticker and pole-snipe placements from recent campaigns — Calvin Priice,
-              Incrediwear, and Biodance. Every placement is photographed, timestamped, and
-              geo-tagged so you see exactly what ran where.
+              Real sticker and pole-snipe placements from recent campaigns — Luke Borchelt
+              in Nashville, plus Calvin Priice, Incrediwear, and Biodance in LA. Every placement
+              is photographed, timestamped, and geo-tagged so you see exactly what ran where.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {SHOTS.map((shot) => (

@@ -121,6 +121,44 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "guerrilla-marketing-nashville",
+    title: "Guerrilla Marketing in Nashville: A Walking City Built for Street Campaigns",
+    titleHighlight: "Nashville",
+    metaTitle: "Guerrilla Marketing Nashville",
+    metaDescription:
+      "Why Nashville's downtown foot traffic and music scene make it one of the best US cities for street campaigns — a Luke Borchelt stencil + snipe run, block by block.",
+    excerpt:
+      "Downtown Nashville is a walking city now — captive foot traffic, a music crowd that's already listening, and three audiences reachable on foot in one night. A 40-stencil, 40-snipe run for Luke Borchelt's “Water Town.”",
+    silo: "local-legal",
+    publishedAt: "2026-06-27",
+    updatedAt: "2026-06-27",
+    heroImage: "/gallery/luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp",
+    heroAlt: "Water Town by Luke Borchelt sticker snipe on a pole by Bridgestone Arena with a crowd crossing in downtown Nashville",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["nashville", "tennessee", "music", "guerrilla-marketing", "stencils", "snipes", "city-guide"],
+    wordCount: 660,
+    faqs: [
+      {
+        q: "Does street marketing actually work in Nashville?",
+        a: "It's one of the best US cities for it. Downtown is dense and walkable — Broadway, the bar district, and the blocks around Bridgestone Arena put a few hundred people on foot per light cycle, mostly visitors who came for music and are looking for the next thing. Stencils at their feet and snipes at eye level get read, not scrolled past.",
+      },
+      {
+        q: "Where in Nashville gets the most foot traffic for a campaign?",
+        a: "Broadway between 1st and 5th is the densest stretch, plus the blocks around Bridgestone Arena, Church Street, and Demonbreun. For runners and walkers, the Cumberland River Greenway and the John Seigenthaler pedestrian bridge add a different daytime crowd. We route stencils and snipes to hit several of these in a single night.",
+      },
+      {
+        q: "Why use stencils and snipes for a music release instead of just digital?",
+        a: "A song lives or dies on first-week listens. Stencils and snipes physically place the artist in front of the exact crowd that's already in a listening mood, with a QR code straight to the stream — for a fraction of a digital push, and in spots a billboard can't reach. We documented every placement with a GPS pin and a daylight photo.",
+      },
+      {
+        q: "How long do chalk stencils last in Nashville?",
+        a: "Chalk spray is temporary by design — usually days to a couple of weeks depending on weather and foot traffic. Nashville's summer humidity can soften a run, so we pull a test stencil and check it the next day before committing the whole route.",
+      },
+    ],
+    relatedSlugs: ["guerrilla-marketing-for-music", "wheat-pasting-new-york", "guerrilla-marketing-never-out-of-style"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-hollywood",
     title: "Wheat Pasting in Hollywood: Two Audiences, One Awards Season",
     titleHighlight: "Hollywood",

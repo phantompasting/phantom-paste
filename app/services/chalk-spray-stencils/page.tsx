@@ -104,6 +104,24 @@ const FAQS = [
   },
 ] as const;
 
+/* Real campaign proof — chalk-spray stencil placements we've run.
+   Luke Borchelt's Nashville run leads (latest campaign). More stencil shots
+   live on the main /gallery page. */
+const SHOTS = [
+  {
+    src: "/gallery/luke-borchelt-water-town-chalk-stencil-sidewalk-nashville.webp",
+    client: "Luke Borchelt",
+    meta: "Sidewalk stencil · Nashville",
+    alt: "Water Town by Luke Borchelt chalk-spray sidewalk stencil between two Spin share bikes in downtown Nashville",
+  },
+  {
+    src: "/gallery/luke-borchelt-water-town-chalk-stencil-trash-can-nashville.webp",
+    client: "Luke Borchelt",
+    meta: "Sidewalk stencil · Nashville",
+    alt: "Water Town by Luke Borchelt chalk-spray sidewalk stencil beside a downtown Nashville trash can",
+  },
+] as const;
+
 const ACCENT = "#D4A010";
 
 export default function ChalkSprayStencilsPage() {
@@ -391,6 +409,40 @@ export default function ChalkSprayStencilsPage() {
                   <p className="font-light m-0 leading-relaxed" style={{ color: "rgba(0,0,0,0.55)", fontSize: "13px" }}>{p}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── In the wild (real campaign proof) ─────────────────── */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[1200px] mx-auto">
+            <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2" style={{ color: "rgba(0,0,0,0.55)" }}>
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Recent Work
+            </span>
+            <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]" style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
+              STENCILS IN THE <ShinyGoldText>WILD.</ShinyGoldText>
+            </h2>
+            <p className="font-light mb-10 m-0" style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}>
+              Real chalk-spray sidewalk stencils from a recent music-release run for Luke Borchelt
+              across downtown Nashville. Every placement is photographed, timestamped, and geo-tagged
+              so you see exactly what ran where.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+              {SHOTS.map((shot) => (
+                <div key={shot.src} className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "3 / 4", border: "1px solid rgba(255,255,255,0.6)", boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)" }}>
+                  <Image src={shot.src} alt={shot.alt} fill style={{ objectFit: "cover" }} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw" loading="lazy" />
+                  <div className="absolute inset-x-0 bottom-0 p-3 md:p-4" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.32) 55%, transparent 100%)" }}>
+                    <div className="font-black uppercase leading-none" style={{ fontSize: "13px", letterSpacing: "-0.01em", color: "#FFF" }}>{shot.client}</div>
+                    <div className="font-mono text-[8px] tracking-[0.2em] uppercase mt-1" style={{ color: "rgba(255,255,255,0.82)" }}>{shot.meta}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Link href="/gallery" className="inline-flex items-center gap-2 font-bold text-[11px] tracking-[0.2em] uppercase no-underline" style={{ color: ACCENT }}>
+                See the full gallery <span aria-hidden>→</span>
+              </Link>
             </div>
           </div>
         </section>

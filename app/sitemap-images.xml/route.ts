@@ -29,6 +29,23 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Luke Borchelt "Water Town" / MDDN Records — Nashville (stencils + snipes) ──
+  "luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp": {
+    title: "Luke Borchelt Pole Snipe — Bridgestone Arena, Nashville",
+    caption: "Water Town by Luke Borchelt sticker snipe on a pole by Bridgestone Arena with a crowd crossing in downtown Nashville — campaign by Phantom Pasting",
+  },
+  "luke-borchelt-water-town-sticker-snipe-riverboats-nashville.webp": {
+    title: "Luke Borchelt Pole Snipe — River District, Nashville",
+    caption: "Water Town by Luke Borchelt sticker snipe on a downtown Nashville pole with a red Nashville Riverboats trolley behind — by Phantom Pasting",
+  },
+  "luke-borchelt-water-town-chalk-stencil-sidewalk-nashville.webp": {
+    title: "Luke Borchelt Sidewalk Stencil — Nashville",
+    caption: "Water Town by Luke Borchelt chalk-spray sidewalk stencil between two Spin share bikes in downtown Nashville — by Phantom Pasting",
+  },
+  "luke-borchelt-water-town-chalk-stencil-trash-can-nashville.webp": {
+    title: "Luke Borchelt Sidewalk Stencil — Nashville",
+    caption: "Water Town by Luke Borchelt chalk-spray sidewalk stencil beside a downtown Nashville trash can — by Phantom Pasting",
+  },
   // ── Snipes & Sticker Posting — Calvin Priice / Incrediwear / Biodance ──
   "calvin-priice-sticker-pole-install-gas-station-los-angeles.webp": {
     title: "Calvin Priice pole sticker install — Los Angeles",
