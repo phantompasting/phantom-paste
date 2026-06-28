@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Oregon | Portland + Eugene Campaigns" },
+  title: { absolute: "Wheat Pasting Oregon | Portland Wheatpasting Campaigns" },
   description:
     "Wheat pasting across Oregon — Portland Pearl District + Hawthorne, Eugene, Salem, Bend. Statewide OR on walkable creative-class corridors, PNW recipes.",
   keywords: [

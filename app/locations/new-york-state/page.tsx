@@ -7,7 +7,7 @@ import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets"
 // intent ("wheat pasting new york state") routes here.
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting New York State | NYC Statewide Agency" },
+  title: { absolute: "Wheat Pasting New York State | NYC Wheatpasting" },
   description:
     "Wheat pasting across New York State — NYC five boroughs, Buffalo, Rochester, Syracuse, Albany. Statewide NY incl. DOB-permitted Manhattan scaffold wraps.",
   keywords: [

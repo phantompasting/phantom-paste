@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Pennsylvania | Philly + Pittsburgh Agency" },
+  title: { absolute: "Wheat Pasting Pennsylvania | Philly Wheatpasting" },
   description:
     "Wheat pasting across Pennsylvania — Philadelphia Fishtown + South Street, Pittsburgh Strip + Lawrenceville. Statewide PA on photo-documented overnight crew.",
   keywords: [

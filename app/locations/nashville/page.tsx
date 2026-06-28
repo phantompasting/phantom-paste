@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Nashville | Music Row + East Side Agency" },
+  title: { absolute: "Wheat Pasting Nashville | Music Row Wheatpasting Posters" },
   description:
     "Wheat pasting in Nashville — Music Row, East Side, The Gulch, 12 South. Music industry tour stops + album drops, photo-documented overnight crew installs.",
   keywords: [

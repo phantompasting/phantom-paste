@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Houston | Montrose + EaDo Poster Campaigns" },
+  title: { absolute: "Wheat Pasting Houston | Montrose Wheatpasting Posters" },
   description:
     "Wheat pasting in Houston — Montrose, Heights, Midtown, EaDo, Rice Village, Museum District. Largest TX metro, photo-documented overnight crew installs.",
   keywords: [

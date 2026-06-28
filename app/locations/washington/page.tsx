@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Washington State | Seattle + Spokane" },
+  title: { absolute: "Wheat Pasting Washington State | Seattle Wheatpasting" },
   description:
     "Wheat pasting across Washington State — Seattle Capitol Hill + Ballard + SoDo, Tacoma, Spokane, Bellingham. Statewide WA with PNW rain-adapted recipes.",
   keywords: [

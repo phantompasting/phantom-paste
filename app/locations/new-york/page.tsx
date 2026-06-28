@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent, KW_CITY_PARENT_OVERLAY } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting NYC | LES + Brooklyn Poster Campaigns" },
+  title: { absolute: "Wheat Pasting NYC | LES + Brooklyn Wheatpasting Posters" },
   description:
     "Wheat pasting in NYC — LES, Williamsburg, SoHo, Bushwick, DUMBO, plus DOB-permitted Manhattan scaffold-wrap programs across all five boroughs since 2014.",
   keywords: [

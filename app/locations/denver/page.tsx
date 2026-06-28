@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Denver | RiNo + Highland Poster Agency" },
+  title: { absolute: "Wheat Pasting Denver | RiNo + Highland Wheatpasting" },
   description:
     "Wheat pasting in Denver — RiNo Art District, Highland, LoHi corridor + Mural Festival window. Densest mural market west of the Mississippi, photo-documented.",
   keywords: [

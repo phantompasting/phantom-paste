@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Colorado | Denver + Boulder Campaigns" },
+  title: { absolute: "Wheat Pasting Colorado | Denver Wheatpasting Campaigns" },
   description:
     "Wheat pasting across Colorado — Denver RiNo, Boulder, Colorado Springs, Fort Collins. Statewide CO on mural-friendly walls, Mural Festival peak booking.",
   keywords: [

@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Miami | Wynwood + Art Basel Poster Agency" },
+  title: { absolute: "Wheat Pasting Miami | Wynwood Wheatpasting Posters" },
   description:
     "Wheat pasting in Miami — Wynwood, Little Havana, Design District, Brickell, Art Basel saturation. Mural-friendly culture, photo-documented 7-day turnaround.",
   keywords: [

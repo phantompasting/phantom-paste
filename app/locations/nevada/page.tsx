@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Nevada | Vegas + Reno Statewide Agency" },
+  title: { absolute: "Wheat Pasting Nevada | Vegas + Reno Wheatpasting" },
   description:
     "Wheat pasting across Nevada — Las Vegas Strip + Fremont East + Arts District, Reno Midtown, Carson City. Statewide NV with CES week peak booking 2026.",
   keywords: [

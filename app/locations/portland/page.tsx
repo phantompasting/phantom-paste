@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Portland | Pearl + Hawthorne Posters Agency" },
+  title: { absolute: "Wheat Pasting Portland | Pearl + Hawthorne Wheatpasting" },
   description:
     "Wheat pasting in Portland — Pearl District, Hawthorne, Mississippi, Alberta Arts. Walkable creative-class corridors, PNW rain-adapted recipes since 2014.",
   keywords: [
