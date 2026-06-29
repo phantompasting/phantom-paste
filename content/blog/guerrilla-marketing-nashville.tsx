@@ -89,7 +89,7 @@ export default function Post() {
         block. Not this time.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", margin: "2em 0" }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" style={{ margin: "2em 0" }}>
         <figure style={{ margin: 0 }}>
           <img
             src="/gallery/luke-borchelt-water-town-chalk-stencil-sidewalk-nashville.webp"
