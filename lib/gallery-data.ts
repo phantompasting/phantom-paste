@@ -9,6 +9,10 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
+  // ── South Bronx — NYC cluster (latest) ──
+  { src: "/gallery/mott-haven-wheat-paste-posters-scaffolding-south-bronx.webp",        label: "South Bronx — Scaffolding Posters", alt: "Club and event posters layered under sidewalk scaffolding near The Hub in the South Bronx, New York", tag: "Wheat Paste" },
+  { src: "/gallery/university-heights-wheat-paste-barricade-posters-bronx.webp",        label: "Bronx — Jerome Ave Barricade",      alt: "Event posters pasted on a green construction barricade off Jerome Avenue in University Heights, the Bronx", tag: "Wheat Paste", aspect: "portrait" },
+
   // ── Williamsburg, Brooklyn — NYC wheat paste poster walls (latest job) ──
   { src: "/gallery/williamsburg-wheat-paste-poster-wall-corner-brooklyn.webp",         label: "Williamsburg — Corner Wall",       alt: "Wheat paste poster wall and mural on a Williamsburg street corner in Brooklyn, New York",           tag: "Wheat Paste" },
   { src: "/gallery/williamsburg-wheat-paste-construction-barricade-brooklyn.webp",     label: "Williamsburg — Barricade",         alt: "Wheat paste posters layered on a green construction barricade in Williamsburg, Brooklyn",           tag: "Wheat Paste" },
