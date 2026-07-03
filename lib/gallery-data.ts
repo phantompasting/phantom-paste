@@ -9,6 +9,11 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
+  // ── Luke Borchelt "The Water Town Tour" — Ocean City, MD (latest job) ──
+  // Tour-poster wheat-paste run along Coastal Highway underpasses, July 1.
+  { src: "/gallery/ocean-city-wheat-paste-luke-borchelt-water-town-tour-overpass.webp", label: "Luke Borchelt — Tour Dates",   alt: "Grids of Luke Borchelt Water Town Tour posters wheat-pasted on a concrete overpass wall below a Speed Limit 35 sign at night in Ocean City, Maryland", tag: "Wheat Paste" },
+  { src: "/gallery/ocean-city-wheat-paste-luke-borchelt-tour-poster-wall.webp",         label: "Luke Borchelt — Tour Dates",   alt: "A ten-poster wall of Luke Borchelt Water Town Tour flyers wheat-pasted on a concrete underpass wall in Ocean City, Maryland", tag: "Wheat Paste" },
+
   // ── Luke Borchelt "Water Town" / MDDN Records — Nashville (latest job) ──
   // Music-release campaign across downtown Nashville: 40 chalk-spray sidewalk
   // stencils + 40 sticker snipes, June 25–26. All portrait phone captures.
