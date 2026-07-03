@@ -121,6 +121,44 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-bronx",
+    title: "Wheat Pasting in the Bronx: The Borough That Invented the Poster Wall",
+    titleHighlight: "Bronx",
+    metaTitle: "Wheat Pasting Bronx",
+    metaDescription:
+      "The Bronx has read walls for fifty years — party flyers, club posters, hip-hop promo culture. Where to paste from The Hub to Fordham Road, and why brands that come north own the wall.",
+    excerpt:
+      "The Bronx has been postering itself for fifty years — party flyers and club posters layered under every scaffold since before hip-hop had a name. Most brands never paste north of 96th Street, which is exactly why the ones that do own the wall.",
+    silo: "local-legal",
+    publishedAt: "2026-07-02",
+    updatedAt: "2026-07-02",
+    heroImage: "/gallery/mott-haven-wheat-paste-posters-scaffolding-south-bronx.webp",
+    heroAlt: "Club and event posters layered under sidewalk scaffolding near The Hub in the South Bronx, New York",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["bronx", "south-bronx", "mott-haven", "new-york", "nyc", "wheat-pasting", "wild-posting", "city-guide"],
+    wordCount: 820,
+    faqs: [
+      {
+        q: "Where in the Bronx gets the most foot traffic for a poster campaign?",
+        a: "The Hub — 149th Street and Third Avenue — is the borough's Times Square, with the 2 and 5 trains feeding it all day. Fordham Road is the biggest retail corridor with some of the highest pedestrian counts in the city outside Manhattan, and 161st Street around Yankee Stadium surges on the eighty-plus home game days a year.",
+      },
+      {
+        q: "Why paste the Bronx instead of Manhattan or Brooklyn?",
+        a: "Less competition and more culture. Most brands never paste north of 96th Street, so a wall at The Hub or on Fordham Road isn't fighting forty other posters for attention. Wall rates run below Manhattan and prime Brooklyn, and the borough has read posters as culture since the party-flyer era that birthed hip-hop.",
+      },
+      {
+        q: "Is wheat pasting legal in the Bronx?",
+        a: "The legal reality is the same citywide: NYC enforces unlawful posting on public property, so we work owner-authorized private walls and coordinated construction barricades. Enforcement pressure in the Bronx is lower than Midtown, but the clean-campaign playbook doesn't change.",
+      },
+      {
+        q: "What's the Mott Haven opportunity for brands?",
+        a: "Mott Haven is doing what Williamsburg did twenty years ago — waterfront rezoning, new residential towers, galleries and coffee shops moving in below 149th Street. New construction means a steady supply of fresh plywood barricades, and early-mover brands get walls the neighborhood hasn't seen claimed before.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-new-york", "wheat-pasting-williamsburg", "guerrilla-marketing-for-music"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-williamsburg",
     title: "Wheat Pasting in Williamsburg: Brooklyn's Best Poster Real Estate",
     titleHighlight: "Williamsburg",
