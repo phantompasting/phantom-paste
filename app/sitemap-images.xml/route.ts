@@ -29,6 +29,16 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Luke Borchelt "The Water Town Tour" — Ocean City, MD ──
+  "ocean-city-wheat-paste-luke-borchelt-water-town-tour-overpass.webp": {
+    title: "Tour Poster Wall Under an Overpass — Ocean City, MD",
+    caption: "Grids of Luke Borchelt Water Town Tour posters wheat-pasted on a concrete overpass wall in Ocean City, Maryland — by Phantom Pasting",
+  },
+  "ocean-city-wheat-paste-luke-borchelt-tour-poster-wall.webp": {
+    title: "Ten-Up Tour Poster Wall — Ocean City, MD",
+    caption: "A ten-poster wall of Luke Borchelt Water Town Tour flyers wheat-pasted on a concrete underpass wall in Ocean City, Maryland — by Phantom Pasting",
+  },
+
   // ── Luke Borchelt "Water Town" / MDDN Records — Nashville (stencils + snipes) ──
   "luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp": {
     title: "Luke Borchelt Pole Snipe — Bridgestone Arena, Nashville",
