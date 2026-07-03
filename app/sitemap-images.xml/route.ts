@@ -29,16 +29,6 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
-  // ── South Bronx — NYC cluster ──
-  "mott-haven-wheat-paste-posters-scaffolding-south-bronx.webp": {
-    title: "Poster Wall Under Scaffolding — The Hub, South Bronx",
-    caption: "Club and event posters layered under sidewalk scaffolding near The Hub in the South Bronx, New York — by Phantom Pasting",
-  },
-  "university-heights-wheat-paste-barricade-posters-bronx.webp": {
-    title: "Barricade Posters — University Heights, the Bronx",
-    caption: "Event posters on a construction barricade off Jerome Avenue in University Heights, the Bronx — by Phantom Pasting",
-  },
-
   // ── Luke Borchelt "Water Town" / MDDN Records — Nashville (stencils + snipes) ──
   "luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp": {
     title: "Luke Borchelt Pole Snipe — Bridgestone Arena, Nashville",
