@@ -13,13 +13,6 @@ export const GALLERY_IMGS = [
   { src: "/gallery/mott-haven-wheat-paste-posters-scaffolding-south-bronx.webp",        label: "South Bronx — Scaffolding Posters", alt: "Club and event posters layered under sidewalk scaffolding near The Hub in the South Bronx, New York", tag: "Wheat Paste" },
   { src: "/gallery/university-heights-wheat-paste-barricade-posters-bronx.webp",        label: "Bronx — Jerome Ave Barricade",      alt: "Event posters pasted on a green construction barricade off Jerome Avenue in University Heights, the Bronx", tag: "Wheat Paste", aspect: "portrait" },
 
-  // ── Williamsburg, Brooklyn — NYC wheat paste poster walls (latest job) ──
-  { src: "/gallery/williamsburg-wheat-paste-poster-wall-corner-brooklyn.webp",         label: "Williamsburg — Corner Wall",       alt: "Wheat paste poster wall and mural on a Williamsburg street corner in Brooklyn, New York",           tag: "Wheat Paste" },
-  { src: "/gallery/williamsburg-wheat-paste-construction-barricade-brooklyn.webp",     label: "Williamsburg — Barricade",         alt: "Wheat paste posters layered on a green construction barricade in Williamsburg, Brooklyn",           tag: "Wheat Paste" },
-  { src: "/gallery/williamsburg-wheat-paste-poster-wall-brooklyn.webp",                label: "Williamsburg — Poster Wall",       alt: "Wheat paste poster wall on a Williamsburg brick building in Brooklyn, New York",                    tag: "Wheat Paste" },
-  { src: "/gallery/williamsburg-wheat-paste-posters-tree-lined-street-brooklyn.webp",  label: "Williamsburg — Tree-Lined Street", alt: "Wheat paste poster barricade down a tree-lined Williamsburg street in Brooklyn",                    tag: "Wheat Paste" },
-  { src: "/gallery/williamsburg-wheat-paste-barricade-posters-brooklyn.webp",          label: "Williamsburg — Street Barricade",  alt: "Wheat paste posters on a street construction barricade in Williamsburg, Brooklyn",                  tag: "Wheat Paste" },
-
   // ── Luke Borchelt "Water Town" / MDDN Records — Nashville (latest job) ──
   // Music-release campaign across downtown Nashville: 40 chalk-spray sidewalk
   // stencils + 40 sticker snipes, June 25–26. All portrait phone captures.

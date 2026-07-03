@@ -39,27 +39,6 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     caption: "Event posters on a construction barricade off Jerome Avenue in University Heights, the Bronx — by Phantom Pasting",
   },
 
-  // ── Williamsburg, Brooklyn — NYC wheat paste poster walls ──
-  "williamsburg-wheat-paste-poster-wall-corner-brooklyn.webp": {
-    title: "Wheat Paste Poster Wall — Williamsburg, Brooklyn",
-    caption: "Wheat paste poster wall and mural on a Williamsburg street corner in Brooklyn — NYC campaign by Phantom Pasting",
-  },
-  "williamsburg-wheat-paste-construction-barricade-brooklyn.webp": {
-    title: "Wheat Paste Construction Barricade — Williamsburg, Brooklyn",
-    caption: "Wheat paste posters layered on a green construction barricade in Williamsburg, Brooklyn — by Phantom Pasting",
-  },
-  "williamsburg-wheat-paste-poster-wall-brooklyn.webp": {
-    title: "Wheat Paste Poster Wall — Williamsburg, Brooklyn",
-    caption: "Wheat paste poster wall on a Williamsburg brick building in Brooklyn, New York — by Phantom Pasting",
-  },
-  "williamsburg-wheat-paste-posters-tree-lined-street-brooklyn.webp": {
-    title: "Wheat Paste Posters, Tree-Lined Street — Williamsburg",
-    caption: "Wheat paste poster barricade down a tree-lined Williamsburg street in Brooklyn — by Phantom Pasting",
-  },
-  "williamsburg-wheat-paste-barricade-posters-brooklyn.webp": {
-    title: "Wheat Paste Street Barricade — Williamsburg, Brooklyn",
-    caption: "Wheat paste posters on a street construction barricade in Williamsburg, Brooklyn — by Phantom Pasting",
-  },
   // ── Luke Borchelt "Water Town" / MDDN Records — Nashville (stencils + snipes) ──
   "luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp": {
     title: "Luke Borchelt Pole Snipe — Bridgestone Arena, Nashville",
