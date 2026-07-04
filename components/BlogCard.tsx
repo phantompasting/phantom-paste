@@ -100,6 +100,7 @@ export default function BlogCard({
           {new Date(post.publishedAt).toLocaleDateString("en-US", {
             month: "short",
             year: "numeric",
+            timeZone: "UTC",
           })}
         </div>
         <div

@@ -182,6 +182,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
         month: "long",
         day: "numeric",
         year: "numeric",
+        timeZone: "UTC",
       })
     : null;
 

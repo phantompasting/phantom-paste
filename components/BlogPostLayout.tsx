@@ -120,15 +120,19 @@ export default function BlogPostLayout({
       ? related.slice(0, 3)
       : PUBLISHED_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  // timeZone UTC: publishedAt is a bare YYYY-MM-DD, which Date parses as UTC
+  // midnight — formatting in a US-local zone rolls it back a day.
   const publishedFmt = new Date(post.publishedAt).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
+    timeZone: "UTC",
   });
   const updatedFmt = new Date(post.updatedAt).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
+    timeZone: "UTC",
   });
   const showUpdated = post.updatedAt !== post.publishedAt;
 
