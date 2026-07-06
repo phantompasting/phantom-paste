@@ -112,6 +112,7 @@ const data: CityPageData = {
     { q: "How much does a Georgia wheat pasting campaign cost?", a: "Single-city GA campaigns run $3,200-$6,500 (Atlanta on the higher end). Statewide rollouts hitting 4-6 metros run $15K-$28K with the multi-city volume discount. Atlanta-led campaigns can scale statewide on 48 hours' notice when timing requires it." },
     { q: "How quickly can a Georgia campaign launch?", a: "Standard turnaround is 7-10 business days from approved brief. Atlanta can rush to 5 days; secondary markets typically need the full 7-10. Statewide multi-city briefs need 10-14 days to coordinate crews." },
     { q: "Can you handle Athens football-weekend or SCAD-week deployments?", a: "Yes. UGA football weekends drive Athens foot traffic 5x+ over baseline; SCAD events drive Savannah student-density windows. Saturation campaigns timed to game weekends or SCAD-week academic peaks are a specialty." },
+    { q: "Do you offer wheatpaste advertising in Georgia?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Atlanta, Savannah, and Athens with the same crews and the same pricing, whichever term your brief uses." },
   ],
   spotlight: {
     eyebrow: "Statewide Capability",

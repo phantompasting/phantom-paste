@@ -93,6 +93,7 @@ const data: CityPageData = {
       q: "Can you handle UO football-weekend deployments in Eugene?",
       a: "Yes. UO home games drive Eugene foot traffic 4x+ over baseline; saturation campaigns timed to game weekends are a specialty. Book 4 weeks ahead for marquee games (Civil War, Pac-12 championships).",
     },
+    { q: "Do you offer wheatpaste advertising in Oregon?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Portland, Eugene, and Salem with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Oregon",

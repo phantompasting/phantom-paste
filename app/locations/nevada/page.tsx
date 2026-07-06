@@ -92,6 +92,7 @@ const data: CityPageData = {
       q: "How much does a Nevada campaign cost?",
       a: "Vegas-only: $3,500-$7,500 (conference weeks book at the higher end). Statewide NV rollouts (Vegas + Henderson + Reno) run $13K-$22K with the multi-city volume discount.",
     },
+    { q: "Do you offer wheatpaste advertising in Nevada?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Las Vegas, Henderson, and Reno with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Nevada",

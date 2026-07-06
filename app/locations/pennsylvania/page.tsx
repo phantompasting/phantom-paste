@@ -95,6 +95,7 @@ const data: CityPageData = {
       q: "How does PA weather affect campaign timing?",
       a: "PA winters are wet and cold — paste sets slower below 45°F, and snow + ice can compromise wall adhesion. We use winter-formulated paste with methylcellulose for December-March installs. May-October is the reliable window for budget-priced campaigns.",
     },
+    { q: "Do you offer wheatpaste advertising in Pennsylvania?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Philadelphia, Pittsburgh, and Allentown with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Pennsylvania",

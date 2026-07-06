@@ -94,6 +94,7 @@ const data: CityPageData = {
       q: "Can you handle the I-5 corridor (Portland-Seattle-Vancouver)?",
       a: "Yes. Portland-Seattle is a natural Pacific Northwest brand corridor — same crew rotation handles both metros plus Vancouver WA on coordinated rollouts. Common configuration: Portland + Seattle + Tacoma over a single launch week.",
     },
+    { q: "Do you offer wheatpaste advertising in Washington?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Seattle, Spokane, and Tacoma with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Washington",

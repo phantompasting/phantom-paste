@@ -100,6 +100,7 @@ const data: CityPageData = {
       q: "Can you do festival-week saturation around ASU + UA games?",
       a: "Yes. ASU football weekends drive Tempe foot traffic 5x+ over baseline; UA basketball season + March Madness windows do the same in Tucson. Saturation campaigns timed to game weekends are a specialty.",
     },
+    { q: "Do you offer wheatpaste advertising in Arizona?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Phoenix, Tucson, and Tempe with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Arizona",

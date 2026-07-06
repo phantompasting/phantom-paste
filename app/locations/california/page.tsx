@@ -103,6 +103,7 @@ const data: CityPageData = {
       q: "Why does California outperform other states for wheat pasting?",
       a: "Three reasons: pedestrianized corridors inside driving cities, the country's densest concentration of fashion/music/film/tech HQs, and weather that holds posters 6-10 weeks (vs 3-5 in the Midwest/Northeast). California campaigns generate more organic social shares per impression than any other state.",
     },
+    { q: "Do you offer wheatpaste advertising in California?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Los Angeles, San Francisco, and San Diego with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — California",

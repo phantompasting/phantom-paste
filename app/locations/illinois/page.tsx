@@ -114,6 +114,7 @@ const data: CityPageData = {
     { q: "How much does an Illinois wheat pasting campaign cost?", a: "Single-city IL campaigns run $3,200-$6,500 (Chicago on the higher end). Statewide rollouts hitting 4-6 metros run $15K-$28K with the multi-city volume discount." },
     { q: "Can you handle UIUC semester-window deployments in Champaign-Urbana?", a: "Yes. UIUC's 35K+ undergrad density drives 5x+ baseline foot traffic during semester windows. Move-in week (mid-August), Engineering Open House (March), Mom's Weekend, and Dad's Weekend are the highest-attention saturation peaks." },
     { q: "How does Illinois winter affect campaigns?", a: "Chicago + Northern IL winters are wet, cold, and below freezing. Paste sets slower below 45°F; we use winter-formulated paste with methylcellulose for December-March installs. May-October is the reliable budget-friendly window." },
+    { q: "Do you offer wheatpaste advertising in Illinois?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Chicago, Naperville, and Champaign-Urbana with the same crews and the same pricing, whichever term your brief uses." },
   ],
   spotlight: {
     eyebrow: "Statewide Capability",

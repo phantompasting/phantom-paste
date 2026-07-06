@@ -94,6 +94,7 @@ const data: CityPageData = {
       q: "Can you handle game-weekend saturation around CU + CSU + Air Force Academy?",
       a: "Yes. CU Boulder + CSU Fort Collins football weekends drive foot traffic 4x+ over baseline; saturation campaigns timed to game weekends are a specialty. Air Force Academy graduation week (May) is similarly high-density.",
     },
+    { q: "Do you offer wheatpaste advertising in Colorado?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Denver, Colorado Springs, and Boulder with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Colorado",

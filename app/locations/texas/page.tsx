@@ -103,6 +103,7 @@ const data: CityPageData = {
       q: "Can you handle festival-week deployments in Austin?",
       a: "Yes. SXSW + ACL campaigns are a specialty — high-density saturation across South Congress, East 6th, Rainey, and the Convention Center perimeter, timed to the official event windows with rolling refresh. Book 6 weeks ahead for festival weeks.",
     },
+    { q: "Do you offer wheatpaste advertising in Texas?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Houston, Dallas, and Austin with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Texas",

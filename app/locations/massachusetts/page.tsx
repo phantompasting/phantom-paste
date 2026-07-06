@@ -94,6 +94,7 @@ const data: CityPageData = {
       q: "Can you handle the New England college-tour circuit?",
       a: "Yes — MA + RI + NH + ME college markets share crew rotations during peak windows. Combined briefs hitting Boston, Providence, Hanover, Burlington VT, Portland ME on a single launch are common during fall move-in + spring graduation seasons.",
     },
+    { q: "Do you offer wheatpaste advertising in Massachusetts?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Boston, Cambridge, and Worcester with the same crews and the same pricing, whichever term your brief uses." },
   ],
   localBusiness: {
     name: "Phantom Pasting — Massachusetts",
