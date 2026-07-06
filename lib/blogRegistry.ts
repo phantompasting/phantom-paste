@@ -121,6 +121,44 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-seattle",
+    title: "Wheat Pasting in Seattle: A FIFA World Cup Campaign in the Rain",
+    titleHighlight: "Seattle",
+    metaTitle: "Wheat Pasting Seattle | Wild Posting That Holds in the Rain",
+    metaDescription:
+      "A FIFA World Cup 26 wheat paste install in Pioneer Square, in the rain — what it proves about Seattle wild posting, which neighborhoods work, and how posters survive the wet season.",
+    excerpt:
+      "We pasted FIFA World Cup 26 posters onto a Pioneer Square barricade in March, in the rain, a few blocks from where the matches will be played. That install is the whole argument for wheat pasting in Seattle: the rain is a technique problem, not a reason to skip the best-value walls on the West Coast.",
+    silo: "local-legal",
+    publishedAt: "2026-07-06",
+    updatedAt: "2026-07-06",
+    heroImage: "/gallery/fifa-world-cup-wheat-paste-install-pioneer-square-seattle.webp",
+    heroAlt: "Phantom Pasting installer brushing down a FIFA World Cup 26 poster on a Pioneer Square construction barricade in Seattle",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["seattle", "pioneer-square", "pacific-northwest", "fifa-world-cup", "wheat-pasting", "wild-posting", "city-guide"],
+    wordCount: 850,
+    faqs: [
+      {
+        q: "Do you offer wheat pasting in Seattle?",
+        a: "Yes — Seattle is one of our most-active Pacific Northwest markets. Wheat pasting, wild posting, and street postering are the same service here: paper posters on owner-authorized walls and barricades across Pioneer Square, Capitol Hill's Pike-Pine corridor, Ballard, Fremont, and the U District, installed by crews that work the city year-round.",
+      },
+      {
+        q: "Does wheat pasting work in Seattle's rain?",
+        a: "Yes, with the right technique. Light rain — Seattle's default — is workable with a PVA-reinforced paste mix, which we run on every October-through-May install; a genuine downpour means rescheduling. Long-term survival comes from wall selection: barricades under overhangs and covered arcades hold four to six weeks through the wet season. We installed a World Cup campaign in Pioneer Square mid-drizzle and the wall was tight and flat by morning.",
+      },
+      {
+        q: "Which Seattle neighborhoods are best for wild posting?",
+        a: "Pioneer Square for sports, event, and game-day corridors (it feeds the stadium district on foot); Capitol Hill's Pike-Pine corridor for the creative-class and music audience; Ballard Avenue and Fremont for walkable neighborhood retail; the U District for 50K+ students during the academic year.",
+      },
+      {
+        q: "How much does a Seattle wheat paste poster campaign cost?",
+        a: "Single-neighborhood test: $3,500-$5,500 for 60-90 posters with install and photo documentation. Full-city activation across 4-5 districts: $13K-$20K. Seattle + Portland Pacific Northwest corridor briefs run $20K-$35K on a coordinated crew rotation.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-campaign", "wheat-pasting-new-york", "wheat-pasting-phoenix"],
+    status: "published",
+  },
+  {
     slug: "post-no-bills",
     title: "Post No Bills: What the Most Famous Stencil in New York Actually Means",
     titleHighlight: "Post No Bills",
