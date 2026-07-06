@@ -121,6 +121,44 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "post-no-bills",
+    title: "Post No Bills: What the Most Famous Stencil in New York Actually Means",
+    titleHighlight: "Post No Bills",
+    metaTitle: "Post No Bills Meaning | The Sign, the Law, the Loophole That Isn't",
+    metaDescription:
+      "What 'Post No Bills' means, where the 150-year-old sign comes from, the NYC fine that lands on the brand (not the crew), and how professional wheat pasting crews read a barricade.",
+    excerpt:
+      "\"Post No Bills\" means exactly what it says: that barricade's owner has not authorized posters, and the fine for ignoring it lands on whoever's name is on the paper — the brand, not the crew. The 150-year-old sign, the law behind it, and how a professional operation reads it.",
+    silo: "local-legal",
+    publishedAt: "2026-07-05",
+    updatedAt: "2026-07-05",
+    heroImage: "/gallery/post-no-bills-stencil-construction-barricade-soho-nyc.webp",
+    heroAlt: "Post No Bills stencil on a green construction barricade under a sidewalk shed near SoHo, New York",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["post-no-bills", "legal", "nyc", "new-york", "barricades", "wild-posting", "wheat-pasting"],
+    wordCount: 780,
+    faqs: [
+      {
+        q: "What does Post No Bills mean?",
+        a: "\"Bills\" is the nineteenth-century word for posters — playbills, handbills, bill posters. \"Post No Bills\" is the property owner stating that no one has permission to paste posters on that surface. The stencil dates to the 1800s, when New York property owners started painting the refusal directly onto walls and fences.",
+      },
+      {
+        q: "Is it illegal to paste posters on a Post No Bills barricade?",
+        a: "Yes. A construction barricade is private property, and NYC Administrative Code §10-119 makes unauthorized posting unlawful. The law includes a rebuttable presumption that whoever's name or brand appears on the poster is the violator — meaning fines land on the brand printed on the paper, not the installer, and they stack per poster.",
+      },
+      {
+        q: "Why are there posters all over Post No Bills signs anyway?",
+        a: "Renegade crews ignore the sign and accept the teardown-and-fines math. Professional operations don't: authorized barricades, standing wall-rights agreements, and DOB-permitted scaffold wraps supply plenty of legal surface. The posters layered over the sign are the work of crews whose clients usually don't know where their paper went up.",
+      },
+      {
+        q: "How do I know if a wall or barricade is authorized for posters?",
+        a: "Ask the operator for the wall list and who said yes — a professional answers in writing, and every wall in a legitimate rotation has an owner who knows the crew is coming. A stenciled Post No Bills, a no-trespassing placard, or fresh anti-graffiti paint means that surface is off the map, no exceptions.",
+      },
+    ],
+    relatedSlugs: ["is-wheat-pasting-legal", "wheat-pasting-lower-east-side", "wheat-pasting-new-york"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-lower-east-side",
     title: "Wheat Pasting on the Lower East Side: Manhattan's Poster Wall",
     titleHighlight: "Lower East Side",
