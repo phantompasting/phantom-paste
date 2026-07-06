@@ -121,6 +121,44 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-lower-east-side",
+    title: "Wheat Pasting on the Lower East Side: Manhattan's Poster Wall",
+    titleHighlight: "Lower East Side",
+    metaTitle: "Wheat Pasting Lower East Side | LES Wild Posting",
+    metaDescription:
+      "Why the Lower East Side is where Manhattan paste campaigns start — Ludlow, Orchard, Rivington wall culture, nightlife foot traffic, and what LES wild posting costs.",
+    excerpt:
+      "The Lower East Side is the most poster-literate neighborhood in America — walls that have carried show flyers, gallery cards, and brand campaigns in unbroken layers since the punk era. Here's where the walls are, what they cost, and why the LES is the first neighborhood we quote for Manhattan.",
+    silo: "local-legal",
+    publishedAt: "2026-07-05",
+    updatedAt: "2026-07-05",
+    heroImage: "/gallery/lower-east-side-wheat-paste-poster-wall-bowery-dusk-nyc.webp",
+    heroAlt: "Burberry wheat paste poster campaign on a lot fence at the Bowery edge of the Lower East Side at dusk",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["lower-east-side", "les", "manhattan", "new-york", "nyc", "wheat-pasting", "wild-posting", "city-guide"],
+    wordCount: 840,
+    faqs: [
+      {
+        q: "Do you offer wild posting on the Lower East Side?",
+        a: "Yes — the LES is the first neighborhood we quote for Manhattan campaigns. Wild posting, wheat pasting, and flyposting are the same service here: paper posters on owner-authorized walls across Ludlow, Orchard, Essex, Rivington, and Stanton, installed overnight and documented with GPS-logged photos the next morning.",
+      },
+      {
+        q: "Why is the Lower East Side the best wild posting neighborhood in Manhattan?",
+        a: "Fifty years of unbroken wall culture and an audience that reads posters as a reflex. The compact Ludlow-Orchard-Rivington grid concentrates nightlife foot traffic at reading pace from happy hour to 4 a.m., and the gallery circuit adds a second daytime audience on the same blocks. Luxury, beauty, and music brands all paste the same ten blocks for a reason.",
+      },
+      {
+        q: "How much does a Lower East Side poster campaign cost?",
+        a: "LES campaigns fall under our single-neighborhood NYC pricing: $4,500-$8,500 for 80-120 posters with overnight install and photo documentation. LES + Williamsburg is the most-booked two-neighborhood configuration — one crew night covers both sides of the river on combined pricing.",
+      },
+      {
+        q: "How long do wheat paste posters last on the LES?",
+        a: "Side-street walls under overhangs hold 8-10 weeks — among the longest-lasting in Manhattan. High-turnover corridors like Ludlow move faster; on those walls freshness matters more than longevity, and campaigns are timed accordingly. Summer humidity shortens all NYC paste windows slightly.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-new-york", "wheat-pasting-williamsburg", "wheat-pasting-bronx"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-bronx",
     title: "Wheat Pasting in the Bronx: The Borough That Invented the Poster Wall",
     titleHighlight: "Bronx",
