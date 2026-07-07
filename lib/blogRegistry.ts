@@ -121,6 +121,44 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "mural-advertising",
+    title: "Mural Advertising: What a Hand-Painted Wall Does That Paper Can't",
+    titleHighlight: "Mural Advertising",
+    metaTitle: "Mural Advertising | Wallscapes & Hand-Painted Walls for Business",
+    metaDescription:
+      "Mural advertising explained by a crew that runs both paint and paper — what wallscapes and hand-painted walls cost, what they do that printed media can't, and when to combine a mural with a paste campaign.",
+    excerpt:
+      "Mural advertising is the oldest format on the street making the loudest comeback in it. It costs more per wall than paper and earns more per wall than anything else — months of dwell time, a photo backdrop the neighborhood adopts, and an install that is itself content.",
+    silo: "strategy-roi",
+    publishedAt: "2026-07-06",
+    updatedAt: "2026-07-06",
+    heroImage: "/artists/steven-sued/steven-sued-mural-boo.webp",
+    heroAlt: "Hand-painted street-facing mural by Steven Sued on a brick building corner",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["murals", "mural-advertising", "wallscapes", "hand-painted", "strategy", "steven-sued"],
+    wordCount: 830,
+    faqs: [
+      {
+        q: "What is mural advertising?",
+        a: "Brand messaging delivered as hand-painted wall art — the modern descendant of the hand-painted billboard. Also called wallscapes or painted-wall advertising. It earns the longest dwell time of any street format, gets photographed and shared, and works one location for months or years instead of weeks.",
+      },
+      {
+        q: "How much does mural advertising cost?",
+        a: "Commissioned interior accent walls start in the low four figures; large exterior walls and high-detail work scale from there. A mural costs more per wall than a paste campaign but amortizes over months or years of continuous presence with no media renewal — for a business with a physical location, it behaves more like a renovation than an ad buy.",
+      },
+      {
+        q: "What's the difference between a wallscape and a mural?",
+        a: "Vocabulary more than craft. 'Wallscape' and 'hand-painted billboard' are the industry's names for the large-format, brand-forward commercial end; 'mural' leans art-forward. Same skill set underneath: an artist, a wall, owner authorization, and paint. We scope and manage both.",
+      },
+      {
+        q: "Should a brand choose a mural or a wheat paste campaign?",
+        a: "Depends on the job. Launching city-wide next month is a paste campaign — reach and speed across many walls. Anchoring a flagship, restaurant, or office is paint — permanence and placemaking on one wall. The strongest plays combine them: a mural at the location, paste amplification in the neighborhoods around it.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-vs-billboards", "guerrilla-marketing-for-business", "wheat-pasting-campaign"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-seattle",
     title: "Wheat Pasting in Seattle: A FIFA World Cup Campaign in the Rain",
     titleHighlight: "Seattle",

@@ -103,6 +103,18 @@ const FAQS = [
     q: "Do I own the finished mural?",
     a: "Yes — the commissioned mural on your wall is yours. Specific usage and reproduction rights (for example, using the artwork in your marketing) are spelled out in the project agreement so there are no surprises. We handle that paperwork so you don't have to.",
   },
+  {
+    q: "What is mural advertising?",
+    a: "Mural advertising is brand messaging delivered as hand-painted wall art instead of printed media — the modern descendant of the hand-painted billboard. It earns longer dwell time than any printed format, gets photographed and shared, and reads as a contribution to the street rather than an interruption of it. We run both paint and paper, so a brand can pick the right tool per goal.",
+  },
+  {
+    q: "Do you paint wallscapes and hand-painted billboards?",
+    a: "Yes. Wallscape, hand-painted billboard, and painted-wall advertising are all industry names for the large-format commercial end of the same craft. We scope the wall, handle owner authorization and permits where required, and manage the paint crew — whether the brief is a brand-forward wallscape or an art-forward mural.",
+  },
+  {
+    q: "Should my business commission a mural or run a wheat paste campaign?",
+    a: "Different jobs. A mural is permanence and placemaking — one wall, working for months or years, anchoring a location. Wheat paste is reach and speed — many walls across a city for weeks, built for launches. The strongest brand plays often combine them: a mural anchor at the flagship, paste amplification across the neighborhoods around it.",
+  },
 ] as const;
 
 const STEVEN_WORK = [
