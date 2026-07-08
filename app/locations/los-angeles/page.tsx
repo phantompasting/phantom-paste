@@ -93,6 +93,7 @@ const data: CityPageData = {
     { q: "How much does an LA wheat pasting campaign cost?", a: "Single-neighborhood test: $3,500-$6,500 for 80-120 posters. Four-neighborhood LA-only activation: $11K-$18K. LA flagship with paste + snipes + chalk: $18K-$35K. Scaffold + wall combos for fashion-week or awards-season runs: $28K-$65K." },
     { q: "How long do wheat paste posters last in Los Angeles?", a: "6–10 weeks on standard walls — the longest poster lifespan of any major US market. LA's dry climate and mild temperatures keep paper from deteriorating. Shaded brick on Melrose and Fairfax holds 12+ weeks. Summer heat can shorten to 4–6 weeks, but shade and PVA-reinforced paste mitigates it." },
     { q: "Can you handle California statewide rollouts from LA?", a: "Yes. LA + SF + San Diego + Sacramento + Oakland + San Jose is a natural California statewide configuration — same crew rotation handles all six markets on coordinated rollouts. Common: LA + SF on a single launch week." },
+    { q: "Do you offer mural advertising in Silver Lake and Echo Park?", a: "Yes — commissioned, hand-painted murals through our managed mural service. LA's eastside has treated walls as canvases for fifty years, and the Sunset corridor through Silver Lake and Echo Park is where a painted wall becomes a neighborhood landmark. We run murals and wheat paste in the same corridors, so a mural anchor can launch with paste amplification around it." },
   ],
   spotlight: {
     eyebrow: "LA Case Study",

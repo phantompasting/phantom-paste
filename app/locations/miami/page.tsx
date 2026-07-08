@@ -85,6 +85,7 @@ const data: CityPageData = {
     { q: "How much does a Miami wheat pasting campaign cost?", a: "Single-neighborhood test: $3,500-$5,500 for 60-90 posters. Full-city activation across Wynwood + South Beach + Brickell + Design District: $15K-$25K. Art Basel week saturation (early December) runs $28K-$55K." },
     { q: "When is the best time to run Miami campaigns?", a: "Year-round event density. Art Basel (early December) is the highest-attention window — book 8-10 weeks ahead. Miami Music Week (March), Ultra Music Festival (March), and Super Bowl/Formula 1 windows drive secondary saturation peaks. Hurricane season (June-November) requires risk planning." },
     { q: "Can you handle Florida statewide rollouts from Miami?", a: "Yes. Miami + Tampa + Orlando + Jacksonville + Ft. Lauderdale + St. Petersburg is a natural Florida statewide configuration — same crew rotation handles all six markets on coordinated rollouts." },
+    { q: "Do you offer mural advertising in Wynwood?", a: "Yes — commissioned, hand-painted murals through our managed mural service: we match your business to a vetted artist, you approve the concept, and we handle the contract, prep, and payment. Wynwood is the country's most mural-literate market, and we pair painted anchors there with wheat paste amplification through the surrounding corridors." },
   ],
   // Service schema base — CityPageTemplate enriches with @type, provider,
   // areaServed, and offers. Field stays named `localBusiness` for type
