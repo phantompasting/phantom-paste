@@ -20,7 +20,8 @@ export default function Post() {
     <>
       <p style={{ fontStyle: "italic", color: "rgba(0,0,0,0.6)", marginBottom: "1.5em" }}>
         Written from the crew that runs both paint and paper. Murals are our
-        managed service — a vetted artist, one contract, one point of contact —
+        managed service — <a href="/services/art-murals">art murals for
+        business</a>, with a vetted artist, one contract, one point of contact —
         led by our featured artist,{" "}
         <a href="/artists/steven-sued">Steven Sued</a>. This is how we help
         brands decide when a wall should be painted instead of pasted.

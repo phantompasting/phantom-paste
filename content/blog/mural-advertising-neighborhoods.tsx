@@ -116,9 +116,11 @@ export default function Post() {
 
       <h2>How to Enter These Markets</h2>
       <p>
-        Same managed process everywhere: you bring the space and the brand, we
-        match you to an artist whose style fits, you approve the concept, and
-        we run the contract, prep, scheduling, and payment. In markets where we
+        Same managed process everywhere — our{" "}
+        <a href="/services/art-murals">art murals for business</a> service: you
+        bring the space and the brand, we match you to an artist whose style
+        fits, you approve the concept, and we run the contract, prep,
+        scheduling, and payment. In markets where we
         also run paste — four of these six — the combined play is available
         from day one: a commissioned mural as the anchor, wheat paste
         amplification through the surrounding blocks timed to your launch. One

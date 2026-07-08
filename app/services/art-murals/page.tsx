@@ -80,6 +80,10 @@ const STEPS = [
 
 const FAQS = [
   {
+    q: "What are art murals for business?",
+    a: "Original, hand-painted artwork commissioned for a commercial space — a restaurant dining room, office, retail wall, gym, or storefront exterior. Unlike decor you buy off a shelf, an art mural for business is created for your wall, your brand, and your customers, and it works every day as atmosphere, photo backdrop, and landmark. Phantom Pasting manages the entire commission from artist match to final brushstroke.",
+  },
+  {
     q: "What is Phantom Pasting's art mural service?",
     a: "It's a fully managed way for businesses to get original, hand-painted murals on their walls. Phantom Pasting connects you with a vetted mural artist, then handles every business detail — scope, contract, scheduling, prep, and payment. You get original art; the artist focuses on creating it; we run the project.",
   },
@@ -304,7 +308,7 @@ export default function ArtMuralsPage() {
                   ART ON<br /><ShinyGoldText>YOUR WALLS.</ShinyGoldText>
                 </h1>
                 <p className="font-light leading-relaxed mt-8 mb-10" style={{ fontSize: "clamp(17px, 1.6vw, 19px)", color: "rgba(0,0,0,0.5)", maxWidth: "480px" }}>
-                  Original, hand-painted murals for your business — interior or exterior. We match you with a vetted artist and manage the whole commission. You get the art; we handle the business.
+                  Original, hand-painted art murals for business spaces — interior or exterior. We match you with a vetted artist and manage the whole commission. You get the art; we handle the business.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/contact" className="hero-cta-primary relative inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-8 py-4 rounded-full overflow-hidden"
