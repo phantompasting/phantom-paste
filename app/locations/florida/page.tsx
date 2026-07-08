@@ -123,6 +123,7 @@ const data: CityPageData = {
     { q: "How does Florida hurricane season affect campaigns?", a: "Hurricane season (June-November) carries wash-off + damage risk. We use PVA-reinforced paste for FL installs that holds 6-8 weeks even through storm windows. October-May is the reliable window for budget-priced campaigns; Art Basel (early December) is the year's highest-volume event." },
     { q: "Can you handle Art Basel week saturation in Miami?", a: "Yes — it's a specialty. Art Basel (early December) drives Wynwood + Design District + South Beach foot traffic 8-10x over baseline. Saturation campaigns timed to Art Basel + Miami Music Week (March) book 8-10 weeks ahead." },
     { q: "Do you offer wheatpaste advertising in Florida?", a: "Yes — wheatpaste advertising, wheat paste posting, wild posting, and flyposting are all names for the same service: paper posters installed on owner-authorized walls. We run it across Miami, Tampa, and Orlando with the same crews and the same pricing, whichever term your brief uses." },
+    { q: "Do you offer mural advertising in St. Petersburg?", a: "Yes — commissioned murals through our managed service, and St. Pete is one of the fastest-rising mural markets in the country: a decade of wall growth along Central Avenue, an annual mural festival, and commission costs still well below Miami's. Our featured artist roster is Florida-based, making St. Pete home-state service area." },
   ],
   spotlight: {
     eyebrow: "Statewide Capability",
