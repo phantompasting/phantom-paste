@@ -29,6 +29,16 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Werner Bronkhorst "Come and See My Big Balls" — Melrose, Los Angeles ──
+  "werner-bronkhorst-big-balls-chalk-stencil-melrose-avenue-los-angeles.webp": {
+    title: "Werner Bronkhorst Sidewalk Stencil — Melrose Avenue, LA",
+    caption: "Come and See My Big Balls green chalk-spray sidewalk stencil for artist Werner Bronkhorst's 8175 Melrose Avenue show, on Melrose at night — by Phantom Pasting",
+  },
+  "werner-bronkhorst-big-balls-chalk-stencil-north-highland-los-angeles.webp": {
+    title: "Werner Bronkhorst Sidewalk Stencil — North Highland, LA",
+    caption: "Come and See My Big Balls green chalk-spray sidewalk stencil for artist Werner Bronkhorst on North Highland Avenue in Los Angeles — by Phantom Pasting",
+  },
+
   // ── Luke Borchelt "The Water Town Tour" — Ocean City, MD ──
   "ocean-city-wheat-paste-luke-borchelt-water-town-tour-overpass.webp": {
     title: "Tour Poster Wall Under an Overpass — Ocean City, MD",
@@ -334,6 +344,10 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",
   ],
   "/services/chalk-spray-stencils": [
+    "werner-bronkhorst-big-balls-chalk-stencil-melrose-avenue-los-angeles.webp",
+    "werner-bronkhorst-big-balls-chalk-stencil-north-highland-los-angeles.webp",
+    "luke-borchelt-water-town-chalk-stencil-sidewalk-nashville.webp",
+    "luke-borchelt-water-town-chalk-stencil-trash-can-nashville.webp",
     "bedstuy-stencil.webp",
     "black-pearl-la-chalk-spray-stencil-sidewalk.webp",
     "black-pearl-la-stencil-template-grass.webp",
