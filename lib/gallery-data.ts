@@ -9,6 +9,12 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
+  // ── Werner Bronkhorst "Come and See My Big Balls" — Melrose, Los Angeles (latest job) ──
+  // Gallery-show teaser for the artist's July 9–12 exhibition at 8175 Melrose Ave:
+  // green chalk-spray sidewalk stencils across Melrose + North Highland.
+  { src: "/gallery/werner-bronkhorst-big-balls-chalk-stencil-melrose-avenue-los-angeles.webp",  label: "Werner Bronkhorst — Melrose Stencil",  alt: "Come and See My Big Balls green chalk-spray sidewalk stencil for artist Werner Bronkhorst's 8175 Melrose Avenue show, on Melrose at night", tag: "Stencil" },
+  { src: "/gallery/werner-bronkhorst-big-balls-chalk-stencil-north-highland-los-angeles.webp",  label: "Werner Bronkhorst — Highland Stencil", alt: "Come and See My Big Balls green chalk-spray sidewalk stencil for artist Werner Bronkhorst on North Highland Avenue in Los Angeles",         tag: "Stencil" },
+
   // ── Luke Borchelt "The Water Town Tour" — Ocean City, MD (latest job) ──
   // Tour-poster wheat-paste run along Coastal Highway underpasses, July 1.
   { src: "/gallery/ocean-city-wheat-paste-luke-borchelt-water-town-tour-overpass.webp", label: "Luke Borchelt — Tour Dates",   alt: "Grids of Luke Borchelt Water Town Tour posters wheat-pasted on a concrete overpass wall below a Speed Limit 35 sign at night in Ocean City, Maryland", tag: "Wheat Paste" },

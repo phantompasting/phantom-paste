@@ -105,8 +105,8 @@ const FAQS = [
 ] as const;
 
 /* Real campaign proof — chalk-spray stencil placements we've run.
-   Luke Borchelt's Nashville run leads (latest campaign). More stencil shots
-   live on the main /gallery page. */
+   Werner Bronkhorst's Melrose show teaser + Luke Borchelt's Nashville run
+   (latest campaigns). More stencil shots live on the main /gallery page. */
 const SHOTS = [
   {
     src: "/gallery/luke-borchelt-water-town-chalk-stencil-sidewalk-nashville.webp",
@@ -119,6 +119,18 @@ const SHOTS = [
     client: "Luke Borchelt",
     meta: "Sidewalk stencil · Nashville",
     alt: "Water Town by Luke Borchelt chalk-spray sidewalk stencil beside a downtown Nashville trash can",
+  },
+  {
+    src: "/gallery/werner-bronkhorst-big-balls-chalk-stencil-melrose-avenue-los-angeles.webp",
+    client: "Werner Bronkhorst",
+    meta: "Sidewalk stencil · Melrose, LA",
+    alt: "Come and See My Big Balls green chalk-spray sidewalk stencil for artist Werner Bronkhorst's 8175 Melrose Avenue show, on Melrose at night",
+  },
+  {
+    src: "/gallery/werner-bronkhorst-big-balls-chalk-stencil-north-highland-los-angeles.webp",
+    client: "Werner Bronkhorst",
+    meta: "Sidewalk stencil · Highland, LA",
+    alt: "Come and See My Big Balls green chalk-spray sidewalk stencil for artist Werner Bronkhorst on North Highland Avenue in Los Angeles",
   },
 ] as const;
 
@@ -424,10 +436,46 @@ export default function ChalkSprayStencilsPage() {
               STENCILS IN THE <ShinyGoldText>WILD.</ShinyGoldText>
             </h2>
             <p className="font-light mb-10 m-0" style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}>
-              Real chalk-spray sidewalk stencils from a recent music-release run for Luke Borchelt
-              across downtown Nashville. Every placement is photographed, timestamped, and geo-tagged
-              so you see exactly what ran where.
+              Real chalk-spray sidewalk stencils from recent runs — a music-release campaign for
+              Luke Borchelt across downtown Nashville, and a gallery-show teaser for artist Werner
+              Bronkhorst along Melrose in Los Angeles — including the installs themselves, on
+              camera. Every placement is photographed, timestamped, and geo-tagged so you see
+              exactly what ran where.
             </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-4 mx-auto" style={{ maxWidth: "856px" }}>
+              <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "1 / 1", border: "1px solid rgba(255,255,255,0.6)", boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)" }}>
+                <video
+                  className="absolute inset-0 w-full h-full"
+                  style={{ objectFit: "cover" }}
+                  src="/gallery/luke-borchelt-water-town-chalk-stencil-install-nashville.mp4"
+                  poster="/gallery/luke-borchelt-water-town-chalk-stencil-install-nashville-poster.webp"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label="Chalk spray stencil install for Luke Borchelt's Water Town in downtown Nashville"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.32) 55%, transparent 100%)" }}>
+                  <div className="font-black uppercase leading-none" style={{ fontSize: "13px", letterSpacing: "-0.01em", color: "#FFF" }}>Luke Borchelt</div>
+                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase mt-1" style={{ color: "rgba(255,255,255,0.82)" }}>Live install · Nashville</div>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "1 / 1", border: "1px solid rgba(255,255,255,0.6)", boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)" }}>
+                <video
+                  className="absolute inset-0 w-full h-full"
+                  style={{ objectFit: "cover" }}
+                  src="/gallery/werner-bronkhorst-big-balls-chalk-stencil-install-melrose-los-angeles.mp4"
+                  poster="/gallery/werner-bronkhorst-big-balls-chalk-stencil-install-melrose-los-angeles-poster.webp"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label="Green chalk spray stencil install for Werner Bronkhorst's Come and See My Big Balls show on Melrose Avenue in Los Angeles"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.32) 55%, transparent 100%)" }}>
+                  <div className="font-black uppercase leading-none" style={{ fontSize: "13px", letterSpacing: "-0.01em", color: "#FFF" }}>Werner Bronkhorst</div>
+                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase mt-1" style={{ color: "rgba(255,255,255,0.82)" }}>Live install · Melrose, LA</div>
+                </div>
+              </div>
+            </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               {SHOTS.map((shot) => (
                 <div key={shot.src} className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "3 / 4", border: "1px solid rgba(255,255,255,0.6)", boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)" }}>
