@@ -591,6 +591,164 @@ export default function WheatPastingPage() {
           </div>
         </section>
 
+        {/* ── Poster sizes — 24×36 vs 48×72 side-by-side ────────── */}
+        <section id="poster-sizes" className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+          <div className="max-w-[1200px] mx-auto">
+            <span
+              className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+              style={{ color: "rgba(0,0,0,0.55)" }}
+            >
+              <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+              Poster Sizes
+            </span>
+            <h2
+              className="font-black uppercase m-0 mb-6 leading-[0.9]"
+              style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}
+            >
+              24×36 STANDARD VS<br /><ShinyGoldText>48×72 JUMBO</ShinyGoldText>
+            </h2>
+            <p
+              className="font-light mb-10 m-0"
+              style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}
+            >
+              Both formats install the same way — the difference is presence. A 48″×72″ jumbo
+              is twice the width and twice the height of a standard 24″×36″ poster, putting
+              four times the printed area on the wall.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+              {[
+                {
+                  src: "/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp",
+                  alt: "Wall of standard 24x36 inch wheat paste posters for Biodance in Los Angeles — repeated poster grid for neighborhood coverage",
+                  size: "24″×36″",
+                  tier: "Standard",
+                  caption:
+                    "The workhorse format — repeated across a wall in grids for high-frequency neighborhood coverage.",
+                },
+                {
+                  src: "/gallery/arsenal-boxing-48x72-wheat-paste-posters-hollywood-los-angeles.webp",
+                  alt: "Pair of 48x72 inch jumbo wheat paste posters for Arsenal Boxing School & Gym in Hollywood, Los Angeles",
+                  size: "48″×72″",
+                  tier: "Jumbo",
+                  caption:
+                    "Four times the printed area of a standard poster — one or two sheets dominate an entire wall.",
+                },
+              ].map(({ src, alt, size, tier, caption }) => (
+                <figure key={size} className="m-0 flex flex-col">
+                  <div
+                    className="relative rounded-2xl overflow-hidden aspect-[4/3]"
+                    style={{
+                      boxShadow: "0 16px 48px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.10)",
+                    }}
+                  >
+                    <Image
+                      src={src}
+                      alt={alt}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      loading="lazy"
+                    />
+                    <div
+                      className="absolute top-4 left-4 rounded-xl px-4 py-3"
+                      style={{
+                        background: "rgba(255,254,248,0.92)",
+                        backdropFilter: "blur(10px)",
+                        WebkitBackdropFilter: "blur(10px)",
+                        border: "1px solid rgba(255,255,255,0.75)",
+                        boxShadow: "0 4px 20px rgba(0,0,0,0.09)",
+                      }}
+                    >
+                      <div
+                        className="font-black uppercase leading-none"
+                        style={{ fontSize: "20px", letterSpacing: "-0.04em", color: ACCENT }}
+                      >
+                        {size}
+                      </div>
+                      <div
+                        className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1"
+                        style={{ color: "rgba(0,0,0,0.55)" }}
+                      >
+                        {tier}
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption
+                    className="font-light mt-4"
+                    style={{ color: "rgba(0,0,0,0.6)", fontSize: "14px", maxWidth: "520px" }}
+                  >
+                    {caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            {/* To-scale footprint diagram */}
+            <div
+              className="mt-10 rounded-2xl p-6 md:p-8 flex flex-wrap items-end gap-8"
+              style={{
+                background: "rgba(255,255,255,0.35)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1px solid rgba(255,255,255,0.6)",
+              }}
+            >
+              <div className="flex items-end gap-6" aria-hidden>
+                <div className="flex flex-col items-center gap-2">
+                  <div
+                    className="rounded-md"
+                    style={{
+                      width: "56px",
+                      height: "84px",
+                      background: "rgba(212,160,16,0.18)",
+                      border: `1.5px solid ${ACCENT}`,
+                    }}
+                  />
+                  <span
+                    className="font-mono text-[9px] tracking-[0.2em] uppercase"
+                    style={{ color: "rgba(0,0,0,0.55)" }}
+                  >
+                    24″×36″
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div
+                    className="rounded-md"
+                    style={{
+                      width: "112px",
+                      height: "168px",
+                      background: "rgba(212,160,16,0.32)",
+                      border: `1.5px solid ${ACCENT}`,
+                    }}
+                  />
+                  <span
+                    className="font-mono text-[9px] tracking-[0.2em] uppercase"
+                    style={{ color: "rgba(0,0,0,0.55)" }}
+                  >
+                    48″×72″
+                  </span>
+                </div>
+              </div>
+              <div style={{ maxWidth: "420px" }}>
+                <div
+                  className="font-black uppercase leading-tight mb-2"
+                  style={{ fontSize: "clamp(15px, 1.6vw, 19px)", letterSpacing: "-0.02em" }}
+                >
+                  Shown to scale — 4× the surface area
+                </div>
+                <p
+                  className="font-light m-0"
+                  style={{ color: "rgba(0,0,0,0.6)", fontSize: "14px" }}
+                >
+                  A 48″×72″ jumbo stands as tall as a person. Run 24″×36″ grids for frequency,
+                  or go jumbo when one wall needs to own the whole street.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── How it works (5 steps) ────────────────────────────── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto">

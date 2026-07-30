@@ -9,7 +9,16 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Werner Bronkhorst "Come and See My Big Balls" — Melrose, Los Angeles (latest job) ──
+  // ── Arsenal Boxing "Step Into The Ring" — Hollywood, Los Angeles (latest job) ──
+  // Large-format 48"x72" wheat-paste posters for Arsenal Boxing School & Gym
+  // (5750 Hollywood Blvd): membership poster + "Eat / Train / Live Like a
+  // Champion" info poster, pasted as pairs across Hollywood walls, July 25.
+  { src: "/gallery/arsenal-boxing-48x72-wheat-paste-posters-hollywood-los-angeles.webp",   label: "Arsenal Boxing — 48″×72″ Poster Pair", alt: "Arsenal Boxing School & Gym 48x72 inch wheat paste posters — Step Into The Ring membership poster beside an Eat Like a Champion info poster — in Hollywood, Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/arsenal-boxing-wheat-paste-posters-plywood-wall-hollywood.webp",        label: "Arsenal Boxing — Plywood Wall",                       alt: "Arsenal Boxing large-format wheat paste posters on a plywood construction barrier beside graffiti in Hollywood, Los Angeles",                                            tag: "Wheat Paste" },
+  { src: "/gallery/arsenal-boxing-wheat-paste-poster-wall-street-view-los-angeles.webp",   label: "Arsenal Boxing — Street View",                        alt: "Street view of Arsenal Boxing 48x72 inch wheat paste posters on a roadside wall below an ivy-covered embankment in Los Angeles",                                         tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/arsenal-boxing-step-into-the-ring-poster-scaffold-hollywood.webp",      label: "Arsenal Boxing — Scaffold Install",                   alt: "Arsenal Boxing Step Into The Ring wheat paste poster under red scaffolding in Hollywood, Los Angeles",                                                                    tag: "Wheat Paste", aspect: "portrait" },
+
+  // ── Werner Bronkhorst "Come and See My Big Balls" — Melrose, Los Angeles ──
   // Gallery-show teaser for the artist's July 9–12 exhibition at 8175 Melrose Ave:
   // green chalk-spray sidewalk stencils across Melrose + North Highland.
   { src: "/gallery/werner-bronkhorst-big-balls-chalk-stencil-melrose-avenue-los-angeles.webp",  label: "Werner Bronkhorst — Melrose Stencil",  alt: "Come and See My Big Balls green chalk-spray sidewalk stencil for artist Werner Bronkhorst's 8175 Melrose Avenue show, on Melrose at night", tag: "Stencil" },
