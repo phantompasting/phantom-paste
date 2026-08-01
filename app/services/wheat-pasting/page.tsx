@@ -388,8 +388,8 @@ export default function WheatPastingPage() {
                       so Next.js doesn't preload this ~300KB hero to mobile users
                       who never see it. */}
                   <Image
-                    src="/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp"
-                    alt="Momentous Trend Proof wheat paste poster wall campaign Los Angeles"
+                    src="/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp"
+                    alt="FashionPass wheat paste poster wall campaign on Melrose Avenue, Los Angeles"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 1024px) 0vw, 40vw"

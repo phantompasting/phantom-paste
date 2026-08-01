@@ -50,7 +50,7 @@ const data: CityPageData = {
     { name: "Museum District", desc: "Main Street, Bissonnet. Museum + walkable arts corridor between Rice + downtown." },
   ],
   heroImage1: { src: "/gallery/wheat-paste-wall-location-los-angeles-wide.webp", alt: "Wheat paste wall location wide shot" },
-  heroImage2: { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp", alt: "Momentous wheat paste posters close-up" },
+  heroImage2: { src: "/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp", alt: "FashionPass wheat paste campaign poster wall" },
   lastUpdated: "2026-04-25",
   spotlight: {
     eyebrow: "Largest TX Metro",

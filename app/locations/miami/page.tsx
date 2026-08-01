@@ -60,7 +60,7 @@ const data: CityPageData = {
     { stat: "Year-Round", label: "Event Density" },
     { stat: "Art Basel", label: "December Anchor" },
   ],
-  heroImage1: { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp", alt: "Momentous wheat paste wall corner installation" },
+  heroImage1: { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", alt: "FashionPass wheat paste poster wall on Melrose Avenue" },
   heroImage2: { src: "/gallery/black-pearl-la-chalk-spray-stencil-sidewalk.webp", alt: "Black Pearl LA chalk spray stencil sidewalk activation" },
   lastUpdated: "2026-04-25",
   pricingTiers: [

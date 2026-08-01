@@ -60,7 +60,7 @@ const data: CityPageData = {
     { stat: "CMA Fest", label: "June Anchor" },
     { stat: "6", label: "Districts" },
   ],
-  heroImage1: { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp", alt: "Momentous wheat paste wall corner installation" },
+  heroImage1: { src: "/gallery/luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp", alt: "Luke Borchelt Water Town sticker snipe by Bridgestone Arena Nashville" },
   heroImage2: { src: "/gallery/wheat-paste-wall-blank-before-install-los-angeles.webp", alt: "Blank wall prepped before wheat paste install" },
   lastUpdated: "2026-04-25",
   spotlight: {

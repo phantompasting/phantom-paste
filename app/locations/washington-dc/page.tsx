@@ -50,7 +50,7 @@ const data: CityPageData = {
     { name: "Georgetown", desc: "M Street + Wisconsin Avenue. Historic shopping core + tourism foot traffic anchor." },
     { name: "Dupont Circle", desc: "Connecticut Avenue NW corridor. Downtown affluent retail + diplomatic-corps density." },
   ],
-  heroImage1: { src: "/gallery/momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp", alt: "Momentous Trend Proof wheat paste poster detail" },
+  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-wall-closeup.webp", alt: "Don't Fall Off wheat paste poster wall close-up" },
   heroImage2: { src: "/gallery/fifa-world-cup-poster-wall-angle-view.webp", alt: "FIFA World Cup wheat paste poster wall angle view" },
   lastUpdated: "2026-04-25",
   spotlight: {

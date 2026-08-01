@@ -77,17 +77,16 @@ export const GALLERY_IMGS = [
   { src: "/gallery/custom-stencil-template-cut-out-design.webp",                label: "Custom Stencil Template",                alt: "Custom stencil template cut-out design for chalk spray guerrilla marketing campaigns",                  tag: "Stencil"      },
   { src: "/gallery/dont-fall-off-wheat-paste-building-bike-rack.webp",          label: "Don't Fall Off — Building Perspective",  alt: "Don't Fall Off wheat paste campaign building wall installation street perspective with bike rack",       tag: "Wheat Paste"  },
 
-  // ── Momentous "Trend Proof" — Wheat Paste Wall, Los Angeles ─────────────
-  // All `aspect: "portrait"` — these were shot vertical and need 3:4 thumbnails.
-  // The default rotating thumbnail aspect (4:3 landscape) center-crops portrait
-  // photos to a tiny middle band that reads as wrong orientation.
-  { src: "/gallery/momentous-wheat-paste-poster-wall-los-angeles-overhead.webp",        label: "Momentous — Overhead Wall",             alt: "Momentous Trend Proof wheat paste poster wall — overhead view of urban street corner",                          tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",     label: "Momentous — Street Corner",             alt: "Momentous Trend Proof wheat paste poster wall — street corner guerrilla marketing campaign",                    tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp",            label: "Momentous — Poster Close-Up",           alt: "Momentous Trend Proof wheat paste posters — close-up detail of finished street postering install",              tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-wall-corner-los-angeles.webp",                 label: "Momentous — Corner View",               alt: "Momentous wheat paste poster wall — corner perspective of finished street campaign",                            tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-billboard-wall-palm-trees-los-angeles.webp",   label: "Momentous — Wide Street View",          alt: "Momentous wheat paste campaign wall with palm trees — wide street view of installed poster grid",                tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp",          label: "Momentous — Campaign Wall",             alt: "Momentous wheat paste campaign wall — wide street view of completed poster install",                            tag: "Wheat Paste", aspect: "portrait" },
-  { src: "/gallery/momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp",   label: "Momentous — Poster Detail",             alt: "Momentous Trend Proof wheat paste poster — close-up detail of printed surface and adhesion",                    tag: "Wheat Paste", aspect: "portrait" },
+  // ── FIFA World Cup 26 — Pioneer Square, Seattle (install documentation) ──
+  // Vertical crew-at-work captures; `aspect: "portrait"` for 3:4 thumbnails.
+  { src: "/gallery/fifa-world-cup-wheat-paste-install-pioneer-square-seattle.webp",         label: "FIFA Seattle — Install",                alt: "Phantom Pasting installer brushing a FIFA World Cup 26 wheat paste poster smooth at Pioneer Square, Seattle",    tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/fifa-world-cup-poster-positioning-barricade-pioneer-square-seattle.webp", label: "FIFA Seattle — Positioning",           alt: "Installer positioning a FIFA World Cup 26 poster on a construction barricade at Pioneer Square, Seattle",        tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/wheat-paste-install-rain-pioneer-square-seattle.webp",                   label: "FIFA Seattle — Rain Install",           alt: "Phantom Pasting crew carrying FIFA World Cup posters through the rain at Pioneer Square, Seattle",               tag: "Wheat Paste", aspect: "portrait" },
+
+  // ── New York wheat paste walls — Brooklyn, Manhattan, Bronx ─────────────
+  { src: "/gallery/williamsburg-wheat-paste-poster-wall-brooklyn.webp",                     label: "Williamsburg — Poster Wall",            alt: "Wheat paste poster wall on a construction barricade along a Williamsburg street in Brooklyn, New York",          tag: "Wheat Paste" },
+  { src: "/gallery/lower-east-side-wheat-paste-poster-wall-bowery-dusk-nyc.webp",           label: "Lower East Side — Bowery at Dusk",      alt: "Wheat paste poster wall on the Bowery at dusk in the Lower East Side, New York City",                            tag: "Wheat Paste" },
+  { src: "/gallery/mott-haven-wheat-paste-posters-scaffolding-south-bronx.webp",            label: "Mott Haven — Scaffolding Posters",      alt: "Wheat paste posters installed under sidewalk scaffolding in Mott Haven, South Bronx, New York",                  tag: "Wheat Paste" },
 
   // ── Post-Campaign Cleanup — Wheat Paste Wall, Los Angeles ────────────────
   { src: "/gallery/wheat-paste-crew-power-washing-wall-los-angeles.webp",               label: "Post-Campaign — Power Washing",         alt: "Wheat paste crew power washing and cleaning wall after campaign removal Los Angeles",                           tag: "Wheat Paste", aspect: "portrait" },

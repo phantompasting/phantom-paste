@@ -49,7 +49,7 @@ const data: CityPageData = {
     { name: "Oak Cliff", desc: "Bishop, Tyler, Davis Street west of Bishop Arts. Emerging arts neighborhood + Latino cultural anchor." },
     { name: "Knox-Henderson", desc: "Knox Street + Henderson Avenue. Boutique retail + restaurant strip; affluent young-professional reach." },
   ],
-  heroImage1: { src: "/gallery/momentous-wheat-paste-campaign-wall-wide-los-angeles.webp", alt: "Momentous wheat paste campaign wall wide shot" },
+  heroImage1: { src: "/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp", alt: "Biodance We Are Making A Splash poster wall at The Grove, Los Angeles" },
   heroImage2: { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp", alt: "FIFA World Cup wheat paste posters close-up" },
   lastUpdated: "2026-04-25",
   spotlight: {

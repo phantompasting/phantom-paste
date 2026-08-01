@@ -49,7 +49,7 @@ const data: CityPageData = {
     { name: "North End", desc: "Hanover Street, Salem Street. Tourism + restaurant-district foot traffic anchor." },
     { name: "Seaport", desc: "Seaport Boulevard, Fan Pier. Tech-corporate workforce + new-build density." },
   ],
-  heroImage1: { src: "/gallery/momentous-wheat-paste-posters-close-up-los-angeles.webp", alt: "Momentous wheat paste posters close-up" },
+  heroImage1: { src: "/gallery/fifa-world-cup-wheat-paste-posters-closeup.webp", alt: "FIFA World Cup wheat paste posters close-up" },
   heroImage2: { src: "/gallery/street-pole-sticker-campaign-urban-advertising.webp", alt: "Street pole sticker campaign urban advertising" },
   lastUpdated: "2026-04-25",
   spotlight: {

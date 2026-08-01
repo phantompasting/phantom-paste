@@ -58,7 +58,7 @@ const data: CityPageData = {
     { name: "Fort Collins", desc: "Old Town Fort Collins, downtown CSU corridor. CSU drives 33K+ undergrad foot traffic during academic year." },
     { name: "Greeley", desc: "Downtown Greeley, UNC campus zone. Northern CO market often skipped by national agencies." },
   ],
-  heroImage1: { src: "/gallery/momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp", alt: "Momentous Trend Proof wheat paste poster detail" },
+  heroImage1: { src: "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp", alt: "FIFA World Cup wheat paste poster wall wide view" },
   heroImage2: { src: "/gallery/wheat-paste-wall-location-street-corner-los-angeles.webp", alt: "Wheat paste wall street corner location" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",

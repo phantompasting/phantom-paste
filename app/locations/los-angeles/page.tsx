@@ -77,7 +77,7 @@ const data: CityPageData = {
     { stat: "10+ yrs", label: "Active in LA" },
     { stat: "100%", label: "Documented" },
   ],
-  heroImage1: { src: "/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp", alt: "Momentous Trend Proof wheat paste poster wall street corner Los Angeles" },
+  heroImage1: { src: "/gallery/arsenal-boxing-48x72-wheat-paste-posters-hollywood-los-angeles.webp", alt: "Arsenal Boxing 48x72 inch wheat paste posters in Hollywood, Los Angeles" },
   heroImage2: { src: "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp", alt: "Biodance “We Are Making A Splash” wheat paste poster wall in Los Angeles" },
   lastUpdated: "2026-06-18",
   pricingTiers: [
