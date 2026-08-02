@@ -257,20 +257,6 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     caption: "Phantom Pasting crew carrying FIFA World Cup posters through the rain at Pioneer Square, Seattle",
   },
 
-  // ── New York wheat paste walls — Brooklyn, Manhattan, Bronx ──────────
-  "williamsburg-wheat-paste-poster-wall-brooklyn.webp": {
-    title: "Williamsburg Wheat Paste Poster Wall — Brooklyn, NY",
-    caption: "Wheat paste poster wall on a construction barricade along a Williamsburg street in Brooklyn, New York — by Phantom Pasting",
-  },
-  "lower-east-side-wheat-paste-poster-wall-bowery-dusk-nyc.webp": {
-    title: "Lower East Side Wheat Paste Wall — Bowery at Dusk, NYC",
-    caption: "Wheat paste poster wall on the Bowery at dusk in the Lower East Side, New York City — by Phantom Pasting",
-  },
-  "mott-haven-wheat-paste-posters-scaffolding-south-bronx.webp": {
-    title: "Mott Haven Wheat Paste Posters — South Bronx, NY",
-    caption: "Wheat paste posters installed under sidewalk scaffolding in Mott Haven, South Bronx, New York — by Phantom Pasting",
-  },
-
   // ── Vaura Pilates chalk stencil campaign — Austin ─────────────────────
   "vaura-pilates-chalk-spray-stencil-sidewalk-street-view-austin.webp": {
     title: "Vaura Pilates chalk spray stencil — Austin sidewalk street view",

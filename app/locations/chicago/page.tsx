@@ -66,7 +66,7 @@ const data: CityPageData = {
     { stat: "Lolla + Pitchfork", label: "Festival Windows" },
     { stat: "Game-Day", label: "Saturation Specialty" },
   ],
-  heroImage1: { src: "/gallery/williamsburg-wheat-paste-poster-wall-brooklyn.webp", alt: "Williamsburg wheat paste poster wall Brooklyn" },
+  heroImage1: { src: "/gallery/dont-fall-off-wheat-paste-urban-wall-pink.webp", alt: "Don't Fall Off wheat paste posters on an urban wall" },
   heroImage2: { src: "/gallery/chalk-spray-stencil-sidewalk-guerrilla-marketing.webp", alt: "Chalk spray stencil sidewalk guerrilla marketing activation" },
   lastUpdated: "2026-05-04",
   // Pricing tiers — hoist Chicago cost answers above-fold so cost-intent
