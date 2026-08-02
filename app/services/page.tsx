@@ -256,8 +256,8 @@ export default function ServicesPage() {
                 <div className="absolute top-[2%] right-0 rounded-2xl overflow-hidden"
                   style={{ width: "44%", height: "40%", transform: "rotate(2deg)",
                     boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
-                  <Image src="/gallery/momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp"
-                    alt="Wheat pasting — Momentous Trend Proof poster wall on a Los Angeles street corner" fill style={{ objectFit: "cover" }}
+                  <Image src="/gallery/arsenal-boxing-48x72-wheat-paste-posters-hollywood-los-angeles.webp"
+                    alt="Wheat pasting — Arsenal Boxing 48x72 jumbo posters on a Hollywood wall, Los Angeles" fill style={{ objectFit: "cover" }}
                     sizes="22vw" priority />
                 </div>
                 <div className="absolute top-[4%] left-0 rounded-xl overflow-hidden"

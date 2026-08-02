@@ -66,7 +66,7 @@ const data: CityPageData = {
     { stat: "LA + SF", label: "Tier 1 Anchors" },
     { stat: "1 Brief", label: "Statewide Rollouts" },
   ],
-  heroImage1: { src: "/gallery/momentous-wheat-paste-billboard-wall-palm-trees-los-angeles.webp", alt: "Momentous wheat paste billboard wall with palm trees Los Angeles" },
+  heroImage1: { src: "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp", alt: "Biodance wheat paste poster wall with palm trees Los Angeles" },
   heroImage2: { src: "/gallery/fashionpass-wheat-paste-street-art-wall-la.webp", alt: "FashionPass wheat paste street art wall Los Angeles" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",

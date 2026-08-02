@@ -59,7 +59,7 @@ const data: CityPageData = {
     { name: "Reading", desc: "Downtown Reading, Penn Street corridor. Eastern PA market often skipped by national agencies." },
     { name: "Lancaster", desc: "Downtown Lancaster Arts District, North Queen Street. Walkable cultural core + F&M student spillover." },
   ],
-  heroImage1: { src: "/gallery/momentous-wheat-paste-poster-wall-los-angeles-overhead.webp", alt: "Momentous wheat paste poster wall overhead angle" },
+  heroImage1: { src: "/gallery/university-heights-wheat-paste-barricade-posters-bronx.webp", alt: "Wheat paste barricade posters in University Heights, Bronx" },
   heroImage2: { src: "/gallery/wheat-paste-crew-power-washing-wall-los-angeles.webp", alt: "Wheat paste crew power washing wall prep" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",

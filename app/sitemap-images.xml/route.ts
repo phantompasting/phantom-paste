@@ -225,34 +225,50 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     caption: "Incrediwear brand pole wrap guerrilla advertising campaign — nighttime installation by Phantom Pasting",
   },
 
-  // ── Momentous "Trend Proof" campaign — Los Angeles ───────────────────
-  "momentous-trend-proof-wheat-paste-poster-detail-los-angeles.webp": {
-    title: "Momentous Trend Proof wheat paste poster detail — Los Angeles",
-    caption: "Momentous Trend Proof wheat paste poster campaign — closeup detail, Los Angeles, Phantom Pasting",
+  // ── Arsenal Boxing "Step Into The Ring" 48x72 — Hollywood, Los Angeles ──
+  "arsenal-boxing-48x72-wheat-paste-posters-hollywood-los-angeles.webp": {
+    title: "Arsenal Boxing 48x72 Wheat Paste Posters — Hollywood, LA",
+    caption: "Pair of 48x72 inch jumbo wheat paste posters for Arsenal Boxing School & Gym in Hollywood, Los Angeles — by Phantom Pasting",
   },
-  "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp": {
-    title: "Momentous Trend Proof wheat paste wall — Los Angeles street view",
-    caption: "Momentous Trend Proof wheat paste poster wall at street level — Los Angeles campaign by Phantom Pasting",
+  "arsenal-boxing-wheat-paste-posters-plywood-wall-hollywood.webp": {
+    title: "Arsenal Boxing Wheat Paste Posters — Plywood Wall, Hollywood",
+    caption: "Arsenal Boxing large-format wheat paste posters on a plywood construction barrier in Hollywood, Los Angeles — by Phantom Pasting",
   },
-  "momentous-wheat-paste-billboard-wall-palm-trees-los-angeles.webp": {
-    title: "Momentous wheat paste billboard wall — Los Angeles palm trees",
-    caption: "Momentous brand billboard-scale wheat paste wall installation with palm trees — Los Angeles",
+  "arsenal-boxing-wheat-paste-poster-wall-street-view-los-angeles.webp": {
+    title: "Arsenal Boxing Wheat Paste Poster Wall — Street View, LA",
+    caption: "Street view of Arsenal Boxing 48x72 inch wheat paste posters on a roadside wall in Los Angeles — by Phantom Pasting",
   },
-  "momentous-wheat-paste-campaign-wall-wide-los-angeles.webp": {
-    title: "Momentous wheat paste campaign wall — wide shot Los Angeles",
-    caption: "Wide shot of Momentous wheat paste poster campaign wall — Los Angeles street advertising by Phantom Pasting",
+  "arsenal-boxing-step-into-the-ring-poster-scaffold-hollywood.webp": {
+    title: "Arsenal Boxing Step Into The Ring Poster — Hollywood",
+    caption: "Arsenal Boxing Step Into The Ring wheat paste poster under scaffolding in Hollywood, Los Angeles — by Phantom Pasting",
   },
-  "momentous-wheat-paste-poster-wall-los-angeles-overhead.webp": {
-    title: "Momentous wheat paste poster wall — overhead view Los Angeles",
-    caption: "Overhead perspective of Momentous wheat paste poster wall installation — Los Angeles",
+
+  // ── FIFA World Cup 26 install — Pioneer Square, Seattle ──────────────
+  "fifa-world-cup-wheat-paste-install-pioneer-square-seattle.webp": {
+    title: "FIFA World Cup Wheat Paste Install — Pioneer Square, Seattle",
+    caption: "Phantom Pasting installer brushing a FIFA World Cup 26 wheat paste poster smooth at Pioneer Square, Seattle",
   },
-  "momentous-wheat-paste-posters-close-up-los-angeles.webp": {
-    title: "Momentous wheat paste posters — closeup Los Angeles",
-    caption: "Closeup of Momentous wheat paste posters on Los Angeles wall — Phantom Pasting guerrilla campaign",
+  "fifa-world-cup-poster-positioning-barricade-pioneer-square-seattle.webp": {
+    title: "FIFA World Cup Poster Positioning — Pioneer Square, Seattle",
+    caption: "Installer positioning a FIFA World Cup 26 poster on a construction barricade at Pioneer Square, Seattle",
   },
-  "momentous-wheat-paste-wall-corner-los-angeles.webp": {
-    title: "Momentous wheat paste wall — corner installation Los Angeles",
-    caption: "Momentous brand wheat paste wall wrapping a street corner — Los Angeles campaign by Phantom Pasting",
+  "wheat-paste-install-rain-pioneer-square-seattle.webp": {
+    title: "Wheat Paste Rain Install — Pioneer Square, Seattle",
+    caption: "Phantom Pasting crew carrying FIFA World Cup posters through the rain at Pioneer Square, Seattle",
+  },
+
+  // ── New York wheat paste walls — Brooklyn, Manhattan, Bronx ──────────
+  "williamsburg-wheat-paste-poster-wall-brooklyn.webp": {
+    title: "Williamsburg Wheat Paste Poster Wall — Brooklyn, NY",
+    caption: "Wheat paste poster wall on a construction barricade along a Williamsburg street in Brooklyn, New York — by Phantom Pasting",
+  },
+  "lower-east-side-wheat-paste-poster-wall-bowery-dusk-nyc.webp": {
+    title: "Lower East Side Wheat Paste Wall — Bowery at Dusk, NYC",
+    caption: "Wheat paste poster wall on the Bowery at dusk in the Lower East Side, New York City — by Phantom Pasting",
+  },
+  "mott-haven-wheat-paste-posters-scaffolding-south-bronx.webp": {
+    title: "Mott Haven Wheat Paste Posters — South Bronx, NY",
+    caption: "Wheat paste posters installed under sidewalk scaffolding in Mott Haven, South Bronx, New York — by Phantom Pasting",
   },
 
   // ── Vaura Pilates chalk stencil campaign — Austin ─────────────────────
@@ -341,7 +357,6 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "dont-fall-off-wheat-paste-urban-wall-pink.webp",
     "dont-fall-off-wheat-paste-wall-closeup.webp",
     "fashionpass-wheat-paste-campaign-poster-wall.webp",
-    "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",
   ],
   "/services/chalk-spray-stencils": [
     "werner-bronkhorst-big-balls-chalk-stencil-melrose-avenue-los-angeles.webp",
@@ -378,7 +393,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
   "/locations/los-angeles": [
     "biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
     "biodance-glow-on-the-go-chalk-stencil-sidewalk-los-angeles.webp",
-    "momentous-trend-proof-wheat-paste-wall-los-angeles-street.webp",
+    "arsenal-boxing-48x72-wheat-paste-posters-hollywood-los-angeles.webp",
     "fashionpass-wheat-paste-street-postering-wall-los-angeles.webp",
     "dont-fall-off-wheat-paste-street-view-la.webp",
     "black-pearl-la-chalk-spray-stencil-sidewalk.webp",

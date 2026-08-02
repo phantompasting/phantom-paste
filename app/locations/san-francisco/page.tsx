@@ -50,7 +50,7 @@ const data: CityPageData = {
     { name: "North Beach", desc: "Columbus Avenue, Grant Avenue. Italian-heritage restaurant district + tourism foot traffic anchor." },
     { name: "Lower Haight", desc: "Haight Street between Pierce + Webster. Indie music + DIY arts scene density." },
   ],
-  heroImage1: { src: "/gallery/momentous-wheat-paste-poster-wall-los-angeles-overhead.webp", alt: "Momentous wheat paste poster wall overhead angle" },
+  heroImage1: { src: "/gallery/wheat-paste-poster-wall-sidewalk-pedestrians-los-angeles.webp", alt: "Wheat paste poster wall beside sidewalk pedestrians Los Angeles" },
   heroImage2: { src: "/gallery/dont-fall-off-wheat-paste-street-view-la.webp", alt: "Street view wheat paste poster installation" },
   lastUpdated: "2026-04-25",
   spotlight: {
