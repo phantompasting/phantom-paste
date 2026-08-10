@@ -81,7 +81,11 @@ export default function ContactForm() {
     // an env var or server route — that adds infra with zero security benefit.
     // See: https://docs.web3forms.com/getting-started/security
     data.append("access_key", "d830efb8-46f4-4275-9086-2319a36134d0");
-    data.append("subject", "New Phantom Pasting Quote Request");
+    // Unique subject per lead — Gmail threads notifications by subject, so a
+    // static subject merges unrelated leads into one conversation.
+    const leadName = [data.get("firstName"), data.get("lastName")].filter(Boolean).join(" ");
+    const leadTag = [data.get("brand"), leadName].filter(Boolean).join(" — ");
+    data.append("subject", `New Quote Request: ${leadTag || "Website Lead"}`);
     data.append("from_name", "Phantom Pasting Website");
     try {
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
