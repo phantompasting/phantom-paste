@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wild-posting-vs-wheat-pasting",
+    title: "Wild Posting vs Wheat Pasting: Two Names, One Craft",
+    titleHighlight: "Wild Posting",
+    metaTitle: "Wild Posting vs Wheat Pasting: Is There a Difference?",
+    metaDescription:
+      "Wild posting and wheat pasting are the same street-poster format. \"Wheat pasting\" names the technique, \"wild posting\" is the agency term. Who says which, what campaigns cost, and how to compare vendors.",
+    excerpt:
+      "Wild posting and wheat pasting are the same format: posters pasted to urban walls. \"Wheat pasting\" names the technique — the paste on the brush. \"Wild posting\" is what agencies and media buyers call the same campaigns. Where each word came from, and what actually matters when you're buying.",
+    silo: "the-craft",
+    publishedAt: "2026-08-10",
+    updatedAt: "2026-08-10",
+    heroImage: "/gallery/lower-east-side-wheat-paste-layered-wall-ludlow-nyc.webp",
+    heroAlt: "Layered wild posting wall of wheat-pasted posters on Ludlow Street, Lower East Side, New York",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["wild-posting", "wheat-pasting", "terminology", "definition"],
+    wordCount: 900,
+    faqs: [
+      {
+        q: "What is wild posting?",
+        a: "Wild posting is street-poster advertising: campaigns of posters pasted to authorized urban walls and construction barricades. It's the term agencies and media buyers use for the format that install crews call wheat pasting — the technique is identical.",
+      },
+      {
+        q: "Is wild posting the same as wheat pasting?",
+        a: "Yes. Wheat pasting names the technique (the flour-and-water paste that adheres the poster); wild posting is the media-buying trade term for the same campaigns. A wild posting agency and a wheat pasting company are selling the same service.",
+      },
+      {
+        q: "Why is it called wild posting?",
+        a: "Standardized outdoor advertising — billboards, transit, bus shelters — is bought off a rate card with fixed inventory. Pasted posters live outside that grid, \"in the wild,\" and the name stuck as agencies productized street posters for brand campaigns.",
+      },
+      {
+        q: "Is wild posting legal?",
+        a: "Authorized wild posting — posters on private walls and barricades where the owner has granted permission — is legal. Unauthorized posting is an illegal-posting offense in most US cities, and fines typically land on the brand named on the poster, not the installer.",
+      },
+      {
+        q: "How much does a wild posting campaign cost?",
+        a: "The same as wheat pasting, because it is the same service: a standard single-city campaign with 150–250 posters across 12–15 walls runs $5,000–$13,500 all-in, or roughly $33–$55 per poster installed depending on market, stock, wall mix, and documentation tier.",
+      },
+    ],
+    relatedSlugs: ["flyposting-explained", "what-is-wheat-pasting", "wheat-pasting-cost"],
+    status: "published",
+  },
+  {
     slug: "mural-advertising-neighborhoods",
     title: "Where Mural Advertising Works: Wynwood to Williamsburg",
     titleHighlight: "Mural Advertising",
