@@ -238,23 +238,27 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     slug: "post-no-bills",
     title: "Post No Bills: What the Most Famous Stencil in New York Actually Means",
     titleHighlight: "Post No Bills",
-    metaTitle: "Post No Bills Meaning | The Sign, the Law, the Loophole That Isn't",
+    metaTitle: "Post No Bills Meaning | Why the Fine Lands on the Brand",
     metaDescription:
-      "What 'Post No Bills' means, where the 150-year-old sign comes from, the NYC fine that lands on the brand (not the crew), and how professional wheat pasting crews read a barricade.",
+      "\"Post No Bills\" means the owner has not authorized posters on that wall or barricade. Where the 150-year-old stencil comes from, and why the NYC fine lands on the brand named on the poster, not the crew.",
     excerpt:
       "\"Post No Bills\" means exactly what it says: that barricade's owner has not authorized posters, and the fine for ignoring it lands on whoever's name is on the paper — the brand, not the crew. The 150-year-old sign, the law behind it, and how a professional operation reads it.",
     silo: "local-legal",
     publishedAt: "2026-07-05",
-    updatedAt: "2026-07-05",
+    updatedAt: "2026-08-10",
     heroImage: "/gallery/post-no-bills-stencil-construction-barricade-soho-nyc.webp",
     heroAlt: "Post No Bills stencil on a green construction barricade under a sidewalk shed near SoHo, New York",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["post-no-bills", "legal", "nyc", "new-york", "barricades", "wild-posting", "wheat-pasting"],
-    wordCount: 780,
+    wordCount: 860,
     faqs: [
       {
         q: "What does Post No Bills mean?",
         a: "\"Bills\" is the nineteenth-century word for posters — playbills, handbills, bill posters. \"Post No Bills\" is the property owner stating that no one has permission to paste posters on that surface. The stencil dates to the 1800s, when New York property owners started painting the refusal directly onto walls and fences.",
+      },
+      {
+        q: "Is it \"Post No Bill\" or \"Post No Bills\"?",
+        a: "\"Post No Bills\" is the standard wording, but the singular \"Post No Bill\" appears on plenty of older stencils and hand-painted signs. Both mean the same thing: \"bill\" is the old word for a poster, and either version is the owner refusing permission to post on that surface.",
       },
       {
         q: "Is it illegal to paste posters on a Post No Bills barricade?",
