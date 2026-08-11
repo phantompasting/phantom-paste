@@ -24,6 +24,16 @@ export default function Post() {
         <BlogLink slug="is-wheat-pasting-legal">legality guide</BlogLink>.
       </p>
 
+      <h2>What Does &quot;Post No Bills&quot; Mean?</h2>
+      <p>
+        <strong>&quot;Post No Bills&quot; means posters may not be put up on that
+        surface.</strong> A &quot;bill&quot; is the old word for a poster, and the
+        sign is the property owner refusing permission in advance — pasting over
+        it anyway is illegal. You&apos;ll also see the singular{" "}
+        <strong>&quot;Post No Bill&quot;</strong> on older stencils; the wording
+        varies, the meaning doesn&apos;t.
+      </p>
+
       <h2>The Oldest Sign on the Street</h2>
       <p>
         &quot;Bills&quot; is the nineteenth-century word for posters — bill
@@ -87,7 +97,8 @@ export default function Post() {
         This is also the honest answer to why professionally run campaigns
         don&apos;t get brands fined while renegade runs do. It isn&apos;t luck or
         speed. It&apos;s that the permission question got answered before the
-        paste bucket left the van. Every wall in our NYC rotation has an owner who
+        paste bucket left the van. Every wall in our{" "}
+        <a href="/locations/new-york">New York rotation</a> has an owner who
         knows we&apos;re coming, which is why our installs get documented in
         daylight with GPS pins instead of torn down by a super at 7 a.m.
       </p>
@@ -107,6 +118,13 @@ export default function Post() {
         the neighborhood reads it as belonging there precisely because not
         everything gets to. The sign isn&apos;t the enemy of the medium.
         It&apos;s the reason the medium works.
+      </p>
+      <p>
+        Planning a pasted campaign that stays on the right side of the stencil?
+        Start with our <a href="/locations/new-york">New York wheat pasting</a>{" "}
+        page for neighborhoods and formats, or see{" "}
+        <a href="/pricing">campaign pricing</a> for what a fully permitted run
+        costs.
       </p>
     </>
   );
