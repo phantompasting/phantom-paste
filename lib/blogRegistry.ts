@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "online-ads-vs-street-ads",
+    title: "Online Ads vs Street Ads: The Case for Impressions Bots Can't Fake",
+    titleHighlight: "Online Ads",
+    metaTitle: "Online Ads vs Street Ads: What Bots Do to Your Budget",
+    metaDescription:
+      "About half of internet traffic is bots and ad fraud costs advertisers tens of billions a year. The honest pros and cons of online ads versus real-world street advertising, from an install crew.",
+    excerpt:
+      "Roughly half of internet traffic isn't human, and a display ad counts as \"viewed\" at half its pixels for one second. A pasted poster physically exists in front of real people. The honest pro-and-con of online ads versus real-world ads — including where digital genuinely wins.",
+    silo: "strategy-roi",
+    publishedAt: "2026-08-10",
+    updatedAt: "2026-08-10",
+    heroImage: "/gallery/biodance-making-a-splash-poster-wall-the-grove-los-angeles.webp",
+    heroAlt: "Wheat-pasted poster wall on a busy Los Angeles street, seen by real foot traffic",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["strategy", "digital-vs-physical", "ad-fraud", "online-advertising", "street-advertising"],
+    wordCount: 980,
+    faqs: [
+      {
+        q: "How much online ad spend is lost to bots and fraud?",
+        a: "Industry estimates put global digital ad fraud losses in the tens of billions of dollars per year, and most measurements find that roughly half of all internet traffic is non-human — scrapers, click farms, and fraud bots that consume ad impressions no person ever sees.",
+      },
+      {
+        q: "Do people actually look at online ads?",
+        a: "Less than the dashboards imply. Average display click-through rates sit around a tenth of a percent, roughly a third of internet users run ad blockers, and the industry's own viewability standard counts an ad as \"viewed\" when half its pixels are on screen for one second.",
+      },
+      {
+        q: "Are street ads measurable like digital ads?",
+        a: "Not click-for-click. Street campaigns measure through QR codes, promo codes, branded search lift, foot-traffic changes, and photo documentation of every placement. The trade-off: measurement is indirect, but every impression is a real human on a real sidewalk.",
+      },
+      {
+        q: "Which is cheaper, online ads or street ads?",
+        a: "Digital can start with any budget, which street media can't match. But comparing real human impressions, a wheat-paste campaign runs roughly $33 to $55 per installed poster, each working a high-traffic wall around the clock for weeks — with zero spend lost to bots or blocked placements.",
+      },
+      {
+        q: "Should brands drop online ads for street advertising?",
+        a: "No — they do different jobs. Digital wins at targeting and direct response; street media wins at real-world presence, trust, and unblockable reach. The brands we install for run both: posters build the neighborhood presence, digital retargets the demand the walls create.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-vs-billboards", "guerrilla-marketing-for-business", "wheat-pasting-cost"],
+    status: "published",
+  },
+  {
     slug: "wild-posting-vs-wheat-pasting",
     title: "Wild Posting vs Wheat Pasting: Two Names, One Craft",
     titleHighlight: "Wild Posting",
