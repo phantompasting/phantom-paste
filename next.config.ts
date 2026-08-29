@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
+    // Every quality value used by an <Image> on the site (70 gallery/case-study
+    // grids, 75 default, 78 case-study heroes). Next.js 16 makes this required;
+    // declaring it now also silences the dev-server deprecation warning.
+    qualities: [70, 75, 78],
     // Trimmed deviceSizes — every entry here generates a srcset variant
     // for every <Image fill> on the site. Fewer breakpoints = fewer
     // derivatives to generate (faster CDN) AND a shorter srcset string

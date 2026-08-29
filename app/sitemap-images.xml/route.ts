@@ -305,6 +305,60 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Street pole sticker campaign — urban advertising",
     caption: "Urban street pole sticker campaign installation — guerrilla advertising by Phantom Pasting",
   },
+
+  // ── Zach John King "I'm What You Get" — Downtown Nashville ──
+  "zach-john-king-im-what-you-get-wheat-paste-poster-grid-storefront-nashville.webp": {
+    title: "Zach John King Wheat Paste Poster Grid — Downtown Nashville",
+    caption: "Sixteen-poster grid of Zach John King I'm What You Get wheat paste posters on a black storefront in downtown Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-poster-row-black-storefront-nashville.webp": {
+    title: "Zach John King Nine-Poster Row — Downtown Nashville",
+    caption: "Row of nine Zach John King I'm What You Get wheat paste posters below a storefront window in downtown Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-posters-plywood-barricade-nashville.webp": {
+    title: "Zach John King Plywood Barricade Posters — Nashville",
+    caption: "Zach John King I'm What You Get wheat paste posters on a plywood construction barricade in Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-poster-grid-garage-door-nashville.webp": {
+    title: "Zach John King Garage Door Poster Grid — Nashville",
+    caption: "Twelve Zach John King I'm What You Get posters wheat-pasted in a grid on a gray garage door in Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-posters-brick-wall-nashville.webp": {
+    title: "Zach John King Brick Wall Poster Run — Nashville",
+    caption: "Six Zach John King I'm What You Get wheat paste posters in a row on a weathered brick wall in Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-posters-plywood-wall-nashville.webp": {
+    title: "Zach John King Plywood Wall Posters — Nashville",
+    caption: "Six-poster block of Zach John King I'm What You Get wheat paste posters on a plywood wall in Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-street-corner-pedestrians-nashville.webp": {
+    title: "Zach John King Street Corner Posters — Downtown Nashville",
+    caption: "Pedestrians walking past Zach John King I'm What You Get wheat paste posters on a downtown Nashville street corner — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-pedestrian-walking-nashville.webp": {
+    title: "Zach John King Posters, Pedestrian View — Nashville",
+    caption: "Pedestrian walking past a six-poster grid of Zach John King I'm What You Get wheat paste posters in downtown Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-poster-wall-greenspace-nashville.webp": {
+    title: "Zach John King Greenspace Poster Wall — Nashville",
+    caption: "Freestanding wall of eight Zach John King I'm What You Get wheat paste posters on a grassy Nashville greenspace — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-concrete-wall-park-nashville.webp": {
+    title: "Zach John King Park Wall Posters — Nashville",
+    caption: "Zach John King I'm What You Get wheat paste posters wrapping a concrete wall beside trees in a Nashville park — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-wall-street-view-nashville.webp": {
+    title: "Zach John King Poster Wall Street View — Nashville",
+    caption: "Street view of a Zach John King I'm What You Get wheat paste poster wall behind parked cars in Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-posters-white-brick-nashville.webp": {
+    title: "Zach John King White Brick Wall Posters — Nashville",
+    caption: "Four Zach John King I'm What You Get wheat paste posters on a white brick wall in Nashville — by Phantom Pasting",
+  },
+  "zach-john-king-im-what-you-get-wheat-paste-utility-box-nashville.webp": {
+    title: "Zach John King Utility Box Poster — Downtown Nashville",
+    caption: "Zach John King I'm What You Get wheat paste poster on a metal utility box on a downtown Nashville sidewalk — by Phantom Pasting",
+  },
 };
 
 // ── Page → images mapping ─────────────────────────────────────────────────────
@@ -398,6 +452,13 @@ const PAGE_IMAGES: Record<string, string[]> = {
   "/locations/new-york": [
     "bedstuy-stencil.webp",
     "incrediwear-pole-wrap-guerrilla-advertising-night.webp",
+  ],
+  "/locations/nashville": [
+    "zach-john-king-im-what-you-get-wheat-paste-poster-grid-storefront-nashville.webp",
+    "zach-john-king-im-what-you-get-wheat-paste-street-corner-pedestrians-nashville.webp",
+    "zach-john-king-im-what-you-get-wheat-paste-posters-plywood-barricade-nashville.webp",
+    "luke-borchelt-water-town-chalk-stencil-sidewalk-nashville.webp",
+    "luke-borchelt-water-town-sticker-snipe-bridgestone-arena-nashville.webp",
   ],
 };
 

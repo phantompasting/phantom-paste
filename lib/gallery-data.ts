@@ -9,7 +9,24 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Arsenal Boxing "Step Into The Ring" — Hollywood, Los Angeles (latest job) ──
+  // ── Zach John King "I'm What You Get" — Downtown Nashville (latest job) ──
+  // Release-day wheat-paste run across downtown Nashville, August 28:
+  // 100 posters across storefronts, plywood barricades, and greenspace walls.
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-poster-grid-storefront-nashville.webp",      label: "Zach John King — Storefront Grid",   alt: "Sixteen-poster grid of Zach John King I'm What You Get wheat paste posters on a black storefront in downtown Nashville",                    tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-poster-row-black-storefront-nashville.webp", label: "Zach John King — Nine-Poster Row",   alt: "Row of nine Zach John King I'm What You Get wheat paste posters below a storefront window in downtown Nashville",                           tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-posters-plywood-barricade-nashville.webp",   label: "Zach John King — Plywood Barricade", alt: "Zach John King I'm What You Get wheat paste posters on a plywood construction barricade in Nashville",                                      tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-poster-grid-garage-door-nashville.webp",     label: "Zach John King — Garage Door Grid",  alt: "Twelve Zach John King I'm What You Get posters wheat-pasted in a grid on a gray garage door in Nashville",                                  tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-posters-brick-wall-nashville.webp",          label: "Zach John King — Brick Wall Run",    alt: "Six Zach John King I'm What You Get wheat paste posters in a row on a weathered brick wall in Nashville",                                   tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-posters-plywood-wall-nashville.webp",        label: "Zach John King — Plywood Wall",      alt: "Six-poster block of Zach John King I'm What You Get wheat paste posters on a plywood wall in Nashville",                                    tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-street-corner-pedestrians-nashville.webp",   label: "Zach John King — Street Corner",     alt: "Pedestrians walking past Zach John King I'm What You Get wheat paste posters on a downtown Nashville street corner",                        tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-pedestrian-walking-nashville.webp",          label: "Zach John King — Pedestrian View",   alt: "Pedestrian walking past a six-poster grid of Zach John King I'm What You Get wheat paste posters in downtown Nashville",                    tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-poster-wall-greenspace-nashville.webp",      label: "Zach John King — Greenspace Wall",   alt: "Freestanding wall of eight Zach John King I'm What You Get wheat paste posters on a grassy Nashville greenspace",                           tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-concrete-wall-park-nashville.webp",          label: "Zach John King — Park Wall",         alt: "Zach John King I'm What You Get wheat paste posters wrapping a concrete wall beside trees in a Nashville park",                             tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-wall-street-view-nashville.webp",            label: "Zach John King — Street View",       alt: "Street view of a Zach John King I'm What You Get wheat paste poster wall behind parked cars in Nashville",                                  tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-posters-white-brick-nashville.webp",         label: "Zach John King — White Brick Wall",  alt: "Four Zach John King I'm What You Get wheat paste posters on a white brick wall in Nashville",                                               tag: "Wheat Paste" },
+  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-utility-box-nashville.webp",                 label: "Zach John King — Utility Box",       alt: "Zach John King I'm What You Get wheat paste poster on a metal utility box on a downtown Nashville sidewalk",                                tag: "Wheat Paste" },
+
+  // ── Arsenal Boxing "Step Into The Ring" — Hollywood, Los Angeles ──
   // Large-format 48"x72" wheat-paste posters for Arsenal Boxing School & Gym
   // (5750 Hollywood Blvd): membership poster + "Eat / Train / Live Like a
   // Champion" info poster, pasted as pairs across Hollywood walls, July 25.
