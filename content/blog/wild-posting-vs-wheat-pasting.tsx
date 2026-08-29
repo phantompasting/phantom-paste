@@ -90,7 +90,10 @@ export default function Post() {
         posters across 12–15 walls run $5,000–$13,500 all-in — we break the
         math down in our{" "}
         <BlogLink slug="wheat-pasting-cost">cost guide</BlogLink> and on the{" "}
-        <a href="/pricing">pricing page</a>.
+        <a href="/pricing">pricing page</a>. And if the budget fight is paper
+        versus paid digital rather than paper versus paper, our{" "}
+        <BlogLink slug="online-ads-vs-street-ads">online ads vs street ads</BlogLink>{" "}
+        breakdown runs that comparison — bot traffic included.
       </p>
       <p>
         Shopping the format in a specific market? Start with our{" "}
