@@ -18,6 +18,7 @@ const FOOTER_LINKS = {
     { label: "Street Flyering", href: "/services/street-flyering" },
     { label: "Full Impact", href: "/services/full-impact-campaigns" },
     { label: "Art Murals", href: "/services/art-murals" },
+    { label: "Guerrilla Marketing", href: "/guerrilla-marketing" },
   ],
   Markets: [
     { label: "All Locations", href: "/locations" },
