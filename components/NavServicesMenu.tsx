@@ -10,6 +10,7 @@ const SERVICES = [
   { label: "Street Flyering",          href: "/services/street-flyering" },
   { label: "Full Impact Campaigns", href: "/services/full-impact-campaigns" },
   { label: "Art Murals",            href: "/services/art-murals" },
+  { label: "Guerrilla Marketing",   href: "/guerrilla-marketing" },
 ] as const;
 
 const ACCENT = "#D4A010";
