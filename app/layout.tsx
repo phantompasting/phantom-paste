@@ -5,6 +5,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ShinyGoldObserver from "@/components/ShinyGoldObserver";
 import PerfGate from "@/components/PerfGate";
 import MotionArmer from "@/components/MotionArmer";
+import FloatingQuoteCTA from "@/components/FloatingQuoteCTA";
 import { BUSINESS } from "@/lib/business";
 import { orgSchema, webSiteSchema, jsonLd } from "@/lib/schema";
 import "./globals.css";
@@ -265,6 +266,9 @@ export default function RootLayout({
         <main style={{ position: "relative", zIndex: 2 }}>
           {children}
         </main>
+        {/* Desktop floating Get a Quote — appears after scrolling past the
+            in-nav CTA, stays pinned top-right on every page but /contact. */}
+        <FloatingQuoteCTA />
       </body>
     </html>
   );

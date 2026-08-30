@@ -830,11 +830,19 @@ function TLDRSection() {
 function GallerySection() {
   const scope = useSectionReveal<HTMLDivElement>();
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Floating "more images" bubble hides once the strip is scrolled to its end.
+  const [atEnd, setAtEnd] = useState(false);
 
   const scroll = useCallback((dir: -1 | 1) => {
     const el = scrollRef.current;
     if (!el) return;
     el.scrollBy({ left: dir * el.clientWidth * 0.75, behavior: "smooth" });
+  }, []);
+
+  const onStripScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 40);
   }, []);
 
   // Drag-to-scroll (desktop only). pointermove fires at pointer-sample rate
@@ -922,6 +930,7 @@ function GallerySection() {
           {/* Bento grid — horizontal scroll */}
           <div data-reveal="fade-up"
             ref={scrollRef}
+            onScroll={onStripScroll}
             className="flex-1 flex gap-2.5 overflow-x-auto no-scrollbar pb-6"
             style={{ scrollSnapType: "x mandatory", overscrollBehaviorX: "contain", minHeight: 0, scrollPadding: "0 24px" }}>
 
@@ -963,6 +972,55 @@ function GallerySection() {
             <div className="shrink-0 w-4 md:w-8" aria-hidden />
           </div>
         </div>
+
+        {/* Floating "more images" bubble — pinned to the strip's right edge,
+            pulsing gold ring, hides once the strip is scrolled to its end. */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes galleryBubblePing {
+            0%   { transform: scale(1);    opacity: 0.55; }
+            80%  { transform: scale(1.65); opacity: 0; }
+            100% { transform: scale(1.65); opacity: 0; }
+          }
+          .gallery-more-bubble {
+            /* Desktop: pulled left of the SnapProgress dot rail (right edge)
+               so the two never overlap — misclicks reported 8/29. Mobile has
+               no dot rail, so it can hug the edge. */
+            position: absolute; right: 16px; top: 55%;
+            transform: translateY(-50%);
+            width: 54px; height: 54px; border-radius: 9999px;
+            background: #1A1A1A; border: 0; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 26px rgba(0,0,0,0.30);
+            z-index: 20;
+            transition: opacity 0.25s, transform 0.25s;
+          }
+          .gallery-more-bubble:hover { transform: translateY(-50%) scale(1.08); }
+          .gallery-more-bubble .ping {
+            position: absolute; inset: 0; border-radius: 9999px;
+            border: 2px solid #D4A010;
+            animation: galleryBubblePing 2.2s ease-out infinite;
+            pointer-events: none;
+          }
+          .gallery-more-bubble .arrow {
+            color: #D4A010; font-size: 20px; font-weight: 700; line-height: 1;
+          }
+          .gallery-more-bubble.is-hidden { opacity: 0; pointer-events: none; }
+          @media (min-width: 768px) {
+            .gallery-more-bubble { right: 76px; }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .gallery-more-bubble .ping { animation: none; opacity: 0.4; }
+          }
+        ` }} />
+        <button
+          type="button"
+          onClick={() => scroll(1)}
+          aria-label="Scroll to see more campaign photos"
+          className={`gallery-more-bubble${atEnd ? " is-hidden" : ""}`}
+        >
+          <span className="ping" aria-hidden />
+          <span className="arrow" aria-hidden>→</span>
+        </button>
       </div>
 
     </SnapPage>

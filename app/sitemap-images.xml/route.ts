@@ -355,10 +355,6 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Zach John King White Brick Wall Posters — Nashville",
     caption: "Four Zach John King I'm What You Get wheat paste posters on a white brick wall in Nashville — by Phantom Pasting",
   },
-  "zach-john-king-im-what-you-get-wheat-paste-utility-box-nashville.webp": {
-    title: "Zach John King Utility Box Poster — Downtown Nashville",
-    caption: "Zach John King I'm What You Get wheat paste poster on a metal utility box on a downtown Nashville sidewalk — by Phantom Pasting",
-  },
 };
 
 // ── Page → images mapping ─────────────────────────────────────────────────────

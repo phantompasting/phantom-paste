@@ -24,7 +24,6 @@ export const GALLERY_IMGS = [
   { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-concrete-wall-park-nashville.webp",          label: "Zach John King — Park Wall",         alt: "Zach John King I'm What You Get wheat paste posters wrapping a concrete wall beside trees in a Nashville park",                             tag: "Wheat Paste" },
   { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-wall-street-view-nashville.webp",            label: "Zach John King — Street View",       alt: "Street view of a Zach John King I'm What You Get wheat paste poster wall behind parked cars in Nashville",                                  tag: "Wheat Paste" },
   { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-posters-white-brick-nashville.webp",         label: "Zach John King — White Brick Wall",  alt: "Four Zach John King I'm What You Get wheat paste posters on a white brick wall in Nashville",                                               tag: "Wheat Paste" },
-  { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-utility-box-nashville.webp",                 label: "Zach John King — Utility Box",       alt: "Zach John King I'm What You Get wheat paste poster on a metal utility box on a downtown Nashville sidewalk",                                tag: "Wheat Paste" },
 
   // ── Arsenal Boxing "Step Into The Ring" — Hollywood, Los Angeles ──
   // Large-format 48"x72" wheat-paste posters for Arsenal Boxing School & Gym
