@@ -153,7 +153,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Indiana", abbr: "IN",
+    name: "Indiana", abbr: "IN", slug: "indiana",
     cities: [
       { name: "Indianapolis" },
       { name: "Fort Wayne" },
@@ -204,7 +204,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Maryland", abbr: "MD",
+    name: "Maryland", abbr: "MD", slug: "maryland",
     cities: [
       { name: "Baltimore" },
       { name: "Silver Spring" },
@@ -224,7 +224,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Michigan", abbr: "MI",
+    name: "Michigan", abbr: "MI", slug: "michigan",
     cities: [
       { name: "Detroit" },
       { name: "Grand Rapids" },
@@ -233,7 +233,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Minnesota", abbr: "MN",
+    name: "Minnesota", abbr: "MN", slug: "minnesota",
     cities: [
       { name: "Minneapolis" },
       { name: "St. Paul" },
@@ -251,7 +251,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Missouri", abbr: "MO",
+    name: "Missouri", abbr: "MO", slug: "missouri",
     cities: [
       { name: "Kansas City" },
       { name: "St. Louis" },
@@ -294,7 +294,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "New Jersey", abbr: "NJ",
+    name: "New Jersey", abbr: "NJ", slug: "new-jersey",
     cities: [
       { name: "Newark" },
       { name: "Jersey City" },
@@ -322,7 +322,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "North Carolina", abbr: "NC",
+    name: "North Carolina", abbr: "NC", slug: "north-carolina",
     cities: [
       { name: "Charlotte" },
       { name: "Raleigh" },
@@ -340,7 +340,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Ohio", abbr: "OH",
+    name: "Ohio", abbr: "OH", slug: "ohio",
     cities: [
       { name: "Columbus OH" },
       { name: "Cleveland" },
@@ -440,7 +440,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Virginia", abbr: "VA",
+    name: "Virginia", abbr: "VA", slug: "virginia",
     cities: [
       { name: "Richmond" },
       { name: "Virginia Beach" },
@@ -478,7 +478,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
     ],
   },
   {
-    name: "Wisconsin", abbr: "WI",
+    name: "Wisconsin", abbr: "WI", slug: "wisconsin",
     cities: [
       { name: "Milwaukee" },
       { name: "Madison" },

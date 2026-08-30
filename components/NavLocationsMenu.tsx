@@ -154,6 +154,17 @@ const STATES: StateGroup[] = [
       { label: "Washington DC", href: "/locations/washington-dc" },
     ],
   },
+  // 8/29 batch — statewide pages only (no city pages yet, so no city links)
+  { name: "Ohio",           href: "/locations/ohio",           cities: [] },
+  { name: "North Carolina", href: "/locations/north-carolina", cities: [] },
+  { name: "Michigan",       href: "/locations/michigan",       cities: [] },
+  { name: "New Jersey",     href: "/locations/new-jersey",     cities: [] },
+  { name: "Virginia",       href: "/locations/virginia",       cities: [] },
+  { name: "Indiana",        href: "/locations/indiana",        cities: [] },
+  { name: "Missouri",       href: "/locations/missouri",       cities: [] },
+  { name: "Maryland",       href: "/locations/maryland",       cities: [] },
+  { name: "Wisconsin",      href: "/locations/wisconsin",      cities: [] },
+  { name: "Minnesota",      href: "/locations/minnesota",      cities: [] },
 ];
 
 /** Desktop-only Locations nav item with hover mega-menu */

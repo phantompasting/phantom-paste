@@ -48,6 +48,16 @@ export const STATE_PAGES: ReadonlyArray<StatePageRef> = [
   { name: "Nevada",        slug: "nevada",          abbr: "NV" },
   { name: "Massachusetts", slug: "massachusetts",   abbr: "MA" },
   { name: "Pennsylvania",  slug: "pennsylvania",    abbr: "PA" },
+  { name: "Ohio",           slug: "ohio",           abbr: "OH" },
+  { name: "North Carolina", slug: "north-carolina", abbr: "NC" },
+  { name: "Michigan",       slug: "michigan",       abbr: "MI" },
+  { name: "New Jersey",     slug: "new-jersey",     abbr: "NJ" },
+  { name: "Virginia",       slug: "virginia",       abbr: "VA" },
+  { name: "Indiana",        slug: "indiana",        abbr: "IN" },
+  { name: "Missouri",       slug: "missouri",       abbr: "MO" },
+  { name: "Maryland",       slug: "maryland",       abbr: "MD" },
+  { name: "Wisconsin",      slug: "wisconsin",      abbr: "WI" },
+  { name: "Minnesota",      slug: "minnesota",      abbr: "MN" },
 ];
 
 // ── City pages ─────────────────────────────────────────────────────────

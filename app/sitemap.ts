@@ -108,6 +108,16 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/locations/nevada",               file: "app/locations/nevada/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/massachusetts",        file: "app/locations/massachusetts/page.tsx",                 priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/pennsylvania",         file: "app/locations/pennsylvania/page.tsx",                  priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/ohio",                 file: "app/locations/ohio/page.tsx",                          priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/north-carolina",       file: "app/locations/north-carolina/page.tsx",                priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/michigan",             file: "app/locations/michigan/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/new-jersey",           file: "app/locations/new-jersey/page.tsx",                    priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/virginia",             file: "app/locations/virginia/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/indiana",              file: "app/locations/indiana/page.tsx",                       priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/missouri",             file: "app/locations/missouri/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/maryland",             file: "app/locations/maryland/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/wisconsin",            file: "app/locations/wisconsin/page.tsx",                     priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/minnesota",            file: "app/locations/minnesota/page.tsx",                     priority: 0.85, changeFreq: "monthly" },
 
   // ── Locations (Tier 2 city pages, added 2026-04-25) ─────────────────────
   // Same priority as Tier 1 cities — each is an active market we serve and
