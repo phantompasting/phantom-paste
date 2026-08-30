@@ -166,13 +166,11 @@ export default function NavLocationsMenu() {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <span
-        // `<span>` has no implicit role, so aria-expanded/aria-haspopup
-        // are invalid on it (Lighthouse AA failure). role="button" gives
-        // it the button role that allows those aria attributes.
-        role="button"
-        tabIndex={0}
-        className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1 inline-flex items-center gap-1.5 cursor-default select-none"
+      <a
+        // The trigger is a real link to the /locations coverage-map hub —
+        // click navigates, hover still opens the mega-menu below.
+        href="/locations"
+        className="nav-link font-mono text-[11px] tracking-[0.22em] uppercase no-underline py-3 px-1 inline-flex items-center gap-1.5 select-none"
         aria-expanded={open}
         aria-haspopup="true"
       >
@@ -183,7 +181,7 @@ export default function NavLocationsMenu() {
         >
           <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-      </span>
+      </a>
 
       {/* Mega-menu dropdown — 3 columns of states */}
       {open && (

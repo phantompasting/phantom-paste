@@ -5,7 +5,9 @@ import ShinyGoldText from "@/components/ShinyGoldText";
 import Breadcrumb from "@/components/Breadcrumb";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBar from "@/components/TrustBar";
+import CoverageMap from "@/components/CoverageMap";
 import { BUSINESS } from "@/lib/business";
+import { COVERAGE, COVERAGE_STATS } from "@/lib/coverageDirectory";
 import { collectionPageSchema, faqPageSchema, jsonLd } from "@/lib/schema";
 import { KW_LOCATIONS_HUB } from "@/lib/keywordSets";
 
@@ -37,203 +39,14 @@ export const metadata: Metadata = {
 
 const ACCENT = "#D4A010";
 
-// ── State-grouped directory (single source of truth on this page) ────────
-//
-// Each state is a column with the state name (links to state page) followed
-// by every city we cover under it. Cities with `slug` render as Links to the
-// dedicated city page; cities without render as plain text.
-//
-// The page used to have separate "Statewide Coverage" + "City Cards" + "How
-// We Choose Locations" sections — that totaled ~5000px on mobile. This single
-// directory replaces all of them. Mega-footer (every page) duplicates the
-// content for users who scroll, so visitors landing here get the full
-// inventory in one screen.
-interface DirCity {
-  name: string;
-  slug?: string;
-}
-interface DirState {
-  name: string;
-  abbr: string;
-  slug: string;
-  cities: DirCity[];
-}
-
-const DIRECTORY: DirState[] = [
-  {
-    name: "California", abbr: "CA", slug: "california",
-    cities: [
-      { name: "Los Angeles", slug: "los-angeles" },
-      { name: "San Francisco", slug: "san-francisco" },
-      { name: "San Diego" },
-      { name: "Sacramento" },
-      { name: "Oakland" },
-      { name: "San Jose" },
-    ],
-  },
-  {
-    name: "New York", abbr: "NY", slug: "new-york-state",
-    cities: [
-      { name: "New York City", slug: "new-york" },
-      { name: "Buffalo" },
-      { name: "Rochester" },
-      { name: "Yonkers" },
-      { name: "Syracuse" },
-      { name: "Albany" },
-    ],
-  },
-  {
-    name: "Texas", abbr: "TX", slug: "texas",
-    cities: [
-      { name: "Houston", slug: "houston" },
-      { name: "Dallas", slug: "dallas" },
-      { name: "Austin", slug: "austin" },
-      { name: "San Antonio" },
-      { name: "Fort Worth" },
-      { name: "El Paso" },
-    ],
-  },
-  {
-    name: "Florida", abbr: "FL", slug: "florida",
-    cities: [
-      { name: "Miami", slug: "miami" },
-      { name: "Tampa" },
-      { name: "Orlando" },
-      { name: "Jacksonville" },
-      { name: "Ft. Lauderdale" },
-      { name: "St. Petersburg" },
-    ],
-  },
-  {
-    name: "Georgia", abbr: "GA", slug: "georgia",
-    cities: [
-      { name: "Atlanta", slug: "atlanta" },
-      { name: "Savannah" },
-      { name: "Athens" },
-      { name: "Augusta" },
-      { name: "Macon" },
-      { name: "Columbus" },
-    ],
-  },
-  {
-    name: "Illinois", abbr: "IL", slug: "illinois",
-    cities: [
-      { name: "Chicago", slug: "chicago" },
-      { name: "Naperville" },
-      { name: "Champaign-Urbana" },
-      { name: "Rockford" },
-      { name: "Peoria" },
-      { name: "Springfield" },
-    ],
-  },
-  {
-    name: "Arizona", abbr: "AZ", slug: "arizona",
-    cities: [
-      { name: "Phoenix", slug: "phoenix" },
-      { name: "Tucson" },
-      { name: "Mesa" },
-      { name: "Scottsdale" },
-      { name: "Tempe" },
-      { name: "Flagstaff" },
-    ],
-  },
-  {
-    name: "Washington", abbr: "WA", slug: "washington",
-    cities: [
-      { name: "Seattle", slug: "seattle" },
-      { name: "Spokane" },
-      { name: "Tacoma" },
-      { name: "Vancouver WA" },
-      { name: "Bellevue" },
-      { name: "Olympia" },
-    ],
-  },
-  {
-    name: "Oregon", abbr: "OR", slug: "oregon",
-    cities: [
-      { name: "Portland", slug: "portland" },
-      { name: "Eugene" },
-      { name: "Salem" },
-      { name: "Bend" },
-      { name: "Beaverton" },
-      { name: "Hillsboro" },
-    ],
-  },
-  {
-    name: "Colorado", abbr: "CO", slug: "colorado",
-    cities: [
-      { name: "Denver", slug: "denver" },
-      { name: "Colorado Springs" },
-      { name: "Aurora" },
-      { name: "Boulder" },
-      { name: "Fort Collins" },
-      { name: "Greeley" },
-    ],
-  },
-  {
-    name: "Nevada", abbr: "NV", slug: "nevada",
-    cities: [
-      { name: "Las Vegas", slug: "las-vegas" },
-      { name: "Henderson" },
-      { name: "Reno" },
-      { name: "North Las Vegas" },
-      { name: "Carson City" },
-      { name: "Sparks" },
-    ],
-  },
-  {
-    name: "Massachusetts", abbr: "MA", slug: "massachusetts",
-    cities: [
-      { name: "Boston", slug: "boston" },
-      { name: "Cambridge" },
-      { name: "Worcester" },
-      { name: "Springfield MA" },
-      { name: "Lowell" },
-      { name: "New Bedford" },
-    ],
-  },
-  {
-    name: "Pennsylvania", abbr: "PA", slug: "pennsylvania",
-    cities: [
-      { name: "Philadelphia" },
-      { name: "Pittsburgh" },
-      { name: "Allentown" },
-      { name: "Erie" },
-      { name: "Reading" },
-      { name: "Lancaster" },
-    ],
-  },
-  {
-    name: "Tennessee", abbr: "TN", slug: "nashville", // Nashville city page acts as TN landing
-    cities: [
-      { name: "Nashville", slug: "nashville" },
-      { name: "Memphis" },
-      { name: "Knoxville" },
-      { name: "Chattanooga" },
-    ],
-  },
-  {
-    name: "DC", abbr: "DC", slug: "washington-dc",
-    cities: [
-      { name: "Washington DC", slug: "washington-dc" },
-    ],
-  },
-];
-
-// Markets we serve on a per-campaign basis but don't yet have dedicated pages
-// for. Listed as a single comma-separated tail strip — gives crawlers + users
-// confidence the nationwide claim isn't 30 markets, it's 50+.
-const ADDITIONAL_MARKETS = [
-  "Detroit", "Minneapolis", "Kansas City", "St. Louis", "Cleveland",
-  "Cincinnati", "Charlotte", "Raleigh", "Salt Lake City", "Albuquerque",
-  "Indianapolis", "Columbus OH", "Milwaukee", "Memphis", "New Orleans",
-  "Birmingham", "Jacksonville", "Hartford", "Providence", "Burlington",
-];
+// State/city directory now lives in lib/coverageDirectory.ts (all 50 states
+// + DC) — shared with the CoverageMap component so the map, the index below,
+// and the schema markup can never drift apart.
 
 const FAQS = [
   {
-    q: "Do you cover cities outside the listed states?",
-    a: "Yes. The 14 state directories above cover our highest-volume markets, but we run campaigns in 50+ US cities total. Detroit, Minneapolis, Charlotte, Raleigh, Kansas City, Cleveland, Salt Lake City, and 30+ other secondary markets are all rollable on a per-campaign basis. If your target city isn't listed, contact us — we've almost certainly worked there.",
+    q: "Do you really cover all 50 states?",
+    a: "Yes. Every state on the map is bookable — flagship markets (LA, NYC, Miami, Chicago, Atlanta, and 25+ more) run on standing local crews, and every other metro rolls out on a per-campaign basis with the same photo-documentation standard. If your exact city isn't listed under its state, contact us — we've almost certainly worked there.",
   },
   {
     q: "Can I run a multi-city or statewide campaign on one brief?",
@@ -260,8 +73,10 @@ export default function LocationsHubPage() {
               name: "Guerrilla Marketing Locations — Phantom Pasting",
               description: PAGE_DESC,
               url: PAGE_URL,
-              items: DIRECTORY.flatMap((s) => [
-                { name: `Wheat Pasting Across ${s.name}`, url: `${BUSINESS.url}/locations/${s.slug}` },
+              items: COVERAGE.flatMap((s) => [
+                ...(s.slug
+                  ? [{ name: `Wheat Pasting Across ${s.name}`, url: `${BUSINESS.url}/locations/${s.slug}` }]
+                  : []),
                 ...s.cities
                   .filter((c) => c.slug)
                   .map((c) => ({
@@ -283,32 +98,36 @@ export default function LocationsHubPage() {
         <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Locations", href: "/locations" }]} />
         <TrustBar />
 
-        {/* ── Compact hero (text-only, no images) ──────────────────────
-            Was: split-screen hero with two photos + stats row + 3 CTAs.
-            Now: single column, sub-1-screen on mobile, ~25vh on desktop.
-            Drops 800-1000px of hero chrome. */}
-        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-8 pb-12 md:pb-16">
-          <div className="max-w-[1100px] mx-auto">
+        {/* ── Hero + interactive coverage map (one unit) ───────────────
+            The map IS the hero: landing on /locations puts the US map above
+            the fold immediately. Compact h1 + one-line kicker paragraph,
+            then CoverageMap. Click any state → its metro list + statewide-
+            rollout CTA in the side panel. Data + stats come from
+            lib/coverageDirectory.ts, the same source as the typographic
+            index below, so the two can't drift. Small NE states get a chip
+            strip under the map. */}
+        <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-5 md:pt-6 pb-14 md:pb-20">
+          <div className="max-w-[1280px] mx-auto">
             <span
-              className="inline-flex items-center gap-2 font-mono uppercase mb-5"
+              className="inline-flex items-center gap-2 font-mono uppercase mb-3"
               style={{ fontSize: "9px", letterSpacing: "0.3em", color: "rgba(0,0,0,0.55)" }}
             >
               <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-              50+ US Markets
+              Coverage · {COVERAGE_STATS.cities}+ Metros · 50 States + DC
             </span>
             <h1
               className="font-black uppercase m-0 leading-[0.92]"
-              style={{ fontSize: "clamp(36px, 5.5vw, 68px)", letterSpacing: "-0.04em" }}
+              style={{ fontSize: "clamp(30px, 4vw, 52px)", letterSpacing: "-0.04em" }}
             >
-              FIND YOUR MARKET<br />
-              <ShinyGoldText>WE OPERATE THERE.</ShinyGoldText>
+              EVERY STATE. <ShinyGoldText>EVERY MAJOR CITY.</ShinyGoldText>
             </h1>
             <p
-              className="font-light leading-relaxed mt-5 max-w-[640px]"
-              style={{ fontSize: "clamp(15px, 1.4vw, 17px)", color: "rgba(0,0,0,0.6)" }}
+              className="font-light leading-relaxed mt-3 mb-6 md:mb-8 max-w-[720px]"
+              style={{ fontSize: "clamp(14px, 1.3vw, 16px)", color: "rgba(0,0,0,0.6)" }}
             >
-              Wheat pasting, street postering & street media campaigns across 14 state regions and 17 dedicated city markets — plus 30+ additional metros on a per-campaign basis. Tap a state to see statewide rollout details, or jump straight to a city.
+              Wheat pasting, street postering & street media in all 50 states + DC. Tap any state to see the cities we cover, or scroll the full index below.
             </p>
+            <CoverageMap />
           </div>
         </section>
 
@@ -353,7 +172,7 @@ export default function LocationsHubPage() {
             color: #1A1A1A;
             transition: color 0.15s;
           }
-          .location-index .state-header:hover .state-name { color: #D4A010; }
+          .location-index a.state-header:hover .state-name { color: #D4A010; }
           .location-index .state-abbr {
             font-family: var(--font-barlow), "Barlow Condensed", sans-serif;
             font-weight: 900;
@@ -384,6 +203,7 @@ export default function LocationsHubPage() {
             font-size: 10px; color: #D4A010; opacity: 0.6;
             transition: color 0.15s, opacity 0.15s;
           }
+          .location-index .city-plain { color: rgba(0,0,0,0.48); }
           .location-index .cities-empty {
             font-family: var(--font-mono), "DM Mono", monospace;
             text-transform: uppercase; font-size: 10px; letter-spacing: 0.18em;
@@ -393,58 +213,57 @@ export default function LocationsHubPage() {
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-14 md:pb-20">
           <div className="max-w-[1280px] mx-auto location-index-wrap">
             <div className="location-index">
-              {DIRECTORY.map((state) => {
-                const linkedCities = state.cities.filter((c) => c.slug);
+              {COVERAGE.map((state) => {
+                const header = (
+                  <>
+                    <span className="state-name">{state.name}</span>
+                    <span className="state-abbr">·{state.abbr}</span>
+                  </>
+                );
                 return (
                   <div key={state.abbr} className="state">
-                    <Link href={`/locations/${state.slug}`} className="state-header">
-                      <span className="state-name">{state.name}</span>
-                      <span className="state-abbr">·{state.abbr}</span>
-                    </Link>
+                    {state.slug ? (
+                      <Link href={`/locations/${state.slug}`} className="state-header">
+                        {header}
+                      </Link>
+                    ) : (
+                      <span className="state-header">{header}</span>
+                    )}
                     <div className="state-rule" aria-hidden />
                     <ul className="cities">
-                      {linkedCities.length > 0 ? (
-                        linkedCities.map((c) => (
+                      {state.cities.map((c) =>
+                        c.slug ? (
                           <li key={c.name}>
                             <Link href={`/locations/${c.slug}`}>
                               <span className="city-name">{c.name}</span>
                               <span className="city-arrow" aria-hidden>→</span>
                             </Link>
                           </li>
-                        ))
-                      ) : (
-                        <li className="cities-empty">— Statewide rollouts only —</li>
+                        ) : (
+                          <li key={c.name}>
+                            <span className="city-name city-plain">{c.name}</span>
+                          </li>
+                        )
                       )}
                     </ul>
                   </div>
                 );
               })}
             </div>
-
-            {/* Additional markets — single dense paragraph, not a grid.
-                Reinforces "50+ US cities" claim without taking 1000px of
-                additional vertical real estate. */}
+            {/* Catch-all: exact metro not listed → contact. */}
             <div
               className="mt-10 md:mt-14 pt-7 md:pt-9 border-t"
               style={{ borderColor: "rgba(0,0,0,0.08)" }}
             >
-              <span
-                className="inline-flex items-center gap-2 font-mono uppercase mb-3"
-                style={{ fontSize: "9px", letterSpacing: "0.3em", color: "rgba(0,0,0,0.55)" }}
-              >
-                <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
-                Plus per-campaign coverage
-              </span>
               <p
                 className="font-light leading-relaxed m-0 max-w-[1000px]"
                 style={{ fontSize: "14px", color: "rgba(0,0,0,0.62)" }}
               >
-                {ADDITIONAL_MARKETS.join(" · ")} — and 20+ other secondary metros nationwide.
-                Don&apos;t see your city?{" "}
+                Your exact metro not listed under its state?{" "}
                 <Link href="/contact" className="font-bold no-underline" style={{ color: ACCENT }}>
                   Ask for a quote
-                </Link>
-                .
+                </Link>{" "}
+                — secondary markets roll out on a per-campaign basis nationwide.
               </p>
             </div>
           </div>

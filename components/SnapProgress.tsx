@@ -4,18 +4,20 @@ import { useEffect, useState, useRef } from "react";
 
 const SECTIONS = [
   { key: "hero",     label: "Hero" },
-  { key: "stats",    label: "Stats" },
+  { key: "services", label: "Wheat Pasting" },
+  { key: "service-2",label: "Stencils" },
+  { key: "service-3",label: "Full Impact" },
+  { key: "work",     label: "Gallery" },
+  { key: "coverage", label: "Coverage" },
   { key: "step-1",   label: "Brief Us" },
   { key: "step-2",   label: "We Plan" },
   { key: "step-3",   label: "We Deploy" },
   { key: "step-4",   label: "You See It" },
-  { key: "services", label: "Wheat Pasting" },
-  { key: "service-2",label: "Stencils" },
-  { key: "service-3",label: "Full Impact" },
   { key: "why",      label: "Why Guerrilla" },
-  { key: "work",     label: "Gallery" },
-  { key: "contact",  label: "Contact" },
+  { key: "tldr",     label: "Key Takeaways" },
+  { key: "stats",    label: "Street Impact" },
   { key: "faq",      label: "FAQ" },
+  { key: "contact",  label: "Contact" },
 ];
 
 export default function SnapProgress() {

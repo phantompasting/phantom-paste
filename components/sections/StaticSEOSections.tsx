@@ -25,52 +25,6 @@ export default function StaticSEOSections() {
       }}
     >
       <section>
-        <h2>Real Numbers. Real Streets.</h2>
-        <p>
-          A decade of guerrilla marketing campaigns across every major US
-          market. Every wheat paste placement photographed, every poster
-          campaign documented.
-        </p>
-        <ul>
-          <li>50+ US Cities covered nationwide</li>
-          <li>500+ Wheat pasting and street postering campaigns delivered</li>
-          <li>200+ Hits per campaign run</li>
-          <li>24-hour response on every new brief</li>
-          <li>100% Photo-documented at install</li>
-          <li>10 years of street credibility</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>How It Works — Our Wheat Pasting &amp; Poster Campaign Process</h2>
-        <h3>01 — Brief Us</h3>
-        <p>
-          Tell us your brand, target city, campaign goals, and timeline. We
-          respond within 24 hours with a custom guerrilla marketing strategy
-          tailored to your market, audience, and budget.
-        </p>
-        <h3>02 — We Plan</h3>
-        <p>
-          You bring the artwork — we handle everything else. We review your
-          existing designs, print all posters or cut your stencils, source
-          materials, and map out strategic high-traffic placement zones in your
-          city.
-        </p>
-        <h3>03 — We Deploy</h3>
-        <p>
-          Our crew hits the streets. Walls wheat-pasted, sidewalks chalk-spray
-          stenciled. 25–200+ precision placements per campaign run, executed at
-          the exact locations agreed in your strategy brief.
-        </p>
-        <h3>04 — You See It</h3>
-        <p>
-          Full photo documentation from every single hit — timestamped,
-          geo-tagged, and packaged into a clean campaign report. Proof of every
-          placement, ready to share as social content.
-        </p>
-      </section>
-
-      <section>
         <h2>Our Services — Wheat Pasting, Chalk Spray Stencils &amp; Full Impact Campaigns</h2>
 
         <article>
@@ -120,70 +74,6 @@ export default function StaticSEOSections() {
             <li>Strategic placement mapping</li>
             <li>Nationwide poster campaign deployment</li>
           </ul>
-        </article>
-      </section>
-
-      <section>
-        <h2>Why Guerrilla Marketing — Digital Ads Fade. Streets Don&apos;t.</h2>
-        <article>
-          <h3>Impossible to Ignore</h3>
-          <p>
-            Traditional ads are scrolled past, muted, or blocked. Our wheat
-            pasting and street postering campaigns live at street level — where
-            people walk, gather, and exist. You can&apos;t close a popup on a
-            brick wall.
-          </p>
-        </article>
-        <article>
-          <h3>Earned Media Machine</h3>
-          <p>
-            Every wheat paste and chalk spray stencil becomes a photo opp.
-            People stop, post, tag. Your campaign generates organic social
-            content for free — and the buzz outlasts the poster.
-          </p>
-        </article>
-        <article>
-          <h3>Raw Cultural Credibility</h3>
-          <p>
-            Street-level presence signals authenticity. The brands people talk
-            about are the ones they see in real life — woven into the urban
-            experience.
-          </p>
-        </article>
-        <article>
-          <h3>Hyper-Local Targeting</h3>
-          <p>
-            Every street poster placement is mapped to your audience&apos;s exact
-            neighborhoods — their commutes, lunch spots, music venues, and
-            midnight routes home.
-          </p>
-        </article>
-      </section>
-
-      <section>
-        <h2>Why Guerrilla Marketing Works</h2>
-        <article>
-          <h3>Street ads can&apos;t be muted.</h3>
-          <p>
-            Wheat paste and chalk stencils live in the real world. No algorithm
-            decides who sees them — if you walk past, you see it.
-          </p>
-        </article>
-        <article>
-          <h3>Every campaign is proven.</h3>
-          <p>
-            100% photo documentation at every wheat pasting install —
-            timestamped, geo-tagged, report-ready. No impression estimates, just
-            proof.
-          </p>
-        </article>
-        <article>
-          <h3>50+ cities, any scale.</h3>
-          <p>
-            Single-market drops or simultaneous nationwide poster campaign
-            saturation. Local crews in every city. Rush timelines from 5
-            business days.
-          </p>
         </article>
       </section>
 
@@ -256,6 +146,116 @@ export default function StaticSEOSections() {
             (New Orleans), Utah (Salt Lake City), Indiana (Indianapolis), and
             Wisconsin (Milwaukee). Reach out for a custom statewide quote.
           </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How It Works — Our Wheat Pasting &amp; Poster Campaign Process</h2>
+        <h3>01 — Brief Us</h3>
+        <p>
+          Tell us your brand, target city, campaign goals, and timeline. We
+          respond within 24 hours with a custom guerrilla marketing strategy
+          tailored to your market, audience, and budget.
+        </p>
+        <h3>02 — We Plan</h3>
+        <p>
+          You bring the artwork — we handle everything else. We review your
+          existing designs, print all posters or cut your stencils, source
+          materials, and map out strategic high-traffic placement zones in your
+          city.
+        </p>
+        <h3>03 — We Deploy</h3>
+        <p>
+          Our crew hits the streets. Walls wheat-pasted, sidewalks chalk-spray
+          stenciled. 25–200+ precision placements per campaign run, executed at
+          the exact locations agreed in your strategy brief.
+        </p>
+        <h3>04 — You See It</h3>
+        <p>
+          Full photo documentation from every single hit — timestamped,
+          geo-tagged, and packaged into a clean campaign report. Proof of every
+          placement, ready to share as social content.
+        </p>
+      </section>
+
+      <section>
+        <h2>Why Guerrilla Marketing — Digital Ads Fade. Streets Don&apos;t.</h2>
+        <article>
+          <h3>Impossible to Ignore</h3>
+          <p>
+            Traditional ads are scrolled past, muted, or blocked. Our wheat
+            pasting and street postering campaigns live at street level — where
+            people walk, gather, and exist. You can&apos;t close a popup on a
+            brick wall.
+          </p>
+        </article>
+        <article>
+          <h3>Earned Media Machine</h3>
+          <p>
+            Every wheat paste and chalk spray stencil becomes a photo opp.
+            People stop, post, tag. Your campaign generates organic social
+            content for free — and the buzz outlasts the poster.
+          </p>
+        </article>
+        <article>
+          <h3>Raw Cultural Credibility</h3>
+          <p>
+            Street-level presence signals authenticity. The brands people talk
+            about are the ones they see in real life — woven into the urban
+            experience.
+          </p>
+        </article>
+        <article>
+          <h3>Hyper-Local Targeting</h3>
+          <p>
+            Every street poster placement is mapped to your audience&apos;s exact
+            neighborhoods — their commutes, lunch spots, music venues, and
+            midnight routes home.
+          </p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Why Guerrilla Marketing Works</h2>
+        <article>
+          <h3>Street ads can&apos;t be muted.</h3>
+          <p>
+            Wheat paste and chalk stencils live in the real world. No algorithm
+            decides who sees them — if you walk past, you see it.
+          </p>
+        </article>
+        <article>
+          <h3>Every campaign is proven.</h3>
+          <p>
+            100% photo documentation at every wheat pasting install —
+            timestamped, geo-tagged, report-ready. No impression estimates, just
+            proof.
+          </p>
+        </article>
+        <article>
+          <h3>50+ cities, any scale.</h3>
+          <p>
+            Single-market drops or simultaneous nationwide poster campaign
+            saturation. Local crews in every city. Rush timelines from 5
+            business days.
+          </p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Real Numbers. Real Streets.</h2>
+        <p>
+          A decade of guerrilla marketing campaigns across every major US
+          market. Every wheat paste placement photographed, every poster
+          campaign documented.
+        </p>
+        <ul>
+          <li>50+ US Cities covered nationwide</li>
+          <li>500+ Wheat pasting and street postering campaigns delivered</li>
+          <li>200+ Hits per campaign run</li>
+          <li>24-hour response on every new brief</li>
+          <li>100% Photo-documented at install</li>
+          <li>10 years of street credibility</li>
         </ul>
       </section>
 

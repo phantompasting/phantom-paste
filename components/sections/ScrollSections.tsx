@@ -16,6 +16,8 @@ import SpotlightCard from "@/components/SpotlightCard";
 import { GALLERY_IMGS } from "@/lib/gallery-data";
 import { BUSINESS } from "@/lib/business";
 import { HOMEPAGE_FAQS } from "@/lib/homepageFAQs";
+import { US_MAP_VIEWBOX, US_STATE_PATHS, US_STATE_PINS } from "@/lib/usMapPaths";
+import { COVERAGE } from "@/lib/coverageDirectory";
 import { useSectionReveal, useInViewOnce } from "./reveal";
 
 /* ── SVG Icons — inline, no emoji, no icon library dependency ── */
@@ -1493,23 +1495,137 @@ function Footer() {
 
 
 /* ═══════════════════════════════════════════════════════════════
+   COVERAGE MAP — pin-labeled US map, every state links out
+═══════════════════════════════════════════════════════════════ */
+
+const MAJOR_MARKETS = [
+  { label: "New York",    href: "/locations/new-york" },
+  { label: "Los Angeles", href: "/locations/los-angeles" },
+  { label: "Chicago",     href: "/locations/chicago" },
+  { label: "Miami",       href: "/locations/miami" },
+  { label: "Houston",     href: "/locations/houston" },
+  { label: "Atlanta",     href: "/locations/atlanta" },
+  { label: "Seattle",     href: "/locations/seattle" },
+  { label: "Nashville",   href: "/locations/nashville" },
+];
+
+function CoverageMapSection() {
+  const scope = useSectionReveal<HTMLDivElement>();
+
+  return (
+    <SnapPage id="coverage">
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hcov-map svg { display: block; width: 100%; height: auto; max-height: 46vh; }
+        @media (min-width: 768px) { .hcov-map svg { max-height: 54vh; } }
+        .hcov-state { cursor: pointer; }
+        .hcov-state path {
+          fill: rgba(26,26,26,0.09);
+          stroke: rgba(255,253,245,0.98); stroke-width: 1.2;
+          transition: fill 0.15s;
+        }
+        .hcov-state:hover path, .hcov-state:focus-visible path { fill: rgba(212,160,16,0.55); }
+        .hcov-state circle {
+          fill: #1A1A1A; stroke: #FFFDF5; stroke-width: 1.5;
+          transition: fill 0.15s;
+        }
+        .hcov-state:hover circle { fill: #D4A010; }
+        .hcov-state text {
+          fill: #FFF; text-anchor: middle;
+          font-family: var(--font-mono), "DM Mono", monospace;
+          font-size: 8.5px; font-weight: 700; letter-spacing: 0.05em;
+          pointer-events: none;
+        }
+      ` }} />
+      <div ref={scope} className="w-full h-full flex items-center justify-center px-5 sm:px-8 md:px-12 lg:px-16 overflow-hidden">
+        <div className="relative z-10 max-w-[1200px] w-full mx-auto text-center">
+
+          <div data-reveal="fade-up" className="mb-2 md:mb-3">
+            <Label>Coverage · 50 States + DC</Label>
+          </div>
+
+          <h2 data-reveal="fade-up-big" className="font-black uppercase m-0 mb-4 md:mb-6 leading-[0.9]"
+            style={{ fontSize: "clamp(26px, 4.5vw, 56px)", letterSpacing: "-0.035em", color: "#1A1A1A" }}>
+            EVERY MAJOR US CITY. <ShinyGoldText>ONE CREW.</ShinyGoldText>
+          </h2>
+
+          <div data-reveal="fade-up" className="hcov-map mx-auto">
+            <svg viewBox={US_MAP_VIEWBOX} role="group" aria-label="US coverage map — every state links to its market page">
+              {COVERAGE.map((s) => {
+                const d = US_STATE_PATHS[s.abbr.toLowerCase()];
+                const pin = US_STATE_PINS[s.abbr];
+                if (!d) return null;
+                return (
+                  <a
+                    key={s.abbr}
+                    href={s.slug ? `/locations/${s.slug}` : "/locations"}
+                    className="hcov-state"
+                    aria-label={`${s.name} — wheat pasting coverage`}
+                  >
+                    <path d={d} />
+                    {pin && (
+                      <g transform={`translate(${pin[0]}, ${pin[1]})`} aria-hidden>
+                        <circle r="11" />
+                        <text dy="3">{s.abbr}</text>
+                      </g>
+                    )}
+                  </a>
+                );
+              })}
+            </svg>
+          </div>
+
+          <div data-reveal="fade-up" className="flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1 mt-4 md:mt-6">
+            <span className="font-mono uppercase" style={{ fontSize: "9px", letterSpacing: "0.3em", color: "rgba(0,0,0,0.45)" }}>
+              Major Markets
+            </span>
+            {MAJOR_MARKETS.map((m) => (
+              <a key={m.label} href={m.href}
+                className="font-black uppercase no-underline"
+                style={{ fontSize: "clamp(14px, 1.5vw, 19px)", letterSpacing: "-0.02em", color: "#1A1A1A", transition: "color 0.15s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#D4A010"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#1A1A1A"; }}>
+                {m.label}
+              </a>
+            ))}
+          </div>
+
+          <div data-reveal="fade-up" className="mt-3 md:mt-5">
+            <a href="/locations"
+              className="inline-flex items-center gap-2 font-mono uppercase no-underline font-bold"
+              style={{ fontSize: "10px", letterSpacing: "0.24em", color: "#1A1A1A", borderBottom: "2px solid #D4A010", paddingBottom: "3px" }}>
+              City not listed? See full coverage <span aria-hidden style={{ color: "#D4A010" }}>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </SnapPage>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
    ROOT EXPORT
 ═══════════════════════════════════════════════════════════════ */
 export default function ScrollSections() {
   return (
     <div className="flex flex-col" style={{ gap: 0 }}>
-      <StatsSection />
-      {STEPS.map((step, i) => (
-        <ProcessStepPage key={step.num} step={step} index={i} />
-      ))}
+      {/* Order set by Kelvin 8/29: What We Do → How It Works → Gallery →
+          Coverage Map → Why/TLDR/Contact → Street Impact → FAQ. */}
       {SERVICES_DATA.map((svc, i) => (
         <ServicePage key={svc.num} svc={svc} index={i} />
       ))}
+      <GallerySection />
+      <CoverageMapSection />
+      {STEPS.map((step, i) => (
+        <ProcessStepPage key={step.num} step={step} index={i} />
+      ))}
       <WhySection />
       <TLDRSection />
-      <GallerySection />
-      <ContactSection />
+      <StatsSection />
       <FAQSection />
+      {/* Conversion ask goes LAST: FAQ clears final objections, then the
+          form. Early high-intent visitors use the persistent nav CTA. */}
+      <ContactSection />
       <Footer />
     </div>
   );
