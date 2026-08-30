@@ -830,8 +830,11 @@ function TLDRSection() {
 function GallerySection() {
   const scope = useSectionReveal<HTMLDivElement>();
   const scrollRef = useRef<HTMLDivElement>(null);
-  // Floating "more images" bubble hides once the strip is scrolled to its end.
+  // Floating bubbles: the right "more images" bubble hides at the strip's
+  // end; the left "back" bubble appears only once the strip has been
+  // scrolled away from the start (so first paint shows a single arrow).
   const [atEnd, setAtEnd] = useState(false);
+  const [atStart, setAtStart] = useState(true);
 
   const scroll = useCallback((dir: -1 | 1) => {
     const el = scrollRef.current;
@@ -843,6 +846,7 @@ function GallerySection() {
     const el = scrollRef.current;
     if (!el) return;
     setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 40);
+    setAtStart(el.scrollLeft <= 40);
   }, []);
 
   // Drag-to-scroll (desktop only). pointermove fires at pointer-sample rate
@@ -1008,6 +1012,24 @@ function GallerySection() {
           @media (min-width: 768px) {
             .gallery-more-bubble { right: 76px; }
           }
+          /* Left "back" bubble — same pill, mirrored; no ping ring (it's a
+             way-back affordance, not a discovery hint). Hidden at the start
+             of the strip, appears after the first scroll right. */
+          .gallery-back-bubble {
+            position: absolute; left: 16px; top: 55%;
+            transform: translateY(-50%);
+            width: 54px; height: 54px; border-radius: 9999px;
+            background: #1A1A1A; border: 0; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 26px rgba(0,0,0,0.30);
+            z-index: 20;
+            transition: opacity 0.25s, transform 0.25s;
+          }
+          .gallery-back-bubble:hover { transform: translateY(-50%) scale(1.08); }
+          .gallery-back-bubble .arrow {
+            color: #D4A010; font-size: 20px; font-weight: 700; line-height: 1;
+          }
+          .gallery-back-bubble.is-hidden { opacity: 0; pointer-events: none; }
           @media (prefers-reduced-motion: reduce) {
             .gallery-more-bubble .ping { animation: none; opacity: 0.4; }
           }
@@ -1020,6 +1042,14 @@ function GallerySection() {
         >
           <span className="ping" aria-hidden />
           <span className="arrow" aria-hidden>→</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => scroll(-1)}
+          aria-label="Scroll back to previous campaign photos"
+          className={`gallery-back-bubble${atStart ? " is-hidden" : ""}`}
+        >
+          <span className="arrow" aria-hidden>←</span>
         </button>
       </div>
 
