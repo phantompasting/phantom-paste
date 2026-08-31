@@ -9,6 +9,7 @@
  */
 
 import { useRef, useState, useCallback, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import ShinyGoldText from "@/components/ShinyGoldText";
 import GlassSurface from "@/components/GlassSurface";
@@ -827,6 +828,12 @@ function TLDRSection() {
    5. GALLERY
 ═══════════════════════════════════════════════════════════════ */
 
+// Same lightbox the /gallery page uses (portal + framer-motion). Loaded on
+// demand: the chunk isn't fetched until the first image click (see
+// `lightboxMounted`), so the homepage's no-framer-motion budget holds until
+// a visitor actually asks to expand a photo.
+const GalleryLightbox = dynamic(() => import("@/app/gallery/GalleryLightbox"), { ssr: false });
+
 function GallerySection() {
   const scope = useSectionReveal<HTMLDivElement>();
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -835,6 +842,28 @@ function GallerySection() {
   // scrolled away from the start (so first paint shows a single arrow).
   const [atEnd, setAtEnd] = useState(false);
   const [atStart, setAtStart] = useState(true);
+
+  // Lightbox: click an image to expand. `lightboxMounted` stays true after
+  // the first open so the dynamic chunk loads once and exit animations play.
+  // `dragMovedRef` suppresses the click that fires after a drag-to-scroll
+  // release — only a true tap/click (<8px pointer travel) opens the lightbox.
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [lightboxMounted, setLightboxMounted] = useState(false);
+  const dragMovedRef = useRef(false);
+  const openLightbox = useCallback((idx: number) => {
+    if (dragMovedRef.current) return;
+    setLightboxMounted(true);
+    setLightboxIdx(idx);
+  }, []);
+  const closeLightbox = useCallback(() => setLightboxIdx(null), []);
+  const prevImage = useCallback(
+    () => setLightboxIdx((i) => (i !== null ? (i - 1 + GALLERY_IMGS.length) % GALLERY_IMGS.length : null)),
+    []
+  );
+  const nextImage = useCallback(
+    () => setLightboxIdx((i) => (i !== null ? (i + 1) % GALLERY_IMGS.length : null)),
+    []
+  );
 
   const scroll = useCallback((dir: -1 | 1) => {
     const el = scrollRef.current;
@@ -865,11 +894,21 @@ function GallerySection() {
     };
     const onDown = (e: PointerEvent) => {
       dragging = true; startX = e.clientX; startScroll = el.scrollLeft; latestX = e.clientX;
-      el.style.cursor = "grabbing"; el.setPointerCapture(e.pointerId);
+      dragMovedRef.current = false;
+      el.style.cursor = "grabbing";
+      // NOTE: pointer capture is deliberately NOT taken here. Capturing on
+      // pointerdown retargets the release (and therefore the click) to the
+      // strip itself, which swallowed clicks on the gallery items — the
+      // lightbox could never open by mouse. Capture starts in onMove only
+      // once real drag distance (>8px) is seen.
     };
     const onMove = (e: PointerEvent) => {
       if (!dragging) return;
       latestX = e.clientX;
+      if (!dragMovedRef.current && Math.abs(latestX - startX) > 8) {
+        dragMovedRef.current = true;
+        el.setPointerCapture(e.pointerId);
+      }
       if (!rafPending) {
         rafPending = true;
         requestAnimationFrame(flush);
@@ -952,9 +991,20 @@ function GallerySection() {
                 {set.map((item, i) => {
                   const isHero = si === 0 ? (i === 0 || i === 1) : i === 0;
                   const isWide = si === 0 ? false : i === 4;
+                  const globalIdx = si * 6 + i;
                   return (
                     <div key={i} data-reveal="scale"
-                      className={`gallery-item relative overflow-hidden rounded-xl group${isHero ? " gallery-hero" : ""}${isWide ? " gallery-wide" : ""}`}>
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Expand photo: ${item.label}`}
+                      onClick={() => openLightbox(globalIdx)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          openLightbox(globalIdx);
+                        }
+                      }}
+                      className={`gallery-item relative overflow-hidden rounded-xl group cursor-zoom-in${isHero ? " gallery-hero" : ""}${isWide ? " gallery-wide" : ""}`}>
                       <Image src={item.src} alt={item.label} loading="lazy"
                         fill sizes="(max-width: 768px) 80vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4"
@@ -1051,6 +1101,15 @@ function GallerySection() {
         >
           <span className="arrow" aria-hidden>←</span>
         </button>
+
+        {lightboxMounted && (
+          <GalleryLightbox
+            lightboxIdx={lightboxIdx}
+            closeLightbox={closeLightbox}
+            prevImage={prevImage}
+            nextImage={nextImage}
+          />
+        )}
       </div>
 
     </SnapPage>
