@@ -189,7 +189,10 @@ export default function Post() {
         comparison kills the format&apos;s reputation. A streetwear brand expecting Geopath
         impressions will tell their team wheat paste &quot;didn&apos;t work&quot; even if the
         walls hit 200 organic posts. Set the right expectation upfront and the format earns
-        its slot in the next quarter&apos;s plan.
+        its slot in the next quarter&apos;s plan. (The same discipline applies when the
+        alternative is digital spend instead of boards — our{" "}
+        <BlogLink slug="online-ads-vs-street-ads">online ads vs street ads</BlogLink>{" "}
+        comparison covers that side of the math, ad fraud included.)
       </p>
 
       <h2>The Decision Framework</h2>

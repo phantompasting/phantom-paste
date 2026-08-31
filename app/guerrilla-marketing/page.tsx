@@ -439,7 +439,8 @@ export default function GuerrillaMarketingPage() {
               A full-service agency owns the whole chain: strategy and neighborhood targeting, print production on the right stock, installation by crews who know every wall in their market, and documentation that proves what ran. That last step is where agencies separate — anyone can promise 200 placements; the question is whether you get a geo-tagged photo of each one.
             </p>
             <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "760px" }}>
-              Phantom Pasting has run 500+ street campaigns for music labels, fashion brands, film releases, and startups across 50+ US cities. Every campaign ships with per-placement photo proof — timestamped, GPS-logged, and mapped.
+              Phantom Pasting has run 500+ street campaigns for music labels, fashion brands, film releases, and startups across 50+ US cities. Every campaign ships with per-placement photo proof — timestamped, GPS-logged, and mapped. Weighing street formats against digital spend? Our{" "}
+              <Link href="/blog/online-ads-vs-street-ads" style={{ color: ACCENT }}>online ads vs street ads</Link> breakdown compares the two dollar-for-dollar, ad fraud included.
             </p>
           </div>
         </section>
