@@ -27,16 +27,18 @@ import "./globals.css";
  * default) synthesize it from 300/700, which on Barlow Condensed is
  * visually indistinguishable for non-display text.
  *
- * `display: optional` keeps fonts from blocking LCP — if the font isn't
- * cached after ~100ms, the browser sticks with the system fallback for
- * the entire pageview (no swap, no CLS). Cached pageloads (most
- * second-page-views) get the brand font instantly.
+ * `display: swap` — was "optional", which kept fonts from blocking LCP
+ * but committed first-time visitors to the Arial fallback for the whole
+ * pageview whenever the font missed the ~100ms window (wrong hero type
+ * until a refresh). "swap" shows the fallback immediately and switches
+ * to Barlow the moment it loads; adjustFontFallback keeps the metrics
+ * close enough that the swap is near-CLS-free.
  */
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["300", "700", "900"],
   variable: "--font-barlow",
-  display: "optional",
+  display: "swap",
   // adjustFontFallback defaults to true for next/font/google — Next picks
   // the closest fallback automatically (Arial for Latin) and adjusts ascent/
   // descent so the swap is imperceptible. Leaving the default rather than
@@ -47,18 +49,13 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-mono",
-  // Was "swap" — caused FOUT on every mono element above the fold
-  // (breadcrumb pills, stat labels, eyebrow tags). The text repaint
-  // after font load shifted layout on city pages whose hero stats
-  // wrap at certain breakpoints (e.g. Nashville's "Album Launch /
-  // CMA Fest / 6" row showed CLS 0.294 on mobile traced to mono
-  // swap reflow). "optional" matches Barlow Condensed strategy:
-  // ~100ms timeout, then commit to either the brand font or
-  // system fallback for the entire pageview — no swap, no CLS.
-  // Trade-off: first-time visitors briefly see system mono
-  // fallback; cached visitors get DM Mono instantly. Acceptable
-  // for non-display mono labels.
-  display: "optional",
+  // Back to "swap" (was "optional"): optional left first-time visitors
+  // on the system mono fallback for the entire pageview, which read as
+  // a broken/off-brand page until refresh. The earlier CLS 0.294 on
+  // Nashville's mobile hero stats was traced to mono swap reflow —
+  // adjustFontFallback (default on) narrows the metric gap; re-measure
+  // that page if CLS regresses.
+  display: "swap",
 });
 
 const DEFAULT_TITLE = "Wheat Pasting Company | Phantom Pasting";
