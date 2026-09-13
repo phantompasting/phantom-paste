@@ -9,7 +9,20 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Zach John King "I'm What You Get" — Downtown Nashville (latest job) ──
+  // ── Asher Levine — Los Angeles (latest job) ──
+  // Fashion-week wheat-paste run for designer Asher Levine, Sept 11–12:
+  // four-poster sets across Echo Park, the DTLA Fashion District, Fairfax,
+  // Mid-Wilshire and East Hollywood. Faces blurred in the two pedestrian shots.
+  { src: "/gallery/asher-levine-wheat-paste-posters-white-wall-echo-park-los-angeles.webp", label: "Asher Levine — Echo Park Wall", alt: "Four Asher Levine fashion campaign posters wheat-pasted in a row on a white sticker-covered wall in Echo Park, Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/asher-levine-wheat-paste-poster-run-angle-echo-park-los-angeles.webp", label: "Asher Levine — Echo Park Angle", alt: "Angled view of the four-poster Asher Levine wheat paste run along a white wall in Echo Park, Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/asher-levine-wheat-paste-posters-pedestrian-fashion-district-dtla.webp", label: "Asher Levine — Fashion District", alt: "Pedestrian walking past Asher Levine wheat paste posters on a weathered wall in the Fashion District, Downtown Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/asher-levine-wheat-paste-four-poster-set-fairfax-los-angeles.webp", label: "Asher Levine — Four-Poster Set", alt: "Close view of the four Asher Levine campaign posters wheat-pasted side by side beneath concert flyers in the Fairfax District, Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/asher-levine-wheat-paste-posters-corner-building-fairfax-los-angeles.webp", label: "Asher Levine — Corner Building", alt: "Street view of Asher Levine wheat paste posters on the corner of a tan building in the Fairfax District, Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/asher-levine-wheat-paste-posters-couple-walking-mid-wilshire-los-angeles.webp", label: "Asher Levine — Mid-Wilshire", alt: "Couple walking past Asher Levine wheat paste posters on a sunlit stucco wall in Mid-Wilshire, Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/asher-levine-wheat-paste-posters-plywood-wall-east-hollywood.webp", label: "Asher Levine — Plywood Wall", alt: "Asher Levine wheat paste posters on a plywood-boarded wall at golden hour in East Hollywood, Los Angeles", tag: "Wheat Paste" },
+  { src: "/gallery/asher-levine-wheat-paste-posters-black-barricade-golden-hour-hollywood.webp", label: "Asher Levine — Hollywood Barricade", alt: "Four Asher Levine campaign posters wheat-pasted on a black construction barricade at dusk on Hollywood Boulevard, East Hollywood", tag: "Wheat Paste" },
+
+  // ── Zach John King "I'm What You Get" — Downtown Nashville ──
   // Release-day wheat-paste run across downtown Nashville, August 28:
   // 100 posters across storefronts, plywood barricades, and greenspace walls.
   { src: "/gallery/zach-john-king-im-what-you-get-wheat-paste-poster-grid-storefront-nashville.webp",      label: "Zach John King — Storefront Grid",   alt: "Sixteen-poster grid of Zach John King I'm What You Get wheat paste posters on a black storefront in downtown Nashville",                    tag: "Wheat Paste" },

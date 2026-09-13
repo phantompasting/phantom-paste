@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "nyc-fashion-week-guerrilla-marketing",
+    title: "NYC Fashion Week and Guerrilla Marketing: The Week Every Wall Gets Fought Over",
+    titleHighlight: "Fashion Week",
+    metaTitle: "NYC Fashion Week Guerrilla Marketing",
+    metaDescription:
+      "The runway is invitation only. The wall is not. Why fashion week is the most crowded week of the year for street advertising, how the competition really works, and why the campaigns that win run New York and Los Angeles the same week.",
+    excerpt:
+      "For seven days in September every label wants the same walls in SoHo, the Lower East Side, and Williamsburg, and paper that would hold for three weeks in July gets covered in three days. What the competition actually looks like from the install side, and why the smart campaigns run New York and LA the same week.",
+    silo: "strategy-roi",
+    publishedAt: "2026-09-13",
+    updatedAt: "2026-09-13",
+    heroImage: "/blog/nyc-fashion-week-asher-levine-echo-park-hero.webp",
+    heroAlt: "Four Asher Levine fashion campaign posters wheat-pasted in a row on a white sticker-covered wall in Echo Park, Los Angeles",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["fashion-week", "nyfw", "fashion", "guerrilla-marketing", "new-york", "los-angeles", "wheat-pasting", "multi-city"],
+    wordCount: 1358,
+    faqs: [
+      {
+        q: "Does guerrilla marketing work during New York Fashion Week?",
+        a: "Yes, but the rules change. Wall prices stay the same while poster shelf life drops from three or four weeks to about four to six days, because every brand is pasting the same blocks. Campaigns that work plan two installs during the week instead of one.",
+      },
+      {
+        q: "Which New York neighborhoods get the most fashion week street advertising?",
+        a: "SoHo along Lafayette and Broadway, the Lower East Side on Bowery, Rivington, and Ludlow, Williamsburg along Bedford Avenue, and the construction fences near the Meatpacking District show venues. Those blocks fill first and turn over fastest.",
+      },
+      {
+        q: "Why run a fashion week campaign in Los Angeles if the shows are in New York?",
+        a: "Because the customers watching the shows on their phones are in LA. Running the same creative in Los Angeles the same week gives the audience a second, physical hit after the first digital one, and LA walls hold for weeks while New York walls are gone in days.",
+      },
+      {
+        q: "How much does a fashion week wheat paste campaign cost?",
+        a: "The per-poster pricing is the same as any other week. The difference is you should budget for two waves in New York, which roughly doubles the New York poster count for the same coverage. A second city runs on normal timing and is the cheaper half of the campaign.",
+      },
+      {
+        q: "Are the barricades around fashion week venues legal to paste?",
+        a: "Most of them carry a Post No Bills stencil, which means the owner has not authorized posters and the fine goes to the brand named on the paper. A professional crew reads the barricade before pasting it and skips the ones that are marked.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-for-fashion-brands", "wheat-pasting-lower-east-side", "wheat-pasting-williamsburg", "wheat-pasting-los-angeles"],
+    status: "published",
+  },
+  {
     slug: "online-ads-vs-street-ads",
     title: "Online Ads vs Street Ads: The Case for Impressions Bots Can't Fake",
     titleHighlight: "Online Ads",
