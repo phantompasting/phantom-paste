@@ -932,7 +932,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
     ],
     relatedSlugs: ["wheat-paste-recipes", "how-to-make-wheat-paste", "wheat-pasting-los-angeles"],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "wheat-pasting-new-york",

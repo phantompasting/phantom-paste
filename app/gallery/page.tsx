@@ -25,6 +25,14 @@ export const metadata: Metadata = {
     type: "website",
     url: PAGE_URL,
     siteName: "Phantom Pasting",
+    images: [
+      {
+        url: `${BUSINESS.url}${BUSINESS.ogImageDefault}`,
+        width: BUSINESS.ogImageWidth,
+        height: BUSINESS.ogImageHeight,
+        alt: "Phantom Pasting campaign gallery — wheat paste poster wall Los Angeles",
+      },
+    ],
   },
 };
 
