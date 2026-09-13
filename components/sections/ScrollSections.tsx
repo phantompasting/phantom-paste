@@ -299,7 +299,7 @@ function TiltCard({ children, className, style }: { children: React.ReactNode; c
 
 /* ── Images (local gallery — SEO-named) ── */
 const IMGS = {
-  wheat1:   "/gallery/biodance-wheat-paste-poster-wall-los-angeles.webp",
+  wheat1:   "/gallery/asher-levine-wheat-paste-posters-white-wall-echo-park-los-angeles.webp",
   wheat2:   "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
   stencil:  "/gallery/black-pearl-chalk-spray-stencil-sidewalk-los-angeles.webp",
   full1:    "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
@@ -509,6 +509,9 @@ const SERVICES_DATA = [
   {
     num: "01", icon: "◈", name: "Wheat Pasting", sub: "Wall Takeovers", accent: "#1A1A1A",
     img: IMGS.wheat1,
+    // Anchor left of centre so the full four-poster set stays inside the half-width panel
+    imgPos: "20% 50%",
+    imgNatural: true, // show the photo at its original brightness (no dim, no gradient)
     tagline: "Large format walls. Impossible to miss.",
     desc: "Posters from 24\"×36\" to 48\"×72\" on prime urban walls — high-foot-traffic intersections, construction hoardings, late-night districts. We find the walls your audience already lives around.",
     features: ["Print-ready file to finished poster","Strategic wall mapping","Photo-documented every hit","Sizes up to 48\"×72\""],
@@ -517,6 +520,7 @@ const SERVICES_DATA = [
   {
     num: "02", icon: "⬡", name: "Chalk Spray Stencils", sub: "Ground Level Impact", accent: "#D4A010", textAccent: "#1A1A1A",
     img: IMGS.stencil,
+    imgNatural: true, // original brightness, same as the Wheat Pasting slide
     tagline: "Beneath every footstep. Before every door.",
     desc: "Eco-friendly, temporary paint stencils on sidewalks, plazas, subway exits. 25–200+ placements per campaign. We create a breadcrumb trail leading foot traffic directly to your event or store.",
     features: ["Your design, we cut the stencil","25–200+ placements","Eco-friendly paint","Geo-tagged documentation"],
@@ -525,6 +529,7 @@ const SERVICES_DATA = [
   {
     num: "03", icon: "◉", name: "Full Impact", sub: "Total Street Ownership", accent: "#1A1A1A",
     img: "/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
+    imgNatural: true, // original brightness, matching the other two service slides
     tagline: "Above eye level. Below every footstep.",
     desc: "The complete guerrilla takeover. Large-format wall posters combined with precision chalk spray stencils. Your brand woven into the daily rhythm of the city from every angle.",
     features: ["Full wheat pasting campaign","Stencil activations (25–200+)","Strategic placement mapping","Nationwide deployment"],
@@ -604,9 +609,12 @@ function ServicePage({ svc, index }: { svc: typeof SERVICES_DATA[number]; index:
         {/* Image side */}
         <div data-reveal="slide-right" className="hidden md:block relative w-1/2 overflow-hidden">
           <Image src={svc.img} alt={svc.name} loading="lazy"
-            fill sizes="50vw" className="object-cover brightness-90" />
-          <div className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.06) 55%, transparent 100%)" }} />
+            fill sizes="50vw" className={"imgNatural" in svc ? "object-cover" : "object-cover brightness-90"}
+            style={"imgPos" in svc ? { objectPosition: svc.imgPos } : undefined} />
+          {!("imgNatural" in svc) && (
+            <div className="absolute inset-0"
+              style={{ background: "linear-gradient(to right, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.06) 55%, transparent 100%)" }} />
+          )}
           <div className="absolute bottom-8 right-8 font-black leading-none"
             style={{ fontSize: "clamp(80px, 10vw, 140px)", color: "rgba(0,0,0,0.06)", letterSpacing: "-0.04em" }}>
             {svc.num}
