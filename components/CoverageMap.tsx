@@ -342,9 +342,9 @@ export default function CoverageMap() {
             <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
             Selected Market
           </span>
-          <h3 className="cm-state-name">
+          <h2 className="cm-state-name">
             {selected.name} <span className="abbr">·{selected.abbr}</span>
-          </h3>
+          </h2>
           <div className="cm-rule" aria-hidden />
           <ul className="cm-cities">
             {selected.cities.map((c) =>
