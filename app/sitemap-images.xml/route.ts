@@ -306,6 +306,40 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     caption: "Urban street pole sticker campaign installation — guerrilla advertising by Phantom Pasting",
   },
 
+  // ── Asher Levine — Los Angeles (Sept 2026 fashion-week run) ──
+  "asher-levine-wheat-paste-posters-white-wall-echo-park-los-angeles.webp": {
+    title: "Asher Levine Wheat Paste Posters — Echo Park, LA",
+    caption: "Four Asher Levine fashion campaign posters wheat-pasted in a row on a white sticker-covered wall in Echo Park, Los Angeles — by Phantom Pasting",
+  },
+  "asher-levine-wheat-paste-poster-run-angle-echo-park-los-angeles.webp": {
+    title: "Asher Levine Poster Run, Angled View — Echo Park, LA",
+    caption: "Angled view of the four-poster Asher Levine wheat paste run along a white wall in Echo Park, Los Angeles — by Phantom Pasting",
+  },
+  "asher-levine-wheat-paste-posters-pedestrian-fashion-district-dtla.webp": {
+    title: "Asher Levine Wheat Paste Posters — Fashion District, DTLA",
+    caption: "Pedestrian walking past Asher Levine wheat paste posters on a weathered wall in the Fashion District, Downtown Los Angeles — by Phantom Pasting",
+  },
+  "asher-levine-wheat-paste-four-poster-set-fairfax-los-angeles.webp": {
+    title: "Asher Levine Four-Poster Set — Fairfax, LA",
+    caption: "Close view of the four Asher Levine campaign posters wheat-pasted side by side beneath concert flyers in the Fairfax District, Los Angeles — by Phantom Pasting",
+  },
+  "asher-levine-wheat-paste-posters-corner-building-fairfax-los-angeles.webp": {
+    title: "Asher Levine Posters, Corner Building — Fairfax, LA",
+    caption: "Street view of Asher Levine wheat paste posters on the corner of a tan building in the Fairfax District, Los Angeles — by Phantom Pasting",
+  },
+  "asher-levine-wheat-paste-posters-couple-walking-mid-wilshire-los-angeles.webp": {
+    title: "Asher Levine Wheat Paste Posters — Mid-Wilshire, LA",
+    caption: "Couple walking past Asher Levine wheat paste posters on a sunlit stucco wall in Mid-Wilshire, Los Angeles — by Phantom Pasting",
+  },
+  "asher-levine-wheat-paste-posters-plywood-wall-east-hollywood.webp": {
+    title: "Asher Levine Posters on Plywood — East Hollywood, LA",
+    caption: "Asher Levine wheat paste posters on a plywood-boarded wall at golden hour in East Hollywood, Los Angeles — by Phantom Pasting",
+  },
+  "asher-levine-wheat-paste-posters-black-barricade-golden-hour-hollywood.webp": {
+    title: "Asher Levine Posters on Barricade — Hollywood Blvd, LA",
+    caption: "Four Asher Levine campaign posters wheat-pasted on a black construction barricade at dusk on Hollywood Boulevard, East Hollywood — by Phantom Pasting",
+  },
+
   // ── Zach John King "I'm What You Get" — Downtown Nashville ──
   "zach-john-king-im-what-you-get-wheat-paste-poster-grid-storefront-nashville.webp": {
     title: "Zach John King Wheat Paste Poster Grid — Downtown Nashville",
@@ -427,6 +461,9 @@ const PAGE_IMAGES: Record<string, string[]> = {
 
   // City pages — hero/OG images used in those markets
   "/locations/los-angeles": [
+    "asher-levine-wheat-paste-posters-white-wall-echo-park-los-angeles.webp",
+    "asher-levine-wheat-paste-posters-pedestrian-fashion-district-dtla.webp",
+    "asher-levine-wheat-paste-posters-black-barricade-golden-hour-hollywood.webp",
     "biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
     "biodance-glow-on-the-go-chalk-stencil-sidewalk-los-angeles.webp",
     "arsenal-boxing-48x72-wheat-paste-posters-hollywood-los-angeles.webp",
