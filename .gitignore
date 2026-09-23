@@ -20,3 +20,5 @@ public/gallery/_originals_backup/
 reveals-final.jpeg
 *.vim
 *.swp
+# Build-time responsive gallery variants (scripts/gen-gallery-variants.mjs)
+public/gallery/_r/
