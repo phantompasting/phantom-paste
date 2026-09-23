@@ -5,7 +5,7 @@
 # `next/image` optimization, ISR). Without it, Netlify would try to serve
 # `.next/` as static files and most routes would 404.
 [build]
-  command = "next build"
+  command = "node scripts/gen-gallery-variants.mjs && next build"
   publish = ".next"
 
 [[plugins]]

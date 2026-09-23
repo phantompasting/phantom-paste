@@ -77,6 +77,9 @@ export default function GalleryLightbox({ lightboxIdx, closeLightbox, prevImage,
                 src={lightbox.src}
                 alt={lightbox.alt}
                 fill
+                // Hi-res view: serve the original 1400px WebP straight from
+                // /public (edge-cached) rather than through the optimizer.
+                unoptimized
                 sizes="(min-width: 768px) 80vw, 100vw"
                 className="object-contain"
               />

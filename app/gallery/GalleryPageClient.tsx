@@ -4,6 +4,7 @@ import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { GALLERY_IMGS } from "@/lib/gallery-data";
+import { galleryLoader } from "@/lib/galleryLoader";
 
 // Lightbox is the only surface that needs framer-motion. Loading it on demand
 // keeps framer (~38 KB) out of the initial gallery bundle. ssr:false because
@@ -201,11 +202,19 @@ export default function GalleryPageClient() {
                       src={img.src}
                       alt={img.alt}
                       fill
-                      // First 3 images on each page form the above-fold row.
-                      // Eager-load + high priority on those for fast LCP;
-                      // everything else stays lazy + low priority.
-                      loading={i < 3 ? "eager" : "lazy"}
-                      fetchPriority={i === 0 ? "high" : i < 3 ? "auto" : "low"}
+                      // Static pre-sized variants instead of /_next/image —
+                      // the optimizer is an edge-cache miss on every request
+                      // on Netlify (see scripts/gen-gallery-variants.mjs).
+                      loader={galleryLoader}
+                      // Only the FIRST card is eager + preloaded: it is the LCP
+                      // element on every breakpoint. Cards 2-3 used to be eager
+                      // too (the desktop above-fold row), but on the mobile
+                      // 1-col layout they sit below the fold and Lighthouse's
+                      // throttling model charges their bytes against the LCP
+                      // (gallery mobile LCP 4.5s / perf 77 on 9/23). Lazy + low
+                      // lets the browser fetch them right after the first paint.
+                      loading={i === 0 ? "eager" : "lazy"}
+                      fetchPriority={i === 0 ? "high" : "low"}
                       priority={i === 0}
                       // Tighter sizes — column-gap accounted for. Mobile is
                       // 1 col with 40px page padding; sm 2 cols; lg 3 cols.
@@ -264,17 +273,23 @@ export default function GalleryPageClient() {
                   key={i}
                   onClick={() => handlePageChange(i)}
                   aria-label={`Page ${i + 1}`}
-                  style={{
-                    height: "8px",
-                    width: i === page ? "24px" : "8px",
-                    borderRadius: "99px",
-                    background: i === page ? ACCENT : "rgba(0,0,0,0.15)",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                    transition: "width 0.25s ease, background 0.2s ease",
-                  }}
-                />
+                  // 24px hit area (WCAG 2.5.8 target size) around an 8px visual
+                  // dot — the dots alone failed Lighthouse's target-size audit.
+                  className="flex items-center justify-center"
+                  style={{ height: "24px", minWidth: "24px", padding: 0, border: "none", background: "none", cursor: "pointer" }}
+                >
+                  <span
+                    aria-hidden
+                    style={{
+                      display: "block",
+                      height: "8px",
+                      width: i === page ? "24px" : "8px",
+                      borderRadius: "99px",
+                      background: i === page ? ACCENT : "rgba(0,0,0,0.15)",
+                      transition: "width 0.25s ease, background 0.2s ease",
+                    }}
+                  />
+                </button>
               ))}
             </div>
 
