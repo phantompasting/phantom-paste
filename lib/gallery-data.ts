@@ -9,7 +9,21 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Asher Levine — Los Angeles (latest job) ──
+  // ── New York City fall run — Sept 18–20 (latest job) ──
+  // First NYC wheat-paste trip: ABFF Pop Up New York (Oct 10–11 festival),
+  // Calvin Priice, and the Gerbil podcast across Harlem, the Upper West Side,
+  // Union Square, the East Village, and Williamsburg. Overnight installs.
+  { src: "/gallery/abff-pop-up-chalk-stencil-qr-code-sidewalk-noho-nyc.webp", label: "NYC Fall Run — ABFF Sidewalk Stencil", alt: "ABFF Pop Up chalk spray stencil with a QR code on a NoHo sidewalk in New York as pedestrians step past", tag: "Stencil", aspect: "portrait" },
+  { src: "/gallery/abff-pop-up-calvin-priice-gerbil-wheat-paste-posters-green-barricade-harlem-nyc.webp", label: "NYC Fall Run — Harlem Barricade", alt: "Calvin Priice, Gerbil podcast, and ABFF Pop Up wheat paste posters wrapping a green construction barricade on a Harlem corner in New York", tag: "Wheat Paste" },
+  { src: "/gallery/abff-pop-up-wheat-paste-poster-wall-pedestrians-upper-west-side-nyc.webp", label: "NYC Fall Run — Upper West Side", alt: "Pedestrians walking past a wall of ABFF Pop Up, Gerbil podcast, and Calvin Priice wheat paste posters on the Upper West Side of Manhattan", tag: "Wheat Paste" },
+  { src: "/gallery/abff-pop-up-calvin-priice-wheat-paste-poster-grid-upper-west-side-nyc.webp", label: "NYC Fall Run — Eight-Poster Grid", alt: "Eight-poster grid of ABFF Pop Up New York and Calvin Priice wheat paste posters on a gray wall on the Upper West Side, New York", tag: "Wheat Paste" },
+  { src: "/gallery/calvin-priice-abff-pop-up-wheat-paste-posters-subway-entrance-union-square-nyc.webp", label: "NYC Fall Run — Union Square", alt: "Calvin Priice and ABFF Pop Up wheat paste posters on a green board beside a subway entrance at Union Square, New York, at night", tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/calvin-priice-abff-pop-up-wheat-paste-posters-pedestrian-union-square-night-nyc.webp", label: "NYC Fall Run — Union Square Pass-by", alt: "Pedestrian passing Calvin Priice and ABFF Pop Up wheat paste posters at a Union Square subway entrance in New York at night", tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/calvin-priice-wheat-paste-posters-storefront-corner-east-village-night-nyc.webp", label: "NYC Fall Run — East Village Corner", alt: "Calvin Priice wheat paste posters on a black storefront corner in the East Village, New York, at night", tag: "Wheat Paste", aspect: "portrait" },
+  { src: "/gallery/abff-pop-up-calvin-priice-wheat-paste-poster-block-white-brick-williamsburg-brooklyn.webp", label: "NYC Fall Run — Williamsburg", alt: "Block of ABFF Pop Up New York wheat paste posters below a Calvin Priice poster on a white brick wall in Williamsburg, Brooklyn", tag: "Wheat Paste" },
+  { src: "/gallery/gerbil-podcast-wheat-paste-poster-install-night-silver-lake-los-angeles.webp", label: "Gerbil Podcast — Silver Lake Install", alt: "Installer smoothing a Gerbil podcast wheat paste poster onto a plywood wall at night in Silver Lake, Los Angeles", tag: "Wheat Paste" },
+
+  // ── Asher Levine — Los Angeles ──
   // Fashion-week wheat-paste run for designer Asher Levine, Sept 11–12:
   // four-poster sets across Echo Park, the DTLA Fashion District, Fairfax,
   // Mid-Wilshire and East Hollywood. Faces blurred in the two pedestrian shots.

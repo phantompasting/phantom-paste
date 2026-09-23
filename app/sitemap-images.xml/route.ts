@@ -306,6 +306,44 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     caption: "Urban street pole sticker campaign installation — guerrilla advertising by Phantom Pasting",
   },
 
+  // ── New York City fall run — Sept 18–20, 2026 ──
+  "abff-pop-up-chalk-stencil-qr-code-sidewalk-noho-nyc.webp": {
+    title: "ABFF Pop Up Chalk Stencil with QR Code — NoHo, NYC",
+    caption: "ABFF Pop Up chalk spray stencil with a QR code on a NoHo sidewalk in New York as pedestrians step past — by Phantom Pasting",
+  },
+  "gerbil-podcast-wheat-paste-poster-install-night-silver-lake-los-angeles.webp": {
+    title: "Gerbil Podcast Poster Install at Night — Silver Lake, LA",
+    caption: "Installer smoothing a Gerbil podcast wheat paste poster onto a plywood wall at night in Silver Lake, Los Angeles — by Phantom Pasting",
+  },
+  "abff-pop-up-calvin-priice-gerbil-wheat-paste-posters-green-barricade-harlem-nyc.webp": {
+    title: "NYC Wheat Paste Posters on a Green Barricade — Harlem",
+    caption: "Calvin Priice, Gerbil podcast, and ABFF Pop Up wheat paste posters wrapping a green construction barricade on a Harlem corner in New York — by Phantom Pasting",
+  },
+  "abff-pop-up-wheat-paste-poster-wall-pedestrians-upper-west-side-nyc.webp": {
+    title: "ABFF Pop Up Poster Wall with Pedestrians — Upper West Side, NYC",
+    caption: "Pedestrians walking past a wall of ABFF Pop Up, Gerbil podcast, and Calvin Priice wheat paste posters on the Upper West Side of Manhattan — by Phantom Pasting",
+  },
+  "abff-pop-up-calvin-priice-wheat-paste-poster-grid-upper-west-side-nyc.webp": {
+    title: "ABFF Pop Up Eight-Poster Grid — Upper West Side, NYC",
+    caption: "Eight-poster grid of ABFF Pop Up New York and Calvin Priice wheat paste posters on a gray wall on the Upper West Side, New York — by Phantom Pasting",
+  },
+  "calvin-priice-abff-pop-up-wheat-paste-posters-subway-entrance-union-square-nyc.webp": {
+    title: "Wheat Paste Posters by the Subway Entrance — Union Square, NYC",
+    caption: "Calvin Priice and ABFF Pop Up wheat paste posters on a green board beside a subway entrance at Union Square, New York, at night — by Phantom Pasting",
+  },
+  "calvin-priice-abff-pop-up-wheat-paste-posters-pedestrian-union-square-night-nyc.webp": {
+    title: "Union Square Posters, Pedestrian Pass-by — NYC",
+    caption: "Pedestrian passing Calvin Priice and ABFF Pop Up wheat paste posters at a Union Square subway entrance in New York at night — by Phantom Pasting",
+  },
+  "calvin-priice-wheat-paste-posters-storefront-corner-east-village-night-nyc.webp": {
+    title: "Calvin Priice Posters on a Storefront Corner — East Village, NYC",
+    caption: "Calvin Priice wheat paste posters on a black storefront corner in the East Village, New York, at night — by Phantom Pasting",
+  },
+  "abff-pop-up-calvin-priice-wheat-paste-poster-block-white-brick-williamsburg-brooklyn.webp": {
+    title: "ABFF Pop Up Poster Block on White Brick — Williamsburg, Brooklyn",
+    caption: "Block of ABFF Pop Up New York wheat paste posters below a Calvin Priice poster on a white brick wall in Williamsburg, Brooklyn — by Phantom Pasting",
+  },
+
   // ── Asher Levine — Los Angeles (Sept 2026 fashion-week run) ──
   "asher-levine-wheat-paste-posters-white-wall-echo-park-los-angeles.webp": {
     title: "Asher Levine Wheat Paste Posters — Echo Park, LA",
@@ -483,6 +521,10 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "fifa-world-cup-poster-wall-gallery-wide.webp",
   ],
   "/locations/new-york": [
+    "abff-pop-up-chalk-stencil-qr-code-sidewalk-noho-nyc.webp",
+    "abff-pop-up-wheat-paste-poster-wall-pedestrians-upper-west-side-nyc.webp",
+    "calvin-priice-abff-pop-up-wheat-paste-posters-subway-entrance-union-square-nyc.webp",
+    "abff-pop-up-calvin-priice-wheat-paste-poster-block-white-brick-williamsburg-brooklyn.webp",
     "bedstuy-stencil.webp",
     "incrediwear-pole-wrap-guerrilla-advertising-night.webp",
   ],
