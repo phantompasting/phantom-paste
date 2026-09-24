@@ -80,6 +80,7 @@ const data: CityPageData = {
   state: "NY",
   slug: "new-york",
   heroWord: "NEW YORK",
+  h1: { lead: "WHEAT PASTE\nPOSTER CAMPAIGNS IN", accent: "NEW YORK CITY" },
   intro: "New York City is the birthplace of wheat pasting culture — the original guerrilla marketing format that taught every other city how to do street media. More foot traffic per block than anywhere in the country. We hit the Lower East Side, Brooklyn, SoHo, Williamsburg, and every high-density neighborhood in between with wheat paste, scaffold wraps, snipes, and chalk stencils. Phantom Pasting runs the full street marketing NYC stack — paste walls, viral marketing campaigns, scaffold-wrap programs across Manhattan with full DOB permitting, and pop-up activation marketing for national brands across all five boroughs. If your brief uses 'street marketing,' 'street media,' or 'guerrilla advertising' interchangeably, the underlying execution is the same: large-format physical campaigns installed on the city's actual surfaces.",
   whyTitle: "NYC IS WHERE\nIT STARTED.",
   whyText: "New York has the highest pedestrian density in the US — millions of daily commuters, tourists, and residents who experience the city on foot. A wheat paste poster in Williamsburg or SoHo isn't just advertising — it's experiential marketing in its purest form, part of the visual fabric of the street. NYC campaigns generate organic social shares at a rate no other city can match: every one of our LES walls becomes its own viral marketing surface within 48 hours of install. Scaffold wraps are the Manhattan-specific premium format — $2K-$8K per wrap, 3–4 week DOB permit lead time, and the highest impression-density placement of any OOH format in the city.",
@@ -101,9 +102,30 @@ const data: CityPageData = {
     { stat: "5", label: "Boroughs Active" },
     { stat: "DOB", label: "Permitted Wraps" },
   ],
-  heroImage1: { src: "/gallery/incrediwear-pole-wrap-guerrilla-advertising-night.webp", alt: "Guerrilla advertising pole wrap campaign at night in New York" },
-  heroImage2: { src: "/gallery/bedstuy-stencil.webp", alt: "Guerrilla marketing stencil campaign Bed-Stuy Brooklyn New York" },
-  lastUpdated: "2026-05-14",
+  heroImage1: { src: "/gallery/abff-pop-up-wheat-paste-poster-wall-pedestrians-upper-west-side-nyc.webp", alt: "Pedestrians walking past a wheat paste poster wall on the Upper West Side", position: "right bottom" },
+  heroImage2: { src: "/gallery/abff-pop-up-calvin-priice-wheat-paste-poster-grid-upper-west-side-nyc.webp", alt: "Wheat paste poster grid on the Upper West Side, Manhattan", position: "right bottom" },
+  lastUpdated: "2026-09-24",
+  neighborhoodGuides: {
+    title: "NYC NEIGHBORHOOD GUIDES",
+    posts: [
+      { name: "NYC Wheat Pasting Field Guide", desc: "The citywide wall map: LES, SoHo, Williamsburg, Chinatown, plus permits, timing, and how Manhattan and Brooklyn crews split.", href: "/blog/wheat-pasting-new-york" },
+      { name: "Lower East Side", desc: "Ludlow, Orchard, Stanton, and the Bowery: Manhattan's densest poster walls, and why they turn over fast.", href: "/blog/wheat-pasting-lower-east-side" },
+      { name: "Williamsburg", desc: "Bedford Ave to the waterfront: Brooklyn's best poster real estate and the audience that shares it.", href: "/blog/wheat-pasting-williamsburg" },
+      { name: "The Bronx", desc: "Mott Haven scaffolding and barricade runs in the borough that invented the poster wall.", href: "/blog/wheat-pasting-bronx" },
+    ],
+  },
+  recentInstalls: {
+    title: "SEPTEMBER 2026 IN NYC",
+    body: "A September 2026 run across Manhattan: wheat paste poster grids on construction barricades in Harlem and the Upper West Side, subway-entrance walls at Union Square, and QR-coded chalk stencils on NoHo sidewalks. Every placement was photographed and GPS-logged for the client report.",
+    images: [
+      { src: "/gallery/abff-pop-up-chalk-stencil-qr-code-sidewalk-noho-nyc.webp", alt: "QR-code chalk stencil on a NoHo sidewalk in Manhattan", caption: "NoHo · Chalk stencil with QR", width: 1050, height: 1400 },
+      { src: "/gallery/abff-pop-up-calvin-priice-gerbil-wheat-paste-posters-green-barricade-harlem-nyc.webp", alt: "Wheat paste poster block on a green construction barricade in Harlem, NYC", caption: "Harlem · Barricade poster block", width: 1400, height: 1050 },
+      { src: "/gallery/calvin-priice-abff-pop-up-wheat-paste-posters-subway-entrance-union-square-nyc.webp", alt: "Wheat paste posters beside a Union Square subway entrance in NYC", caption: "Union Square · Subway entrance", width: 1050, height: 1400 },
+      { src: "/gallery/abff-pop-up-wheat-paste-poster-wall-pedestrians-upper-west-side-nyc.webp", alt: "Pedestrians walking past a wheat paste poster wall on the Upper West Side", caption: "Upper West Side · Poster wall", width: 1400, height: 1050 },
+      { src: "/gallery/calvin-priice-abff-pop-up-wheat-paste-posters-pedestrian-union-square-night-nyc.webp", alt: "Pedestrian passing wheat paste posters at Union Square at night", caption: "Union Square · Night pass-by", width: 1050, height: 1400 },
+      { src: "/gallery/abff-pop-up-calvin-priice-wheat-paste-poster-grid-upper-west-side-nyc.webp", alt: "Wheat paste poster grid on the Upper West Side, Manhattan", caption: "Upper West Side · Poster grid", width: 1400, height: 1050 },
+    ],
+  },
   pricingTiers: [
     { tier: "Single-Neighborhood Test", range: "$4,500 – $8,500", includes: "80–120 posters · 1 NYC neighborhood · Photo doc + GPS-logged install" },
     { tier: "Manhattan + Brooklyn", range: "$15K – $25K", includes: "Two-crew split · LES + Williamsburg most common · Multi-design rotation" },
@@ -132,6 +154,7 @@ const data: CityPageData = {
     body:
       "The Lower East Side is NYC's densest concentration of culture-forward foot traffic — gallery openings on Orchard, music venues on Ludlow, fashion buyers on Bowery, and a 2 a.m. nightlife layer that recycles the same audience past your wall three times in one evening. Wall placements here generate 2–3× the social-share rate of comparable Williamsburg or SoHo placements because the LES audience is wired to document and post what they see. We hold long-standing relationships with property owners along Rivington, Stanton, and Ludlow that competitors can't replicate cold. For descriptive context: this medium is also called wild posting, flyposting, or street postering — wheat pasting names the actual material. LES placements typically book 2 weeks ahead of install during peak season (Sept–Nov, Mar–May).",
     links: [
+      { label: "Read the LES Guide", href: "/blog/wheat-pasting-lower-east-side" },
       { label: "See an NYC Campaign", href: "/work/incrediwear-street-campaign" },
       { label: "How a Campaign Works", href: "/blog/wheat-pasting-campaign" },
       { label: "Get an LES Quote", href: "/contact" },
