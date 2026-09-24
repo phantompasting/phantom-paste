@@ -35,13 +35,22 @@ export interface CityPageData {
   state: string;
   slug: string;
   heroWord: string;
+  /**
+   * Optional H1 override. Default = "WHEAT PASTING / POSTER CAMPAIGNS IN /
+   * {CITY}." `lead` lines split on "\n"; `accent` renders gold.
+   */
+  h1?: { lead: string; accent: string };
   intro: string;
   whyTitle: string;
   whyText: string;
   neighborhoods: NeighborhoodEntry[];
   localBusiness: Record<string, unknown>;
-  heroImage1?: { src: string; alt: string };
-  heroImage2?: { src: string; alt: string };
+  /**
+   * `position` = CSS object-position for the cover crop. Set it on
+   * watermarked photos (watermark sits bottom-right) so the crop never clips it.
+   */
+  heroImage1?: { src: string; alt: string; position?: string };
+  heroImage2?: { src: string; alt: string; position?: string };
   /**
    * Hero stats row (3 columns). Defaults to a generic set ("Wheat Paste /
    * Chalk / 100% Documented"). Customize per-page to surface city-specific
@@ -100,6 +109,37 @@ export interface CityPageData {
    * variable to publish ranges.
    */
   pricingTiers?: ReadonlyArray<{ tier: string; range: string; includes: string }>;
+  /**
+   * Optional hub → spoke links to this city's neighborhood blog posts,
+   * rendered right after the neighborhoods grid. The cluster posts already
+   * link UP to the city page; without links back DOWN, Google read the
+   * posts as the stronger city content (NYC page dropped from the index
+   * 7/8/2026 while the LES post ranked for "wheat pasting nyc").
+   */
+  neighborhoodGuides?: {
+    title: string;
+    posts: ReadonlyArray<{ name: string; desc: string; href: string }>;
+  };
+  /**
+   * Optional real-install proof block. Images must live in public/gallery/
+   * so they get the static _r/ variants (scripts/gen-gallery-variants.mjs).
+   * Rendered uncropped (masonry) so the baked-in watermark never clips.
+   */
+  recentInstalls?: {
+    title: string;
+    body: string;
+    images: ReadonlyArray<{ src: string; alt: string; caption: string; width: number; height: number }>;
+  };
+}
+
+/** srcSet over the pre-generated static gallery variants (see lib/galleryLoader.ts). */
+function galleryVariantSrcSet(src: string, width: number): string {
+  const name = src.replace(/^\/gallery\//, "");
+  return [480, 768, 1080]
+    .filter((w) => w < width)
+    .map((w) => `/gallery/_r/${w}/${name} ${w}w`)
+    .concat(`${src} ${width}w`)
+    .join(", ");
 }
 
 export default function CityPageTemplate({ data }: { data: CityPageData }) {
@@ -265,8 +305,10 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
 
                 <h1 className="font-black uppercase m-0 leading-[0.88]"
                   style={{ fontSize: "clamp(42px, 6.5vw, 88px)", letterSpacing: "-0.04em" }}>
-                  WHEAT PASTING<br />POSTER CAMPAIGNS IN<br />
-                  <ShinyGoldText>{data.city.toUpperCase()}.</ShinyGoldText>
+                  {(data.h1?.lead ?? "WHEAT PASTING\nPOSTER CAMPAIGNS IN").split("\n").map((line, i) => (
+                    <span key={i}>{line}<br /></span>
+                  ))}
+                  <ShinyGoldText>{(data.h1?.accent ?? data.city).toUpperCase()}.</ShinyGoldText>
                 </h1>
 
                 <p className="font-light leading-relaxed mt-5 mb-4"
@@ -380,7 +422,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                     style={{ width: "82%", height: "78%", transform: "rotate(1.8deg)",
                       boxShadow: "0 24px 64px rgba(0,0,0,0.20), 0 4px 14px rgba(0,0,0,0.10)" }}>
                     <Image src={data.heroImage1.src} alt={data.heroImage1.alt}
-                      fill style={{ objectFit: "cover" }}
+                      fill style={{ objectFit: "cover", objectPosition: data.heroImage1.position }}
                       // 36vw matches actual rendered width better than 40vw —
                       // hero column is 0.9/2.0 = 45% of max-w-[1400px] container,
                       // and image wrapper is 82% of that = ~37vw at 1440px.
@@ -398,7 +440,7 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
                     style={{ width: "50%", height: "46%", transform: "rotate(-2.2deg)",
                       boxShadow: "0 16px 48px rgba(0,0,0,0.26), 0 3px 10px rgba(0,0,0,0.12)" }}>
                     <Image src={data.heroImage2.src} alt={data.heroImage2.alt}
-                      fill style={{ objectFit: "cover" }}
+                      fill style={{ objectFit: "cover", objectPosition: data.heroImage2.position }}
                       // heroImage2 is 50% × 46% of the 600px-high hero column
                       // = ~22vw at 1440px. 22vw is a tighter match than 25vw.
                       sizes="(max-width: 1024px) 0vw, 22vw" loading="lazy" />
@@ -524,6 +566,83 @@ export default function CityPageTemplate({ data }: { data: CityPageData }) {
             </div>
           </div>
         </section>
+
+        {/* ── Neighborhood guides (optional hub → cluster-post links) ── */}
+        {data.neighborhoodGuides && data.neighborhoodGuides.posts.length > 0 && (
+          <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+            <div className="max-w-[1200px] mx-auto">
+              <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+                style={{ color: "rgba(0,0,0,0.55)" }}>
+                <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                {data.city} Neighborhoods
+              </span>
+              <h2 className="font-black uppercase m-0 mb-14 leading-[0.9]"
+                style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
+                {data.neighborhoodGuides.title}<ShinyGoldText>.</ShinyGoldText>
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {data.neighborhoodGuides.posts.map((p) => (
+                  <Link key={p.href} href={p.href}
+                    className="no-underline rounded-2xl p-7 flex items-start justify-between gap-6"
+                    style={{ background: "rgba(255,255,255,0.35)", backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.6)" }}>
+                    <div>
+                      <h3 className="font-black uppercase m-0 mb-2 leading-tight"
+                        style={{ color: "#1A1A1A", fontSize: "clamp(16px, 1.5vw, 20px)", letterSpacing: "-0.02em" }}>
+                        {p.name}
+                      </h3>
+                      <p className="font-light m-0" style={{ color: "rgba(0,0,0,0.58)", fontSize: "13px" }}>{p.desc}</p>
+                    </div>
+                    <span aria-hidden style={{ color: ACCENT, fontSize: "20px" }}>→</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ── Recent installs (optional real-campaign proof) ── */}
+        {data.recentInstalls && data.recentInstalls.images.length > 0 && (
+          <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
+            <div className="max-w-[1200px] mx-auto">
+              <span className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5 flex items-center gap-2"
+                style={{ color: "rgba(0,0,0,0.55)" }}>
+                <span className="block w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
+                Recent Installs
+              </span>
+              <h2 className="font-black uppercase m-0 mb-6 leading-[0.9]"
+                style={{ fontSize: "clamp(32px, 4.5vw, 58px)", letterSpacing: "-0.035em" }}>
+                {data.recentInstalls.title}<ShinyGoldText>.</ShinyGoldText>
+              </h2>
+              <p className="font-light leading-relaxed m-0 mb-12"
+                style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "720px" }}>
+                {data.recentInstalls.body}
+              </p>
+              <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+                {data.recentInstalls.images.map((img) => (
+                  <figure key={img.src} className="m-0 mb-4 break-inside-avoid">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- static _r/ variants; /_next/image never edge-caches on Netlify */}
+                    <img
+                      src={`/gallery/_r/768/${img.src.replace(/^\/gallery\//, "")}`}
+                      srcSet={galleryVariantSrcSet(img.src, img.width)}
+                      sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                      width={img.width}
+                      height={img.height}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="block w-full h-auto rounded-2xl"
+                    />
+                    <figcaption className="font-mono uppercase mt-2"
+                      style={{ color: "rgba(0,0,0,0.5)", fontSize: "10px", letterSpacing: "0.18em" }}>
+                      {img.caption}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ── Spotlight (optional, rendered for high-impression depth boost) ── */}
         {data.spotlight && (
