@@ -174,6 +174,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/blog/wheat-pasting-silver-lake-echo-park",     file: "content/blog/wheat-pasting-silver-lake-echo-park.tsx",    priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/guerrilla-marketing-never-out-of-style",  file: "content/blog/guerrilla-marketing-never-out-of-style.tsx", priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/nyc-fashion-week-guerrilla-marketing",    file: "content/blog/nyc-fashion-week-guerrilla-marketing.tsx",   priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-for-musicians",            file: "content/blog/wheat-pasting-for-musicians.tsx",            priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-hollywood",                 file: "content/blog/wheat-pasting-hollywood.tsx",                priority: 0.8,  changeFreq: "monthly" },
 ];
 

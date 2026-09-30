@@ -307,6 +307,14 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
   },
 
   // ── New York City fall run — Sept 18–20, 2026 ──
+  "calvin-priice-wheat-paste-four-poster-set-green-barricade-harlem-nyc.webp": {
+    title: "Calvin Priice Four-Poster Set on a Green Barricade — Harlem, NYC",
+    caption: "Four Calvin Priice single-release posters wheat-pasted as a set on a green construction barricade in Harlem, New York — by Phantom Pasting",
+  },
+  "calvin-priice-wheat-paste-posters-scaffolding-pedestrians-chelsea-nyc.webp": {
+    title: "Calvin Priice Posters Under Scaffolding — Chelsea, NYC",
+    caption: "Calvin Priice wheat paste posters on a scaffolding wall in Chelsea, New York, with pedestrians walking past — by Phantom Pasting",
+  },
   "abff-pop-up-chalk-stencil-qr-code-sidewalk-noho-nyc.webp": {
     title: "ABFF Pop Up Chalk Stencil with QR Code — NoHo, NYC",
     caption: "ABFF Pop Up chalk spray stencil with a QR code on a NoHo sidewalk in New York as pedestrians step past — by Phantom Pasting",
