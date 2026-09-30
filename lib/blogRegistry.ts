@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-for-musicians",
+    title: "Wheat Pasting for Musicians and Artists: Put Your Name on a Wall",
+    titleHighlight: "Musicians and Artists",
+    metaTitle: "Wheat Pasting for Musicians and Artists",
+    metaDescription:
+      "Phantom Pasting for Musicians and Artists: how a 25 to 50 poster run timed to a release or show reaches listeners no algorithm will, what it costs, and what goes on the poster.",
+    excerpt:
+      "The wall is the one channel where nobody between you and the listener takes a cut. How independent musicians and artists run a poster campaign, from Calvin Priice's New York single release: the package, the poster brief, the timing, and the three ways it goes wrong.",
+    silo: "strategy-roi",
+    publishedAt: "2026-09-29",
+    updatedAt: "2026-09-29",
+    heroImage: "/blog/heroes/calvin-priice-wheat-paste-four-poster-set-green-barricade-harlem-nyc-hero.webp",
+    heroAlt: "Four Calvin Priice single-release posters wheat-pasted as a set on a green construction barricade in Harlem, New York",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["musicians", "artists", "music-marketing", "independent-artists", "wild-posting", "wheat-pasting", "new-york", "release-promo"],
+    wordCount: 1385,
+    faqs: [
+      {
+        q: "How many posters does an independent musician need for a single release?",
+        a: "Usually 25 to 50. Twenty-five covers the ten blocks around one neighborhood where your listeners go out. Fifty covers two or three neighborhoods and gets the same person seeing your name more than once, which is when it sticks. A hundred is for a tour or album where you want a whole city covered.",
+      },
+      {
+        q: "How much does wheat pasting cost for an artist?",
+        a: "A 25-poster run in Los Angeles starts under two thousand dollars with printing included, and 50 posters runs around $2,800. Travel cities like New York and Nashville price a little higher. That's less than most artists spend on a single music video, and the posters stay up for weeks.",
+      },
+      {
+        q: "What should go on a music poster for wheat pasting?",
+        a: "Your name big at the top, one strong image, and one thing to do, either a QR code to the song or a date and venue. It's read from twelve feet away by someone walking, so it has to work like a billboard, not like album art. Print at 24 by 36 inches.",
+      },
+      {
+        q: "When should posters go up before a release or show?",
+        a: "Two to four days before, never the day of. The point is people have seen your name on the street before the song shows up in their feed, so the feed becomes the second impression instead of the first.",
+      },
+      {
+        q: "Is wild posting for musicians the same as wheat pasting?",
+        a: "Yes. Wild posting, wheat pasting, flyposting, and postering all describe the same street poster format. Wild posting is the agency term, wheat pasting is the crew term. Ask for a poster run and say how many and where.",
+      },
+    ],
+    relatedSlugs: ["guerrilla-marketing-for-music", "wheat-pasting-cost", "wheat-pasting-new-york", "wheat-pasting-campaign"],
+    status: "published",
+  },
+  {
     slug: "nyc-fashion-week-guerrilla-marketing",
     title: "NYC Fashion Week and Guerrilla Marketing: The Week Every Wall Gets Fought Over",
     titleHighlight: "Fashion Week",
@@ -131,7 +173,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       "For seven days in September every label wants the same walls in SoHo, the Lower East Side, and Williamsburg, and paper that would hold for three weeks in July gets covered in three days. What the competition actually looks like from the install side, and why the smart campaigns run New York and LA the same week.",
     silo: "strategy-roi",
     publishedAt: "2026-09-13",
-    updatedAt: "2026-09-13",
+    updatedAt: "2026-09-29",
     heroImage: "/blog/nyc-fashion-week-asher-levine-echo-park-hero.webp",
     heroAlt: "Four Asher Levine fashion campaign posters wheat-pasted in a row on a white sticker-covered wall in Echo Park, Los Angeles",
     authorSlug: MATEO_VARGAS.slug,
@@ -1071,7 +1113,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       "Guerrilla marketing runs the music industry more than any other vertical. Album launches, tour announcements, festival lineups, and single drops all live or die on pre-release street heat.",
     silo: "strategy-roi",
     publishedAt: "2026-06-02",
-    updatedAt: "2026-06-02",
+    updatedAt: "2026-09-29",
     heroImage: "/blog/heroes/incrediwear-pole-wrap-guerrilla-advertising-night-hero.webp",
     heroAlt: "Guerrilla marketing pole wrap for a music-industry campaign",
     authorSlug: MATEO_VARGAS.slug,

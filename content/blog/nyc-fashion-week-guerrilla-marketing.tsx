@@ -123,7 +123,10 @@ export default function Post() {
         We ran exactly that this September for Asher Levine, a New York designer, with
         installs across Los Angeles while the shows were on in Manhattan. Four-poster
         sets in Echo Park, the Fashion District downtown, Fairfax, Mid-Wilshire, and
-        East Hollywood. Same week, opposite coast.
+        East Hollywood. Same week, opposite coast. The same month, an independent
+        musician ran the reverse: five New York neighborhoods for a single release,
+        which we wrote up in{" "}
+        <BlogLink slug="wheat-pasting-for-musicians">wheat pasting for musicians and artists</BlogLink>.
       </p>
 
       <figure style={{ margin: "2em auto", maxWidth: "620px" }}>

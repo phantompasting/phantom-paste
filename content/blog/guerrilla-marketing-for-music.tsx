@@ -106,7 +106,10 @@ export default function Post() {
       <p>
         A typical major-label album activation hits all six for $40K–$75K total paste spend. An
         indie-label activation might hit two cities for $8K–$12K. The ROI math works at both scales
-        because the format amplifies through social regardless of city count.
+        because the format amplifies through social regardless of city count. If you&apos;re an
+        artist paying for the run yourself, the{" "}
+        <BlogLink slug="wheat-pasting-for-musicians">musicians and artists guide</BlogLink>{" "}
+        scopes it at 25 to 50 posters instead.
       </p>
 
       <h2>Installer&apos;s Perspective — The Album Drop Paste</h2>
