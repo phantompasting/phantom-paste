@@ -99,6 +99,11 @@ export default function BlogPostLayout({
 }) {
   const postUrl = `${BUSINESS.url}/blog/${post.slug}`;
   const heroAbsUrl = `${BUSINESS.url}${post.heroImage ?? BUSINESS.ogImageDefault}`;
+  // Dedicated 16:9 heroes under /blog/heroes/ are 1600×900; the two legacy
+  // JPG heroes and the OG fallback are 1200×630. Keep the schema honest.
+  const heroIs16x9 = (post.heroImage ?? "").startsWith("/blog/heroes/");
+  const heroW = heroIs16x9 ? 1600 : 1200;
+  const heroH = heroIs16x9 ? 900 : 630;
   const siloMeta = SILO_LABELS[post.silo];
 
   const breadcrumbItems = [
@@ -148,6 +153,8 @@ export default function BlogPostLayout({
               description: post.metaDescription,
               url: postUrl,
               image: heroAbsUrl,
+              imageWidth: heroW,
+              imageHeight: heroH,
               datePublished: post.publishedAt,
               dateModified: post.updatedAt,
               author: mateoVargasPerson(),
