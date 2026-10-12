@@ -61,7 +61,17 @@ export function middleware(req: NextRequest) {
 
   const directives = isHttps
     ? [...BASE_DIRECTIVES, "upgrade-insecure-requests"]
-    : BASE_DIRECTIVES;
+    : [...BASE_DIRECTIVES];
+
+  // Netlify injects its collaborative-deploy-preview drawer on *.netlify.app
+  // hosts, which iframes app.netlify.com. Without an explicit frame-src the
+  // frame falls back to default-src 'self', gets blocked, and Lighthouse
+  // docks Best Practices (console error + DevTools Issues). Production
+  // (www.phantompasting.com) never loads the drawer, so it stays locked down.
+  const host = (req.headers.get("host") ?? req.nextUrl.hostname).split(":")[0] ?? "";
+  if (host.endsWith(".netlify.app")) {
+    directives.push("frame-src 'self' https://app.netlify.com");
+  }
 
   res.headers.set("Content-Security-Policy", directives.join("; "));
   return res;
