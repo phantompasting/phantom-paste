@@ -301,7 +301,8 @@ function TiltCard({ children, className, style }: { children: React.ReactNode; c
 const IMGS = {
   wheat1:   "/gallery/nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp",
   wheat2:   "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
-  stencil:  "/gallery/black-pearl-chalk-spray-stencil-sidewalk-los-angeles.webp",
+  // Slide-only crop (4:5) with the logo watermark baked into the bottom-right
+  stencil:  "/home/black-pearl-chalk-spray-stencil-sidewalk-los-angeles-slide.webp",
   full1:    "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
   full2:    "/gallery/fifa-world-cup-poster-wall-gallery-wide.webp",
   gallery1: "/gallery/biodance-making-a-splash-wheat-paste-storefront-night-los-angeles.webp",
@@ -521,6 +522,8 @@ const SERVICES_DATA = [
   {
     num: "02", icon: "⬡", name: "Chalk Spray Stencils", sub: "Ground Level Impact", accent: "#D4A010", textAccent: "#1A1A1A",
     img: IMGS.stencil,
+    // Anchor bottom-right so the baked-in logo watermark is never cropped
+    imgPos: "100% 100%",
     imgNatural: true, // original brightness, same as the Wheat Pasting slide
     tagline: "Beneath every footstep. Before every door.",
     desc: "Eco-friendly, temporary paint stencils on sidewalks, plazas, subway exits. 25–200+ placements per campaign. We create a breadcrumb trail leading foot traffic directly to your event or store.",
@@ -529,7 +532,10 @@ const SERVICES_DATA = [
   },
   {
     num: "03", icon: "◉", name: "Full Impact", sub: "Total Street Ownership", accent: "#1A1A1A",
-    img: "/gallery/calvin-priice-sticker-pole-install-gas-station-los-angeles.webp",
+    // Slide-only crop with the logo watermark baked into the bottom-right;
+    // anchored bottom-right so the watermark is never cropped
+    img: "/home/calvin-priice-sticker-pole-install-gas-station-los-angeles-slide-v2.webp",
+    imgPos: "100% 100%",
     imgNatural: true, // original brightness, matching the other two service slides
     tagline: "Above eye level. Below every footstep.",
     desc: "The complete guerrilla takeover. Large-format wall posters combined with precision chalk spray stencils. Your brand woven into the daily rhythm of the city from every angle.",
