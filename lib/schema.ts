@@ -24,6 +24,11 @@ const IMAGE_LICENSE_FIELDS = {
   creditText: BUSINESS.name,
   acquireLicensePage: `${BUSINESS.url}/contact`,
   license: BUSINESS.url,
+  // Google's image-licensing metadata report flagged every hero as
+  // "Missing field creator (optional)" (9/29/2026). Typed inline so the
+  // rich-results parser sees an Organization rather than a bare @id ref.
+  creator: { "@type": "Organization", "@id": ORG_ID, name: BUSINESS.name },
+  copyrightHolder: { "@type": "Organization", "@id": ORG_ID, name: BUSINESS.name },
 } as const;
 // LOCALBUSINESS_ID was removed — the previous ProfessionalService node was
 // pinning the entity geographically. All entity signals consolidated onto
@@ -292,6 +297,9 @@ export function articleSchema(opts: {
   url: string;
   /** Hero image URL (absolute). Auto-expanded to 1×1 / 4×3 / 16×9 array. */
   image: string;
+  /** Pixel size of the hero file. Defaults to the 1200×630 OG plate. */
+  imageWidth?: number;
+  imageHeight?: number;
   datePublished: string;
   dateModified: string;
   /** Person schema (from blogAuthor.ts) or undefined → Org byline. */
@@ -335,8 +343,8 @@ export function articleSchema(opts: {
       {
         "@type": "ImageObject",
         url: opts.image,
-        width: 1200,
-        height: 630,
+        width: opts.imageWidth ?? 1200,
+        height: opts.imageHeight ?? 630,
         ...IMAGE_LICENSE_FIELDS,
       },
     ],
@@ -508,8 +516,6 @@ export function imageObjectSchema(opts: {
     contentUrl: opts.contentUrl ?? opts.url,
     name: opts.name,
     ...(opts.caption ? { caption: opts.caption } : {}),
-    creator: { "@id": ORG_ID },
-    copyrightHolder: { "@id": ORG_ID },
     ...IMAGE_LICENSE_FIELDS,
   };
 }
