@@ -371,7 +371,7 @@ export const COVERAGE: ReadonlyArray<CoverageState> = [
   {
     name: "Pennsylvania", abbr: "PA", slug: "pennsylvania",
     cities: [
-      { name: "Philadelphia" },
+      { name: "Philadelphia", slug: "philadelphia" },
       { name: "Pittsburgh" },
       { name: "Allentown" },
       { name: "Erie" },

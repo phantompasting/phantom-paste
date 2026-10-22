@@ -3,7 +3,7 @@ import CityPageTemplate, { type CityPageData } from "@/components/CityPageTempla
 import { KW_CITY_BASE, KW_NATIONWIDE, cityBuyerIntent } from "@/lib/keywordSets";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wheat Pasting Pennsylvania | Philly Wheatpasting" },
+  title: { absolute: "Wheat Pasting Pennsylvania | Philadelphia + Pittsburgh" },
   description:
     "Wheat pasting across Pennsylvania — Philadelphia Fishtown + South Street, Pittsburgh Strip + Lawrenceville. Statewide PA on photo-documented overnight crew.",
   keywords: [
@@ -63,14 +63,15 @@ const data: CityPageData = {
   heroImage2: { src: "/gallery/wheat-paste-crew-power-washing-wall-los-angeles.webp", alt: "Wheat paste crew power washing wall prep" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
-  lastUpdated: "2026-04-25",
+  lastUpdated: "2026-10-22",
   spotlight: {
     eyebrow: "Statewide Capability",
     title: "PHILLY + PITTSBURGH + 4 SECONDARY",
     body:
       "Most agencies route Pennsylvania to Philly OR Pittsburgh and pick one. We run both anchors plus Allentown, Erie, Reading, Lancaster from coordinated crew rotations — a brand can spec a Fishtown-led Philly campaign with Pittsburgh Strip District overflow on the same paperwork. Lancaster's downtown Arts District + Allentown's Hamilton Street are particularly under-served opportunities for brands willing to deploy beyond the two anchors.",
     links: [
-      { label: "How a Campaign Works", href: "/blog/wheat-pasting-campaign" },
+      { label: "Philadelphia Wheat Pasting", href: "/locations/philadelphia" },
+      { label: "Recent East Coast Install", href: "/work/nokia-bell-labs-helix-new-jersey" },
       { label: "Get a Pennsylvania Quote", href: "/contact" },
     ],
   },

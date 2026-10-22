@@ -585,7 +585,9 @@ export default function PricingPage() {
               corners are being cut on one of the seven line items above. We&apos;ve had brands
               forward us competitor quotes that read &quot;LA flyposting campaign — $4,500 — net
               30,&quot; full stop. That&apos;s how a brand ends up with 60 posters on three dead
-              walls and a brand manager wondering where the money went.
+              walls and a brand manager wondering where the money went. Our insurance, payment, and
+              replacement terms are all on one page:{" "}
+              <Link href="/standards" style={{ color: "rgba(0,0,0,0.85)", textDecoration: "underline", textDecorationColor: "#D4A010", textUnderlineOffset: "3px" }}>Insurance &amp; Standards</Link>.
             </p>
             <p className="font-light leading-relaxed" style={{ color: "rgba(0,0,0,0.7)", fontSize: "17px" }}>
               For the deep-dive on per-poster economics — print, paste, labor, documentation,

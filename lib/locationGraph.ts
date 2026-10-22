@@ -97,6 +97,8 @@ export const CITY_PAGES: ReadonlyArray<CityPageRef> = [
   { name: "Las Vegas",      slug: "las-vegas",       state: "NV" },
   // Massachusetts
   { name: "Boston",         slug: "boston",          state: "MA" },
+  // Pennsylvania
+  { name: "Philadelphia",   slug: "philadelphia",    state: "PA" },
   // Tennessee — no state page yet, but Nashville city page exists
   { name: "Nashville",      slug: "nashville",       state: "TN" },
   // DC

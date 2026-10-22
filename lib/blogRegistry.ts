@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "wheat-pasting-philadelphia-new-jersey",
+    title: "Wheat Pasting in Philadelphia and New Jersey: The I-95 Corridor Field Guide",
+    titleHighlight: "Philadelphia and New Jersey",
+    metaTitle: "Wheat Pasting Philadelphia + New Jersey",
+    metaDescription:
+      "Wheat pasting in Philadelphia and New Jersey: the neighborhoods that matter, what a run costs, permits, timing, and how we put 60 jumbo posters up at The Helix in one day.",
+    excerpt:
+      "Philly and Jersey are one market split by a river. The Philadelphia and New Jersey neighborhoods worth pasting, what it costs, how permission works, and the one-day Nokia Bell Labs install at The Helix in New Brunswick.",
+    silo: "local-legal",
+    publishedAt: "2026-10-22",
+    updatedAt: "2026-10-22",
+    heroImage: "/blog/heroes/nokia-bell-labs-wheat-paste-installer-helix-new-brunswick-nj-hero.webp",
+    heroAlt: "Phantom Pasting installer pasting 48x72 inch Nokia Bell Labs posters on the construction fence at The Helix in New Brunswick, New Jersey",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["philadelphia", "new-jersey", "pennsylvania", "jersey-city", "new-brunswick", "city-guide", "wheat-pasting", "jumbo-posters"],
+    wordCount: 1312,
+    faqs: [
+      {
+        q: "Is there a wheat pasting company in Philadelphia?",
+        a: "Yes. Phantom Pasting runs wheat paste poster campaigns in Philadelphia, including Fishtown, Northern Liberties, South Street, University City, and North Broad, with the same East Coast crew that covers New Jersey and New York. Every run includes printing, install, and a time-stamped photo report.",
+      },
+      {
+        q: "How much does wheat pasting cost in Philadelphia or New Jersey?",
+        a: "About $4,000 for 50 posters, $5,800 for 100, and around $10,000 for 200, all 24x36 with printing and install included. Jumbo 48x72 posters run roughly 2.5 to 3 times a 24x36 per poster. Running both states on one trip shares the travel cost.",
+      },
+      {
+        q: "Can one campaign cover Philadelphia, New Jersey, and New York?",
+        a: "Yes. The corridor is about 90 miles, so one crew works it south to north on one brief, one agreement, and one photo report. Tours and film releases book it this way most often.",
+      },
+      {
+        q: "Can you install on a New Jersey construction site that requires insurance?",
+        a: "Yes. In October 2026 we installed 60 jumbo 48x72 posters for Nokia Bell Labs on the construction fence at The Helix in New Brunswick, with a certificate of insurance naming the property owner and manager accepted before we arrived. The whole run went up in one day.",
+      },
+      {
+        q: "Is wheat pasting legal in Philadelphia and New Jersey?",
+        a: "On surfaces where the owner or controlling party has agreed, yes. Stay off public property such as utility poles, traffic signs, and city buildings. Philadelphia's historic districts are stricter, and New Jersey towns set their own sign rules, so the wall plan is agreed in writing before install.",
+      },
+    ],
+    relatedSlugs: ["wheat-pasting-new-york", "wheat-pasting-cost", "is-wheat-pasting-legal", "wheat-pasting-campaign"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-for-musicians",
     title: "Wheat Pasting for Musicians and Artists: Put Your Name on a Wall",
     titleHighlight: "Musicians and Artists",

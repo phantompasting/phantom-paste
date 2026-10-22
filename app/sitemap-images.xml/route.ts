@@ -29,6 +29,48 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Playback: The Brooklyn Watch Party — Brooklyn, NY ──
+  "playback-brooklyn-watch-party-wheat-paste-posters-3rd-ave-atlantic-boerum-hill-brooklyn.webp": {
+    title: "Playback Wheat Paste Posters — Boerum Hill, Brooklyn",
+    caption: "Playback The Brooklyn Watch Party wheat paste posters on a green construction wall at 3rd Avenue and Atlantic Avenue in Boerum Hill, Brooklyn — by Phantom Pasting",
+  },
+  "playback-brooklyn-watch-party-sticker-snipe-pole-pacific-st-boerum-hill-brooklyn.webp": {
+    title: "Playback Pole Sticker — Pacific Street, Brooklyn",
+    caption: "Yellow Playback The Brooklyn Watch Party sticker snipe with QR code on a light pole on Pacific Street, Boerum Hill, Brooklyn — by Phantom Pasting",
+  },
+  "playback-brooklyn-watch-party-chalk-spray-stencil-sidewalk-downtown-brooklyn.webp": {
+    title: "Playback Chalk Spray Stencil — Downtown Brooklyn",
+    caption: "Playback The Brooklyn Watch Party chalk spray stencil on a sidewalk at Flatbush Avenue Extension and DeKalb Avenue, Downtown Brooklyn — by Phantom Pasting",
+  },
+  // ── Nokia Bell Labs at The Helix — New Brunswick, NJ ──
+  "nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp": {
+    title: "Installer Pasting Nokia Bell Labs 48x72 Posters — The Helix, New Brunswick NJ",
+    caption: "Phantom Pasting installer smoothing a 48x72 inch Nokia Bell Labs wheat paste poster beside the Nokia Bell Labs is coming to the Helix panel in New Brunswick, New Jersey",
+  },
+  "nokia-bell-labs-48x72-wheat-paste-poster-row-construction-fence-new-brunswick-nj.webp": {
+    title: "Nokia Bell Labs 48x72 Poster Row — New Brunswick, NJ",
+    caption: "Row of 48x72 inch Nokia Bell Labs wheat paste posters on a blue construction fence at The Helix in New Brunswick, NJ — by Phantom Pasting",
+  },
+  "nokia-bell-labs-wheat-paste-poster-series-blue-hoarding-helix-new-brunswick.webp": {
+    title: "Nokia Bell Labs Poster Series on Site Hoarding — The Helix, NJ",
+    caption: "Nokia Bell Labs illustrated poster series with branded logo panels wheat-pasted along blue site hoarding at The Helix, New Brunswick — by Phantom Pasting",
+  },
+  "nokia-bell-labs-wheat-paste-posters-helix-plaza-arches-new-brunswick-nj.webp": {
+    title: "Nokia Bell Labs Wheat Paste at The Helix Plaza — New Brunswick, NJ",
+    caption: "Nokia Bell Labs wheat paste posters on the construction fence below the red sculpture arches of The Helix plaza in New Brunswick, NJ — by Phantom Pasting",
+  },
+  "nokia-bell-labs-48x72-wheat-paste-posters-covered-walkway-new-brunswick.webp": {
+    title: "Nokia Bell Labs Jumbo Posters Along a Covered Walkway — New Brunswick, NJ",
+    caption: "Nokia Bell Labs 48x72 inch wheat paste posters along a blue fence under a covered walkway at The Helix, New Brunswick, New Jersey — by Phantom Pasting",
+  },
+  "nokia-bell-labs-wheat-paste-poster-wall-dusk-helix-new-brunswick-nj.webp": {
+    title: "Nokia Bell Labs Poster Wall at Dusk — The Helix, NJ",
+    caption: "Straight-on view of the Nokia Bell Labs wheat paste poster wall at dusk at The Helix in New Brunswick, NJ — by Phantom Pasting",
+  },
+  "nokia-bell-labs-wheat-paste-posters-night-construction-fence-new-brunswick.webp": {
+    title: "Nokia Bell Labs Posters in the Evening — New Brunswick, NJ",
+    caption: "Nokia Bell Labs wheat paste posters and logo panel on a construction fence in the evening at The Helix, New Brunswick, New Jersey — by Phantom Pasting",
+  },
   // ── Werner Bronkhorst "Come and See My Big Balls" — Melrose, Los Angeles ──
   "werner-bronkhorst-big-balls-chalk-stencil-melrose-avenue-los-angeles.webp": {
     title: "Werner Bronkhorst Sidewalk Stencil — Melrose Avenue, LA",
@@ -445,6 +487,23 @@ const PAGE_IMAGES: Record<string, string[]> = {
   "/gallery": Object.keys(IMAGE_META),
 
   // Work / Case Studies
+  "/work/nokia-bell-labs-helix-new-jersey": [
+    "nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp",
+    "nokia-bell-labs-48x72-wheat-paste-poster-row-construction-fence-new-brunswick-nj.webp",
+    "nokia-bell-labs-wheat-paste-poster-series-blue-hoarding-helix-new-brunswick.webp",
+    "nokia-bell-labs-wheat-paste-posters-helix-plaza-arches-new-brunswick-nj.webp",
+    "nokia-bell-labs-48x72-wheat-paste-posters-covered-walkway-new-brunswick.webp",
+    "nokia-bell-labs-wheat-paste-poster-wall-dusk-helix-new-brunswick-nj.webp",
+    "nokia-bell-labs-wheat-paste-posters-night-construction-fence-new-brunswick.webp",
+  ],
+  "/locations/new-jersey": [
+    "nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp",
+    "nokia-bell-labs-wheat-paste-posters-helix-plaza-arches-new-brunswick-nj.webp",
+  ],
+  "/locations/philadelphia": [
+    "nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp",
+    "nokia-bell-labs-wheat-paste-poster-series-blue-hoarding-helix-new-brunswick.webp",
+  ],
   "/work/fashionpass-los-angeles": [
     "fashionpass-wheat-paste-campaign-poster-wall.webp",
     "fashionpass-wheat-paste-street-art-wall-la.webp",

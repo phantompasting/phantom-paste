@@ -27,6 +27,7 @@ const FOOTER_LINKS = {
   Company: [
     { label: "About", href: "/about" },
     { label: "Work", href: "/work" },
+    { label: "Insurance & Standards", href: "/standards" },
     { label: "Gallery", href: "/gallery" },
     { label: "Blog", href: "/blog" },
     { label: "Wheat Pasting Guide", href: "/blog/what-is-wheat-pasting" },
@@ -83,7 +84,7 @@ const FOOTER_STATE_GROUPS: FooterStateGroup[] = [
   { name: "Massachusetts", href: "/locations/massachusetts",
     cities: [{ label: "Boston", href: "/locations/boston" }, { label: "Cambridge" }, { label: "Worcester" }, { label: "Springfield MA" }] },
   { name: "Pennsylvania",  href: "/locations/pennsylvania",
-    cities: [{ label: "Philadelphia" }, { label: "Pittsburgh" }, { label: "Allentown" }, { label: "Erie" }] },
+    cities: [{ label: "Philadelphia", href: "/locations/philadelphia" }, { label: "Pittsburgh" }, { label: "Allentown" }, { label: "Erie" }] },
   { name: "Tennessee",     href: "/locations/nashville",
     cities: [{ label: "Nashville", href: "/locations/nashville" }, { label: "Memphis" }, { label: "Knoxville" }] },
   { name: "DC",            href: "/locations/washington-dc",

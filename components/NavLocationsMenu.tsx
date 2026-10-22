@@ -133,7 +133,7 @@ const STATES: StateGroup[] = [
     name: "Pennsylvania",
     href: "/locations/pennsylvania",
     cities: [
-      { label: "Philadelphia" },
+      { label: "Philadelphia", href: "/locations/philadelphia" },
       { label: "Pittsburgh" },
       { label: "Allentown" },
     ],
