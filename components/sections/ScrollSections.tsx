@@ -299,7 +299,7 @@ function TiltCard({ children, className, style }: { children: React.ReactNode; c
 
 /* ── Images (local gallery — SEO-named) ── */
 const IMGS = {
-  wheat1:   "/gallery/asher-levine-wheat-paste-posters-white-wall-echo-park-los-angeles.webp",
+  wheat1:   "/gallery/nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp",
   wheat2:   "/gallery/biodance-hydrogel-splash-wheat-paste-wall-los-angeles.webp",
   stencil:  "/gallery/black-pearl-chalk-spray-stencil-sidewalk-los-angeles.webp",
   full1:    "/gallery/fifa-world-cup-street-gallery-pedestrian-viewing.webp",
@@ -509,8 +509,9 @@ const SERVICES_DATA = [
   {
     num: "01", icon: "◈", name: "Wheat Pasting", sub: "Wall Takeovers", accent: "#1A1A1A",
     img: IMGS.wheat1,
-    // Anchor left of centre so the full four-poster set stays inside the half-width panel
-    imgPos: "20% 50%",
+    // Anchor right so the installer, the Nokia Bell Labs panel, and the
+    // bottom-right logo watermark all stay inside the half-width panel
+    imgPos: "100% 50%",
     imgNatural: true, // show the photo at its original brightness (no dim, no gradient)
     tagline: "Large format walls. Impossible to miss.",
     desc: "Posters from 24\"×36\" to 48\"×72\" on prime urban walls — high-foot-traffic intersections, construction hoardings, late-night districts. We find the walls your audience already lives around.",
