@@ -329,7 +329,9 @@ export default function ContactPage() {
                 Founded in 2014. 10+ years running street-level activations. 500+ campaigns delivered across
                 50+ US cities. Trusted by FIFA World Cup, FashionPass, Incrediwear, and a long bench of
                 fashion, entertainment, music, and DTC brands. Every campaign is planned by the same crew
-                that installs it — no subcontractor hand-offs, no disappearing account managers.
+                that installs it — no subcontractor hand-offs, no disappearing account managers. We&apos;re
+                insured, issue certificates of insurance on request, and put every commitment in writing:{" "}
+                <Link href="/standards" style={{ color: "rgba(0,0,0,0.85)", textDecoration: "underline", textDecorationColor: "#D4A010", textUnderlineOffset: "3px" }}>see our standards</Link>.
               </p>
             </div>
           </div>

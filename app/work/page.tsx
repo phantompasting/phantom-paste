@@ -13,7 +13,7 @@ import { KW_WORK } from "@/lib/keywordSets";
 const PAGE_URL = `${BUSINESS.url}/work`;
 const PAGE_TITLE = "Guerrilla Marketing Case Studies";
 const PAGE_DESC =
-  "Wheat pasting, street postering & OOH case studies — FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Photo-documented guerrilla marketing.";
+  "Wheat pasting, street postering & OOH case studies — Nokia Bell Labs NJ, FashionPass LA, FIFA World Cup Atlanta, Incrediwear. Photo-documented.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -39,7 +39,25 @@ export const metadata: Metadata = {
 
 const ACCENT = "#D4A010";
 
-const CASE_STUDIES = [
+const CASE_STUDIES: ReadonlyArray<{
+  client: string;
+  city: string;
+  format: string;
+  href: string;
+  image: string;
+  alt: string;
+  /** Anchor crops away from the baked-in watermark (bottom-right) when set. */
+  objectPosition?: string;
+}> = [
+  {
+    client: "Nokia Bell Labs",
+    city: "New Brunswick, NJ",
+    format: "Wheat Pasting",
+    href: "/work/nokia-bell-labs-helix-new-jersey",
+    image: "/gallery/nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp",
+    alt: "Phantom Pasting installer wheat pasting 48x72 Nokia Bell Labs posters on the construction fence at The Helix in New Brunswick, NJ",
+    objectPosition: "right bottom",
+  },
   {
     client: "Biodance",
     city: "Los Angeles, CA",
@@ -262,11 +280,11 @@ export default function WorkPage() {
         {/* Case Study Cards */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-16 pb-24 md:pb-32">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CASE_STUDIES.map(({ client, city, format, href, image, alt }) => (
+            {CASE_STUDIES.map(({ client, city, format, href, image, alt, objectPosition }) => (
               <Link key={href} href={href} className="no-underline group rounded-3xl overflow-hidden"
                 style={{ ...GLASS }}>
                 <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
-                  <Image src={image} alt={alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src={image} alt={alt} fill className="object-cover" style={objectPosition ? { objectPosition } : undefined} sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="p-6">
                   <div className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2"
@@ -441,6 +459,8 @@ export default function WorkPage() {
             <p className="font-light leading-relaxed m-0"
               style={{ fontSize: "15px", color: "rgba(0,0,0,0.7)" }}>
               Real campaigns. Real streets. Every placement photographed and documented.{" "}
+              <Link href="/work/nokia-bell-labs-helix-new-jersey" className="font-bold no-underline"
+                style={{ color: "#1A1A1A", borderBottom: `1.5px solid ${ACCENT}` }}>Nokia Bell Labs</Link>,{" "}
               <Link href="/work/biodance-los-angeles" className="font-bold no-underline"
                 style={{ color: "#1A1A1A", borderBottom: `1.5px solid ${ACCENT}` }}>Biodance</Link>,{" "}
               <Link href="/work/fashionpass-los-angeles" className="font-bold no-underline"

@@ -53,19 +53,22 @@ const data: CityPageData = {
     { name: "Newark", desc: "Downtown/Military Park, Ironbound (Ferry Street), NJPAC + Prudential Center event zone, Halsey Street." },
     { name: "Atlantic City", desc: "Boardwalk corridor, Tennessee Ave beer hall zone. Event- and casino-driven bursts." },
     { name: "Asbury Park", desc: "Cookman Ave, boardwalk, Stone Pony zone. The Shore's music + arts anchor; summer weekends peak." },
+    { name: "New Brunswick", desc: "Downtown by the train station, The Helix innovation district, Rutgers College Avenue. Site of our October 2026 Nokia Bell Labs install." },
   ],
-  heroImage1: { src: "/gallery/biodance-making-a-splash-wheat-paste-scaffold-wall-los-angeles.webp", alt: "Wheat paste posters on scaffold wall" },
-  heroImage2: { src: "/gallery/fashionpass-wheat-paste-street-postering-wall-los-angeles.webp", alt: "Wheat paste street postering wall" },
+  heroImage1: { src: "/gallery/nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp", alt: "Phantom Pasting installer pasting 48x72 inch Nokia Bell Labs posters at The Helix in New Brunswick, New Jersey", position: "right bottom" },
+  heroImage2: { src: "/gallery/nokia-bell-labs-wheat-paste-posters-helix-plaza-arches-new-brunswick-nj.webp", alt: "Nokia Bell Labs wheat paste posters at The Helix plaza, New Brunswick, NJ", position: "right bottom" },
   areaLabel: "CITIES SERVED",
   serviceAreaType: "State",
-  lastUpdated: "2026-08-29",
+  lastUpdated: "2026-10-22",
   spotlight: {
-    eyebrow: "Statewide Capability",
-    title: "THE PATH-CORRIDOR PLAY",
+    eyebrow: "Recent NJ Install · October 2026",
+    title: "NOKIA BELL LABS AT THE HELIX",
     body:
-      "Brands briefing NYC campaigns increasingly add — or substitute — the PATH corridor: Jersey City + Hoboken reach hundreds of thousands of Manhattan commuters daily, on walls that cost a fraction of Lower East Side rates and photograph just as well. Pair it with a Newark event-zone run (Prudential Center show nights) and you have the metro area covered from the Jersey side.",
+      "On October 19, 2026 our crew installed 60 jumbo 48x72 inch posters for Nokia Bell Labs along the roughly 270 ft construction fence at The Helix in downtown New Brunswick, in a single day. The site was client-controlled, the agreement was signed before anything printed, and a certificate of insurance naming the property owner and manager was on file before we mobilized. The same crew covers the PATH corridor: Jersey City and Hoboken reach Manhattan commuters on walls that cost a fraction of Lower East Side rates.",
     links: [
-      { label: "How a Campaign Works", href: "/blog/wheat-pasting-campaign" },
+      { label: "Read the Helix Case Study", href: "/work/nokia-bell-labs-helix-new-jersey" },
+      { label: "Philly + NJ Field Guide", href: "/blog/wheat-pasting-philadelphia-new-jersey" },
+      { label: "Insurance & Standards", href: "/standards" },
       { label: "Get an NJ Quote", href: "/contact" },
     ],
   },
@@ -76,7 +79,7 @@ const data: CityPageData = {
     },
     {
       q: "What New Jersey cities do you cover?",
-      a: "Jersey City, Hoboken, Newark, Atlantic City, and Asbury Park as standing markets, plus Montclair, New Brunswick (Rutgers), and Princeton on a per-campaign basis.",
+      a: "Jersey City, Hoboken, Newark, Atlantic City, Asbury Park, and New Brunswick (where we installed 60 jumbo posters for Nokia Bell Labs at The Helix in October 2026), plus Montclair, Princeton, and Camden on a per-campaign basis. Philadelphia is one crew run away.",
     },
     {
       q: "How much does a New Jersey campaign cost?",

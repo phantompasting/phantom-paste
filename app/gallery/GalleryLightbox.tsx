@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { GALLERY_IMGS } from "@/lib/gallery-data";
+import { GALLERY_IMGS, GALLERY_CAMPAIGNS } from "@/lib/gallery-data";
 
 const ACCENT = "#D4A010";
 
@@ -33,6 +33,10 @@ interface GalleryLightboxProps {
 
 export default function GalleryLightbox({ lightboxIdx, closeLightbox, prevImage, nextImage }: GalleryLightboxProps) {
   const lightbox = lightboxIdx !== null ? GALLERY_IMGS[lightboxIdx] : null;
+  // Position within the photo's own campaign ("3 / 7"), since the grid and
+  // prev/next both walk campaign by campaign.
+  const campaignImgs = lightbox ? GALLERY_IMGS.filter((img) => img.campaign === lightbox.campaign) : [];
+  const campaignPos = lightbox ? campaignImgs.indexOf(lightbox) + 1 : 0;
 
   // Keyboard nav lives here (was duplicated; safe to centralize because lightbox is the
   // only consumer of arrow keys and Escape while open)
@@ -87,7 +91,7 @@ export default function GalleryLightbox({ lightboxIdx, closeLightbox, prevImage,
             <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">
               <span className="font-black uppercase tracking-tight text-white text-sm md:text-base block">{lightbox.label}</span>
               <span className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1 block" style={{ color: ACCENT }}>
-                {lightboxIdx + 1} / {GALLERY_IMGS.length} · Phantom Pasting
+                {GALLERY_CAMPAIGNS[lightbox.campaign]?.name} · {campaignPos} / {campaignImgs.length}
               </span>
             </div>
           </motion.div>

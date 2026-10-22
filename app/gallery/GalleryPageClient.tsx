@@ -3,7 +3,8 @@
 import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { GALLERY_IMGS } from "@/lib/gallery-data";
+import Link from "next/link";
+import { GALLERY_IMGS, GALLERY_CAMPAIGNS } from "@/lib/gallery-data";
 import { galleryLoader } from "@/lib/galleryLoader";
 
 // Lightbox is the only surface that needs framer-motion. Loading it on demand
@@ -12,11 +13,23 @@ import { galleryLoader } from "@/lib/galleryLoader";
 const GalleryLightbox = dynamic(() => import("./GalleryLightbox"), { ssr: false });
 
 const ACCENT = "#D4A010";
-// Lowered from 12 to 9 to cut initial mobile DOM size by 25% — gallery PSI
-// mobile_perf was 74 (LCP 3.3s, TBT 500ms) per pagespeed.json. 3-column
-// desktop layout still fills cleanly at 9 items; mobile single-column users
-// scroll past 9 thumbs to the pagination control just as quickly as 12.
-const PER_PAGE = 9;
+// The grid is grouped by campaign (10/22): each page shows a few campaigns,
+// each capped at PREVIEW_COUNT thumbs until "Show all" is tapped. Keeps the
+// initial DOM close to the old 9-thumb page (gallery PSI mobile was 74 at
+// 12 thumbs) while every job's photos sit together under one header.
+const CAMPAIGNS_PER_PAGE = 3;
+const PREVIEW_COUNT = 6;
+
+type Entry = { img: (typeof GALLERY_IMGS)[number]; idx: number };
+
+// Campaign display order = first appearance in GALLERY_IMGS (newest first).
+const CAMPAIGN_ORDER = Array.from(new Set(GALLERY_IMGS.map((img) => img.campaign)));
+
+function groupByCampaign(entries: Entry[]) {
+  return CAMPAIGN_ORDER
+    .map((id) => ({ id, meta: GALLERY_CAMPAIGNS[id] ?? { name: id, place: "" } as { name: string; place: string; when?: string; href?: string }, entries: entries.filter((e) => e.img.campaign === id) }))
+    .filter((g) => g.entries.length > 0);
+}
 
 // Unique tags derived from data — order: All first, then sorted
 const ALL_TAGS = [
@@ -48,17 +61,22 @@ export default function GalleryPageClient() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [activeTag, setActiveTag] = useState<string>("All");
   const [page, setPage] = useState(0);
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const gridRef = useRef<HTMLDivElement>(null);
 
   // ── Filtered + paged data ──────────────────────────────────────
   // Carry the original GALLERY_IMGS index alongside each image so the
   // lightbox can always navigate the full set regardless of active filter.
-  const filteredWithIdx = activeTag === "All"
+  const filteredWithIdx: Entry[] = activeTag === "All"
     ? GALLERY_IMGS.map((img, idx) => ({ img, idx }))
     : GALLERY_IMGS.map((img, idx) => ({ img, idx })).filter(({ img }) => img.tag === activeTag);
 
-  const totalPages = Math.ceil(filteredWithIdx.length / PER_PAGE);
-  const paged = filteredWithIdx.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+  const groups = groupByCampaign(filteredWithIdx);
+  // Lightbox prev/next walks this order so it stays inside a campaign
+  // before moving to the next one.
+  const navOrder = groups.flatMap((g) => g.entries.map((e) => e.idx));
+  const totalPages = Math.ceil(groups.length / CAMPAIGNS_PER_PAGE);
+  const pagedGroups = groups.slice(page * CAMPAIGNS_PER_PAGE, (page + 1) * CAMPAIGNS_PER_PAGE);
 
   // ── Handlers ──────────────────────────────────────────────────
   const handleTagChange = (tag: string) => {
@@ -76,14 +94,18 @@ export default function GalleryPageClient() {
 
   const openLightbox = useCallback((globalIdx: number) => setLightboxIdx(globalIdx), []);
   const closeLightbox = useCallback(() => setLightboxIdx(null), []);
-  const prevImage = useCallback(
-    () => setLightboxIdx((i) => (i !== null ? (i - 1 + GALLERY_IMGS.length) % GALLERY_IMGS.length : null)),
-    []
+  const navKey = navOrder.join(",");
+  const stepImage = useCallback(
+    (dir: 1 | -1) => setLightboxIdx((i) => {
+      if (i === null) return null;
+      const order = navKey.split(",").map(Number);
+      const pos = order.indexOf(i);
+      return order[(pos + dir + order.length) % order.length] ?? i;
+    }),
+    [navKey]
   );
-  const nextImage = useCallback(
-    () => setLightboxIdx((i) => (i !== null ? (i + 1) % GALLERY_IMGS.length : null)),
-    []
-  );
+  const prevImage = useCallback(() => stepImage(-1), [stepImage]);
+  const nextImage = useCallback(() => stepImage(1), [stepImage]);
 
   // Keyboard nav now lives inside GalleryLightbox so the listener only attaches
   // when framer-motion has loaded and the modal is mounted.
@@ -112,7 +134,7 @@ export default function GalleryPageClient() {
             </h1>
             <p className="font-mono text-[10px] tracking-[0.2em] uppercase m-0"
               style={{ color: "rgba(0,0,0,0.55)" }}>
-              {filteredWithIdx.length} Photos · Documented Campaigns
+              {filteredWithIdx.length} Photos · {groups.length} Campaigns
             </p>
           </div>
 
@@ -169,82 +191,115 @@ export default function GalleryPageClient() {
             with a plain keyed div so framer-motion stays out of the initial bundle.
             The `key` change still remounts the grid; we just skip the fade animation
             because pre-paint opacity:0 was delaying observed FCP on this page. */}
-        <div
-          key={`${activeTag}-${page}`}
-          className="columns-1 sm:columns-2 lg:columns-3"
-          style={{ columnGap: "16px" }}
-        >
-            {paged.map(({ img, idx }, i) => (
-              <div key={idx} className="break-inside-avoid mb-4">
-                <button
-                  onClick={() => openLightbox(idx)}
-                  className="w-full text-left group relative overflow-hidden rounded-2xl cursor-zoom-in block"
-                  style={{ border: "none", padding: 0, background: "none" }}
-                  aria-label={`View ${img.label}`}
-                >
-                  <div
-                    className="relative w-full overflow-hidden rounded-2xl"
-                    style={{
-                      // Per-image override wins over the rotating default. Images
-                      // tagged `aspect: "portrait"` in gallery-data force a 3/4
-                      // thumbnail so vertical photos aren't center-cropped to a
-                      // tiny middle band by a 4/3 landscape container.
-                      aspectRatio: ("aspect" in img && img.aspect === "portrait")
-                        ? "3/4"
-                        : i % 5 === 0
-                        ? "3/4"
-                        : i % 3 === 0
-                        ? "1/1"
-                        : "4/3",
-                    }}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      // Static pre-sized variants instead of /_next/image —
-                      // the optimizer is an edge-cache miss on every request
-                      // on Netlify (see scripts/gen-gallery-variants.mjs).
-                      loader={galleryLoader}
-                      // Only the FIRST card is eager + preloaded: it is the LCP
-                      // element on every breakpoint. Cards 2-3 used to be eager
-                      // too (the desktop above-fold row), but on the mobile
-                      // 1-col layout they sit below the fold and Lighthouse's
-                      // throttling model charges their bytes against the LCP
-                      // (gallery mobile LCP 4.5s / perf 77 on 9/23). Lazy + low
-                      // lets the browser fetch them right after the first paint.
-                      loading={i === 0 ? "eager" : "lazy"}
-                      fetchPriority={i === 0 ? "high" : "low"}
-                      priority={i === 0}
-                      // Tighter sizes — column-gap accounted for. Mobile is
-                      // 1 col with 40px page padding; sm 2 cols; lg 3 cols.
-                      // Previous `100vw` over-requested by ~2x at common widths.
-                      sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(50vw - 24px), calc(33vw - 24px)"
-                      // Quality 70 instead of Next's default 75 — gallery
-                      // thumbnails are decorative + clicked through to the
-                      // lightbox for a hi-res view, so the ~10-15% byte
-                      // savings on every thumb is a clean LCP win on the
-                      // mobile gallery (which was scoring 74 on PSI).
-                      quality={70}
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    {/* Hover overlay */}
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4"
-                      style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 60%)" }}
-                    >
-                      <span className="font-black uppercase tracking-tight text-white text-xs block leading-tight">
-                        {img.label}
-                      </span>
-                      <span className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1 block"
-                        style={{ color: ACCENT }}>
-                        {img.tag} · Phantom Pasting
+        <div key={`${activeTag}-${page}`} className="flex flex-col gap-16 md:gap-20">
+          {pagedGroups.map((group, gi) => {
+            const isOpen = expanded[group.id] || group.entries.length <= PREVIEW_COUNT;
+            const shown = isOpen ? group.entries : group.entries.slice(0, PREVIEW_COUNT);
+            const formats = Array.from(new Set(group.entries.map((e) => e.img.tag)));
+            return (
+              <article key={group.id} aria-labelledby={`campaign-${group.id}`}>
+                {/* Campaign header */}
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6 pb-4"
+                  style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+                  <div>
+                    <span className="font-mono text-[9px] tracking-[0.3em] uppercase block mb-2" style={{ color: "rgba(0,0,0,0.55)" }}>
+                      {[group.meta.when, group.meta.place].filter(Boolean).join(" · ")}
+                    </span>
+                    <h2 id={`campaign-${group.id}`} className="font-black uppercase m-0 leading-[0.95]"
+                      style={{ fontSize: "clamp(22px, 2.6vw, 34px)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
+                      {group.meta.name}<span style={{ color: ACCENT }}>.</span>
+                    </h2>
+                    <div className="flex flex-wrap gap-1.5 mt-3">
+                      {formats.map((f) => (
+                        <span key={f} className="font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
+                          style={{ background: "rgba(0,0,0,0.05)", color: "rgba(0,0,0,0.6)" }}>
+                          {f}
+                        </span>
+                      ))}
+                      <span className="font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1" style={{ color: "rgba(0,0,0,0.45)" }}>
+                        {group.entries.length} {group.entries.length === 1 ? "Photo" : "Photos"}
                       </span>
                     </div>
                   </div>
-                </button>
-              </div>
-            ))}
+                  {group.meta.href && (
+                    <Link href={group.meta.href}
+                      className="self-start sm:self-auto inline-flex items-center gap-2 font-bold text-[10px] tracking-[0.2em] uppercase no-underline px-5 py-2.5 rounded-full shrink-0"
+                      style={{ background: "#1A1A1A", color: "#FFF8E0", border: `1px solid ${ACCENT}` }}>
+                      Case Study <span style={{ color: ACCENT }}>→</span>
+                    </Link>
+                  )}
+                </div>
+
+                <div className="columns-1 sm:columns-2 lg:columns-3" style={{ columnGap: "16px" }}>
+                  {shown.map(({ img, idx }, i) => {
+                    const first = gi === 0 && i === 0;
+                    return (
+                      <div key={idx} className="break-inside-avoid mb-4">
+                        <button
+                          onClick={() => openLightbox(idx)}
+                          className="w-full text-left group relative overflow-hidden rounded-2xl cursor-zoom-in block"
+                          style={{ border: "none", padding: 0, background: "none" }}
+                          aria-label={`View ${img.label}`}
+                        >
+                          <div
+                            className="relative w-full overflow-hidden rounded-2xl"
+                            style={{
+                              // Portrait-tagged photos get a 3/4 box so they are not
+                              // cropped to a thin middle band; everything else 4/3.
+                              aspectRatio: ("aspect" in img && img.aspect === "portrait") ? "3/4" : "4/3",
+                            }}
+                          >
+                            <Image
+                              src={img.src}
+                              alt={img.alt}
+                              fill
+                              // Static pre-sized variants instead of /_next/image —
+                              // the optimizer is an edge-cache miss on every request
+                              // on Netlify (see scripts/gen-gallery-variants.mjs).
+                              loader={galleryLoader}
+                              // Only the very first thumb is eager + preloaded: it is
+                              // the LCP element on every breakpoint.
+                              loading={first ? "eager" : "lazy"}
+                              fetchPriority={first ? "high" : "low"}
+                              priority={first}
+                              sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(50vw - 24px), calc(33vw - 24px)"
+                              quality={70}
+                              className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            {/* Hover overlay */}
+                            <div
+                              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4"
+                              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 60%)" }}
+                            >
+                              <span className="font-black uppercase tracking-tight text-white text-xs block leading-tight">
+                                {img.label}
+                              </span>
+                              <span className="font-mono text-[8px] tracking-[0.3em] uppercase mt-1 block"
+                                style={{ color: ACCENT }}>
+                                {img.tag} · Phantom Pasting
+                              </span>
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {!isOpen && (
+                  <div className="flex justify-center mt-2">
+                    <button
+                      onClick={() => setExpanded((x) => ({ ...x, [group.id]: true }))}
+                      className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.2em] uppercase px-5 py-2.5 rounded-full"
+                      style={{ background: "rgba(0,0,0,0.04)", color: "rgba(0,0,0,0.7)", border: "1px solid rgba(0,0,0,0.1)", cursor: "pointer", fontFamily: "inherit" }}
+                    >
+                      Show all {group.entries.length} photos <IconChevronRight />
+                    </button>
+                  </div>
+                )}
+              </article>
+            );
+          })}
         </div>
 
         {/* ── Pagination ──────────────────────────────────────────── */}

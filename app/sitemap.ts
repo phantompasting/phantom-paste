@@ -64,6 +64,7 @@ export const ROUTES_META: RouteMeta[] = [
 
   // ── Core pages ────────────────────────────────────────────────────────────
   { path: "/about",                          file: "app/about/page.tsx",                                   priority: 0.65, changeFreq: "monthly" },
+  { path: "/standards",                      file: "app/standards/page.tsx",                               priority: 0.75, changeFreq: "monthly" },
   { path: "/contact",                        file: "app/contact/page.tsx",                                 priority: 0.8,  changeFreq: "monthly" },
   { path: "/gallery",                        file: "app/gallery/page.tsx",                                 priority: 0.7,  changeFreq: "monthly" },
   { path: "/pricing",                        file: "app/pricing/page.tsx",                                 priority: 0.9,  changeFreq: "monthly" },
@@ -75,6 +76,7 @@ export const ROUTES_META: RouteMeta[] = [
 
   // ── Work / Case Studies ───────────────────────────────────────────────────
   { path: "/work",                           file: "app/work/page.tsx",                                    priority: 0.75, changeFreq: "monthly" },
+  { path: "/work/nokia-bell-labs-helix-new-jersey", file: "app/work/nokia-bell-labs-helix-new-jersey/page.tsx", priority: 0.85, changeFreq: "never" },
   { path: "/work/fashionpass-los-angeles",   file: "app/work/fashionpass-los-angeles/page.tsx",            priority: 0.8,  changeFreq: "never"   },
   { path: "/work/fifa-world-cup-atlanta",    file: "app/work/fifa-world-cup-atlanta/page.tsx",             priority: 0.8,  changeFreq: "never"   },
   { path: "/work/incrediwear-street-campaign", file: "app/work/incrediwear-street-campaign/page.tsx",      priority: 0.8,  changeFreq: "never"   },
@@ -107,6 +109,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/locations/colorado",             file: "app/locations/colorado/page.tsx",                      priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/nevada",               file: "app/locations/nevada/page.tsx",                        priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/massachusetts",        file: "app/locations/massachusetts/page.tsx",                 priority: 0.85, changeFreq: "monthly" },
+  { path: "/locations/philadelphia",         file: "app/locations/philadelphia/page.tsx",                  priority: 0.9,  changeFreq: "monthly" },
   { path: "/locations/pennsylvania",         file: "app/locations/pennsylvania/page.tsx",                  priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/ohio",                 file: "app/locations/ohio/page.tsx",                          priority: 0.85, changeFreq: "monthly" },
   { path: "/locations/north-carolina",       file: "app/locations/north-carolina/page.tsx",                priority: 0.85, changeFreq: "monthly" },
@@ -174,6 +177,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/blog/wheat-pasting-silver-lake-echo-park",     file: "content/blog/wheat-pasting-silver-lake-echo-park.tsx",    priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/guerrilla-marketing-never-out-of-style",  file: "content/blog/guerrilla-marketing-never-out-of-style.tsx", priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/nyc-fashion-week-guerrilla-marketing",    file: "content/blog/nyc-fashion-week-guerrilla-marketing.tsx",   priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/wheat-pasting-philadelphia-new-jersey",  file: "content/blog/wheat-pasting-philadelphia-new-jersey.tsx",  priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-for-musicians",            file: "content/blog/wheat-pasting-for-musicians.tsx",            priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-hollywood",                 file: "content/blog/wheat-pasting-hollywood.tsx",                priority: 0.8,  changeFreq: "monthly" },
 ];
