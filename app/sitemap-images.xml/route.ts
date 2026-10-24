@@ -29,6 +29,27 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Calvin Priice — East Harlem, NYC ──
+  "calvin-priice-wheat-paste-eight-poster-grid-green-construction-fence-east-harlem-nyc.webp": {
+    title: "Calvin Priice Eight-Poster Grid — East Harlem, NYC",
+    caption: "Eight-poster grid of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York — by Phantom Pasting",
+  },
+  "calvin-priice-wheat-paste-posters-pedestrian-passing-east-harlem-nyc.webp": {
+    title: "Pedestrian Passing Calvin Priice Posters — East Harlem, NYC",
+    caption: "Pedestrian walking past a wall of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York — by Phantom Pasting",
+  },
+  "calvin-priice-wheat-paste-poster-wall-razor-wire-fence-east-harlem-nyc.webp": {
+    title: "Calvin Priice Poster Wall on a Construction Fence — East Harlem, NYC",
+    caption: "Calvin Priice wheat paste poster wall on a green construction fence below chain-link and razor wire in East Harlem, New York — by Phantom Pasting",
+  },
+  "calvin-priice-wheat-paste-poster-wall-sidewalk-east-harlem-nyc.webp": {
+    title: "Calvin Priice Poster Wall Street View — East Harlem, NYC",
+    caption: "Straight-on street view of a Calvin Priice wheat paste poster wall above an East Harlem sidewalk in New York — by Phantom Pasting",
+  },
+  "calvin-priice-wheat-paste-posters-green-construction-fence-angle-east-harlem-nyc.webp": {
+    title: "Calvin Priice Musician Posters, Angle View — East Harlem, NYC",
+    caption: "Angled view of Calvin Priice musician wheat paste posters with QR codes on a green construction fence in East Harlem, New York — by Phantom Pasting",
+  },
   // ── Playback: The Brooklyn Watch Party — Brooklyn, NY ──
   "playback-brooklyn-watch-party-wheat-paste-posters-3rd-ave-atlantic-boerum-hill-brooklyn.webp": {
     title: "Playback Wheat Paste Posters — Boerum Hill, Brooklyn",
@@ -588,6 +609,7 @@ const PAGE_IMAGES: Record<string, string[]> = {
     "fifa-world-cup-poster-wall-gallery-wide.webp",
   ],
   "/locations/new-york": [
+    "calvin-priice-wheat-paste-eight-poster-grid-green-construction-fence-east-harlem-nyc.webp",
     "abff-pop-up-chalk-stencil-qr-code-sidewalk-noho-nyc.webp",
     "abff-pop-up-wheat-paste-poster-wall-pedestrians-upper-west-side-nyc.webp",
     "calvin-priice-abff-pop-up-wheat-paste-posters-subway-entrance-union-square-nyc.webp",
