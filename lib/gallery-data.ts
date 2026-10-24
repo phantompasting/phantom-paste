@@ -9,7 +9,16 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Nokia Bell Labs at The Helix — New Brunswick, NJ (latest job) ──
+  // ── Calvin Priice — East Harlem, NYC (latest job) ──
+  // Eight-poster grid (two alternating designs) on a green construction
+  // fence near E 125th St, Oct 22. Logo watermark on all five.
+  { src: "/gallery/calvin-priice-wheat-paste-eight-poster-grid-green-construction-fence-east-harlem-nyc.webp", label: "Calvin Priice — East Harlem Grid", alt: "Eight-poster grid of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York", tag: "Wheat Paste", campaign: "calvin-priice-harlem" },
+  { src: "/gallery/calvin-priice-wheat-paste-posters-pedestrian-passing-east-harlem-nyc.webp", label: "Calvin Priice — Pass-by", alt: "Pedestrian walking past a wall of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York", tag: "Wheat Paste", aspect: "portrait", campaign: "calvin-priice-harlem" },
+  { src: "/gallery/calvin-priice-wheat-paste-poster-wall-razor-wire-fence-east-harlem-nyc.webp", label: "Calvin Priice — Fence Line", alt: "Calvin Priice wheat paste poster wall on a green construction fence below chain-link and razor wire in East Harlem, New York", tag: "Wheat Paste", campaign: "calvin-priice-harlem" },
+  { src: "/gallery/calvin-priice-wheat-paste-poster-wall-sidewalk-east-harlem-nyc.webp", label: "Calvin Priice — Street View", alt: "Straight-on street view of a Calvin Priice wheat paste poster wall above an East Harlem sidewalk in New York", tag: "Wheat Paste", aspect: "portrait", campaign: "calvin-priice-harlem" },
+  { src: "/gallery/calvin-priice-wheat-paste-posters-green-construction-fence-angle-east-harlem-nyc.webp", label: "Calvin Priice — Angle View", alt: "Angled view of Calvin Priice musician wheat paste posters with QR codes on a green construction fence in East Harlem, New York", tag: "Wheat Paste", campaign: "calvin-priice-harlem" },
+
+  // ── Nokia Bell Labs at The Helix — New Brunswick, NJ ──
   // 60 jumbo 48"x72" posters (12-design series + branded spacer panels) on
   // the ~270 ft construction fence at The Helix, installed in one day,
   // Oct 19. Client-controlled site, COI on file. Logo watermark on all seven.
@@ -177,6 +186,7 @@ export type GalleryImg = typeof GALLERY_IMGS[number];
  * job only needs its photos at the top of the list plus one entry below.
  */
 export const GALLERY_CAMPAIGNS: Record<string, { name: string; place: string; when?: string; href?: string }> = {
+  "calvin-priice-harlem": { name: "Calvin Priice",                    place: "East Harlem, NYC",           when: "Oct 2026" },
   "helix":               { name: "Nokia Bell Labs at The Helix",       place: "New Brunswick, NJ",          when: "Oct 2026", href: "/work/nokia-bell-labs-helix-new-jersey" },
   "playback":            { name: "Playback: The Brooklyn Watch Party", place: "Brooklyn, NY",               when: "Oct 2026" },
   "nyc-fall-run":        { name: "NYC Fall Run",                       place: "Manhattan + Brooklyn, NY",   when: "Sept 2026" },
