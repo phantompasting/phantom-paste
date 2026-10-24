@@ -9,16 +9,7 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Calvin Priice — East Harlem, NYC (latest job) ──
-  // Eight-poster grid (two alternating designs) on a green construction
-  // fence near E 125th St, Oct 22. Logo watermark on all five.
-  { src: "/gallery/calvin-priice-wheat-paste-eight-poster-grid-green-construction-fence-east-harlem-nyc.webp", label: "Calvin Priice — East Harlem Grid", alt: "Eight-poster grid of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York", tag: "Wheat Paste", campaign: "calvin-priice-harlem" },
-  { src: "/gallery/calvin-priice-wheat-paste-posters-pedestrian-passing-east-harlem-nyc.webp", label: "Calvin Priice — Pass-by", alt: "Pedestrian walking past a wall of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York", tag: "Wheat Paste", aspect: "portrait", campaign: "calvin-priice-harlem" },
-  { src: "/gallery/calvin-priice-wheat-paste-poster-wall-razor-wire-fence-east-harlem-nyc.webp", label: "Calvin Priice — Fence Line", alt: "Calvin Priice wheat paste poster wall on a green construction fence below chain-link and razor wire in East Harlem, New York", tag: "Wheat Paste", campaign: "calvin-priice-harlem" },
-  { src: "/gallery/calvin-priice-wheat-paste-poster-wall-sidewalk-east-harlem-nyc.webp", label: "Calvin Priice — Street View", alt: "Straight-on street view of a Calvin Priice wheat paste poster wall above an East Harlem sidewalk in New York", tag: "Wheat Paste", aspect: "portrait", campaign: "calvin-priice-harlem" },
-  { src: "/gallery/calvin-priice-wheat-paste-posters-green-construction-fence-angle-east-harlem-nyc.webp", label: "Calvin Priice — Angle View", alt: "Angled view of Calvin Priice musician wheat paste posters with QR codes on a green construction fence in East Harlem, New York", tag: "Wheat Paste", campaign: "calvin-priice-harlem" },
-
-  // ── Nokia Bell Labs at The Helix — New Brunswick, NJ ──
+  // ── Nokia Bell Labs at The Helix — New Brunswick, NJ (latest job) ──
   // 60 jumbo 48"x72" posters (12-design series + branded spacer panels) on
   // the ~270 ft construction fence at The Helix, installed in one day,
   // Oct 19. Client-controlled site, COI on file. Logo watermark on all seven.
@@ -38,10 +29,17 @@ export const GALLERY_IMGS = [
   { src: "/gallery/playback-brooklyn-watch-party-sticker-snipe-pole-pacific-st-boerum-hill-brooklyn.webp", label: "Playback — Pole Sticker", alt: "Yellow Playback The Brooklyn Watch Party sticker snipe with QR code on a light pole on Pacific Street, Boerum Hill, Brooklyn, with an MTA bus behind", tag: "Sticker", campaign: "playback" },
   { src: "/gallery/playback-brooklyn-watch-party-chalk-spray-stencil-sidewalk-downtown-brooklyn.webp", label: "Playback — Sidewalk Stencil", alt: "Playback The Brooklyn Watch Party chalk spray stencil on a sidewalk at Flatbush Avenue Extension and DeKalb Avenue, Downtown Brooklyn", tag: "Stencil", aspect: "portrait", campaign: "playback" },
 
-  // ── New York City fall run — Sept 18–20 ──
+  // ── New York City fall run — Sept 18–20, plus Oct 22 return ──
   // First NYC wheat-paste trip: ABFF Pop Up New York (Oct 10–11 festival),
   // Calvin Priice, and the Gerbil podcast across Harlem, the Upper West Side,
   // Union Square, the East Village, and Williamsburg. Overnight installs.
+  // Calvin Priice return trip — eight-poster grid on a green construction
+  // fence near E 125th St in East Harlem, Oct 22. Logo watermark on all five.
+  { src: "/gallery/calvin-priice-wheat-paste-eight-poster-grid-green-construction-fence-east-harlem-nyc.webp", label: "NYC Fall Run — Calvin Priice East Harlem Grid", alt: "Eight-poster grid of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York", tag: "Wheat Paste", campaign: "nyc-fall-run" },
+  { src: "/gallery/calvin-priice-wheat-paste-posters-pedestrian-passing-east-harlem-nyc.webp", label: "NYC Fall Run — Calvin Priice Pass-by", alt: "Pedestrian walking past a wall of Calvin Priice wheat paste posters on a green construction fence in East Harlem, New York", tag: "Wheat Paste", aspect: "portrait", campaign: "nyc-fall-run" },
+  { src: "/gallery/calvin-priice-wheat-paste-poster-wall-razor-wire-fence-east-harlem-nyc.webp", label: "NYC Fall Run — Calvin Priice Fence Line", alt: "Calvin Priice wheat paste poster wall on a green construction fence below chain-link and razor wire in East Harlem, New York", tag: "Wheat Paste", campaign: "nyc-fall-run" },
+  { src: "/gallery/calvin-priice-wheat-paste-poster-wall-sidewalk-east-harlem-nyc.webp", label: "NYC Fall Run — Calvin Priice Street View", alt: "Straight-on street view of a Calvin Priice wheat paste poster wall above an East Harlem sidewalk in New York", tag: "Wheat Paste", aspect: "portrait", campaign: "nyc-fall-run" },
+  { src: "/gallery/calvin-priice-wheat-paste-posters-green-construction-fence-angle-east-harlem-nyc.webp", label: "NYC Fall Run — Calvin Priice Angle View", alt: "Angled view of Calvin Priice musician wheat paste posters with QR codes on a green construction fence in East Harlem, New York", tag: "Wheat Paste", campaign: "nyc-fall-run" },
   { src: "/gallery/abff-pop-up-chalk-stencil-qr-code-sidewalk-noho-nyc.webp", label: "NYC Fall Run — ABFF Sidewalk Stencil", alt: "ABFF Pop Up chalk spray stencil with a QR code on a NoHo sidewalk in New York as pedestrians step past", tag: "Stencil", aspect: "portrait", campaign: "nyc-fall-run" },
   { src: "/gallery/abff-pop-up-calvin-priice-gerbil-wheat-paste-posters-green-barricade-harlem-nyc.webp", label: "NYC Fall Run — Harlem Barricade", alt: "Calvin Priice, Gerbil podcast, and ABFF Pop Up wheat paste posters wrapping a green construction barricade on a Harlem corner in New York", tag: "Wheat Paste", campaign: "nyc-fall-run" },
   { src: "/gallery/abff-pop-up-wheat-paste-poster-wall-pedestrians-upper-west-side-nyc.webp", label: "NYC Fall Run — Upper West Side", alt: "Pedestrians walking past a wall of ABFF Pop Up, Gerbil podcast, and Calvin Priice wheat paste posters on the Upper West Side of Manhattan", tag: "Wheat Paste", campaign: "nyc-fall-run" },
@@ -186,10 +184,9 @@ export type GalleryImg = typeof GALLERY_IMGS[number];
  * job only needs its photos at the top of the list plus one entry below.
  */
 export const GALLERY_CAMPAIGNS: Record<string, { name: string; place: string; when?: string; href?: string }> = {
-  "calvin-priice-harlem": { name: "Calvin Priice",                    place: "East Harlem, NYC",           when: "Oct 2026" },
   "helix":               { name: "Nokia Bell Labs at The Helix",       place: "New Brunswick, NJ",          when: "Oct 2026", href: "/work/nokia-bell-labs-helix-new-jersey" },
   "playback":            { name: "Playback: The Brooklyn Watch Party", place: "Brooklyn, NY",               when: "Oct 2026" },
-  "nyc-fall-run":        { name: "NYC Fall Run",                       place: "Manhattan + Brooklyn, NY",   when: "Sept 2026" },
+  "nyc-fall-run":        { name: "NYC Fall Run",                       place: "Manhattan + Brooklyn, NY",   when: "Sept–Oct 2026" },
   "gerbil-la":           { name: "Gerbil Podcast",                     place: "Silver Lake, Los Angeles",   when: "Sept 2026" },
   "asher-levine":        { name: "Asher Levine",                       place: "Los Angeles",                when: "Sept 2026" },
   "zjk-nashville":       { name: "Zach John King: I'm What You Get",   place: "Downtown Nashville, TN",     when: "Aug 2026" },
