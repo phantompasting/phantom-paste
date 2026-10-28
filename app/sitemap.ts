@@ -37,12 +37,14 @@ const REPO_ROOT = process.cwd();
 // from this list (see scripts/indexnow-submit.mjs).
 //
 // `file` is the page's source file relative to repo root. Git log uses it to
-// find the last commit that touched this page.
+// find the last commit that touched this page. Pass an array when the page's
+// content lives in other files too (e.g. /gallery reads lib/gallery-data.ts),
+// so an update to any of them bumps lastmod.
 type ChangeFreq = MetadataRoute.Sitemap[number]["changeFrequency"];
 
 interface RouteMeta {
   path: string;
-  file: string;
+  file: string | string[];
   priority: number;
   changeFreq: ChangeFreq;
 }
@@ -66,7 +68,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/about",                          file: "app/about/page.tsx",                                   priority: 0.65, changeFreq: "monthly" },
   { path: "/standards",                      file: "app/standards/page.tsx",                               priority: 0.75, changeFreq: "monthly" },
   { path: "/contact",                        file: "app/contact/page.tsx",                                 priority: 0.8,  changeFreq: "monthly" },
-  { path: "/gallery",                        file: "app/gallery/page.tsx",                                 priority: 0.7,  changeFreq: "monthly" },
+  { path: "/gallery",                        file: ["app/gallery/page.tsx", "lib/gallery-data.ts"],        priority: 0.7,  changeFreq: "monthly" },
   { path: "/pricing",                        file: "app/pricing/page.tsx",                                 priority: 0.9,  changeFreq: "monthly" },
 
   // ── Compare / Competitor comparisons ──────────────────────────────────────
@@ -185,13 +187,15 @@ export const ROUTES_META: RouteMeta[] = [
 // ── lastmod helper ────────────────────────────────────────────────────────────
 
 /**
- * Return the Date of the last git commit that touched `relFile`.
- * Falls back to file mtime, then SITE_LAUNCH.
+ * Return the Date of the last git commit that touched any of `relFiles`.
+ * Falls back to the newest file mtime, then SITE_LAUNCH.
  */
-function getLastMod(relFile: string): Date {
+function getLastMod(relFiles: string | string[]): Date {
+  const files = Array.isArray(relFiles) ? relFiles : [relFiles];
+
   // 1. git log — authoritative in CI (Netlify sets git history correctly)
   try {
-    const iso = execSync(`git log -1 --format=%aI -- "${relFile}"`, {
+    const iso = execSync(`git log -1 --format=%aI -- ${files.map((f) => `"${f}"`).join(" ")}`, {
       cwd: REPO_ROOT,
       encoding: "utf-8",
       timeout: 5000,
@@ -203,8 +207,11 @@ function getLastMod(relFile: string): Date {
 
   // 2. fs mtime — reliable on dev machines
   try {
-    const abs = join(REPO_ROOT, relFile);
-    if (existsSync(abs)) return statSync(abs).mtime;
+    const mtimes = files
+      .map((f) => join(REPO_ROOT, f))
+      .filter((abs) => existsSync(abs))
+      .map((abs) => statSync(abs).mtime.getTime());
+    if (mtimes.length) return new Date(Math.max(...mtimes));
   } catch {
     // fall through
   }
