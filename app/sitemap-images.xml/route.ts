@@ -29,6 +29,35 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── The Banksy Art Exhibit — Oakland + Emeryville, CA ──
+  "banksy-art-exhibit-wheat-paste-posters-48x72-brick-wall-hollis-st-emeryville.webp": {
+    title: "Banksy Art Exhibit Wheat Paste Posters — Emeryville, CA",
+    caption: "The Banksy Art Exhibit wheat paste posters, including a 48x72 inch jumbo, on a brick wall on Hollis Street in Emeryville, California — by Phantom Pasting",
+  },
+  "banksy-art-exhibit-wheat-paste-poster-wall-pedestrians-webster-st-chinatown-oakland.webp": {
+    title: "Banksy Art Exhibit Poster Wall — Webster St, Oakland",
+    caption: "Pedestrians passing a long wall of The Banksy Art Exhibit wheat paste posters on Webster Street in Oakland Chinatown — by Phantom Pasting",
+  },
+  "banksy-art-exhibit-wheat-paste-posters-pedestrian-8th-st-chinatown-oakland.webp": {
+    title: "Pedestrian Passing Banksy Art Exhibit Posters — 8th St, Oakland",
+    caption: "Pedestrian walking past a grid of Banksy Art Exhibit Girl with Balloon wheat paste posters on 8th Street in Oakland Chinatown — by Phantom Pasting",
+  },
+  "banksy-art-exhibit-wheat-paste-poster-grid-broadway-oakland.webp": {
+    title: "Banksy Art Exhibit Poster Grid — Broadway, Oakland",
+    caption: "Two-row grid of The Banksy Art Exhibit wheat paste posters with QR codes on a wall along Broadway in Oakland — by Phantom Pasting",
+  },
+  "banksy-art-exhibit-wheat-paste-posters-pedestrian-broadway-oakland.webp": {
+    title: "Pedestrian Passing Banksy Art Exhibit Posters — Broadway, Oakland",
+    caption: "Pedestrian walking past Banksy Art Exhibit wheat paste posters on a brick storefront on Broadway in Oakland — by Phantom Pasting",
+  },
+  "banksy-art-exhibit-wheat-paste-poster-grid-san-pablo-ave-oakland.webp": {
+    title: "Banksy Art Exhibit Poster Grid — San Pablo Ave, Oakland",
+    caption: "Grid of The Banksy Art Exhibit wheat paste posters on a boarded storefront on San Pablo Avenue in Oakland — by Phantom Pasting",
+  },
+  "banksy-art-exhibit-wheat-paste-posters-franklin-st-downtown-oakland.webp": {
+    title: "Banksy Art Exhibit Wheat Paste Posters — Downtown Oakland",
+    caption: "The Banksy Art Exhibit wheat paste posters on a gray wall on Franklin Street in downtown Oakland — by Phantom Pasting",
+  },
   // ── Calvin Priice — East Harlem, NYC ──
   "calvin-priice-wheat-paste-eight-poster-grid-green-construction-fence-east-harlem-nyc.webp": {
     title: "Calvin Priice Eight-Poster Grid — East Harlem, NYC",
@@ -547,6 +576,8 @@ const PAGE_IMAGES: Record<string, string[]> = {
 
   // Services pages
   "/services/wheat-pasting": [
+    "asher-levine-wheat-paste-four-poster-set-fairfax-los-angeles.webp",
+    "calvin-priice-wheat-paste-posters-green-construction-fence-angle-east-harlem-nyc.webp",
     "dont-fall-off-wheat-paste-building-bike-rack.webp",
     "dont-fall-off-wheat-paste-pedestrian-street-art.webp",
     "dont-fall-off-wheat-paste-street-view-la.webp",
