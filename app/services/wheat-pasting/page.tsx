@@ -388,8 +388,8 @@ export default function WheatPastingPage() {
                       so Next.js doesn't preload this ~300KB hero to mobile users
                       who never see it. */}
                   <Image
-                    src="/gallery/fashionpass-wheat-paste-campaign-poster-wall.webp"
-                    alt="FashionPass wheat paste poster wall campaign on Melrose Avenue, Los Angeles"
+                    src="/gallery/asher-levine-wheat-paste-four-poster-set-fairfax-los-angeles.webp"
+                    alt="Close view of the four Asher Levine campaign posters wheat-pasted side by side beneath concert flyers in the Fairfax District, Los Angeles"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 1024px) 0vw, 40vw"
@@ -408,8 +408,8 @@ export default function WheatPastingPage() {
                   }}
                 >
                   <Image
-                    src="/gallery/fifa-world-cup-poster-wall-street-perspective.webp"
-                    alt="FIFA World Cup wheat paste poster wall street perspective Atlanta"
+                    src="/gallery/calvin-priice-wheat-paste-posters-green-construction-fence-angle-east-harlem-nyc.webp"
+                    alt="Angled view of Calvin Priice musician wheat paste posters with QR codes on a green construction fence in East Harlem, New York"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="25vw"
@@ -552,6 +552,23 @@ export default function WheatPastingPage() {
               </ul>
             </div>
 
+            <div className="flex flex-col gap-3">
+            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "16 / 9", background: "#1A1A1A", border: "1px solid rgba(255,255,255,0.6)", boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)" }}>
+              <video
+                className="absolute inset-0 w-full h-full"
+                style={{ objectFit: "cover" }}
+                src="/gallery/banksy-art-exhibit-wheat-paste-install-broadway-oakland.mp4"
+                poster="/gallery/banksy-art-exhibit-wheat-paste-install-broadway-oakland-poster.webp"
+                controls
+                playsInline
+                preload="none"
+                aria-label="Phantom Pasting installer brushing down Banksy Art Exhibit wheat paste posters on a brick wall on Broadway in Oakland"
+              />
+              <div className="absolute inset-x-0 top-0 p-3 md:p-4 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%)" }}>
+                <div className="font-black uppercase leading-none" style={{ fontSize: "13px", letterSpacing: "-0.01em", color: "#FFF" }}>The Banksy Art Exhibit</div>
+                <div className="font-mono text-[8px] tracking-[0.2em] uppercase mt-1" style={{ color: "rgba(255,255,255,0.82)" }}>Live install · Broadway, Oakland</div>
+              </div>
+            </div>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { label: "Poster Size", value: '24"×36" to 48"×72"' },
@@ -587,6 +604,7 @@ export default function WheatPastingPage() {
                   </div>
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </section>

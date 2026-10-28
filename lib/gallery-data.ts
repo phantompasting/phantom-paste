@@ -9,7 +9,21 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Nokia Bell Labs at The Helix — New Brunswick, NJ (latest job) ──
+  // ── The Banksy Art Exhibit — Oakland + Emeryville, CA (latest job) ──
+  // Henry J. Kaiser Center campaign, 24"x36" + 48"x72" "Now On Sale" posters
+  // with QR codes. Daytime East Bay walls only (Oct 27), one photo per wall;
+  // the SF run was shot at night. Logo watermark on all seven, faces blurred
+  // on the Webster St + 2400 Broadway pass-bys. Install video is on
+  // /services/wheat-pasting.
+  { src: "/gallery/banksy-art-exhibit-wheat-paste-posters-48x72-brick-wall-hollis-st-emeryville.webp", label: "Banksy Art Exhibit — Emeryville", alt: "The Banksy Art Exhibit wheat paste posters, including a 48x72 inch jumbo, on a brick wall on Hollis Street in Emeryville, California", tag: "Wheat Paste", campaign: "banksy-bay-area" },
+  { src: "/gallery/banksy-art-exhibit-wheat-paste-poster-wall-pedestrians-webster-st-chinatown-oakland.webp", label: "Banksy Art Exhibit — Webster St", alt: "Pedestrians passing a long wall of The Banksy Art Exhibit wheat paste posters on Webster Street in Oakland Chinatown", tag: "Wheat Paste", campaign: "banksy-bay-area" },
+  { src: "/gallery/banksy-art-exhibit-wheat-paste-posters-pedestrian-8th-st-chinatown-oakland.webp", label: "Banksy Art Exhibit — 8th St Pass-by", alt: "Pedestrian walking past a grid of Banksy Art Exhibit Girl with Balloon wheat paste posters on 8th Street in Oakland Chinatown", tag: "Wheat Paste", campaign: "banksy-bay-area" },
+  { src: "/gallery/banksy-art-exhibit-wheat-paste-poster-grid-broadway-oakland.webp", label: "Banksy Art Exhibit — Broadway Grid", alt: "Two-row grid of The Banksy Art Exhibit wheat paste posters with QR codes on a wall along Broadway in Oakland", tag: "Wheat Paste", campaign: "banksy-bay-area" },
+  { src: "/gallery/banksy-art-exhibit-wheat-paste-posters-pedestrian-broadway-oakland.webp", label: "Banksy Art Exhibit — Broadway Pass-by", alt: "Pedestrian walking past Banksy Art Exhibit wheat paste posters on a brick storefront on Broadway in Oakland", tag: "Wheat Paste", campaign: "banksy-bay-area" },
+  { src: "/gallery/banksy-art-exhibit-wheat-paste-poster-grid-san-pablo-ave-oakland.webp", label: "Banksy Art Exhibit — San Pablo Ave", alt: "Grid of The Banksy Art Exhibit wheat paste posters on a boarded storefront on San Pablo Avenue in Oakland", tag: "Wheat Paste", campaign: "banksy-bay-area" },
+  { src: "/gallery/banksy-art-exhibit-wheat-paste-posters-franklin-st-downtown-oakland.webp", label: "Banksy Art Exhibit — Franklin St", alt: "The Banksy Art Exhibit wheat paste posters on a gray wall on Franklin Street in downtown Oakland", tag: "Wheat Paste", campaign: "banksy-bay-area" },
+
+  // ── Nokia Bell Labs at The Helix — New Brunswick, NJ ──
   // 60 jumbo 48"x72" posters (12-design series + branded spacer panels) on
   // the ~270 ft construction fence at The Helix, installed in one day,
   // Oct 19. Client-controlled site, COI on file. Logo watermark on all seven.
@@ -184,7 +198,8 @@ export type GalleryImg = typeof GALLERY_IMGS[number];
  * job only needs its photos at the top of the list plus one entry below.
  */
 export const GALLERY_CAMPAIGNS: Record<string, { name: string; place: string; when?: string; href?: string }> = {
-  "helix":               { name: "Nokia Bell Labs at The Helix",       place: "New Brunswick, NJ",          when: "Oct 2026", href: "/work/nokia-bell-labs-helix-new-jersey" },
+  "banksy-bay-area":     { name: "The Banksy Art Exhibit",             place: "Oakland + Emeryville, CA",   when: "Oct 2026" },
+  "helix":              { name: "Nokia Bell Labs at The Helix",       place: "New Brunswick, NJ",          when: "Oct 2026", href: "/work/nokia-bell-labs-helix-new-jersey" },
   "playback":            { name: "Playback: The Brooklyn Watch Party", place: "Brooklyn, NY",               when: "Oct 2026" },
   "nyc-fall-run":        { name: "NYC Fall Run",                       place: "Manhattan + Brooklyn, NY",   when: "Sept–Oct 2026" },
   "gerbil-la":           { name: "Gerbil Podcast",                     place: "Silver Lake, Los Angeles",   when: "Sept 2026" },
