@@ -9,7 +9,17 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── The Banksy Art Exhibit — Oakland + Emeryville, CA (latest job) ──
+  // ── Flatirons College — Lafayette, CO (latest job) ──
+  // Permanent interior poster wall for Flatirons Community Church: 88 sheets
+  // of a 12-design 24"x36" series in a straight grid, 22 columns x 4 courses,
+  // across a 507" x 110" primed drywall wall. Installed in one day, Nov 10.
+  // Logo watermark on all four; the mid-install frames are left out.
+  { src: "/gallery/flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp", label: "Flatirons College — Interior Poster Wall", alt: "Flatirons College wheat paste poster wall in a straight grid of 24x36 inch posters along an interior hallway ramp in Lafayette, Colorado", tag: "Wheat Paste", campaign: "flatirons-college" },
+  { src: "/gallery/flatirons-college-wheat-paste-poster-mural-long-hallway-lafayette-co.webp", label: "Flatirons College — Full Wall", alt: "Full-length view of the Flatirons College wheat paste poster mural running the length of an interior hallway in Lafayette, Colorado", tag: "Wheat Paste", campaign: "flatirons-college" },
+  { src: "/gallery/flatirons-college-wheat-paste-posters-close-up-interior-wall-lafayette-co.webp", label: "Flatirons College — Close-up", alt: "Close-up of Flatirons College Unlock the Unique and There Is More to Your Story wheat paste posters on an interior wall in Lafayette, Colorado", tag: "Wheat Paste", campaign: "flatirons-college" },
+  { src: "/gallery/flatirons-college-wheat-paste-poster-wall-ramp-railing-lafayette-co.webp", label: "Flatirons College — Ramp View", alt: "Flatirons College wheat paste poster wall seen across the ramp railing of an interior hallway in Lafayette, Colorado", tag: "Wheat Paste", campaign: "flatirons-college" },
+
+  // ── The Banksy Art Exhibit — Oakland + Emeryville, CA ──
   // Henry J. Kaiser Center campaign, 24"x36" + 48"x72" "Now On Sale" posters
   // with QR codes. Daytime East Bay walls only (Oct 27), one photo per wall;
   // the SF run was shot at night. Logo watermark on all seven, faces blurred
@@ -198,6 +208,7 @@ export type GalleryImg = typeof GALLERY_IMGS[number];
  * job only needs its photos at the top of the list plus one entry below.
  */
 export const GALLERY_CAMPAIGNS: Record<string, { name: string; place: string; when?: string; href?: string }> = {
+  "flatirons-college":   { name: "Flatirons College",                  place: "Lafayette, CO",              when: "Nov 2026" },
   "banksy-bay-area":     { name: "The Banksy Art Exhibit",             place: "Oakland + Emeryville, CA",   when: "Oct 2026" },
   "helix":              { name: "Nokia Bell Labs at The Helix",       place: "New Brunswick, NJ",          when: "Oct 2026", href: "/work/nokia-bell-labs-helix-new-jersey" },
   "playback":            { name: "Playback: The Brooklyn Watch Party", place: "Brooklyn, NY",               when: "Oct 2026" },

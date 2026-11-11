@@ -29,6 +29,23 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Flatirons College — Lafayette, CO ──
+  "flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp": {
+    title: "Flatirons College Interior Poster Wall — Lafayette, CO",
+    caption: "Flatirons College wheat paste poster wall in a straight grid of 24x36 inch posters along an interior hallway ramp in Lafayette, Colorado — by Phantom Pasting",
+  },
+  "flatirons-college-wheat-paste-poster-mural-long-hallway-lafayette-co.webp": {
+    title: "Flatirons College Poster Mural — Lafayette, CO",
+    caption: "Full-length view of the Flatirons College wheat paste poster mural running the length of an interior hallway in Lafayette, Colorado — by Phantom Pasting",
+  },
+  "flatirons-college-wheat-paste-posters-close-up-interior-wall-lafayette-co.webp": {
+    title: "Flatirons College Wheat Paste Posters Close-up — Lafayette, CO",
+    caption: "Close-up of Flatirons College Unlock the Unique and There Is More to Your Story wheat paste posters on an interior wall in Lafayette, Colorado — by Phantom Pasting",
+  },
+  "flatirons-college-wheat-paste-poster-wall-ramp-railing-lafayette-co.webp": {
+    title: "Flatirons College Poster Wall Ramp View — Lafayette, CO",
+    caption: "Flatirons College wheat paste poster wall seen across the ramp railing of an interior hallway in Lafayette, Colorado — by Phantom Pasting",
+  },
   // ── The Banksy Art Exhibit — Oakland + Emeryville, CA ──
   "banksy-art-exhibit-wheat-paste-posters-48x72-brick-wall-hollis-st-emeryville.webp": {
     title: "Banksy Art Exhibit Wheat Paste Posters — Emeryville, CA",
