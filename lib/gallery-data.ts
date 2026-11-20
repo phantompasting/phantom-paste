@@ -9,7 +9,16 @@
  * /locations/los-angeles on the "wheat pasting los angeles" service query.
  */
 export const GALLERY_IMGS = [
-  // ── Flatirons College — Lafayette, CO (latest job) ──
+  // ── Turtle Beach — Wynwood, Miami, FL (latest job) ──
+  // Three-design 24"x36" teaser series ("Look familiar?" / "12 1 26") in
+  // two-row grids along NW 28th St and N Miami Ave in Wynwood. Wave 1
+  // installed Nov 19. Logo watermark on all four, one photo per wall.
+  { src: "/gallery/turtle-beach-wheat-paste-poster-wall-two-row-grid-nw-28th-st-wynwood-miami.webp", label: "Turtle Beach — NW 28th St", alt: "Two-row wall of Turtle Beach wheat paste posters in a repeating three-design sequence on a construction fence on NW 28th Street in Wynwood, Miami", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
+  { src: "/gallery/turtle-beach-wheat-paste-poster-wall-archway-n-miami-ave-wynwood-miami.webp", label: "Turtle Beach — N Miami Ave Archway", alt: "Turtle Beach wheat paste poster wall in a two-row grid on plywood hoarding beside a white archway on North Miami Avenue in Wynwood, Miami", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
+  { src: "/gallery/turtle-beach-wheat-paste-poster-grid-gray-wall-n-miami-ave-wynwood-miami.webp", label: "Turtle Beach — N Miami Ave Grid", alt: "Grid of Turtle Beach Look Familiar wheat paste posters on a gray stucco wall on North Miami Avenue near 28th Street in Wynwood, Miami", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
+  { src: "/gallery/turtle-beach-wheat-paste-posters-storefront-n-miami-ave-wynwood-miami.webp", label: "Turtle Beach — Storefront Block", alt: "Six Turtle Beach wheat paste posters in a two-row block on a graffiti-covered storefront wall on North Miami Avenue in Wynwood, Miami", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
+
+  // ── Flatirons College — Lafayette, CO ──
   // Permanent interior poster wall for Flatirons Community Church: 88 sheets
   // of a 12-design 24"x36" series in a straight grid, 22 columns x 4 courses,
   // across a 507" x 110" primed drywall wall. Installed in one day, Nov 10.
@@ -208,6 +217,7 @@ export type GalleryImg = typeof GALLERY_IMGS[number];
  * job only needs its photos at the top of the list plus one entry below.
  */
 export const GALLERY_CAMPAIGNS: Record<string, { name: string; place: string; when?: string; href?: string }> = {
+  "turtle-beach-miami":  { name: "Turtle Beach",                       place: "Wynwood, Miami, FL",         when: "Nov 2026" },
   "flatirons-college":   { name: "Flatirons College",                  place: "Lafayette, CO",              when: "Nov 2026" },
   "banksy-bay-area":     { name: "The Banksy Art Exhibit",             place: "Oakland + Emeryville, CA",   when: "Oct 2026" },
   "helix":              { name: "Nokia Bell Labs at The Helix",       place: "New Brunswick, NJ",          when: "Oct 2026", href: "/work/nokia-bell-labs-helix-new-jersey" },
