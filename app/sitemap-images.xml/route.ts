@@ -29,6 +29,23 @@ const GALLERY_URL = `${BASE}/gallery`;
 // title: short descriptive label (shown in Google Images search results)
 // caption: longer alt-style text for image context
 const IMAGE_META: Record<string, { title: string; caption: string }> = {
+  // ── Turtle Beach — Wynwood, Miami, FL ──
+  "turtle-beach-wheat-paste-poster-wall-two-row-grid-nw-28th-st-wynwood-miami.webp": {
+    title: "Turtle Beach Wheat Paste Poster Wall — Wynwood, Miami",
+    caption: "Two-row wall of Turtle Beach wheat paste posters in a repeating three-design sequence on a construction fence on NW 28th Street in Wynwood, Miami — by Phantom Pasting",
+  },
+  "turtle-beach-wheat-paste-poster-wall-archway-n-miami-ave-wynwood-miami.webp": {
+    title: "Turtle Beach Poster Wall on N Miami Ave — Wynwood, Miami",
+    caption: "Turtle Beach wheat paste poster wall in a two-row grid on plywood hoarding beside a white archway on North Miami Avenue in Wynwood, Miami — by Phantom Pasting",
+  },
+  "turtle-beach-wheat-paste-poster-grid-gray-wall-n-miami-ave-wynwood-miami.webp": {
+    title: "Turtle Beach Wheat Paste Poster Grid — Wynwood, Miami",
+    caption: "Grid of Turtle Beach Look Familiar wheat paste posters on a gray stucco wall on North Miami Avenue near 28th Street in Wynwood, Miami — by Phantom Pasting",
+  },
+  "turtle-beach-wheat-paste-posters-storefront-n-miami-ave-wynwood-miami.webp": {
+    title: "Turtle Beach Wheat Paste Posters on a Storefront — Wynwood, Miami",
+    caption: "Six Turtle Beach wheat paste posters in a two-row block on a graffiti-covered storefront wall on North Miami Avenue in Wynwood, Miami — by Phantom Pasting",
+  },
   // ── Flatirons College — Lafayette, CO ──
   "flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp": {
     title: "Flatirons College Interior Poster Wall — Lafayette, CO",
