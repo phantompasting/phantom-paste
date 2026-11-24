@@ -96,7 +96,7 @@ const data: CityPageData = {
     },
     {
       q: "How fast can a Philadelphia campaign go up?",
-      a: "Plan on about 7 to 10 days from signed agreement and final artwork to install: roughly 5 business days to print, then 1 to 2 install days depending on poster count. Rush windows are sometimes possible; ask when you request a quote.",
+      a: "Lead time is 10–14 business days from final art approval, covering print and the install days. The proof-of-install report follows within 7 business days.",
     },
   ],
   localBusiness: {

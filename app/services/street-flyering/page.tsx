@@ -96,10 +96,10 @@ const STEPS = [
   {
     num: "05",
     title: "DOCUMENT & REPORT",
-    desc: "Every distribution run is photographed, timestamped, and geo-tagged. You receive a branded campaign report within 48 hours — ready to post, pitch, or repurpose.",
+    desc: "Every distribution run is photographed, timestamped, and geo-tagged. You receive a branded proof-of-install report within 7 business days — ready to post, pitch, or repurpose.",
     bullets: [
       "100% photo proof per zone",
-      "Branded report delivered within 48 hrs",
+      "Proof-of-install report within 7 business days",
     ],
   },
 ];
@@ -115,7 +115,7 @@ const FAQS = [
   },
   {
     q: "Is putting flyers on car windshields legal?",
-    a: "It depends on the city and the property. Many jurisdictions allow windshield flyers on public streets but restrict private lots without owner permission, and some have anti-litter ordinances. Phantom Pasting works from permitted lots and public corridors, follows each city's distribution rules, and keeps your brand compliant — so the risk stays with us.",
+    a: "It depends on the city and the property. Many jurisdictions allow windshield flyers on public streets but restrict private lots without owner permission, and some have anti-litter ordinances. Our routes mix permitted lots with street distribution that is not a licensed placement. Say so at the quote stage if you need permission-only lots. Every run is photo-documented.",
   },
   {
     q: "How many flyers does a campaign cover, and what does it cost?",
@@ -123,7 +123,7 @@ const FAQS = [
   },
   {
     q: "How quickly can a flyering campaign go live?",
-    a: "Standard lead time is about 1–2 weeks from approved artwork to first distribution run — covering strategy, print, route planning, and scheduling. Rush single-city runs are possible in under a week depending on capacity.",
+    a: "Lead time is 10–14 business days from final art approval — covering print, route planning, and scheduling. We confirm the first distribution date once the artwork is locked.",
   },
   {
     q: "How do I book a street flyering campaign?",
@@ -196,7 +196,7 @@ export default function StreetFlyeringPage() {
                 {
                   name: "Single-City Windshield Flyer Run",
                   description:
-                    "Windshield flyer saturation across one US city's highest-yield lots and street corridors, placed under wipers with next-day daylight photo documentation. Standard run window 5–10 days from sign-off.",
+                    "Windshield flyer saturation across one US city's highest-yield lots and street corridors, placed under wipers, with daylight photos in the proof-of-install report. Standard run window is 10–14 business days from final art approval.",
                 },
                 {
                   name: "Windshield + Hand-to-Hand Campaign",
@@ -566,7 +566,7 @@ export default function StreetFlyeringPage() {
               {[
                 { label: "Methods", value: "Windshield + Hand-to-Hand" },
                 { label: "Coverage", value: "50+ US Cities" },
-                { label: "Turnaround", value: "5–14 Business Days" },
+                { label: "Lead Time", value: "10–14 Business Days" },
                 { label: "Documentation", value: "100% Photo Proof" },
               ].map(({ label, value }) => (
                 <div
@@ -700,8 +700,8 @@ export default function StreetFlyeringPage() {
               style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}
             >
               Every street flyering campaign follows the same five-step process, from strategy
-              intake through delivered photo report. Most campaigns run 5–14 business days
-              depending on city count, flyer volume, and zone density.
+              intake through the proof-of-install report. Lead time is 10–14 business days
+              from final art approval. The report follows within 7 business days of the final run.
             </p>
             <ol
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px list-none m-0 p-0"
@@ -791,8 +791,8 @@ export default function StreetFlyeringPage() {
             <div className="flex flex-col gap-4">
               {[
                 {
-                  h: "Permitted lots & public corridors",
-                  p: "We distribute from lots where we hold owner permission and along public streets where windshield flyers and handbilling are allowed — never on restricted private property.",
+                  h: "A mix of lots and streets",
+                  p: "Routes mix permitted lots with street distribution that is not a licensed placement. We do not treat every drop as a fully permitted site. Permission-only lots are available if you ask.",
                 },
                 {
                   h: "City-by-city ordinance awareness",
@@ -804,7 +804,7 @@ export default function StreetFlyeringPage() {
                 },
                 {
                   h: "Risk transfer to Phantom Pasting",
-                  p: "Because print and distribution are handled by our crews on approved zones, compliance risk stays with us, not your brand — and every run is photo-documented as proof.",
+                  p: "Every run is photographed for the proof-of-install report, which lands within 7 business days. You see where the flyers went.",
                 },
               ].map(({ h, p }) => (
                 <div

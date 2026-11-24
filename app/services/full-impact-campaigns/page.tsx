@@ -79,7 +79,7 @@ const PHASES = [
     num: "04",
     title: "DOCUMENTATION",
     desc: "Every hit photographed, timestamped, and geo-tagged. Campaign reports delivered with social-ready imagery. 100% transparency on what ran where.",
-    bullets: ["Geo-tagged photo per placement", "Branded report within 48 hrs"],
+    bullets: ["Geo-tagged photo per placement", "Proof-of-install report within 7 business days"],
   },
 ];
 
@@ -103,7 +103,7 @@ const FAQS = [
   },
   {
     q: "How long does a full impact campaign take from brief to install?",
-    a: "Standard lead time is 2–4 weeks from approved brief to first install. Strategy and scouting take 3–5 business days, production runs 5–10 business days, and install is typically a 1–5 day window depending on city count and volume.",
+    a: "Lead time is 10–14 business days from final art approval. That covers scouting, production, and the install window. Multi-city volume can use the long end of that range. We confirm dates once the artwork is locked.",
   },
   {
     q: "Which formats are included in a full impact campaign?",
@@ -115,7 +115,7 @@ const FAQS = [
   },
   {
     q: "What documentation do I receive after install?",
-    a: "Every placement is photographed, timestamped, and geo-tagged. You receive a branded campaign report within 48 hours of install completion, including a social-ready image set, a map of all locations, and running totals by format and city.",
+    a: "Every placement is photographed, timestamped, and geo-tagged. You receive a branded proof-of-install report within 7 business days of the final install day, including a social-ready image set, a map of all locations, and running totals by format and city.",
   },
 ] as const;
 
@@ -514,7 +514,7 @@ export default function FullImpactCampaignsPage() {
                 The FIFA World Cup activation in Atlanta is a textbook full impact deployment. Objective: saturate the neighborhoods surrounding the match venue with tournament branding in the week leading up to the first kickoff. Formats stacked: large-format wheat paste wall blocks, sidewalk chalk stencil activations at pedestrian approach routes, and street postering on construction plywood along two key corridors.
               </p>
               <p className="font-light leading-relaxed m-0 mb-6" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px", maxWidth: "520px" }}>
-                Crews deployed over three nights; documentation was delivered inside 48 hours. Every placement was geo-tagged, photographed in-daylight for social reuse, and mapped. By match week the corridors felt owned — which is the entire point of full impact.
+                Crews deployed over three nights. Every placement was geo-tagged, photographed in daylight for social reuse, and mapped in the proof-of-install report. By match week the corridors felt owned — which is the entire point of full impact.
               </p>
               <Link href="/work/fifa-world-cup-atlanta"
                 className="inline-flex items-center gap-2.5 font-bold text-[11px] tracking-[0.22em] uppercase no-underline px-6 py-3 rounded-full"

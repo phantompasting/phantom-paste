@@ -78,11 +78,11 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "How fast can a campaign launch after we approve it?",
-    a: "Standard turnaround is 7–10 business days from approved artwork to first posters on the wall. Rush launches (3–5 days) are available when print vendors can accommodate. Most clients send us creative Monday and see street photos by the following weekend.",
+    a: "Lead time is 10–14 business days from final art approval to first posters on the wall. That covers print and crew scheduling. We confirm the install dates once the artwork is locked.",
   },
   {
     q: "What does your process look like from quote to photo delivery?",
-    a: "Four phases: (1) strategy call — we map your target neighborhoods and recommend wall counts; (2) location scouting — our crew pre-walks routes and flags high-visibility surfaces; (3) overnight install — posters go up between 11pm–5am when foot traffic is lowest; (4) photo documentation — every wall is shot at day + night and delivered as a client report within 48 hours of the install.",
+    a: "Four phases: (1) strategy call — we map your target neighborhoods and recommend wall counts; (2) location scouting — our crew pre-walks a mix of permitted sites and non-permitted spots such as abandoned buildings and old construction sites; (3) overnight install — posters go up between 11pm–5am when foot traffic is lowest; (4) photo documentation — every wall is shot and delivered as a proof-of-install report within 7 business days of the final install day.",
   },
   {
     q: "Who have you worked with, and can you share references?",

@@ -71,7 +71,7 @@ const data: CityPageData = {
   faqs: [
     {
       q: "Is wheat pasting legal in Indiana?",
-      a: "Yes on owner-authorized walls. Indianapolis' Fountain Square and Mass Ave arts districts have established poster cultures; standard private-property consent applies statewide. We work only from our own authorized-wall database.",
+      a: "Owner-authorized walls are legal, and Indianapolis' Fountain Square and Mass Ave arts districts have established poster cultures. Our runs mix those walls with non-permitted spots such as abandoned buildings and old construction sites. Permission-only is available if you ask.",
     },
     {
       q: "What Indiana cities do you cover?",
@@ -87,7 +87,7 @@ const data: CityPageData = {
     },
     {
       q: "How long do posters last in Indiana weather?",
-      a: "4–6 weeks in season. Midwest freeze weeks we schedule around; every placement is photo-documented within 48 hours so proof is locked regardless of weather.",
+      a: "4–6 weeks in season. Midwest freeze weeks we schedule around. The proof-of-install report follows within 7 business days, so the record is locked regardless of weather.",
     },
   ],
   localBusiness: {

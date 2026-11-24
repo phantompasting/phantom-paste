@@ -66,7 +66,7 @@ const CASE_STUDY_FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What was the FashionPass campaign timeline from sign-off to install?",
-    a: "Eight business days. Day 1-2 covered creative finalization and print spec (24×36 four-color on 80lb gloss). Day 3-5 was production at our print partner. Day 6 was crew briefing and route walk. Days 7-8 were the overnight install window — posters went up between 11pm and 4am with a documentation pass at 8am the next morning.",
+    a: "That campaign moved once the art was final. Current lead time is 10–14 business days from final art approval, and the proof-of-install report follows within 7 business days. On FashionPass, print spec was 24×36 four-color on 80lb gloss, then production, a route walk, and an overnight install between 11pm and 4am, with a daylight photo pass the next morning.",
   },
   {
     q: "Which LA neighborhoods were targeted for FashionPass and why?",
@@ -434,7 +434,7 @@ export default function FashionPassCaseStudy() {
                 { n: "02", h: "Creative Review", b: "FashionPass&apos;s creative was reviewed at print scale, with color proofs and paper weight chosen to hold up in LA sun and coastal humidity. Final files were locked with 1/4-inch bleed and pasted-format crop marks." },
                 { n: "03", h: "Permitted Printing", b: "Posters were printed on uncoated 80lb blueback — the industry standard for wheat paste — on machines capable of the saturated color FashionPass&apos;s art direction required." },
                 { n: "04", h: "Overnight Install", b: "Installs ran between midnight and 5am with 2-person crews. Every wall was hand-brushed with wheat paste adhesive for full-surface adhesion — no tape, no staples, no corners lifting after 48 hours." },
-                { n: "05", h: "Photo Documentation", b: "Every installation was photographed on deployment night and in daylight within 48 hours — giving FashionPass hero imagery for decks, social, and case-study use." },
+                { n: "05", h: "Photo Documentation", b: "Every installation was photographed on deployment night and again in daylight, for decks, social, and case-study use. The proof-of-install report is delivered within 7 business days of the final install day." },
               ].map(({ n, h, b }) => (
                 <li key={n} className="rounded-2xl p-6 md:p-7 flex gap-5 md:gap-7"
                   style={{ background: "rgba(255,255,255,0.45)", backdropFilter: "blur(10px)",
@@ -477,16 +477,16 @@ export default function FashionPassCaseStudy() {
                 We&apos;ve been running wheat paste poster campaigns for brands since 2018, and the
                 biggest complaint we hear from clients about previous vendors is the same
                 every time: they paid for walls they never saw. Our standard deliverable
-                package solves that. Every FashionPass wall in this campaign was GPS-logged,
-                photographed on install night, and re-shot in daylight within 48 hours. No
-                invoice leaves our office without the documentation attached.
+                package solves that. Every FashionPass wall in this campaign was GPS-logged
+                and photographed on install night and again in daylight. The proof-of-install
+                report is delivered within 7 business days of the final install day.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               {[
                 { h: "Geo-Tagged Install Log", b: "Every wall coordinate, install time, and crew member logged. Clients get a shareable map with pins for every unit — the same map we use internally to audit crew performance." },
                 { h: "High-Res Photo Package", b: "Two shoots per wall: a timestamped install-night documentation shot and a golden-hour hero frame. Delivered in raw and social-ready formats, cleared for commercial reuse." },
-                { h: "Permitted Wall Inventory", b: "Our LA wall inventory is built on 6+ years of property-owner relationships. Every wall in the FashionPass plan was permitted or owner-authorized. We share permit references with clients on request." },
+                { h: "Wall mix", b: "The FashionPass plan used permitted or owner-approved walls, and we can share those permit references. Company-wide, installs mix those sites with non-permitted spots such as abandoned buildings and old construction sites." },
                 { h: "Wall-Life Transparency", b: "We publish realistic wall-life ranges (10-21 days in LA) based on our actual tracking data — not inflated numbers. If a wall comes down early, we replace it at no charge. That policy is on every SOW we sign." },
                 { h: "Material & Print Specs", b: "80lb uncoated blueback poster stock, industry-standard for wheat paste longevity. Water-activated paste, brushed full-surface — no staples, no tape, no shortcuts. Full spec sheet provided with every campaign." },
                 { h: "Client-Ready Case Assets", b: "At wrap, clients receive a campaign deck with install stats, photo galleries, neighborhood breakdowns, and a short-form recap reel. FashionPass used the assets from this campaign across their own press and investor materials." },
@@ -526,9 +526,9 @@ export default function FashionPassCaseStudy() {
               {[
                 { q: "How long do wheat paste posters stay up in Los Angeles?", a: "LA&apos;s dry climate is generous — most paste-ups hold for 14-21 days before sun-fade or tear-down. Coastal neighborhoods like Venice see shorter life from humidity; inland walls like DTLA often run longer." },
                 { q: "What makes wheat pasting a fit for fashion brands specifically?", a: "Fashion buyers are visual-first and neighborhood-loyal. Wheat paste poster campaigns let a brand show up physically in the streets where its buyers already shop, eat, and shoot content — earning credibility no feed ad can buy." },
-                { q: "Do you handle permits and legal wall sourcing?", a: "Yes. Every FashionPass installation in this campaign was on a permitted or property-owner-authorized wall. We maintain an active inventory of approved wall partners across LA, NY, Atlanta, Chicago, and Miami." },
+                { q: "Do you handle permits and legal wall sourcing?", a: "When a placement needs a permit, yes. The FashionPass walls in this campaign were permitted or owner-approved. Across the company, installs mix those sites with non-permitted spots such as abandoned buildings and old construction sites. Permission-only is available if you ask." },
                 { q: "What neighborhoods in LA do you recommend for fashion campaigns?", a: "Melrose, Silver Lake, Abbot Kinney, Echo Park, and the Arts District in DTLA are our top-five for fashion. We match the neighborhood to the brand&apos;s target buyer — streetwear looks different from luxury resale, and we build plans accordingly." },
-                { q: "Can I get photo documentation for my brand&apos;s decks?", a: "Every campaign includes nighttime install documentation plus daylight hero shots within 48 hours. Files are delivered in high-res raw and web-ready formats, cleared for commercial use in pitch decks and social content." },
+                { q: "Can I get photo documentation for my brand&apos;s decks?", a: "Every campaign includes nighttime install documentation plus daylight hero shots. The proof-of-install report is delivered within 7 business days, in high-res raw and web-ready formats, cleared for commercial use in pitch decks and social content." },
               ].map(({ q, a }) => (
                 <details key={q} className="rounded-2xl p-5 md:p-6"
                   style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(10px)",

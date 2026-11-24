@@ -56,7 +56,7 @@ export default function Post() {
           <tr><td>Typical CPM</td><td>$4–$15</td><td>$0.10–$0.30 in-person</td></tr>
           <tr><td>Audience</td><td>Drivers, broad reach</td><td>Pedestrians, dense creative neighborhoods</td></tr>
           <tr><td>Measurability</td><td>Geopath DMP impressions</td><td>Photo-documented install, social amplification</td></tr>
-          <tr><td>Lead time</td><td>4–8 weeks</td><td>7–10 days</td></tr>
+          <tr><td>Lead time</td><td>4–8 weeks</td><td>10–14 business days from final art approval</td></tr>
           <tr><td>Flight length</td><td>4-week minimum</td><td>4–8 week natural lifespan</td></tr>
           <tr><td>Creative flexibility</td><td>Fixed art, permit review</td><td>Rotating designs, street vernacular</td></tr>
           <tr><td>Social amplification</td><td>Low</td><td>High — audience photographs walls</td></tr>
@@ -120,10 +120,10 @@ export default function Post() {
 
       <h3>Launch campaigns on compressed timelines</h3>
       <p>
-        OOH networks quote 4–8 weeks from PO to live board. Wheat paste is 7–10 days. If the
-        product launch is next month, wheat paste is operational; most billboard plays
-        aren&apos;t. We had a music label call us on a Tuesday for a Friday-night install — by
-        Friday at 11 p.m. we were on Fairfax. Try getting a Clear Channel board live in 72 hours.
+        OOH networks quote 4–8 weeks from PO to live board. Wheat paste is 10–14 business
+        days from final art approval. If the product launch is next month, wheat paste is
+        still operational; most billboard plays are not. A Clear Channel board is not
+        turning around inside that window.
       </p>
 
       <h3>Creative that&apos;s meant to be photographed</h3>

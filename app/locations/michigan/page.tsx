@@ -84,7 +84,7 @@ const data: CityPageData = {
     },
     {
       q: "How do Michigan winters affect campaigns?",
-      a: "Paste cures fine down to about 40°F; hard-freeze weeks we schedule around. Spring–fall posters hold 4–6 weeks; winter installs are possible but we time them to thaw windows and always deliver 48-hour photo proof.",
+      a: "Paste cures fine down to about 40°F; hard-freeze weeks we schedule around. Spring–fall posters hold 4–6 weeks; winter installs are possible but we time them to thaw windows and the proof-of-install report follows within 7 business days.",
     },
     {
       q: "Can you time a campaign to U-M or MSU football Saturdays?",

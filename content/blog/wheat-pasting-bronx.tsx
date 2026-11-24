@@ -90,9 +90,10 @@ export default function Post() {
       <h2>How a Bronx Run Goes</h2>
       <p>
         Same operating system as every Phantom install: scout pass first, overnight
-        install, daylight documentation the next morning with every wall GPS-logged
-        and photographed. We work owner-authorized private walls and coordinated
-        barricades — the legal reality is the same citywide, and our{" "}
+        install, then a proof-of-install report within 7 business days with every wall
+        GPS-logged and photographed. Runs mix owner-approved walls and coordinated
+        barricades with non-permitted spots such as abandoned buildings and old
+        construction sites. The legal picture is the same citywide, and our{" "}
         <BlogLink slug="is-wheat-pasting-legal">legality guide</BlogLink> covers it
         — but enforcement pressure up here is lower than Midtown, and wall rates run
         meaningfully below Manhattan and prime Brooklyn. Your budget simply buys

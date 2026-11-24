@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: "How quickly can a campaign launch?",
-    a: "Single-city standard: 7-10 business days from approved brief. Rush windows (4-5 days) are possible in flagship markets. Statewide multi-city rollouts: 12-15 days to coordinate crews. Festival-week deployments (SXSW, Art Basel, CMA Fest, CES, etc) book 6-8 weeks ahead.",
+    a: "Lead time is 10–14 business days from final art approval, including statewide rollouts. Festival-week deployments (SXSW, Art Basel, CMA Fest, CES) book 6–8 weeks ahead.",
   },
   {
     q: "How do you pick walls and neighborhoods in each market?",
@@ -284,7 +284,7 @@ export default function LocationsHubPage() {
               {
                 stat: "100%",
                 label: "Photo-documented",
-                body: "Every install timestamped + geo-tagged. Branded report within 48 hours.",
+                body: "Every install timestamped + geo-tagged. Proof-of-install report within 7 business days.",
               },
               {
                 stat: "Multi-City",

@@ -89,7 +89,8 @@ export default function Post() {
 
       <Callout variant="muted" label="The numbers in one line">
         A typical single-city campaign runs <strong>150–250 posters across 12–15 walls</strong>,
-        installed overnight by a 2–3 person crew, documented at daylight the next morning. All-in
+        installed overnight by a 2–3 person crew. Lead time is 10–14 business days from
+        final art approval, and the proof-of-install report follows within 7 business days. All-in
         cost: <strong>$5,000–$13,500</strong> depending on city, print tier, and wall mix.
       </Callout>
 
@@ -211,25 +212,25 @@ export default function Post() {
 
       <h2>How a Campaign Comes Together</h2>
       <p>
-        From brand sign-off to posters-on-walls is typically 7–10 days end-to-end:
+        From final art approval to posters on walls is 10–14 business days:
       </p>
       <ul>
         <li>
-          <strong>Days 1–3</strong> — design review, print approval, site scouting. A reputable
-          agency will show you which specific walls it plans to install on, with photos and
-          neighborhood context.
+          <strong>Early in the window</strong> — design lock and site scouting. You should see
+          which walls are permitted and which are street spots, with photos and neighborhood
+          context.
         </li>
         <li>
-          <strong>Days 4–6</strong> — print production at commercial-grade spec (100# text,
+          <strong>Middle of the window</strong> — print production at commercial-grade spec (100# text,
           aqueous coat optional for weather), crew scheduling, route planning, paste prep.
         </li>
         <li>
-          <strong>Day 7–8 overnight</strong> — install. Typically 10 p.m. to 4 a.m. when foot
+          <strong>Install nights</strong> — typically 10 p.m. to 4 a.m., when foot
           traffic is minimal and wall access is cleanest.
         </li>
         <li>
-          <strong>Day 8–9 morning</strong> — documentation pass. Daylight photos of every wall,
-          GPS-pinned, delivered to the brand within 24 hours.
+          <strong>After the last install day</strong> — daylight photos of every wall,
+          GPS-pinned, in a proof-of-install report within 7 business days.
         </li>
       </ul>
       <p>
@@ -369,14 +370,14 @@ export default function Post() {
           can&apos;t easily accommodate.
         </li>
         <li>
-          <strong>Timeline-rushed activations.</strong> Seven-day turnarounds are possible;
-          three-day rushes compromise print quality, wall selection, and documentation.
+          <strong>Timeline-rushed activations.</strong> Lead time is 10–14 business days
+          from final art approval. Shorter than that cuts print quality, wall selection,
+          and the proof-of-install report.
         </li>
         <li>
-          <strong>Markets without authorized wall inventory.</strong> Smaller metros and
-          suburban markets simply don&apos;t have enough authorized commercial walls to
-          support a real campaign. Reputable agencies will tell you this upfront instead of
-          pasting illegally and hoping for the best.
+          <strong>Markets without a usable wall mix.</strong> Some suburbs do not have the
+          pedestrian corridors, permitted walls, or street spots to make a campaign worth
+          running. We will say so up front instead of forcing a route.
         </li>
       </ul>
 

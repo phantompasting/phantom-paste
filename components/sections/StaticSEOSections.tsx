@@ -236,8 +236,8 @@ export default function StaticSEOSections() {
           <h3>50+ cities, any scale.</h3>
           <p>
             Single-market drops or simultaneous nationwide poster campaign
-            saturation. Local crews in every city. Rush timelines from 5
-            business days.
+            saturation. Local crews in every city. Lead time is 10–14 business
+            days from final art approval.
           </p>
         </article>
       </section>

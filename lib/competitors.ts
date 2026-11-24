@@ -72,7 +72,7 @@ export const COMPETITORS: ReadonlyArray<CompetitorComparison> = [
       { dimension: "Founded", phantom: "2014 · 500+ campaigns", competitor: "2003 · 350+ brands" },
       { dimension: "Coverage", phantom: "50+ US cities", competitor: "50+ US cities + Canada & Europe" },
       { dimension: "Formats", phantom: "Wheat paste, chalk spray stencils, snipes, combos", competitor: "Wheatpaste wild posting (permitted + guerrilla)" },
-      { dimension: "Documentation", phantom: "100% photo proof, timestamped + GPS-logged, report in 48 hrs", competitor: "Proof-of-performance reporting + social capture" },
+      { dimension: "Documentation", phantom: "100% photo proof, timestamped + GPS-logged, report in 7 business days", competitor: "Proof-of-performance reporting + social capture" },
       { dimension: "Pricing", phantom: "Published per-city tiers, from $3,500; quote in 24 hrs", competitor: "≈ $10,000–$30,000 per week (market-dependent)" },
       { dimension: "Notable clients", phantom: "FashionPass, FIFA World Cup, Incrediwear", competitor: "Google, Coinbase, GitHub, Starbucks, Reddit" },
     ],
@@ -83,7 +83,7 @@ export const COMPETITORS: ReadonlyArray<CompetitorComparison> = [
       },
       {
         title: "Documentation & proof",
-        body: "Both companies document campaigns — ALT TERRAIN provides proof-of-performance reporting and social-content capture. Phantom's difference is that documentation is the core product promise, not an add-on: every single poster is photographed, timestamped, and GPS-logged, and a branded report lands within 48 hours of install. For brands that need defensible proof every placement ran (agencies reporting to clients, brands tracking spend by location), that granularity is the reason most of our clients choose us.",
+        body: "Both companies document campaigns — ALT TERRAIN provides proof-of-performance reporting and social-content capture. Phantom's difference is that documentation is the core product promise, not an add-on: every single poster is photographed, timestamped, and GPS-logged, and a branded proof-of-install report lands within 7 business days of the final install day. For brands that need defensible proof every placement ran (agencies reporting to clients, brands tracking spend by location), that granularity is the reason most of our clients choose us.",
       },
       {
         title: "Formats & creative range",
@@ -120,7 +120,7 @@ export const COMPETITORS: ReadonlyArray<CompetitorComparison> = [
       },
       {
         q: "What can Phantom Pasting do that's different?",
-        a: "Three things stand out: documentation as the core promise (every poster timestamped + GPS-logged, report in 48 hrs), multi-format street work (wheat paste plus chalk spray stencils and snipes in one campaign), and transparent published pricing with a 24-hour quote.",
+        a: "Three things stand out: documentation as the core promise (every poster timestamped + GPS-logged, proof-of-install report within 7 business days), multi-format street work (wheat paste plus chalk spray stencils and snipes in one campaign), and transparent published pricing with a 24-hour quote.",
       },
     ],
   },
@@ -140,8 +140,8 @@ export const COMPETITORS: ReadonlyArray<CompetitorComparison> = [
       { dimension: "Founded", phantom: "2014 · 500+ campaigns", competitor: "2002 · LA-rooted" },
       { dimension: "Coverage", phantom: "50+ US cities", competitor: "US + international (EU)" },
       { dimension: "Core focus", phantom: "Street formats — paste, chalk stencils, snipes", competitor: "Print + broad OOH (8-sheets, billboards, mobile, media buying)" },
-      { dimension: "Printing", phantom: "Print-ready or in-house; rush 48 hr", competitor: "Same-day / next-day printing, 100lb stock" },
-      { dimension: "Documentation", phantom: "100% photo proof, timestamped + GPS-logged, report in 48 hrs", competitor: "Tracking + documentation included" },
+      { dimension: "Printing", phantom: "Print-ready or in-house, inside a 10–14 business day lead time", competitor: "Same-day / next-day printing, 100lb stock" },
+      { dimension: "Documentation", phantom: "100% photo proof, timestamped + GPS-logged, report in 7 business days", competitor: "Tracking + documentation included" },
       { dimension: "Pricing", phantom: "Published per-city tiers, from $3,500; quote in 24 hrs", competitor: "From ≈ $4,000, scaling beyond $10,000" },
     ],
     categories: [
@@ -151,11 +151,11 @@ export const COMPETITORS: ReadonlyArray<CompetitorComparison> = [
       },
       {
         title: "Printing & turnaround",
-        body: "Printing is a genuine Wheatpaste Posters strength — same-day and next-day printing on heavy 100lb stock, with rush windows Monday–Friday. If a last-minute drop needs posters printed today, that's their lane. Phantom prints in-house or from your print-ready files with 48-hour rush available; our emphasis is on the install and the proof rather than print speed.",
+        body: "Printing is a genuine Wheatpaste Posters strength — same-day and next-day printing on heavy 100lb stock, with rush windows Monday–Friday. If a last-minute drop needs posters printed today, that's their lane. Phantom prints in-house or from print-ready files inside a 10–14 business day lead time from final art approval; our emphasis is on the install and the proof rather than print speed.",
       },
       {
         title: "Documentation & proof",
-        body: "Both include documentation. Phantom's distinction is rigor and structure: 100% of placements photographed, timestamped, and GPS-logged, delivered as a branded report within 48 hours. For agencies who report to clients or brands tracking spend location-by-location, that level of proof is the differentiator.",
+        body: "Both include documentation. Phantom's distinction is rigor and structure: 100% of placements photographed, timestamped, and GPS-logged, delivered as a branded proof-of-install report within 7 business days. For agencies who report to clients or brands tracking spend location-by-location, that level of proof is the differentiator.",
       },
       {
         title: "Pricing & track record",
@@ -180,7 +180,7 @@ export const COMPETITORS: ReadonlyArray<CompetitorComparison> = [
       },
       {
         q: "Which is better for same-day printing?",
-        a: "Wheatpaste Posters — same-day and next-day printing on 100lb stock is one of their core strengths. Phantom prints in-house or from print-ready files with 48-hour rush; our emphasis is on installation and documented proof rather than print speed.",
+        a: "Wheatpaste Posters — same-day and next-day printing on 100lb stock is one of their core strengths. Phantom prints in-house or from print-ready files inside a 10–14 business day lead time from final art approval; our emphasis is on installation and documented proof rather than print speed.",
       },
       {
         q: "How does pricing compare?",
@@ -188,7 +188,7 @@ export const COMPETITORS: ReadonlyArray<CompetitorComparison> = [
       },
       {
         q: "What's Phantom Pasting's main differentiator?",
-        a: "Documentation as the core promise — 100% of placements photographed, timestamped, and GPS-logged, delivered as a branded report within 48 hours — combined with multi-format street work (paste, chalk spray stencils, snipes) and transparent published pricing.",
+        a: "Documentation as the core promise — 100% of placements photographed, timestamped, and GPS-logged, delivered as a branded proof-of-install report within 7 business days — combined with multi-format street work (paste, chalk spray stencils, snipes) and transparent published pricing.",
       },
     ],
   },

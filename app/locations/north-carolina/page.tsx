@@ -90,7 +90,7 @@ const data: CityPageData = {
     },
     {
       q: "How long do posters last in NC weather?",
-      a: "4–6 weeks typical. Southeastern humidity is the main factor; Asheville's mountain climate runs slightly longer. Every install is photo-documented within 48 hours so proof exists regardless of weather.",
+      a: "4–6 weeks typical. Southeastern humidity is the main factor; Asheville's mountain climate runs slightly longer. The proof-of-install report follows within 7 business days, so the record exists regardless of weather.",
     },
   ],
   localBusiness: {

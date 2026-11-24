@@ -82,7 +82,7 @@ const data: CityPageData = {
     },
     {
       q: "When should I book Austin festival campaigns?",
-      a: "SXSW (mid-March): book 6-8 weeks ahead. ACL (early + mid-October): book 6-8 weeks ahead. F1 weekend (mid-October): book 4 weeks ahead. Outside event windows, standard 7-10 day lead times apply.",
+      a: "SXSW (mid-March): book 6-8 weeks ahead. ACL (early + mid-October): book 6-8 weeks ahead. F1 weekend (mid-October): book 4 weeks ahead. Outside event windows, lead time is 10–14 business days from final art approval.",
     },
     {
       q: "How much does an Austin wheat pasting campaign cost?",

@@ -41,7 +41,7 @@ const ACCENT = "#D4A010";
 const VALUES = [
   { num: "01", title: "DOCUMENTATION FIRST", desc: "Every campaign photographed — timestamped, geo-tagged, delivered. You always know exactly where and when your campaign ran." },
   { num: "02", title: "REAL CREWS, REAL CITIES", desc: "Local crews in every market, not outsourced drivers. Local knowledge, better walls, faster execution." },
-  { num: "03", title: "NO FLUFF, JUST STREETS", desc: "Simple briefs, fast turnarounds, and campaigns that actually show up in the real world. We don't pitch decks — we put your brand on walls." },
+  { num: "03", title: "NO FLUFF, JUST STREETS", desc: "Simple briefs and campaigns that actually show up in the real world. Lead time is 10–14 business days from final art approval. We don't pitch decks — we put your brand on walls." },
   { num: "04", title: "ANY SCALE", desc: "Single-city drops to simultaneous multi-city saturation. Built for indie artists and global brands alike." },
 ];
 

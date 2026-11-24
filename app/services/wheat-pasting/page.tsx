@@ -74,15 +74,15 @@ const STEPS = [
     desc: "Send print-ready artwork or work with our in-house team. We print on 28# bond or 80# coated stock in sizes from 24×36 up to 48×72 jumbo wall takeovers.",
     bullets: [
       "28# bond or 80# coated stock",
-      "Sizes 24×36 → 48×72 (rush 48 hr available)",
+      "Sizes 24×36 → 48×72, printed inside the lead time",
     ],
   },
   {
     num: "03",
     title: "LOCATION SCOUT",
-    desc: "Local crews identify permitted walls, construction hoardings, and high-dwell corridors in the neighborhoods your audience actually moves through.",
+    desc: "Local crews scout a mix of surfaces in the neighborhoods your audience actually walks: permitted walls where we have them, abandoned buildings, old construction sites, hoardings, and other high-dwell corridors.",
     bullets: [
-      "Permitted walls + construction plywood",
+      "Permitted walls and non-permitted street spots",
       "Geo-tagged placement map delivered pre-install",
     ],
   },
@@ -98,10 +98,10 @@ const STEPS = [
   {
     num: "05",
     title: "DOCUMENT & REPORT",
-    desc: "Every poster is photographed, timestamped, and geo-tagged. You receive a branded campaign report within 48 hours — ready to post, pitch, or repurpose.",
+    desc: "Every poster is photographed, timestamped, and geo-tagged. You receive a branded proof-of-install report within 7 business days — ready to post, pitch, or repurpose.",
     bullets: [
       "100% photo proof per location",
-      "Branded report delivered within 48 hrs",
+      "Proof-of-install report within 7 business days",
     ],
   },
 ];
@@ -117,7 +117,7 @@ const FAQS = [
   },
   {
     q: "Is wheat pasting legal?",
-    a: "Yes, when installed on permitted walls and with property-owner agreements. Phantom Pasting only installs on sourced permitted surfaces — construction hoardings, owner-approved walls, and legal poster campaign corridors — so every campaign is covered and photo-documented.",
+    a: "Wheat pasting is legal on permitted walls and on surfaces with a property-owner agreement. Phantom Pasting installs are a mix of those sites and non-permitted ones, including abandoned buildings and old construction sites. Ask at the quote stage if you need a permission-only run. Every placement is photo-documented.",
   },
   {
     q: "How much does a wheat pasting campaign cost?",
@@ -125,7 +125,7 @@ const FAQS = [
   },
   {
     q: "What cities do you cover?",
-    a: "We run wheat paste campaigns in 50+ US cities including New York, Los Angeles, Miami, Chicago, Atlanta, Austin, Nashville, Seattle, Portland, Boston, Philadelphia, San Francisco, Denver, and more. If your city is not listed we can usually source a crew within a week.",
+    a: "We run wheat paste campaigns in 50+ US cities including New York, Los Angeles, Miami, Chicago, Atlanta, Austin, Nashville, Seattle, Portland, Boston, Philadelphia, San Francisco, Denver, and more. If your city is not listed we can usually staff it inside the standard 10–14 business day lead time from final art approval.",
   },
   {
     q: "How do I book a wheat pasting campaign?",
@@ -173,7 +173,7 @@ export default function WheatPastingPage() {
                 {
                   name: "Single-City Wheat Pasting Test",
                   description:
-                    "12–15 walls, 80–250 posters, one US city, 4–8 unique designs, full next-morning daylight photo documentation. Standard install window 7–10 days from sign-off.",
+                    "12–15 walls, 80–250 posters, one US city, 4–8 unique designs, daylight photo documentation in the proof-of-install report. Standard install window is 10–14 business days from final art approval.",
                 },
                 {
                   name: "Multi-City Wheat Pasting Rollout",
@@ -573,7 +573,7 @@ export default function WheatPastingPage() {
               {[
                 { label: "Poster Size", value: '24"×36" to 48"×72"' },
                 { label: "Coverage", value: "50+ US Cities" },
-                { label: "Turnaround", value: "5–21 Business Days" },
+                { label: "Lead Time", value: "10–14 Business Days" },
                 { label: "Documentation", value: "100% Photo Proof" },
               ].map(({ label, value }) => (
                 <div
@@ -788,8 +788,8 @@ export default function WheatPastingPage() {
               style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}
             >
               Every wheat pasting campaign follows the same five-step process, from strategy
-              intake through delivered photo report. Most campaigns run 5–21 business days
-              depending on city count, poster volume, and print specs.
+              intake through the proof-of-install report. Lead time is 10–14 business days
+              from final art approval. The report follows within 7 business days of the final install day.
             </p>
             <ol
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px list-none m-0 p-0"
@@ -872,27 +872,28 @@ export default function WheatPastingPage() {
                 style={{ color: "rgba(0,0,0,0.55)", fontSize: "14px" }}
               >
                 Every brand that books wheat pasting asks the same question first: is it legal?
-                The short answer is yes — when done on permitted surfaces. Here is how Phantom
-                Pasting handles compliance so your brand is never the one answering to city code.
+                On a permitted wall, or with the owner's yes, yes. Our installs are a mix of
+                those sites and non-permitted spots — abandoned buildings, old construction
+                sites, hoardings — and we say which is which before the crew rolls.
               </p>
             </div>
             <div className="flex flex-col gap-4">
               {[
                 {
-                  h: "Permitted walls only",
-                  p: "We maintain an active roster of property-owner agreements in every city we operate. Posters only go on walls, plywood, and hoardings where we have written permission or legal poster campaign rights.",
+                  h: "A mix of sites",
+                  p: "A typical run mixes permitted or owner-approved walls with non-permitted spots: abandoned buildings, old construction sites, and plywood that was never a licensed board. If your legal team needs permission-only placements, we scope the run that way and keep a record of who approved each wall.",
                 },
                 {
-                  h: "Construction hoardings",
-                  p: "Temporary plywood around construction projects is often the single most-used legal canvas. We source these weekly and pay property fees when required.",
+                  h: "Construction sites",
+                  p: "Old construction plywood and active hoardings both show up on routes. Some are permitted and fee-paid. Some are leftover fencing with no license attached. We tell you which is which in the placement plan.",
                 },
                 {
                   h: "City-by-city ordinance awareness",
-                  p: "Postering rules vary by municipality. Our install crews operate against an internal compliance checklist tuned to each target city's signage code, fines, and removal requirements.",
+                  p: "Postering rules vary by municipality. Crews know the local signage code, the fine schedule, and which corridors get cleaned fastest, and we plan the mix around that.",
                 },
                 {
-                  h: "Risk transfer to Phantom Pasting",
-                  p: "Because install is handled by our licensed crews on approved surfaces, your brand logo never appears on an unauthorized wall. Compliance risk stays with us, not you.",
+                  h: "You see every placement",
+                  p: "The proof-of-install report shows where each poster went, permitted or not, with a timestamp and a location. Nothing is hidden behind a 'fully legal' label the route didn't earn.",
                 },
               ].map(({ h, p }) => (
                 <div
@@ -1248,13 +1249,14 @@ export default function WheatPastingPage() {
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}
               >
                 <strong style={{ color: ACCENT }}>TL;DR</strong> — Wheat pasting is large-format,
-                street-level poster advertising installed on permitted walls in 50+ US cities.
-                Print, crew, install, and 100% photo documentation are all included. Runs 2–8
-                weeks on wall. Call{" "}
+                street-level poster advertising across a mix of permitted and non-permitted
+                sites in 50+ US cities. Print, crew, install, and a proof-of-install report
+                within 7 business days are included. Lead time is 10–14 business days from
+                final art approval. Call{" "}
                 <a href={BUSINESS.telHref} style={{ color: ACCENT }}>
                   {BUSINESS.telephoneDisplay}
                 </a>{" "}
-                or request a quote to launch a campaign in under three weeks.
+                or request a quote.
               </p>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 export const metadata: Metadata = {
   title: { absolute: "Wheat Pasting Boston | Allston + Cambridge Wheatpasting" },
   description:
-    "Wheat pasting in Boston — Allston, Cambridge, Mission Hill, BU + BC + Northeastern + Harvard zones. Move-in + finals saturation, 7-day install turnaround.",
+    "Wheat pasting in Boston — Allston, Cambridge, Mission Hill, BU + BC + Northeastern + Harvard zones. Move-in + finals saturation. 10–14 business day lead time.",
   keywords: [
     "wheat pasting Boston",
     "Boston poster campaigns",

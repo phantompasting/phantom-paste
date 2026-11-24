@@ -86,7 +86,7 @@ const data: CityPageData = {
     },
     {
       q: "How long do posters last in Wisconsin weather?",
-      a: "4–6 weeks May–October. Lake-effect winters compress the calendar; cold-season installs are scheduled to thaw windows and every placement gets 48-hour photo proof.",
+      a: "4–6 weeks May–October. Lake-effect winters compress the calendar; cold-season installs are scheduled to thaw windows and the proof-of-install report follows within 7 business days.",
     },
   ],
   localBusiness: {

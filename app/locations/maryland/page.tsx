@@ -71,7 +71,7 @@ const data: CityPageData = {
   faqs: [
     {
       q: "Is wheat pasting legal in Maryland?",
-      a: "Yes on owner-authorized walls. Baltimore's arts districts (Station North, Highlandtown) are explicitly built around street-level art; standard private-property consent applies statewide. We work only from our authorized-wall database.",
+      a: "Owner-authorized walls are legal, and Baltimore's arts districts (Station North, Highlandtown) are built around street-level art. Our runs mix those walls with non-permitted spots such as abandoned buildings and old construction sites. Permission-only is available if you ask.",
     },
     {
       q: "What Maryland cities do you cover?",
@@ -87,7 +87,7 @@ const data: CityPageData = {
     },
     {
       q: "How long do posters last in Maryland weather?",
-      a: "4–6 weeks typical. Chesapeake humidity is the main factor in summer; every placement is photo-documented within 48 hours so proof is locked regardless of weather.",
+      a: "4–6 weeks typical. Chesapeake humidity is the main factor in summer. The proof-of-install report follows within 7 business days, so the record is locked regardless of weather.",
     },
   ],
   localBusiness: {

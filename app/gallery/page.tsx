@@ -50,7 +50,7 @@ const GALLERY_FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "How soon after install do clients receive photo documentation?",
-    a: "Standard turnaround is 48 hours from install to delivered photo report. Daylight shots happen the morning after install; install-night frames are captured live by the crew. The full client-deliverable package — daylight + night + geo-tagged location pins + social-ready crops — is delivered as a shared folder within 2 business days.",
+    a: "The proof-of-install report is delivered within 7 business days of the final install day. Daylight shots and install-night frames are both in the package — daylight, night, geo-tagged location pins, and social-ready crops.",
   },
   {
     q: "Do you shoot wheat paste campaigns at night and in daylight?",

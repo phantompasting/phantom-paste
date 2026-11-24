@@ -93,7 +93,7 @@ const data: CityPageData = {
     },
     {
       q: "How quickly can a Nashville campaign launch?",
-      a: "Standard turnaround is 7-10 business days from approved brief. Rush launches (4-5 days) are possible for single-neighborhood activations. Album-launch sequences need 3-4 weeks to coordinate the multi-week rotation.",
+      a: "Lead time is 10–14 business days from final art approval. A multi-week album rotation needs extra calendar beyond that first install.",
     },
   ],
   localBusiness: {

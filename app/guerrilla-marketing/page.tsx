@@ -73,7 +73,7 @@ const FORMATS = [
   {
     name: "Wheat Pasting",
     href: "/services/wheat-pasting",
-    desc: "Large-format paste posters on owner-authorized walls — the backbone format of guerrilla marketing. 24×36 grids to 48×72 statement pieces.",
+    desc: "Large-format paste posters on a mix of permitted walls and non-permitted spots — the backbone format of guerrilla marketing. 24×36 grids to 48×72 statement pieces.",
   },
   {
     name: "Chalk Spray Stencils",
@@ -132,7 +132,7 @@ const FAQS = [
   },
   {
     q: "Is guerrilla marketing legal?",
-    a: "It depends on the format and placement. Chalk spray stencils use removable chalk and are legal on most sidewalks. Wheat pasting on owner-authorized walls — how Phantom Pasting operates — is done with the property owner's permission. Unauthorized posting on public infrastructure is citable in most US cities, which is why established wall relationships and format choice matter when hiring an agency.",
+    a: "It depends on the format and placement. Chalk spray stencils use removable chalk and are legal on most sidewalks. Wheat pasting is legal on owner-authorized walls. Phantom Pasting installs are a mix of those sites and non-permitted ones, including abandoned buildings and old construction sites. Permission-only is available if your legal team needs it.",
   },
   {
     q: "What formats does a guerrilla marketing campaign include?",
@@ -140,7 +140,7 @@ const FAQS = [
   },
   {
     q: "How do I choose a guerrilla marketing company?",
-    a: "Ask three questions: Do they print and install in-house or broker it out? Do they provide per-placement photo proof with GPS data, or a handful of hero shots? And are their walls owner-authorized, or is your budget gambling on placements that get removed in a day? Any agency that hesitates on documentation is asking you to buy on trust.",
+    a: "Ask three questions: Do they print and install in-house or broker it out? Do they provide per-placement photo proof with GPS data, or a handful of hero shots? And will they tell you which placements are permitted and which are street spots? Any agency that hesitates on documentation is asking you to buy on trust.",
   },
   {
     q: "Which cities do you run guerrilla marketing campaigns in?",

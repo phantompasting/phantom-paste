@@ -109,7 +109,7 @@ export default function Post() {
       <h2>How a Williamsburg Run Goes</h2>
       <p>
         A typical Williamsburg campaign is a scout pass, then an overnight install between
-        midnight and 5 a.m., then a daylight documentation pass the next morning — every wall
+        midnight and 5 a.m., then a proof-of-install report within 7 business days — every wall
         GPS-logged and photographed so you see exactly what ran where. Weather is the variable:
         Brooklyn winters are hard on paste and summer humidity off the East River can soften a
         wall, so the recipe and the timing change with the season. Shaded brick on a side street
