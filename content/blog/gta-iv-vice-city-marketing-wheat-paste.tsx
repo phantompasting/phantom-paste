@@ -57,63 +57,36 @@ export default function Post() {
       </PullQuote>
 
       <p>
-        Two photos of how thick that marketing gets are still on the way. I
-        am leaving the boxes empty on purpose. There is no count in this post
-        of how many of those ads are out, because we did not take one, and I
-        am not going to guess who booked them.
+        Here is the theme already out on the street, before anyone pastes a
+        headphone poster. Two people in matching Vice City sweatshirts, and
+        the same script wrapped on the cars behind them. I am not going to
+        guess who booked it, and there is no count of how many of these are
+        out. The pictures are the point.
       </p>
 
-      {/* TODO: GTA marketing-saturation image 1 of 2 — still coming from Kelvin. Street-level photo of Vice City marketing. Do not swap in a stock photo. */}
       <figure style={{ margin: "2em auto", maxWidth: "620px" }}>
-        <div
-          role="img"
-          aria-label="TODO: Vice City marketing photo 1, still coming"
-          style={{
-            width: "100%",
-            aspectRatio: "4 / 3",
-            borderRadius: "12px",
-            border: "2px dashed rgba(212,160,16,0.9)",
-            background: "rgba(212,160,16,0.08)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "1.5rem",
-            textAlign: "center",
-            color: "#1A1A1A",
-            fontWeight: 700,
-          }}
-        >
-          TODO: Vice City marketing photo 1 — still coming
-        </div>
+        <img
+          src="/blog/vice-city-streetwear-rideshare.webp"
+          alt="Two people in matching black Vice City sweatshirts on a sidewalk at night, faces turned away, with Vice City-branded rideshare cars behind them"
+          loading="lazy"
+          style={{ width: "100%", borderRadius: "12px", display: "block" }}
+        />
         <figcaption style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", marginTop: "0.6em", fontStyle: "italic" }}>
-          Placeholder. First photo of Vice City marketing already on the street. Not in yet.
+          Vice City on the street at night. Matching sweatshirts, and cars
+          wearing the same script. Not one of our installs.
         </figcaption>
       </figure>
 
-      {/* TODO: GTA marketing-saturation image 2 of 2 — still coming from Kelvin. Second angle of Vice City marketing. Do not swap in a stock photo. */}
       <figure style={{ margin: "2em auto", maxWidth: "620px" }}>
-        <div
-          role="img"
-          aria-label="TODO: Vice City marketing photo 2, still coming"
-          style={{
-            width: "100%",
-            aspectRatio: "4 / 3",
-            borderRadius: "12px",
-            border: "2px dashed rgba(212,160,16,0.9)",
-            background: "rgba(212,160,16,0.08)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "1.5rem",
-            textAlign: "center",
-            color: "#1A1A1A",
-            fontWeight: 700,
-          }}
-        >
-          TODO: Vice City marketing photo 2 — still coming
-        </div>
+        <img
+          src="/blog/vice-city-car-wrap.webp"
+          alt="Close-up of a black car door wrapped with the pink and white Vice City script logo"
+          loading="lazy"
+          style={{ width: "100%", borderRadius: "12px", display: "block" }}
+        />
         <figcaption style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", marginTop: "0.6em", fontStyle: "italic" }}>
-          Placeholder. Second photo of Vice City marketing already on the street. Not in yet.
+          The same script, close up, wrapped across a black door. Another
+          piece of Vice City marketing already out. Not our poster.
         </figcaption>
       </figure>
 

@@ -55,6 +55,15 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Wheat Paste Posters Reinstalled After They Were Torn",
     caption: "Gaming headphone wheat paste posters themed on Vice City, reinstalled after the torn sheets were replaced — by Phantom Pasting",
   },
+  // Reference photos of Vice City marketing. Not Phantom Pasting installs.
+  "vice-city-streetwear-rideshare.webp": {
+    title: "Vice City Sweatshirts and Branded Cars at Night",
+    caption: "Two people in matching black Vice City sweatshirts on a sidewalk at night, faces turned away, with Vice City-branded rideshare cars behind them",
+  },
+  "vice-city-car-wrap.webp": {
+    title: "Vice City Script Wrapped on a Car Door",
+    caption: "Close-up of a black car door wrapped with the pink and white Vice City script logo",
+  },
   // ── Flatirons College — Lafayette, CO ──
   "flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp": {
     title: "Flatirons College Interior Poster Wall — Lafayette, CO",
@@ -580,6 +589,8 @@ const PAGE_IMAGES: Record<string, string[]> = {
   "/gallery": Object.keys(IMAGE_META),
 
   "/blog/gta-iv-vice-city-marketing-wheat-paste": [
+    "vice-city-streetwear-rideshare.webp",
+    "vice-city-car-wrap.webp",
     "gta-vice-city-wheat-paste-posters-ripped.webp",
     "gta-vice-city-wheat-paste-posters-reinstalled.webp",
   ],

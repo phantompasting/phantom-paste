@@ -136,7 +136,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Gaming headphone wheat paste posters themed on Vice City, reinstalled after people tore the sheets trying to pull them off the wall",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["gta", "vice-city", "gta-marketing", "wheat-paste", "wild-posting"],
-    wordCount: 940,
+    wordCount: 944,
     faqs: [
       {
         q: "Is wheat paste themed on GTA IV (Vice City) an official Rockstar Games campaign?",
