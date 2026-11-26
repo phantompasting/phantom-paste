@@ -23,7 +23,6 @@ export const dynamic = "force-static";
 export const revalidate = false;
 
 const BASE = "https://www.phantompasting.com";
-const GALLERY_URL = `${BASE}/gallery`;
 
 // ── Image metadata ────────────────────────────────────────────────────────────
 // title: short descriptive label (shown in Google Images search results)
@@ -45,6 +44,25 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
   "turtle-beach-wheat-paste-posters-storefront-n-miami-ave-wynwood-miami.webp": {
     title: "Turtle Beach Wheat Paste Posters on a Storefront — Wynwood, Miami",
     caption: "Six Turtle Beach wheat paste posters in a two-row block on a graffiti-covered storefront wall on North Miami Avenue in Wynwood, Miami — by Phantom Pasting",
+  },
+  // Blog-only. No street address and no install date in the filename.
+  // These live in /public/blog, not the gallery.
+  "gta-vice-city-wheat-paste-posters-ripped.webp": {
+    title: "Wheat Paste Posters Torn Off a Wall",
+    caption: "Torn wheat paste posters for a gaming headphone brand themed on Vice City, ripped where people tried to pull them off the wall to keep — by Phantom Pasting",
+  },
+  "gta-vice-city-wheat-paste-posters-reinstalled.webp": {
+    title: "Wheat Paste Posters Reinstalled After They Were Torn",
+    caption: "Gaming headphone wheat paste posters themed on Vice City, reinstalled after the torn sheets were replaced — by Phantom Pasting",
+  },
+  // Reference photos of Vice City marketing. Not Phantom Pasting installs.
+  "vice-city-streetwear-rideshare.webp": {
+    title: "Vice City Sweatshirts and Branded Cars at Night",
+    caption: "Two people in matching black Vice City sweatshirts on a sidewalk at night, faces turned away, with Vice City-branded rideshare cars behind them",
+  },
+  "vice-city-car-wrap.webp": {
+    title: "Vice City Script Wrapped on a Car Door",
+    caption: "Close-up of a black car door wrapped with the pink and white Vice City script logo",
   },
   // ── Flatirons College — Lafayette, CO ──
   "flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp": {
@@ -570,6 +588,13 @@ const PAGE_IMAGES: Record<string, string[]> = {
   // Gallery — all campaign photography
   "/gallery": Object.keys(IMAGE_META),
 
+  "/blog/gta-iv-vice-city-marketing-wheat-paste": [
+    "vice-city-streetwear-rideshare.webp",
+    "vice-city-car-wrap.webp",
+    "gta-vice-city-wheat-paste-posters-ripped.webp",
+    "gta-vice-city-wheat-paste-posters-reinstalled.webp",
+  ],
+
   // Work / Case Studies
   "/work/nokia-bell-labs-helix-new-jersey": [
     "nokia-bell-labs-wheat-paste-installer-48x72-posters-helix-new-brunswick-nj.webp",
@@ -705,6 +730,7 @@ function escapeXml(s: string): string {
 function buildImageSitemap(): string {
   // Verify gallery dir exists at build time
   const galleryDir = join(process.cwd(), "public", "gallery");
+  const blogDir = join(process.cwd(), "public", "blog");
   const galleryExists = existsSync(galleryDir);
 
   // Cross-check: warn about any images in PAGE_IMAGES not in IMAGE_META
@@ -713,6 +739,14 @@ function buildImageSitemap(): string {
     ? new Set(readdirSync(galleryDir).filter((f) => f.endsWith(".webp") || f.endsWith(".jpg") || f.endsWith(".png")))
     : new Set<string>();
 
+  // Install photography lives in /public/gallery. A few blog-only reference
+  // photos live in /public/blog and must not be attributed to /gallery.
+  function imageUrl(imgFile: string): string | null {
+    if (galleryFiles.has(imgFile)) return `${BASE}/gallery/${imgFile}`;
+    if (existsSync(join(blogDir, imgFile))) return `${BASE}/blog/${imgFile}`;
+    return null;
+  }
+
   const entries: string[] = [];
 
   for (const [pagePath, images] of Object.entries(PAGE_IMAGES)) {
@@ -720,10 +754,12 @@ function buildImageSitemap(): string {
     const imageBlocks: string[] = [];
 
     for (const imgFile of images) {
-      // Skip if file doesn't actually exist in public/gallery
-      if (galleryExists && !galleryFiles.has(imgFile)) continue;
+      // The gallery page only lists files that are actually in /public/gallery.
+      if (pagePath === "/gallery" && !galleryFiles.has(imgFile)) continue;
 
-      const imgUrl = `${GALLERY_URL.replace("/gallery", "")}/gallery/${imgFile}`;
+      const imgUrl = imageUrl(imgFile);
+      if (!imgUrl) continue;
+
       const meta = knownImages.has(imgFile) ? IMAGE_META[imgFile] : null;
 
       imageBlocks.push(`    <image:image>
