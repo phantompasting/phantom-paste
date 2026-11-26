@@ -122,9 +122,9 @@ export interface BlogPostMeta {
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: "gta-iv-vice-city-marketing-wheat-paste",
-    title: "GTA IV (Vice City) Marketing: Why Wheat Paste Piggybacks on a Game",
+    title: "GTA IV (Vice City) Marketing: Why Companies Piggyback on a Video Game and the Hype Behind It",
     titleHighlight: "GTA IV (Vice City)",
-    metaTitle: "GTA IV (Vice City) Wheat Paste Marketing",
+    metaTitle: "GTA IV (Vice City): Why Brands Piggyback",
     metaDescription:
       "GTA IV (Vice City) wheat paste marketing: wild posting lets a gaming headphone brand ride Vice City, and people tear the posters trying to keep them.",
     excerpt:
@@ -132,11 +132,11 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     silo: "strategy-roi",
     publishedAt: "2026-11-26",
     updatedAt: "2026-11-26",
-    heroImage: "/blog/heroes/gta-vice-city-wheat-paste-posters-reinstalled-hero.webp",
-    heroAlt: "Gaming headphone wheat paste posters themed on Vice City, reinstalled after people tore the sheets trying to pull them off the wall",
+    heroImage: "/blog/gta-vice-city-wheat-paste-posters-ripped.webp",
+    heroAlt: "Torn wheat paste posters for a gaming headphone brand, ripped where people tried to pull them off the wall to keep",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["gta", "vice-city", "gta-marketing", "wheat-paste", "wild-posting"],
-    wordCount: 944,
+    wordCount: 961,
     faqs: [
       {
         q: "Is wheat paste themed on GTA IV (Vice City) an official Rockstar Games campaign?",
@@ -152,7 +152,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
       {
         q: "Why did the posters tear when people tried to take them?",
-        a: "They wanted the sheets as memorabilia. Wheat paste holds the paper to the wall harder than the paper holds together, so the posters tore in half instead of coming off clean. We reinstalled fresh sheets over the torn ones.",
+        a: "They wanted the posters as memorabilia. Wheat paste holds the paper to the wall harder than the paper holds together, so the posters tore in half instead of coming off clean. We reinstalled fresh posters over the torn ones.",
       },
       {
         q: "Does a ripped wheat paste poster ruin the campaign?",

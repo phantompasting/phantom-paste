@@ -9,7 +9,7 @@ export function tldr() {
       picture. GTA IV (Vice City) is a theme a brand can borrow when the brand
       already lives in that world, the way gaming headphones do. We wheat
       pasted that kind of campaign. People tried to rip the posters down to
-      keep. The paste tore the paper instead, so we put new sheets up. Rockstar
+      keep. The paste tore the paper instead, so we put new posters up. Rockstar
       Games did not commission any of it.
     </p>
   );
@@ -111,7 +111,7 @@ export default function Post() {
       <p>
         It worked well enough that people tried to rip the posters off the
         wall to keep as memorabilia. Ask us how we know the paste was doing
-        its job. They pulled. The sheet did not come free. Wheat paste glue
+        its job. They pulled. The poster did not come free. Wheat paste glue
         holds the paper to the wall harder than the paper holds itself, so
         the posters tore in half. What they got was a scrap. What stayed up
         was a torn wall.
@@ -132,7 +132,7 @@ export default function Post() {
       </figure>
 
       <p>
-        You can want the sheet. The glue has already voted, lol. I am not
+        You want the poster. The glue has already voted, lol. I am not
         quoting anyone. Nobody handed us a line. They pulled, the paper
         split, and that was the review.
       </p>
@@ -144,8 +144,10 @@ export default function Post() {
         </p>
       </PullQuote>
 
+      <h2>We Put the Posters Back</h2>
       <p>
-        So we reinstalled them. Fresh sheets over the torn ones. The theme
+        A torn wall still has the brand&apos;s name on it, but it does not
+        read. So we reinstalled. Fresh posters over the torn ones. The theme
         went back to being readable from the sidewalk: the sunset, the palms,
         the headphone brand, Vice City without pretending to be the game
         itself.
@@ -154,7 +156,7 @@ export default function Post() {
       <figure style={{ margin: "2em auto", maxWidth: "620px" }}>
         <img
           src="/blog/gta-vice-city-wheat-paste-posters-reinstalled.webp"
-          alt="Gaming headphone wheat paste posters themed on Vice City, reinstalled after torn sheets were replaced"
+          alt="Gaming headphone wheat paste posters themed on Vice City, reinstalled after the torn posters were replaced"
           loading="lazy"
           style={{ width: "100%", borderRadius: "12px", display: "block" }}
         />
