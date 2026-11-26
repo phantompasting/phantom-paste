@@ -209,11 +209,13 @@ export default function Post() {
 
       <h2>Permits and Permission</h2>
       <p>
-        In both states the rule that matters is the same: post on surfaces where the owner, or whoever
-        controls the surface, has said yes, and stay off public property like utility poles, traffic
+        In both states a permitted placement means the owner, or whoever controls the surface,
+        has said yes, and the poster stays off public property like utility poles, traffic
         signs, and city buildings. A developer&apos;s construction fence, a landlord&apos;s wall, or
-        your own storefront are the clean options. Philadelphia&apos;s historic districts, including
-        Old City and Society Hill, are stricter, and New Jersey towns each set their own sign rules.
+        your own storefront are the clean options. Our installs are a mix of those and
+        non-permitted spots such as abandoned buildings and old construction sites.
+        Philadelphia&apos;s historic districts, including Old City and Society Hill, are stricter,
+        and New Jersey towns each set their own sign rules.
       </p>
       <p>
         If your brand or legal team needs permission-only placements, say so up front and we scope

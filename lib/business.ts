@@ -20,7 +20,7 @@
  */
 export const BUSINESS = {
   name: "Phantom Pasting",
-  legalName: "Phantom Pasting",
+  legalName: "Phantom Pasting LLC",
   url: "https://www.phantompasting.com",
   email: "info@phantompasting.com",
   mailtoHref: "mailto:info@phantompasting.com",
@@ -40,6 +40,8 @@ export const BUSINESS = {
     "https://x.com/PhantomPasting",
     "https://www.yelp.com/biz/phantom-pasting-los-angeles",
     "https://www.pinterest.com/phantompasting/",
+    // TODO(Kelvin): add the Google Business Profile URL here once we have it.
+    // Do not invent a maps.google.com or business.google.com link.
   ],
   instagramUrl: "https://www.instagram.com/phantompasting",
   instagramHandle: "@phantompasting",

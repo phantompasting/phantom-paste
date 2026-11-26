@@ -769,7 +769,7 @@ const TLDR_CARDS = [
   },
   {
     bold: "50+ cities, any scale.",
-    body: "Single-market drops or simultaneous national saturation. Local crews in every city. Rush timelines from 5 business days.",
+    body: "Single-market drops or simultaneous national saturation. Local crews in every city. Lead time is 10–14 business days from final art approval.",
   },
 ];
 

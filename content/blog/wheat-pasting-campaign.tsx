@@ -12,8 +12,8 @@ export function tldr() {
       A typical client campaign is 12–15 locations, 6–16 posters per wall, 4–8 unique designs,
       finished overnight in one city. The math behind it — how we prep, route, paste, and
       document — is what separates a campaign that holds for 6 weeks from one that peels in 3
-      days. Here&apos;s the full breakdown from the warehouse at 9 p.m. to the documentation
-      shoot at 8 a.m. the next morning.
+      days. Here&apos;s the full breakdown from the warehouse at 9 p.m. through the daylight
+      documentation shoot. The proof-of-install report follows within 7 business days.
     </p>
   );
 }
@@ -30,22 +30,22 @@ export default function Post() {
 
       <h2>The Setup</h2>
       <p>
-        Most campaigns arrive like this: a brand wants 200 posters up in Los Angeles by Friday
-        morning. They&apos;ve signed off on 4–8 designs, all at 24×36 inches — our standard. Large
-        enough to read from 30 feet, small enough to paste solo. We get the print files Tuesday,
-        prints arrive Thursday afternoon, install Thursday night. By the time the brand team is
-        having their Friday standup, the walls are already in our morning photo pass.
+        Most campaigns arrive like this: a brand wants 200 posters up in Los Angeles.
+        They&apos;ve signed off on 4–8 designs, all at 24×36 inches — our standard. Large
+        enough to read from 30 feet, small enough to paste solo. From final art approval,
+        lead time is 10–14 business days: print, a scout, then an overnight install. The
+        proof-of-install report follows within 7 business days.
       </p>
-      <p>From sign-off to install, we run:</p>
+      <p>From final art approval to install, we run:</p>
       <ol>
-        <li><strong>Design delivery and print</strong> (3–5 days)</li>
+        <li><strong>Design lock and print</strong> (inside the 10–14 business day window)</li>
         <li>
-          <strong>Site scouting</strong> (1–2 days — walls we&apos;ve worked before get re-confirmed;
-          new cities get full scout)
+          <strong>Site scouting</strong> (walls we&apos;ve worked before get re-confirmed;
+          new cities get a full scout, permitted sites and non-permitted spots both on the list)
         </li>
         <li><strong>Crew scheduling</strong> (2–3 installers per vehicle)</li>
         <li><strong>Night of install</strong> (6–8 hours, typically 10 p.m. to 4 a.m.)</li>
-        <li><strong>Documentation pass</strong> (next morning, daylight photos of every wall)</li>
+        <li><strong>Documentation pass</strong> (daylight photos of every wall, in the proof-of-install report within 7 business days)</li>
       </ol>
       <p>
         That timeline assumes nothing goes sideways. Things go sideways constantly. A wall we
@@ -188,7 +188,7 @@ export default function Post() {
         <li>A <strong>location pin</strong> (GPS dropped per wall)</li>
       </ul>
       <p>
-        That package reaches the brand within 24 hours. Without photos, a wheat paste campaign
+        That package is the proof-of-install report, delivered within 7 business days of the final install day. Without photos, a wheat paste campaign
         exists only in the installer&apos;s word. With photos, it becomes a deliverable the
         marketer can send up the chain. We&apos;ve had brands forward the photo packages to
         their CEO inside an hour of receiving them. That&apos;s why the documentation is

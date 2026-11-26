@@ -5,7 +5,7 @@ import { KW_CITY_BASE, cityBuyerIntent } from "@/lib/keywordSets";
 export const metadata: Metadata = {
   title: { absolute: "Wheat Pasting Miami | Wynwood Wheatpasting Posters" },
   description:
-    "Wheat pasting in Miami — Wynwood, Little Havana, Design District, Brickell, Art Basel saturation. Mural-friendly culture, photo-documented 7-day turnaround.",
+    "Wheat pasting in Miami — Wynwood, Little Havana, Design District, Brickell, Art Basel saturation. Mural-friendly culture, photo-documented installs.",
   keywords: [
     "wheat pasting Miami",
     "Miami poster campaigns",

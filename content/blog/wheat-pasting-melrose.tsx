@@ -172,8 +172,8 @@ export default function Post() {
       </p>
       <ol>
         <li>
-          <strong>7–10 days from sign-off to install</strong> for a standard run. Rush
-          windows exist but cost more and limit wall selection.
+          <strong>10–14 business days from final art approval</strong> for a standard run.
+          The best walls still book weeks ahead around fashion week, awards season, and drop calendars.
         </li>
         <li>
           <strong>Scout, then lock.</strong> We walk the corridor, photograph available
@@ -184,14 +184,14 @@ export default function Post() {
           Melrose configuration. We handle printing or install posters you provide.
         </li>
         <li>
-          <strong>Next-morning documentation.</strong> Full daylight photos of every wall
-          the morning after install — noon for product detail, golden hour for mood.
+          <strong>Proof-of-install report.</strong> Daylight photos of every wall — noon for
+          product detail, golden hour for mood — delivered within 7 business days.
         </li>
       </ol>
       <p>
         A first Melrose test usually runs 80 posters across the Fairfax–Spaulding core for
         roughly $4,000–$6,000, including documentation. That gives a brand a press-kit-ready
-        set of walls on the highest-signal corridor in the country within 48 hours. For how
+        set of walls on the highest-signal corridor in the country, with the proof-of-install report inside 7 business days. For how
         a multi-wall run is sequenced overnight, see{" "}
         <BlogLink slug="wheat-pasting-campaign">how a campaign runs</BlogLink>.
       </p>

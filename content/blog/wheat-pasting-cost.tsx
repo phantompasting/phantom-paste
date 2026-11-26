@@ -86,8 +86,8 @@ export default function Post() {
 
       <h3>5. Documentation tier — standard vs. premium</h3>
       <p>
-        Standard: next-morning photo pass, wide + tight per wall, delivered as a Google Drive
-        folder within 48 hours. Included in baseline cost.
+        Standard: daylight photo pass, wide + tight per wall, delivered as a proof-of-install
+        report within 7 business days. Included in baseline cost.
       </p>
       <p>
         Premium: full video walk-through per wall, drone overhead shots where permitted, edited

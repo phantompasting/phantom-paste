@@ -97,7 +97,7 @@ const data: CityPageData = {
     },
     {
       q: "How quickly can a California campaign launch?",
-      a: "Standard turnaround is 7-10 business days from approved brief. LA + SF can rush to 5 days; secondary markets (San Diego, Sacramento, Oakland, San Jose) typically need the full 7-10. Statewide multi-city briefs need 10-14 to coordinate crews.",
+      a: "Lead time is 10–14 business days from final art approval, in LA, San Francisco, and the secondary markets. Statewide multi-city briefs use that same window.",
     },
     {
       q: "Why does California outperform other states for wheat pasting?",

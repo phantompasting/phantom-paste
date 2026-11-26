@@ -179,10 +179,11 @@ export default function Post() {
 
       <h2>Legal Reality On The East Side</h2>
       <p>
-        Same baseline as everywhere we run in LA: owner-authorized private-property
-        walls, and LAPD does not enforce unlawful posting on clean commercial campaigns.
-        No historic-preservation complications in Silver Lake or Echo Park — lead times
-        stay at the standard 7–10 days from sign-off to install. The full picture is in{" "}
+        The east side is the same mix we run everywhere in LA: some owner-approved walls,
+        and non-permitted spots such as abandoned buildings and old construction sites.
+        LAPD does not spend its time on clean commercial paper. No historic-preservation
+        complications in Silver Lake or Echo Park, so lead time stays at 10–14 business
+        days from final art approval. The full picture is in{" "}
         <BlogLink slug="is-wheat-pasting-legal">is wheat pasting legal</BlogLink>.
       </p>
 

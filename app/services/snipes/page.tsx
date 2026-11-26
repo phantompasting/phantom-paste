@@ -97,10 +97,10 @@ const STEPS = [
   {
     num: "05",
     title: "DOCUMENT & REPORT",
-    desc: "Every sticker cluster and snipe run is photographed, timestamped, and geo-tagged. You receive a branded campaign report within 48 hours — ready to post, pitch, or repurpose.",
+    desc: "Every sticker cluster and snipe run is photographed, timestamped, and geo-tagged. You receive a branded proof-of-install report within 7 business days — ready to post, pitch, or repurpose.",
     bullets: [
       "100% photo proof per location",
-      "Branded report delivered within 48 hrs",
+      "Proof-of-install report within 7 business days",
     ],
   },
 ];
@@ -120,7 +120,7 @@ const FAQS = [
   },
   {
     q: "Is sticker posting and sniping legal?",
-    a: "Yes, when placed on permitted surfaces and with property-owner or corridor agreements. Phantom Pasting works from sourced permitted poles, posts, and fixtures and operates against a city-by-city signage-code checklist, so your brand never appears on an unauthorized surface and compliance risk stays with us.",
+    a: "Snipes are legal on permitted poles and on surfaces with an owner's agreement. Phantom Pasting placements are a mix of those and non-permitted street spots, including old construction sites. Ask at the quote stage if you need a permission-only run. Every placement is photo-documented.",
   },
   {
     q: "How much does a snipe or sticker campaign cost?",
@@ -215,7 +215,7 @@ export default function SnipesPage() {
                 {
                   name: "Single-City Sticker Run",
                   description:
-                    "Dense sticker saturation across one US city's highest-dwell corridors — eye-level placement on permitted poles, fixtures, and surfaces, with next-morning daylight photo documentation. Standard install window 7–10 days from sign-off.",
+                    "Dense sticker saturation across one US city's highest-dwell corridors — eye-level placement on a mix of permitted fixtures and non-permitted street spots, with daylight photo documentation in the proof-of-install report. Standard install window is 10–14 business days from final art approval.",
                 },
                 {
                   name: "Sticker + Pole Snipe Corridor Campaign",
@@ -593,7 +593,7 @@ export default function SnipesPage() {
               {[
                 { label: "Formats", value: "Stickers + Pole Snipes" },
                 { label: "Coverage", value: "50+ US Cities" },
-                { label: "Turnaround", value: "5–21 Business Days" },
+                { label: "Lead Time", value: "10–14 Business Days" },
                 { label: "Documentation", value: "100% Photo Proof" },
               ].map(({ label, value }) => (
                 <div
@@ -727,8 +727,8 @@ export default function SnipesPage() {
               style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px", maxWidth: "640px" }}
             >
               Every snipe and sticker campaign follows the same five-step process, from strategy
-              intake through delivered photo report. Most campaigns run 5–21 business days
-              depending on city count, sticker volume, and corridor density.
+              intake through the proof-of-install report. Lead time is 10–14 business days
+              from final art approval. The report follows within 7 business days of the final install day.
             </p>
             <ol
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px list-none m-0 p-0"
@@ -811,15 +811,15 @@ export default function SnipesPage() {
                 style={{ color: "rgba(0,0,0,0.55)", fontSize: "14px" }}
               >
                 Sniping and sticker posting carry the same first question as every street format:
-                is it legal? The answer is yes — on permitted surfaces. Here is how Phantom
-                Pasting keeps your brand on the right side of city code.
+                is it legal? On a permitted surface, yes. Our runs mix those with non-permitted
+                street spots, and the placement plan says which is which.
               </p>
             </div>
             <div className="flex flex-col gap-4">
               {[
                 {
-                  h: "Permitted surfaces only",
-                  p: "Stickers and snipes go on poles, posts, fixtures, and corridors where we hold owner agreements or legal placement rights. Your brand logo never lands on an unauthorized surface.",
+                  h: "A mix of surfaces",
+                  p: "Stickers and snipes land on permitted poles and fixtures where we have them, and on non-permitted street spots — old construction fencing, abandoned frontages — when the route calls for it. Permission-only is available if you ask.",
                 },
                 {
                   h: "City-by-city ordinance awareness",
@@ -827,11 +827,11 @@ export default function SnipesPage() {
                 },
                 {
                   h: "Clean, removable placement",
-                  p: "We place for clean removal — no damage to permitted surfaces. Pole snipes are zip-tied or stapled for safe takedown, and we can run a removal pass at campaign end on request.",
+                  p: "We place for clean removal. Pole snipes are zip-tied or stapled for safe takedown, and we can run a removal pass at campaign end on request.",
                 },
                 {
                   h: "Risk transfer to Phantom Pasting",
-                  p: "Because production and install are handled by our crews on approved surfaces, compliance risk stays with us, not your brand — and every placement is photo-documented as proof.",
+                  p: "Every placement is photographed for the proof-of-install report, which lands within 7 business days. You see where the work went, permitted or not.",
                 },
               ].map(({ h, p }) => (
                 <div
@@ -1133,13 +1133,14 @@ export default function SnipesPage() {
                 style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}
               >
                 <strong style={{ color: ACCENT }}>TL;DR</strong> — Snipes are street-level
-                sticker and pole-sign campaigns installed on permitted surfaces in 50+ US cities.
-                Production, crew, install, and 100% photo documentation are all included — the
-                most cost-efficient way to build frequency in a target corridor. Call{" "}
+                sticker and pole-sign campaigns across a mix of permitted and non-permitted
+                spots in 50+ US cities. Production, crew, install, and a proof-of-install
+                report within 7 business days are included. Lead time is 10–14 business days
+                from final art approval. Call{" "}
                 <a href={BUSINESS.telHref} style={{ color: ACCENT }}>
                   {BUSINESS.telephoneDisplay}
                 </a>{" "}
-                or request a quote to launch a campaign in under three weeks.
+                or request a quote.
               </p>
             </div>
           </div>

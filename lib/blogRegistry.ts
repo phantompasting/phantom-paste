@@ -468,7 +468,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     faqs: [
       {
         q: "Do you offer wheat pasting in Seattle?",
-        a: "Yes — Seattle is one of our most-active Pacific Northwest markets. Wheat pasting, wild posting, and street postering are the same service here: paper posters on owner-authorized walls and barricades across Pioneer Square, Capitol Hill's Pike-Pine corridor, Ballard, Fremont, and the U District, installed by crews that work the city year-round.",
+        a: "Yes — Seattle is one of our most-active Pacific Northwest markets. Wheat pasting, wild posting, and street postering are the same service here: paper posters across Pioneer Square, Capitol Hill's Pike-Pine corridor, Ballard, Fremont, and the U District, on a mix of owner-approved walls, barricades, and non-permitted spots such as old construction sites. Crews work the city year-round.",
       },
       {
         q: "Does wheat pasting work in Seattle's rain?",
@@ -548,7 +548,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     faqs: [
       {
         q: "Do you offer wild posting on the Lower East Side?",
-        a: "Yes — the LES is the first neighborhood we quote for Manhattan campaigns. Wild posting, wheat pasting, and flyposting are the same service here: paper posters on owner-authorized walls across Ludlow, Orchard, Essex, Rivington, and Stanton, installed overnight and documented with GPS-logged photos the next morning.",
+        a: "Yes — the LES is the first neighborhood we quote for Manhattan campaigns. Wild posting, wheat pasting, and flyposting are the same service here: paper posters across Ludlow, Orchard, Essex, Rivington, and Stanton, on a mix of owner-approved walls and non-permitted street spots. Installs run overnight. The proof-of-install report, with GPS-logged photos, lands within 7 business days.",
       },
       {
         q: "Why is the Lower East Side the best wild posting neighborhood in Manhattan?",
@@ -594,7 +594,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
       {
         q: "Is wheat pasting legal in the Bronx?",
-        a: "The legal reality is the same citywide: NYC enforces unlawful posting on public property, so we work owner-authorized private walls and coordinated construction barricades. Enforcement pressure in the Bronx is lower than Midtown, but the clean-campaign playbook doesn't change.",
+        a: "NYC enforces unlawful posting on public property. Our Bronx runs mix owner-approved walls and coordinated construction barricades with non-permitted spots such as abandoned buildings and old construction sites. Enforcement pressure is lower than Midtown. Permission-only is available if you ask.",
       },
       {
         q: "What's the Mott Haven opportunity for brands?",
@@ -632,7 +632,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
       {
         q: "Is wheat pasting legal in Williamsburg and Brooklyn?",
-        a: "On owner-authorized walls and permitted construction barricades, yes. NYC enforces unlawful posting on public property, so we work private, owner-authorized surfaces and coordinate on barricades — clean commercial campaigns on authorized walls are how it's done here.",
+        a: "On owner-authorized walls and permitted construction barricades, yes. NYC enforces unlawful posting on public property. Our Williamsburg runs mix those surfaces with non-permitted spots such as abandoned buildings and old construction sites. Permission-only is available if you ask.",
       },
       {
         q: "How long do wheat paste posters last in Brooklyn?",
@@ -872,15 +872,15 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
       {
         q: "How much does a Melrose wheat pasting campaign cost?",
-        a: "Wall rights run $250–$500+ per slot in the Fairfax–Spaulding hype core, $180–$300 in the boutique belt, and $150–$250 toward La Brea. A first 80-poster test across the core runs roughly $4,000–$6,000 including next-morning photo documentation.",
+        a: "Wall rights run $250–$500+ per slot in the Fairfax–Spaulding hype core, $180–$300 in the boutique belt, and $150–$250 toward La Brea. A first 80-poster test across the core runs roughly $4,000–$6,000 including the proof-of-install report within 7 business days.",
       },
       {
         q: "How far in advance do I need to book Melrose walls?",
-        a: "Plan on 7–10 days from sign-off to install for a standard run; the best walls book weeks ahead around fashion week, awards season, and major drop calendars. We scout the corridor, hold walls against your creative, then print.",
+        a: "Plan on 10–14 business days from final art approval for a standard run; the best walls book weeks ahead around fashion week, awards season, and major drop calendars. We scout the corridor, hold walls against your creative, then print.",
       },
       {
         q: "Is wheat pasting legal on Melrose?",
-        a: "Yes on owner-authorized private-property walls, which is what we run. LAPD does not enforce unlawful posting on clean commercial campaigns, and Melrose sits outside the historic-preservation zones that complicate parts of Hollywood and downtown. Scaffold wraps are the exception and need DBS permits.",
+        a: "Owner-authorized private walls are legal, and Melrose sits outside the historic-preservation zones that complicate parts of Hollywood and downtown. Our runs mix those walls with non-permitted spots such as abandoned buildings and old construction sites, unless you ask for a permission-only route. LAPD does not spend its time on clean commercial paper. Scaffold wraps are the exception and need DBS permits.",
       },
       {
         q: "Which part of Melrose should my brand run?",
@@ -1296,7 +1296,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       },
       {
         q: "When does wheat pasting beat billboards?",
-        a: "Streetwear, music, film, premium alcohol, and culture-driven DTC. Any brand whose audience is under 35 and concentrated in specific urban neighborhoods. Compressed timelines (7–10 days vs 4–8 weeks for OOH).",
+        a: "Streetwear, music, film, premium alcohol, and culture-driven DTC. Any brand whose audience is under 35 and concentrated in specific urban neighborhoods. Lead time is 10–14 business days from final art approval, against 4–8 weeks for traditional OOH.",
       },
       {
         q: "Can a brand use both formats?",

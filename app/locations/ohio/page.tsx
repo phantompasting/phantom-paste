@@ -86,7 +86,7 @@ const data: CityPageData = {
     },
     {
       q: "How long do posters last in Ohio weather?",
-      a: "4–6 weeks typical. Ohio's humidity and lake-effect precipitation are average for the Midwest; we schedule installs around rain windows and every placement is photo-documented within 48 hours, so your proof exists regardless of weather.",
+      a: "4–6 weeks typical. Ohio's humidity and lake-effect precipitation are average for the Midwest; we schedule installs around rain windows. The proof-of-install report follows within 7 business days, so the record exists regardless of weather.",
     },
     {
       q: "Can you time campaigns to OSU game weekends or BLINK Cincinnati?",

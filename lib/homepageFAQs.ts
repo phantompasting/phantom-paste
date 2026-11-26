@@ -16,7 +16,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "How quickly can you launch a campaign?",
-    a: "Rush campaigns in as little as 5–7 business days from artwork approval. Standard campaigns take 2–3 weeks. We'll always confirm the realistic timeline upfront.",
+    a: "Lead time is 10–14 business days from final art approval. That window covers print, crew scheduling, and the install itself. We'll confirm the exact dates once the artwork is locked.",
   },
   {
     q: "Do you cover cities outside of New York?",
@@ -41,7 +41,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "Are wheat paste posters illegal?",
-    a: "Wheat paste posters are legal on owner-authorized private walls in every major US city. Cities have unlawful posting ordinances for unauthorized public placement, but commercial campaigns operating with property-owner consent fall outside enforcement. Phantom Pasting only installs on authorized walls.",
+    a: "Wheat paste is legal on owner-authorized private walls. Cities also ticket unauthorized posting on public property. Phantom Pasting installs are a mix of permitted sites and non-permitted ones — abandoned buildings and old construction sites included. If your brand needs a permission-only run, say so at the quote stage.",
   },
   {
     q: "How long do wheat paste posters last?",
@@ -53,7 +53,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "Do you need a permit to wheatpaste?",
-    a: "Most wheat paste installations on owner-authorized private walls don't require permits — owner consent is the legal standard. Permits are needed for scaffold wraps in NYC (DOB), historic-district walls in Miami Wynwood, and some Pioneer Square locations in Seattle. We handle all required permits.",
+    a: "Permitted private walls usually don't need a city permit beyond the owner's yes. Scaffold wraps in NYC, some historic-district walls, and a few Pioneer Square spots do. Our installs also include non-permitted sites such as abandoned buildings and old construction sites. Where a placement needs a permit, we flag it in the quote and handle the paperwork.",
   },
   // ── "Wild posting" keyword coverage (added 2026-06-20) ──────────────────
   // "Wild posting" is a high-intent synonym for wheat pasting / flyposting
@@ -67,7 +67,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "How does wild posting work?",
-    a: "Phantom Pasting sources owner-authorized walls in your target neighborhoods, prints your artwork, and installs posters with wheat paste — a flour-based adhesive that bonds to brick, plywood, and concrete. Posters go up in clustered runs for saturation, then we deliver timestamped, geo-tagged photo documentation of every hit. Rush campaigns launch in 5–7 business days.",
+    a: "Phantom Pasting scouts a mix of surfaces in your target neighborhoods — permitted walls where we have them, plus abandoned buildings, old construction sites, and other street-level spots — then prints your artwork and installs it with wheat paste. Posters go up in clustered runs. The proof-of-install report, with timestamped, geo-tagged photos, lands within 7 business days. Lead time is 10–14 business days from final art approval.",
   },
   {
     q: "How effective is wild posting?",
@@ -92,7 +92,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "Does wheat pasting damage walls or buildings?",
-    a: "No. Wheat paste is a water-soluble flour adhesive that sits on the surface — it doesn't penetrate or stain brick, concrete, or plywood. Posters weather off naturally or peel away with water, leaving the wall intact. Phantom Pasting installs only on owner-authorized surfaces and can remove posters cleanly on request.",
+    a: "No. Wheat paste is a water-soluble flour adhesive that sits on the surface — it doesn't penetrate or stain brick, concrete, or plywood. Posters weather off naturally or peel away with water, leaving the wall intact. We can remove posters cleanly on request.",
   },
   {
     q: "How long does wheat paste take to dry?",
@@ -120,10 +120,10 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "What are the pros and cons of guerrilla marketing?",
-    a: "Pros: low cost, high memorability, shareable moments, and outsized reach when a campaign catches on. Cons: outcomes are harder to predict than paid media, and poorly planned stunts can misfire or hit permit issues. Working with an experienced installer on owner-authorized walls keeps the upside without the risk.",
+    a: "Pros: low cost, high memorability, shareable moments, and outsized reach when a campaign catches on. Cons: outcomes are harder to predict than paid media, and a sloppy placement can come down early. An experienced crew that knows which walls are permitted and which are street spots keeps the plan honest.",
   },
   {
     q: "Is guerrilla marketing legal?",
-    a: "Guerrilla marketing is legal when done on authorized surfaces with property-owner or permit consent. The tactics themselves — posters, stencils, activations — are lawful; issues only arise from unauthorized placement without permission. Phantom Pasting operates only on owner-authorized walls and handles any required permits.",
+    a: "Guerrilla marketing is legal on authorized surfaces with property-owner or permit consent. Placements without permission can draw a citation. Phantom Pasting runs a mix: permitted sites where the brief calls for them, and non-permitted spots such as abandoned buildings and old construction sites. Permission-only routes are available if you ask, and we handle permits where a site actually requires one.",
   },
 ] as const;

@@ -214,9 +214,10 @@ export default function Post() {
           on the wall. Reprint, reschedule, second install. Expensive lesson.
         </li>
         <li>
-          <strong>Running wheat paste without a content capture plan.</strong> If the brand
-          doesn&apos;t have a photographer on the walls by 10 a.m. the next morning, half the
-          value is walking past every minute the sun moves.
+          <strong>Running wheat paste without a content capture plan.</strong> If nobody
+          photographs the walls while they are fresh, half the value walks past. Our
+          proof-of-install report lands within 7 business days; a brand shoot can happen
+          on its own schedule.
         </li>
         <li>
           <strong>Picking walls by price, not by neighborhood signal.</strong> A $150 wall in a

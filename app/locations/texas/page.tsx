@@ -97,7 +97,7 @@ const data: CityPageData = {
     },
     {
       q: "When is the best time to run Austin campaigns?",
-      a: "SXSW (March), ACL (October), and the F1 race weekend (October) drive the highest-attention windows. Wall space books out 4-6 weeks ahead during those windows; everything else is rolling availability with 7-10 day lead times.",
+      a: "SXSW (March), ACL (October), and the F1 race weekend (October) drive the highest-attention windows. Wall space books out 4-6 weeks ahead during those windows. Outside them, lead time is 10–14 business days from final art approval.",
     },
     {
       q: "Can you handle festival-week deployments in Austin?",

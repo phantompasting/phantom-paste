@@ -83,7 +83,7 @@ const data: CityPageData = {
     },
     {
       q: "How do Minnesota winters affect campaigns?",
-      a: "May–October is the reliable season; posters hold 4–6 weeks. Deep-winter installs are limited to thaw windows, which is why release campaigns here cluster around the festival summer. Every placement gets 48-hour photo proof.",
+      a: "May–October is the reliable season; posters hold 4–6 weeks. Deep-winter installs are limited to thaw windows, which is why release campaigns here cluster around the festival summer. The proof-of-install report follows within 7 business days.",
     },
     {
       q: "Can you time a campaign to Art-A-Whirl or a First Avenue run?",

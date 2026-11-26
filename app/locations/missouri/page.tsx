@@ -71,7 +71,7 @@ const data: CityPageData = {
   faqs: [
     {
       q: "Is wheat pasting legal in Missouri?",
-      a: "Yes on owner-authorized walls. KC's Crossroads and STL's Cherokee Street have deep poster-and-mural cultures; standard private-property consent applies statewide. We work only from our authorized-wall database.",
+      a: "Owner-authorized walls are legal, and KC's Crossroads and STL's Cherokee Street have deep poster-and-mural cultures. Our runs mix those walls with non-permitted spots such as abandoned buildings and old construction sites. Permission-only is available if you ask.",
     },
     {
       q: "What Missouri cities do you cover?",
@@ -87,7 +87,7 @@ const data: CityPageData = {
     },
     {
       q: "How long do posters last in Missouri weather?",
-      a: "4–6 weeks in season. Summer humidity and winter freeze weeks trim the edges; installs are scheduled around rain windows and every placement is photo-documented within 48 hours.",
+      a: "4–6 weeks in season. Summer humidity and winter freeze weeks trim the edges; installs are scheduled around rain windows. The proof-of-install report follows within 7 business days.",
     },
   ],
   localBusiness: {

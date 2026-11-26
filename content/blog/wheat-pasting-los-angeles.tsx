@@ -230,7 +230,7 @@ export default function Post() {
         between Fairfax and Spaulding, 40 posters on Fairfax between Melrose and Rosewood, 40
         posters in Silver Lake on Sunset. Three corridors, 160 posters, $5,500 budget. That run
         tests the creative against the highest-signal wall audience in the US and gives the brand
-        documentation for a press kit or pitch deck within 48 hours.
+        a proof-of-install report within 7 business days, ready for a press kit or pitch deck.
       </p>
 
       <h2>Ready to Run LA?</h2>

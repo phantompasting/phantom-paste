@@ -125,8 +125,8 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        We print, we install, we photograph every wall with a map pin, and you get
-        the report the next morning so you can post it. For what each tier costs,
+        We print, we install, we photograph every wall with a map pin, and the
+        proof-of-install report lands within 7 business days so you can post it. For what each tier costs,
         the <BlogLink slug="wheat-pasting-cost">cost guide</BlogLink> has current
         numbers. The short version is that a 25-poster run in Los Angeles starts
         under two thousand dollars, printing included, and that&apos;s less than most
@@ -136,8 +136,8 @@ export default function Post() {
       <PullQuote attribution="Mateo Vargas, Field Operations Lead">
         <p>
           The artists who get the most out of a run are the ones who treat the
-          install photos as content. Wall goes up Tuesday night, photos are on
-          their story Wednesday morning, and now the poster is working twice. Once
+          install photos as content. The wall goes up, the proof-of-install report
+          follows within 7 business days, and the poster starts working twice. Once
           on the street and once on the phone.
         </p>
       </PullQuote>

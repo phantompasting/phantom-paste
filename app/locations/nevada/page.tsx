@@ -65,7 +65,7 @@ const data: CityPageData = {
     eyebrow: "Statewide Capability",
     title: "VEGAS + HENDERSON + RENO ON ONE BRIEF",
     body:
-      "Most agencies route Nevada to Las Vegas-only. We run Vegas plus Henderson, Reno, North Las Vegas, Carson City, and Sparks from coordinated crew rotations. Vegas conference-week deployments (CES, NAB, Magic Week, Defcon, EDC) are a specialty — saturation timed to the event window with documented next-morning photo proof. Reno's Midtown is one of NV's most under-served opportunities for brands willing to deploy beyond Vegas.",
+      "Most agencies route Nevada to Las Vegas-only. We run Vegas plus Henderson, Reno, North Las Vegas, Carson City, and Sparks from coordinated crew rotations. Vegas conference-week deployments (CES, NAB, Magic Week, Defcon, EDC) are a specialty — saturation timed to the event window, with a proof-of-install report within 7 business days. Reno's Midtown is one of NV's most under-served opportunities for brands willing to deploy beyond Vegas.",
     links: [
       { label: "How a Campaign Works", href: "/blog/wheat-pasting-campaign" },
       { label: "Get a Nevada Quote", href: "/contact" },

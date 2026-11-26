@@ -147,7 +147,7 @@ const FAQS = [
   },
   {
     q: "How quickly can a campaign go live?",
-    a: "Standard lead time is 2–3 weeks from approved brief to first install — that covers strategy, wall scouting or stencil cutting, print production, and scheduling. Rush timelines under 2 weeks are possible for single-city campaigns depending on capacity.",
+    a: "Lead time is 10–14 business days from final art approval. That covers print, wall scouting or stencil cutting, and crew scheduling. We confirm the install dates once the artwork is locked.",
   },
 ];
 

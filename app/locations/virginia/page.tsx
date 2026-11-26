@@ -89,7 +89,7 @@ const data: CityPageData = {
     },
     {
       q: "How long do posters last in Virginia weather?",
-      a: "4–6 weeks typical. Coastal Hampton Roads humidity trims the top end; Richmond and Charlottesville run standard. Every placement is photo-documented within 48 hours.",
+      a: "4–6 weeks typical. Coastal Hampton Roads humidity trims the top end; Richmond and Charlottesville run standard. The proof-of-install report follows within 7 business days.",
     },
   ],
   localBusiness: {

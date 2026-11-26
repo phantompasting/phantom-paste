@@ -85,7 +85,7 @@ const PRICING = [
 const FAQS = [
   {
     q: "Is it legal to put flyers on car windshields in Los Angeles?",
-    a: "It depends on the surface. On public streets, windshield flyers are restricted and anti-litter rules apply; on private lots, you need the property owner's permission. Hand-to-hand handbilling on public LA sidewalks is far more protected. Phantom Pasting flyers from permitted lots and public corridors and keeps placement clean and compliant. See our guide: are windshield flyers legal.",
+    a: "It depends on the surface. On public streets, windshield flyers are restricted and anti-litter rules apply; on private lots, you need the property owner's permission. Hand-to-hand handbilling on public LA sidewalks is far more protected. Our LA routes mix permitted lots with street drops that are not licensed placements. See our guide: are windshield flyers legal.",
   },
   {
     q: "Why does street flyering work so well in Los Angeles?",
@@ -101,7 +101,7 @@ const FAQS = [
   },
   {
     q: "How fast can a flyering campaign go live in LA?",
-    a: "Most LA runs go live 5–10 days from approved artwork — covering print, route planning, and scheduling. Rush single-zone runs are possible in 2–4 days depending on capacity.",
+    a: "Lead time is 10–14 business days from final art approval — covering print, route planning, and scheduling. We confirm the first distribution date once the artwork is locked.",
   },
 ];
 

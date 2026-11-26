@@ -114,8 +114,8 @@ export default function Post() {
       </table>
       <p>
         <em>
-          Ranges reflect private-wall sourcing, single-city production, and next-morning photo
-          documentation included. Multi-city discounts apply past two markets.
+          Ranges reflect single-city production with the proof-of-install report included.
+          Sites are a mix of permitted walls and non-permitted spots. Multi-city discounts apply past two markets.
         </em>
       </p>
 

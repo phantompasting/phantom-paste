@@ -76,8 +76,8 @@ const STEPS = [
   {
     num: "04",
     title: "DOCUMENT & REPORT",
-    desc: "Every installation is photographed, timestamped, and geo-tagged. Branded campaign reports are delivered within 48 hours — ready to repost or pitch.",
-    bullets: ["100% photo proof per location", "Branded report within 48 hrs"],
+    desc: "Every installation is photographed, timestamped, and geo-tagged. The proof-of-install report is delivered within 7 business days — ready to repost or pitch.",
+    bullets: ["100% photo proof per location", "Proof-of-install report within 7 business days"],
   },
 ];
 
@@ -371,7 +371,7 @@ export default function ChalkSprayStencilsPage() {
               HOW CHALK STENCIL CAMPAIGNS <ShinyGoldText>WORK.</ShinyGoldText>
             </h2>
             <p className="font-light mb-10 m-0" style={{ color: "rgba(0,0,0,0.55)", fontSize: "15px", maxWidth: "640px" }}>
-              Four steps, from custom cut to photo-documented install. Most chalk campaigns run 3–10 business days end-to-end.
+              Four steps, from custom cut to photo-documented install. Lead time is 10–14 business days from final art approval. The proof-of-install report follows within 7 business days.
             </p>
             <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px list-none m-0 p-0" style={{ background: "rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.06)", borderRadius: "20px", overflow: "hidden" }}>
               {STEPS.map((step) => (

@@ -56,7 +56,7 @@ const PAPERWORK = [
 
 const COMMITMENTS = [
   { title: "The count you paid for", desc: "We install the agreed poster count. If a wall falls through, we replace it with a comparable wall in the same area or credit the difference. You never pay for posters that did not go up." },
-  { title: "Proof of every placement", desc: "Every wall is photographed with a time stamp and location. Your photo report lands within 72 hours of the final install day, with a map of every placement." },
+  { title: "Proof of every placement", desc: "Every wall is photographed with a time stamp and location. Your proof-of-install report lands within 7 business days of the final install day, with a map of every placement." },
   { title: "Finish you can photograph", desc: "Posters go up flat, aligned, and fully pasted. Small bubbles and wrinkles settle as paste dries; anything that does not settle is fixed on our dime." },
   { title: "Spares and refresh passes", desc: "We print spares on every run. Weather and tear-downs happen on the street, so a refresh pass is priced up front if you want your walls kept fresh after launch." },
 ];
@@ -76,7 +76,7 @@ const TRUST_STACK = [
   { stage: "Before you sign", gets: "Itemized quote, sample photo report, insurance summary, and answers to anything on this page in writing." },
   { stage: "Before install", gets: "Signed agreement, neighborhood plan, artwork check (size, bleed, resolution), install dates, and a certificate of insurance if the site needs one." },
   { stage: "Install day", gets: "Crew on site on the agreed dates, every wall photographed with time and location." },
-  { stage: "Within 72 hours", gets: "Full photo report, placement map, and social-ready images." },
+  { stage: "Within 7 business days", gets: "Full proof-of-install report, placement map, and social-ready images." },
   { stage: "After launch", gets: "Optional refresh pass, and a check-in on what the campaign drove (QR scans, landing-page visits) if you tracked it." },
 ];
 
@@ -91,7 +91,7 @@ const FAQS = [
   },
   {
     q: "What does an authorized wall mean?",
-    a: "It means the surface owner or the party that controls it, such as a developer, landlord, or your own business, has agreed to the posters. If your brand or legal team requires permission-only placements, tell us at the quote stage: we scope the run to authorized surfaces only and keep a record of who approved each one.",
+    a: "It means the surface owner, or whoever controls it — a developer, a landlord, or your own business — has agreed to the posters. A standard Phantom Pasting install mixes those sites with non-permitted ones, including abandoned buildings and old construction sites. If your brand or legal team requires permission-only placements, tell us at the quote stage: we scope the run to authorized surfaces only and keep a record of who approved each one.",
   },
   {
     q: "What happens if posters are removed or covered early?",
@@ -99,7 +99,7 @@ const FAQS = [
   },
   {
     q: "Who handles permits?",
-    a: "Most private-wall placements do not need a city permit when the surface owner has agreed. Where a city, district, or venue requires one, we tell you in the quote, list any fee as its own line, and handle the paperwork.",
+    a: "A permitted private wall usually does not need a city permit beyond the owner's yes. Where a city, district, or venue requires one, we tell you in the quote, list any fee as its own line, and handle the paperwork. Plenty of placements are non-permitted sites — abandoned buildings, old construction sites — and those are labeled as such in the plan.",
   },
   {
     q: "What is included in a Phantom Pasting quote?",
@@ -115,7 +115,7 @@ const FAQS = [
   },
   {
     q: "Do you guarantee results?",
-    a: "We guarantee what we control: poster count, finish quality, install dates, and a photo report within 72 hours. We do not promise sales or invent impression numbers. If you add a QR code or a campaign URL, you can measure scans and visits directly.",
+    a: "We guarantee what we control: poster count, finish quality, install dates, and a proof-of-install report within 7 business days. Lead time is 10–14 business days from final art approval. We do not promise sales or invent impression numbers. If you add a QR code or a campaign URL, you can measure scans and visits directly.",
   },
   {
     q: "Can I get references?",
@@ -247,13 +247,15 @@ export default function StandardsPage() {
             </div>
             <div className="flex flex-col gap-5">
               <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}>
-                An authorized wall is one where the surface owner, or whoever controls it (a developer, a landlord, or your own business),
-                has agreed to the posters. Before install you get the neighborhoods and wall types in writing, and after install you get a
-                photo and location for every single placement.
+                Installs are a mix. Some walls are permitted or owner-approved. Others are non-permitted
+                spots — abandoned buildings, old construction sites, leftover plywood. Before install you
+                get the neighborhoods and wall types in writing, and the proof-of-install report within
+                7 business days shows a photo and location for every placement.
               </p>
               <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}>
-                If your brand, venue, or legal team requires permission-only placements, say so at the quote stage. We scope the run to
-                authorized surfaces only and keep a record of who approved each one. Private owner details stay private unless the owner agrees.
+                An authorized wall is one where the surface owner, or whoever controls it (a developer, a landlord, or your own business),
+                has agreed to the posters. If your brand, venue, or legal team requires permission-only placements, say so at the quote stage.
+                We scope that run to authorized surfaces only and keep a record of who approved each one. Private owner details stay private unless the owner agrees.
               </p>
               <p className="font-light leading-relaxed m-0" style={{ color: "rgba(0,0,0,0.6)", fontSize: "15px" }}>
                 Our materials are paper and water-based paste, and chalk for stencils. Nothing permanent, no solvents, no damage to the surface underneath.

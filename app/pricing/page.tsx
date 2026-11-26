@@ -169,7 +169,7 @@ const TIERS = [
       "LA + NYC + Miami most common",
       "Coordinated overnight install windows",
       "Unified reporting across cities",
-      "8–14 day lead time",
+      "10–14 business days from final art approval",
     ],
   },
   {
@@ -180,7 +180,7 @@ const TIERS = [
       "Wheat paste + snipes + chalk stencils",
       "Coordinated paste + scaffold (NYC)",
       "Festival-week saturation available",
-      "12–18 day lead time",
+      "10–14 business days from final art approval",
     ],
   },
 ];
@@ -318,7 +318,7 @@ export default function PricingPage() {
               <li>· <strong>Multi-city rollout:</strong> $15K–$25K for 2–3 cities; $45K–$90K for full 5–7 city national</li>
               <li>· <strong>Per-poster all-in cost:</strong> $33–$55 installed (print + paste + wall rights + labor + documentation + project management)</li>
               <li>· <strong>OOH alternative math:</strong> Wheat paste delivers $0.10–$0.30 in-person CPM vs. $4–$15 for traditional out-of-home</li>
-              <li>· <strong>Lead time:</strong> 7–10 days from sign-off to install (vs. 4–8 weeks for traditional billboard buys)</li>
+              <li>· <strong>Lead time:</strong> 10–14 business days from final art approval (vs. 4–8 weeks for traditional billboard buys)</li>
               <li>· <strong>Wild posting / experiential / pop-up activations:</strong> Same per-poster math; the surround-attention layer typically runs $8K–$22K per city</li>
             </ul>
           </div>
@@ -447,8 +447,8 @@ export default function PricingPage() {
                   5. DOCUMENTATION — STANDARD VS PREMIUM
                 </h3>
                 <p style={{ color: "rgba(0,0,0,0.7)", fontSize: "16px", lineHeight: "1.65" }}>
-                  Standard documentation (next-morning photo pass per wall, GPS-pinned, delivered
-                  in 48 hours) is included in every quote. Premium documentation — full video
+                  Standard documentation (daylight photo pass per wall, GPS-pinned, delivered
+                  as a proof-of-install report within 7 business days) is included in every quote. Premium documentation — full video
                   walk-through, drone overhead shots where permitted, edited recap reel for the
                   brand&apos;s social — adds $800–$2,500 to the campaign.
                 </p>

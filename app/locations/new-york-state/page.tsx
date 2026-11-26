@@ -105,7 +105,7 @@ const data: CityPageData = {
     },
     {
       q: "How quickly can an upstate campaign launch?",
-      a: "Upstate markets: 7-10 business days. Multi-city briefs covering several upstate metros, or upstate plus NYC, need 12-15 days to coordinate crews across the regions.",
+      a: "Lead time is 10–14 business days from final art approval, including multi-city briefs that pair upstate markets with NYC.",
     },
     {
       q: "Which upstate markets work best for wheat pasting?",
