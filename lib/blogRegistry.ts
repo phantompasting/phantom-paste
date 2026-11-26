@@ -121,42 +121,42 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
-    slug: "gta-iv-vice-city-wheat-paste-miami",
-    title: "GTA IV (Vice City) Wheat Paste in Miami for Turtle Beach",
+    slug: "gta-iv-vice-city-marketing-wheat-paste",
+    title: "GTA IV (Vice City) Marketing: Why Wheat Paste Piggybacks on a Game",
     titleHighlight: "GTA IV (Vice City)",
-    metaTitle: "GTA IV (Vice City) Wheat Paste Miami",
+    metaTitle: "GTA IV (Vice City) Wheat Paste Marketing",
     metaDescription:
-      "GTA IV (Vice City) wheat paste in Miami: Turtle Beach posters via Merge on Wynwood and Miami Beach walls, refreshed Nov 24 after people ripped them down.",
+      "GTA IV (Vice City) wheat paste marketing: wild posting lets a gaming headphone brand ride Vice City, and people tear the posters trying to keep them.",
     excerpt:
-      "Turtle Beach, through the agency Merge, wheat pasted Miami with posters themed on GTA IV (Vice City). Six sites on November 19, then a November 24 refresh after people ripped the paper off the walls.",
+      "A big game release teaches the picture before a poster goes up. Wheat paste lets a brand with a real tie to the niche, like gaming headphones, borrow the Vice City theme. People tried to take the posters home. The paste tore them, so we put new ones up.",
     silo: "strategy-roi",
     publishedAt: "2026-11-26",
     updatedAt: "2026-11-26",
-    heroImage: "/blog/heroes/turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami-hero.webp",
-    heroAlt: "Pedestrians walking past a long grid of Turtle Beach wheat paste posters on a construction fence at 161 NW 28th Street in Miami",
+    heroImage: "/blog/heroes/gta-vice-city-wheat-paste-posters-reinstalled-hero.webp",
+    heroAlt: "Gaming headphone wheat paste posters themed on Vice City, reinstalled after people tore the sheets trying to pull them off the wall",
     authorSlug: MATEO_VARGAS.slug,
-    tags: ["gta", "vice-city", "gta-marketing", "wheat-paste", "wild-posting", "miami", "turtle-beach", "case-study"],
-    wordCount: 1494,
+    tags: ["gta", "vice-city", "gta-marketing", "wheat-paste", "wild-posting"],
+    wordCount: 940,
     faqs: [
       {
-        q: "Was the Miami Turtle Beach wheat paste an official GTA or Rockstar Games campaign?",
-        a: "No. It was a Turtle Beach campaign, run through the agency Merge, with posters themed on the Vice City setting of GTA IV (Vice City). Phantom Pasting installed the wheat paste. Rockstar Games did not commission it, and the walls were not official game posters.",
+        q: "Is wheat paste themed on GTA IV (Vice City) an official Rockstar Games campaign?",
+        a: "No. The example in this post is a gaming headphone brand using the Vice City theme. Rockstar Games did not commission the posters, and the walls were not official game ads.",
       },
       {
-        q: "Where did the GTA IV (Vice City) wheat paste go up in Miami?",
-        a: "Wave 1 on Thursday, November 19, 2026: 161 NW 28th St, 2818 N Miami Ave, 1800 N Miami Ave in the Arts & Entertainment District, 2214 and 2341 N Miami Ave in Wynwood, and 229 9th St on Miami Beach. The November 24 refresh kept those except 1800 N Miami Ave, and added 1317 N Miami Ave in Park West, 2621 NW 2nd Ave, 111 NW 28th St, and 210 NE 18th St.",
+        q: "Why does GTA marketing work as wheat paste?",
+        a: "A big game release already taught people the picture. Wild posting puts a brand that belongs in that world, like gaming headphones, at eye level, where someone can actually stop and touch it. The theme does the explaining. The wall does the reminding.",
       },
       {
-        q: "What is the difference between wild posting and wheat paste on this campaign?",
-        a: "Nothing on the wall. Wild posting is the name on the agency brief. Wheat paste is the medium we install. Same Turtle Beach posters, same Miami sites.",
+        q: "What is the difference between wild posting and wheat paste?",
+        a: "Nothing on the wall. Wild posting is the name on a lot of briefs. Wheat paste is the medium: paper, glue, and a brush. Same posters.",
       },
       {
-        q: "Were the Miami wheat paste sites permitted?",
-        a: "Some were, some were not. The route mixed construction fences and storefronts. This run was not a fully permitted campaign.",
+        q: "Why did the posters tear when people tried to take them?",
+        a: "They wanted the sheets as memorabilia. Wheat paste holds the paper to the wall harder than the paper holds together, so the posters tore in half instead of coming off clean. We reinstalled fresh sheets over the torn ones.",
       },
       {
-        q: "How long does a wheat paste campaign take, and when do the photos arrive?",
-        a: "Lead time is 10 to 14 business days from final art. The proof-of-install report goes out within 7 business days of the install.",
+        q: "Does a ripped wheat paste poster ruin the campaign?",
+        a: "It can do the opposite. A tear is a mark that somebody stopped and tried to keep the poster. We still reinstall, because a brand should not leave the wall half gone, but the rip itself is attention.",
       },
     ],
     relatedSlugs: ["wild-posting-vs-wheat-pasting", "wheat-pasting-campaign", "guerrilla-marketing-never-out-of-style"],

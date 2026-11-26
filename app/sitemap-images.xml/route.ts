@@ -45,31 +45,15 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Turtle Beach Wheat Paste Posters on a Storefront — Wynwood, Miami",
     caption: "Six Turtle Beach wheat paste posters in a two-row block on a graffiti-covered storefront wall on North Miami Avenue in Wynwood, Miami — by Phantom Pasting",
   },
-  "turtle-beach-gta-vice-city-wheat-paste-posters-ripped-storefront-2214-n-miami-ave-wynwood.webp": {
-    title: "Torn Turtle Beach Posters — 2214 N Miami Ave, Wynwood",
-    caption: "Torn Turtle Beach wheat paste posters on a graffiti-covered storefront at 2214 N Miami Ave in Wynwood, Miami, the night of November 24, 2026, before the refresh — by Phantom Pasting",
+  // Blog-only. No street address and no install date in the filename.
+  // These live in /public/blog, not the gallery.
+  "gta-vice-city-wheat-paste-posters-ripped.webp": {
+    title: "Wheat Paste Posters Torn Off a Wall",
+    caption: "Torn wheat paste posters for a gaming headphone brand themed on Vice City, ripped where people tried to pull them off the wall to keep — by Phantom Pasting",
   },
-  "turtle-beach-gta-vice-city-wheat-paste-posters-refreshed-storefront-2214-n-miami-ave-wynwood.webp": {
-    title: "Turtle Beach Posters Reinstalled — 2214 N Miami Ave, Wynwood",
-    caption: "Clean 2x2 grids of Turtle Beach wheat paste posters reinstalled on the storefront at 2214 N Miami Ave in Wynwood, Miami, the night of November 24, 2026 — by Phantom Pasting",
-  },
-  "turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami.webp": {
-    title: "Turtle Beach Poster Grid on a Construction Fence — 161 NW 28th St",
-    caption: "Pedestrians walking past a long grid of Turtle Beach wheat paste posters on a construction fence at 161 NW 28th Street in Miami — by Phantom Pasting",
-  },
-  "turtle-beach-gta-vice-city-wheat-paste-poster-grid-night-111-nw-28th-st-wynwood-miami.webp": {
-    title: "Turtle Beach Poster Grid at Night — 111 NW 28th St",
-    caption: "Night close-up of a 2-by-4 grid of Turtle Beach wheat paste posters at 111 NW 28th Street in Miami during the November 24 refresh — by Phantom Pasting",
-  },
-  // Street marketing around the Turtle Beach run. Not Phantom Pasting installs,
-  // so these live in /public/blog and are not part of the gallery page.
-  "vice-city-crowd-wynwood-night-street-miami.webp": {
-    title: "Vice City Sweatshirts on a Wynwood Sidewalk at Night",
-    caption: "Two people in matching black Vice City sweatshirts on a Wynwood sidewalk at night, with Vice City-branded rideshare cars behind them — an example of Vice City marketing already on the street in Miami",
-  },
-  "vice-city-car-wrap-script-logo-miami.webp": {
-    title: "Vice City Script Wrapped on a Car Door in Miami",
-    caption: "Close-up of a black car door wrapped with the pink and white Vice City script logo, another example of Vice City marketing on the street in Miami",
+  "gta-vice-city-wheat-paste-posters-reinstalled.webp": {
+    title: "Wheat Paste Posters Reinstalled After They Were Torn",
+    caption: "Gaming headphone wheat paste posters themed on Vice City, reinstalled after the torn sheets were replaced — by Phantom Pasting",
   },
   // ── Flatirons College — Lafayette, CO ──
   "flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp": {
@@ -595,13 +579,9 @@ const PAGE_IMAGES: Record<string, string[]> = {
   // Gallery — all campaign photography
   "/gallery": Object.keys(IMAGE_META),
 
-  "/blog/gta-iv-vice-city-wheat-paste-miami": [
-    "vice-city-crowd-wynwood-night-street-miami.webp",
-    "vice-city-car-wrap-script-logo-miami.webp",
-    "turtle-beach-gta-vice-city-wheat-paste-posters-ripped-storefront-2214-n-miami-ave-wynwood.webp",
-    "turtle-beach-gta-vice-city-wheat-paste-posters-refreshed-storefront-2214-n-miami-ave-wynwood.webp",
-    "turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami.webp",
-    "turtle-beach-gta-vice-city-wheat-paste-poster-grid-night-111-nw-28th-st-wynwood-miami.webp",
+  "/blog/gta-iv-vice-city-marketing-wheat-paste": [
+    "gta-vice-city-wheat-paste-posters-ripped.webp",
+    "gta-vice-city-wheat-paste-posters-reinstalled.webp",
   ],
 
   // Work / Case Studies
