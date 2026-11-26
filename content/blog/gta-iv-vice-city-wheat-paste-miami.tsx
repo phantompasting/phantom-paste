@@ -43,63 +43,38 @@ export default function Post() {
         been pointing at, and the poster asks if you noticed.
       </p>
       <p>
-        Two photos of how thick the GTA marketing is on these blocks are still
-        on the way. The boxes below are where they go. I am leaving them empty
-        on purpose. There is no impression count in this post, because we did
-        not take one.
+        Here is the street we were pasting into. These two are not our
+        installs, and they are not a count. They are Vice City marketing
+        already out in Wynwood while the Turtle Beach paper was going up:
+        matching sweatshirts on the sidewalk, and the script wrapped across
+        a car door. I am not going to guess who booked any of it.
       </p>
 
-      {/* TODO: GTA marketing-saturation image 1 of 2 — still coming from Kelvin. Street-level photo of GTA marketing around Miami. Do not swap in a stock photo. */}
       <figure style={{ margin: "2em auto", maxWidth: "620px" }}>
-        <div
-          role="img"
-          aria-label="TODO: GTA marketing saturation image 1, still coming"
-          style={{
-            width: "100%",
-            aspectRatio: "4 / 3",
-            borderRadius: "12px",
-            border: "2px dashed rgba(212,160,16,0.9)",
-            background: "rgba(212,160,16,0.08)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "1.5rem",
-            textAlign: "center",
-            color: "#1A1A1A",
-            fontWeight: 700,
-          }}
-        >
-          TODO: GTA marketing saturation image 1 — still coming
-        </div>
+        <img
+          src="/blog/vice-city-crowd-wynwood-night-street-miami.webp"
+          alt="Two people in matching black Vice City sweatshirts on a Wynwood sidewalk at night, faces turned away, with Vice City-branded rideshare cars behind them"
+          loading="lazy"
+          style={{ width: "100%", borderRadius: "12px", display: "block" }}
+        />
         <figcaption style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", marginTop: "0.6em", fontStyle: "italic" }}>
-          Placeholder. First photo of GTA marketing saturation in Miami. Not in the folder yet.
+          Wynwood at night. Matching Vice City sweatshirts on the sidewalk,
+          Vice City-branded cars in the street. The kind of marketing already
+          sitting on Miami. Not a Phantom Pasting wall.
         </figcaption>
       </figure>
 
-      {/* TODO: GTA marketing-saturation image 2 of 2 — still coming from Kelvin. Second angle of GTA marketing around Miami. Do not swap in a stock photo. */}
       <figure style={{ margin: "2em auto", maxWidth: "620px" }}>
-        <div
-          role="img"
-          aria-label="TODO: GTA marketing saturation image 2, still coming"
-          style={{
-            width: "100%",
-            aspectRatio: "4 / 3",
-            borderRadius: "12px",
-            border: "2px dashed rgba(212,160,16,0.9)",
-            background: "rgba(212,160,16,0.08)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "1.5rem",
-            textAlign: "center",
-            color: "#1A1A1A",
-            fontWeight: 700,
-          }}
-        >
-          TODO: GTA marketing saturation image 2 — still coming
-        </div>
+        <img
+          src="/blog/vice-city-car-wrap-script-logo-miami.webp"
+          alt="Close-up of a black car door in Miami wrapped with the pink and white Vice City script logo"
+          loading="lazy"
+          style={{ width: "100%", borderRadius: "12px", display: "block" }}
+        />
         <figcaption style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", marginTop: "0.6em", fontStyle: "italic" }}>
-          Placeholder. Second photo of GTA marketing saturation in Miami. Not in the folder yet.
+          The same script, close up, wrapped across a black door. Big enough
+          to read from the curb. Another piece of Vice City marketing on the
+          street, not one of our posters.
         </figcaption>
       </figure>
 

@@ -136,7 +136,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     heroAlt: "Pedestrians walking past a long grid of Turtle Beach wheat paste posters on a construction fence at 161 NW 28th Street in Miami",
     authorSlug: MATEO_VARGAS.slug,
     tags: ["gta", "vice-city", "gta-marketing", "wheat-paste", "wild-posting", "miami", "turtle-beach", "case-study"],
-    wordCount: 1464,
+    wordCount: 1494,
     faqs: [
       {
         q: "Was the Miami Turtle Beach wheat paste an official GTA or Rockstar Games campaign?",

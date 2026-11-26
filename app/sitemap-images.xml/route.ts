@@ -23,7 +23,6 @@ export const dynamic = "force-static";
 export const revalidate = false;
 
 const BASE = "https://www.phantompasting.com";
-const GALLERY_URL = `${BASE}/gallery`;
 
 // ── Image metadata ────────────────────────────────────────────────────────────
 // title: short descriptive label (shown in Google Images search results)
@@ -61,6 +60,16 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
   "turtle-beach-gta-vice-city-wheat-paste-poster-grid-night-111-nw-28th-st-wynwood-miami.webp": {
     title: "Turtle Beach Poster Grid at Night — 111 NW 28th St",
     caption: "Night close-up of a 2-by-4 grid of Turtle Beach wheat paste posters at 111 NW 28th Street in Miami during the November 24 refresh — by Phantom Pasting",
+  },
+  // Street marketing around the Turtle Beach run. Not Phantom Pasting installs,
+  // so these live in /public/blog and are not part of the gallery page.
+  "vice-city-crowd-wynwood-night-street-miami.webp": {
+    title: "Vice City Sweatshirts on a Wynwood Sidewalk at Night",
+    caption: "Two people in matching black Vice City sweatshirts on a Wynwood sidewalk at night, with Vice City-branded rideshare cars behind them — an example of Vice City marketing already on the street in Miami",
+  },
+  "vice-city-car-wrap-script-logo-miami.webp": {
+    title: "Vice City Script Wrapped on a Car Door in Miami",
+    caption: "Close-up of a black car door wrapped with the pink and white Vice City script logo, another example of Vice City marketing on the street in Miami",
   },
   // ── Flatirons College — Lafayette, CO ──
   "flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp": {
@@ -587,6 +596,8 @@ const PAGE_IMAGES: Record<string, string[]> = {
   "/gallery": Object.keys(IMAGE_META),
 
   "/blog/gta-iv-vice-city-wheat-paste-miami": [
+    "vice-city-crowd-wynwood-night-street-miami.webp",
+    "vice-city-car-wrap-script-logo-miami.webp",
     "turtle-beach-gta-vice-city-wheat-paste-posters-ripped-storefront-2214-n-miami-ave-wynwood.webp",
     "turtle-beach-gta-vice-city-wheat-paste-posters-refreshed-storefront-2214-n-miami-ave-wynwood.webp",
     "turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami.webp",
@@ -728,6 +739,7 @@ function escapeXml(s: string): string {
 function buildImageSitemap(): string {
   // Verify gallery dir exists at build time
   const galleryDir = join(process.cwd(), "public", "gallery");
+  const blogDir = join(process.cwd(), "public", "blog");
   const galleryExists = existsSync(galleryDir);
 
   // Cross-check: warn about any images in PAGE_IMAGES not in IMAGE_META
@@ -736,6 +748,14 @@ function buildImageSitemap(): string {
     ? new Set(readdirSync(galleryDir).filter((f) => f.endsWith(".webp") || f.endsWith(".jpg") || f.endsWith(".png")))
     : new Set<string>();
 
+  // Install photography lives in /public/gallery. A few blog-only reference
+  // photos live in /public/blog and must not be attributed to /gallery.
+  function imageUrl(imgFile: string): string | null {
+    if (galleryFiles.has(imgFile)) return `${BASE}/gallery/${imgFile}`;
+    if (existsSync(join(blogDir, imgFile))) return `${BASE}/blog/${imgFile}`;
+    return null;
+  }
+
   const entries: string[] = [];
 
   for (const [pagePath, images] of Object.entries(PAGE_IMAGES)) {
@@ -743,10 +763,12 @@ function buildImageSitemap(): string {
     const imageBlocks: string[] = [];
 
     for (const imgFile of images) {
-      // Skip if file doesn't actually exist in public/gallery
-      if (galleryExists && !galleryFiles.has(imgFile)) continue;
+      // The gallery page only lists files that are actually in /public/gallery.
+      if (pagePath === "/gallery" && !galleryFiles.has(imgFile)) continue;
 
-      const imgUrl = `${GALLERY_URL.replace("/gallery", "")}/gallery/${imgFile}`;
+      const imgUrl = imageUrl(imgFile);
+      if (!imgUrl) continue;
+
       const meta = knownImages.has(imgFile) ? IMAGE_META[imgFile] : null;
 
       imageBlocks.push(`    <image:image>
