@@ -206,6 +206,13 @@ export const GALLERY_IMGS = [
   { src: "/gallery/street-flyering-windshield-flyer-parked-cars-los-angeles.webp",        label: "Street Flyering — Street Run",          alt: "Phantom Pasting windshield flyers on a row of parked cars along a Los Angeles street",                         tag: "Flyering",    aspect: "portrait", campaign: "street-flyering" },
   { src: "/gallery/street-flyering-windshield-flyer-tan-car-los-angeles.webp",            label: "Street Flyering — Windshield Flyer",    alt: "Phantom Pasting flyer under the wiper of a parked car in a Los Angeles lot",                                   tag: "Flyering",    aspect: "portrait", campaign: "street-flyering" },
   { src: "/gallery/street-flyering-windshield-flyer-parking-lot-sunset-los-angeles.webp", label: "Street Flyering — Parking Lot",         alt: "Phantom Pasting windshield flyer on a car in a Los Angeles parking lot at sunset",                             tag: "Flyering",    aspect: "portrait", campaign: "street-flyering" },
+
+  // Turtle Beach refresh, Nov 24 — appended so the homepage lead set stays the
+  // four clean Wave 1 walls. Same campaign; the torn storefront is last.
+  { src: "/gallery/turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami.webp", label: "Turtle Beach — 161 NW 28th St Fence", alt: "Pedestrians walking past a long grid of Turtle Beach wheat paste posters on a construction fence at 161 NW 28th Street in Miami", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
+  { src: "/gallery/turtle-beach-gta-vice-city-wheat-paste-poster-grid-night-111-nw-28th-st-wynwood-miami.webp", label: "Turtle Beach — 111 NW 28th St Night", alt: "Night close-up of a 2-by-4 grid of Turtle Beach wheat paste posters at 111 NW 28th Street in Miami", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
+  { src: "/gallery/turtle-beach-gta-vice-city-wheat-paste-posters-refreshed-storefront-2214-n-miami-ave-wynwood.webp", label: "Turtle Beach — 2214 N Miami Ave Refreshed", alt: "Clean 2x2 grids of Turtle Beach wheat paste posters reinstalled on the storefront at 2214 N Miami Ave in Wynwood, Miami, the night of November 24, 2026", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
+  { src: "/gallery/turtle-beach-gta-vice-city-wheat-paste-posters-ripped-storefront-2214-n-miami-ave-wynwood.webp", label: "Turtle Beach — 2214 N Miami Ave Torn", alt: "Torn Turtle Beach wheat paste posters on a graffiti-covered storefront at 2214 N Miami Ave in Wynwood, Miami, at night on November 24, 2026", tag: "Wheat Paste", campaign: "turtle-beach-miami" },
 ] as const;
 
 export type GalleryImg = typeof GALLERY_IMGS[number];
@@ -217,7 +224,7 @@ export type GalleryImg = typeof GALLERY_IMGS[number];
  * job only needs its photos at the top of the list plus one entry below.
  */
 export const GALLERY_CAMPAIGNS: Record<string, { name: string; place: string; when?: string; href?: string }> = {
-  "turtle-beach-miami":  { name: "Turtle Beach",                       place: "Wynwood, Miami, FL",         when: "Nov 2026" },
+  "turtle-beach-miami":  { name: "Turtle Beach",                       place: "Wynwood, Miami, FL",         when: "Nov 2026", href: "/blog/gta-iv-vice-city-wheat-paste-miami" },
   "flatirons-college":   { name: "Flatirons College",                  place: "Lafayette, CO",              when: "Nov 2026" },
   "banksy-bay-area":     { name: "The Banksy Art Exhibit",             place: "Oakland + Emeryville, CA",   when: "Oct 2026" },
   "helix":              { name: "Nokia Bell Labs at The Helix",       place: "New Brunswick, NJ",          when: "Oct 2026", href: "/work/nokia-bell-labs-helix-new-jersey" },

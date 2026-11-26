@@ -46,6 +46,22 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
     title: "Turtle Beach Wheat Paste Posters on a Storefront — Wynwood, Miami",
     caption: "Six Turtle Beach wheat paste posters in a two-row block on a graffiti-covered storefront wall on North Miami Avenue in Wynwood, Miami — by Phantom Pasting",
   },
+  "turtle-beach-gta-vice-city-wheat-paste-posters-ripped-storefront-2214-n-miami-ave-wynwood.webp": {
+    title: "Torn Turtle Beach Posters — 2214 N Miami Ave, Wynwood",
+    caption: "Torn Turtle Beach wheat paste posters on a graffiti-covered storefront at 2214 N Miami Ave in Wynwood, Miami, the night of November 24, 2026, before the refresh — by Phantom Pasting",
+  },
+  "turtle-beach-gta-vice-city-wheat-paste-posters-refreshed-storefront-2214-n-miami-ave-wynwood.webp": {
+    title: "Turtle Beach Posters Reinstalled — 2214 N Miami Ave, Wynwood",
+    caption: "Clean 2x2 grids of Turtle Beach wheat paste posters reinstalled on the storefront at 2214 N Miami Ave in Wynwood, Miami, the night of November 24, 2026 — by Phantom Pasting",
+  },
+  "turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami.webp": {
+    title: "Turtle Beach Poster Grid on a Construction Fence — 161 NW 28th St",
+    caption: "Pedestrians walking past a long grid of Turtle Beach wheat paste posters on a construction fence at 161 NW 28th Street in Miami — by Phantom Pasting",
+  },
+  "turtle-beach-gta-vice-city-wheat-paste-poster-grid-night-111-nw-28th-st-wynwood-miami.webp": {
+    title: "Turtle Beach Poster Grid at Night — 111 NW 28th St",
+    caption: "Night close-up of a 2-by-4 grid of Turtle Beach wheat paste posters at 111 NW 28th Street in Miami during the November 24 refresh — by Phantom Pasting",
+  },
   // ── Flatirons College — Lafayette, CO ──
   "flatirons-college-wheat-paste-poster-wall-interior-hallway-lafayette-co.webp": {
     title: "Flatirons College Interior Poster Wall — Lafayette, CO",
@@ -569,6 +585,13 @@ const IMAGE_META: Record<string, { title: string; caption: string }> = {
 const PAGE_IMAGES: Record<string, string[]> = {
   // Gallery — all campaign photography
   "/gallery": Object.keys(IMAGE_META),
+
+  "/blog/gta-iv-vice-city-wheat-paste-miami": [
+    "turtle-beach-gta-vice-city-wheat-paste-posters-ripped-storefront-2214-n-miami-ave-wynwood.webp",
+    "turtle-beach-gta-vice-city-wheat-paste-posters-refreshed-storefront-2214-n-miami-ave-wynwood.webp",
+    "turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami.webp",
+    "turtle-beach-gta-vice-city-wheat-paste-poster-grid-night-111-nw-28th-st-wynwood-miami.webp",
+  ],
 
   // Work / Case Studies
   "/work/nokia-bell-labs-helix-new-jersey": [

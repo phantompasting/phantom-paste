@@ -182,6 +182,7 @@ export const ROUTES_META: RouteMeta[] = [
   { path: "/blog/wheat-pasting-philadelphia-new-jersey",  file: "content/blog/wheat-pasting-philadelphia-new-jersey.tsx",  priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-for-musicians",            file: "content/blog/wheat-pasting-for-musicians.tsx",            priority: 0.8,  changeFreq: "monthly" },
   { path: "/blog/wheat-pasting-hollywood",                 file: "content/blog/wheat-pasting-hollywood.tsx",                priority: 0.8,  changeFreq: "monthly" },
+  { path: "/blog/gta-iv-vice-city-wheat-paste-miami",      file: "content/blog/gta-iv-vice-city-wheat-paste-miami.tsx",     priority: 0.8,  changeFreq: "monthly" },
 ];
 
 // ── lastmod helper ────────────────────────────────────────────────────────────

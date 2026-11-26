@@ -121,6 +121,48 @@ export interface BlogPostMeta {
  */
 export const BLOG_POSTS: BlogPostMeta[] = [
   {
+    slug: "gta-iv-vice-city-wheat-paste-miami",
+    title: "GTA IV (Vice City) Wheat Paste in Miami for Turtle Beach",
+    titleHighlight: "GTA IV (Vice City)",
+    metaTitle: "GTA IV (Vice City) Wheat Paste Miami",
+    metaDescription:
+      "GTA IV (Vice City) wheat paste in Miami: Turtle Beach posters via Merge on Wynwood and Miami Beach walls, refreshed Nov 24 after people ripped them down.",
+    excerpt:
+      "Turtle Beach, through the agency Merge, wheat pasted Miami with posters themed on GTA IV (Vice City). Six sites on November 19, then a November 24 refresh after people ripped the paper off the walls.",
+    silo: "strategy-roi",
+    publishedAt: "2026-11-26",
+    updatedAt: "2026-11-26",
+    heroImage: "/blog/heroes/turtle-beach-gta-vice-city-wheat-paste-poster-grid-construction-fence-161-nw-28th-st-wynwood-miami-hero.webp",
+    heroAlt: "Pedestrians walking past a long grid of Turtle Beach wheat paste posters on a construction fence at 161 NW 28th Street in Miami",
+    authorSlug: MATEO_VARGAS.slug,
+    tags: ["gta", "vice-city", "gta-marketing", "wheat-paste", "wild-posting", "miami", "turtle-beach", "case-study"],
+    wordCount: 1464,
+    faqs: [
+      {
+        q: "Was the Miami Turtle Beach wheat paste an official GTA or Rockstar Games campaign?",
+        a: "No. It was a Turtle Beach campaign, run through the agency Merge, with posters themed on the Vice City setting of GTA IV (Vice City). Phantom Pasting installed the wheat paste. Rockstar Games did not commission it, and the walls were not official game posters.",
+      },
+      {
+        q: "Where did the GTA IV (Vice City) wheat paste go up in Miami?",
+        a: "Wave 1 on Thursday, November 19, 2026: 161 NW 28th St, 2818 N Miami Ave, 1800 N Miami Ave in the Arts & Entertainment District, 2214 and 2341 N Miami Ave in Wynwood, and 229 9th St on Miami Beach. The November 24 refresh kept those except 1800 N Miami Ave, and added 1317 N Miami Ave in Park West, 2621 NW 2nd Ave, 111 NW 28th St, and 210 NE 18th St.",
+      },
+      {
+        q: "What is the difference between wild posting and wheat paste on this campaign?",
+        a: "Nothing on the wall. Wild posting is the name on the agency brief. Wheat paste is the medium we install. Same Turtle Beach posters, same Miami sites.",
+      },
+      {
+        q: "Were the Miami wheat paste sites permitted?",
+        a: "Some were, some were not. The route mixed construction fences and storefronts. This run was not a fully permitted campaign.",
+      },
+      {
+        q: "How long does a wheat paste campaign take, and when do the photos arrive?",
+        a: "Lead time is 10 to 14 business days from final art. The proof-of-install report goes out within 7 business days of the install.",
+      },
+    ],
+    relatedSlugs: ["wild-posting-vs-wheat-pasting", "wheat-pasting-campaign", "guerrilla-marketing-never-out-of-style"],
+    status: "published",
+  },
+  {
     slug: "wheat-pasting-philadelphia-new-jersey",
     title: "Wheat Pasting in Philadelphia and New Jersey: The I-95 Corridor Field Guide",
     titleHighlight: "Philadelphia and New Jersey",
